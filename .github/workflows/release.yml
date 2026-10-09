@@ -1,6 +1,7 @@
 # On a version tag (v0.15.0-alpha …): check, build the Windows release, smoke-test it, and attach
 # the zip and portable .exe to a DRAFT GitHub release. A maintainer reviews the draft, adds the
-# release notes (docs/RELEASING.md) and publishes it by hand.
+# release notes (docs/RELEASING.md) and publishes it by hand. Tags whose release already exists
+# (e.g. published by hand with locally built files) are skipped.
 name: Release build
 
 on:
@@ -14,16 +15,34 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Skip if this tag already has a release
+        id: existing
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view '${{ github.ref_name }}' --repo '${{ github.repository }}' *> $null
+          $found = if ($LASTEXITCODE -eq 0) { 'true' } else { 'false' }
+          "found=$found" >> $env:GITHUB_OUTPUT
+          if ($found -eq 'true') { Write-Output 'A release for this tag already exists: nothing to do.' }
+          exit 0
+      - if: steps.existing.outputs.found != 'true'
+        uses: actions/checkout@v4
+      - if: steps.existing.outputs.found != 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
-      - run: npm run check
-      - run: npm run dist:win
-      - run: npm run dist:smoke
+      - if: steps.existing.outputs.found != 'true'
+        run: npm ci
+      - if: steps.existing.outputs.found != 'true'
+        run: npm run check
+      - if: steps.existing.outputs.found != 'true'
+        run: npm run dist:win
+      - if: steps.existing.outputs.found != 'true'
+        run: npm run dist:smoke
       - name: Draft release with the Windows files
+        if: steps.existing.outputs.found != 'true'
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}

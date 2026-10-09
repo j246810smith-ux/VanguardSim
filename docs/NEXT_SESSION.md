@@ -13,22 +13,26 @@
 | Terminal playtest                                                                        | `npm run play` (desktop shortcut "Vanguard Playtest"), BT01 starter decks vs Basic AI                                 |
 | 7 UI                                                                                     | **in progress**, see below                                                                                            |
 
-Checks: `npm run check` passes. Version 0.18.0-alpha.
+Checks: `npm run check` passes. Version 0.19.0-alpha.
 
 ## ▶ Pick up here
 
 The user's "master roadmap" (Windows polish → deck building → rules/AI → online-play preparation →
 online PvP → maybe a browser client) is the plan now: phase 1 audit in `docs/ROADMAP_AUDIT.md`.
-Next: phase 2 (sound manager driven by engine events, synthesised sounds and music, volume/mute
-settings; then card-movement animations), unless the user wants BT16–BT17 first. Work phase by
-phase and report after each.
+Phase 2 (music, sound, animation, feedback) is **done** (v0.19.0-alpha, report at the end of
+`docs/ROADMAP_AUDIT.md`); the user still has to listen to the sounds and music and give feedback.
+**Next: phase 3** (deck builder and usability: a deck-list format with format/card-pool ids,
+import/export, match setup, result summary), unless the user wants BT16–BT17 first. Work phase by
+phase and report after each. `npm run ui:shots` gives screenshots of the running app for review.
+AI: four weight experiments and more samples showed no gain; the next AI step is structural
+(stage 6 search), see `docs/ai/AI_AUDIT_AND_PLAN.md`.
 
 **Artwork Manager (v0.18.0-alpha):** `docs/ARTWORK.md`, D-026/D-027 — downloads card art from the
 built-in official source when the user presses Download; the game window stays offline.
 
 **Published:** https://github.com/j246810smith-ux/VanguardSim (public, GPL-3.0); latest
-pre-release **v0.18.0-alpha** (portable .exe + zip, built and smoke-tested locally; earlier:
-v0.14.0-alpha, v0.17.0-alpha). The public
+pre-release **v0.19.0-alpha** (portable .exe + zip, built and smoke-tested locally; earlier:
+v0.14.0-alpha, v0.17.0-alpha, v0.18.0-alpha). The public
 repository is a separate clone at `..\VanguardSim-public` with its own fresh history (one
 commit by the j246810smith-ux no-reply address); it uses `gh auth git-credential` for pushes
 because Windows has a different GitHub account saved. To publish later work: copy the

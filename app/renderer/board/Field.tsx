@@ -56,7 +56,7 @@ function UnitCard({
   const def = defOf(view, id);
   if (card.locked || !card.faceUp || !def) {
     return (
-      <div className="unit">
+      <div className="unit" data-iid={id}>
         <CardView definitionId={null} width={size.w} height={size.h} locked={card.locked} />
       </div>
     );
@@ -64,14 +64,18 @@ function UnitCard({
   const power = currentPower(view, ctx, id);
   const crit = currentCritical(view, ctx, id);
   return (
-    <div className="unit">
+    <div className="unit" data-iid={id}>
       <CardView
         definitionId={card.definitionId}
         width={size.w}
         height={size.h}
         rested={card.orientation === 'rest'}
       />
-      <div className={`power-plate ${power > def.power ? 'up' : power < def.power ? 'down' : ''}`}>
+      {/* re-mounted when the power changes, so the change flashes */}
+      <div
+        key={power}
+        className={`power-plate ${power > def.power ? 'up' : power < def.power ? 'down' : ''}`}
+      >
         {power}
       </div>
       {crit !== def.critical && <div className="crit-badge">★{crit}</div>}

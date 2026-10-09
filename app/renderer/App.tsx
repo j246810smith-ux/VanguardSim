@@ -9,6 +9,7 @@ import { loadDecks } from './decks/storage';
 import { validateDeck, type DeckList as Deck } from '../../src/engine';
 import { loadSettings, saveSettings, SettingsContext, type Settings, type Speed } from './settings';
 import './artwork/api'; // window.vanguardDesktop types
+import { audio } from './audio/audio';
 import { STAGE_H, STAGE_W } from './board/layout';
 
 /** D-019: a fixed 1920×1080 stage, scaled to fit the window. */
@@ -44,6 +45,10 @@ export function App() {
   const [settings, setSettings] = useState<Settings>(loadSettings);
   const [screen, setScreen] = useState<Screen>({ name: 'menu' });
   useEffect(() => saveSettings(settings), [settings]);
+  useEffect(() => audio.configure(settings), [settings]);
+  // menu music everywhere but in a battle; a new battle (or rematch) starts the battle music
+  const battleKey = screen.name === 'battle' ? screen.key : null;
+  useEffect(() => audio.setMusic(battleKey === null ? 'menu' : 'battle'), [battleKey]);
 
   return (
     <SettingsContext.Provider value={settings}>
@@ -251,7 +256,33 @@ function SettingsScreen({
     ['fast', 'Fast'],
     ['instant', 'Instant (no effects)'],
   ];
-  const toggle = (label: string, key: 'reducedMotion' | 'showArt') => (
+  const volumes: [number, string][] = [
+    [0, 'Off'],
+    [25, '25%'],
+    [50, '50%'],
+    [75, '75%'],
+    [100, '100%'],
+  ];
+  const volume = (label: string, key: 'musicVolume' | 'sfxVolume') => (
+    <div className="row">
+      <span style={{ width: 300 }}>{label}</span>
+      <span className="seg">
+        {volumes.map(([v, text]) => (
+          <button
+            key={v}
+            className={settings[key] === v ? 'on' : ''}
+            onClick={() => {
+              onChange({ ...settings, [key]: v });
+              if (key === 'sfxVolume') setTimeout(() => audio.play(['call']), 50);
+            }}
+          >
+            {text}
+          </button>
+        ))}
+      </span>
+    </div>
+  );
+  const toggle = (label: string, key: 'reducedMotion' | 'showArt' | 'muted') => (
     <div className="row">
       <span style={{ width: 300 }}>{label}</span>
       <span className="seg">
@@ -288,6 +319,9 @@ function SettingsScreen({
       </div>
       {toggle('Reduced motion', 'reducedMotion')}
       {toggle('Show card art', 'showArt')}
+      {volume('Music volume', 'musicVolume')}
+      {volume('Sound effects volume', 'sfxVolume')}
+      {toggle('Mute all sound', 'muted')}
       <ArtworkStatus />
       <button className="menu-btn" style={{ width: 300, marginTop: 30 }} onClick={onBack}>
         BACK

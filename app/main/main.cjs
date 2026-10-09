@@ -20,6 +20,9 @@ const devUrl = process.env.VANGUARD_DEV_URL;
 /** Set by the release smoke test (docs/RELEASING.md): load, report, quit. */
 const smokeTest = process.env.VANGUARD_SMOKE_TEST === '1';
 
+// the menu music (synthesised in the renderer, roadmap phase 2) may start before the first click
+app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
+
 protocol.registerSchemesAsPrivileged([
   { scheme: 'vgart', privileges: { standard: true, secure: true, supportFetchAPI: true } },
 ]);
@@ -165,6 +168,90 @@ function createWindow() {
   if (devUrl) win.loadURL(devUrl);
   else win.loadFile(path.join(__dirname, '../../dist/renderer/index.html'));
   if (smokeTest) runSmokeTest(win);
+  else if (shotsDir) runShots(win);
+}
+
+/**
+ * Development aid (`npm run ui:shots`): plays the first turns through the UI by clicking (keep the
+ * hand, ride when possible, pass guards, end phases) and saves a screenshot after every step into
+ * VANGUARD_SHOTS, so UI changes can be reviewed as pictures. Never active in normal use.
+ */
+const shotsDir = process.env.VANGUARD_SHOTS;
+function runShots(win) {
+  const step = `(() => {
+    const q = (s) => document.querySelector(s);
+    const click = (el) => (el ? (el.click(), el.textContent || el.dataset.testid || 'clicked') : null);
+    const hand = q('[data-testid=hand-0]');
+    const vc = q('[data-testid="circle-0-vanguard"]');
+    const end = q('[data-testid=action-end]');
+    const myRide = end && /ride/i.test(end.textContent || '');
+    q('[data-testid=card-details]')?.click(); // close a details window opened by a stray click
+    return (
+      click(q('[data-testid=new-game]')) ||
+      click(q('[data-testid=start]')) ||
+      click(q('[data-testid=mulligan] button')) ||
+      click(q('[data-testid=choice] button')) ||
+      click(q('[data-testid=action-pass]')) ||
+      (myRide && hand && vc && !window.__rode && (window.__rode = true) && (hand.click(), vc.click(), 'ride?')) ||
+      click(q('[data-testid=action-cancel]')) ||
+      click(q('[data-testid=action-end]')) ||
+      'wait'
+    );
+  })()`;
+  const errors = [];
+  win.webContents.on('console-message', (event) => {
+    if (event.level === 'error' || event.level === 'warning') errors.push(event.message);
+  });
+  win.webContents.on('did-finish-load', async () => {
+    fs.mkdirSync(shotsDir, { recursive: true });
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    await wait(1500);
+    for (let i = 0; i < Number(process.env.VANGUARD_SHOTS_STEPS || 40); i++) {
+      const did = await win.webContents.executeJavaScript(step);
+      // one frame mid-animation, one after it has settled
+      await wait(120);
+      const mid = await win.webContents.capturePage();
+      fs.writeFileSync(path.join(shotsDir, `${String(i).padStart(3, '0')}-mid.png`), mid.toPNG());
+      await wait(330);
+      const image = await win.webContents.capturePage();
+      fs.writeFileSync(
+        path.join(
+          shotsDir,
+          `${String(i).padStart(3, '0')}-${String(did)
+            .replace(/[^\w-]+/g, '_')
+            .slice(0, 20)}.png`,
+        ),
+        image.toPNG(),
+      );
+      await wait(500);
+      if (did === 'turn-over') break;
+    }
+    // finally hover a card in the hand to show the card preview
+    const [w, h] = win.getContentSize();
+    win.webContents.sendInputEvent({
+      type: 'mouseMove',
+      x: Math.round(w / 2),
+      y: Math.round(h * 0.93),
+    });
+    await wait(400);
+    fs.writeFileSync(
+      path.join(shotsDir, 'zz-hover.png'),
+      (await win.webContents.capturePage()).toPNG(),
+    );
+    // and concede through the game menu to show the result screen
+    await win.webContents.executeJavaScript(`(() => {
+      document.querySelector('button[title="Game menu"]')?.click();
+      setTimeout(() => [...document.querySelectorAll('button')]
+        .find((b) => b.textContent.trim() === 'Concede')?.click(), 200);
+    })()`);
+    await wait(2500);
+    fs.writeFileSync(
+      path.join(shotsDir, 'zz-result.png'),
+      (await win.webContents.capturePage()).toPNG(),
+    );
+    fs.writeFileSync(path.join(shotsDir, 'console.txt'), errors.join('\n'));
+    app.exit(0);
+  });
 }
 
 /** Prints one JSON line about the loaded UI and exits (0 = the main menu rendered, no errors). */

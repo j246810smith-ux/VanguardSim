@@ -380,6 +380,15 @@ button {
   font-size: 36px;
   min-width: 120px;
 }
+.power-plate {
+  animation: power-pop calc(0.35s * var(--anim)) ease-out;
+}
+@keyframes power-pop {
+  from {
+    scale: 1.35;
+    filter: brightness(1.8);
+  }
+}
 .power-plate.up {
   color: var(--gold);
   text-shadow: 0 0 10px var(--gold-glow);
@@ -1389,6 +1398,26 @@ input.text {
   gap: 20px;
   background: rgba(0, 0, 0, 0.75);
 }
+.game-over {
+  animation: event-in calc(0.4s * var(--anim)) ease-out;
+}
+.game-summary {
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.5;
+}
+.game-summary .how {
+  font-size: 28px;
+  font-weight: 700;
+}
+.game-summary .vs {
+  color: var(--text-dim);
+  margin: 0 8px;
+}
+.game-summary .dim {
+  color: var(--text-dim);
+  font-size: 16px;
+}
 .game-over h1 {
   font: 900 120px var(--font-display);
   margin: 0;
@@ -1730,4 +1759,64 @@ input.text {
   border: 1px solid var(--panel-edge);
   padding: 4px 8px;
   margin-bottom: 6px;
+}
+
+/* card movement ghosts (board/motion.ts): cards flying into a pile after leaving the board */
+.motion-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+/* battlefield feedback (board/Feedback.tsx) */
+.recent-events {
+  position: absolute;
+  left: 24px;
+  top: 806px;
+  width: 400px;
+  padding: 6px 10px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--text-dim);
+  background: rgba(5, 10, 20, 0.55);
+  border-left: 2px solid var(--panel-edge);
+  cursor: pointer;
+  z-index: 6;
+}
+.recent-events div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: event-in calc(0.3s * var(--anim)) ease-out;
+}
+.recent-events div:last-child {
+  color: var(--text);
+}
+.recent-events .l-me {
+  color: #9fdcff;
+}
+.recent-events .l-opp {
+  color: #ffb3a8;
+}
+.recent-events .l-trigger {
+  color: var(--gold);
+}
+.recent-events .l-hit {
+  color: var(--hit);
+}
+@keyframes event-in {
+  from {
+    opacity: 0;
+    translate: -12px 0;
+  }
+}
+.hover-preview {
+  position: absolute;
+  left: 24px;
+  top: 96px;
+  z-index: 45;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8));
+  animation: event-in calc(0.15s * var(--anim)) ease-out;
 }

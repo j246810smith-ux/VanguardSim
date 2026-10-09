@@ -27,6 +27,7 @@ export function Pile({ view, player, title, ids, style, onOpen, face = true }: P
       className={`panel ${player === ME ? 'me' : 'opp'} ${onOpen && ids.length ? 'clickable' : ''}`}
       style={style}
       onClick={ids.length ? onOpen : undefined}
+      data-zone={`${player}-${title.toLowerCase()}`}
     >
       <div className="panel-title">{title}</div>
       <div className="panel-body">
@@ -53,17 +54,22 @@ export function TriggerZone({
 }) {
   const ids = view.players[player].trigger;
   return (
-    <div className={`panel ${player === ME ? 'me' : 'opp'}`} style={style}>
+    <div
+      className={`panel ${player === ME ? 'me' : 'opp'}`}
+      style={style}
+      data-zone={`${player}-trigger`}
+    >
       <div className="panel-title">TRIGGER CHECK ZONE</div>
       <div className="damage-row">
         {ids.map((id) => (
-          <CardView
-            key={id}
-            definitionId={view.cards[id]!.definitionId}
-            width={52}
-            height={75}
-            className="mini"
-          />
+          <div key={id} data-iid={id}>
+            <CardView
+              definitionId={view.cards[id]!.definitionId}
+              width={52}
+              height={75}
+              className="mini"
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -89,6 +95,7 @@ export function DamageZone({
       className={`panel ${player === ME ? 'me' : 'opp'} ${ids.length ? 'clickable' : ''}`}
       style={style}
       onClick={ids.length ? onOpen : undefined}
+      data-zone={`${player}-damage`}
     >
       <div className="panel-title" style={{ display: 'flex' }}>
         DAMAGE
@@ -103,7 +110,7 @@ export function DamageZone({
         {ids.map((id) => {
           const c = view.cards[id]!;
           return (
-            <div key={id} style={{ width: 38, overflow: 'visible' }}>
+            <div key={id} style={{ width: 38, overflow: 'visible' }} data-iid={id}>
               <CardView
                 definitionId={c.faceUp ? c.definitionId : null}
                 width={52}

@@ -1,3 +1,6 @@
+import { audio } from '../audio/audio';
+import { useCardMotion } from '../board/motion';
+import { HoverPreview, RecentEvents, useHoveredCard } from '../board/Feedback';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   HIDDEN,
@@ -39,6 +42,28 @@ interface Props {
   readonly onExit: () => void;
 }
 
+/** One line on how the game ended, from the loser's loss reason. */
+function endingText(reason: string | null, winner: number | null): string {
+  const who = winner === ME ? 'Your opponent' : 'You';
+  switch (reason) {
+    case 'damage':
+      return `${who} took the sixth damage.`;
+    case 'deck_out':
+      return `${who} had no cards left to draw.`;
+    case 'concede':
+      return `${who} conceded.`;
+    case 'effect':
+      return winner === ME
+        ? "You won by a card's effect."
+        : "Your opponent won by a card's effect.";
+    default:
+      return 'The game is over.';
+  }
+}
+
+const systemReducedMotion = () =>
+  globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
 const clanOf = (deck: SessionConfig['myDeck']) => ctx.registry.get(deck.firstVanguard).clan;
 
 export function BattleScreen({ config, onRematch, onExit }: Props) {
@@ -59,6 +84,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
   const [toast, setToast] = useState<string | null>(null);
 
   const view = session.view;
+  const hovered = useHoveredCard(view);
   const legal = useMemo(() => legalOf(session.actions), [session.actions]);
   const choiceId = legal.choose?.choiceId ?? null;
 
@@ -77,6 +103,19 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
       paced(settings, 650),
     );
     return () => clearTimeout(t);
+  });
+
+  // cards slide from where they were (presentation only; off at Instant speed / reduced motion)
+  useCardMotion(
+    () => session.takeMoves(),
+    settings.speed === 'instant' || settings.reducedMotion || systemReducedMotion()
+      ? 0
+      : paced(settings, 360),
+  );
+
+  // sounds for what the engine just resolved (after it happened, never before)
+  useEffect(() => {
+    audio.play(session.takeCues());
   });
 
   useEffect(() => {
@@ -316,16 +355,17 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
         name={`CPU (${{ random: 'Easy', basic: 'Normal', smart: 'Hard' }[config.aiLevel]})`}
         clan={clanOf(config.aiDeck)}
       />
-      <div className="opp-hand">
+      <div className="opp-hand" data-zone={`${AI}-hand`}>
         {opp.hand.map((id) => (
-          <CardView
-            key={id}
-            definitionId={
-              view.cards[id]!.definitionId === HIDDEN ? null : view.cards[id]!.definitionId
-            }
-            width={44}
-            height={62}
-          />
+          <div key={id} data-iid={id}>
+            <CardView
+              definitionId={
+                view.cards[id]!.definitionId === HIDDEN ? null : view.cards[id]!.definitionId
+              }
+              width={44}
+              height={62}
+            />
+          </div>
         ))}
       </div>
       <div className="counters">
@@ -398,6 +438,8 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
 
       {/* turn & phase */}
       <PhaseRail view={view} step={session.battleStep} />
+      <RecentEvents lines={session.log} onOpen={() => setLogOpen(true)} />
+      <HoverPreview view={view} id={hovered} />
 
       {/* me (bottom) */}
       <PlayerPlate side="me" name="You" clan={clanOf(config.myDeck)} />
@@ -556,8 +598,18 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
           <h1 className={winner === ME ? 'win' : 'lose'}>
             {winner === ME ? 'VICTORY' : winner === null ? 'DRAW' : 'DEFEAT'}
           </h1>
-          <div style={{ fontSize: 20, color: 'var(--text-dim)' }}>
-            Seed {config.seed} · {session.commands.length} actions
+          <div className="game-summary" data-testid="game-summary">
+            <div className="how">{endingText(session.ending?.reason ?? null, winner)}</div>
+            <div>
+              Turn {view.turnNumber} · your damage {me.damage.length}/6 · opponent's damage{' '}
+              {opp.damage.length}/6
+            </div>
+            <div>
+              {config.myDeckName} <span className="vs">vs</span> {config.aiDeckName}
+            </div>
+            <div className="dim">
+              Seed {config.seed} · {session.commands.length} actions
+            </div>
           </div>
           <div className="buttons" style={{ display: 'flex', gap: 14 }}>
             <button className="menu-btn" style={{ width: 300 }} onClick={onRematch}>

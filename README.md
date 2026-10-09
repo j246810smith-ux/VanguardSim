@@ -13,13 +13,13 @@ downloads card art only when you ask it to).
 
 ## Status: alpha
 
-| Area         | State                                                                                                                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`) |
-| Cards        | **Playable: BT01–BT15 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT16–BT17: not yet playable. Progress: `docs/CARD_STATUS_REPORT.md`      |
-| Game         | Desktop app: main menu, 52 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art                                |
-| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                          |
-| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                  |
+| Area         | State                                                                                                                                                                                                           |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                |
+| Cards        | **Playable: BT01–BT15 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT16–BT17: not yet playable. Progress: `docs/CARD_STATUS_REPORT.md`                     |
+| Game         | Desktop app with music, sound effects and card animations: main menu, 52 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art |
+| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                         |
+| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                 |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.
@@ -28,10 +28,10 @@ Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) 
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.18.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.18.0-alpha/VanguardSim-0.18.0-alpha-portable.exe)
+**Latest version: v0.19.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.19.0-alpha/VanguardSim-0.19.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.18.0-alpha/VanguardSim-0.18.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.19.0-alpha/VanguardSim-0.19.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

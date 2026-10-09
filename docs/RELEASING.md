@@ -5,7 +5,7 @@
 The app version lives in `package.json` (`version`) and appears in the release file names.
 Releases are tagged `v<version>`:
 
-- `v0.14.0-alpha` … `v0.18.0-alpha` — alpha: playable, incomplete (BT16–BT17 still missing).
+- `v0.14.0-alpha` … `v0.19.0-alpha` — alpha: playable, incomplete (BT16–BT17 still missing).
 - `v0.x.y-beta` — feature-complete for BT01–BT17, testing.
 - `v1.0.0` — the first stable release.
 

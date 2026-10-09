@@ -72,3 +72,35 @@ already records (`CARD_MOVED`, `UNIT_CALLED`, `UNIT_RIDDEN`, `ATTACK_DECLARED`, 
 third-party or official audio, nothing to license, tiny download), one sound per event batch type
 to avoid duplicates, plus music/SFX volume and mute in Settings. Then procedurally generated menu
 and match music, then card-movement animations.
+
+## Phase 2 report — music, sound and UI polish (v0.19.0-alpha)
+
+**Done (verified):**
+
+- Sound manager (`app/renderer/audio/`): original synthesised sound effects (Web Audio, no audio
+  files) for draw, call, ride, legion, retire, discard, shuffle, attack, boost, guard, intercept,
+  perfect guard, drive/damage checks, triggers, heals, hit/no hit, locks, abilities, new turns,
+  victory and defeat; procedural menu and battle music with crossfades that never restart on a
+  re-render; victory/defeat stingers replace the battle music. Sounds come only from resolved
+  engine events (`cues.ts`), at most three distinct cues per action.
+- Settings: music volume, sound-effects volume, mute (saved with the other settings); animation
+  speed and reduced motion already existed.
+- Card movement animation (`app/renderer/board/motion.ts`): slides, fly-ins from piles and
+  fly-outs into piles, power-change flashes; off at "Instant" speed, with reduced motion (app
+  setting or Windows), and whenever animation is unavailable. The engine never waits for it.
+- Feedback: recent-events feed under the phase rail, large hover preview of any visible card,
+  result screen with how the game ended, turns, damage and decks.
+- `npm run ui:shots`: drives the real app and saves screenshots (and console messages) for review.
+
+**Tests:** `npm run check` — 1502 tests pass, including cue mapping, a whole game checked for at
+most three distinct cues per batch, an unchanged final state with and without sound, the game's
+ending, move tracking, and the sound manager doing nothing without Web Audio. `npm run dist:win`
+
+- `npm run dist:smoke` pass (packaged app, clean folder). Screenshot runs show no console errors.
+
+**Not verified by me:** how the music and sounds _sound_ (no audio output here) — the user is
+asked to listen. Card scale / interface scale: the board already scales to the window; no
+separate setting was added.
+
+**Next:** phase 3 — deck builder and usability (deck-list format with format/version ids,
+import/export, match setup, summary), or BT16–BT17 if the user prefers.

@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.19.0-alpha — 2026-10-09
+
+- Sound (roadmap phase 2): original synthesised sound effects for drawing, calling, riding,
+  retiring, attacking, boosting, guarding, intercepting, perfect guards, drive and damage checks,
+  triggers, heals, hits, locks, abilities, new turns, victory and defeat; procedural menu and
+  battle music that crossfade. Settings: music volume, sound-effects volume, mute. Sounds follow
+  the engine's resolved events only (at most three distinct sounds per action) and never affect
+  the game.
+- Card movement animation: cards slide to their new place, fly in from the deck or another pile,
+  and fly into the drop zone, soul or damage zone when they leave the board; power changes flash.
+  Presentation only, never delaying the rules; off at "Instant" speed and with reduced motion.
+- Battlefield feedback: the latest game events under the phase rail (click to open the full log),
+  and a large preview of the card under the mouse.
+- Result screen: how the game ended (sixth damage, no cards left, conceded, a card's effect), the
+  turn, both damage counts and both decks, with an entrance animation.
+- `npm run ui:shots`: plays the first turns through the app and saves screenshots for reviewing
+  UI changes (development aid).
+
 ## 0.18.0-alpha — 2026-10-09
 
 - Artwork Manager (docs/ARTWORK.md): Settings → Open Artwork Manager, or `--artwork`. **Download

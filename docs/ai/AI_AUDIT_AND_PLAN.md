@@ -80,8 +80,11 @@ Decision times in parallel runs are inflated by the shared CPU.
 | More samples per decision (8 in battle, 4 otherwise, instead of 4/2)                                                                                                                 | vs `smart`, seeds 20000–25069         | 420   | 50.7%                  | 45.9–55.5% | No (twice the think time: 167 vs 83 ms)    |
 | Weight: perfect guard in hand worth 2000 (default 1000)                                                                                                                              | vs `smart`, seeds 30000–32139         | 420   | 47.1%                  | 42.4–51.9% | No                                         |
 | Weight: opponent's hand 1000 per card (default 700)                                                                                                                                  | vs `smart`, seeds 33000–35139         | 420   | 51.7%                  | 46.9–56.4% | No                                         |
+| Weight: damage at 4–5 costs more (5800/9000, default 4800/7200)                                                                                                                      | vs `smart`, seeds 36000–38139         | 420   | 50.7%                  | 45.9–55.5% | No                                         |
+| Weight: damage at 4–5 costs less (4200/5600)                                                                                                                                         | vs `smart`, seeds 39000–41139         | 420   | 47.1%                  | 42.4–51.9% | No                                         |
 
-Reading: the opponent model is the first measured improvement. The planner and the competent-guard
+Reading: the opponent model is the first measured improvement. Single weight changes (four so far) and more samples
+show no measurable gain at 420 games: the next gains need structure (search over the opponent's turn, stage 6), not tuning. The planner and the competent-guard
 rollout showed no gain _with the current one-turn lookahead_: the sequences' later steps are
 played out by simple policies, so their extra precision is lost. Both stay in the code as options
 (`SmartOptions.attackPlanner`, `competentOpponent`, bench names `smart-planner`,

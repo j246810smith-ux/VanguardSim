@@ -22,6 +22,8 @@ import {
 } from '../../../src/engine';
 import { AI, ctx, ME } from '../engine';
 import type { BattleStep } from '../board/Panels';
+import { cuesFor, type Cue } from '../audio/cues';
+import { movesOf, type Move } from '../board/motion';
 import { describe, type LogLine } from './describe';
 
 /** Easy (random), Basic (level 2) or Hard (deck-aware lookahead, D-021). */
@@ -67,9 +69,15 @@ export class GameSession {
   actions: readonly LegalAction[] = [];
   log: LogLine[] = [];
   fx: Fx[] = [];
+  /** Sound cues of the events since the screen last took them (presentation only). */
+  private cues: Cue[] = [];
+  /** Card moves since the board last took them, for movement animation (presentation only). */
+  private moves = new Map<string, Move>();
   readonly commands: Command[] = [];
   /** The engine's message when the last human command was rejected. */
   error: string | null = null;
+  /** How the game ended (from GAME_ENDED), for the result screen. */
+  ending: { readonly winner: 0 | 1 | null; readonly reason: string | null } | null = null;
   /** The current battle step, for the phase rail (from STEP_STARTED events). */
   battleStep: BattleStep | null = null;
   private nextId = 1;
@@ -89,7 +97,23 @@ export class GameSession {
           ? new BasicController(ctx)
           : new RandomController(config.seed ^ 0x5eed);
     this.record(events);
+    this.cues = []; // no sounds for dealing the opening hands
+    this.moves.clear();
     this.refresh();
+  }
+
+  /** The card moves since the last call. */
+  takeMoves(): Map<string, Move> {
+    const moves = this.moves;
+    this.moves = new Map();
+    return moves;
+  }
+
+  /** The sound cues since the last call (each batch of events already deduplicated). */
+  takeCues(): Cue[] {
+    const cues = this.cues;
+    this.cues = [];
+    return cues;
   }
 
   get acting() {
@@ -148,12 +172,21 @@ export class GameSession {
     for (const e of events) {
       if (e.type === 'STEP_STARTED') this.battleStep = e.step;
       if (e.type === 'BATTLE_ENDED' || e.type === 'PHASE_CHANGED') this.battleStep = null;
+      if (e.type === 'GAME_ENDED') {
+        const loser = e.winner === null ? null : e.winner === ME ? AI : ME;
+        this.ending = {
+          winner: e.winner,
+          reason: loser === null ? null : (e.losses[loser] ?? null),
+        };
+      }
       const line = describe(this.state, e);
       if (line) this.log.push({ id: this.nextId++, ...line });
       const fx = this.toFx(e);
       if (fx) this.fx.push(fx);
     }
     if (this.log.length > 400) this.log = this.log.slice(-300);
+    this.cues.push(...cuesFor(events, ME));
+    movesOf(events, this.moves);
   }
 
   private toFx(e: GameEvent): Fx | null {

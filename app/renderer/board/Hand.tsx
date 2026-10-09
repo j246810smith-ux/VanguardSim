@@ -19,7 +19,7 @@ export function Hand({ view, legal, selection, marked, onClick, onDetails }: Pro
   const n = ids.length;
   const spread = Math.min(110, 760 / Math.max(n, 1));
   return (
-    <div className="hand">
+    <div className="hand" data-zone={`${ME}-hand`}>
       {ids.map((id, i) => {
         const offset = (i - (n - 1) / 2) * spread;
         const angle = (i - (n - 1) / 2) * Math.min(4, 24 / Math.max(n, 1));
@@ -57,6 +57,7 @@ export function Hand({ view, legal, selection, marked, onClick, onDetails }: Pro
             draggable={draggable}
             onDragStart={onDragStart}
             data-testid={`hand-${i}`}
+            data-iid={id}
           >
             {legal.guard.has(id) && def && <div className="shield-tag">🛡 {def.shield}</div>}
             <CardView

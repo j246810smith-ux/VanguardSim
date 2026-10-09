@@ -7,12 +7,20 @@ export interface Settings {
   readonly speed: Speed;
   readonly reducedMotion: boolean;
   readonly showArt: boolean;
+  /** Background music volume, 0–100. */
+  readonly musicVolume: number;
+  /** Sound-effect volume, 0–100. */
+  readonly sfxVolume: number;
+  readonly muted: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   speed: 'normal',
   reducedMotion: false,
   showArt: true,
+  musicVolume: 50,
+  sfxVolume: 70,
+  muted: false,
 };
 
 const KEY = 'vanguard-sim.settings.v1';

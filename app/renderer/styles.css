@@ -1648,3 +1648,86 @@ input.text {
   gap: 10px;
   margin: 14px 0;
 }
+
+/* Artwork Manager window (app/renderer/artwork) */
+.art-page {
+  height: 100%;
+  overflow: auto;
+  padding: 24px 32px;
+  user-select: text;
+  font-size: 18px;
+}
+.art-page h2 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+.art-page code {
+  color: var(--me);
+}
+.art-note,
+.art-dim {
+  color: var(--text-dim);
+}
+.art-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.art-totals,
+.art-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.art-sets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px 14px;
+}
+.art-sets label.done b {
+  color: var(--good);
+}
+.art-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.art-page .bad {
+  color: var(--hit);
+}
+.art-progress {
+  position: relative;
+  height: 26px;
+  background: var(--bg-2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.art-progress div {
+  height: 100%;
+  background: var(--me-strong);
+  transition: width 0.2s;
+}
+.art-progress span {
+  position: absolute;
+  inset: 0;
+  padding: 2px 10px;
+}
+.art-problems {
+  max-height: 260px;
+  overflow: auto;
+  font-size: 15px;
+}
+.art-page select {
+  font: inherit;
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--panel-edge);
+  padding: 4px 8px;
+  margin-bottom: 6px;
+}

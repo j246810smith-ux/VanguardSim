@@ -11,5 +11,8 @@ bench-results/
 # Bushiroad Comprehensive Rules documents: kept locally for development, not redistributed (D-025)
 docs/research/sources/
 
+# Artwork Manager main-process build output (npm run artwork:build)
+app/main/generated/
+
 # Windows release builds (npm run dist:win)
 release/

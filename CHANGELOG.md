@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.18.0-alpha — 2026-10-09
+
+- Artwork Manager (docs/ARTWORK.md): Settings → Open Artwork Manager, or `--artwork`. **Download
+  missing images** fetches card art from the official card list at the press of a button (D-027);
+  it also checks the card-art folder (installed / missing / invalid / duplicate / unmatched per
+  set), imports a folder of your own images under the right names, exports, and saves a report.
+  Settings shows how many cards have art. The game itself stays offline.
+- Hard AI: only true perfect guards count as perfect guards (the BT14/BT15 sentinels that call
+  guardians were mistaken for them).
+
 ## 0.17.0 — 2026-10-09
 
 - BT15 complete (103 cards, including Star-vader, "Omega" Glendios as BT15-000): Link Joker

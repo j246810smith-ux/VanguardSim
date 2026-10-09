@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -12,6 +13,17 @@ export default defineConfig(({ mode }) => ({
   base: './',
   publicDir: mode === 'release' ? false : '../../assets',
   plugins: [react()],
-  build: { outDir: '../../dist/renderer', emptyOutDir: true, chunkSizeWarningLimit: 4000 },
+  build: {
+    outDir: '../../dist/renderer',
+    emptyOutDir: true,
+    chunkSizeWarningLimit: 4000,
+    // the game, and the Artwork Manager window (docs/ARTWORK.md)
+    rollupOptions: {
+      input: {
+        main: resolve(import.meta.dirname, 'app/renderer/index.html'),
+        artwork: resolve(import.meta.dirname, 'app/renderer/artwork.html'),
+      },
+    },
+  },
   server: { port: 5173, strictPort: true },
 }));

@@ -26,10 +26,10 @@ Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) 
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.17.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.17.0-alpha/VanguardSim-0.17.0-alpha-portable.exe)
+**Latest version: v0.18.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.18.0-alpha/VanguardSim-0.18.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.17.0-alpha/VanguardSim-0.17.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.18.0-alpha/VanguardSim-0.18.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either
@@ -41,11 +41,20 @@ Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 Settings and saved decks are stored in your Windows user profile; deleting the program removes
 nothing else.
 
+**Card art:** the download contains no card images (the game is fully playable without them). To
+get them, start the game, open **Settings → Open Artwork Manager** (or run
+`"Vanguard Sim.exe" --artwork`), press **All**, then **Download missing images**: the images come
+from the official Cardfight!! Vanguard card list and are placed and checked automatically. Card
+images are © Bushiroad and for your personal use only; please don't share or upload them. Details:
+[docs/ARTWORK.md](docs/ARTWORK.md).
+
 ### Card art (optional)
 
 The game is fully playable without art: every card is drawn as a text card (name, grade, power,
-shield). No card images are included, and the app never downloads any. If you own images you are
-entitled to use, you can add them yourself:
+shield). No card images are included. The **Artwork Manager** (Settings → Open Artwork Manager, or `"Vanguard Sim.exe"
+--artwork`) downloads them from the official card list at the press of a button, or imports a
+folder of images you already have, puts each under the right name, checks them and reports what is
+missing; see [docs/ARTWORK.md](docs/ARTWORK.md). Or add them by hand:
 
 1. **Find the `cards` folder** next to the program:
    - **zip download:** the folder you unzipped contains `Vanguard Sim.exe` and a `cards` folder;

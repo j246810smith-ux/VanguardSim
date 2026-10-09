@@ -8,6 +8,7 @@ import { DeckBuilder } from './screens/DeckBuilder';
 import { loadDecks } from './decks/storage';
 import { validateDeck, type DeckList as Deck } from '../../src/engine';
 import { loadSettings, saveSettings, SettingsContext, type Settings, type Speed } from './settings';
+import './artwork/api'; // window.vanguardDesktop types
 import { STAGE_H, STAGE_W } from './board/layout';
 
 /** D-019: a fixed 1920×1080 stage, scaled to fit the window. */
@@ -287,8 +288,30 @@ function SettingsScreen({
       </div>
       {toggle('Reduced motion', 'reducedMotion')}
       {toggle('Show card art', 'showArt')}
+      <ArtworkStatus />
       <button className="menu-btn" style={{ width: 300, marginTop: 30 }} onClick={onBack}>
         BACK
+      </button>
+    </div>
+  );
+}
+
+/** Desktop app only: how many cards have art, and the way to the Artwork Manager. */
+function ArtworkStatus() {
+  const desktop = window.vanguardDesktop;
+  const [status, setStatus] = useState<{ installed: number; expected: number } | null>(null);
+  useEffect(() => {
+    void desktop?.artworkStatus().then(setStatus);
+  }, [desktop]);
+  if (!desktop) return null;
+  return (
+    <div className="row" data-testid="artwork-status">
+      <span style={{ width: 300 }}>Card artwork</span>
+      <span style={{ width: 260 }}>
+        {status ? `${status.installed} of ${status.expected} cards` : '…'}
+      </span>
+      <button className="btn" onClick={() => void desktop.openArtworkManager()}>
+        Open Artwork Manager
       </button>
     </div>
   );

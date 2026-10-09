@@ -13,12 +13,22 @@
 | Terminal playtest                                                                        | `npm run play` (desktop shortcut "Vanguard Playtest"), BT01 starter decks vs Basic AI                                 |
 | 7 UI                                                                                     | **in progress**, see below                                                                                            |
 
-Checks: `npm run check` passes. Version 0.17.0.
+Checks: `npm run check` passes. Version 0.18.0-alpha.
 
-## ▶ Pick up here (sets BT16+ alongside AI work)
+## ▶ Pick up here
 
-**Published 2026-10-09:** https://github.com/j246810smith-ux/VanguardSim (public, GPL-3.0) with
-pre-release **v0.14.0-alpha** (portable .exe + zip, built and smoke-tested locally). The public
+The user's "master roadmap" (Windows polish → deck building → rules/AI → online-play preparation →
+online PvP → maybe a browser client) is the plan now: phase 1 audit in `docs/ROADMAP_AUDIT.md`.
+Next: phase 2 (sound manager driven by engine events, synthesised sounds and music, volume/mute
+settings; then card-movement animations), unless the user wants BT16–BT17 first. Work phase by
+phase and report after each.
+
+**Artwork Manager (v0.18.0-alpha):** `docs/ARTWORK.md`, D-026/D-027 — downloads card art from the
+built-in official source when the user presses Download; the game window stays offline.
+
+**Published:** https://github.com/j246810smith-ux/VanguardSim (public, GPL-3.0); latest
+pre-release **v0.18.0-alpha** (portable .exe + zip, built and smoke-tested locally; earlier:
+v0.14.0-alpha, v0.17.0-alpha). The public
 repository is a separate clone at `..\VanguardSim-public` with its own fresh history (one
 commit by the j246810smith-ux no-reply address); it uses `gh auth git-credential` for pushes
 because Windows has a different GitHub account saved. To publish later work: copy the
@@ -92,13 +102,10 @@ choice kind `ability` (UI prompt + both AIs), `boundBy` on bound cards + `boundB
 bind. Shapes: `placedPump4000`, `endPhaseDropAbility`, `hitDiscardDraw`, `chainStarter`, `chainRide`,
 `dropCallNamed`. `gen_set.py` spec option `QUOTE_SPLIT` for texts joined with `"[`.
 
-**Card data imported, not yet scripted:** BT13–BT15 (`data/cards/`). BT15 import notes: BT15-074
-only on the Japanese site; English-only BT15/014EN Dragonic Burnout and BT15/074EN Star-vader,
-Sparkdoll — review the pairing when doing BT15. **BT16 and BT17 failed to import** (a fetch error);
-re-run `npm run cards:import -- BT16` (pages are cached in `data/raw`).
-
-**Next:** ask the user about the AI work; then BT13 (`python tools/cardgen/newtexts.py . BT13`, then the per-set loop). Reprint detection
-now ignores later boosters, so cards reprinted in BT10+ are scripted in their first set.
+**BT16 and BT17:** not yet scripted. `npm run cards:import -- BT16` now gets past the empty cached
+page that broke it before, but stops at the English "Legend" printings (`BT16/L02EN` Blaster Blade
+Seeker …) that match no base card: they need handling in `scripts/cards/import.ts` (skip or pair
+like the "S" printings), then the per-set loop as usual.
 
 ## Phase 7 UI: current state
 

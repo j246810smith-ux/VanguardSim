@@ -21,7 +21,9 @@ Cardfight!! Vanguard and all related names, card names, card text, card data, ar
 trademarks and copyrights of Bushiroad Inc. This is an unofficial, non-commercial fan project. It is
 not produced, endorsed, supported or affiliated with Bushiroad. The GPL-3.0 licence of this
 project covers only its own source code, not Bushiroad's material. No card artwork is included in
-this repository or in its releases. Card names, statistics and text are included so the simulator
+this repository or in its releases. The optional Artwork Manager downloads card images from
+Bushiroad's official card list only when the user asks it to, onto the user's own PC, for personal
+use; they must not be shared or uploaded. Card names, statistics and text are included so the simulator
 can be played; they remain Bushiroad's property and will be removed on request from the rights
 holder.
 

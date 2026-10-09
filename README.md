@@ -3,11 +3,13 @@
 An **unofficial, offline** Windows simulator for the original _Cardfight!! Vanguard_ trading card
 game, covering the historical **VG-BT01 to VG-BT17** era (Japanese-original set structure, classic
 pre-G rules, Comprehensive Rules ver. 1.29 as the target). Play against an AI on your own PC; no
-account, server or internet connection is used.
+account or server is needed and the game itself never goes online (the optional Artwork Manager
+downloads card art only when you ask it to).
 
 > **Fan project.** Not produced, endorsed or supported by Bushiroad, and not affiliated with them.
 > Cardfight!! Vanguard, its card names, text, data and artwork belong to Bushiroad. See
-> [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). **No card artwork is included.**
+> [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). **No card artwork is included in the download**; the
+> optional Artwork Manager can fetch it from the official card list for your personal use.
 
 ## Status: alpha
 
@@ -15,9 +17,9 @@ account, server or internet connection is used.
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`) |
 | Cards        | **Playable: BT01–BT15 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT16–BT17: not yet playable. Progress: `docs/CARD_STATUS_REPORT.md`      |
-| Game         | Desktop app: main menu, 48 ready-made starter decks, deck builder, a full battle UI against the AI                                                                                               |
+| Game         | Desktop app: main menu, 52 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art                                |
 | AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                          |
-| Not included | Online play, G-era and later mechanics, card artwork                                                                                                                                             |
+| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                  |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.

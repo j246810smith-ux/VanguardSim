@@ -13,7 +13,8 @@ data/cards/   card data per set (JSON from the official databases: names, stats,
 src/decks/    ready-made starter decks
 src/ai/       AI players (Easy = random, Normal = basic, Hard = lookahead) and their helpers
 src/sim/      headless matches, replays and the AI benchmark
-app/main/     Electron main process (window, offline guard, optional card-art folder)
+src/artwork/  Artwork Manager core: manifest, image checks, install/import/export, downloads (ARTWORK.md)
+app/main/     Electron main process (windows, offline guard for the game, card-art folder, Artwork Manager)
 app/renderer/ React UI (menus, deck builder, battle screen, prompts)
 scripts/      command-line tools (card import/validation, AI benchmark, terminal game, release)
 tools/cardgen/ Python helpers that generate card scripts from a per-set spec

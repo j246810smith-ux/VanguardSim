@@ -77,7 +77,8 @@ export interface PlayerState {
 
 export type Phase = 'setup' | 'stand' | 'draw' | 'ride' | 'main' | 'battle' | 'end';
 export type GameStatus = 'mulligan' | 'playing' | 'finished';
-export type LossReason = 'damage' | 'deck_out' | 'concede';
+/** `effect`: the opponent won by a card's effect ("you win the game"). */
+export type LossReason = 'damage' | 'deck_out' | 'concede' | 'effect';
 
 /** Things that happened this turn which limit what the turn player may still do. Reset each turn. */
 export interface TurnFlags {
@@ -94,7 +95,8 @@ export interface TurnFlags {
 }
 
 /** `end_of_game`: never ends (it is still lost when the card changes zone, CR 4.1.4). */
-export type EffectDuration = 'end_of_turn' | 'end_of_battle' | 'next_stand_phase' | 'end_of_game';
+export type EffectDuration =
+  'end_of_turn' | 'end_of_battle' | 'next_stand_phase' | 'next_end_phase' | 'end_of_game';
 
 /**
  * A temporary change to a card's stats, created by an effect. Lost when the card changes zone

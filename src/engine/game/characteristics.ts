@@ -23,11 +23,27 @@ export const currentClan = (state: GameState, ctx: EngineContext, id: InstanceId
   definitionOf(state, ctx, id).clan;
 
 /** Every clan the card has: its printed clan plus "this card is also a <clan>" (BT09 Spirits). */
+const REAR_GUARD = ['front_left', 'back_left', 'back_center', 'front_right', 'back_right'] as const;
+
 export function clansOf(state: GameState, ctx: EngineContext, id: InstanceId): readonly string[] {
   const def = definitionOf(state, ctx, id);
   const also = def.abilities.flatMap((a) =>
-    a.kind === 'CONT' ? a.effects.flatMap((e) => (e.ce === 'also_clan' ? [e.clan] : [])) : [],
+    a.kind === 'CONT'
+      ? a.effects.flatMap((e) => (e.ce === 'also_clan' && !e.rearGuardsNamed ? [e.clan] : []))
+      : [],
   );
+  // "[CONT](VC): all of your rear-guards with X in its card name are also <clan>"
+  const owner = state.players.find((p) => REAR_GUARD.some((c) => p.circles[c].includes(id)));
+  if (owner && !state.cards[id]!.locked) {
+    for (const vg of owner.circles.vanguard) {
+      for (const a of definitionOf(state, ctx, vg).abilities) {
+        if (a.kind !== 'CONT') continue;
+        for (const e of a.effects)
+          if (e.ce === 'also_clan' && e.rearGuardsNamed && def.name.includes(e.rearGuardsNamed))
+            also.push(e.clan);
+      }
+    }
+  }
   return also.length === 0 ? [def.clan] : [def.clan, ...also];
 }
 

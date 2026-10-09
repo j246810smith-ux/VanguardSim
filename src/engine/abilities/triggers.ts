@@ -177,6 +177,13 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         subjectIs(ec, t.who, e.instanceId, e.to.player)
         ? { eventCard: e.instanceId }
         : null;
+    case 'put_into_bind':
+      return e.type === 'CARD_MOVED' &&
+        e.to.zone === 'bind' &&
+        e.from.zone !== 'bind' &&
+        subjectIs(ec, t.who, e.instanceId, e.to.player)
+        ? { eventCard: e.instanceId }
+        : null;
     case 'intercepts':
       return e.type === 'INTERCEPTED' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }

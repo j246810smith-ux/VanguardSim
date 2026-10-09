@@ -996,4 +996,297 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- BT13 ---------------------------------------------------------------------------------------
+  {
+    name: 'Nubatama — Shura Stealth Dragon, Kujikiricongo',
+    description:
+      "Bind the opponent's hand and rear-guards until the end of the turn so they can't guard or fight back.",
+    deck: {
+      firstVanguard: 'BT13-025',
+      cards: [
+        ...n(1, 'BT13-025'),
+        ...n(4, 'BT13-057'), // Stealth Dragon, Kurogane (critical)
+        ...n(4, 'BT13-058'), // Stealth Fiend, Ohtsuzura (draw)
+        ...n(4, 'BT13-060'), // Stealth Fiend, Mashiromomen (stand)
+        ...n(4, 'BT13-059'), // Stealth Fiend, Zashikihime (heal)
+        ...n(4, 'BT13-011'), // Stealth Beast, Mijingakure (G1 sentinel)
+        ...n(4, 'BT13-053'), // Tempest Stealth Rogue, Fuuki
+        ...n(3, 'BT13-054'), // Stealth Dragon, Kodachifubuki
+        ...n(3, 'BT13-055'), // Stealth Fiend, Mezuou
+        ...n(4, 'BT13-024'), // Stealth Beast, Tamahagane (G2)
+        ...n(4, 'BT13-050'), // Stealth Dragon, Kokujyo
+        ...n(3, 'BT13-051'), // Stealth Fiend, Gozuou
+        ...n(4, 'BT13-002'), // Shura Stealth Dragon, Kujikiricongo (G3)
+        ...n(4, 'BT13-010'), // Shura Stealth Dragon, Kabukicongo
+      ],
+    },
+  },
+  {
+    name: 'Nova Grappler — Deadliest Beast Deity, Ethics Buster "Яeverse"',
+    description:
+      'Beast Deities stand back up again and again; Ethics Buster Яeverse attacks twice.',
+    deck: {
+      firstVanguard: 'BT13-065',
+      cards: [
+        ...n(1, 'BT13-065'),
+        ...n(4, 'BT13-066'), // Beast Deity, Death Stinger (critical)
+        ...n(4, 'BT13-067'), // Beast Deity, Van Paurus (draw)
+        ...n(4, 'BT13-068'), // Beast Deity, Bright Cobra (stand)
+        ...n(4, 'BT13-069'), // Beast Deity, Rescue Bunny (heal)
+        ...n(4, 'BT13-013'), // Beast Deity, Solar Falcon (G1 sentinel)
+        ...n(4, 'BT13-026'), // Beast Deity, Max Beat
+        ...n(3, 'BT13-064'), // Beast Deity, Desert Gator
+        ...n(3, 'BT13-027'), // Energy Charger
+        ...n(4, 'BT13-012'), // Beast Deity, Brainy Papio (G2)
+        ...n(4, 'BT10-040'), // Beast Deity, Hatred Chaos
+        ...n(3, 'BT13-063'), // Gattlingraizer
+        ...n(4, 'BT13-004'), // Deadliest Beast Deity, Ethics Buster "Яeverse" (G3)
+        ...n(2, 'BT13-003'), // Strongest Beast Deity, Ethics Buster Extreme
+        ...n(2, 'BT10-008'), // Beast Deity, Ethics Buster
+      ],
+    },
+  },
+  {
+    name: 'Dimension Police — Dark Dimensional Robo, "Яeverse" Daiyusha',
+    description:
+      "Dimensional Robos lock themselves to crush the opposing vanguard's power by 10000.",
+    deck: {
+      firstVanguard: 'BT13-032',
+      cards: [
+        ...n(1, 'BT13-032'),
+        ...n(4, 'BT13-075'), // Demon-eye Monster, Gorgon (critical)
+        ...n(4, 'BT13-076'), // Dimensional Robo, Daicrane (draw)
+        ...n(4, 'BT13-077'), // Dimensional Robo, Goflight (stand)
+        ...n(4, 'BT13-078'), // Dimensional Robo, Gorescue (heal)
+        ...n(4, 'BT13-014'), // Dimensional Robo, Daishield (G1 sentinel)
+        ...n(4, 'TD12-012'), // Dimensional Robo, Daimariner
+        ...n(3, 'BT13-031'), // Dimensional Robo, Gocannon
+        ...n(3, 'TD12-011'), // Dimensional Robo, Daibrave
+        ...n(4, 'TD12-004'), // Dimensional Robo, Daifighter (G2)
+        ...n(4, 'BT13-029'), // Dimensional Robo, Daiheart
+        ...n(3, 'TD12-005'), // Dimensional Robo, Daidragon
+        ...n(4, 'BT13-005'), // Dark Dimensional Robo, "Яeverse" Daiyusha (G3)
+        ...n(2, 'BT03-020'), // Super Dimensional Robo, Daiyusha
+        ...n(2, 'BT13-006'), // Original Saver, Zero
+      ],
+    },
+  },
+  {
+    name: 'Link Joker — Star-vader, Chaos Breaker Dragon',
+    description:
+      "Lock rear-guards, and when they unlock at the end of the opponent's turn, Chaos Breaker retires them.",
+    deck: {
+      firstVanguard: 'BT13-084',
+      cards: [
+        ...n(1, 'BT13-084'),
+        ...n(4, 'BT12-072'), // Star-vader, Weiss Soldat (critical)
+        ...n(4, 'BT12-073'), // Star-vader, Scounting Ferris (draw)
+        ...n(4, 'BT12-074'), // Star-vader, Moon Commander (stand)
+        ...n(4, 'TD11-017'), // Star-vader, Stellar Garage (heal)
+        ...n(4, 'BT12-014'), // Barrier Star-vader, Promethium (G1 sentinel)
+        ...n(4, 'BT13-081'), // Prison Gate Star-vader, Palladium
+        ...n(3, 'BT13-083'), // Star-vader, Chaos Beat Dragon
+        ...n(3, 'BT12-068'), // Demon Claw Star-vader, Lanthanum
+        ...n(4, 'BT13-015'), // Star-vader, Colony Maker (G2)
+        ...n(4, 'BT13-080'), // Devastation Star-vader, Tungsten
+        ...n(3, 'BT12-063'), // Furious Claw Star-vader, Niobium
+        ...n(4, 'BT13-007'), // Star-vader, Chaos Breaker Dragon (G3)
+        ...n(4, 'BT13-033'), // Knight of Entropy
+      ],
+    },
+  },
+  // ---- BT14 ---------------------------------------------------------------------------------------
+  {
+    name: 'Royal Paladin — Broken Heart Jewel Knight, Ashlei "Яeverse"',
+    description:
+      "Jewel Knights lock themselves to retire the opponent's front row and call more Jewel Knights.",
+    deck: {
+      firstVanguard: 'BT14-049',
+      cards: [
+        ...n(1, 'BT14-049'),
+        ...n(4, 'BT14-050'), // Jewel Knight, Noble Stinger (critical)
+        ...n(4, 'BT14-051'), // Jewel Knight, Sacred Unicorn (draw)
+        ...n(4, 'BT14-052'), // Jewel Knight, Opt Harpist (stand)
+        ...n(4, 'BT14-053'), // Jewel Knight, Hilmy (heal)
+        ...n(4, 'BT14-011'), // Summoning Jewel Knight, Gloria (G1 sentinel)
+        ...n(4, 'BT14-047'), // Jewel Knight, Melmy
+        ...n(4, 'BT14-048'), // Security Jewel Knight, Alwain
+        ...n(4, 'BT14-022'), // Linking Jewel Knight, Tilda (G2)
+        ...n(4, 'BT14-010'), // Banding Jewel Knight, Miranda
+        ...n(4, 'BT14-045'), // Jewel Knight, Tranmy
+        ...n(4, 'BT14-001'), // Broken Heart Jewel Knight, Ashlei "Яeverse" (G3)
+        ...n(3, 'BT10-001'), // Pure Heart Jewel Knight, Ashlei
+        ...n(2, 'BT14-043'), // Knight of Frevor, Hector
+      ],
+    },
+  },
+  {
+    name: 'Gold Paladin — Salvation Lion, Grand Ezel Scissors',
+    description:
+      'Fill all five rear-guard circles with Gold Paladins, then Grand Ezel swings for +10000 and an extra critical.',
+    deck: {
+      firstVanguard: 'BT14-063',
+      cards: [
+        ...n(1, 'BT14-063'),
+        ...n(4, 'TD08-014'), // critical
+        ...n(4, 'TD08-015'), // draw
+        ...n(4, 'BT14-064'), // Liberator, Ground Crack (stand)
+        ...n(4, 'BT14-065'), // Naapgal Liberator (heal)
+        ...n(4, 'BT14-012'), // Sword Formation Liberator, Igraine (G1 sentinel)
+        ...n(4, 'BT14-060'), // Sacred Twin Beast, White Lion
+        ...n(4, 'BT14-059'), // Knight of Passion, Torre
+        ...n(4, 'BT14-026'), // Burning Scale Knight, Eliwood (G2)
+        ...n(4, 'BT14-057'), // Sacred Twin Beast, Black Lion
+        ...n(4, 'BT14-058'), // Blue Axe Knight, Taliesin
+        ...n(4, 'BT14-003'), // Salvation Lion, Grand Ezel Scissors (G3)
+        ...n(3, 'BT14-055'), // Liberator, Burning Blow
+        ...n(2, 'BT14-054'), // Sacred Guardian Beast, Ceryneia
+      ],
+    },
+  },
+  {
+    name: 'Kagero — Dauntless Dominate Dragon "Яeverse"',
+    description:
+      "Lock a rear-guard so every Kagero drive check retires one of the opponent's small rear-guards.",
+    deck: {
+      firstVanguard: 'BT14-034',
+      cards: [
+        ...n(1, 'BT14-034'),
+        ...n(4, 'BT14-084'), // Lizard Soldier, Goraha (critical)
+        ...n(4, 'BT14-085'), // Flame of Rest, Geara (draw)
+        ...n(4, 'BT14-086'), // Wyvern Strike, Flee (stand)
+        ...n(4, 'BT14-087'), // Dragon Dancer, Barbara (heal)
+        ...n(4, 'BT11-011'), // G1 sentinel
+        ...n(4, 'BT14-033'), // Dragon Knight, Akram
+        ...n(4, 'BT14-080'), // Diable Drive Dragon
+        ...n(4, 'BT14-032'), // Dominate Drive Dragon (G2)
+        ...n(4, 'BT14-078'), // Dragon Knight, Razer
+        ...n(4, 'BT14-079'), // Demonic Dragon Mage, Taksaka
+        ...n(4, 'BT14-006'), // Dauntless Dominate Dragon "Яeverse" (G3)
+        ...n(3, 'BT11-005'), // Dauntless Drive Dragon
+        ...n(2, 'BT14-030'), // Vorpal Cannon Dragon
+      ],
+    },
+  },
+  {
+    name: 'Murakumo — Covert Demonic Dragon, Hyakki Vogue "Яeverse"',
+    description:
+      'Copies of Hyakki Vogue "Яeverse" flood the field, and locking two rear-guards gives each of them +10000.',
+    deck: {
+      firstVanguard: 'BT14-090',
+      cards: [
+        ...n(1, 'BT14-090'),
+        ...n(4, 'BT14-091'), // Dirk Stealth Rogue, Yaiba (critical)
+        ...n(4, 'BT09-053'), // draw
+        ...n(4, 'BT14-092'), // Dark Knight Stealth Rogue, Clogg (stand)
+        ...n(4, 'BT09-056'), // heal
+        ...n(4, 'BT14-016'), // Silver Snow, Sasame (G1 sentinel)
+        ...n(4, 'BT14-089'), // Stealth Beast, Deathly Dagger
+        ...n(4, 'BT14-037'), // Bangasa Stealth Rogue, Sukerock
+        ...n(4, 'BT14-036'), // Demonic Hair Stealth Rogue, Grenjin (G2)
+        ...n(4, 'BT14-088'), // Stealth Beast, Chain Geek
+        ...n(4, 'BT05-029'), // Murakumo grade 2
+        ...n(4, 'BT14-015'), // Covert Demonic Dragon, Hyakki Vogue "Яeverse" (G3)
+        ...n(3, 'BT14-014'), // Covert Demonic Dragon, Kagura Bloome
+        ...n(2, 'BT14-035'), // Truth Seeking Stealth Rogue, Amakusa
+      ],
+    },
+  },
+  // ---- BT15 ---------------------------------------------------------------------------------------
+  {
+    name: 'Link Joker — Star-vader, "Omega" Glendios',
+    description:
+      "Lock the opponent's whole field; with five locked cards at Limit Break 5, Glendios wins the game.",
+    deck: {
+      firstVanguard: 'BT15-073',
+      cards: [
+        ...n(1, 'BT15-073'),
+        ...n(4, 'BT15-074'), // Star-vader, Sparkdoll (critical)
+        ...n(4, 'BT15-075'), // Star-vader, Jeiratail (draw)
+        ...n(4, 'BT15-076'), // Star-vader, Brushcloud (stand)
+        ...n(4, 'BT15-077'), // Recollection Star-vader, Tellurium (heal)
+        ...n(4, 'BT12-014'), // Barrier Star-vader, Promethium (G1 sentinel)
+        ...n(4, 'BT15-070'), // Planet Collapse Star-vader, Erbium
+        ...n(4, 'BT15-072'), // Engraving Star-vader, Praseodymium
+        ...n(4, 'BT15-030'), // Star-vader, Magnet Hollow (G2)
+        ...n(4, 'BT15-031'), // Star-vader, Cold Death Dragon
+        ...n(4, 'BT15-069'), // Negligible Hydra
+        ...n(4, 'BT15-000'), // Star-vader, "Omega" Glendios (G3)
+        ...n(4, 'BT15-006'), // Star-vader, "Яeverse" Cradle
+        ...n(1, 'BT15-068'), // Soundless Archer, Conductance
+      ],
+    },
+  },
+  {
+    name: 'Shadow Paladin — Revenger, Dragruler Phantom',
+    description:
+      'Revengers retire themselves to power up the vanguard and deal the opponent an extra damage.',
+    deck: {
+      firstVanguard: 'BT15-024',
+      cards: [
+        ...n(1, 'BT15-024'),
+        ...n(4, 'TD10-014'), // Grim Revenger (critical)
+        ...n(4, 'TD10-015'), // Freezing Revenger (draw)
+        ...n(4, 'TD10-016'), // Awaking Revenger (stand)
+        ...n(4, 'TD10-017'), // Healing Revenger (heal)
+        ...n(4, 'BT15-010'), // Hellrage Revenger, Quesal (G1 sentinel)
+        ...n(4, 'BT15-048'), // Eloquence Revenger, Glonn
+        ...n(4, 'BT15-047'), // Self-Control Revenger, Rakia
+        ...n(4, 'BT15-023'), // Wily Revenger, Mana (G2)
+        ...n(4, 'BT15-044'), // Overcoming Revenger, Rukea
+        ...n(4, 'BT15-045'), // Demon World Castle, Sturmangriff
+        ...n(4, 'BT15-002'), // Revenger, Dragruler Phantom (G3)
+        ...n(3, 'TD10-001'), // Illusionary Revenger, Mordred Phantom
+        ...n(2, 'BT15-001'), // Revenger, Desperate Dragon
+      ],
+    },
+  },
+  {
+    name: 'Kagero — Dragonic Overlord "The Яe-birth"',
+    description:
+      'Lock the whole back field and Overlord "The Яe-birth" stands up again after every attack on the vanguard.',
+    deck: {
+      firstVanguard: 'BT15-029',
+      cards: [
+        ...n(1, 'BT15-029'),
+        ...n(4, 'BT15-064'), // Demonic Dragon Mage, Apalala (critical)
+        ...n(4, 'BT15-065'), // Treasure Hunt Dracokid (draw)
+        ...n(4, 'BT15-066'), // Flame of Determination, Puralis (stand)
+        ...n(4, 'BT15-067'), // Dragon Dancer, Therese (heal)
+        ...n(4, 'BT15-015'), // Dragon Knight, Gimel (G1 sentinel)
+        ...n(4, 'BT15-060'), // Eternal Bringer Griffin
+        ...n(4, 'BT15-061'), // Violence Horn Dragon
+        ...n(4, 'BT15-014'), // Dragonic Burnout (G2)
+        ...n(4, 'BT15-059'), // Wyvern Strike, Jiet
+        ...n(4, 'BT15-058'), // Dragon Knight, Dalette
+        ...n(4, 'BT15-005'), // Dragonic Overlord "The Яe-birth" (G3)
+        ...n(4, 'BT15-004'), // Dragonic Overlord
+        ...n(1, 'BT15-057'), // Demonic Dragon Berserker, Houkenyasha
+      ],
+    },
+  },
+  {
+    name: 'Megacolony — Machining Spark Hercules',
+    description:
+      "Rest the opponent's whole field and keep it from standing; Spark Hercules then attacks for +10000 and an extra critical.",
+    deck: {
+      firstVanguard: 'BT15-099',
+      cards: [
+        ...n(1, 'BT15-099'),
+        ...n(4, 'BT15-100'), // Machining Scorpion (critical)
+        ...n(4, 'BT04-065'), // Raider Mantis (draw)
+        ...n(4, 'BT15-102'), // Machining Cicada (stand)
+        ...n(4, 'BT15-101'), // Machining Bombyx (heal)
+        ...n(4, 'BT15-020'), // Machining Ladybug (G1 sentinel)
+        ...n(4, 'BT15-097'), // Machining Black Soldier
+        ...n(4, 'BT15-098'), // Machining Caucasus
+        ...n(1, 'BT15-042'), // Machining Locust
+        ...n(4, 'BT15-095'), // Machining Tarantula (G2)
+        ...n(4, 'BT15-096'), // Machining Papilio
+        ...n(4, 'BT15-041'), // Machining Red Soldier
+        ...n(4, 'BT15-018'), // Machining Spark Hercules (G3)
+        ...n(4, 'BT15-019'), // Unrivaled Blade Rogue, Cyclomatooth
+      ],
+    },
+  },
 ];

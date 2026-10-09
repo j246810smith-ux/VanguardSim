@@ -120,6 +120,8 @@ export type Condition =
     }
   /** The current battle's hit result (set in the damage step; false before that). */
   | { readonly cond: 'battle_hit'; readonly hit: boolean }
+  /** The current battle's attack targets a vanguard (true) or a rear-guard (false), even after that unit left. */
+  | { readonly cond: 'battle_target'; readonly vanguard: boolean }
   /** Every selected unit is in a legion state (CR 10.1.24.14). */
   | { readonly cond: 'in_legion'; readonly of: Selector }
   /** The unit has been in a legion state at some point this game (Seek Mate, CR 1.36 10.2.9.2). */
@@ -150,7 +152,9 @@ export type Condition =
 
 export type Stat = 'power' | 'critical' | 'shield';
 /** `next_stand_phase`: until the end of the target's controller's next stand phase. */
-export type Duration = 'end_of_turn' | 'end_of_battle' | 'next_stand_phase' | 'end_of_game';
+/** `next_end_phase`: until the end phase of the target's owner's next turn (after its unlocks). */
+export type Duration =
+  'end_of_turn' | 'end_of_battle' | 'next_stand_phase' | 'next_end_phase' | 'end_of_game';
 export type Restriction =
   | 'cannot_be_hit'
   | 'cannot_attack'
@@ -160,6 +164,8 @@ export type Restriction =
   | 'cannot_be_boosted'
   | 'cannot_intercept'
   | 'cannot_stand'
+  /** A locked card that is not unlocked in its owner's end phase (Glendios). */
+  | 'cannot_unlock'
   /** "Does not deal damage even if its attack hits" (the hit still happens). */
   | 'no_damage';
 /** Rule permissions a continuous ability can give. */
@@ -209,6 +215,26 @@ export type Step =
       readonly sameColumnAsEvent?: boolean;
       /** "call it as [Rest]" */
       readonly rested?: boolean;
+      /** "Call … to (GC) at [Rest]": the cards become guardians of the current battle. */
+      readonly guardian?: boolean;
+    }
+  /** "Choose one of your open (RC), and move this unit to that circle" (its state does not change). */
+  | { readonly op: 'move_to_circle'; readonly target: Selector }
+  /** "You win the game" (CR 1.2.2: the opponent loses at the next rule-action check). */
+  | { readonly op: 'win' }
+  /** "Choose one of your opponent's vanguard, and deal n damage" (damage checks, CR 7.6.2). */
+  | { readonly op: 'deal_damage'; readonly n: number }
+  /** "The unit that is being attacked during that battle changes to that unit, and all of your guardians guard that unit." */
+  | { readonly op: 'redirect_attack'; readonly target: Selector }
+  /** "Choose one of your (RC), and put the top card of your deck into that (RC) face down as a locked card." */
+  | { readonly op: 'place_top_locked' }
+  /** Choose up to `count` cards one at a time whose grades add up to at most `maxGradeSum`. */
+  | {
+      readonly op: 'choose_grade_sum';
+      readonly as: string;
+      readonly from: Selector;
+      readonly count: number;
+      readonly maxGradeSum: number;
     }
   /** Choose `count` of the selected cards at random (CR 1.2.6 random choice); bind them as `as`. */
   | {
@@ -257,12 +283,19 @@ export type Step =
       readonly to: 'drop' | 'soul' | 'damage' | 'bind';
       /** Bound cards count as bound by the triggering card's effect (an ability given to it). */
       readonly boundByEvent?: boolean;
+      /** "put the top card of your deck face down into your damage zone" */
+      readonly faceDown?: boolean;
     }
   /**
    * "Exchange positions with this unit" (state unchanged): the source and the target rear-guard
    * swap circles. Nothing happens unless both are rear-guards of the master.
    */
-  | { readonly op: 'exchange'; readonly target: Selector }
+  | {
+      readonly op: 'exchange';
+      readonly target: Selector;
+      /** Exchange the first two targets with each other ("choose two …, and exchange their positions") instead of the source with the target. */
+      readonly pair?: boolean;
+    }
   /**
    * "Choose a [CONT] of <targets>, and that ability is lost": the master picks one continuous
    * ability of one of the targets (a choice of kind 'ability'), which is lost for the duration.
@@ -355,7 +388,13 @@ export type Cost =
   /** "Turn this card from face up to face down" (damage zone abilities). */
   | { readonly cost: 'face_down'; readonly target: Selector }
   /** Lock n of the selected units (e.g. Яeverse units). */
-  | { readonly cost: 'lock'; readonly n: number; readonly from: Selector };
+  /** `orMore`: "choose one or more … and lock them" (at least n). */
+  | {
+      readonly cost: 'lock';
+      readonly n: number;
+      readonly from: Selector;
+      readonly orMore?: boolean;
+    };
 
 // ---------------------------------------------------------------------------------------------
 // Triggers (automatic abilities)
@@ -453,6 +492,8 @@ export type TriggerCondition =
   | { readonly on: 'put_into_soul'; readonly who: Subject }
   /** "When this unit intercepts" (CR 10.2.2). */
   | { readonly on: 'intercepts'; readonly who: Subject }
+  /** "When <a card> is placed in a bind zone" (who: the card, e.g. an opponent's card). */
+  | { readonly on: 'put_into_bind'; readonly who: Subject }
   /** CR 6.8.1.2: "when a card is unlocked". */
   | { readonly on: 'unlocked'; readonly who: Subject }
   /** CR 10.1.24.13: "when this unit legions". */
@@ -489,6 +530,8 @@ export interface AutoAbility extends AbilityBase {
   readonly optional?: boolean;
   readonly effect: readonly Step[];
   readonly oncePerTurn?: boolean;
+  /** "This ability cannot be used for the rest of that battle" */
+  readonly oncePerBattle?: boolean;
 }
 
 export interface ActAbility extends AbilityBase {
@@ -530,7 +573,8 @@ export type ContinuousEffect =
    * "[CONT]:This card is also a <clan>." A characteristic of the card in every zone, read from the
    * printed abilities (not evaluated like other continuous effects).
    */
-  | { readonly ce: 'also_clan'; readonly clan: string }
+  /** `rearGuardsNamed`: (VC) gives the clan to your rear-guards with that text in their names. */
+  | { readonly ce: 'also_clan'; readonly clan: string; readonly rearGuardsNamed?: string }
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
   | { readonly ce: 'deck_limit'; readonly copies: number };
 

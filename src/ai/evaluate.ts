@@ -16,6 +16,7 @@ import {
   type InstanceId,
   type PlayerId,
 } from '../engine';
+import { isPerfectGuard } from './guarding';
 import { DEFAULT_WEIGHTS, type EvalWeights } from './weights';
 
 /** What the AI knows about its own deck, to plan rides and keep the right cards. */
@@ -110,7 +111,7 @@ export class Evaluator {
     const vgGrade = this.vanguardGrade(s, me);
     const hand = s.players[me].hand.map((id) => this.def(s, id));
     const values = hand
-      .map((d) => w.base + d.shield / w.shieldDivisor + (d.sentinel ? w.sentinel : 0))
+      .map((d) => w.base + d.shield / w.shieldDivisor + (isPerfectGuard(d) ? w.sentinel : 0))
       .sort((a, b) => b - a);
     const reserve = w.reserveBase + (damage >= 3 ? 1 : 0) + (damage >= 4 ? 1 : 0);
     let v = values.reduce((sum, x, i) => sum + (i < reserve ? w.reserveMultiplier * x : x), 0);

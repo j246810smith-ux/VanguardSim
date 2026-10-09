@@ -1,5 +1,6 @@
 /** The position evaluation (AI plan stage 2): terminal priority, perspective, and each term. */
 import { describe, expect, it } from 'vitest';
+import { isPerfectGuard } from '../../src/ai/guarding';
 import { Evaluator, planFor, TERMS } from '../../src/ai/evaluate';
 import { DEFAULT_WEIGHTS, withWeights } from '../../src/ai/weights';
 import type { GameState } from '../../src/engine';
@@ -118,5 +119,16 @@ describe('evaluation', () => {
     expect(b.grade).toBe(2 * a.grade);
     for (const t of TERMS) if (t !== 'grade') expect(b[t]).toBe(a[t]);
     expect(DEFAULT_WEIGHTS.grade).toBe(3500); // withWeights does not touch the defaults
+  });
+});
+
+describe('perfect guards', () => {
+  it('only sentinels whose ability stops hits count as perfect guards (BT14 sentinels call guardians instead)', () => {
+    const reg = ctx.registry;
+    expect(isPerfectGuard(reg.get('BT01-011'))).toBe(true); // Royal Paladin perfect guard
+    expect(isPerfectGuard(reg.get('BT14-020'))).toBe(true); // Red Rose Musketeer, Antonio
+    expect(isPerfectGuard(reg.get('BT14-011'))).toBe(false); // Summoning Jewel Knight, Gloria
+    expect(isPerfectGuard(reg.get('BT15-010'))).toBe(false); // Hellrage Revenger, Quesal
+    expect(isPerfectGuard(reg.get('BT01-042'))).toBe(false); // not a sentinel
   });
 });

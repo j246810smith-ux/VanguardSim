@@ -77,6 +77,9 @@ Decision times in parallel runs are inflated by the shared CPU.
 | Attack-order planner (every order of up to 3 attackers, scored as a whole sequence)                                                                                                  | vs `smart-baseline`                   | 210   | 52.9%                  | 46.1–59.5% | No                                         |
 | Planner on top of the opponent model                                                                                                                                                 | vs `smart-sampler`, seeds 5000–10069  | 420   | 47.6%                  | 42.9–52.4% | No                                         |
 | Competent-guard opponent model in the lookahead (trigger margins at 4+ damage)                                                                                                       | vs `smart-sampler`, seeds 11000–16069 | 420   | 50.7%                  | 45.9–55.5% | No                                         |
+| More samples per decision (8 in battle, 4 otherwise, instead of 4/2)                                                                                                                 | vs `smart`, seeds 20000–25069         | 420   | 50.7%                  | 45.9–55.5% | No (twice the think time: 167 vs 83 ms)    |
+| Weight: perfect guard in hand worth 2000 (default 1000)                                                                                                                              | vs `smart`, seeds 30000–32139         | 420   | 47.1%                  | 42.4–51.9% | No                                         |
+| Weight: opponent's hand 1000 per card (default 700)                                                                                                                                  | vs `smart`, seeds 33000–35139         | 420   | 51.7%                  | 46.9–56.4% | No                                         |
 
 Reading: the opponent model is the first measured improvement. The planner and the competent-guard
 rollout showed no gain _with the current one-turn lookahead_: the sequences' later steps are
@@ -84,8 +87,11 @@ played out by simple policies, so their extra precision is lost. Both stay in th
 (`SmartOptions.attackPlanner`, `competentOpponent`, bench names `smart-planner`,
 `smart-competent`) to be re-tested when stage 6's search replaces those rollouts.
 
+Weight tuning (stage 8): `npm run ai:bench -- 140 --a "smart-w:hand.sentinel=2000" --b smart --seed 30000`
+runs the current Hard AI with the listed `EvalWeights` paths changed against the unchanged one.
+
 Benchmark controller names: `random`, `basic` (Normal), `smart` (current Hard), `smart-baseline`
-(Hard as of stage 1), `smart-sampler`, `smart-planner`, `smart-competent`.
+(Hard as of stage 1), `smart-sampler`, `smart-planner`, `smart-competent`, `smart-8samples`, `smart-w:…`.
 
 ## 5. Running the benchmark
 

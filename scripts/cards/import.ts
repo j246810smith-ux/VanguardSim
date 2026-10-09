@@ -9,7 +9,7 @@
  * images into assets/cards/ (git-ignored), for the developer's personal offline use (D-018/D-025:
  * art is never committed or redistributed, and the game never downloads it).
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { CardRecord, Localized, SetFile, SourceRef } from '../../src/cards/record';
 import { pairPrintings, type NameDictionary } from './pair';
@@ -50,6 +50,16 @@ const REVIEWED_DIFFERENCES: Readonly<
       'Hazard Bob is only in the Japanese BT11; the English set replaced it with an English-only card (Crimson Witch, Radish). Japanese text and stats are used.',
     use: 'jp',
   },
+  'BT15-014': {
+    reason:
+      'Dragonic Burnout: the English database lists no shield; it is a grade 2 [Intercept] unit with 5000 shield, as the Japanese database shows.',
+    use: 'jp',
+  },
+  'BT15-074': {
+    reason:
+      'Star-vader, Sparkdoll: the English database lists 500 power (a typo); the Japanese database shows 5000 like every grade 0 trigger.',
+    use: 'jp',
+  },
   'TD07-004': {
     reason:
       'The Japanese database lists Tear Knight, Lazarus with no shield; every grade 2 [Intercept] unit has 5000 (the English page shows 5000).',
@@ -75,6 +85,9 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   // ティアーナイト ラザロス Tear Knight, Lazarus: the JP page omits its shield (see REVIEWED_DIFFERENCES)
   // 黒百合の銃士 ヘルマン Black Lily Musketeer, Hermann: race differs (see REVIEWED_DIFFERENCES)
   BT08: { '058': '058' },
+  // identity pairing fails on a stat difference (see REVIEWED_DIFFERENCES): ドラゴニック・バーンアウト Dragonic
+  // Burnout and 星輝兵 スパークドール Star-vader, Sparkdoll, matched by name
+  BT15: { '014': '014', '074': '074' },
   TD07: { '004': '004' },
 };
 const HOSTS = { en: 'https://en.cf-vanguard.com', jp: 'https://cf-vanguard.com' } as const;
@@ -115,7 +128,8 @@ async function page(
 ): Promise<{ html: string; fetchedAt: string }> {
   const file = join('data', 'raw', site, set!, `${cacheName.replace(/[/\\?&=]/g, '_')}.html`);
   const meta = `${file}.meta`;
-  if (!refresh && existsSync(file) && existsSync(meta)) {
+  // an empty cached page is a download that failed: fetch it again
+  if (!refresh && existsSync(file) && existsSync(meta) && statSync(file).size > 0) {
     return { html: readFileSync(file, 'utf8'), fetchedAt: readFileSync(meta, 'utf8').trim() };
   }
   const html = await (await fetchRaw(HOSTS[site] + path)).text();
@@ -169,7 +183,12 @@ async function fetchSite(site: Site): Promise<Fetched[]> {
   const out: Fetched[] = [];
   for (const no of numbers) {
     const { html, fetchedAt } = await page(site, cardPath(no), no);
-    const card = parseCardPage(html, site);
+    let card: ParsedCard;
+    try {
+      card = parseCardPage(html, site);
+    } catch (e) {
+      throw new Error(`${site} ${no}: ${(e as Error).message}`);
+    }
     out.push({
       card,
       source: { url: HOSTS[site] + cardPath(no), fetchedAt, regulation: card.regulation },

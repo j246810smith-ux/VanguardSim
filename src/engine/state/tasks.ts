@@ -94,6 +94,8 @@ export type TaskBody =
       readonly separate?: true;
       readonly sameColumn?: true;
       readonly rested?: true;
+      /** Move the card (already a rear-guard) to an open (RC) instead of calling it. */
+      readonly move?: true;
       /** Only circles in this column. */
       readonly column?: 'left' | 'centre' | 'right';
       selection?: string[];

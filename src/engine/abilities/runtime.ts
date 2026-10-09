@@ -125,8 +125,21 @@ export function playStandby(d: Draft, standbyId: number): void {
   const s = d.state;
   const entry = s.standby.find((x) => x.id === standbyId)!;
   s.standby = s.standby.filter((x) => x.id !== standbyId);
-  const a = (entry.granted ?? abilityOf(s, d.ctx, entry.source, entry.abilityId)) as AutoAbility;
+  // CR 8.6.7: played even if the card has since moved or lost its abilities (e.g. it was locked):
+  // fall back to the printed ability; an ability that no longer exists at all is not played
+  const a = (entry.granted ??
+    abilitiesOf(s, d.ctx, entry.source).find((x) => x.id === entry.abilityId) ??
+    d.ctx.registry
+      .get(s.cards[entry.source]!.definitionId)
+      .abilities.find((x) => x.id === entry.abilityId)) as AutoAbility | undefined;
+  if (!a) return;
   if (a.oncePerTurn) s.usedThisTurn.push(useKey(entry.source, a.id));
+  if (a.oncePerBattle) {
+    // several triggers of the same battle: only the first one is played
+    const key = `${useKey(entry.source, a.id)}@battle${s.turnFlags.battles ?? 0}`;
+    if (s.usedThisTurn.includes(key)) return;
+    s.usedThisTurn.push(key);
+  }
   openFrame(d, 'AUTO', entry.master, entry.source, a.id, entry.eventCard, autoProgram(a));
 }
 
@@ -361,7 +374,7 @@ function pay(
       kind: 'cost',
       options,
       min: choice.n,
-      max: choice.n,
+      max: cost.cost === 'lock' && cost.orMore ? options.length : choice.n,
       prompt: `Pay ${cost.cost.replace('_', ' ')} ${choice.n}: choose ${choice.n}`,
     });
     if (picked === null) {
@@ -450,16 +463,18 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       }
       return true;
     case 'exchange': {
-      const mate = targets[0];
-      if (mate === undefined || mate === frame.source) return true;
-      const a = locate(s, frame.source);
-      const b = locate(s, mate);
+      // "exchange positions with this unit" (source ↔ target) or "exchange their positions" (pair)
+      const first = step.pair ? targets[0] : frame.source;
+      const second = step.pair ? targets[1] : targets[0];
+      if (first === undefined || second === undefined || first === second) return true;
+      const a = locate(s, first);
+      const b = locate(s, second);
       if (a.zone !== 'circle' || b.zone !== 'circle') return true;
       if (a.circle === 'vanguard' || b.circle === 'vanguard') return true;
       if (a.player !== frame.master || b.player !== frame.master) return true;
       // circle-to-circle moves keep orientation and effects (CR 4.1.4, 4.6.6.2)
-      moveCard(d, frame.source, { player: frame.master, zone: 'circle', circle: b.circle }, 'swap');
-      moveCard(d, mate, { player: frame.master, zone: 'circle', circle: a.circle }, 'swap');
+      moveCard(d, first, { player: frame.master, zone: 'circle', circle: b.circle }, 'swap');
+      moveCard(d, second, { player: frame.master, zone: 'circle', circle: a.circle }, 'swap');
       return true;
     }
     case 'extra_drive_check': {
@@ -509,6 +524,17 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     }
     case 'call': {
+      if (step.guardian) {
+        // only while that player is being attacked; guardians are placed at [Rest] (CR 7.4.1.2.1)
+        if (!s.battle || s.activePlayer === frame.master) return true;
+        for (const card of targets) {
+          moveCard(d, card, { player: frame.master, zone: 'guardian' }, 'call', {
+            orientation: 'rest',
+          });
+          emit(d, { type: 'GUARDIAN_CALLED', player: frame.master, instanceId: card });
+        }
+        return true;
+      }
       frame.bindings['__called_circles'] = [];
       const eventColumn =
         step.sameColumnAsEvent && frame.eventCard ? columnOf(s, frame.eventCard) : null;
@@ -530,6 +556,92 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'look_top':
       frame.bindings[step.as] = s.players[frame.master].deck.slice(0, step.n);
       return true;
+    case 'win':
+      // CR 1.2.2 / 9.2: the opponent loses at the next rule-action check
+      s.players[other(frame.master)].pendingLoss = 'effect';
+      return true;
+    case 'deal_damage':
+      s.tasks.unshift({ kind: 'damage_check', player: other(frame.master), remaining: step.n });
+      return true;
+    case 'redirect_attack': {
+      const b = s.battle;
+      const to = targets[0];
+      if (!b || to === undefined) return true;
+      const at = locate(s, to);
+      if (at.zone !== 'circle') return true;
+      const battle = b as {
+        target: InstanceId;
+        targetCircle: typeof b.targetCircle;
+        guarding: Record<InstanceId, InstanceId>;
+      };
+      battle.target = to;
+      battle.targetCircle = at.circle;
+      for (const g of s.players[at.player].guardian) battle.guarding[g] = to;
+      return true;
+    }
+    case 'place_top_locked': {
+      const p = s.players[frame.master];
+      const top = p.deck[0];
+      if (top === undefined) return true;
+      const options = REAR_GUARD_CIRCLES.filter(
+        (c) => !p.circles[c].some((id) => s.cards[id]!.locked),
+      );
+      const picked = ask(d, task, {
+        player: frame.master,
+        kind: 'circle',
+        options,
+        min: 1,
+        max: 1,
+        prompt: 'Choose a rear-guard circle for the locked card',
+      });
+      if (picked === null) return false;
+      if (picked.length === 0) return true;
+      const circle = picked[0] as RearGuardCircle;
+      moveCard(d, top, { player: frame.master, zone: 'circle', circle }, 'effect');
+      const card = s.cards[top]!;
+      card.locked = true;
+      card.faceUp = false;
+      return true;
+    }
+    case 'choose_grade_sum': {
+      // one card at a time, so every offered card still fits the remaining grade budget
+      const chosen = frame.bindings[step.as] ?? [];
+      const gradeOf = (id: InstanceId) => d.ctx.registry.get(s.cards[id]!.definitionId).grade;
+      const used = chosen.reduce((t, id) => t + gradeOf(id), 0);
+      const options = select(ec, step.from).filter(
+        (id) => !chosen.includes(id) && used + gradeOf(id) <= step.maxGradeSum,
+      );
+      if (chosen.length >= step.count || options.length === 0) {
+        frame.bindings[step.as] = chosen;
+        return true;
+      }
+      const picked = ask(d, task, {
+        player: frame.master,
+        kind: 'select',
+        options,
+        min: 0,
+        max: 1,
+        prompt: `Choose another (grades so far ${used} of ${step.maxGradeSum}), or none to stop`,
+      });
+      if (picked === null) return false;
+      frame.bindings[step.as] = [...chosen, ...picked];
+      if (picked.length > 0) s.tasks.unshift(...stepTasks(frame.id, [step]));
+      return true;
+    }
+    case 'move_to_circle': {
+      const card = targets[0];
+      const at = card === undefined ? null : locate(s, card);
+      if (card === undefined || at?.zone !== 'circle' || at.circle === 'vanguard') return true;
+      s.tasks.unshift({
+        kind: 'call_one',
+        frame: frame.id,
+        card,
+        atomic: true,
+        open: true,
+        move: true,
+      });
+      return true;
+    }
     case 'ride':
       // a card always rides onto its owner's (VC) (CR 4.1.6)
       if (targets[0] !== undefined) ride(d, s.cards[targets[0]]!.owner, targets[0], true);
@@ -644,6 +756,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         const top = s.players[frame.master].deck[0];
         if (top === undefined) continue;
         moveTo(d, top, step.to, 'effect', frame);
+        if (step.faceDown) s.cards[top]!.faceUp = false;
         if (step.to === 'bind') {
           const binder = step.boundByEvent ? frame.eventCard : frame.source;
           if (binder !== null) s.cards[top]!.boundBy = binder;
@@ -761,11 +874,18 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
     }),
     min: 1,
     max: 1,
-    prompt: 'Choose a rear-guard circle to call to',
+    prompt: task.move
+      ? 'Choose an open rear-guard circle to move to'
+      : 'Choose a rear-guard circle to call to',
   });
   if (picked === null) return false;
   if (picked.length === 0) return true; // no circle available
   const circle = picked[0] as RearGuardCircle;
+  if (task.move) {
+    // a move between circles keeps the card's state (CR 4.1.4)
+    moveCard(d, task.card, { player: frame.master, zone: 'circle', circle }, 'effect');
+    return true;
+  }
   frame.bindings['__called_circles'] = [...(frame.bindings['__called_circles'] ?? []), circle];
   moveCard(
     d,

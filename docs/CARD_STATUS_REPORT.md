@@ -100,6 +100,30 @@ All cards complete.
 
 All cards complete.
 
+## BT13
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+
+All cards complete.
+
+## BT14
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+
+All cards complete.
+
+## BT15
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 103   | 103                 | 103                 | 0               | 0            | 103           | 103 | 103      |
+
+All cards complete.
+
 ## TD01
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |

@@ -77,6 +77,8 @@ export const any = (...cs: Condition[]): Condition => ({ cond: 'any', cs });
 export const damageAtLeast = (n: number): Condition => count(cards('you', ['damage']), { min: n });
 /** The current battle hit (or, with `false`, did not). */
 export const battleHit = (hit = true): Condition => ({ cond: 'battle_hit', hit });
+/** This battle's attack targets a vanguard (or a rear-guard), even if that unit has left. */
+export const battleTarget = (vanguard: boolean): Condition => ({ cond: 'battle_target', vanguard });
 export const inLegion = (of: Selector = self()): Condition => ({ cond: 'in_legion', of });
 export const everInLegion = (of: Selector = self()): Condition => ({ cond: 'ever_in_legion', of });
 export const compare = (
@@ -246,6 +248,33 @@ export const superiorCall = (
 ): Step => ({ op: 'call', target, ...opts });
 /** Look at the top n cards of your deck; bind them as `as`. */
 export const lookTop = (as: string, n: number): Step => ({ op: 'look_top', n, as });
+/** "You win the game" */
+export const win = (): Step => ({ op: 'win' });
+/** "Deal n damage" to the opponent's vanguard (damage checks). */
+export const dealDamage = (n = 1): Step => ({ op: 'deal_damage', n });
+/** The attacked unit of the current battle becomes `target`; every guardian guards it. */
+export const redirectAttack = (target: Selector): Step => ({ op: 'redirect_attack', target });
+/** Put the top card of your deck onto one of your (RC) as a locked card. */
+export const placeTopLocked = (): Step => ({ op: 'place_top_locked' });
+/** Choose up to `count` cards (one at a time) with grades adding up to at most `maxGradeSum`. */
+export const chooseGradeSum = (
+  as: string,
+  from: Selector,
+  count: number,
+  maxGradeSum: number,
+): Step => ({ op: 'choose_grade_sum', as, from, count, maxGradeSum });
+/** "[CONT](VC): all of your rear-guards with `part` in its card name are also <clan>" */
+export const rearGuardsAlsoClan = (
+  clan: string,
+  part: string,
+  text: string,
+  id = 'also_clan',
+): AbilityDefinition =>
+  cont({ id, zones: ['VC'], effects: [{ ce: 'also_clan', clan, rearGuardsNamed: part }], text });
+/** "Call … to (GC) at [Rest]" */
+export const callGuardians = (target: Selector): Step => ({ op: 'call', target, guardian: true });
+/** "Choose one of your open (RC), and move this unit to that circle" */
+export const moveToOpenRC = (target: Selector = self()): Step => ({ op: 'move_to_circle', target });
 export const superiorRide = (target: Selector): Step => ({ op: 'ride', target });
 export const stand = (target: Selector): Step => ({ op: 'stand', target });
 export const rest = (target: Selector): Step => ({ op: 'rest', target });
@@ -330,11 +359,11 @@ export const lose = (
   duration,
 });
 export const drawUpTo = (n: number): Step => ({ op: 'draw', n, upTo: true });
-export const topTo = (n: number, to: 'drop' | 'soul' | 'damage' | 'bind'): Step => ({
-  op: 'top_to',
-  n,
-  to,
-});
+export const topTo = (
+  n: number,
+  to: 'drop' | 'soul' | 'damage' | 'bind',
+  faceDown = false,
+): Step => (faceDown ? { op: 'top_to', n, to, faceDown } : { op: 'top_to', n, to });
 /** "Perform an additional drive check" */
 export const extraDriveCheck = (): Step => ({ op: 'extra_drive_check' });
 /** Steps your opponent performs ("your opponent looks at …, searches …, calls …"). */
@@ -347,6 +376,18 @@ export const deckLimit = (copies: number, text: string): AbilityDefinition =>
   cont({ id: 'deck_limit', zones: ['any'], effects: [{ ce: 'deck_limit', copies }], text });
 /** "Exchange positions with this unit": the source and the target rear-guard swap circles. */
 export const exchange = (target: Selector): Step => ({ op: 'exchange', target });
+/** "Choose two …, and exchange their positions": the first two selected units swap circles. */
+export const exchangePair = (target: Selector): Step => ({ op: 'exchange', target, pair: true });
+/** "When your opponent's card is placed in his or her bind zone" (or `who`). */
+export const putIntoBind = (who: Subject = { owner: 'opponent' }): TriggerCondition => ({
+  on: 'put_into_bind',
+  who,
+});
+/** "Bind it face down": move the targets to the bind zone, then turn them face down. */
+export const bindFaceDown = (target: Selector): Step[] => [
+  moveTo(target, 'bind'),
+  { op: 'turn_face', target, faceUp: false },
+];
 /** "Choose a [CONT] of one of <targets>, and that ability is lost" */
 export const loseChosen = (target: Selector, duration: Duration = 'end_of_turn'): Step => ({
   op: 'lose_chosen',
@@ -441,7 +482,8 @@ export const topToCost = (n: number, to: 'drop' | 'soul' | 'bind' = 'drop'): Cos
   n,
   to,
 });
-export const lockCost = (from: Selector, n = 1): Cost => ({ cost: 'lock', n, from });
+export const lockCost = (from: Selector, n = 1, orMore = false): Cost =>
+  orMore ? { cost: 'lock', n, from, orMore } : { cost: 'lock', n, from };
 /** "Choose n of … and [Rest] them" as a cost. */
 export const restChosenCost = (from: Selector, n = 1): Cost => ({ cost: 'rest_chosen', n, from });
 /** Persona Blast: discard a card with the same name as this unit. */

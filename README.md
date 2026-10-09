@@ -14,7 +14,7 @@ account, server or internet connection is used.
 | Area         | State                                                                                                                                                                                                              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                   |
-| Cards        | **Playable: BT01–BT12 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT13–BT17: not yet playable (data partly imported). Progress: `docs/CARD_STATUS_REPORT.md` |
+| Cards        | **Playable: BT01–BT15 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT16–BT17: not yet playable. Progress: `docs/CARD_STATUS_REPORT.md` |
 | Game         | Desktop app: main menu, 48 ready-made starter decks, deck builder, a full battle UI against the AI                                                                                                                 |
 | AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                            |
 | Not included | Online play, G-era and later mechanics, card artwork                                                                                                                                                               |
@@ -26,10 +26,10 @@ Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) 
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.14.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.14.0-alpha/VanguardSim-0.14.0-alpha-portable.exe)
+**Latest version: v0.17.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.17.0-alpha/VanguardSim-0.17.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.14.0-alpha/VanguardSim-0.14.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.17.0-alpha/VanguardSim-0.17.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

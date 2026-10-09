@@ -57,7 +57,7 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 
 ## Current state (2026-10-09)
 
-**Phase 6 in progress:** pipeline built; **BT01–BT12 and Trial Decks TD01–TD17 (minus Japanese-only TD15) complete** (see docs/CARD_STATUS_REPORT.md, D-023). Card scripts: reprints use `{ sameAs: 'BT01-002' }`; shared ability shapes live in `src/cards/shapes.ts`, shape test runners in `tests/fixtures/shapeChecks.ts`. Starter decks (`src/decks/starters.ts`), basic AI (`src/ai/basicController.ts`) and terminal playtest `npm run play` (PLAYTEST.md) — the user is playtesting BT01. **Phase 7 UI in progress** — read `docs/NEXT_SESSION.md` first (UI checked + tested, user is playtesting). Then BT13+ set by set (the user wants AI work first) (import → implement → test → report).
+**Phase 6 in progress:** pipeline built; **BT01–BT15 and Trial Decks TD01–TD17 (minus Japanese-only TD15) complete** (see docs/CARD_STATUS_REPORT.md, D-023). Card scripts: reprints use `{ sameAs: 'BT01-002' }`; shared ability shapes live in `src/cards/shapes.ts`, shape test runners in `tests/fixtures/shapeChecks.ts`. Starter decks (`src/decks/starters.ts`), basic AI (`src/ai/basicController.ts`) and terminal playtest `npm run play` (PLAYTEST.md) — the user is playtesting BT01. **Phase 7 UI in progress** — read `docs/NEXT_SESSION.md` first (UI checked + tested, user is playtesting). Then BT16+ set by set, improving the AI alongside (import → implement → test → report).
 
 - Phases 1–4: setup, turn loop, rules verified against CR 1.29 (D-008), ride/call/swap, combat,
   generic effect system (design `docs/design/PHASE4_EFFECT_SYSTEM.md`). See CHANGELOG.

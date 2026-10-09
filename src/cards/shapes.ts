@@ -1718,3 +1718,43 @@ export const lbBoostHitDraw = (clan: string, text: string, id = '1'): AbilityDef
     effect: [ab.draw(1)],
     text,
   });
+
+// ---- shapes introduced by BT14 --------------------------------------------------------------
+
+/** "[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, if you have a <clan> vanguard, you may pay the cost. If you do, reveal five cards from the top of your deck. Call all <clan> to (GC) at [Rest] from among them, and put the rest into your drop zone." */
+export const sentinelCall = (clan: string, text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['any'],
+    trigger: ab.placedOn('GC', 'self', 'hand'),
+    condition: ab.vanguardIs({ clan }),
+    cost: [ab.counterBlast(1)],
+    optional: true,
+    effect: [
+      ab.lookTop('r', 5),
+      ab.reveal(ab.bound('r')),
+      ab.callGuardians(ab.bound('r', { clan })),
+      ab.moveTo(ab.bound('r', { zone: 'deck' }), 'drop'),
+    ],
+    text,
+  });
+
+/** "[AUTO](VC):When this unit's drive check reveals a <clan>, this unit gets [Power] +2000 until end of that battle." */
+export const driveCheckClan2000 = (clan: string, text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['VC'],
+    trigger: ab.driveCheckReveals({ clan }),
+    effect: [ab.power(ab.self(), 2000, 'end_of_battle')],
+    text,
+  });
+
+/** "[ACT](RC):[Put this unit into your soul & Choose a card from your hand, and discard it] If you have a <clan> vanguard, draw a card." */
+export const soulDiscardDraw = (clan: string, text: string): AbilityDefinition =>
+  ab.act({
+    id: '2',
+    zones: ['RC'],
+    cost: [ab.moveCost(ab.self(), 'soul'), ab.discard(1)],
+    effect: [ab.if_(ab.vanguardIs({ clan }), [ab.draw(1)])],
+    text,
+  });

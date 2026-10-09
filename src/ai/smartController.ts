@@ -26,8 +26,9 @@ import {
 import { BasicController } from './basicController';
 import type { PlayerController } from './controller';
 import { determinize } from './determinize';
-import { alreadySafe, payableSentinel } from './guarding';
+import { alreadySafe, isPerfectGuard, payableSentinel } from './guarding';
 import { Evaluator, planFor } from './evaluate';
+import { DEFAULT_WEIGHTS, type EvalWeights } from './weights';
 
 type Choose = Extract<LegalAction, { type: 'CHOOSE' }>;
 const find = <T extends LegalAction['type']>(actions: readonly LegalAction[], type: T) =>
@@ -48,6 +49,11 @@ export interface SmartOptions {
   readonly vanguardFirstBonus?: number;
   /** In the lookahead, the opponent guards competently (trigger margins) instead of like Normal. */
   readonly competentOpponent?: boolean;
+  /** Fillings of the hidden cards averaged per decision: in battle, and otherwise. */
+  readonly battleSamples?: number;
+  readonly otherSamples?: number;
+  /** Evaluation weights (./weights.ts), for tuning runs. */
+  readonly weights?: EvalWeights;
 }
 
 /** The current Hard AI. */
@@ -59,6 +65,10 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
   attackPlanner: false,
   vanguardFirstBonus: 500,
   competentOpponent: false,
+  // 8/4 samples measured 50.7% (n=420) at twice the think time: kept at 4/2
+  battleSamples: SAMPLES,
+  otherSamples: 2,
+  weights: DEFAULT_WEIGHTS,
 };
 /** The Hard AI as of 0.13.0 (the stage 1 baseline), for comparisons. */
 export const SMART_BASELINE: Required<SmartOptions> = {
@@ -66,6 +76,9 @@ export const SMART_BASELINE: Required<SmartOptions> = {
   attackPlanner: false,
   vanguardFirstBonus: 500,
   competentOpponent: false,
+  battleSamples: SAMPLES,
+  otherSamples: 2,
+  weights: DEFAULT_WEIGHTS,
 };
 
 export class SmartController implements PlayerController {
@@ -88,7 +101,7 @@ export class SmartController implements PlayerController {
     options: SmartOptions = {},
   ) {
     this.options = { ...SMART_DEFAULTS, ...options };
-    this.evaluator = new Evaluator(ctx, planFor(ctx, deck?.cards ?? null));
+    this.evaluator = new Evaluator(ctx, planFor(ctx, deck?.cards ?? null), this.options.weights);
     this.fallback = new BasicController(ctx);
     this.opponentModel = new BasicController(ctx, {
       competentGuard: this.options.competentOpponent,
@@ -116,7 +129,7 @@ export class SmartController implements PlayerController {
 
     // battle decisions depend on hidden cards (checks): average several fillings of them
     const battle = view.battle !== null || find(actions, 'ATTACK') !== undefined;
-    const k = battle ? SAMPLES : 2;
+    const k = battle ? this.options.battleSamples : this.options.otherSamples;
     this.samples = Array.from({ length: k }, (_, i) =>
       determinize(
         view,
@@ -516,7 +529,7 @@ export class SmartController implements PlayerController {
     const power = (id: string) => (s.cards[id] ? (this.def(s, id)?.power ?? 0) : 0);
     const handValue = (id: string) => {
       const d = this.def(s, id);
-      return d ? d.shield / 1000 + (d.sentinel ? 20 : 0) + d.grade : 0;
+      return d ? d.shield / 1000 + (isPerfectGuard(d) ? 20 : 0) + d.grade : 0;
     };
     switch (c.kind) {
       case 'yes_no':

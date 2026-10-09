@@ -21,6 +21,8 @@ export function viewFor(state: GameState, viewer: PlayerId): GameState {
     ...state.players[0].deck,
     ...state.players[1].deck,
     ...state.players[other(viewer)].hand,
+    // cards bound face down (e.g. by Nubatama) are hidden from the other player (CR 4.9)
+    ...state.players[other(viewer)].bind.filter((id) => !state.cards[id]!.faceUp),
   ]);
   for (const id of hidden) {
     if (visibleChoice.has(id)) continue;

@@ -302,6 +302,11 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     }
     case 'battle_hit':
       return (ec.state.battle?.hit ?? false) === condition.hit;
+    case 'battle_target':
+      return (
+        ec.state.battle !== null &&
+        (ec.state.battle.targetCircle === 'vanguard') === condition.vanguard
+      );
     case 'in_legion': {
       const ids = select(ec, condition.of);
       return ids.length > 0 && ids.every((id) => inLegion(ec.state, id));

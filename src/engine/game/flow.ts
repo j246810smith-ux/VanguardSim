@@ -126,8 +126,12 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
     case 'unlock_all':
       // CR 6.8.1.1: the turn player's locked cards return to normal
       for (const id of circleCards(s.players[s.activePlayer])) {
-        if (s.cards[id]!.locked) unlockCard(d, id);
+        if (s.cards[id]!.locked && !isRestricted(s, d.ctx, id, 'cannot_unlock')) unlockCard(d, id);
       }
+      // effects lasting "until your next end phase" end now for this player's cards
+      s.restrictions = s.restrictions.filter(
+        (r) => !(r.until === 'next_end_phase' && locate(s, r.target).player === s.activePlayer),
+      );
       return;
 
     case 'end_turn_cleanup':

@@ -1,6 +1,6 @@
 {
   "set": "BT15",
-  "importedAt": "2026-10-09T07:16:22.307Z",
+  "importedAt": "2026-10-09T14:54:03.432Z",
   "importerVersion": 2,
   "cards": [
     {
@@ -658,7 +658,14 @@
         "race": "フレイムドラゴン",
         "image": "/wordpress/wp-content/images/cardlist/BT15/bt15_015.png"
       },
-      "en": null,
+      "en": {
+        "number": "BT15/014EN",
+        "name": "Dragonic Burnout",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a <Kagero> vanguard, you may choose a card with \"Overlord\" in its card name from your drop zone, and put it on the bottom of your deck. If you put a card on the bottom of your deck this way, you may pay the cost. If you do, choose one of your opponent's rear-guards, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt15/BT15_014EN.jpg"
+      },
       "cardType": "normal_unit",
       "grade": 2,
       "power": 9000,
@@ -668,17 +675,24 @@
       "trigger": null,
       "sentinel": false,
       "rarity": "RR",
-      "printings": ["BT15/014", "BT15/S10"],
+      "printings": ["BT15/014", "BT15/S10", "BT15/014EN", "BT15/S10EN"],
       "sources": {
         "jp": {
           "url": "https://cf-vanguard.com/cardlist/?cardno=BT15/014",
           "fetchedAt": "2026-10-09T07:09:36.335Z",
           "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT15/014EN",
+          "fetchedAt": "2026-10-09T07:12:13.891Z",
+          "regulation": "G-Regulation"
         }
       },
       "checks": {
         "jpEnStatsMatch": false,
-        "mismatches": ["only on the Japanese site"]
+        "mismatches": ["shield: JP 5000 vs EN 0"],
+        "reviewed": "Dragonic Burnout: the English database lists no shield; it is a grade 2 [Intercept] unit with 5000 shield, as the Japanese database shows.",
+        "statsFrom": "jp"
       }
     },
     {
@@ -3406,7 +3420,14 @@
         "race": "サイバーフェアリー",
         "image": "/wordpress/wp-content/images/cardlist/BT15/bt15_075.png"
       },
-      "en": null,
+      "en": {
+        "number": "BT15/074EN",
+        "name": "Star-vader, Sparkdoll",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/bt15/BT15_074EN.jpg"
+      },
       "cardType": "trigger_unit",
       "grade": 0,
       "power": 5000,
@@ -3416,17 +3437,24 @@
       "trigger": "critical",
       "sentinel": false,
       "rarity": "C",
-      "printings": ["BT15/074"],
+      "printings": ["BT15/074", "BT15/074EN"],
       "sources": {
         "jp": {
           "url": "https://cf-vanguard.com/cardlist/?cardno=BT15/074",
           "fetchedAt": "2026-10-09T07:10:54.255Z",
           "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT15/074EN",
+          "fetchedAt": "2026-10-09T07:13:27.191Z",
+          "regulation": "G-Regulation"
         }
       },
       "checks": {
         "jpEnStatsMatch": false,
-        "mismatches": ["only on the Japanese site"]
+        "mismatches": ["power: JP 5000 vs EN 500"],
+        "reviewed": "Star-vader, Sparkdoll: the English database lists 500 power (a typo); the Japanese database shows 5000 like every grade 0 trigger.",
+        "statsFrom": "jp"
       }
     },
     {
@@ -4718,16 +4746,5 @@
       }
     }
   ],
-  "enOnly": [
-    {
-      "number": "BT15/014EN",
-      "name": "Dragonic Burnout",
-      "printings": ["BT15/014EN", "BT15/S10EN"]
-    },
-    {
-      "number": "BT15/074EN",
-      "name": "Star-vader, Sparkdoll",
-      "printings": ["BT15/074EN"]
-    }
-  ]
+  "enOnly": []
 }

@@ -9,13 +9,21 @@
 | 3 Core game (turns, battle, triggers)                                                    | done                                                                                                                  |
 | 4 Effect system (abilities as data)                                                      | done                                                                                                                  |
 | 5 Historical mechanics (Limit Break, Break Ride, Persona Blast, Lock, Legion, Seek Mate) | done                                                                                                                  |
-| 6 Card data                                                                              | **BT01–BT12 + TD01–TD17 (no TD15) complete** (implemented and tested, `docs/CARD_STATUS_REPORT.md`). BT13–BT17 to do. |
+| 6 Card data                                                                              | **BT01–BT15 + TD01–TD17 (no TD15) complete** (implemented and tested, `docs/CARD_STATUS_REPORT.md`). BT16–BT17 to do. |
 | Terminal playtest                                                                        | `npm run play` (desktop shortcut "Vanguard Playtest"), BT01 starter decks vs Basic AI                                 |
 | 7 UI                                                                                     | **in progress**, see below                                                                                            |
 
-Checks: `npm run check` passes. Version 0.14.0.
+Checks: `npm run check` passes. Version 0.17.0.
 
-## ▶ Pick up here (AI work in progress, then BT13)
+## ▶ Pick up here (sets BT16+ alongside AI work)
+
+**Published 2026-10-09:** https://github.com/j246810smith-ux/VanguardSim (public, GPL-3.0) with
+pre-release **v0.14.0-alpha** (portable .exe + zip, built and smoke-tested locally). The public
+repository is a separate clone at `..\VanguardSim-public` with its own fresh history (one
+commit by the j246810smith-ux no-reply address); it uses `gh auth git-credential` for pushes
+because Windows has a different GitHub account saved. To publish later work: copy the
+changed tracked files over (or re-export with `git archive`), commit there, push; for a release
+follow `docs/RELEASING.md`. CI is green on GitHub.
 
 **AI (session 2026-10-09):** the user gave a "Competitive Strategic AI" prompt; plan, results and
 the next stages are in `docs/ai/AI_AUDIT_AND_PLAN.md`. Done: stage 1 (audit, `npm run ai:bench`,
@@ -26,18 +34,37 @@ strategy registry (5), budgeted search with chance nodes (6), then Expert level 
 debug panel (9). Run long comparisons as parallel batches on different `--seed`s and merge with
 `npm run ai:compare`.
 
-## Set work (paused for the AI)
+## Set work
 
 The user asked for **BT07–BT17 one set at a time**, committing after each, and **opening the game
 (`npm run app`) for them to playtest after each set** while continuing with the next. When a small
 choice comes up, take the recommended option and note it in `docs/UNRESOLVED_RULINGS.md`; ask about
 real rules/design choices (session 2026-10-09: the user chose the exact "pick an ability" Koh Koh).
-Wor**BT12 done** (0.13.0, session 2026-10-09). The user asked to stop after BT12 to work on the AI
+**BT15 done** (0.17.0, session 2026-10-09). New engine pieces: steps `win`, `deal_damage`,
+`redirect_attack`, `place_top_locked`, `choose_grade_sum`; restriction `cannot_unlock` with duration
+`next_end_phase`; lock cost `orMore`; `top_to` option `faceDown`; condition `battle_target`;
+`also_clan` option `rearGuardsNamed` (`ab.rearGuardsAlsoClan`); `LossReason` `effect`. Standby
+abilities of a card locked before they resolve fall back to the printed ability (CR 8.6.7). Shapes
+moved to `shapes.ts`: `sentinelCall`, `driveCheckClan2000`, `soulDiscardDraw`. Test quirk: changing a
+card's `definitionId` in a test does not give it the new card's abilities; use real cards.
+
+**BT14 done** (0.16.0, session 2026-10-09). New engine pieces: `call` step option `guardian`
+(`ab.callGuardians`, cards become guardians of the current battle), step `move_to_circle`
+(`ab.moveToOpenRC`, via the `call_one` task with `move`), AUTO option `oncePerBattle`. Test quirks:
+scenes start with one card in the soul; drive checks go to the hand; the guard step ends by
+itself when the defender's hand is empty.
+
+**BT13 done** (0.15.0, session 2026-10-09). The user asked to keep improving the AI while adding
+the remaining sets. New engine pieces: trigger `put_into_bind` (`ab.putIntoBind`), `exchange`
+step option `pair` (`ab.exchangePair`), `ab.bindFaceDown`, and `viewFor` hides the opponent's
+face-down bind cards. Next: BT16/BT17 (import failed earlier).
+
+**BT12 done** (0.13.0, session 2026-10-09). The user asked to stop after BT12 to work on the AI
 and "some other stuff" next. New engine pieces: trigger `locked` (`ab.lockedByYou`), `CARD_MOVED`
 and `CARD_LOCKED` carry `by`/`cause`; trigger option `causeFilter`; `ridden` option `bySelf`; cost
 `top_to` to bind; `top_to` step option `boundByEvent`.
 
-kflow and tools: `tools/cardgen/README.md`.
+Workflow and tools: `tools/cardgen/README.md`.
 
 **BT11 done** (0.12.0, session 2026-10-09). New engine pieces: steps `extra_drive_check` and
 `as_opponent` (a sub-frame with the opponent as master), condition `stood_this_turn`

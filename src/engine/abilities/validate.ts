@@ -75,6 +75,10 @@ export function validateAbilities(
             checkSelector(st.from, here);
             bound.add(st.as);
             break;
+          case 'choose_grade_sum':
+            checkSelector(st.from, here);
+            bound.add(st.as);
+            break;
           case 'search':
             if (!Number.isInteger(st.upTo) || st.upTo < 1) report(`${here}: upTo must be ≥ 1`);
             bound.add(st.as);
@@ -87,6 +91,11 @@ export function validateAbilities(
           case 'look_top_place':
           case 'end_normal_ride':
           case 'extra_drive_check':
+          case 'win':
+          case 'place_top_locked':
+            break;
+          case 'deal_damage':
+            if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             break;
           case 'as_opponent':
             checkSteps(st.steps, here);

@@ -1,5 +1,47 @@
 # Changelog
 
+## 0.17.0 — 2026-10-09
+
+- BT15 complete (103 cards, including Star-vader, "Omega" Glendios as BT15-000): Link Joker
+  ("Omega" Glendios, "Яeverse" Cradle), Shadow Paladin (Revengers), Gold Paladin (Monarch
+  Sanctuary Alfred, Holy Shine Dragon), Kagero (Dragonic Overlord "The Яe-birth"), Pale Moon (Venus
+  Luquier), Aqua Force (Maelstrom "Яeverse") and Megacolony (Machining); every effect implemented
+  and tested.
+- Four BT15 starter decks: Link Joker ("Omega" Glendios), Shadow Paladin (Dragruler Phantom),
+  Kagero (Dragonic Overlord "The Яe-birth") and Megacolony (Machining Spark Hercules).
+- Engine: "you win the game", locked cards that cannot be unlocked, changing the attacked unit,
+  dealing damage by an effect, a locked card from the top of the deck, calls limited by a total of
+  grades, "one or more" lock costs, rear-guards that are also another clan while a vanguard says
+  so, and "at the end of the battle that this unit attacked a rear-guard" after that rear-guard
+  was retired.
+- Fixed: a triggered ability whose card was locked before it resolved stopped the game; it is now
+  played (CR 8.6.7).
+- Card data: BT15-014 Dragonic Burnout and BT15-074 Star-vader, Sparkdoll are paired with their
+  English printings; the English database's shield/power typos are recorded and the Japanese
+  values are used.
+
+## 0.16.0 — 2026-10-09
+
+- BT14 complete (102 cards): Royal Paladin (Ashlei "Яeverse", Sanctuary of Light), Gold Paladin
+  (Gancelot Zenith, Grand Ezel Scissors), Genesis (Yatagarasu, Minerva), Kagero (Dauntless
+  "Яeverse"), Narukami (Eradicators), Murakumo (Hyakki Vogue "Яeverse", Kagura Bloome) and Neo
+  Nectar (Venus Trap "Яeverse", Master Wisteria); every effect implemented and tested.
+- Four BT14 starter decks: Royal Paladin (Ashlei "Яeverse"), Gold Paladin (Grand Ezel Scissors),
+  Kagero (Dauntless "Яeverse") and Murakumo (Hyakki Vogue "Яeverse").
+- Engine: effects that call cards to (GC) as guardians (the BT14 sentinels), "move this unit to an
+  open (RC)", and abilities usable once per battle.
+
+## 0.15.0 — 2026-10-09
+
+- BT13 complete (102 cards): Angel Feather (Ramiel "Яeverse"), Nubatama (Kujikiricongo), Nova
+  Grappler (Ethics Buster "Яeverse"), Dimension Police ("Яeverse" Daiyusha, Zero), Link Joker
+  (Chaos Breaker), Granblue (Nightmist), Aqua Force and Great Nature; every effect implemented and
+  tested.
+- Four BT13 starter decks: Nubatama (Kujikiricongo), Nova Grappler (Ethics Buster "Яeverse"),
+  Dimension Police ("Яeverse" Daiyusha) and Link Joker (Chaos Breaker Dragon).
+- Engine: "when a card is put into your bind zone" triggers, face-down binding (the opponent cannot
+  see face-down cards in your bind zone), and exchanging two chosen cards between zones.
+
 ## 0.14.0-alpha — 2026-10-09: first public release (D-025)
 
 - Licensed GPL-3.0 (`LICENSE`); `THIRD_PARTY_NOTICES.md` (Bushiroad fan-project notice, bundled

@@ -187,7 +187,7 @@ async function fetchSite(site: Site): Promise<Fetched[]> {
     try {
       card = parseCardPage(html, site);
     } catch (e) {
-      throw new Error(`${site} ${no}: ${(e as Error).message}`);
+      throw new Error(`${site} ${no}: ${(e as Error).message}`, { cause: e });
     }
     out.push({
       card,

@@ -26,8 +26,13 @@ Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) 
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
+**Latest version: v0.14.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.14.0-alpha/VanguardSim-0.14.0-alpha-portable.exe)
+·
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.14.0-alpha/VanguardSim-0.14.0-alpha-win-x64.zip)
+
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
-2. Download either
+2. Under **Assets** at the bottom of the release, download either
    - `VanguardSim-<version>-portable.exe` — a single file: run it, or
    - `VanguardSim-<version>-win-x64.zip` — unzip anywhere and run `Vanguard Sim.exe`.
 3. Windows SmartScreen may warn that the app is from an unknown publisher (the builds are not

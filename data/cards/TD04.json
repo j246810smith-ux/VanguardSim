@@ -1,0 +1,768 @@
+{
+  "set": "TD04",
+  "importedAt": "2026-10-08T21:53:57.383Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD04-001",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/001",
+        "name": "オラクルガーディアン アポロン",
+        "text": "【自】【(V)】： [【カウンターブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、２枚引き、あなたの手札から１枚選び、山札に戻し、その山札をシャッフルする。\n【自】【(R)】： [【カウンターブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_001.png"
+      },
+      "en": {
+        "number": "TD04/001EN",
+        "name": "Oracle Guardian, Apollon",
+        "text": "[AUTO](VC): [Counter-Blast 2] When this unit's attack hits, you may pay the cost. If you do, draw two cards, choose a card from your hand, return it to your deck, and shuffle your deck.\n[AUTO](RC): [Counter-Blast 2] When this unit's attack hits, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/001", "TD04/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/001",
+          "fetchedAt": "2026-10-08T21:37:19.441Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/001EN",
+          "fetchedAt": "2026-10-08T21:37:41.184Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-002",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/002",
+        "name": "花占いの女神 サクヤ",
+        "text": "【永】【(V)】：あなたのターン中、あなたの手札が４枚以上なら、このユニットのパワー＋4000。\n【自】：このユニットが(V)に登場した時、あなたの《オラクルシンクタンク》のリアガードを手札にすべて戻す。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_002.png"
+      },
+      "en": {
+        "number": "TD04/002EN",
+        "name": "Goddess of Flower Divination, Sakuya",
+        "text": "[CONT](VC):During your turn, if the number of cards in your hand is four or more, this unit gets [Power] +4000.\n[AUTO]:When this unit is placed on (VC), return all of your <Oracle Think Tank> rear-guards to your hand.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/002", "TD04/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/002",
+          "fetchedAt": "2026-10-08T21:37:22.171Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/002EN",
+          "fetchedAt": "2026-10-08T21:37:43.061Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-003",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/003",
+        "name": "メテオブレイク・ウィザード",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_003.png"
+      },
+      "en": {
+        "number": "TD04/003EN",
+        "name": "Meteor Break Wizard",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/003", "TD04/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/003",
+          "fetchedAt": "2026-10-08T21:37:23.955Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/003EN",
+          "fetchedAt": "2026-10-08T21:37:44.286Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-004",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/004",
+        "name": "オラクルガーディアン ワイズマン",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_004.png"
+      },
+      "en": {
+        "number": "TD04/004EN",
+        "name": "Oracle Guardian, Wiseman",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/004", "TD04/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/004",
+          "fetchedAt": "2026-10-08T21:37:25.332Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/004EN",
+          "fetchedAt": "2026-10-08T21:37:45.464Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-005",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/005",
+        "name": "セキュリティ・ガーディアン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_005.png"
+      },
+      "en": {
+        "number": "TD04/005EN",
+        "name": "Security Guardian",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have an <Oracle Think Tank> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/005", "TD04/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/005",
+          "fetchedAt": "2026-10-08T21:37:26.257Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/005EN",
+          "fetchedAt": "2026-10-08T21:37:46.608Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-006",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/006",
+        "name": "ソードダンサー・エンジェル",
+        "text": "【自】【(V)/(R)】：あなたがカードを引いた時、そのターン中、このユニットのパワー＋1000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_006.png"
+      },
+      "en": {
+        "number": "TD04/006EN",
+        "name": "Sword Dancer Angel",
+        "text": "[AUTO](VC/RC):When you draw a card, this unit gets [Power] +1000 until end of turn.",
+        "clan": "Oracle Think Tank",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/006", "TD04/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/006",
+          "fetchedAt": "2026-10-08T21:37:27.362Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/006EN",
+          "fetchedAt": "2026-10-08T21:37:48.045Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-007",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/007",
+        "name": "オラクルガーディアン ジェミニ",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_007.png"
+      },
+      "en": {
+        "number": "TD04/007EN",
+        "name": "Oracle Guardian, Gemini",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/007", "TD04/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/007",
+          "fetchedAt": "2026-10-08T21:37:28.717Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/007EN",
+          "fetchedAt": "2026-10-08T21:37:48.976Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-008",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/008",
+        "name": "ダーク・キャット",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、すべてのプレイヤーは１枚引いてよい。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_008.png"
+      },
+      "en": {
+        "number": "TD04/008EN",
+        "name": "Dark Cat",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have an <Oracle Think Tank> vanguard, each player may draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/008", "TD04/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/008",
+          "fetchedAt": "2026-10-08T21:37:30.360Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/008EN",
+          "fetchedAt": "2026-10-08T21:37:49.966Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-009",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/009",
+        "name": "お天気お姉さん みるく",
+        "text": "【自】【(R)】：このユニットが《オラクルシンクタンク》のヴァンガードを【ブースト】した時、あなたの手札が４枚以上なら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "オラクルシンクタンク",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_009.png"
+      },
+      "en": {
+        "number": "TD04/009EN",
+        "name": "Weather Girl, Milk",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) an <Oracle Think Tank> vanguard, if the number of cards in your hand is four or more, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/009", "TD04/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/009",
+          "fetchedAt": "2026-10-08T21:37:31.837Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/009EN",
+          "fetchedAt": "2026-10-08T21:37:51.190Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-010",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/010",
+        "name": "バトルシスター めーぷる",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が４枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_010.png"
+      },
+      "en": {
+        "number": "TD04/010EN",
+        "name": "Battle Sister, Maple",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is four or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/010", "TD04/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/010",
+          "fetchedAt": "2026-10-08T21:37:33.023Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/010EN",
+          "fetchedAt": "2026-10-08T21:37:52.401Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-011",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/011",
+        "name": "ラック・バード",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_011.png"
+      },
+      "en": {
+        "number": "TD04/011EN",
+        "name": "Luck Bird",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have an <Oracle Think Tank> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/011", "TD04/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/011",
+          "fetchedAt": "2026-10-08T21:37:34.320Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/011EN",
+          "fetchedAt": "2026-10-08T21:37:53.342Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-012",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/012",
+        "name": "オラクルガーディアン ニケ",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_012.png"
+      },
+      "en": {
+        "number": "TD04/012EN",
+        "name": "Oracle Guardian, Nike",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_012EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/012", "TD04/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/012",
+          "fetchedAt": "2026-10-08T21:37:35.333Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/012EN",
+          "fetchedAt": "2026-10-08T21:37:54.535Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-013",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/013",
+        "name": "ドリーム・イーター",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_013.png"
+      },
+      "en": {
+        "number": "TD04/013EN",
+        "name": "Dream Eater",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_013EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/013", "TD04/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/013",
+          "fetchedAt": "2026-10-08T21:37:36.650Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/013EN",
+          "fetchedAt": "2026-10-08T21:37:55.716Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-014",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/014",
+        "name": "ビクトリー・メーカー",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_014.png"
+      },
+      "en": {
+        "number": "TD04/014EN",
+        "name": "Victory Maker",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_014EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/014", "TD04/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/014",
+          "fetchedAt": "2026-10-08T21:37:38.510Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/014EN",
+          "fetchedAt": "2026-10-08T21:37:56.630Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD04-015",
+      "set": "TD04",
+      "jp": {
+        "number": "TD04/015",
+        "name": "ロゼンジ・メイガス",
+        "text": "（【治】はデッキに４枚までしか入れられない。）\n【自】：他の《オラクルシンクタンク》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD04/td04_015.png"
+      },
+      "en": {
+        "number": "TD04/015EN",
+        "name": "Lozenge Magus",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)\n[AUTO]:When another <Oracle Think Tank> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle, and at the begininng of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td04/TD04_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD04/015", "TD04/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD04/015",
+          "fetchedAt": "2026-10-08T21:37:39.998Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD04/015EN",
+          "fetchedAt": "2026-10-08T21:37:58.030Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.04: Maiden Princess of the Cherry Blossoms",
+    "cards": [
+      {
+        "id": "TD04-001",
+        "count": 4
+      },
+      {
+        "id": "TD04-002",
+        "count": 1
+      },
+      {
+        "id": "TD04-003",
+        "count": 2
+      },
+      {
+        "id": "TD04-004",
+        "count": 4
+      },
+      {
+        "id": "TD04-005",
+        "count": 4
+      },
+      {
+        "id": "TD04-006",
+        "count": 2
+      },
+      {
+        "id": "TD04-007",
+        "count": 4
+      },
+      {
+        "id": "TD04-008",
+        "count": 4
+      },
+      {
+        "id": "TD04-009",
+        "count": 4
+      },
+      {
+        "id": "TD04-010",
+        "count": 2
+      },
+      {
+        "id": "TD04-011",
+        "count": 3
+      },
+      {
+        "id": "TD04-012",
+        "count": 4
+      },
+      {
+        "id": "TD04-013",
+        "count": 4
+      },
+      {
+        "id": "TD04-014",
+        "count": 4
+      },
+      {
+        "id": "TD04-015",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td04/",
+      "fetchedAt": "2026-10-08T21:38:14.543Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

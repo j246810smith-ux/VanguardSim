@@ -1,0 +1,868 @@
+{
+  "set": "TD13",
+  "importedAt": "2026-10-08T21:54:20.090Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD13-001",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/001",
+        "name": "叡智の神器 アンジェリカ",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【ソウルブラスト】(3)]《ジェネシス》がこのユニットにライドした時、コストを払ってよい。払ったら、２枚引き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、【ソウルチャージ】(1)し、そのバトル中、このユニットのパワー＋1000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_001.png"
+      },
+      "en": {
+        "number": "TD13/001EN",
+        "name": "Regalia of Wisdom, Angelica",
+        "text": "[AUTO][Limit-Break 4] (This ability is active if you have four or more damage):[Soul-Blast 3] When a ?Genesis? rides this unit, you may pay the cost. If you do, draw two cards, choose your vanguard, and that unit gets [Power] +10000 until end of turn.\n[AUTO]( VC) :When this unit attacks a vanguard, [Soul-Charge 1] , and this unit gets [Power] +1000 until end of that battle.\n[CONT]( VC/RC) :Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/001", "TD13/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/001",
+          "fetchedAt": "2026-10-08T21:47:19.429Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/001EN",
+          "fetchedAt": "2026-10-08T21:47:40.899Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-002",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/002",
+        "name": "戦巫女 ミヅハ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【ソウルブラスト】(3)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000/クリティカル＋１。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_002.png"
+      },
+      "en": {
+        "number": "TD13/002EN",
+        "name": "Battle Maiden, Mizuha",
+        "text": "[AUTO]( VC) [Limit-Break 4] (This ability is active if you have four or more damage):[Soul-Blast 3] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +5000/[Critical] +1 until end of that battle.\n[AUTO]( VC) :When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/002", "TD13/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/002",
+          "fetchedAt": "2026-10-08T21:47:21.608Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/002EN",
+          "fetchedAt": "2026-10-08T21:47:42.977Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-003",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/003",
+        "name": "狼の魔女 サフラン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《ジェネシス》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_003.png"
+      },
+      "en": {
+        "number": "TD13/003EN",
+        "name": "Witch of Wolves, Saffron",
+        "text": "[AUTO]( VC) [Limit-Break 4] (This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO]( RC) :When this unit attacks a vanguard, if you have a ?Genesis? vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/003", "TD13/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/003",
+          "fetchedAt": "2026-10-08T21:47:22.954Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/003EN",
+          "fetchedAt": "2026-10-08T21:47:44.133Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-004",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/004",
+        "name": "戦巫女 イヅナヒメ",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_004.png"
+      },
+      "en": {
+        "number": "TD13/004EN",
+        "name": "Battle Maiden, Izunahime",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/004", "TD13/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/004",
+          "fetchedAt": "2026-10-08T21:47:24.265Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/004EN",
+          "fetchedAt": "2026-10-08T21:47:45.058Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-005",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/005",
+        "name": "戦巫女 サホヒメ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたの《ジェネシス》のヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(3)。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_005.png"
+      },
+      "en": {
+        "number": "TD13/005EN",
+        "name": "Battle Maiden, Sahohime",
+        "text": "[AUTO]( VC/RC) :[Counter-Blast 1] When this unit's attack hits a vanguard, if you have a ?Genesis? vanguard, you may pay the cost. If you do, [Soul-Charge 3] .",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/005", "TD13/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/005",
+          "fetchedAt": "2026-10-08T21:47:25.176Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/005EN",
+          "fetchedAt": "2026-10-08T21:47:46.333Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-006",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/006",
+        "name": "樹木の女神 ユピテール",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「神器」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_006.png"
+      },
+      "en": {
+        "number": "TD13/006EN",
+        "name": "Goddess of Trees, Jupiter",
+        "text": "[AUTO]( RC) : When this unit attacks, if you have a vanguard with \"Regalia\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/006", "TD13/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/006",
+          "fetchedAt": "2026-10-08T21:47:26.599Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/006EN",
+          "fetchedAt": "2026-10-08T21:47:47.574Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-007",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/007",
+        "name": "戦巫女 シタテルヒメ",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ジェネシス》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_007.png"
+      },
+      "en": {
+        "number": "TD13/007EN",
+        "name": "Battle Maiden, Shitateruhime",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a ?Genesis? vanguard, this unit gets [Shield]  +5000 until end of that battle.",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/007", "TD13/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/007",
+          "fetchedAt": "2026-10-08T21:47:27.517Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/007EN",
+          "fetchedAt": "2026-10-08T21:47:48.481Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-008",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/008",
+        "name": "戦巫女 ミヒカリヒメ",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_008.png"
+      },
+      "en": {
+        "number": "TD13/008EN",
+        "name": "Battle Maiden, Mihikarihime",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/008", "TD13/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/008",
+          "fetchedAt": "2026-10-08T21:47:28.922Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/008EN",
+          "fetchedAt": "2026-10-08T21:47:49.662Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-009",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/009",
+        "name": "戦巫女 タツタヒメ",
+        "text": "【自】【(R)】：[【カウンターブラスト】(2)]このユニットが《ジェネシス》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、【ソウルチャージ】(3)。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_009.png"
+      },
+      "en": {
+        "number": "TD13/009EN",
+        "name": "Battle Maiden, Tatsutahime",
+        "text": "[AUTO]( RC) :[Counter-Blast 2] When an attack hits a vanguard during the battle that this unit boosted ([Boost] ) a ?Genesis?, you may pay the cost. If you do, [Soul-Charge 3] .",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/009", "TD13/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/009",
+          "fetchedAt": "2026-10-08T21:47:29.883Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/009EN",
+          "fetchedAt": "2026-10-08T21:47:50.645Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-010",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/010",
+        "name": "エクセステンス・エンジェル",
+        "text": "【自】【(R)】：このユニットが《ジェネシス》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、【ソウルチャージ】(1)してよい。",
+        "clan": "ジェネシス",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_010.png"
+      },
+      "en": {
+        "number": "TD13/010EN",
+        "name": "Existence Angel",
+        "text": "[AUTO]( RC) :When an attack hits a vanguard during the battle that this unit boosted ([Boost] ) a ?Genesis?, you may [Soul-Charge 1] .",
+        "clan": "Genesis",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/010", "TD13/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/010",
+          "fetchedAt": "2026-10-08T21:47:30.902Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/010EN",
+          "fetchedAt": "2026-10-08T21:47:51.806Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-011",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/011",
+        "name": "猫の魔女 クミン",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《ジェネシス》のヴァンガードがいるなら、【ソウルチャージ】(1)してよい。",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_011.png"
+      },
+      "en": {
+        "number": "TD13/011EN",
+        "name": "Witch of Cats, Cumin",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a ?Genesis? vanguard, you may [Soul-Charge 1] .",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/011", "TD13/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/011",
+          "fetchedAt": "2026-10-08T21:47:32.233Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/011EN",
+          "fetchedAt": "2026-10-08T21:47:52.731Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-012",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/012",
+        "name": "林檎の魔女 シードル",
+        "text": "【自】：このユニットが手札から(G)に登場した時、あなたのカード名に「神器」を含むヴァンガードを１枚選び、そのバトル中、『【自】【(V)】：あなたの《ジェネシス》のガーディアンがドロップゾーンに置かれた時、そのカードをソウルに置く。』を与える。",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_012.png"
+      },
+      "en": {
+        "number": "TD13/012EN",
+        "name": "Apple Witch, Cider",
+        "text": "[AUTO]:When this unit is placed on (GC) from your hand, choose your vanguard with \"Regalia\" in its card name, and until end of that battle, that unit gets \"[AUTO]( VC) :When your ?Genesis? guardian is put into the drop zone, put that card into your soul.\".",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/012", "TD13/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/012",
+          "fetchedAt": "2026-10-08T21:47:33.229Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/012EN",
+          "fetchedAt": "2026-10-08T21:47:53.743Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-013",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/013",
+        "name": "リフレクター・エンジェル",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_013.png"
+      },
+      "en": {
+        "number": "TD13/013EN",
+        "name": "Reflector Angel",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/013", "TD13/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/013",
+          "fetchedAt": "2026-10-08T21:47:34.556Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/013EN",
+          "fetchedAt": "2026-10-08T21:47:54.638Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-014",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/014",
+        "name": "檸檬の魔女 リモンチーノ",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_014.png"
+      },
+      "en": {
+        "number": "TD13/014EN",
+        "name": "Lemon Witch, Limonccino",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_014EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/014", "TD13/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/014",
+          "fetchedAt": "2026-10-08T21:47:36.330Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/014EN",
+          "fetchedAt": "2026-10-08T21:47:55.877Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-015",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/015",
+        "name": "バンデット・ダニー",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_015.png"
+      },
+      "en": {
+        "number": "TD13/015EN",
+        "name": "Bandit Danny",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/015", "TD13/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/015",
+          "fetchedAt": "2026-10-08T21:47:37.222Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/015EN",
+          "fetchedAt": "2026-10-08T21:47:57.059Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-016",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/016",
+        "name": "パトロール・ガーディアン",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_016.png"
+      },
+      "en": {
+        "number": "TD13/016EN",
+        "name": "Patrol Guardian",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/016", "TD13/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/016",
+          "fetchedAt": "2026-10-08T21:47:38.115Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/016EN",
+          "fetchedAt": "2026-10-08T21:47:58.282Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD13-017",
+      "set": "TD13",
+      "jp": {
+        "number": "TD13/017",
+        "name": "大鍋の魔女 ローリエ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ジェネシス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD13/td13_017.png"
+      },
+      "en": {
+        "number": "TD13/017EN",
+        "name": "Witch of Big Pots, Laurier",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Genesis",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td13/TD13_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD13/017", "TD13/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD13/017",
+          "fetchedAt": "2026-10-08T21:47:39.800Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD13/017EN",
+          "fetchedAt": "2026-10-08T21:47:59.250Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.13: Successor of the Sacred Regalia",
+    "cards": [
+      {
+        "id": "TD13-001",
+        "count": 1
+      },
+      {
+        "id": "TD13-002",
+        "count": 2
+      },
+      {
+        "id": "TD13-003",
+        "count": 4
+      },
+      {
+        "id": "TD13-004",
+        "count": 4
+      },
+      {
+        "id": "TD13-005",
+        "count": 2
+      },
+      {
+        "id": "TD13-006",
+        "count": 1
+      },
+      {
+        "id": "TD13-007",
+        "count": 4
+      },
+      {
+        "id": "TD13-008",
+        "count": 4
+      },
+      {
+        "id": "TD13-009",
+        "count": 2
+      },
+      {
+        "id": "TD13-010",
+        "count": 1
+      },
+      {
+        "id": "TD13-011",
+        "count": 4
+      },
+      {
+        "id": "TD13-012",
+        "count": 4
+      },
+      {
+        "id": "TD13-013",
+        "count": 1
+      },
+      {
+        "id": "TD13-014",
+        "count": 4
+      },
+      {
+        "id": "TD13-015",
+        "count": 4
+      },
+      {
+        "id": "TD13-016",
+        "count": 4
+      },
+      {
+        "id": "TD13-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td13/",
+      "fetchedAt": "2026-10-08T21:48:18.635Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

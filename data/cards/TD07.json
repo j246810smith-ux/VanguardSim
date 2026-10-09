@@ -1,0 +1,920 @@
+{
+  "set": "TD07",
+  "importedAt": "2026-10-08T21:53:59.400Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD07-001",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/001",
+        "name": "ネイブルゲイザー・ドラゴン",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)]そのターン中、このユニットのパワー＋3000し、『【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、そのターンで３回目以降のバトル中なら、あなたの《アクアフォース》のリアガードを２枚まで選び、【スタンド】する。』を得る。\n【自】【(V)】：このユニットがアタックした時、そのターンで３回目以降のバトル中なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_001.png"
+      },
+      "en": {
+        "number": "TD07/001EN",
+        "name": "Navalgazer Dragon",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2] Until end of turn, this unit gets [Power] +3000 and \"[AUTO](VC):When this unit's attack hits a vanguard, if it is the third battle of that turn or more, choose up to two of your <Aqua Force> rear-guards, and [Stand] them.\".\n[AUTO](VC):When this unit attacks, if it is the third battle of that turn or more, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/001", "TD07/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/001",
+          "fetchedAt": "2026-10-08T21:40:39.698Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/001EN",
+          "fetchedAt": "2026-10-08T21:41:04.047Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-002",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/002",
+        "name": "満潮の水将 クセノフォン",
+        "text": "【自】【(V)】：このユニットがアタックした時、そのターンで３回目以降のバトル中なら、そのバトル中、このユニットのパワー＋3000。\n【自】【(R)】：このユニットがアタックした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで３回目以降のバトル中なら、そのバトル中、このユニットのパワー＋1000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_002.png"
+      },
+      "en": {
+        "number": "TD07/002EN",
+        "name": "Marine General of the Full Tides, Xenophon",
+        "text": "[AUTO](VC):When this unit attacks, if it is the third battle of that turn or more, this unit gets [Power] +3000 until end of that battle.\n[AUTO](RC):When this unit attacks, if you have an <Aqua Force> vanguard, and if it is the third battle of that turn or more, this unit gets [Power] +1000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/002", "TD07/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/002",
+          "fetchedAt": "2026-10-08T21:40:41.944Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/002EN",
+          "fetchedAt": "2026-10-08T21:41:05.776Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-003",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/003",
+        "name": "要の碇 ダビド",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_003.png"
+      },
+      "en": {
+        "number": "TD07/003EN",
+        "name": "Key Anchor, Dabid",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/003", "TD07/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/003",
+          "fetchedAt": "2026-10-08T21:40:43.567Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/003EN",
+          "fetchedAt": "2026-10-08T21:41:07.139Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-004",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/004",
+        "name": "ティアーナイト ラザロス",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_004.png"
+      },
+      "en": {
+        "number": "TD07/004EN",
+        "name": "Tear Knight, Lazarus",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/004", "TD07/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/004",
+          "fetchedAt": "2026-10-08T21:40:45.338Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/004EN",
+          "fetchedAt": "2026-10-08T21:41:08.057Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 0 vs EN 5000"],
+        "reviewed": "The Japanese database lists Tear Knight, Lazarus with no shield; every grade 2 [Intercept] unit has 5000 (the English page shows 5000).",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "TD07-005",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/005",
+        "name": "潮騒の水将 アルゴス",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで４回目以降のバトル中なら、１枚引く。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_005.png"
+      },
+      "en": {
+        "number": "TD07/005EN",
+        "name": "Marine General of the Restless Tides, Algos",
+        "text": "[AUTO](VC/RC):When this unit's attack hits a vanguard, if you have an <Aqua Force> vanguard, and if it is the fourth battle of that turn or more, draw a card.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/005", "TD07/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/005",
+          "fetchedAt": "2026-10-08T21:40:46.307Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/005EN",
+          "fetchedAt": "2026-10-08T21:41:09.485Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-006",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/006",
+        "name": "コーラル・アサルト",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで３回目以降のバトル中なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_006.png"
+      },
+      "en": {
+        "number": "TD07/006EN",
+        "name": "Coral Assault",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have an <Aqua Force> vanguard, and if it is the third battle of that turn or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/006", "TD07/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/006",
+          "fetchedAt": "2026-10-08T21:40:48.006Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/006EN",
+          "fetchedAt": "2026-10-08T21:41:10.511Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-007",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/007",
+        "name": "無限海溝の巨人兵",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《アクアフォース》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "アクアフォース",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_007.png"
+      },
+      "en": {
+        "number": "TD07/007EN",
+        "name": "Titan of the Infinite Trench",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have an <Aqua Force> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/007", "TD07/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/007",
+          "fetchedAt": "2026-10-08T21:40:49.489Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/007EN",
+          "fetchedAt": "2026-10-08T21:41:11.412Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-008",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/008",
+        "name": "ティアーナイト テオ",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_008.png"
+      },
+      "en": {
+        "number": "TD07/008EN",
+        "name": "Tear Knight, Theo",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/008", "TD07/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/008",
+          "fetchedAt": "2026-10-08T21:40:50.438Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/008EN",
+          "fetchedAt": "2026-10-08T21:41:12.794Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-009",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/009",
+        "name": "ティアーナイト キプロス",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_009.png"
+      },
+      "en": {
+        "number": "TD07/009EN",
+        "name": "Tear Knight, Cyprus",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/009", "TD07/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/009",
+          "fetchedAt": "2026-10-08T21:40:51.868Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/009EN",
+          "fetchedAt": "2026-10-08T21:41:13.823Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-010",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/010",
+        "name": "アクセラレイテッド・コマンド",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《アクアフォース》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_010.png"
+      },
+      "en": {
+        "number": "TD07/010EN",
+        "name": "Accelerated Command",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Aqua Force>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/010", "TD07/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/010",
+          "fetchedAt": "2026-10-08T21:40:53.426Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/010EN",
+          "fetchedAt": "2026-10-08T21:41:15.059Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-011",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/011",
+        "name": "スプラッシュ・アサルト",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで３回目以降のバトル中なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_011.png"
+      },
+      "en": {
+        "number": "TD07/011EN",
+        "name": "Splash Assault",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have an <Aqua Force> vanguard, and if it is the third battle of that turn or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/s/td_07_011.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/011", "TD07/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/011",
+          "fetchedAt": "2026-10-08T21:40:54.353Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/011EN",
+          "fetchedAt": "2026-10-08T21:41:16.058Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-012",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/012",
+        "name": "戦場の歌姫 シンシア",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_012.png"
+      },
+      "en": {
+        "number": "TD07/012EN",
+        "name": "Battle Siren, Cynthia",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/012", "TD07/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/012",
+          "fetchedAt": "2026-10-08T21:40:55.688Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/012EN",
+          "fetchedAt": "2026-10-08T21:41:17.037Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-013",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/013",
+        "name": "戦場の歌姫 ドロテア",
+        "text": "【自】【(R)】：このユニットが《アクアフォース》のヴァンガードを【ブースト】した時、そのターンで３回目以降のバトル中なら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_013.png"
+      },
+      "en": {
+        "number": "TD07/013EN",
+        "name": "Battle Siren, Dorothea",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) an <Aqua Force> vanguard, if it is the third battle of that turn or more, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/013", "TD07/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/013",
+          "fetchedAt": "2026-10-08T21:40:56.740Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/013EN",
+          "fetchedAt": "2026-10-08T21:41:18.659Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-014",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/014",
+        "name": "初陣の士官候補生",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_014.png"
+      },
+      "en": {
+        "number": "TD07/014EN",
+        "name": "Officer Cadet of the First Battle",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/014", "TD07/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/014",
+          "fetchedAt": "2026-10-08T21:40:57.638Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/014EN",
+          "fetchedAt": "2026-10-08T21:41:19.565Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-015",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/015",
+        "name": "バトルシップ・インテリジェンス",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_015.png"
+      },
+      "en": {
+        "number": "TD07/015EN",
+        "name": "Battleship Intelligence",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/015", "TD07/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/015",
+          "fetchedAt": "2026-10-08T21:40:59.324Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/015EN",
+          "fetchedAt": "2026-10-08T21:41:20.719Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-016",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/016",
+        "name": "輝石通信のラッコ兵",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_016.png"
+      },
+      "en": {
+        "number": "TD07/016EN",
+        "name": "Pyroxene Communications Sea Otter Soldier",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/016", "TD07/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/016",
+          "fetchedAt": "2026-10-08T21:41:00.393Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/016EN",
+          "fetchedAt": "2026-10-08T21:41:22.223Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-017",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/017",
+        "name": "高速遊撃のイルカ兵",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_017.png"
+      },
+      "en": {
+        "number": "TD07/017EN",
+        "name": "Dolphin Soldier of High Speed Raids",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_017EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/017", "TD07/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/017",
+          "fetchedAt": "2026-10-08T21:41:01.453Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/017EN",
+          "fetchedAt": "2026-10-08T21:41:23.464Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD07-018",
+      "set": "TD07",
+      "jp": {
+        "number": "TD07/018",
+        "name": "虹色秘薬の医療士官",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD07/td07_018.png"
+      },
+      "en": {
+        "number": "TD07/018EN",
+        "name": "Medical Officer of the Rainbow Elixir",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/td07/TD07_018EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD07/018", "TD07/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD07/018",
+          "fetchedAt": "2026-10-08T21:41:02.670Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD07/018EN",
+          "fetchedAt": "2026-10-08T21:41:25.094Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.07: Descendants of the Marine Emperor",
+    "cards": [
+      {
+        "id": "TD07-001",
+        "count": 1
+      },
+      {
+        "id": "TD07-002",
+        "count": 2
+      },
+      {
+        "id": "TD07-003",
+        "count": 4
+      },
+      {
+        "id": "TD07-004",
+        "count": 4
+      },
+      {
+        "id": "TD07-005",
+        "count": 1
+      },
+      {
+        "id": "TD07-006",
+        "count": 2
+      },
+      {
+        "id": "TD07-007",
+        "count": 4
+      },
+      {
+        "id": "TD07-008",
+        "count": 4
+      },
+      {
+        "id": "TD07-009",
+        "count": 4
+      },
+      {
+        "id": "TD07-010",
+        "count": 2
+      },
+      {
+        "id": "TD07-011",
+        "count": 1
+      },
+      {
+        "id": "TD07-012",
+        "count": 2
+      },
+      {
+        "id": "TD07-013",
+        "count": 2
+      },
+      {
+        "id": "TD07-014",
+        "count": 1
+      },
+      {
+        "id": "TD07-015",
+        "count": 4
+      },
+      {
+        "id": "TD07-016",
+        "count": 4
+      },
+      {
+        "id": "TD07-017",
+        "count": 4
+      },
+      {
+        "id": "TD07-018",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td07/",
+      "fetchedAt": "2026-10-08T21:41:41.008Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

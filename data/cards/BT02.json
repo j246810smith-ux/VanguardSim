@@ -1,0 +1,3688 @@
+{
+  "set": "BT02",
+  "importedAt": "2026-10-08T16:57:25.157Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "BT02-001",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/001",
+        "name": "スカイダイバー",
+        "text": "【永】【(V)/(R)】：他のあなたの《スパイクブラザーズ》の、ヴァンガードかリアガードがいないなら、このユニットのパワー－2000。\n【自】【(R)】：[このユニットをソウルに置く]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、あなたの手札から《スパイクブラザーズ》を１枚まで選び、(R)にコールする。",
+        "clan": "スパイクブラザーズ",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_001.png"
+      },
+      "en": {
+        "number": "BT02/001EN",
+        "name": "Sky Diver",
+        "text": "[CONT](VC)/(RC):If you do not have another <Spike Brothers> vanguard or rear-guard, this unit gets [Power]-2000.\n[AUTO](RC):[Put this unit into your soul] When this unit's attack hits, you may pay the cost. If you do, choose up to one <Spike Brothers> from your hand, and call it to (RC).",
+        "clan": "Spike Brothers",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/001", "BT02/S01", "BT02/001EN", "BT02/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/001",
+          "fetchedAt": "2026-10-07T22:27:56.558Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/001EN",
+          "fetchedAt": "2026-10-07T22:32:22.041Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-002",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/002",
+        "name": "スピリットイクシード",
+        "text": "【起】【ドロップゾーン】：[あなたの(R)から、「サムライスピリット」と「ナイトスピリット」を１枚ずつ選び、ソウルに置く]あなたのグレード２以上のヴァンガードがいるなら、このカードをライドする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_002.png"
+      },
+      "en": {
+        "number": "BT02/002EN",
+        "name": "Spirit Exceed",
+        "text": "[ACT]Drop zone:[Choose a unit named \"Samurai Spirit\" and a unit named \"Knight Spirit\" from your (RC), and put them into your soul] If you have a grade 2 or greater vanguard, ride this card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/002", "BT02/S02", "BT02/002EN", "BT02/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/002",
+          "fetchedAt": "2026-10-07T22:28:02.337Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/002EN",
+          "fetchedAt": "2026-10-07T22:32:56.630Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-003",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/003",
+        "name": "ルイン・シェイド",
+        "text": "【自】【(V)/(R)】：[あなたの山札の上から２枚をドロップゾーンに置く]このユニットがアタックした時、あなたの《グランブルー》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_003.png"
+      },
+      "en": {
+        "number": "BT02/003EN",
+        "name": "Ruin Shade",
+        "text": "[AUTO](VC)/(RC):[Put two cards from the top of your deck into your drop zone] When this unit attacks, if you have a <Granblue> vanguard, you may pay the cost. If you do, this unit gets [Power]+2000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/003", "BT02/S03", "BT02/003EN", "BT02/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/003",
+          "fetchedAt": "2026-10-07T22:28:04.281Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/003EN",
+          "fetchedAt": "2026-10-07T22:32:58.012Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-004",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/004",
+        "name": "ソウルセイバー・ドラゴン",
+        "text": "【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。\n【自】：[【ソウルブラスト】(5)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの《ロイヤルパラディン》のリアガードを３枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_004.png"
+      },
+      "en": {
+        "number": "BT02/004EN",
+        "name": "Soul Saver Dragon",
+        "text": "[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power]+3000 until end of that battle.\n[AUTO]:[Soul-Blast 5] When this unit is placed on (VC), you may pay the cost. If you do, choose up to three of your <Royal Paladin> rear-guards, and those units get [Power]+5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/004", "BT02/S04", "BT02/004EN", "BT02/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/004",
+          "fetchedAt": "2026-10-07T22:28:08.160Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/004EN",
+          "fetchedAt": "2026-10-07T22:32:59.412Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-005",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/005",
+        "name": "ブレイジングフレア・ドラゴン",
+        "text": "【自】【(V)/(R)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。\n【起】【(V)】：[【ソウルブラスト】(5)]相手のリアガードを１枚選び、退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_005.png"
+      },
+      "en": {
+        "number": "BT02/005EN",
+        "name": "Blazing Flare Dragon",
+        "text": "[AUTO](VC)/(RC):During your main phase, when an opponent's rear-guard is put into the drop zone, this unit gets [Power]+3000 until end of turn.\n[ACT](VC):[Soul-Blast 5] Choose one of your opponent's rear-guards, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/005", "BT02/S05", "BT02/005EN", "BT02/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/005",
+          "fetchedAt": "2026-10-07T22:28:09.948Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/005EN",
+          "fetchedAt": "2026-10-07T22:33:00.370Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-006",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/006",
+        "name": "封竜 ブロケード",
+        "text": "【永】【(V)】：あなたのターン中、相手のユニットすべては、【インターセプト】できない。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_006.png"
+      },
+      "en": {
+        "number": "BT02/006EN",
+        "name": "Seal Dragon, Blockade",
+        "text": "[CONT](VC):During your turn, your opponent's units cannot intercept ([Intercept]).",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/006", "BT02/S06", "BT02/006EN", "BT02/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/006",
+          "fetchedAt": "2026-10-07T22:28:11.219Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/006EN",
+          "fetchedAt": "2026-10-07T22:33:01.549Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-007",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/007",
+        "name": "スカーレットウィッチ ココ",
+        "text": "【永】【(V)】：あなたのターン中、あなたのソウルにカードがないなら、このユニットのパワー＋3000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、あなたのソウルが１枚以下なら、コストを払ってよい。払ったら、２枚まで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_007.png"
+      },
+      "en": {
+        "number": "BT02/007EN",
+        "name": "Scarlet Witch, CoCo",
+        "text": "[CONT](VC):During your turn, if you do not have any cards in your soul, this unit gets [Power]+3000.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), if the number of cards in your soul is one or less, you may pay the cost. If you do, draw up to two cards.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/007", "BT02/S07", "BT02/007EN", "BT02/S07EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/007",
+          "fetchedAt": "2026-10-07T22:28:12.770Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/007EN",
+          "fetchedAt": "2026-10-07T22:33:02.681Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-008",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/008",
+        "name": "ライオン・ヒート",
+        "text": "【自】【(V)】：[【カウンターブラスト】(2)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。\n【自】【(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたのグレード１以下の《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_008.png"
+      },
+      "en": {
+        "number": "BT02/008EN",
+        "name": "Lion Heat",
+        "text": "[AUTO](VC):[Counter-Blast 2] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your <Nova Grappler> rear-guards, and [Stand] it.\n[AUTO](RC):[Counter-Blast 2] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your grade 1 or less <Nova Grappler> rear-guards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT02/008", "BT02/S08", "BT02/008EN", "BT02/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/008",
+          "fetchedAt": "2026-10-07T22:28:13.700Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/008EN",
+          "fetchedAt": "2026-10-07T22:33:03.848Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-009",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/009",
+        "name": "将軍 ザイフリート",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《スパイクブラザーズ》がでた時、そのカードをユニットのいない(R)にコールしてよい。\n【自】【(V)】：このユニットが《スパイクブラザーズ》に【ブースト】された時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "スパイクブラザーズ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_009.png"
+      },
+      "en": {
+        "number": "BT02/009EN",
+        "name": "General Seifried",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <Spike Brothers>, you may call that card to an open (RC).\n[AUTO](VC):When this unit is boosted ([Boost]) by a <Spike Brothers>, this unit gets [Power]+3000 until end of that battle.",
+        "clan": "Spike Brothers",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/009", "BT02/S09", "BT02/009EN", "BT02/S09EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/009",
+          "fetchedAt": "2026-10-07T22:28:14.640Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/009EN",
+          "fetchedAt": "2026-10-07T22:33:04.818Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-010",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/010",
+        "name": "チアガール マリリン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《スパイクブラザーズ》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、あなたの《スパイクブラザーズ》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "スパイクブラザーズ",
+        "race": "サキュバス",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_010_2.png"
+      },
+      "en": {
+        "number": "BT02/010EN",
+        "name": "Cheer Girl, Marilyn",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Spike Brothers> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Spike Brothers> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Spike Brothers",
+        "race": "Succubus",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT02/010", "BT02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/010",
+          "fetchedAt": "2026-10-07T22:28:15.942Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/010EN",
+          "fetchedAt": "2026-10-07T22:33:06.357Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-011",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/011",
+        "name": "魔の海域の王 バスカーク",
+        "text": "【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、そのターン中、このユニットのパワー＋2000。\n【起】【(V)/(R)】：[【ソウルブラスト】(8)，【カウンターブラスト】(5)]あなたのドロップゾーンから《グランブルー》を５枚まで選び、別々の(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "ギルマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_011.png"
+      },
+      "en": {
+        "number": "BT02/011EN",
+        "name": "King of Demonic Seas, Basskirk",
+        "text": "[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1], and this unit gets [Power]+2000 until end of turn.\n[ACT](VC)/(RC):[Soul-Blast 8 & Counter-Blast 5] Choose up to five <Granblue> from your drop zone, and call them to separate (RC).",
+        "clan": "Granblue",
+        "race": "Gillman",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/011", "BT02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/011",
+          "fetchedAt": "2026-10-07T22:28:17.521Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/011EN",
+          "fetchedAt": "2026-10-07T22:33:07.309Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-012",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/012",
+        "name": "深淵の呪術師 ネグロマール",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、あなたの《グランブルー》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのドロップゾーンから１枚選び、(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_012.png"
+      },
+      "en": {
+        "number": "BT02/012EN",
+        "name": "Witch Doctor of the Abyss, Negromarl",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a <Granblue> vanguard, you may pay the cost. If you do, choose a card from your drop zone, and call it to (RC).",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 8000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/012", "BT02/S10", "BT02/012EN", "BT02/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/012",
+          "fetchedAt": "2026-10-07T22:28:18.902Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/012EN",
+          "fetchedAt": "2026-10-07T22:33:08.544Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-013",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/013",
+        "name": "キャプテン・ナイトミスト",
+        "text": "【永】【(V)】：あなたのターン中、あなたのドロップゾーンに「キャプテン・ナイトミスト」があるなら、このユニットのパワー＋3000。\n【起】【ドロップゾーン】：[【カウンターブラスト】(1)，あなたのグレード１以上の《グランブルー》のリアガードを１枚選び、退却させる]あなたの《グランブルー》のヴァンガードがいるなら、このカードを(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_013.png"
+      },
+      "en": {
+        "number": "BT02/013EN",
+        "name": "Captain Nightmist",
+        "text": "[CONT](VC):During your turn, if you have a card named \"Captain Nightmist\" in your drop zone, this unit gets [Power]+3000.\n[ACT]Drop zone:[Counter-Blast 1 & Choose one of your grade 1 or greater <Granblue> rear-guards, and retire it] If you have a <Granblue> vanguard, call this card to (RC).",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/013", "BT02/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/013",
+          "fetchedAt": "2026-10-07T22:28:19.839Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/013EN",
+          "fetchedAt": "2026-10-07T22:33:09.870Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-014",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/014",
+        "name": "突風のジン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《グランブルー》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、あなたの《グランブルー》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_014_2.png"
+      },
+      "en": {
+        "number": "BT02/014EN",
+        "name": "Gust Jinn",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Granblue> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Granblue> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT02/014", "BT02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/014",
+          "fetchedAt": "2026-10-07T22:28:25.969Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/014EN",
+          "fetchedAt": "2026-10-07T22:33:12.292Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-015",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/015",
+        "name": "若年のペガサスナイト",
+        "text": "【自】【(R)】：あなたのメインフェイズ中、あなたのカードがソウルに置かれた時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_015.png"
+      },
+      "en": {
+        "number": "BT02/015EN",
+        "name": "Young Pegasus Knight",
+        "text": "[AUTO](RC):During your main phase, when a card is put into your soul, if you have a <Royal Paladin> vanguard, this unit gets [Power]+3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_015EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/015", "BT02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/015",
+          "fetchedAt": "2026-10-07T22:28:27.663Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/015EN",
+          "fetchedAt": "2026-10-07T22:33:13.570Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-016",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/016",
+        "name": "連撃のサザーランド",
+        "text": "【自】【(V)/(R)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_016.png"
+      },
+      "en": {
+        "number": "BT02/016EN",
+        "name": "Chain-attack Sutherland",
+        "text": "[AUTO](VC)/(RC):During your main phase, when an opponent's rear-guard is put into the drop zone, this unit gets [Power]+3000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_016EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/016", "BT02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/016",
+          "fetchedAt": "2026-10-07T22:28:28.677Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/016EN",
+          "fetchedAt": "2026-10-07T22:33:14.811Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-017",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/017",
+        "name": "サイレント・トム",
+        "text": "【永】【(V)/(R)】：このユニットがアタックしたバトル中、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、相手はグレード０のユニットを(G)にノーマルコールできない。",
+        "clan": "オラクルシンクタンク",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_017.png"
+      },
+      "en": {
+        "number": "BT02/017EN",
+        "name": "Silent Tom",
+        "text": "[CONT](VC)/(RC):During the battle that this unit attacks, if you have an <Oracle Think Tank>vanguard, your opponent cannot normal call grade 0 units to (GC).",
+        "clan": "Oracle Think Tank",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_017EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/017", "BT02/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/017",
+          "fetchedAt": "2026-10-07T22:28:32.431Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/017EN",
+          "fetchedAt": "2026-10-07T22:33:15.984Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-018",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/018",
+        "name": "マジシャンガール キララ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_018.png"
+      },
+      "en": {
+        "number": "BT02/018EN",
+        "name": "Magician Girl, Kirara",
+        "text": "[AUTO](VC)/(RC):[Counter-Blast 2] When this unit's attack hits, if you have a <Nova Grappler> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_018EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/018", "BT02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/018",
+          "fetchedAt": "2026-10-07T22:28:34.006Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/018EN",
+          "fetchedAt": "2026-10-07T22:33:17.282Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-019",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/019",
+        "name": "ツイン・ブレーダー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ノヴァグラップラー》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、あなたの《ノヴァグラップラー》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_019_2.png"
+      },
+      "en": {
+        "number": "BT02/019EN",
+        "name": "Twin Blader",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Nova Grappler> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Nova Grappler> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_019EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT02/019", "BT02/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/019",
+          "fetchedAt": "2026-10-07T22:28:36.116Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/019EN",
+          "fetchedAt": "2026-10-07T22:33:18.717Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-020",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/020",
+        "name": "トップアイドル フローレス",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_020.png"
+      },
+      "en": {
+        "number": "BT02/020EN",
+        "name": "Top Idol, Flores",
+        "text": "[AUTO](VC)/(RC):[Soul-Blast 2] When this unit's attack hits, you may pay the cost. If you do, choose one of your <Bermuda Triangle> rear-guards, and return it to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_020EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT02/020", "BT02/S11", "BT02/020EN", "BT02/S11EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/020",
+          "fetchedAt": "2026-10-07T22:28:37.060Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/020EN",
+          "fetchedAt": "2026-10-07T22:33:19.694Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-021",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/021",
+        "name": "ユナイト・アタッカー",
+        "text": "【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、そのターン中、このユニットのパワー＋2000。\n【自】【(V)/(R)】：[【ソウルブラスト】(8)，【カウンターブラスト】(5)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、あなたの山札の上から５枚まで見て、その中から《スパイクブラザーズ》を好きな枚数選び、別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_021.png"
+      },
+      "en": {
+        "number": "BT02/021EN",
+        "name": "Unite Attacker",
+        "text": "[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1], and this unit gets [Power]+2000 until end of turn.\n[AUTO](VC)/(RC):[Soul-Blast 8 & Counter-Blast 5] When this unit's attack hits, you may pay the cost. If you do, look at up to five cards from the top of your deck, choose any number of <Spike Brothers> from among them, call the chosen cards to separate (RC), and shuffle your deck.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_021EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/021", "BT02/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/021",
+          "fetchedAt": "2026-10-07T22:28:37.960Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/021EN",
+          "fetchedAt": "2026-10-07T22:33:21.046Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-022",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/022",
+        "name": "至宝 ブラックパンサー",
+        "text": "",
+        "clan": "スパイクブラザーズ",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_022.png"
+      },
+      "en": {
+        "number": "BT02/022EN",
+        "name": "Treasured, Black Panther",
+        "text": "",
+        "clan": "Spike Brothers",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_022EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/022", "BT02/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/022",
+          "fetchedAt": "2026-10-07T22:28:38.982Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/022EN",
+          "fetchedAt": "2026-10-07T22:33:22.220Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-023",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/023",
+        "name": "ダッドリー・ダン",
+        "text": "【自】【(R)】：[【カウンターブラスト】(2)，あなたの手札から《スパイクブラザーズ》を１枚選び、ソウルに置く]このユニットがヴァンガードを【ブースト】した時、コストを払ってよい。払ったら、あなたの山札から《スパイクブラザーズ》を１枚まで探し、ユニットのいない(R)にコールし、その山札をシャッフルする。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_023.png"
+      },
+      "en": {
+        "number": "BT02/023EN",
+        "name": "Dudley Dan",
+        "text": "[AUTO](RC):[Counter-Blast 2 & Choose a <Spike Brothers> from your hand, and put it into your soul] When this unit boosts ([Boost]) a vanguard, you may pay the cost. If you do, search your deck for up to one <Spike Brothers>, call it to an open (RC), and shuffle your deck.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_023EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/023", "BT02/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/023",
+          "fetchedAt": "2026-10-07T22:28:39.974Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/023EN",
+          "fetchedAt": "2026-10-07T22:33:23.214Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-024",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/024",
+        "name": "メカ・トレーナー",
+        "text": "【自】：他の《スパイクブラザーズ》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットを退却させる]あなたの山札からグレード１以下の《スパイクブラザーズ》を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "スパイクブラザーズ",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_0024.png"
+      },
+      "en": {
+        "number": "BT02/024EN",
+        "name": "Mecha Trainer",
+        "text": "[AUTO](VC):When another <Spike Brothers> rides this unit, you may call this card to (RC).\n[ACT](RC):[Counter-Blast 1 & Retire this unit] Search your deck for up to one grade 1 or less <Spike Brothers>, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Spike Brothers",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_024EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/024", "BT02/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/024",
+          "fetchedAt": "2026-10-07T22:28:42.587Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/024EN",
+          "fetchedAt": "2026-10-07T22:33:24.366Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-025",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/025",
+        "name": "ダンシング・カットラス",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《グランブルー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_025.png"
+      },
+      "en": {
+        "number": "BT02/025EN",
+        "name": "Dancing Cutlass",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a <Granblue> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_025EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/025", "BT02/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/025",
+          "fetchedAt": "2026-10-07T22:28:43.984Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/025EN",
+          "fetchedAt": "2026-10-07T22:33:25.495Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-026",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/026",
+        "name": "お化けのちゃっぴー",
+        "text": "【自】：このユニットが(G)に登場した時、あなたの山札から《グランブルー》を１枚まで探し、ドロップゾーンに置き、その山札をシャッフルする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_026.png"
+      },
+      "en": {
+        "number": "BT02/026EN",
+        "name": "Chappie the Ghostie",
+        "text": "[AUTO]: When this unit is placed on (GC), search your deck for up to one <Granblue>, put it into your drop zone, and shuffle your deck.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_026EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/026", "BT02/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/026",
+          "fetchedAt": "2026-10-07T22:28:46.323Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/026EN",
+          "fetchedAt": "2026-10-07T22:33:26.988Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-027",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/027",
+        "name": "ギガンテック・チャージャー",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上を公開する。そのカードが《ロイヤルパラディン》なら、そのカードを(R)にコールし、違うなら、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_027.png"
+      },
+      "en": {
+        "number": "BT02/027EN",
+        "name": "Gigantech Charger",
+        "text": "[AUTO]: When this unit is placed on (VC) or (RC), reveal the top card of your deck. If the revealed card is a <Royal Paladin>, call it to (RC), and if it is not, shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_027EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/027", "BT02/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/027",
+          "fetchedAt": "2026-10-07T22:28:47.498Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/027EN",
+          "fetchedAt": "2026-10-07T22:33:28.193Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-028",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/028",
+        "name": "大いなる賢者 バロン",
+        "text": "【自】【(R)】：あなたのメインフェイズ中、あなたのカードがソウルに置かれた時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_028.png"
+      },
+      "en": {
+        "number": "BT02/028EN",
+        "name": "Great Sage, Barron",
+        "text": "[AUTO](RC):During your main phase, when a card is put into your soul, if you have a <Royal Paladin> vanguard, this unit gets [Power]+3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_028EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/028", "BT02/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/028",
+          "fetchedAt": "2026-10-07T22:28:49.346Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/028EN",
+          "fetchedAt": "2026-10-07T22:33:29.581Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-029",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/029",
+        "name": "ハイドッグブリーダー アカネ",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から《ロイヤルパラディン》の〈ハイビースト〉を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_029.png"
+      },
+      "en": {
+        "number": "BT02/029EN",
+        "name": "High Dog Breeder, Akane",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), you may pay the cost. If you do, search your deck for up to one <Royal Paladin> <High Beast>, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_029EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/029", "BT02/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/029",
+          "fetchedAt": "2026-10-07T22:28:51.058Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/029EN",
+          "fetchedAt": "2026-10-07T22:33:30.951Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-030",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/030",
+        "name": "ぽーんがる",
+        "text": "【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの《ロイヤルパラディン》のヴァンガードがいるなら、あなたの山札から「ソウルセイバー・ドラゴン」を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_030.png"
+      },
+      "en": {
+        "number": "BT02/030EN",
+        "name": "Pongal",
+        "text": "[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a <Royal Paladin> vanguard, search your deck for up to one card named \"Soul Saver Dragon\", reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_030EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/030", "BT02/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/030",
+          "fetchedAt": "2026-10-07T22:28:54.224Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/030EN",
+          "fetchedAt": "2026-10-07T22:33:32.989Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-031",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/031",
+        "name": "ブレイジングコア・ドラゴン",
+        "text": "【起】【(V)】：[【カウンターブラスト】(1)，あなたの(R)から、「アイアンテイル・ドラゴン」と「ガトリングクロー・ドラゴン」を１枚ずつ選び、ソウルに置く]あなたの山札から「ブレイジングフレア・ドラゴン」を１枚まで探し、ライドし、その山札をシャッフルする。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_031.png"
+      },
+      "en": {
+        "number": "BT02/031EN",
+        "name": "Blazing Core Dragon",
+        "text": "[ACT](VC):[Counter-Blast 1 & Choose a unit named \"Iron Tail Dragon\" and a unit named \"Gattling Claw Dragon\" from your (RC), and put them into your soul] Search your deck for up to one card named \"Blazing Flare Dragon\", ride it, and shuffle your deck.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_031EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/031", "BT02/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/031",
+          "fetchedAt": "2026-10-07T22:28:55.514Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/031EN",
+          "fetchedAt": "2026-10-07T22:33:34.209Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-032",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/032",
+        "name": "魔竜導師 キンナラ",
+        "text": "【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの《かげろう》のヴァンガードがいるなら、相手のグレード１のリアガードを１枚まで選び、退却させる。",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_032.png"
+      },
+      "en": {
+        "number": "BT02/032EN",
+        "name": "Demonic Dragon Mage, Kimnara",
+        "text": "[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a <Kagero> vanguard, choose up to one of your opponent's grade 1 rear-guards, and retire it.",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_032EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/032", "BT02/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/032",
+          "fetchedAt": "2026-10-07T22:28:59.550Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/032EN",
+          "fetchedAt": "2026-10-07T22:33:35.714Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-033",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/033",
+        "name": "ラック・バード",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_033.png"
+      },
+      "en": {
+        "number": "BT02/033EN",
+        "name": "Luck Bird",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have an <Oracle Think Tank>vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_033EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/033", "BT02/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/033",
+          "fetchedAt": "2026-10-07T22:29:00.880Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/033EN",
+          "fetchedAt": "2026-10-07T22:33:37.093Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-034",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/034",
+        "name": "翼竜 スカイプテラ",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)からドロップゾーンに置かれた時、あなたの《たちかぜ》のヴァンガードがいるなら、コストを払ってよい。払ったら、このカードを手札に戻す。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_034.png"
+      },
+      "en": {
+        "number": "BT02/034EN",
+        "name": "Winged Dragon, Skyptero",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is put into the drop zone from (RC), if you have a <Tachikaze> vanguard, you may pay the cost. If you do, return this card to your hand.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_034EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/034", "BT02/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/034",
+          "fetchedAt": "2026-10-07T22:29:02.581Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/034EN",
+          "fetchedAt": "2026-10-07T22:33:38.534Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-035",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/035",
+        "name": "ドラゴンエッグ",
+        "text": "【自】：他の《たちかぜ》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】：[【カウンターブラスト】(1)]このユニットが(R)からドロップゾーンに置かれた時、あなたの《たちかぜ》のヴァンガードがいるなら、コストを払ってよい。払ったら、このカードを手札に戻す。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_0035.png"
+      },
+      "en": {
+        "number": "BT02/035EN",
+        "name": "Dragon Egg",
+        "text": "[AUTO](VC):When another <Tachikaze> rides this unit, you may call this card to (RC).\n[AUTO]:[Counter-Blast 1] When this unit is put into the drop zone from (RC), if you have a <Tachikaze> vanguard, you may pay the cost. If you do, return this card to your hand.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_035EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/035", "BT02/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/035",
+          "fetchedAt": "2026-10-07T22:29:03.512Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/035EN",
+          "fetchedAt": "2026-10-07T22:33:39.463Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-036",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/036",
+        "name": "トップアイドル アクア",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_036.png"
+      },
+      "en": {
+        "number": "BT02/036EN",
+        "name": "Top Idol, Aqua",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_036EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/036", "BT02/S12", "BT02/036EN", "BT02/S12EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/036",
+          "fetchedAt": "2026-10-07T22:29:05.054Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/036EN",
+          "fetchedAt": "2026-10-07T22:33:40.406Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-037",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/037",
+        "name": "バミューダ△候補生 キャラベル",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《バミューダ△》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_037.png"
+      },
+      "en": {
+        "number": "BT02/037EN",
+        "name": "Bermuda Triangle Cadet, Caravel",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a <Bermuda Triangle> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_037EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/037", "BT02/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/037",
+          "fetchedAt": "2026-10-07T22:29:06.366Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/037EN",
+          "fetchedAt": "2026-10-07T22:33:41.665Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-038",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/038",
+        "name": "マスター・フロード",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(3)]このユニットのアタックがヒットした時、あなたの《メガコロニー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。\n【自】【(V)】：このユニットが《メガコロニー》に【ブースト】された時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_038.png"
+      },
+      "en": {
+        "number": "BT02/038EN",
+        "name": "Master Fraude",
+        "text": "[AUTO](VC)/(RC):[Soul-Blast 3] When this unit's attack hits, if you have a <Megacolony> vanguard, you may pay the cost. If you do, draw a card.\n[AUTO](VC):When this unit is boosted ([Boost]) by a <Megacolony>, this unit gets [Power]+3000 until end of that battle.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_038EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/038", "BT02/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/038",
+          "fetchedAt": "2026-10-07T22:29:07.896Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/038EN",
+          "fetchedAt": "2026-10-07T22:33:42.828Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-039",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/039",
+        "name": "科学者 モンキー・ルー",
+        "text": "【起】【(V)/(R)】：[カウンターブラスト(2)]あなたの《グレートネイチャー》のリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンのエンドフェイズ開始時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_039.png"
+      },
+      "en": {
+        "number": "BT02/039EN",
+        "name": "Scientist Monkey Rue",
+        "text": "[ACT](VC)/(RC):[Counter-Blast 2] Choose one of your <Great Nature> rear-guards, and that unit gets [Power]+4000 until end of turn, and at the beginning of the end phase of that turn, retire that unit.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_039EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/039", "BT02/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/039",
+          "fetchedAt": "2026-10-07T22:29:08.818Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/039EN",
+          "fetchedAt": "2026-10-07T22:33:43.987Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-040",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/040",
+        "name": "ジオグラフ・ジャイアント",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_040.png"
+      },
+      "en": {
+        "number": "BT02/040EN",
+        "name": "Geograph Giant",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_040EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT02/040", "BT02/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/040",
+          "fetchedAt": "2026-10-07T22:29:09.844Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/040EN",
+          "fetchedAt": "2026-10-07T22:33:44.885Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-041",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/041",
+        "name": "パンツァー・ゲイル",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《スパイクブラザーズ》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_041.png"
+      },
+      "en": {
+        "number": "BT02/041EN",
+        "name": "Panzer Gale",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Spike Brothers> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_041EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/041", "BT02/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/041",
+          "fetchedAt": "2026-10-07T22:29:10.938Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/041EN",
+          "fetchedAt": "2026-10-07T22:33:45.783Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-042",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/042",
+        "name": "デビル・サモナー",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上を公開する。そのカードがグレード１かグレード２の、《スパイクブラザーズ》なら、そのカードを(R)にコールし、違うなら、その山札をシャッフルする。",
+        "clan": "スパイクブラザーズ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_042.png"
+      },
+      "en": {
+        "number": "BT02/042EN",
+        "name": "Devil Summoner",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), reveal the top card of your deck. If the revealed card is a grade 1 or 2 <Spike Brothers>, call it to (RC), and if it is not, shuffle your deck.",
+        "clan": "Spike Brothers",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_042EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/042", "BT02/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/042",
+          "fetchedAt": "2026-10-07T22:29:13.089Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/042EN",
+          "fetchedAt": "2026-10-07T22:33:46.939Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-043",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/043",
+        "name": "サイクロン・ブリッツ",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(1)]このユニットがアタックした時、あなたの《スパイクブラザーズ》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_043.png"
+      },
+      "en": {
+        "number": "BT02/043EN",
+        "name": "Cyclone Blitz",
+        "text": "[AUTO](VC)/(RC):[Soul-Blast 1] When this unit attacks, if you have a <Spike Brothers> vanguard, you may pay the cost. If you do, this unit gets [Power]+3000 until end of that battle.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_043EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/043", "BT02/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/043",
+          "fetchedAt": "2026-10-07T22:29:14.024Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/043EN",
+          "fetchedAt": "2026-10-07T22:33:47.989Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-044",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/044",
+        "name": "スパイクブラザーズ突撃部隊",
+        "text": "【自】【(R)】：このユニットが《スパイクブラザーズ》を【ブースト】したバトル中、アタックがヒットした時、このユニットを【スタンド】する。",
+        "clan": "スパイクブラザーズ",
+        "race": "ゴブリン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_044.png"
+      },
+      "en": {
+        "number": "BT02/044EN",
+        "name": "Spike Brothers Assault Squad",
+        "text": "[AUTO](RC):When an attack hits during the battle that this unit boosted ([Boost]) a <Spike Brothers>, [Stand] this unit.",
+        "clan": "Spike Brothers",
+        "race": "Goblin",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_044EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/044", "BT02/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/044",
+          "fetchedAt": "2026-10-07T22:29:15.368Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/044EN",
+          "fetchedAt": "2026-10-07T22:33:48.881Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-045",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/045",
+        "name": "ソニック・ブレイカー",
+        "text": "",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_045.png"
+      },
+      "en": {
+        "number": "BT02/045EN",
+        "name": "Sonic Breaker",
+        "text": "",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_045EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/045", "BT02/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/045",
+          "fetchedAt": "2026-10-07T22:29:17.463Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/045EN",
+          "fetchedAt": "2026-10-07T22:33:50.123Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-046",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/046",
+        "name": "陽気なリンクス",
+        "text": "",
+        "clan": "スパイクブラザーズ",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_046.png"
+      },
+      "en": {
+        "number": "BT02/046EN",
+        "name": "Cheerful Lynx",
+        "text": "",
+        "clan": "Spike Brothers",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_046EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/046", "BT02/046EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/046",
+          "fetchedAt": "2026-10-07T22:29:19.949Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/046EN",
+          "fetchedAt": "2026-10-07T22:33:51.292Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-047",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/047",
+        "name": "チアガール ティアラ",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "スパイクブラザーズ",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_047.png"
+      },
+      "en": {
+        "number": "BT02/047EN",
+        "name": "Cheer Girl, Tiara",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Spike Brothers",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_047EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/047", "BT02/047EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/047",
+          "fetchedAt": "2026-10-07T22:29:22.022Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/047EN",
+          "fetchedAt": "2026-10-07T22:33:52.647Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-048",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/048",
+        "name": "サイレンス・ジョーカー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《スパイクブラザーズ》のヴァンガードがいるなら、あなたのダメージゾーンから１枚まで選び、表にする。",
+        "clan": "スパイクブラザーズ",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_048.png"
+      },
+      "en": {
+        "number": "BT02/048EN",
+        "name": "Silence Joker",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have a <Spike Brothers> vanguard, choose up to one card from your damage zone, and turn it face up.",
+        "clan": "Spike Brothers",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_048EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/048", "BT02/048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/048",
+          "fetchedAt": "2026-10-07T22:29:24.523Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/048EN",
+          "fetchedAt": "2026-10-07T22:33:53.668Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-049",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/049",
+        "name": "スケルトンの剣士",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《グランブルー》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_049.png"
+      },
+      "en": {
+        "number": "BT02/049EN",
+        "name": "Skeleton Swordsman",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Granblue> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_049EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/049", "BT02/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/049",
+          "fetchedAt": "2026-10-07T22:29:25.420Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/049EN",
+          "fetchedAt": "2026-10-07T22:33:54.872Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-050",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/050",
+        "name": "サムライスピリット",
+        "text": "【起】【ドロップゾーン】：[【カウンターブラスト】(1)，あなたの《グランブルー》のリアガードを１枚選び、退却させる]あなたの《グランブルー》のヴァンガードがいるなら、このカードを(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_050.png"
+      },
+      "en": {
+        "number": "BT02/050EN",
+        "name": "Samurai Spirit",
+        "text": "[ACT]Drop zone:[Counter-Blast 1 & Choose one of your <Granblue> rear-guards, and retire it] If you have a <Granblue> vanguard, call this card to (RC).",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_050EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/050", "BT02/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/050",
+          "fetchedAt": "2026-10-07T22:29:26.747Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/050EN",
+          "fetchedAt": "2026-10-07T22:33:55.799Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-051",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/051",
+        "name": "イービル・シェイド",
+        "text": "【自】【(R)】：[あなたの山札の上から２枚をドロップゾーンに置く]このユニットが《グランブルー》のヴァンガードを【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_051.png"
+      },
+      "en": {
+        "number": "BT02/051EN",
+        "name": "Evil Shade",
+        "text": "[AUTO](RC):[Put two cards from the top of your deck into your drop zone] When this unit boosts ([Boost]) a <Granblue> vanguard, you may pay the cost. If you do, the boosted ([Boost]) unit gets [Power]+4000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_051EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/051", "BT02/051EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/051",
+          "fetchedAt": "2026-10-07T22:29:28.690Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/051EN",
+          "fetchedAt": "2026-10-07T22:33:57.313Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-052",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/052",
+        "name": "ナイトスピリット",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_052.png"
+      },
+      "en": {
+        "number": "BT02/052EN",
+        "name": "Knight Spirit",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_052EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/052", "BT02/052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/052",
+          "fetchedAt": "2026-10-07T22:29:31.095Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/052EN",
+          "fetchedAt": "2026-10-07T22:33:58.728Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-053",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/053",
+        "name": "スケルトンの見張り番",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_053.png"
+      },
+      "en": {
+        "number": "BT02/053EN",
+        "name": "Skeleton Lookout",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_053EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/053", "BT02/053EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/053",
+          "fetchedAt": "2026-10-07T22:29:32.447Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/053EN",
+          "fetchedAt": "2026-10-07T22:33:59.564Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-054",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/054",
+        "name": "お化けのりっく",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_054.png"
+      },
+      "en": {
+        "number": "BT02/054EN",
+        "name": "Rick the Ghostie",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_054EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/054", "BT02/054EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/054",
+          "fetchedAt": "2026-10-07T22:29:34.209Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/054EN",
+          "fetchedAt": "2026-10-07T22:34:00.493Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-055",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/055",
+        "name": "荒海のバンシー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《グランブルー》のヴァンガードがいるなら、１枚まで引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_055.png"
+      },
+      "en": {
+        "number": "BT02/055EN",
+        "name": "Rough Seas Banshee",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have a <Granblue> vanguard, draw up to one card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_055EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/055", "BT02/055EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/055",
+          "fetchedAt": "2026-10-07T22:29:36.482Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/055EN",
+          "fetchedAt": "2026-10-07T22:34:02.008Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-056",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/056",
+        "name": "真理の騎士 ゴードン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_056.png"
+      },
+      "en": {
+        "number": "BT02/056EN",
+        "name": "Knight of Truth, Gordon",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Royal Paladin> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_056EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/056", "BT02/056EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/056",
+          "fetchedAt": "2026-10-07T22:29:38.563Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/056EN",
+          "fetchedAt": "2026-10-07T22:34:03.115Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-057",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/057",
+        "name": "魂を導くエルフ",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_057.png"
+      },
+      "en": {
+        "number": "BT02/057EN",
+        "name": "Soul Guiding Elf",
+        "text": "[ACT](VC)/(RC):[Counter-Blast 1] This unit gets [Power]+1000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_057EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/057", "BT02/057EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/057",
+          "fetchedAt": "2026-10-07T22:29:40.406Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/057EN",
+          "fetchedAt": "2026-10-07T22:34:04.372Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-058",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/058",
+        "name": "小妖精の鼓笛隊",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_058.png"
+      },
+      "en": {
+        "number": "BT02/058EN",
+        "name": "Pixy Fife and Drum",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_058EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/058", "BT02/058EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/058",
+          "fetchedAt": "2026-10-07T22:29:42.218Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/058EN",
+          "fetchedAt": "2026-10-07T22:34:05.540Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-059",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/059",
+        "name": "まぁるがる",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ロイヤルパラディン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_059.png"
+      },
+      "en": {
+        "number": "BT02/059EN",
+        "name": "Margal",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Royal Paladin>, and that unit gets [Power]+3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_059EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/059", "BT02/059EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/059",
+          "fetchedAt": "2026-10-07T22:29:46.992Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/059EN",
+          "fetchedAt": "2026-10-07T22:34:07.157Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-060",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/060",
+        "name": "ドラゴンナイト ベルガー",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《かげろう》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_060.png"
+      },
+      "en": {
+        "number": "BT02/060EN",
+        "name": "Dragon Knight, Berger",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Kagero> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_060EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/060", "BT02/060EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/060",
+          "fetchedAt": "2026-10-07T22:29:49.419Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/060EN",
+          "fetchedAt": "2026-10-07T22:34:08.148Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-061",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/061",
+        "name": "アイアンテイル・ドラゴン",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_061.png"
+      },
+      "en": {
+        "number": "BT02/061EN",
+        "name": "Iron Tail Dragon",
+        "text": "[ACT](VC)/(RC):[Counter-Blast 1] This unit gets [Power]+1000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_061EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/061", "BT02/061EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/061",
+          "fetchedAt": "2026-10-07T22:29:51.525Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/061EN",
+          "fetchedAt": "2026-10-07T22:34:09.607Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-062",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/062",
+        "name": "従者 レアス",
+        "text": "【自】【(R)】：このユニットが「連撃のサザーランド」を【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_062.png"
+      },
+      "en": {
+        "number": "BT02/062EN",
+        "name": "Follower, Reas",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a unit named \"Chain-attack Sutherland\", the boosted ([Boost]) unit gets [Power]+4000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_062EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/062", "BT02/062EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/062",
+          "fetchedAt": "2026-10-07T22:29:52.507Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/062EN",
+          "fetchedAt": "2026-10-07T22:34:10.514Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-063",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/063",
+        "name": "リザードランナー ナフド",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_063.png"
+      },
+      "en": {
+        "number": "BT02/063EN",
+        "name": "Lizard Runner, Nafd",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_063EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/063", "BT02/063EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/063",
+          "fetchedAt": "2026-10-07T22:29:53.786Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/063EN",
+          "fetchedAt": "2026-10-07T22:34:11.656Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-064",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/064",
+        "name": "ガトリングクロー・ドラゴン",
+        "text": "【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの《かげろう》のヴァンガードがいるなら、相手のグレード０のリアガードを１枚まで選び、退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_064.png"
+      },
+      "en": {
+        "number": "BT02/064EN",
+        "name": "Gattling Claw Dragon",
+        "text": "[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a <Kagero> vanguard, choose up to one of your opponent's grade 0 rear-guards, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_064EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/064", "BT02/064EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/064",
+          "fetchedAt": "2026-10-07T22:29:57.761Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/064EN",
+          "fetchedAt": "2026-10-07T22:34:13.192Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-065",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/065",
+        "name": "セキュリティ・ガーディアン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_065.png"
+      },
+      "en": {
+        "number": "BT02/065EN",
+        "name": "Security Guardian",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have an <Oracle Think Tank>vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_065EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/065", "BT02/065EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/065",
+          "fetchedAt": "2026-10-07T22:29:59.302Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/065EN",
+          "fetchedAt": "2026-10-07T22:34:14.342Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-066",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/066",
+        "name": "真実を見つめる者",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(1)]このユニットがアタックした時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_066.png"
+      },
+      "en": {
+        "number": "BT02/066EN",
+        "name": "One Who Gazes at the Truth",
+        "text": "[AUTO](VC)/(RC):[Soul-Blast 1] When this unit attacks, if you have an <Oracle Think Tank>vanguard, you may pay the cost. If you do, this unit gets [Power]+3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_066EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/066", "BT02/066EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/066",
+          "fetchedAt": "2026-10-07T22:30:19.324Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/066EN",
+          "fetchedAt": "2026-10-07T22:34:16.270Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-067",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/067",
+        "name": "E・アラーマー",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_067.png"
+      },
+      "en": {
+        "number": "BT02/067EN",
+        "name": "Emergency Alarmer",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_067EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/067", "BT02/067EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/067",
+          "fetchedAt": "2026-10-07T22:30:21.384Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/067EN",
+          "fetchedAt": "2026-10-07T22:34:17.211Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-068",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/068",
+        "name": "サイキック・バード",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《オラクルシンクタンク》のヴァンガードがいるなら、１枚まで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_068.png"
+      },
+      "en": {
+        "number": "BT02/068EN",
+        "name": "Psychic Bird",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have an <Oracle Think Tank>vanguard, draw up to one card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_068EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/068", "BT02/068EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/068",
+          "fetchedAt": "2026-10-07T22:30:28.586Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/068EN",
+          "fetchedAt": "2026-10-07T22:34:18.868Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-069",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/069",
+        "name": "混沌竜 ディノカオス",
+        "text": "【起】【手札】：[あなたの《たちかぜ》のリアガードを２枚選び、退却させる]あなたのグレード２のヴァンガードがいるなら、このカードを公開してよい。公開したら、このカードをライドする。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_069.png"
+      },
+      "en": {
+        "number": "BT02/069EN",
+        "name": "Chaos Dragon, Dinochaos",
+        "text": "[ACT]Hand:[Choose two of your <Tachikaze> rear-guards, and retire them] If you have a grade 2 vanguard, you may reveal this card. If you do, ride this card.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_069EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/069", "BT02/069EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/069",
+          "fetchedAt": "2026-10-07T22:30:29.713Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/069EN",
+          "fetchedAt": "2026-10-07T22:34:20.059Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-070",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/070",
+        "name": "砲撃竜 キャノンギア",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたのリアガードを１枚選び、退却させる。\n【自】【(V)】：このユニットが《たちかぜ》に【ブースト】された時、そのターン中、このユニットのパワー＋2000。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_070.png"
+      },
+      "en": {
+        "number": "BT02/070EN",
+        "name": "Cannon Fire Dragon, Cannon Gear",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), choose one of your rear-guards, and retire it.\n[AUTO](VC):When this unit is boosted ([Boost]) by a <Tachikaze>, this unit gets [Power]+2000 until end of turn.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_070EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 11000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/070", "BT02/070EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/070",
+          "fetchedAt": "2026-10-07T22:30:30.784Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/070EN",
+          "fetchedAt": "2026-10-07T22:34:21.015Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-071",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/071",
+        "name": "NGMプロトタイプ",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_071.png"
+      },
+      "en": {
+        "number": "BT02/071EN",
+        "name": "NGM Prototype",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Nova Grappler> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_071EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/071", "BT02/071EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/071",
+          "fetchedAt": "2026-10-07T22:30:32.185Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/071EN",
+          "fetchedAt": "2026-10-07T22:34:22.174Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-072",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/072",
+        "name": "クレイソルジャー",
+        "text": "【自】【(R)】：このユニットが《ノヴァグラップラー》を【ブースト】したバトル中、アタックがヒットした時、このユニットを【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_072.png"
+      },
+      "en": {
+        "number": "BT02/072EN",
+        "name": "Cray Soldier",
+        "text": "[AUTO](RC):When an attack hits during the battle that this unit boosted ([Boost]) a <Nova Grappler> , [Stand] this unit.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_072EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/072", "BT02/072EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/072",
+          "fetchedAt": "2026-10-07T22:30:33.580Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/072EN",
+          "fetchedAt": "2026-10-07T22:34:23.025Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-073",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/073",
+        "name": "スリーミニッツ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_073.png"
+      },
+      "en": {
+        "number": "BT02/073EN",
+        "name": "Three Minutes",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_073EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/073", "BT02/073EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/073",
+          "fetchedAt": "2026-10-07T22:30:35.732Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/073EN",
+          "fetchedAt": "2026-10-07T22:34:24.004Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-074",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/074",
+        "name": "レッド・ライトニング",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ノヴァグラップラー》のヴァンガードがいるなら、あなたのダメージゾーンから１枚まで選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_074.png"
+      },
+      "en": {
+        "number": "BT02/074EN",
+        "name": "Red Lightning",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have a <Nova Grappler> vanguard, choose up to one card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_074EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/074", "BT02/074EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/074",
+          "fetchedAt": "2026-10-07T22:30:37.782Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/074EN",
+          "fetchedAt": "2026-10-07T22:34:25.640Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-075",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/075",
+        "name": "ブレザープレジャーズ",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《バミューダ△》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_075.png"
+      },
+      "en": {
+        "number": "BT02/075EN",
+        "name": "Blazer Idols",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Bermuda Triangle>, and that unit gets [Power]+2000 until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_075EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/075", "BT02/075EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/075",
+          "fetchedAt": "2026-10-07T22:30:38.678Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/075EN",
+          "fetchedAt": "2026-10-07T22:34:26.758Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-076",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/076",
+        "name": "レディ・ボム",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、そのユニットは、次の相手のスタンドフェイズ中、【スタンド】できない。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_076.png"
+      },
+      "en": {
+        "number": "BT02/076EN",
+        "name": "Lady Bomb",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), you may pay the cost. If you do, choose one of your opponent's rear-guards, and that unit cannot [Stand] during your opponent's next stand phase.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_076EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/076", "BT02/076EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/076",
+          "fetchedAt": "2026-10-07T22:30:39.599Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/076EN",
+          "fetchedAt": "2026-10-07T22:34:27.733Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-077",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/077",
+        "name": "ファントム・ブラック",
+        "text": "",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_077.png"
+      },
+      "en": {
+        "number": "BT02/077EN",
+        "name": "Phantom Black",
+        "text": "",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_077EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/077", "BT02/077EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/077",
+          "fetchedAt": "2026-10-07T22:30:40.975Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/077EN",
+          "fetchedAt": "2026-10-07T22:34:28.835Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-078",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/078",
+        "name": "メガコロニー戦闘員A",
+        "text": "【自】：このユニットが(G)からドロップゾーンに置かれた時、このカードをソウルに置く。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_078.png"
+      },
+      "en": {
+        "number": "BT02/078EN",
+        "name": "Megacolony Battler A",
+        "text": "[AUTO]:When this unit is put into the drop zone from (GC), put this card into your soul.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_078EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/078", "BT02/078EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/078",
+          "fetchedAt": "2026-10-07T22:30:42.327Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/078EN",
+          "fetchedAt": "2026-10-07T22:34:29.738Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-079",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/079",
+        "name": "シルバー・ウルフ",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_079.png"
+      },
+      "en": {
+        "number": "BT02/079EN",
+        "name": "Silver Wolf",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_079EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/079", "BT02/079EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/079",
+          "fetchedAt": "2026-10-07T22:30:43.736Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/079EN",
+          "fetchedAt": "2026-10-07T22:34:30.859Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT02-080",
+      "set": "BT02",
+      "jp": {
+        "number": "BT02/080",
+        "name": "インテリねずみ",
+        "text": "【起】【(R)】：[このユニットを【レスト】する]あなたの《グレートネイチャー》のリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンのエンドフェイズ開始時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT02/bt02_080.png"
+      },
+      "en": {
+        "number": "BT02/080EN",
+        "name": "Intelli-mouse",
+        "text": "[ACT](RC):[[Rest[ this unit] Choose one of your <Great Nature> rear-guards, and that unit gets [Power]+4000 until end of turn, and at the beginning of the end phase of that turn, retire it.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_080EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT02/080", "BT02/080EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT02/080",
+          "fetchedAt": "2026-10-07T22:30:44.668Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT02/080EN",
+          "fetchedAt": "2026-10-07T22:34:32.003Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

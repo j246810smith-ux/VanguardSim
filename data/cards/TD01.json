@@ -1,0 +1,818 @@
+{
+  "set": "TD01",
+  "importedAt": "2026-10-08T21:35:09.009Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD01-001",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/001",
+        "name": "紅蓮の蝶 ブリジッド",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《ロイヤルパラディン》がでた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "サラマンダー",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_001.png"
+      },
+      "en": {
+        "number": "TD01/001EN",
+        "name": "Crimson Butterfly, Brigitte",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <<Royal Paladin>>, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Salamander",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/001", "TD01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/001",
+          "fetchedAt": "2026-10-08T21:34:08.670Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/001EN",
+          "fetchedAt": "2026-10-08T21:34:35.949Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-002",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/002",
+        "name": "断罪の騎士 ボールス",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_002.png"
+      },
+      "en": {
+        "number": "TD01/002EN",
+        "name": "Knight of Conviction, Bors",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/002", "TD01/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/002",
+          "fetchedAt": "2026-10-08T21:34:11.358Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/002EN",
+          "fetchedAt": "2026-10-08T21:34:37.672Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-003",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/003",
+        "name": "孤高の騎士 ガンスロッド",
+        "text": "【起】【(V)】：[【カウンターブラスト】(2)]　あなたのソウルに「ブラスター・ブレード」があるなら、そのターン中、このユニットのパワー＋5000/クリティカル＋１。\n【起】【手札】：[このカードを相手に見せ、山札の上に置く]　あなたの山札から「ブラスター・ブレード」を１枚まで探し、相手に見せ、手札に加える。その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_003.png"
+      },
+      "en": {
+        "number": "TD01/003EN",
+        "name": "Solitary Knight, Gancelot",
+        "text": "[ACT](VC):[Counter-Blast 2] If you have a card named \"Blaster Blade\" in your soul, this unit gets [Power] +5000/[Critical] +1 until end of turn.\n[ACT](Hand):[Reveal this card to your opponent, and put it on top of your deck] Search your deck for up to one card named \"Blaster Blade\", reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/003", "TD01/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/003",
+          "fetchedAt": "2026-10-08T21:34:13.014Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/003EN",
+          "fetchedAt": "2026-10-08T21:34:39.316Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-004",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/004",
+        "name": "沈黙の騎士 ギャラティン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_004.png"
+      },
+      "en": {
+        "number": "TD01/004EN",
+        "name": "Knight of Silence, Gallatin",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/004", "TD01/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/004",
+          "fetchedAt": "2026-10-08T21:34:14.750Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/004EN",
+          "fetchedAt": "2026-10-08T21:34:40.497Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-005",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/005",
+        "name": "ブラスター・ブレード",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、退却させる。\n【自】：[【カウンターブラスト】(2)]このユニットが(R)に登場した時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード２以上のリアガードを１枚選び、退却させる。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_005.png"
+      },
+      "en": {
+        "number": "TD01/005EN",
+        "name": "Blaster Blade",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, choose an opponent's rear-guard, and retire it.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (RC), if you have a <<Royal Paladin>> vanguard, you may pay the cost. If you do, choose an opponent's grade 2 or greater rear-guard, and retire it.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/005", "TD01/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/005",
+          "fetchedAt": "2026-10-08T21:34:16.683Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/005EN",
+          "fetchedAt": "2026-10-08T21:34:41.856Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-006",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/006",
+        "name": "竪琴の騎士 トリスタン",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《ロイヤルパラディン》がでた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_006.png"
+      },
+      "en": {
+        "number": "TD01/006EN",
+        "name": "Knight of the Harp, Tristan",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <<Royal Paladin>>, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/006", "TD01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/006",
+          "fetchedAt": "2026-10-08T21:34:17.605Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/006EN",
+          "fetchedAt": "2026-10-08T21:34:43.071Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-007",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/007",
+        "name": "盟約の騎士 ランドルフ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が相手の手札より多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_007.png"
+      },
+      "en": {
+        "number": "TD01/007EN",
+        "name": "Covenant Knight, Randolf",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is greater than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/007", "TD01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/007",
+          "fetchedAt": "2026-10-08T21:34:19.276Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/007EN",
+          "fetchedAt": "2026-10-08T21:34:44.085Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-008",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/008",
+        "name": "小さな賢者 マロン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_008.png"
+      },
+      "en": {
+        "number": "TD01/008EN",
+        "name": "Little Sage, Marron",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/008", "TD01/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/008",
+          "fetchedAt": "2026-10-08T21:34:20.435Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/008EN",
+          "fetchedAt": "2026-10-08T21:34:45.330Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-009",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/009",
+        "name": "ういんがる",
+        "text": "【自】【(R)】：このユニットが「ブラスター・ブレード」を【ブースト】した時、そのバトル中、ブーストされたユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_009.png"
+      },
+      "en": {
+        "number": "TD01/009EN",
+        "name": "Wingal",
+        "text": "[AUTO](RC):When this unit boosts a card named \"Blaster Blade\", the boosted unit gets [Power] +4000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/009", "TD01/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/009",
+          "fetchedAt": "2026-10-08T21:34:22.034Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/009EN",
+          "fetchedAt": "2026-10-08T21:34:46.406Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-010",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/010",
+        "name": "スターライト・ユニコーン",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《ロイヤルパラディン》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_010.png"
+      },
+      "en": {
+        "number": "TD01/010EN",
+        "name": "Starlight Unicorn",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <<Royal Paladin>>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/010", "TD01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/010",
+          "fetchedAt": "2026-10-08T21:34:23.791Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/010EN",
+          "fetchedAt": "2026-10-08T21:34:47.297Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-011",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/011",
+        "name": "薔薇の騎士 モルガーナ",
+        "text": "【自】【(V)/(R)】：[あなたの手札から１枚選び、捨てる]　このユニットがアタックした時、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_011.png"
+      },
+      "en": {
+        "number": "TD01/011EN",
+        "name": "Knight of Rose, Morgana",
+        "text": "[AUTO](VC/RC):[Choose a card from your hand, and discard it] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +4000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/011", "TD01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/011",
+          "fetchedAt": "2026-10-08T21:34:24.755Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/011EN",
+          "fetchedAt": "2026-10-08T21:34:48.227Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-012",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/012",
+        "name": "スターダスト・トランペッター",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_012.png"
+      },
+      "en": {
+        "number": "TD01/012EN",
+        "name": "Stardust Trumpeter",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/012", "TD01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/012",
+          "fetchedAt": "2026-10-08T21:34:25.691Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/012EN",
+          "fetchedAt": "2026-10-08T21:34:49.126Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-013",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/013",
+        "name": "幸運の運び手 エポナ",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_013.png"
+      },
+      "en": {
+        "number": "TD01/013EN",
+        "name": "Bringer of Good Luck, Epona",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_013EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/013", "TD01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/013",
+          "fetchedAt": "2026-10-08T21:34:29.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/013EN",
+          "fetchedAt": "2026-10-08T21:34:50.624Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-014",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/014",
+        "name": "世界樹の巫女 エレイン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_014.png"
+      },
+      "en": {
+        "number": "TD01/014EN",
+        "name": "Yggdrasil Maiden, Elaine",
+        "text": "(You may only have up to four cards with [Heal] in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_014EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/014", "TD01/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/014",
+          "fetchedAt": "2026-10-08T21:34:32.026Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/014EN",
+          "fetchedAt": "2026-10-08T21:34:51.709Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-015",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/015",
+        "name": "武器商人 ゴヴァノン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ノーム",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_015.png"
+      },
+      "en": {
+        "number": "TD01/015EN",
+        "name": "Weapons Dealer, Govannon",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Gnome",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/015", "TD01/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/015",
+          "fetchedAt": "2026-10-08T21:34:33.378Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/015EN",
+          "fetchedAt": "2026-10-08T21:34:52.679Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD01-016",
+      "set": "TD01",
+      "jp": {
+        "number": "TD01/016",
+        "name": "ふろうがる",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD01/td01_016.png"
+      },
+      "en": {
+        "number": "TD01/016EN",
+        "name": "Flogal",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD01/016", "TD01/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD01/016",
+          "fetchedAt": "2026-10-08T21:34:34.688Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD01/016EN",
+          "fetchedAt": "2026-10-08T21:34:53.862Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.01: Blaster Blade",
+    "cards": [
+      {
+        "id": "TD01-001",
+        "count": 4
+      },
+      {
+        "id": "TD01-002",
+        "count": 1
+      },
+      {
+        "id": "TD01-003",
+        "count": 2
+      },
+      {
+        "id": "TD01-004",
+        "count": 4
+      },
+      {
+        "id": "TD01-005",
+        "count": 1
+      },
+      {
+        "id": "TD01-006",
+        "count": 3
+      },
+      {
+        "id": "TD01-007",
+        "count": 4
+      },
+      {
+        "id": "TD01-008",
+        "count": 4
+      },
+      {
+        "id": "TD01-009",
+        "count": 2
+      },
+      {
+        "id": "TD01-010",
+        "count": 4
+      },
+      {
+        "id": "TD01-011",
+        "count": 4
+      },
+      {
+        "id": "TD01-012",
+        "count": 1
+      },
+      {
+        "id": "TD01-013",
+        "count": 4
+      },
+      {
+        "id": "TD01-014",
+        "count": 4
+      },
+      {
+        "id": "TD01-015",
+        "count": 4
+      },
+      {
+        "id": "TD01-016",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td01/",
+      "fetchedAt": "2026-10-08T21:35:09.007Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

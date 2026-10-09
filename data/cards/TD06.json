@@ -1,0 +1,918 @@
+{
+  "set": "TD06",
+  "importedAt": "2026-10-08T21:54:25.377Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD06-001",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/001",
+        "name": "サンダーブレイク・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】：[【カウンターブラスト】(2)]　このユニットが(V)に登場した時、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、退却させる。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_001.png"
+      },
+      "en": {
+        "number": "TD06/001EN",
+        "name": "Thunder Break Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power]＋5000 until end of that battle.\n[AUTO]:[Counter-Blast2] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, and retire it.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/001", "TD06/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/001",
+          "fetchedAt": "2026-10-08T21:39:31.866Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/001EN",
+          "fetchedAt": "2026-10-08T21:39:57.062Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-002",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/002",
+        "name": "紫電一閃のジン",
+        "text": "【永】【(V)/(R)】：このユニットはリアガードにアタックできない。\n【自】【(V)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋4000。\n【自】【(R)】：このユニットがアタックした時、あなたの《なるかみ》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "なるかみ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_002.png"
+      },
+      "en": {
+        "number": "TD06/002EN",
+        "name": "Djinn of the Lightning Flash",
+        "text": "[CONT](VC/RC):This unit cannot attack a rear-guard.\n[AUTO](VC):When this unit attacks, this unit gets [Power]＋4000 until end of that battle.\n[AUTO](RC):When this unit attacks, if you have a <Narukami> vanguard, this unit gets [Power]＋2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/002", "TD06/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/002",
+          "fetchedAt": "2026-10-08T21:39:33.764Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/002EN",
+          "fetchedAt": "2026-10-08T21:39:59.162Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-003",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/003",
+        "name": "プラズマバイト・ドラゴン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_003.png"
+      },
+      "en": {
+        "number": "TD06/003EN",
+        "name": "Plasmabite Dragon",
+        "text": "[AUTO](VC/RC):[Counter-Blast1]When this unit attacks, you may pay the cost. If you do, this unit gets [Power]＋3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/003", "TD06/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/003",
+          "fetchedAt": "2026-10-08T21:39:35.341Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/003EN",
+          "fetchedAt": "2026-10-08T21:40:02.679Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-004",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/004",
+        "name": "サンダーストーム・ドラグーン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_004.png"
+      },
+      "en": {
+        "number": "TD06/004EN",
+        "name": "Thunderstorm Dragoon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/004", "TD06/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/004",
+          "fetchedAt": "2026-10-08T21:39:36.855Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/004EN",
+          "fetchedAt": "2026-10-08T21:40:03.911Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-005",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/005",
+        "name": "シールドブレード・ドラグーン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《なるかみ》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_005.png"
+      },
+      "en": {
+        "number": "TD06/005EN",
+        "name": "Shieldblade Dragoon",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Narukami> vanguard, this unit gets [Shield]＋5000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/005", "TD06/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/005",
+          "fetchedAt": "2026-10-08T21:39:37.940Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/005EN",
+          "fetchedAt": "2026-10-08T21:40:04.873Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-006",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/006",
+        "name": "疾風迅雷のジン",
+        "text": "【永】【(V)/(R)】：このユニットはリアガードにアタックできない。\n【自】【(V)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋4000。\n【自】【(R)】：このユニットがアタックした時、あなたの《なるかみ》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "なるかみ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_006.png"
+      },
+      "en": {
+        "number": "TD06/006EN",
+        "name": "Djinn of the Lightning Flare",
+        "text": "[CONT](VC/RC):This unit cannot attack a rear-guard.\n[AUTO](VC):When this unit attacks, this unit gets [Power]＋4000 until end of that battle.\n[AUTO](RC):When this unit attacks, if you have a <Narukami> vanguard, this unit gets [Power]＋2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/006", "TD06/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/006",
+          "fetchedAt": "2026-10-08T21:39:38.922Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/006EN",
+          "fetchedAt": "2026-10-08T21:40:06.104Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-007",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/007",
+        "name": "ブライトジェット・ドラゴン",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が相手の手札より少ないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_007.png"
+      },
+      "en": {
+        "number": "TD06/007EN",
+        "name": "Brightjet Dragon",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is less than your opponent's, this unit gets [Power]＋3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/007", "TD06/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/007",
+          "fetchedAt": "2026-10-08T21:39:40.250Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/007EN",
+          "fetchedAt": "2026-10-08T21:40:07.124Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-008",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/008",
+        "name": "レッドリバー・ドラグーン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_008.png"
+      },
+      "en": {
+        "number": "TD06/008EN",
+        "name": "Red River Dragoon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/008", "TD06/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/008",
+          "fetchedAt": "2026-10-08T21:39:41.685Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/008EN",
+          "fetchedAt": "2026-10-08T21:40:08.213Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-009",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/009",
+        "name": "リザードソルジャー リキ",
+        "text": "【起】【(V)/(R)】[【カウンターブラスト】(1)] そのターン中、このユニットのパワー＋1000。",
+        "clan": "なるかみ",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_009.png"
+      },
+      "en": {
+        "number": "TD06/009EN",
+        "name": "Lizard Soldier, Riki",
+        "text": "[ACT](VC/RC):[Counter-Blast1] This unit gets [Power]＋1000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/009", "TD06/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/009",
+          "fetchedAt": "2026-10-08T21:39:43.051Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/009EN",
+          "fetchedAt": "2026-10-08T21:40:09.400Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-010",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/010",
+        "name": "希望の雷 ヘレナ",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]　このユニットがブーストしたバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "なるかみ",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_010.png"
+      },
+      "en": {
+        "number": "TD06/010EN",
+        "name": "Lightning of Hope, Helena",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Narukami",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/010", "TD06/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/010",
+          "fetchedAt": "2026-10-08T21:39:44.033Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/010EN",
+          "fetchedAt": "2026-10-08T21:40:10.462Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-011",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/011",
+        "name": "電光石火のジン",
+        "text": "【永】【(V)/(R)】：このユニットはリアガードにアタックできない。\n【自】【(V)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋4000。\n【自】【(R)】：このユニットがアタックした時、あなたの《なるかみ》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "なるかみ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_011.png"
+      },
+      "en": {
+        "number": "TD06/011EN",
+        "name": "Djinn of the Lightning Spark",
+        "text": "[CONT](VC/RC):This unit cannot attack a rear-guard.\n[AUTO](VC):When this unit attacks, this unit gets [Power]＋4000 until end of that battle.\n[AUTO](RC):When this unit attacks, if you have a <Narukami> vanguard, this unit gets [Power]＋2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/011", "TD06/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/011",
+          "fetchedAt": "2026-10-08T21:39:45.453Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/011EN",
+          "fetchedAt": "2026-10-08T21:40:11.621Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-012",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/012",
+        "name": "ドラゴンダンサー ライライ",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]このユニットが「サンダーブレイク・ドラゴン」を【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋5000。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_012.png"
+      },
+      "en": {
+        "number": "TD06/012EN",
+        "name": "Dragon Dancer, RaiRai",
+        "text": "[AUTO](RC):[Soul-Blast 1] When this unit boosts ([Boost]) a unit named \"Thunder Break Dragon\", you may pay the cost. If you do, the boosted ([Boost]) unit gets [Power]＋5000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/012", "TD06/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/012",
+          "fetchedAt": "2026-10-08T21:39:46.388Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/012EN",
+          "fetchedAt": "2026-10-08T21:40:12.891Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-013",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/013",
+        "name": "ワイバーン輸送兵団",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《なるかみ》を1枚選び、そのターン中、パワー＋2000。",
+        "clan": "なるかみ",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_013.png"
+      },
+      "en": {
+        "number": "TD06/013EN",
+        "name": "Wyvern Supply Unit",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Narukami>, and that unit gets [Power]＋2000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/013", "TD06/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/013",
+          "fetchedAt": "2026-10-08T21:39:47.712Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/013EN",
+          "fetchedAt": "2026-10-08T21:40:13.793Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-014",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/014",
+        "name": "リザードソルジャー シシン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_014.png"
+      },
+      "en": {
+        "number": "TD06/014EN",
+        "name": "Lizard Soldier, Sishin",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/014", "TD06/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/014",
+          "fetchedAt": "2026-10-08T21:39:49.040Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/014EN",
+          "fetchedAt": "2026-10-08T21:40:14.751Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-015",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/015",
+        "name": "イエロージェム・カーバンクル",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_015.png"
+      },
+      "en": {
+        "number": "TD06/015EN",
+        "name": "Yellow Gem Carbuncle",
+        "text": "",
+        "clan": "Narukami",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/015", "TD06/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/015",
+          "fetchedAt": "2026-10-08T21:39:51.093Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/015EN",
+          "fetchedAt": "2026-10-08T21:40:16.245Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-016",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/016",
+        "name": "オールド・ドラゴンメイジ",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_016.png"
+      },
+      "en": {
+        "number": "TD06/016EN",
+        "name": "Old Dragon Mage",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/016", "TD06/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/016",
+          "fetchedAt": "2026-10-08T21:39:52.391Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/016EN",
+          "fetchedAt": "2026-10-08T21:40:17.662Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-017",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/017",
+        "name": "風伯童子 ハヤテ",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_017.png"
+      },
+      "en": {
+        "number": "TD06/017EN",
+        "name": "Zephyr Kid, Hayate",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_017EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/017", "TD06/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/017",
+          "fetchedAt": "2026-10-08T21:39:53.771Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/017EN",
+          "fetchedAt": "2026-10-08T21:40:18.787Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD06-018",
+      "set": "TD06",
+      "jp": {
+        "number": "TD06/018",
+        "name": "魔竜仙女 セイオウボ",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "なるかみ",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD06/td06_018.png"
+      },
+      "en": {
+        "number": "TD06/018EN",
+        "name": "Demonic Dragon Nymph, Seiobo",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td06/TD06_018EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD06/018", "TD06/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD06/018",
+          "fetchedAt": "2026-10-08T21:39:55.590Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD06/018EN",
+          "fetchedAt": "2026-10-08T21:40:20.327Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.06: Resonance of Thunder Dragon",
+    "cards": [
+      {
+        "id": "TD06-001",
+        "count": 1
+      },
+      {
+        "id": "TD06-002",
+        "count": 2
+      },
+      {
+        "id": "TD06-003",
+        "count": 4
+      },
+      {
+        "id": "TD06-004",
+        "count": 4
+      },
+      {
+        "id": "TD06-005",
+        "count": 4
+      },
+      {
+        "id": "TD06-006",
+        "count": 1
+      },
+      {
+        "id": "TD06-007",
+        "count": 2
+      },
+      {
+        "id": "TD06-008",
+        "count": 4
+      },
+      {
+        "id": "TD06-009",
+        "count": 4
+      },
+      {
+        "id": "TD06-010",
+        "count": 2
+      },
+      {
+        "id": "TD06-011",
+        "count": 1
+      },
+      {
+        "id": "TD06-012",
+        "count": 2
+      },
+      {
+        "id": "TD06-013",
+        "count": 2
+      },
+      {
+        "id": "TD06-014",
+        "count": 1
+      },
+      {
+        "id": "TD06-015",
+        "count": 4
+      },
+      {
+        "id": "TD06-016",
+        "count": 4
+      },
+      {
+        "id": "TD06-017",
+        "count": 4
+      },
+      {
+        "id": "TD06-018",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td06/",
+      "fetchedAt": "2026-10-08T21:40:37.291Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -1,0 +1,868 @@
+{
+  "set": "TD08",
+  "importedAt": "2026-10-08T21:54:26.545Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD08-001",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/001",
+        "name": "孤高の解放者 ガンスロッド",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《ゴールドパラディン》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、あなたの《ゴールドパラディン》のリアガードを３枚まで選び、そのターン中、パワー＋5000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_001.png"
+      },
+      "en": {
+        "number": "TD08/001EN",
+        "name": "Solitary Liberator, Gancelot",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Gold Paladin> rides this unit, choose your vanguard, and that unit gets [Power] +10000 until end of turn, and choose up to three of your <Gold Paladin> rear-guards, and those units get [Power] +5000 until end of turn.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.\n[ACT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Gold Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/001", "TD08/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/001",
+          "fetchedAt": "2026-10-08T21:41:44.150Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/001EN",
+          "fetchedAt": "2026-10-08T21:42:08.382Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-002",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/002",
+        "name": "ディグニファイド・ゴールド・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《ゴールドパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_002.png"
+      },
+      "en": {
+        "number": "TD08/002EN",
+        "name": "Dignified Gold Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Gold Paladin> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/002", "TD08/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/002",
+          "fetchedAt": "2026-10-08T21:41:46.088Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/002EN",
+          "fetchedAt": "2026-10-08T21:42:10.568Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-003",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/003",
+        "name": "乱舞の解放者 メイルシオン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_003.png"
+      },
+      "en": {
+        "number": "TD08/003EN",
+        "name": "Onslaught Liberator, Maelzion",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/003", "TD08/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/003",
+          "fetchedAt": "2026-10-08T21:41:47.448Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/003EN",
+          "fetchedAt": "2026-10-08T21:42:11.850Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-004",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/004",
+        "name": "沈黙の解放者 ギャラティン",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_004.png"
+      },
+      "en": {
+        "number": "TD08/004EN",
+        "name": "Liberator of Silence, Gallatin",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/004", "TD08/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/004",
+          "fetchedAt": "2026-10-08T21:41:49.224Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/004EN",
+          "fetchedAt": "2026-10-08T21:42:12.881Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-005",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/005",
+        "name": "王道の解放者 ファロン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「解放者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_005.png"
+      },
+      "en": {
+        "number": "TD08/005EN",
+        "name": "Liberator of Royalty, Phallon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Liberator\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/005", "TD08/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/005",
+          "fetchedAt": "2026-10-08T21:41:50.534Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/005EN",
+          "fetchedAt": "2026-10-08T21:42:14.063Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-006",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/006",
+        "name": "ブラスター・ブレード・解放者",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、あなたのカード名に「解放者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手の前列のリアガードを１枚選び、退却させる。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_006.png"
+      },
+      "en": {
+        "number": "TD08/006EN",
+        "name": "Blaster Blade Liberator",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a vanguard with \"Liberator\" in its card name, you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, and retire it.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/006", "TD08/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/006",
+          "fetchedAt": "2026-10-08T21:41:52.520Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/006EN",
+          "fetchedAt": "2026-10-08T21:42:15.075Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-007",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/007",
+        "name": "ズームダウン・イーグル",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ゴールドパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_007.png"
+      },
+      "en": {
+        "number": "TD08/007EN",
+        "name": "Zoom Down Eagle",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Gold Paladin> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/007", "TD08/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/007",
+          "fetchedAt": "2026-10-08T21:41:53.428Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/007EN",
+          "fetchedAt": "2026-10-08T21:42:16.284Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-008",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/008",
+        "name": "ぞーいがる・解放者",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、他のあなたのカード名に「解放者」を含むリアガードが３枚以上いるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_008.png"
+      },
+      "en": {
+        "number": "TD08/008EN",
+        "name": "Zoigal Liberator",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have three or more other rear-guards with \"Liberator\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/008", "TD08/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/008",
+          "fetchedAt": "2026-10-08T21:41:54.769Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/008EN",
+          "fetchedAt": "2026-10-08T21:42:17.427Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-009",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/009",
+        "name": "美技の騎士 ガレス",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_009.png"
+      },
+      "en": {
+        "number": "TD08/009EN",
+        "name": "Knight of Elegant Skills, Gareth",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/009", "TD08/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/009",
+          "fetchedAt": "2026-10-08T21:41:55.684Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/009EN",
+          "fetchedAt": "2026-10-08T21:42:18.374Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-010",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/010",
+        "name": "小さな解放者 マロン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「解放者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_010.png"
+      },
+      "en": {
+        "number": "TD08/010EN",
+        "name": "Little Liberator, Marron",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Liberator\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/010", "TD08/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/010",
+          "fetchedAt": "2026-10-08T21:41:56.982Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/010EN",
+          "fetchedAt": "2026-10-08T21:42:19.548Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-011",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/011",
+        "name": "ぽめるがる・解放者",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_011.png"
+      },
+      "en": {
+        "number": "TD08/011EN",
+        "name": "Pomerugal Liberator",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/011", "TD08/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/011",
+          "fetchedAt": "2026-10-08T21:41:58.368Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/011EN",
+          "fetchedAt": "2026-10-08T21:42:20.813Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-012",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/012",
+        "name": "未来の解放者 リュー",
+        "text": "【自】【(R)】：このユニットが《ゴールドパラディン》のヴァンガードを【ブースト】した時、他のあなたのカード名に「解放者」を含むリアガードが３枚以上いるなら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_012.png"
+      },
+      "en": {
+        "number": "TD08/012EN",
+        "name": "Future Liberator, Llew",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a <Gold Paladin> vanguard, if you have three or more other rear-guards with \"Liberator\" in its card name, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/012", "TD08/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/012",
+          "fetchedAt": "2026-10-08T21:41:59.450Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/012EN",
+          "fetchedAt": "2026-10-08T21:42:21.798Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-013",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/013",
+        "name": "御使いの解放者",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_013.png"
+      },
+      "en": {
+        "number": "TD08/013EN",
+        "name": "Angelic Liberator",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/013", "TD08/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/013",
+          "fetchedAt": "2026-10-08T21:42:00.764Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/013EN",
+          "fetchedAt": "2026-10-08T21:42:23.156Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-014",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/014",
+        "name": "猛撃の解放者",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_014.png"
+      },
+      "en": {
+        "number": "TD08/014EN",
+        "name": "Strike Liberator",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_014EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/014", "TD08/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/014",
+          "fetchedAt": "2026-10-08T21:42:02.882Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/014EN",
+          "fetchedAt": "2026-10-08T21:42:24.225Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-015",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/015",
+        "name": "武装の解放者 グイディオン",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ノーム",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_015.png"
+      },
+      "en": {
+        "number": "TD08/015EN",
+        "name": "Armed Liberator, Gwydion",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Gnome",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/015", "TD08/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/015",
+          "fetchedAt": "2026-10-08T21:42:04.388Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/015EN",
+          "fetchedAt": "2026-10-08T21:42:25.424Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-016",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/016",
+        "name": "運命の解放者",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_016.png"
+      },
+      "en": {
+        "number": "TD08/016EN",
+        "name": "Fortune Liberator",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/016", "TD08/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/016",
+          "fetchedAt": "2026-10-08T21:42:05.317Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/016EN",
+          "fetchedAt": "2026-10-08T21:42:26.571Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD08-017",
+      "set": "TD08",
+      "jp": {
+        "number": "TD08/017",
+        "name": "霊薬の解放者",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD08/td08_017.png"
+      },
+      "en": {
+        "number": "TD08/017EN",
+        "name": "Elixir Liberator",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Gold Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD08/017", "TD08/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD08/017",
+          "fetchedAt": "2026-10-08T21:42:06.978Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD08/017EN",
+          "fetchedAt": "2026-10-08T21:42:28.015Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.08: Liberator of the Sanctuary",
+    "cards": [
+      {
+        "id": "TD08-001",
+        "count": 1
+      },
+      {
+        "id": "TD08-002",
+        "count": 2
+      },
+      {
+        "id": "TD08-003",
+        "count": 4
+      },
+      {
+        "id": "TD08-004",
+        "count": 4
+      },
+      {
+        "id": "TD08-005",
+        "count": 1
+      },
+      {
+        "id": "TD08-006",
+        "count": 1
+      },
+      {
+        "id": "TD08-007",
+        "count": 2
+      },
+      {
+        "id": "TD08-008",
+        "count": 4
+      },
+      {
+        "id": "TD08-009",
+        "count": 4
+      },
+      {
+        "id": "TD08-010",
+        "count": 4
+      },
+      {
+        "id": "TD08-011",
+        "count": 4
+      },
+      {
+        "id": "TD08-012",
+        "count": 2
+      },
+      {
+        "id": "TD08-013",
+        "count": 1
+      },
+      {
+        "id": "TD08-014",
+        "count": 4
+      },
+      {
+        "id": "TD08-015",
+        "count": 4
+      },
+      {
+        "id": "TD08-016",
+        "count": 4
+      },
+      {
+        "id": "TD08-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td08/",
+      "fetchedAt": "2026-10-08T21:42:44.448Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

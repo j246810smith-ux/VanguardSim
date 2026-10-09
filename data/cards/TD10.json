@@ -1,0 +1,868 @@
+{
+  "set": "TD10",
+  "importedAt": "2026-10-08T21:54:28.643Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD10-001",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/001",
+        "name": "幽幻の撃退者 モルドレッド・ファントム",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《シャドウパラディン》がこのユニットにライドした時、コストを払ってよい。払ったら、あなたのヴァンガードを1枚選び、そのターン中、パワー＋10000し、あなたの山札からグレード２以下の《シャドウパラディン》を1枚まで探し、(R)にコールし、その山札をシャッフルし、そのターン中、そのユニットのパワー＋5000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_001.png"
+      },
+      "en": {
+        "number": "TD10/001EN",
+        "name": "Illusionary Revenger, Mordred Phantom",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When a <Shadow Paladin> rides this unit, you may pay the cost. If you do, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and search your deck for up to one grade 2 or less <Shadow Paladin>, call it to (RC), shuffle your deck, and that unit gets [Power] +5000 until end of turn.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/001", "TD10/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/001",
+          "fetchedAt": "2026-10-08T21:43:58.149Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/001EN",
+          "fetchedAt": "2026-10-08T21:44:24.590Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-002",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/002",
+        "name": "ヴェノマスブレス・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《シャドウパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_002.png"
+      },
+      "en": {
+        "number": "TD10/002EN",
+        "name": "Venomous Breath Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Shadow Paladin> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/002", "TD10/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/002",
+          "fetchedAt": "2026-10-08T21:43:59.984Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/002EN",
+          "fetchedAt": "2026-10-08T21:44:26.367Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-003",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/003",
+        "name": "迷宮の撃退者 アラウン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_003.png"
+      },
+      "en": {
+        "number": "TD10/003EN",
+        "name": "Labyrinth Revenger, Arawn",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/003", "TD10/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/003",
+          "fetchedAt": "2026-10-08T21:44:01.330Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/003EN",
+          "fetchedAt": "2026-10-08T21:44:27.569Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-004",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/004",
+        "name": "暗闇の撃退者 ルゴス",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_004.png"
+      },
+      "en": {
+        "number": "TD10/004EN",
+        "name": "Darkness Revenger, Rugos",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/004", "TD10/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/004",
+          "fetchedAt": "2026-10-08T21:44:02.662Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/004EN",
+          "fetchedAt": "2026-10-08T21:44:28.517Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-005",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/005",
+        "name": "虚空の撃退者 マスカレード",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「撃退者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_005.png"
+      },
+      "en": {
+        "number": "TD10/005EN",
+        "name": "Nullity Revenger, Masquerade",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Revenger\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/005", "TD10/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/005",
+          "fetchedAt": "2026-10-08T21:44:04.573Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/005EN",
+          "fetchedAt": "2026-10-08T21:44:30.162Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-006",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/006",
+        "name": "ブラスター・ダーク・撃退者",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、あなたのカード名に「撃退者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手の前列のリアガードを1枚選び、退却させる。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_006.png"
+      },
+      "en": {
+        "number": "TD10/006EN",
+        "name": "Blaster Dark Revenger",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a vanguard with \"Revenger\" in its card name, you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, and retire it.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/006", "TD10/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/006",
+          "fetchedAt": "2026-10-08T21:44:06.249Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/006EN",
+          "fetchedAt": "2026-10-08T21:44:32.554Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-007",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/007",
+        "name": "コイルバウ・撃退者",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより少ないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_007.png"
+      },
+      "en": {
+        "number": "TD10/007EN",
+        "name": "Koilbau Revenger",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is less than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/007", "TD10/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/007",
+          "fetchedAt": "2026-10-08T21:44:07.138Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/007EN",
+          "fetchedAt": "2026-10-08T21:44:33.454Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-008",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/008",
+        "name": "撃退者の城塞 ファタリテート",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《シャドウパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "シャドウパラディン",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_008.png"
+      },
+      "en": {
+        "number": "TD10/008EN",
+        "name": "Revenger Fortress, Fatalita",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Shadow Paladin> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Golem",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/008", "TD10/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/008",
+          "fetchedAt": "2026-10-08T21:44:08.460Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/008EN",
+          "fetchedAt": "2026-10-08T21:44:34.340Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-009",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/009",
+        "name": "黒の賢者 カロン",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_009.png"
+      },
+      "en": {
+        "number": "TD10/009EN",
+        "name": "Black Sage, Charon",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/009", "TD10/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/009",
+          "fetchedAt": "2026-10-08T21:44:09.415Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/009EN",
+          "fetchedAt": "2026-10-08T21:44:35.239Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-010",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/010",
+        "name": "冒涜の撃退者 ベリト",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "シャドウパラディン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_010.png"
+      },
+      "en": {
+        "number": "TD10/010EN",
+        "name": "Sacrilege Revenger, Baal-berith",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/010", "TD10/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/010",
+          "fetchedAt": "2026-10-08T21:44:10.360Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/010EN",
+          "fetchedAt": "2026-10-08T21:44:36.473Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-011",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/011",
+        "name": "無常の撃退者 マスカレード",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「撃退者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_011.png"
+      },
+      "en": {
+        "number": "TD10/011EN",
+        "name": "Transient Revenger, Masquerade",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Revenger\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/011", "TD10/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/011",
+          "fetchedAt": "2026-10-08T21:44:12.470Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/011EN",
+          "fetchedAt": "2026-10-08T21:44:38.902Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-012",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/012",
+        "name": "ブランバウ・撃退者",
+        "text": "【自】【(R)】：このユニットが《シャドウパラディン》のヴァンガードを【ブースト】した時、あなたのリアガードが相手のリアガードより少ないなら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_012.png"
+      },
+      "en": {
+        "number": "TD10/012EN",
+        "name": "Branbau Revenger",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a <Shadow Paladin> vanguard, if the number of rear-guards you have is less than your opponent's, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/012", "TD10/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/012",
+          "fetchedAt": "2026-10-08T21:44:13.419Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/012EN",
+          "fetchedAt": "2026-10-08T21:44:40.208Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-013",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/013",
+        "name": "恐慌の撃退者 フリッツ",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_013.png"
+      },
+      "en": {
+        "number": "TD10/013EN",
+        "name": "Crisis Revenger, Fritz",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/013", "TD10/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/013",
+          "fetchedAt": "2026-10-08T21:44:14.314Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/013EN",
+          "fetchedAt": "2026-10-08T21:44:41.123Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-014",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/014",
+        "name": "厳格なる撃退者",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_014.png"
+      },
+      "en": {
+        "number": "TD10/014EN",
+        "name": "Grim Revenger",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_014EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/014", "TD10/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/014",
+          "fetchedAt": "2026-10-08T21:44:16.911Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/014EN",
+          "fetchedAt": "2026-10-08T21:44:43.614Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-015",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/015",
+        "name": "氷結の撃退者",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_015.png"
+      },
+      "en": {
+        "number": "TD10/015EN",
+        "name": "Freezing Revenger",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/015", "TD10/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/015",
+          "fetchedAt": "2026-10-08T21:44:18.814Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/015EN",
+          "fetchedAt": "2026-10-08T21:44:45.318Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-016",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/016",
+        "name": "時を告げる撃退者",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_016.png"
+      },
+      "en": {
+        "number": "TD10/016EN",
+        "name": "Awaking Revenger",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/016", "TD10/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/016",
+          "fetchedAt": "2026-10-08T21:44:20.158Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/016EN",
+          "fetchedAt": "2026-10-08T21:44:46.217Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD10-017",
+      "set": "TD10",
+      "jp": {
+        "number": "TD10/017",
+        "name": "暗黒医術の撃退者",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/TD10/td10_017.png"
+      },
+      "en": {
+        "number": "TD10/017EN",
+        "name": "Healing Revenger",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/td10/TD10_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD10/017", "TD10/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD10/017",
+          "fetchedAt": "2026-10-08T21:44:22.206Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD10/017EN",
+          "fetchedAt": "2026-10-08T21:44:48.277Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.10: Purgatory Revenger",
+    "cards": [
+      {
+        "id": "TD10-001",
+        "count": 1
+      },
+      {
+        "id": "TD10-002",
+        "count": 2
+      },
+      {
+        "id": "TD10-003",
+        "count": 4
+      },
+      {
+        "id": "TD10-004",
+        "count": 4
+      },
+      {
+        "id": "TD10-005",
+        "count": 1
+      },
+      {
+        "id": "TD10-006",
+        "count": 1
+      },
+      {
+        "id": "TD10-007",
+        "count": 4
+      },
+      {
+        "id": "TD10-008",
+        "count": 2
+      },
+      {
+        "id": "TD10-009",
+        "count": 4
+      },
+      {
+        "id": "TD10-010",
+        "count": 4
+      },
+      {
+        "id": "TD10-011",
+        "count": 4
+      },
+      {
+        "id": "TD10-012",
+        "count": 2
+      },
+      {
+        "id": "TD10-013",
+        "count": 1
+      },
+      {
+        "id": "TD10-014",
+        "count": 4
+      },
+      {
+        "id": "TD10-015",
+        "count": 4
+      },
+      {
+        "id": "TD10-016",
+        "count": 4
+      },
+      {
+        "id": "TD10-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td10/",
+      "fetchedAt": "2026-10-08T21:45:06.373Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.log
+# D-018: official card images, personal offline use only. Never commit.
+assets/cards/
+# raw HTML cache of the official card databases
+data/raw/
+# AI benchmark reports (npm run ai:bench)
+bench-results/
+
+# Bushiroad Comprehensive Rules documents: kept locally for development, not redistributed (D-025)
+docs/research/sources/
+
+# Windows release builds (npm run dist:win)
+release/

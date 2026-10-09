@@ -1,0 +1,818 @@
+{
+  "set": "TD02",
+  "importedAt": "2026-10-08T21:36:21.907Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD02-001",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/001",
+        "name": "ドラゴニック・オーバーロード",
+        "text": "【永】【(V)/(R)】：他のあなたの《かげろう》のヴァンガードかリアガードがいないなら、このユニットのパワー－2000。\n【起】【(V)/(R)】：[カウンターブラスト(3)]　そのターン中、このユニットのパワー＋5000し、『【自】【(V)/(R)】：このユニットのアタックが相手のリアガードにヒットした時、このユニットを【スタンド】する。』を得て、『【ツインドライブ!!】』を失う。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_001.png"
+      },
+      "en": {
+        "number": "TD02/001EN",
+        "name": "Dragonic Overlord",
+        "text": "[CONT](VC/RC):If you do not have a <<Kagero>> vanguard or rear-guard, this unit gets [Power] -2000.\n[ACT](VC/RC):[Counter-Blast 3] Until end of turn, this unit gets [Power] +5000, gets \"Own(VC/RC):When this unit's attack hits an opponent's rear-guard, [Stand] this unit\", and loses \"Twin Drive!!\".",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/001", "TD02/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/001",
+          "fetchedAt": "2026-10-08T21:35:16.900Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/001EN",
+          "fetchedAt": "2026-10-08T21:35:46.214Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-002",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/002",
+        "name": "ドラゴンモンク ゴクウ",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《かげろう》がでた時、相手のグレード１以下のリアガードを１枚選び、退却させる。",
+        "clan": "かげろう",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_002.png"
+      },
+      "en": {
+        "number": "TD02/002EN",
+        "name": "Dragon Monk, Goku",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <<Kagero>>, choose an opponent's grade 1 or less rear-guard, and retire it.",
+        "clan": "Kagero",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/002", "TD02/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/002",
+          "fetchedAt": "2026-10-08T21:35:19.674Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/002EN",
+          "fetchedAt": "2026-10-08T21:35:48.428Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-003",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/003",
+        "name": "魔竜戦鬼 ヤクシャ",
+        "text": "【自】【手札】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、あなたのグレード２のヴァンガードがいるなら、このカードを公開してよい。公開したら、このカードをライドする。",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_003.png"
+      },
+      "en": {
+        "number": "TD02/003EN",
+        "name": "Demonic Dragon Berserker, Yaksha",
+        "text": "[AUTO](Hand):During your main phase, when an opponent's rear-guard is put into the drop zone, if you have a grade 2 vanguard, you may reveal this card. If you do, ride this card.",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/003", "TD02/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/003",
+          "fetchedAt": "2026-10-08T21:35:21.066Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/003EN",
+          "fetchedAt": "2026-10-08T21:35:49.629Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-004",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/004",
+        "name": "ドラゴンナイト ネハーレン",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_004.png"
+      },
+      "en": {
+        "number": "TD02/004EN",
+        "name": "Dragon Knight, Nehalem",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/004", "TD02/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/004",
+          "fetchedAt": "2026-10-08T21:35:22.094Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/004EN",
+          "fetchedAt": "2026-10-08T21:35:51.172Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-005",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/005",
+        "name": "バーサーク・ドラゴン",
+        "text": "【自】：[【カウンターブラスト】(2)]　このユニットが(V)か(R)に登場した時、あなたの《かげろう》のヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_005.png"
+      },
+      "en": {
+        "number": "TD02/005EN",
+        "name": "Berserk Dragon",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a <<Kagero>> vanguard, you may pay the cost. If you do, choose an opponent's grade 2 or less rear-guard, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/005", "TD02/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/005",
+          "fetchedAt": "2026-10-08T21:35:25.675Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/005EN",
+          "fetchedAt": "2026-10-08T21:35:52.911Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-006",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/006",
+        "name": "ワイバーンストライク テージャス",
+        "text": "【永】【(V)/(R)】：このユニットは、このユニットと同じ縦列の後列にいる相手のユニットをバトル相手のユニットに選べる。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_006.png"
+      },
+      "en": {
+        "number": "TD02/006EN",
+        "name": "Wyvern Strike, Tejas",
+        "text": "[CONT](VC/RC):If this unit would attack, it may instead attack an opponent's unit in the back row of the same column as this unit.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/006", "TD02/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/006",
+          "fetchedAt": "2026-10-08T21:35:26.612Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/006EN",
+          "fetchedAt": "2026-10-08T21:35:53.904Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-007",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/007",
+        "name": "鎧の化身 バー",
+        "text": "",
+        "clan": "かげろう",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_007.png"
+      },
+      "en": {
+        "number": "TD02/007EN",
+        "name": "Embodiment of Armor, Bahr",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/007", "TD02/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/007",
+          "fetchedAt": "2026-10-08T21:35:30.319Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/007EN",
+          "fetchedAt": "2026-10-08T21:35:55.259Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-008",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/008",
+        "name": "ドラゴンモンク ゴジョー",
+        "text": "【起】【(V)/(R)】：[このユニットを【レスト】する，あなたの手札から１枚選び、捨てる]　１枚引く。",
+        "clan": "かげろう",
+        "race": "ギルマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_008.png"
+      },
+      "en": {
+        "number": "TD02/008EN",
+        "name": "Dragon Monk, Gojo",
+        "text": "[ACT](VC/RC):[Rest this unit ＆ Choose a card from your hand, and discard it] Draw a card.",
+        "clan": "Kagero",
+        "race": "Gillman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/008", "TD02/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/008",
+          "fetchedAt": "2026-10-08T21:35:32.173Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/008EN",
+          "fetchedAt": "2026-10-08T21:35:56.852Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-009",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/009",
+        "name": "希望の火 エルモ",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]　このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "かげろう",
+        "race": "サラマンダー",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_009.png"
+      },
+      "en": {
+        "number": "TD02/009EN",
+        "name": "Flame of Hope, Aermo",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted, you may pay the cost. If you do, draw a card.",
+        "clan": "Kagero",
+        "race": "Salamander",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/009", "TD02/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/009",
+          "fetchedAt": "2026-10-08T21:35:34.763Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/009EN",
+          "fetchedAt": "2026-10-08T21:35:58.364Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-010",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/010",
+        "name": "魔竜聖母 ジョカ",
+        "text": "【自】【(R)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_010.png"
+      },
+      "en": {
+        "number": "TD02/010EN",
+        "name": "Demonic Dragon Madonna, Joka",
+        "text": "[AUTO](RC):During your main phase, when an opponent's rear-guard is put into the drop zone, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/010", "TD02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/010",
+          "fetchedAt": "2026-10-08T21:35:35.765Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/010EN",
+          "fetchedAt": "2026-10-08T21:35:59.561Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-011",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/011",
+        "name": "ワイバーンストライク ジャラン",
+        "text": "【自】【(R)】：このユニットが「ワイバーンストライク　テージャス」を【ブースト】した時、そのバトル中、ブーストされたユニットのパワー＋4000。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_011.png"
+      },
+      "en": {
+        "number": "TD02/011EN",
+        "name": "Wyvern Strike, Jarran",
+        "text": "[AUTO](RC):When this unit boosts a card named \"Wyvern Strike, Tejas\", the boosted unit gets [Power] +4000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/011", "TD02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/011",
+          "fetchedAt": "2026-10-08T21:35:36.691Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/011EN",
+          "fetchedAt": "2026-10-08T21:36:00.572Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-012",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/012",
+        "name": "リザードランナー アンドゥー",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_012.png"
+      },
+      "en": {
+        "number": "TD02/012EN",
+        "name": "Lizard Runner, Undeux",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/012", "TD02/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/012",
+          "fetchedAt": "2026-10-08T21:35:38.021Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/012EN",
+          "fetchedAt": "2026-10-08T21:36:01.488Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-013",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/013",
+        "name": "ドラゴンダンサー モニカ",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_013.png"
+      },
+      "en": {
+        "number": "TD02/013EN",
+        "name": "Dragon Dancer, Monica",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_013EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/013", "TD02/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/013",
+          "fetchedAt": "2026-10-08T21:35:38.931Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/013EN",
+          "fetchedAt": "2026-10-08T21:36:02.740Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-014",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/014",
+        "name": "リザードソルジャー ガンルー",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_014.png"
+      },
+      "en": {
+        "number": "TD02/014EN",
+        "name": "Lizard Soldier, Ganlu",
+        "text": "",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_014EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/014", "TD02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/014",
+          "fetchedAt": "2026-10-08T21:35:40.339Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/014EN",
+          "fetchedAt": "2026-10-08T21:36:03.951Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-015",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/015",
+        "name": "ドラゴンモンク ゲンジョウ",
+        "text": "",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_015.png"
+      },
+      "en": {
+        "number": "TD02/015EN",
+        "name": "Dragon Monk, Genjo",
+        "text": "(You may only have up to four cards with [Heal] in a deck.)",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/015", "TD02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/015",
+          "fetchedAt": "2026-10-08T21:35:42.012Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/015EN",
+          "fetchedAt": "2026-10-08T21:36:05.122Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD02-016",
+      "set": "TD02",
+      "jp": {
+        "number": "TD02/016",
+        "name": "魔竜導師 ラクシャ",
+        "text": "【自】【(R)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD02/td02_016.png"
+      },
+      "en": {
+        "number": "TD02/016EN",
+        "name": "Demonic Dragon Mage, Rakshasa",
+        "text": "[AUTO](RC):During your main phase, when an opponent's rear-guard is put into the drop zone, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/td02/TD02_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD02/016", "TD02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD02/016",
+          "fetchedAt": "2026-10-08T21:35:44.541Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD02/016EN",
+          "fetchedAt": "2026-10-08T21:36:06.314Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.02: Dragonic Overlord",
+    "cards": [
+      {
+        "id": "TD02-001",
+        "count": 2
+      },
+      {
+        "id": "TD02-002",
+        "count": 1
+      },
+      {
+        "id": "TD02-003",
+        "count": 4
+      },
+      {
+        "id": "TD02-004",
+        "count": 4
+      },
+      {
+        "id": "TD02-005",
+        "count": 4
+      },
+      {
+        "id": "TD02-006",
+        "count": 4
+      },
+      {
+        "id": "TD02-007",
+        "count": 4
+      },
+      {
+        "id": "TD02-008",
+        "count": 2
+      },
+      {
+        "id": "TD02-009",
+        "count": 4
+      },
+      {
+        "id": "TD02-010",
+        "count": 2
+      },
+      {
+        "id": "TD02-011",
+        "count": 2
+      },
+      {
+        "id": "TD02-012",
+        "count": 1
+      },
+      {
+        "id": "TD02-013",
+        "count": 4
+      },
+      {
+        "id": "TD02-014",
+        "count": 4
+      },
+      {
+        "id": "TD02-015",
+        "count": 4
+      },
+      {
+        "id": "TD02-016",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td02/",
+      "fetchedAt": "2026-10-08T21:36:21.614Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

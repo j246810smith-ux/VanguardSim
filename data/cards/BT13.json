@@ -1,0 +1,4700 @@
+{
+  "set": "BT13",
+  "importedAt": "2026-10-09T07:01:58.188Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "BT13-001",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/001",
+        "name": "粛清の守護天使 レミエル “Я”",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[あなたのカード名に「守護天使」を含むリアガードを２枚選び、呪縛する]あなたの前列のカード名に「守護天使」を含むユニットを３枚まで選び、そのターン中、パワー＋5000し、あなたのダメージゾーンに表の「粛清の守護天使 レミエル “Я（リバース）”」があるなら、相手のダメージゾーンから１枚選び、ドロップゾーンに置き、相手は自分のリアガードを１枚選び、ダメージゾーンに置く。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)】：あなたのソウルに「神託の守護天使 レミエル」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_001.png"
+      },
+      "en": {
+        "number": "BT13/001EN",
+        "name": "Cleanup Celestial, Ramiel \"Яeverse\"",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):［Choose two of your rear-guards with \"Celestial\" in its card name, and lock them] Choose up to three units in your front row with \"Celestial\" in its card name, those units get [Power] +5000 until end of turn, and if you have a face up card named \"Cleanup Celestial, Ramiel \"Яeverse\"\" in you damage zone, choose one card from your opponent's damage zone, put it into his or her drop zone, your opponent chooses one of his or her rear-guards, and puts it into his or her damage zone. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC):If you have a card named \"Prophecy Celestial, Ramiel\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/001", "BT13/S01", "BT13/001EN", "BT13/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/001",
+          "fetchedAt": "2026-10-08T22:49:14.284Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/001EN",
+          "fetchedAt": "2026-10-08T22:52:06.113Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-002",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/002",
+        "name": "修羅忍竜 クジキリコンゴウ",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《ぬばたま》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、相手は自分の手札から１枚選び、捨て、相手は自分の手札から１枚選び、裏でバインドし、そのターンの終了時、相手はこの効果でバインドしたカードを手札に加える。\n【自】【(V)】：このユニットがアタックした時、相手の手札が３枚以下なら、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_002.png"
+      },
+      "en": {
+        "number": "BT13/002EN",
+        "name": "Shura Stealth Dragon, Kujikiricongo",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Nubatama> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000, your opponent chooses one card from his or her hand, discard it, your opponent chooses one card from his or her hand, bind it face down, and at the end of that turn, your opponent puts that card bound by this effect into his or her hand.\n[AUTO](VC):When this unit attacks, if the number of cards in your opponent's hand is three or less, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/002", "BT13/S02", "BT13/002EN", "BT13/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/002",
+          "fetchedAt": "2026-10-08T22:49:21.852Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/002EN",
+          "fetchedAt": "2026-10-08T22:52:11.635Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-003",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/003",
+        "name": "最強獣神 エシックス・バスター・エクストリーム",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットのドライブチェックでカード名に「獣神」を含むグレード１以上のカードがでた時、あなたの《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。\n【永】【(V)】：あなたのソウルに「獣神 エシックス・バスター」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_003.png"
+      },
+      "en": {
+        "number": "BT13/003EN",
+        "name": "Strongest Beast Deity, Ethics Buster Extreme",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit's drive check reveals a grade 1 or greater card with \"Beast Deity\" in its card name, choose one of your <Nova Grappler> rear-guards, and [Stand] it.\n[CONT](VC):If you have a card named \"Beast Deity, Ethics Buster\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/003", "BT13/S03", "BT13/003EN", "BT13/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/003",
+          "fetchedAt": "2026-10-08T22:49:23.501Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/003EN",
+          "fetchedAt": "2026-10-08T22:52:12.969Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-004",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/004",
+        "name": "最凶獣神 エシックス・バスター “Я”",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)，あなたの手札からカード名に「獣神」を含むカードを２枚選び、捨てる，あなたの《ノヴァグラップラー》のリアガードを２枚選び、呪縛する]そのターン中、このユニットは『【自】【(V)】：このユニットがヴァンガードにアタックしたバトルの終了時、このユニットを【スタンド】する。そのターン中、この能力は使えなくなる。』を得る。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)】：あなたのソウルに「獣神 エシックス・バスター」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_004.png"
+      },
+      "en": {
+        "number": "BT13/004EN",
+        "name": "Deadliest Beast Deity, Ethics Buster \"Яeverse\"",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2 & Choose two cards in your hand with \"Beast Deity\" in its card name, discard them, choose two or your <Nova Grappler> rear-guards, and lock them] Until end of turn, this unit gets \"[AUTO](VC):At the end of the battle that this unit attacked a vanguard, [Stand] this unit. This ability cannot be used for the rest of that turn.\" (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC):If you have a card named \"Beast Deity, Ethics Buster\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/004", "BT13/S04", "BT13/004EN", "BT13/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/004",
+          "fetchedAt": "2026-10-08T22:49:24.918Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/004EN",
+          "fetchedAt": "2026-10-08T22:52:14.448Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-005",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/005",
+        "name": "暗黒次元ロボ “Я” ダイユーシャ",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたのカード名に「次元ロボ」を含むリアガードを２枚選び、呪縛する]相手のヴァンガードを１枚選び、そのターン中、パワー－10000。そのターン中、この能力は使えなくなる。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)】：あなたのソウルに「超次元ロボ ダイユーシャ」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_005.png"
+      },
+      "en": {
+        "number": "BT13/005EN",
+        "name": "Dark Dimensional Robo, \"Яeverse\" Daiyusha",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose two of your rear-guards with \"Dimensional Robo\" in its card name, and lock them] Choose one of your opponent's vanguard, and that unit gets [Power] -10000 until end of turn. This ability cannot be used for the rest of that turn. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC):If you have a card named \"Super Dimensional Robo, Daiyusha\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/005", "BT13/S05", "BT13/005EN", "BT13/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/005",
+          "fetchedAt": "2026-10-08T22:49:26.558Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/005EN",
+          "fetchedAt": "2026-10-08T22:52:15.989Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-006",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/006",
+        "name": "創世英雄 ゼロ",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《ディメンジョンポリス》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、相手のヴァンガードを１枚選び、そのターン中、パワー－5000。\n【自】【(V)】：このユニットが《ディメンジョンポリス》に【ブースト】された時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_006.png"
+      },
+      "en": {
+        "number": "BT13/006EN",
+        "name": "Original Saver, Zero",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Dimension Police> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and choose one of your opponent's vanguard, and until end of turn, that unit gets [Power] -5000.\n[AUTO](VC):When this unit is boosted([Boost]) by a <Dimension Police>, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/006", "BT13/S06", "BT13/006EN", "BT13/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/006",
+          "fetchedAt": "2026-10-08T22:49:27.902Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/006EN",
+          "fetchedAt": "2026-10-08T22:52:16.995Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-007",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/007",
+        "name": "星輝兵 カオスブレイカー・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【ソウルブラスト】(1)-カード名に「星輝兵」を含むカード]相手のエンドフェイズ中、相手の呪縛カードが解呪された時、コストを払ってよい。払ったら、そのユニットを退却させ、１枚引く。\n【起】【(V)】：[【カウンターブラスト】(1)，あなたの手札からカード名に「星輝兵」を含むカードを１枚選び、捨てる]相手のリアガードを１枚選び、呪縛する。そのターン中、この能力は使えなくなる。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_007.png"
+      },
+      "en": {
+        "number": "BT13/007EN",
+        "name": "Star-vader, Chaos Breaker Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Soul-Blast 1]-card with \"Star-vader\" in its card name] During your opponent's end phase, when an opponent's locked card is unlocked, you may pay the cost. If you do, retire that unit, and draw a card.\n[ACT](VC):[Counter-Blast 1 & Choose a card with \"Star-vader\" in its card name from your hand, and discard it] Choose one of your opponent's rear-guards, and lock it. This ability cannot be used for the rest of that turn. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/007", "BT13/S07", "BT13/007EN", "BT13/S07EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/007",
+          "fetchedAt": "2026-10-08T22:49:30.520Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/007EN",
+          "fetchedAt": "2026-10-08T22:52:18.576Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-008",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/008",
+        "name": "蒼波竜 テトラドライブ・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックしたバトルの終了時、そのターンで２回目のバトル中なら、そのターン中、このユニットは『【自】【(V)】：[【カウンターブラスト】(2)，あなたの手札から《アクアフォース》を２枚選び、捨てる]あなたのリアガードがヴァンガードにアタックしたバトルの終了時、そのターンで４回目のバトル中なら、コストを払ってよい。払ったら、このユニットを【スタンド】する。』を得る。\n【起】【(V)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_008.png"
+      },
+      "en": {
+        "number": "BT13/008EN",
+        "name": "Blue Wave Dragon, Tetra-drive Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):At the end of the battle that this unit attacked a vanguard, if it is the second battle of that turn, until end of turn, this unit gets \"[AUTO](VC):[Counter-Blast 2 & Choose two <Aqua Force> from your hand, and discard them] At the end of the battle that your rear-guard attacks a vanguard, if it is the fourth battle of that turn, you may pay the cost. If you do, [Stand] this unit.\"\n[ACT](VC):[Counter-Blast 1] This unit gets [Power] +2000 until end of turn.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT13/008", "BT13/S08", "BT13/008EN", "BT13/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/008",
+          "fetchedAt": "2026-10-08T22:49:31.934Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/008EN",
+          "fetchedAt": "2026-10-08T22:52:20.102Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-009",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/009",
+        "name": "救急の守護天使 ダネル",
+        "text": "【自】【ダメージゾーン】：[【カウンターブラスト】(1)-他のカード名に「守護天使」を含むカード]他のあなたのカードがダメージゾーンに置かれた時、あなたの《エンジェルフェザー》のヴァンガードがいるなら、コストを払ってよい。払ったら、このカードを(R)にコールし、あなたの山札の上から１枚をダメージゾーンに置く。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_009.png"
+      },
+      "en": {
+        "number": "BT13/009EN",
+        "name": "Emergency Celestial, Danielle",
+        "text": "[AUTO]{Damage Zone}:[Counter-Blast 1]-another card with \"Celestial\" in its card name] When another card is put into your damage zone, if you have an <Angel Feather> vanguard, you may pay the cost. If you do, call this card to (RC), and put the top card of your deck into your damage zone.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/009", "BT13/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/009",
+          "fetchedAt": "2026-10-08T22:49:32.949Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/009EN",
+          "fetchedAt": "2026-10-08T22:52:21.542Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-010",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/010",
+        "name": "修羅忍竜 カブキコンゴウ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、相手のリアガードを表ですべてバインドし、相手のバインドゾーンが３枚以上なら、そのバトル中、このユニットのパワー＋10000し、そのターンの終了時、相手はこの効果でバインドしたカードを手札に加える。\n【起】【(V)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_010.png"
+      },
+      "en": {
+        "number": "BT13/010EN",
+        "name": "Shura Stealth Dragon, Kabukicongo",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, bind all of your opponent's rear-guards face up, and if the number of cards in your opponent's bind zone is three or more, this unit gets [Power] +10000 until end of that battle, and at the end of that turn, your opponent puts those cards bound by this effect into his or her hand.\n[ACT](VC):[Counter-Blast 1] This unit gets [Power] +2000 until end of turn.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/010", "BT13/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/010",
+          "fetchedAt": "2026-10-08T22:49:34.599Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/010EN",
+          "fetchedAt": "2026-10-08T22:52:23.036Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-011",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/011",
+        "name": "忍獣 ミジンガクレ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ぬばたま》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《ぬばたま》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_011.png"
+      },
+      "en": {
+        "number": "BT13/011EN",
+        "name": "Stealth Beast, Mijingakure",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Nubatama> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Nubatama> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT13/011", "BT13/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/011",
+          "fetchedAt": "2026-10-08T22:49:36.241Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/011EN",
+          "fetchedAt": "2026-10-08T22:52:24.090Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-012",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/012",
+        "name": "獣神 ブレイニーパピオ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)-カード名に「獣神」を含むカード]このユニットのアタックがヴァンガードにヒットした時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、コストを払ってよい。払ったら、他のあなたの《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_012.png"
+      },
+      "en": {
+        "number": "BT13/012EN",
+        "name": "Beast Deity, Brainy Papio",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1]-card with \"Beast Deity\" in its card name] When this unit's attack hits a vanguard, if you have a <Nova Grappler> vanguard, you may pay the cost. If you do, choose one of your other <Nova Grappler> rear-guards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/012", "BT13/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/012",
+          "fetchedAt": "2026-10-08T22:49:37.317Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/012EN",
+          "fetchedAt": "2026-10-08T22:52:25.522Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-013",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/013",
+        "name": "獣神 ソーラーファルコン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ノヴァグラップラー》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《ノヴァグラップラー》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_013.png"
+      },
+      "en": {
+        "number": "BT13/013EN",
+        "name": "Beast Deity, Solar Falcon",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Nova Grappler> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Nova Grappler> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT13/013", "BT13/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/013",
+          "fetchedAt": "2026-10-08T22:49:39.262Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/013EN",
+          "fetchedAt": "2026-10-08T22:52:26.632Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-014",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/014",
+        "name": "次元ロボ ダイシールド",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ディメンジョンポリス》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《ディメンジョンポリス》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_014.png"
+      },
+      "en": {
+        "number": "BT13/014EN",
+        "name": "Dimensional Robo, Daishield",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Dimension Police> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Dimension Police> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT13/014", "BT13/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/014",
+          "fetchedAt": "2026-10-08T22:49:41.756Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/014EN",
+          "fetchedAt": "2026-10-08T22:52:28.214Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-015",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/015",
+        "name": "星輝兵 コロニーメイカー",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたの《リンクジョーカー》のヴァンガードがいて、相手の呪縛カードがあるなら、コストを払ってよい。払ったら、あなたの山札からカード名に「星輝兵」を含むグレード１以下のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_015.png"
+      },
+      "en": {
+        "number": "BT13/015EN",
+        "name": "Star-vader, Colony Maker",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), if you have a <Link Joker> vanguard and you opponent has a locked card, you may pay the cost. If you do, search your deck for up to one grade 1 or less card with \"Star-vader\" in its card name, call it to (RC), and shuffle your deck.",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/015", "BT13/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/015",
+          "fetchedAt": "2026-10-08T22:49:43.861Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/015EN",
+          "fetchedAt": "2026-10-08T22:52:30.490Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-016",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/016",
+        "name": "七海覇王 ナイトミスト",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《グランブルー》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、あなたのドロップゾーンから《グランブルー》を２枚まで選び、(R)にコールし、そのターン中、この効果でコールされたユニットのパワー＋5000し、そのターンの終了時、そのユニットを退却させる。\n【永】【(V)】：あなたのターン中、あなたの《グランブルー》のリアガードが４枚以上なら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_016.png"
+      },
+      "en": {
+        "number": "BT13/016EN",
+        "name": "Lord of the Seven Seas, Nightmist",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Granblue> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and choose up to two <Granblue> from your drop zone, call them to (RC), those units called with this effect gets [Power] +5000 until end of turn, and at the end of that turn, retire those units.\n[CONT](VC):During your turn, if the number of <Granblue> rear-guards you have is four or more, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/016", "BT13/S09", "BT13/016EN", "BT13/S09EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/016",
+          "fetchedAt": "2026-10-08T22:49:45.910Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/016EN",
+          "fetchedAt": "2026-10-08T22:52:32.206Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-017",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/017",
+        "name": "氷獄の冥王 コキュートス “Я”",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[あなたの山札の上から３枚をドロップゾーンに置く，あなたの《グランブルー》のリアガードを１枚選び、呪縛する]あなたのドロップゾーンから《グランブルー》を１枚選び、(R)にコールし、そのターン中、そのユニットのパワー＋3000。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)】：あなたのソウルに「氷獄の死霊術師 コキュートス」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_017.png"
+      },
+      "en": {
+        "number": "BT13/017EN",
+        "name": "Ice Prison Hades Emperor, Cocytus \"Яeverse\"",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):［Put the top three cards of your deck into your drop zone & Choose one of your <Granblue> rear-guards, and lock it] Choose one <Granblue> from your drop zone, call it to (RC), and that unit gets [Power] +3000 until end of turn. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC):If you have a card named \"Ice Prison Necromancer, Cocytus\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/017", "BT13/S10", "BT13/017EN", "BT13/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/017",
+          "fetchedAt": "2026-10-08T22:49:47.796Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/017EN",
+          "fetchedAt": "2026-10-08T22:52:33.598Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-018",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/018",
+        "name": "コバルトウェーブ・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：あなたのリアガードがヴァンガードにアタックした時、そのターンで３回目以降のバトル中なら、そのターン中、このユニットのパワー＋2000/クリティカル＋１。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_018.png"
+      },
+      "en": {
+        "number": "BT13/018EN",
+        "name": "Cobalt Wave Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When your rear-guard attacks a vanguard, if it is the third battle of that turn or more, this unit gets [Power] +2000/[Critical] +1 until end of turn.\n[AUTO](VC):When this unit attacks a vanguard, if it is the fourth battle of that turn or more, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/018", "BT13/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/018",
+          "fetchedAt": "2026-10-08T22:49:48.783Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/018EN",
+          "fetchedAt": "2026-10-08T22:52:34.906Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-019",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/019",
+        "name": "学園の処罰者 レオパルド “Я”",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[あなたの《グレートネイチャー》のリアガードを１枚選び、呪縛する]あなたの《グレートネイチャー》のリアガードを２枚まで選び、そのターン中、パワー＋4000し、『【自】【(R)】：あなたのターンの終了時、このユニットを退却させる。』『【自】：あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、このカードをユニットのいない(R)にコールする。』を与える。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【永】【(V)】：あなたのソウルに「学園の狩人 レオパルド」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_019.png"
+      },
+      "en": {
+        "number": "BT13/019EN",
+        "name": "School Punisher, Leo-pald \"Яeverse\"",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):［Choose one of your <Great Nature> rear-guards, and lock it] Choose up to two of your <Great Nature> rear-guards, and until end of turn, those units get [Power] +4000 and \"[AUTO](RC):At the end of your turn, retire this unit.\"\"[AUTO]:During your end phase, when this unit is put into the drop zone from (RC), call this card to an open (RC).\" (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[CONT](VC):If you have a card named \"School Hunter, Leo-pald\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/019", "BT13/S11", "BT13/019EN", "BT13/S11EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/019",
+          "fetchedAt": "2026-10-08T22:49:50.638Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/019EN",
+          "fetchedAt": "2026-10-08T22:52:36.357Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-020",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/020",
+        "name": "特別名誉博士 シャノアール",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《グレートネイチャー》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、『【自】【(V)】：あなたの《グレートネイチャー》のリアガードがヴァンガードにアタックした時、あなたの《グレートネイチャー》のリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンの終了時、１枚引き、そのユニットを退却させる。』を与える。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_020.png"
+      },
+      "en": {
+        "number": "BT13/020EN",
+        "name": "Honorary Professor, Chatnoir",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Great Nature> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and \"[AUTO](VC):When your <Great Nature> rear-guard attacks a vanguard, choose one of your <Great Nature> rear-guards, and until end of turn, that unit gets [Power] +4000, and at the end of that turn, draw a card, and retire that unit.\"\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT13/020", "BT13/S12", "BT13/020EN", "BT13/S12EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/020",
+          "fetchedAt": "2026-10-08T22:49:51.943Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/020EN",
+          "fetchedAt": "2026-10-08T22:52:37.959Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-021",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/021",
+        "name": "執刀の守護天使 アルメン",
+        "text": "【永】【(V)/(R)】：あなたのターン中、あなたのダメージゾーンの表の「執刀の守護天使 アルメン」１枚につき、このユニットのパワー＋2000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_021.png"
+      },
+      "en": {
+        "number": "BT13/021EN",
+        "name": "Operation Celestial, Armen",
+        "text": "[CONT](VC/RC):During your turn, this unit gets [Power] +2000 for each card named \"Operation Celestial, Armen\" face up in your damage zone.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/021", "BT13/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/021",
+          "fetchedAt": "2026-10-08T22:49:53.269Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/021EN",
+          "fetchedAt": "2026-10-08T22:52:39.124Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-022",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/022",
+        "name": "介護の守護天使 ナレル",
+        "text": "【自】：[あなたの手札からカード名に「守護天使」を含むカードを１枚選び、ダメージゾーンに置く]このユニットが(R)に登場した時、あなたの《エンジェルフェザー》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのダメージゾーンから１枚選び、手札に加える。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_022.png"
+      },
+      "en": {
+        "number": "BT13/022EN",
+        "name": "Nursing Celestial, Narelle",
+        "text": "[AUTO]:[Choose one card with \"Celestial\" in its card name from your hand, and put it into your damage zone] When this unit is placed on (RC), if you have an <Angel Feather> vanguard, you may pay the cost. If you do, choose one card from your damage zone, and put it into your hand.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/022", "BT13/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/022",
+          "fetchedAt": "2026-10-08T22:49:54.514Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/022EN",
+          "fetchedAt": "2026-10-08T22:52:40.181Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-023",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/023",
+        "name": "忍妖 ダイダラホウシ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《ぬばたま》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_023.png"
+      },
+      "en": {
+        "number": "BT13/023EN",
+        "name": "Stealth Fiend, Daidarahoushi",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Nubatama> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_023EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/023", "BT13/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/023",
+          "fetchedAt": "2026-10-08T22:49:55.852Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/023EN",
+          "fetchedAt": "2026-10-08T22:52:41.136Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-024",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/024",
+        "name": "忍獣 タマハガネ",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《ぬばたま》のヴァンガードがいるなら、相手のリアガードを１枚選び、表でバインドし、そのターンの終了時、相手はこの効果でバインドしたカードを手札に加える。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_024.png"
+      },
+      "en": {
+        "number": "BT13/024EN",
+        "name": "Stealth Beast, Tamahagane",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Nubatama> vanguard, choose one of your opponent's rear-guards, bind it face up, and at the end of that turn, your opponent puts that card bound by this effect into his or her hand.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/024", "BT13/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/024",
+          "fetchedAt": "2026-10-08T22:49:57.307Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/024EN",
+          "fetchedAt": "2026-10-08T22:52:42.165Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-025",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/025",
+        "name": "忍獣 クロコ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[【ソウルブラスト】(1)]このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、あなたの《ぬばたま》のヴァンガードがいるなら、コストを払ってよい。払ったら、相手のバインドゾーンから２枚まで選び、ドロップゾーンに置く。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_025.png"
+      },
+      "en": {
+        "number": "BT13/025EN",
+        "name": "Stealth Beast, Kuroko",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Soul-Blast 1] When an attack hits a vanguard during the battle this unit boosted([Boost]), if you have a <Nubatama> vanguard, you may pay the cost. If you do, choose up to two cards from your opponent's bind zone, and put them into his or her drop zone.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/025", "BT13/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/025",
+          "fetchedAt": "2026-10-08T22:49:58.364Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/025EN",
+          "fetchedAt": "2026-10-08T22:52:43.243Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-026",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/026",
+        "name": "獣神 マックスビート",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)-カード名に「獣神」を含むカード]あなたのバトルフェイズ中、このユニットが【スタンド】した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、コストを払ってよい。払ったら、他のあなたの《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_026.png"
+      },
+      "en": {
+        "number": "BT13/026EN",
+        "name": "Beast Deity, Max Beat",
+        "text": "[AUTO](RC):[Counter-Blast 1]-card with \"Beast Deity\" in its card name] During your battle phase, when this unit [Stand], if you have a <Nova Grappler> vanguard, you may pay the cost. If you do, choose one of your other <Nova Grappler> rear-guards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/026", "BT13/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/026",
+          "fetchedAt": "2026-10-08T22:49:59.460Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/026EN",
+          "fetchedAt": "2026-10-08T22:52:44.362Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-027",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/027",
+        "name": "エネルギー・チャージャー",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_027.png"
+      },
+      "en": {
+        "number": "BT13/027EN",
+        "name": "Energy Charger",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a <Nova Grappler> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/027", "BT13/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/027",
+          "fetchedAt": "2026-10-08T22:50:03.580Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/027EN",
+          "fetchedAt": "2026-10-08T22:52:46.003Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-028",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/028",
+        "name": "宇宙怪竜 ドグルマドラ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《ディメンジョンポリス》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_028.png"
+      },
+      "en": {
+        "number": "BT13/028EN",
+        "name": "Space Leviathan, Dogrumadra",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Dimension Police> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/028", "BT13/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/028",
+          "fetchedAt": "2026-10-08T22:50:04.963Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/028EN",
+          "fetchedAt": "2026-10-08T22:52:47.470Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-029",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/029",
+        "name": "次元ロボ ダイハート",
+        "text": "【自】【(V)】：あなたのアタックステップ開始時、このユニットのパワーが13000以上なら、そのバトル中、このユニットは『【自】【(V)】：[あなたの手札からカード名に「次元ロボ」を含むグレード３のカードを２枚選び、ソウルに置く]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札からカード名に「次元ロボ」を含むグレード３のカードを１枚まで探し、【レスト】でライドし、その山札をシャッフルする。』を得る。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_029.png"
+      },
+      "en": {
+        "number": "BT13/029EN",
+        "name": "Dimensional Robo, Daiheart",
+        "text": "[AUTO](VC):At the beginning of your attack step, if this unit's [Power]  is 13000 or greater, until end of that battle, this unit gets \"[AUTO](VC):[Choose two grade 3 cards with \"Dimensional Robo\" in its card name from your hand, and put them into your soul] When this unit's attack hits a vanguard, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Dimensional Robo\" in its card name, ride it at [Rest], and shuffle your deck.\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_029EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/029", "BT13/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/029",
+          "fetchedAt": "2026-10-08T22:50:06.396Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/029EN",
+          "fetchedAt": "2026-10-08T22:52:48.596Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-030",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/030",
+        "name": "次元ロボ ダイドリラー",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、他のあなたのカード名に「次元ロボ」を含むユニットを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_030.png"
+      },
+      "en": {
+        "number": "BT13/030EN",
+        "name": "Dimensional Robo, Daidriller",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose another of your units with \"Dimensional Robo\" in its card name, and that unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_030EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/030", "BT13/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/030",
+          "fetchedAt": "2026-10-08T22:50:07.842Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/030EN",
+          "fetchedAt": "2026-10-08T22:52:49.825Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-031",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/031",
+        "name": "次元ロボ ゴーキャノン",
+        "text": "【起】【(R)】：[このユニットをソウルに置く，他のあなたのカード名に「次元ロボ」を含むリアガードを１枚選び、ソウルに置く]あなたのカード名に「ダイユーシャ」を含むヴァンガードを１枚選び、そのターン中、クリティカル＋１。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_031.png"
+      },
+      "en": {
+        "number": "BT13/031EN",
+        "name": "Dimensional Robo, Gocannon",
+        "text": "[ACT](RC):[Put this unit into your soul & Choose one of your other rear-guards with \"Dimensional Robo\" in its card name, and put it into your soul] Choose your vanguard with \"Daiyusha\" in its card name, and that unit gets [Critical] +1 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_031EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/031", "BT13/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/031",
+          "fetchedAt": "2026-10-08T22:50:08.820Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/031EN",
+          "fetchedAt": "2026-10-08T22:52:51.205Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-032",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/032",
+        "name": "次元ロボ ダイマグナム",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く]あなたの《ディメンジョンポリス》のヴァンガードを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_032.png"
+      },
+      "en": {
+        "number": "BT13/032EN",
+        "name": "Dimensional Robo, Daimagnum",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] Choose your <Dimension Police> vanguard, and that unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_032EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/032", "BT13/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/032",
+          "fetchedAt": "2026-10-08T22:50:09.873Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/032EN",
+          "fetchedAt": "2026-10-08T22:52:52.145Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-033",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/033",
+        "name": "ナイト・オブ・エントロピー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、呪縛する。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_033.png"
+      },
+      "en": {
+        "number": "BT13/033EN",
+        "name": "Knight of Entropy",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's rear-guards, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_033EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/033", "BT13/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/033",
+          "fetchedAt": "2026-10-08T22:50:10.751Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/033EN",
+          "fetchedAt": "2026-10-08T22:52:53.382Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-034",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/034",
+        "name": "パラダイスエルク",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《リンクジョーカー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_034.png"
+      },
+      "en": {
+        "number": "BT13/034EN",
+        "name": "Paradise Elk",
+        "text": "[AUTO](VC/RC):[Counter-Blast 2] When this unit's attack hits, if you have a <Link Joker> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_034EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/034", "BT13/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/034",
+          "fetchedAt": "2026-10-08T22:50:11.648Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/034EN",
+          "fetchedAt": "2026-10-08T22:52:54.376Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-035",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/035",
+        "name": "真剣の星輝兵 セレン",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：あなたのカードの効果で、相手のリアガードが呪縛された時、あなたの《リンクジョーカー》のヴァンガードがいるなら、このユニットを手札に戻してよい。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_035.png"
+      },
+      "en": {
+        "number": "BT13/035EN",
+        "name": "Earnest Star-vader, Selenium",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):When your opponent's rear-guard is locked due to an effect from one of your cards, if you have a <Link Joker> vanguard, you may return this unit to your hand.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_035EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/035", "BT13/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/035",
+          "fetchedAt": "2026-10-08T22:50:13.016Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/035EN",
+          "fetchedAt": "2026-10-08T22:52:55.612Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-036",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/036",
+        "name": "腐海の死霊術士 バルバロス",
+        "text": "【自】【(V)】：[あなたのグレード３以上の《グランブルー》のリアガードを１枚選び、退却させる]このユニットのドライブチェックでグレード３の《グランブルー》がでた時、コストを払ってよい。払ったら、あなたのドロップゾーンから《グランブルー》を１枚選び、ユニットのいない(R)にコールする。\n【永】【(V)】：あなたのターン中、あなたの《グランブルー》のリアガードが４枚以上なら、このユニットのパワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ギルマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_036.png"
+      },
+      "en": {
+        "number": "BT13/036EN",
+        "name": "Rotten Sea Necromancer, Barbaros",
+        "text": "[AUTO](VC):[Choose one of your grade 3 or greater <Granblue> rear-guards, and retire it] When this unit's drive check reveals a grade 3 <Granblue>, you may pay the cost. If you do, choose a <Granblue> from your drop zone, and call it to an open (RC).\n[CONT](VC):During your turn, if the number of <Granblue> rear-guards you have is four or more, this unit gets [Power] +3000.",
+        "clan": "Granblue",
+        "race": "Gillman",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_036EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/036", "BT13/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/036",
+          "fetchedAt": "2026-10-08T22:50:13.969Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/036EN",
+          "fetchedAt": "2026-10-08T22:52:56.822Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-037",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/037",
+        "name": "海中散歩のバンシー",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットがドロップゾーンから(R)に登場した時、あなたの《グランブルー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_037.png"
+      },
+      "en": {
+        "number": "BT13/037EN",
+        "name": "Sea Strolling Banshee",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC) from your drop zone, if you have a <Granblue> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_037EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/037", "BT13/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/037",
+          "fetchedAt": "2026-10-08T22:50:15.861Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/037EN",
+          "fetchedAt": "2026-10-08T22:52:57.867Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-038",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/038",
+        "name": "タイダル・アサルト",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、あなたの《アクアフォース》のヴァンガードがいるなら、このユニットを【スタンド】し、そのターン中、このユニットのパワー－5000。そのターン中、この能力は使えなくなる。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_038.png"
+      },
+      "en": {
+        "number": "BT13/038EN",
+        "name": "Tidal Assault",
+        "text": "[AUTO](RC):At the end of the battle that this unit attacked a vanguard, if you have an <Aqua Force> vanguard, [Stand] this unit, and this unit gets [Power] -5000 until end of turn. This ability cannot be used for the rest of that turn.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_038EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/038", "BT13/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/038",
+          "fetchedAt": "2026-10-08T22:50:19.123Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/038EN",
+          "fetchedAt": "2026-10-08T22:52:59.807Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-039",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/039",
+        "name": "ホイール・アサルト",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットが【ブースト】したバトルの終了時、あなたの《アクアフォース》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの《アクアフォース》のリアガードを２枚選び、位置を交換する。（カードの向きは変わらない。）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_039.png"
+      },
+      "en": {
+        "number": "BT13/039EN",
+        "name": "Wheel Assault",
+        "text": "[AUTO](RC):[Counter-Blast 1] At the end of the battle that this unit boosted([Boost]), if you have an <Aqua Force> vanguard, you may pay the cost. If you do, choose two of your <Aqua Force> rear-guards, and exchange their positions. (The state of the card does not change.)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_039EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/039", "BT13/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/039",
+          "fetchedAt": "2026-10-08T22:50:20.914Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/039EN",
+          "fetchedAt": "2026-10-08T22:53:01.355Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-040",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/040",
+        "name": "バブルエッジ・ドラコキッド",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く]あなたの《アクアフォース》のヴァンガードがいるなら、あなたの《アクアフォース》を１枚選び、そのターン中、『【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、１枚引く。』を与える。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_040.png"
+      },
+      "en": {
+        "number": "BT13/040EN",
+        "name": "Bubble Edge Dracokid",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] If you have an <Aqua Force> vanguard, choose one of your <Aqua Force>, and until end of turn, that unit gets \"[AUTO](VC/RC):When this unit attacks a vanguard, if it is the fourth battle of that turn or more, draw a card.\".",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_040EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/040", "BT13/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/040",
+          "fetchedAt": "2026-10-08T22:50:22.118Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/040EN",
+          "fetchedAt": "2026-10-08T22:53:02.593Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-041",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/041",
+        "name": "アバカス・ベア",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《グレートネイチャー》がでた時、あなたの《グレートネイチャー》のリアガードを２枚選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_041.png"
+      },
+      "en": {
+        "number": "BT13/041EN",
+        "name": "Abacus Bear",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <Great Nature>, choose two of your <Great Nature> rear-guards, and you may have those units get [Power] +4000 until end of turn. If you do, at the end of that turn, retire those units.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_041EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/041", "BT13/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/041",
+          "fetchedAt": "2026-10-08T22:50:23.059Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/041EN",
+          "fetchedAt": "2026-10-08T22:53:03.653Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-042",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/042",
+        "name": "ウォッシュアップ・ラクーン",
+        "text": "【自】：[【カウンターブラスト】(1)，あなたのドロップゾーンから「ウォッシュアップ・ラクーン」以外のグレード１以上の《グレートネイチャー》を３枚選び、山札の下に好きな順番で置く]あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、あなたの《グレートネイチャー》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札から「ウォッシュアップ・ラクーン」を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_042.png"
+      },
+      "en": {
+        "number": "BT13/042EN",
+        "name": "Wash Up Racoon",
+        "text": "[AUTO]:[Counter-Blast 1 & Choose three grade 1 or greater <Great Nature> other than a card named \"Wash Up Racoon\" from your drop zone, and put them on the bottom of your deck in any order] During your end phase, when this unit is put into your drop zone from (RC), if you have a <Great Nature> vanguard, you may pay the cost. If you do, search your deck for up to one card named \"Wash Up Racoon\", reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_042EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT13/042", "BT13/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/042",
+          "fetchedAt": "2026-10-08T22:50:24.451Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/042EN",
+          "fetchedAt": "2026-10-08T22:53:04.640Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-043",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/043",
+        "name": "弾幕包帯 サハリエル",
+        "text": "【自】【(V)/(R)】：[あなたの手札から１枚選び、捨てる]このユニットのアタックがヒットした時、あなたの《エンジェルフェザー》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_043.png"
+      },
+      "en": {
+        "number": "BT13/043EN",
+        "name": "Dressing Barrage, Sathariel",
+        "text": "[AUTO](VC/RC):[Choose a card from your hand. and discard it] When this unit's attack hits, if you have an <Angel Feather> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_043EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/043", "BT13/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/043",
+          "fetchedAt": "2026-10-08T22:50:25.777Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/043EN",
+          "fetchedAt": "2026-10-08T22:53:05.871Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-044",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/044",
+        "name": "術式の守護天使 バタルヤル",
+        "text": "【永】【(V)/(R)】：あなたのターン中、あなたのダメージゾーンの表の「執刀の守護天使 アルメン」１枚につき、このユニットのパワー＋2000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_044.png"
+      },
+      "en": {
+        "number": "BT13/044EN",
+        "name": "Surgical Celestial, Batariel",
+        "text": "[CONT](VC/RC):During your turn, this unit gets [Power] +2000 for each card named \"Operation Celestial, Armen\" face up in your damage zone.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_044EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/044", "BT13/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/044",
+          "fetchedAt": "2026-10-08T22:50:26.693Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/044EN",
+          "fetchedAt": "2026-10-08T22:53:07.092Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-045",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/045",
+        "name": "ティンクルナイフ・エンジェル",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(2)]そのターン中、このユニットのパワー＋4000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_045.png"
+      },
+      "en": {
+        "number": "BT13/045EN",
+        "name": "Twinkle Knife Angel",
+        "text": "[ACT](VC/RC):[Counter-Blast 2] This unit gets [Power] +4000 until end of turn.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_045EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/045", "BT13/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/045",
+          "fetchedAt": "2026-10-08T22:50:28.111Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/045EN",
+          "fetchedAt": "2026-10-08T22:53:08.405Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-046",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/046",
+        "name": "麻酔の守護天使 ルマエル",
+        "text": "【永】【(V)/(R)】：あなたのターン中、あなたのダメージゾーンの表の「執刀の守護天使 アルメン」１枚につき、このユニットのパワー＋2000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_046.png"
+      },
+      "en": {
+        "number": "BT13/046EN",
+        "name": "Anesthesia Celestial, Rumael",
+        "text": "[CONT](VC/RC):During your turn, this unit gets [Power] +2000 for each card named \"Operation Celestial, Armen\" face up in your damage zone.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_046EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/046", "BT13/046EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/046",
+          "fetchedAt": "2026-10-08T22:50:29.045Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/046EN",
+          "fetchedAt": "2026-10-08T22:53:09.324Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-047",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/047",
+        "name": "テンダー・ピジョン",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《エンジェルフェザー》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "エンジェルフェザー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_047.png"
+      },
+      "en": {
+        "number": "BT13/047EN",
+        "name": "Tender Pigeon",
+        "text": "[AUTO]:When this unit is placed on (RC), choose one of your other <Angel Feather>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Angel Feather",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_047EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/047", "BT13/047EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/047",
+          "fetchedAt": "2026-10-08T22:50:29.973Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/047EN",
+          "fetchedAt": "2026-10-08T22:53:10.527Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-048",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/048",
+        "name": "突貫の守護天使 ゲダエル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたのライドフェイズ開始時、あなたの《エンジェルフェザー》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札の上から１枚をダメージゾーンに置き、そのターンの終了時、あなたのダメージゾーンから１枚選び、山札に戻し、その山札をシャッフルする。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_048.png"
+      },
+      "en": {
+        "number": "BT13/048EN",
+        "name": "Puncture Celestial, Gadriel",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] At the beginning of your ride phase, if you have an <Angel Feather> vanguard, you may pay the cost. If you do, put the top card of your deck into your damage zone, and at the end of that turn, choose a card from your damage zone, return it to your deck, and shuffle your deck.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_048EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/048", "BT13/048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/048",
+          "fetchedAt": "2026-10-08T22:50:30.881Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/048EN",
+          "fetchedAt": "2026-10-08T22:53:11.682Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-049",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/049",
+        "name": "千本太刀の忍鬼 オボロザクラ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_049.png"
+      },
+      "en": {
+        "number": "BT13/049EN",
+        "name": "Stealth Rogue of a Thousand Blades, Oborozakura",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_049EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/049", "BT13/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/049",
+          "fetchedAt": "2026-10-08T22:50:31.944Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/049EN",
+          "fetchedAt": "2026-10-08T22:53:12.637Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-050",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/050",
+        "name": "忍竜 コクジョウ",
+        "text": "【自】【(R)】：あなたのターン中、相手のカードがバインドゾーンに置かれた時、あなたの《ぬばたま》のヴァンガードがいるなら、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_050.png"
+      },
+      "en": {
+        "number": "BT13/050EN",
+        "name": "Stealth Dragon, Kokujyo",
+        "text": "[AUTO](RC):During your turn, when your opponent's card is placed in his or her bind zone, if you have a <Nubatama> vanguard, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_050EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/050", "BT13/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/050",
+          "fetchedAt": "2026-10-08T22:50:33.400Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/050EN",
+          "fetchedAt": "2026-10-08T22:53:13.708Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-051",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/051",
+        "name": "忍妖 ゴズオウ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの【リミットブレイク】(4)を持つ《ぬばたま》の、ヴァンガードかリアガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_051.png"
+      },
+      "en": {
+        "number": "BT13/051EN",
+        "name": "Stealth Fiend, Gozuou",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have a <Nubatama> vanguard or rear-guard with [Limit-Break 4], this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_051EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/051", "BT13/051EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/051",
+          "fetchedAt": "2026-10-08T22:50:34.756Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/051EN",
+          "fetchedAt": "2026-10-08T22:53:14.968Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-052",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/052",
+        "name": "月下の忍鬼 サクラフブキ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_052.png"
+      },
+      "en": {
+        "number": "BT13/052EN",
+        "name": "Stealth Rogue of the Night, Sakurafubuki",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_052EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/052", "BT13/052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/052",
+          "fetchedAt": "2026-10-08T22:50:35.827Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/052EN",
+          "fetchedAt": "2026-10-08T22:53:15.901Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-053",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/053",
+        "name": "嵐の忍鬼 フウキ",
+        "text": "【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの《ぬばたま》のヴァンガードがいて、相手の手札が３枚以上なら、コストを払ってよい。払ったら、相手の手札からランダムに１枚選び、裏でバインドし、そのターンの終了時、相手はこの効果でバインドしたカードを手札に加える。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_053.png"
+      },
+      "en": {
+        "number": "BT13/053EN",
+        "name": "Tempest Stealth Rogue, Fuuki",
+        "text": "[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a <Nubatama> vanguard, and the number of cards in your opponent's hand is three or more, you may pay the cost. If you do, choose a card at random from your opponent's hand, bind it face down, and at the end of that turn, your opponent puts that card bound by this effect into his or her hand.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_053EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/053", "BT13/053EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/053",
+          "fetchedAt": "2026-10-08T22:50:37.873Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/053EN",
+          "fetchedAt": "2026-10-08T22:53:17.301Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-054",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/054",
+        "name": "忍竜 コダチフブキ",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_054.png"
+      },
+      "en": {
+        "number": "BT13/054EN",
+        "name": "Stealth Dragon, Kodachifubuki",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_054EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/054", "BT13/054EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/054",
+          "fetchedAt": "2026-10-08T22:50:39.243Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/054EN",
+          "fetchedAt": "2026-10-08T22:53:18.290Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-055",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/055",
+        "name": "忍妖 メズオウ",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットが【リミットブレイク】(4)を持つ《ぬばたま》を【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_055.png"
+      },
+      "en": {
+        "number": "BT13/055EN",
+        "name": "Stealth Fiend, Mezuou",
+        "text": "[AUTO](RC):[Counter-Blast 1] When this unit boosts([Boost]) a <Nubatama> with [Limit-Break 4], you may pay the cost. If you do, the boosted([Boost]) unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_055EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/055", "BT13/055EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/055",
+          "fetchedAt": "2026-10-08T22:50:40.149Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/055EN",
+          "fetchedAt": "2026-10-08T22:53:19.280Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-056",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/056",
+        "name": "宴の忍鬼 シュテンマル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[このユニットをソウルに置く]このユニットが【リミットブレイク】(4)を持つ《ぬばたま》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_056.png"
+      },
+      "en": {
+        "number": "BT13/056EN",
+        "name": "Banquet Stealth Rogue, Shutenmaru",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Put this unit into your soul] When an attack hits a vanguard during the battle this unit boosted([Boost]) a <Nubatama> with [Limit-Break 4], you may pay the cost. If you do, draw a card.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_056EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/056", "BT13/056EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/056",
+          "fetchedAt": "2026-10-08T22:50:41.055Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/056EN",
+          "fetchedAt": "2026-10-08T22:53:25.849Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-057",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/057",
+        "name": "忍竜 クロガネ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_057.png"
+      },
+      "en": {
+        "number": "BT13/057EN",
+        "name": "Stealth Dragon, Kurogane",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_057EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/057", "BT13/057EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/057",
+          "fetchedAt": "2026-10-08T22:50:42.954Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/057EN",
+          "fetchedAt": "2026-10-08T22:53:27.047Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-058",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/058",
+        "name": "忍妖 オオツヅラ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_058.png"
+      },
+      "en": {
+        "number": "BT13/058EN",
+        "name": "Stealth Fiend, Ohtsuzura",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_058EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/058", "BT13/058EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/058",
+          "fetchedAt": "2026-10-08T22:50:44.054Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/058EN",
+          "fetchedAt": "2026-10-08T22:53:28.002Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-059",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/059",
+        "name": "忍妖 ザシキヒメ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ぬばたま",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_059.png"
+      },
+      "en": {
+        "number": "BT13/059EN",
+        "name": "Stealth Fiend, Zashikihime",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nubatama",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_059EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/059", "BT13/059EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/059",
+          "fetchedAt": "2026-10-08T22:50:45.716Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/059EN",
+          "fetchedAt": "2026-10-08T22:53:29.248Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-060",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/060",
+        "name": "忍妖 マシロモメン",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ぬばたま》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_060.png"
+      },
+      "en": {
+        "number": "BT13/060EN",
+        "name": "Stealth Fiend, Mashiromomen",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Nubatama>, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_060EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/060", "BT13/060EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/060",
+          "fetchedAt": "2026-10-08T22:50:47.232Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/060EN",
+          "fetchedAt": "2026-10-08T22:53:30.215Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-061",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/061",
+        "name": "デスアーミー・コマンダー",
+        "text": "【自】【(R)】：あなたのヴァンガードのドライブチェックでグレード３の《ノヴァグラップラー》がでた時、このユニットを【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_061.png"
+      },
+      "en": {
+        "number": "BT13/061EN",
+        "name": "Death Army Commander",
+        "text": "[AUTO](RC):When your vanguard's drive check reveals a grade 3 <Nova Grappler>, [Stand] this unit.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_061EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/061", "BT13/061EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/061",
+          "fetchedAt": "2026-10-08T22:50:48.198Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/061EN",
+          "fetchedAt": "2026-10-08T22:53:31.182Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-062",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/062",
+        "name": "獣神 ダムンドレオ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_062.png"
+      },
+      "en": {
+        "number": "BT13/062EN",
+        "name": "Beast Deity, Damned Leo",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_062EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/062", "BT13/062EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/062",
+          "fetchedAt": "2026-10-08T22:50:49.578Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/062EN",
+          "fetchedAt": "2026-10-08T22:53:32.369Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-063",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/063",
+        "name": "ガトリングライザー",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)-《ノヴァグラップラー》]このユニットがアタックした時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_063.png"
+      },
+      "en": {
+        "number": "BT13/063EN",
+        "name": "Gattlingraizer",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1]-<Nova Grappler>] When this unit attacks, if you have a <Nova Grappler> vanguard, you may pay the cost. If you do, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_063EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/063", "BT13/063EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/063",
+          "fetchedAt": "2026-10-08T22:50:50.920Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/063EN",
+          "fetchedAt": "2026-10-08T22:53:33.573Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-064",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/064",
+        "name": "獣神 デザートゲイター",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「獣神」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_064.png"
+      },
+      "en": {
+        "number": "BT13/064EN",
+        "name": "Beast Deity, Desert Gator",
+        "text": "[AUTO](RC): When this unit attacks, if you have a vanguard with \"Beast Deity\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_064EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/064", "BT13/064EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/064",
+          "fetchedAt": "2026-10-08T22:50:52.183Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/064EN",
+          "fetchedAt": "2026-10-08T22:53:34.975Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-065",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/065",
+        "name": "獣神 ナイトジャッカル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：あなたのバトルフェイズ中、このユニットが【スタンド】した時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_065.png"
+      },
+      "en": {
+        "number": "BT13/065EN",
+        "name": "Beast Deity, Night Jackal",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):During your battle phase, when this unit [Stand], this unit gets [Power] +3000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_065EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/065", "BT13/065EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/065",
+          "fetchedAt": "2026-10-08T22:50:53.238Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/065EN",
+          "fetchedAt": "2026-10-08T22:53:36.152Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-066",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/066",
+        "name": "獣神 デススティンガー",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_066.png"
+      },
+      "en": {
+        "number": "BT13/066EN",
+        "name": "Beast Deity, Death Stinger",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_066EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/066", "BT13/066EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/066",
+          "fetchedAt": "2026-10-08T22:50:54.383Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/066EN",
+          "fetchedAt": "2026-10-08T22:53:37.169Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-067",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/067",
+        "name": "獣神 バンパウロス",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_067.png"
+      },
+      "en": {
+        "number": "BT13/067EN",
+        "name": "Beast Deity, Van Paurus",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_067EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/067", "BT13/067EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/067",
+          "fetchedAt": "2026-10-08T22:50:55.628Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/067EN",
+          "fetchedAt": "2026-10-08T22:53:38.166Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-068",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/068",
+        "name": "獣神 ブライトコブラ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_068.png"
+      },
+      "en": {
+        "number": "BT13/068EN",
+        "name": "Beast Deity, Bright Cobra",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_068EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/068", "BT13/068EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/068",
+          "fetchedAt": "2026-10-08T22:50:56.674Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/068EN",
+          "fetchedAt": "2026-10-08T22:53:39.191Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-069",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/069",
+        "name": "獣神 レスキューバニー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_069.png"
+      },
+      "en": {
+        "number": "BT13/069EN",
+        "name": "Beast Deity, Rescue Bunny",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_069EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/069", "BT13/069EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/069",
+          "fetchedAt": "2026-10-08T22:50:58.553Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/069EN",
+          "fetchedAt": "2026-10-08T22:53:40.323Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-070",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/070",
+        "name": "合成怪獣 バグリード",
+        "text": "【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、あなたの《ディメンジョンポリス》のヴァンガードがいて、バトル相手のパワーが8000以下なら、そのバトル中、このユニットは『【自】【(V)/(R)】：このユニットのアタックがヒットした時、１枚引く。』を得る。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_070.png"
+      },
+      "en": {
+        "number": "BT13/070EN",
+        "name": "Fusion Monster, Bugreed",
+        "text": "[AUTO](VC/RC):When this unit attacks a vanguard, if you have a <Dimension Police> vanguard, and the battle opponent's [Power]  is 8000 or less, until end of that battle, this unit gets \"[AUTO](VC/RC):When this unit's attack hits, draw a card.\".",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_070EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/070", "BT13/070EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/070",
+          "fetchedAt": "2026-10-08T22:51:00.037Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/070EN",
+          "fetchedAt": "2026-10-08T22:53:41.582Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-071",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/071",
+        "name": "電撃怪獣 ヴィップル",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの【リミットブレイク】(4)を持つ《ディメンジョンポリス》の、ヴァンガードかリアガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_071.png"
+      },
+      "en": {
+        "number": "BT13/071EN",
+        "name": "Shock Monster, Vipple",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have a <Dimension Police> vanguard or rear-guard with [Limit-Break 4], this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_071EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/071", "BT13/071EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/071",
+          "fetchedAt": "2026-10-08T22:51:01.512Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/071EN",
+          "fetchedAt": "2026-10-08T22:53:42.971Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-072",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/072",
+        "name": "熱線怪獣 ギガボルト",
+        "text": "【自】【(R)】：このユニットがアタックした時、バトル相手のパワーが8000以下なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_072.png"
+      },
+      "en": {
+        "number": "BT13/072EN",
+        "name": "Heat Ray Monster, Gigabolt",
+        "text": "[AUTO](RC):When this unit attacks, if the battle opponent's [Power]  is 8000 or less, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_072EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/072", "BT13/072EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/072",
+          "fetchedAt": "2026-10-08T22:51:02.880Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/072EN",
+          "fetchedAt": "2026-10-08T22:53:44.139Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-073",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/073",
+        "name": "光線怪獣 レイドラム",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットが【リミットブレイク】(4)を持つ《ディメンジョンポリス》を【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_073.png"
+      },
+      "en": {
+        "number": "BT13/073EN",
+        "name": "Beam Monster, Raidrum",
+        "text": "[AUTO](RC):[Counter-Blast 1] When this unit boosts([Boost]) a <Dimension Police> with [Limit-Break 4], you may pay the cost. If you do, the boosted([Boost]) unit gets [Power] +3000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_073EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/073", "BT13/073EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/073",
+          "fetchedAt": "2026-10-08T22:51:03.828Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/073EN",
+          "fetchedAt": "2026-10-08T22:53:45.374Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-074",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/074",
+        "name": "催眠怪獣 ネコロリー",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[このユニットをソウルに置く]このユニットが【リミットブレイク】(4)を持つ《ディメンジョンポリス》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_074.png"
+      },
+      "en": {
+        "number": "BT13/074EN",
+        "name": "Hypnotism Monster, Nechoroly",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Put this unit into your soul] When an attack hits a vanguard during the battle this unit boosted([Boost]) a <Dimension Police> with [Limit-Break 4], you may pay the cost. If you do, draw a card.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_074EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/074", "BT13/074EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/074",
+          "fetchedAt": "2026-10-08T22:51:05.161Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/074EN",
+          "fetchedAt": "2026-10-08T22:53:46.603Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-075",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/075",
+        "name": "魔眼怪獣 ゴルゴーン",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_075.png"
+      },
+      "en": {
+        "number": "BT13/075EN",
+        "name": "Demon-eye Monster, Gorgon",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_075EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/075", "BT13/075EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/075",
+          "fetchedAt": "2026-10-08T22:51:06.652Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/075EN",
+          "fetchedAt": "2026-10-08T22:53:47.916Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-076",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/076",
+        "name": "次元ロボ ダイクレーン",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_076.png"
+      },
+      "en": {
+        "number": "BT13/076EN",
+        "name": "Dimensional Robo, Daicrane",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_076EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/076", "BT13/076EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/076",
+          "fetchedAt": "2026-10-08T22:51:08.184Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/076EN",
+          "fetchedAt": "2026-10-08T22:53:49.316Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-077",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/077",
+        "name": "次元ロボ ゴーフライト",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_077.png"
+      },
+      "en": {
+        "number": "BT13/077EN",
+        "name": "Dimensional Robo, Goflight",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_077EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/077", "BT13/077EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/077",
+          "fetchedAt": "2026-10-08T22:51:09.535Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/077EN",
+          "fetchedAt": "2026-10-08T22:53:50.251Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-078",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/078",
+        "name": "次元ロボ ゴーレスキュー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_078.png"
+      },
+      "en": {
+        "number": "BT13/078EN",
+        "name": "Dimensional Robo, Gorescue",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_078EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/078", "BT13/078EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/078",
+          "fetchedAt": "2026-10-08T22:51:10.578Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/078EN",
+          "fetchedAt": "2026-10-08T22:53:51.590Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-079",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/079",
+        "name": "極超巨星のレディガンナー",
+        "text": "【自】【(V)/(R)】：このユニットが《リンクジョーカー》に【ブースト】された時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_079.png"
+      },
+      "en": {
+        "number": "BT13/079EN",
+        "name": "Supergiant Lady Gunner",
+        "text": "[AUTO](VC/RC):When this unit is boosted([Boost]) by a <Link Joker>, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_079EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/079", "BT13/079EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/079",
+          "fetchedAt": "2026-10-08T22:51:11.481Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/079EN",
+          "fetchedAt": "2026-10-08T22:53:52.751Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-080",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/080",
+        "name": "撃滅の星輝兵 タングステン",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、相手の呪縛カードがあるなら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_080.png"
+      },
+      "en": {
+        "number": "BT13/080EN",
+        "name": "Devastation Star-vader, Tungsten",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, if your opponent has a locked card, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_080EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/080", "BT13/080EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/080",
+          "fetchedAt": "2026-10-08T22:51:12.819Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/080EN",
+          "fetchedAt": "2026-10-08T22:53:53.945Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-081",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/081",
+        "name": "獄門の星輝兵 パラジウム",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]相手のエンドフェイズ中、相手の呪縛カードが解呪された時、あなたの《リンクジョーカー》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのユニットを呪縛する。\n（呪縛されたカードは、裏向きになり何もできない。持ち主の次のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_081.png"
+      },
+      "en": {
+        "number": "BT13/081EN",
+        "name": "Prison Gate Star-vader, Palladium",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] During your opponent's end phase, when an opponent's locked card is unlocked, if you have a <Link Joker> vanguard, you may pay the cost. If you do, lock that unit. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_081EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/081", "BT13/081EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/081",
+          "fetchedAt": "2026-10-08T22:51:14.785Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/081EN",
+          "fetchedAt": "2026-10-08T22:53:55.326Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-082",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/082",
+        "name": "小惑星帯のレディガンナー",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_082.png"
+      },
+      "en": {
+        "number": "BT13/082EN",
+        "name": "Asteroid Belt Lady Gunner",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle this unit boosted([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_082EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/082", "BT13/082EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/082",
+          "fetchedAt": "2026-10-08T22:51:15.718Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/082EN",
+          "fetchedAt": "2026-10-08T22:53:56.407Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-083",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/083",
+        "name": "星輝兵 カオスビート・ドラゴン",
+        "text": "【自】【(R)】：このユニットが「星輝兵 カオスブレイカー・ドラゴン」を【ブースト】した時、相手の呪縛カードがあるなら、そのバトル中、【ブースト】されたユニットのパワー＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_083.png"
+      },
+      "en": {
+        "number": "BT13/083EN",
+        "name": "Star-vader, Chaos Beat Dragon",
+        "text": "[AUTO](RC):When this unit boosts([Boost]) a unit named \"Star-vader, Chaos Breaker Dragon\", if your opponent has a locked card, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_083EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/083", "BT13/083EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/083",
+          "fetchedAt": "2026-10-08T22:51:17.426Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/083EN",
+          "fetchedAt": "2026-10-08T22:53:57.643Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-084",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/084",
+        "name": "連なる黒輪 プレアデス",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から５枚まで見て、グレード３以上の《リンクジョーカー》を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_084.png"
+      },
+      "en": {
+        "number": "BT13/084EN",
+        "name": "Black Ring Chain, Pleiades",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 or greater <Link Joker> from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_084EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/084", "BT13/084EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/084",
+          "fetchedAt": "2026-10-08T22:51:19.192Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/084EN",
+          "fetchedAt": "2026-10-08T22:53:58.743Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-085",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/085",
+        "name": "腐蝕竜 コラプトドラゴン",
+        "text": "【自】：このユニットがドロップゾーンから(R)に登場した時、あなたの《グランブルー》のヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ゾンビ",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_085.png"
+      },
+      "en": {
+        "number": "BT13/085EN",
+        "name": "Dragon Corrode, Corrupt Dragon",
+        "text": "[AUTO]:When this unit is placed on (RC) from your drop zone, if you have a <Granblue> vanguard, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Zombie",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_085EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/085", "BT13/085EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/085",
+          "fetchedAt": "2026-10-08T22:51:20.585Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/085EN",
+          "fetchedAt": "2026-10-08T22:53:59.789Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-086",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/086",
+        "name": "お化けのぴーたー",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，あなたの山札の上から２枚をドロップゾーンに置く，このユニットをソウルに置く]あなたの《グランブルー》のヴァンガードがいるなら、１枚引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_086.png"
+      },
+      "en": {
+        "number": "BT13/086EN",
+        "name": "Peter the Ghostie",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put two cards from the top of your deck into your drop zone & Put this unit into your soul] If you have a <Granblue> vanguard, draw a card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_086EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/086", "BT13/086EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/086",
+          "fetchedAt": "2026-10-08T22:51:21.890Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/086EN",
+          "fetchedAt": "2026-10-08T22:54:00.946Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-087",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/087",
+        "name": "悲しき銃声 ナイトフレア",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_087.png"
+      },
+      "en": {
+        "number": "BT13/087EN",
+        "name": "Gunshot of Sorrow, Nightflare",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_087EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/087", "BT13/087EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/087",
+          "fetchedAt": "2026-10-08T22:51:22.987Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/087EN",
+          "fetchedAt": "2026-10-08T22:54:02.286Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-088",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/088",
+        "name": "慧眼のスカイトルーパー",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《アクアフォース》がでた時、あなたのリアガードを１枚選び、【スタンド】する。",
+        "clan": "アクアフォース",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_088.png"
+      },
+      "en": {
+        "number": "BT13/088EN",
+        "name": "Keen Eye Sky Trooper",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <Aqua Force>, choose one of your rear-guards, and [Stand] it.",
+        "clan": "Aqua Force",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_088EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/088", "BT13/088EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/088",
+          "fetchedAt": "2026-10-08T22:51:24.354Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/088EN",
+          "fetchedAt": "2026-10-08T22:54:03.410Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-089",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/089",
+        "name": "怒涛の水将 ミルトス",
+        "text": "【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、あなたの《アクアフォース》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_089.png"
+      },
+      "en": {
+        "number": "BT13/089EN",
+        "name": "Marine General of the Furious Tides, Myrtus",
+        "text": "[AUTO](VC/RC):When this unit attacks a vanguard, if you have an <Aqua Force> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_089EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/089", "BT13/089EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/089",
+          "fetchedAt": "2026-10-08T22:51:25.676Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/089EN",
+          "fetchedAt": "2026-10-08T22:54:04.625Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-090",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/090",
+        "name": "戦場の歌姫 カリスタ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで４回目以降のバトル中なら、コストを払ってよい。払ったら、他のあなたの《アクアフォース》のリアガードを１枚選び、【スタンド】し、そのターン中、パワー＋5000。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_090.png"
+      },
+      "en": {
+        "number": "BT13/090EN",
+        "name": "Battle Siren, Calista",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit's attack hits a vanguard, if you have an <Aqua Force> vanguard, and it is the fourth battle of that turn or more, you may pay the cost. If you do, choose another of your <Aqua Force> rear-guards, [Stand] it, and that unit gets [Power] +5000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_090EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/090", "BT13/090EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/090",
+          "fetchedAt": "2026-10-08T22:51:27.328Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/090EN",
+          "fetchedAt": "2026-10-08T22:54:06.000Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-091",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/091",
+        "name": "アビサル・スナイパー",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_091.png"
+      },
+      "en": {
+        "number": "BT13/091EN",
+        "name": "Abyssal Sniper",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_091EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/091", "BT13/091EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/091",
+          "fetchedAt": "2026-10-08T22:51:28.271Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/091EN",
+          "fetchedAt": "2026-10-08T22:54:06.941Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-092",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/092",
+        "name": "デューテリウムガン・ドラゴン",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで２回目のバトル中なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_092.png"
+      },
+      "en": {
+        "number": "BT13/092EN",
+        "name": "Deuterium Gun Dragon",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have an <Aqua Force> vanguard, and it is the second battle of that turn, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_092EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/092", "BT13/092EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/092",
+          "fetchedAt": "2026-10-08T22:51:29.654Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/092EN",
+          "fetchedAt": "2026-10-08T22:54:08.115Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-093",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/093",
+        "name": "海流教兵のウミガメ兵",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上を公開する。そのカードがグレード１かグレード２の、《アクアフォース》なら、そのカードを(R)にコールし、違うなら、その山札をシャッフルする。",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_093.png"
+      },
+      "en": {
+        "number": "BT13/093EN",
+        "name": "Tidal Rescue Sea Turtle Soldier",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), reveal the top card of your deck. If that card is a grade 1 or grade 2 <Aqua Force>, call that card to (RC), and if it is not, shuffle your deck.",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_093EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/093", "BT13/093EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/093",
+          "fetchedAt": "2026-10-08T22:51:30.984Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/093EN",
+          "fetchedAt": "2026-10-08T22:54:09.070Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-094",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/094",
+        "name": "シャローズ・スイーパー",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]このユニットが《アクアフォース》を【ブースト】した時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで４回目以降のバトル中なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_094.png"
+      },
+      "en": {
+        "number": "BT13/094EN",
+        "name": "Shallows Sweeper",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When this unit boosts([Boost]) an <Aqua Force>, if you have an <Aqua Force> vanguard, and it is the fourth battle of that turn or more, you may pay the cost. If you do, draw a card.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_094EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/094", "BT13/094EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/094",
+          "fetchedAt": "2026-10-08T22:51:32.245Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/094EN",
+          "fetchedAt": "2026-10-08T22:54:10.285Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-095",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/095",
+        "name": "ヘヴィラッシュ・ドラゴン",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの《アクアフォース》のヴァンガードがいて、そのターンで２回目のバトル中なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_095.png"
+      },
+      "en": {
+        "number": "BT13/095EN",
+        "name": "Heavy Rush Dragon",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you have an <Aqua Force> vanguard, and it is the second battle of that turn, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_095EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/095", "BT13/095EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/095",
+          "fetchedAt": "2026-10-08T22:51:33.355Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/095EN",
+          "fetchedAt": "2026-10-08T22:54:11.442Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-096",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/096",
+        "name": "巡回遊泳のアザラシ兵",
+        "text": "【起】【(R)】：[このユニットを【レスト】する]他のあなたの《アクアフォース》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_096.png"
+      },
+      "en": {
+        "number": "BT13/096EN",
+        "name": "Swimming Patrol Seal Soldier",
+        "text": "[ACT](RC):[Rest] this unit] Choose another of your <Aqua Force>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_096EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/096", "BT13/096EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/096",
+          "fetchedAt": "2026-10-08T22:51:34.742Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/096EN",
+          "fetchedAt": "2026-10-08T22:54:12.607Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-097",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/097",
+        "name": "見習い砲手 ソロン",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く，あなたの手札から１枚選び、捨てる]あなたの《アクアフォース》のヴァンガードがいるなら、１枚引く。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_097.png"
+      },
+      "en": {
+        "number": "BT13/097EN",
+        "name": "Apprentice Gunner, Solon",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul & Choose a card from your hand, and discard it] If you have an <Aqua Force> vanguard, draw a card.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_097EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/097", "BT13/097EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/097",
+          "fetchedAt": "2026-10-08T22:51:35.778Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/097EN",
+          "fetchedAt": "2026-10-08T22:54:13.601Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-098",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/098",
+        "name": "戦場の歌姫 マリカ",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《アクアフォース》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_098.png"
+      },
+      "en": {
+        "number": "BT13/098EN",
+        "name": "Battle Siren, Mallika",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Aqua Force>, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_098EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/098", "BT13/098EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/098",
+          "fetchedAt": "2026-10-08T22:51:38.575Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/098EN",
+          "fetchedAt": "2026-10-08T22:54:15.169Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-099",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/099",
+        "name": "コズミック・チーター",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が相手の手札より少ないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_099.png"
+      },
+      "en": {
+        "number": "BT13/099EN",
+        "name": "Cosmic Cheetah",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is less than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_099EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/099", "BT13/099EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/099",
+          "fetchedAt": "2026-10-08T22:51:39.648Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/099EN",
+          "fetchedAt": "2026-10-08T22:54:16.089Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-100",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/100",
+        "name": "ホイッスル・ハイエナ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)-《グレートネイチャー》]このユニットがアタックした時、あなたの《グレートネイチャー》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_100.png"
+      },
+      "en": {
+        "number": "BT13/100EN",
+        "name": "Whistle Hyena",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1]-<Great Nature>] When this unit attacks, if you have a <Great Nature> vanguard, you may pay the cost. If you do, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_100EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/100", "BT13/100EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/100",
+          "fetchedAt": "2026-10-08T22:51:41.749Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/100EN",
+          "fetchedAt": "2026-10-08T22:54:17.338Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-101",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/101",
+        "name": "テレスコープ・ラビット",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットを【レスト】する]あなたの《グレートネイチャー》のリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンの終了時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_101.png"
+      },
+      "en": {
+        "number": "BT13/101EN",
+        "name": "Telescope Rabbit",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Rest] this unit] Choose one of your <Great Nature> rear-guards, and that unit gets [Power] +4000 until end of turn, and at the end of that turn, retire that unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_101EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/101", "BT13/101EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/101",
+          "fetchedAt": "2026-10-08T22:51:43.872Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/101EN",
+          "fetchedAt": "2026-10-08T22:54:18.911Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "BT13-102",
+      "set": "BT13",
+      "jp": {
+        "number": "BT13/102",
+        "name": "ホルダー・ヘッジホッグ",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/BT13/bt13_102.png"
+      },
+      "en": {
+        "number": "BT13/102EN",
+        "name": "Holder Hedgehog",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt13/BT13_102EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT13/102", "BT13/102EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=BT13/102",
+          "fetchedAt": "2026-10-08T22:51:45.624Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT13/102EN",
+          "fetchedAt": "2026-10-08T22:54:20.376Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

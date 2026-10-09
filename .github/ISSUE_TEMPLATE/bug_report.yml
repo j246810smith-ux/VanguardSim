@@ -1,0 +1,31 @@
+name: Bug report
+description: Something doesn't work (crash, wrong behaviour, display problem).
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release you are using (e.g. v0.14.0-alpha), or the commit if built from source.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Decks used, what you did. In a game, the seed is shown in the game menu.
+  - type: input
+    id: seed
+    attributes:
+      label: Seed (if in a game)
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 23H2

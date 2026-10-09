@@ -1,0 +1,34 @@
+# On a version tag (v0.15.0-alpha …): check, build the Windows release, smoke-test it, and attach
+# the zip and portable .exe to a DRAFT GitHub release. A maintainer reviews the draft, adds the
+# release notes (docs/RELEASING.md) and publishes it by hand.
+name: Release build
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run dist:win
+      - run: npm run dist:smoke
+      - name: Draft release with the Windows files
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = '${{ github.ref_name }}'
+          $files = Get-ChildItem release -File | Where-Object { $_.Name -match '\.(zip|exe)$' } | ForEach-Object { $_.FullName }
+          $pre = if ($tag -match '-') { '--prerelease' } else { '' }
+          gh release create $tag @files --draft --title "Vanguard Sim $tag" --notes "Draft: add release notes (docs/RELEASING.md) before publishing." $pre

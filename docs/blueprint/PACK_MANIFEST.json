@@ -1,0 +1,22 @@
+{
+  "project": "Cardfight!! Vanguard Historical Simulator",
+  "card_pool": "VG-BT01 through VG-BT17",
+  "canonical_set_structure": "Japanese-original VG-BT01\u2013VG-BT17",
+  "primary_verification_source": "Official Bushiroad Cardfight!! Vanguard card database",
+  "secondary_source": "Vanguard Wiki / established Vanguard databases",
+  "purpose": "Complete Claude Code implementation specification and content pipeline",
+  "included_source_packs": [
+    "Vanguard_BT01_BT17_Master_Guide_UPDATED",
+    "Vanguard_BT01_BT17_Implementation_Pack",
+    "Vanguard_BT01_BT17_Final_Planning_Pack",
+    "Vanguard_BT01_BT17_Card_Data_Source_Pack"
+  ],
+  "final_additions": [
+    "CARD_IMPLEMENTATION_TRACKER.md",
+    "HISTORICAL_RULINGS_DATABASE.md",
+    "AI_DECISION_ARCHITECTURE.md",
+    "FINAL_BUILD_CHECKLIST.md",
+    "CLAUDE_FINAL_BUILD_ORDER.md",
+    "MASTER_PACK_README.md"
+  ]
+}

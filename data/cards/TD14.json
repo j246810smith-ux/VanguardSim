@@ -1,0 +1,868 @@
+{
+  "set": "TD14",
+  "importedAt": "2026-10-08T21:54:21.131Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD14-001",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/001",
+        "name": "探索者 セイクリッド・ういんがる",
+        "text": "【起】【(V)】：【双闘20000】「ブラスター・ブレード・探索者」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：このユニットが【双闘】した時、あなたの山札からカード名に「探索者」を含むグレード２以上のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ロイヤルビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_001.png"
+      },
+      "en": {
+        "number": "TD14/001EN",
+        "name": "Seeker, Sacred Wingal",
+        "text": "[ACT](VC):[Legion 20000]\"Blaster Blade Seeker\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit [Legion], search your deck for up to one grade 2 or greater card with \"Seeker\" in its card name, call it to (RC), and shuffle your deck.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Royal Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/001", "TD14/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/001",
+          "fetchedAt": "2026-10-08T21:48:21.734Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/001EN",
+          "fetchedAt": "2026-10-08T21:48:51.783Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-002",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/002",
+        "name": "秘剣の探索者 ヴォルティガーン",
+        "text": "【起】【(V)】：【双闘20000】「天賦の探索者 ヴァルロッド」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、このユニットが【双闘】しているなら、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_002.png"
+      },
+      "en": {
+        "number": "TD14/002EN",
+        "name": "Secret Sword Seeker, Vortigern",
+        "text": "[ACT](VC):[Legion 20000]\"Natural Talent Seeker, Valrod\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit attacks a vanguard, if this unit is [Legion], this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC);When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/002", "TD14/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/002",
+          "fetchedAt": "2026-10-08T21:48:24.044Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/002EN",
+          "fetchedAt": "2026-10-08T21:48:53.792Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-003",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/003",
+        "name": "青炎の探索者 タラニス",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "サラマンダー",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_003.png"
+      },
+      "en": {
+        "number": "TD14/003EN",
+        "name": "Blue Flame Seeker, Taranis",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Salamander",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/003", "TD14/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/003",
+          "fetchedAt": "2026-10-08T21:48:25.385Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/003EN",
+          "fetchedAt": "2026-10-08T21:48:54.969Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-004",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/004",
+        "name": "天賦の探索者 ヴァルロッド",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_004.png"
+      },
+      "en": {
+        "number": "TD14/004EN",
+        "name": "Natural Talent Seeker, Valrod",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/004", "TD14/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/004",
+          "fetchedAt": "2026-10-08T21:48:26.833Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/004EN",
+          "fetchedAt": "2026-10-08T21:48:56.157Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-005",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/005",
+        "name": "ブラスター・ブレード・探索者",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「探索者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード２以上のリアガードを１枚選び、退却させる。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_005.png"
+      },
+      "en": {
+        "number": "TD14/005EN",
+        "name": "Blaster Blade Seeker",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Seeker\" in its card name, you may pay the cost. If you do, choose one of your opponent's grade 2 or greater rear-guards, and retire it.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/005", "TD14/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/005",
+          "fetchedAt": "2026-10-08T21:48:29.159Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/005EN",
+          "fetchedAt": "2026-10-08T21:48:57.784Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-006",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/006",
+        "name": "爛漫の探索者 セルディック",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「探索者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_006.png"
+      },
+      "en": {
+        "number": "TD14/006EN",
+        "name": "Full Bloom Seeker, Cerdic",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Seeker\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/006", "TD14/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/006",
+          "fetchedAt": "2026-10-08T21:48:34.737Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/006EN",
+          "fetchedAt": "2026-10-08T21:48:59.228Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-007",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/007",
+        "name": "挑発の探索者 ブルメンタル",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのヴァンガードが【双闘】しているなら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_007.png"
+      },
+      "en": {
+        "number": "TD14/007EN",
+        "name": "Provocation Seeker, Blumental",
+        "text": "[AUTO](RC):When this unit attacks, if your vanguard is [Legion], this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/007", "TD14/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/007",
+          "fetchedAt": "2026-10-08T21:48:36.077Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/007EN",
+          "fetchedAt": "2026-10-08T21:49:00.227Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-008",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/008",
+        "name": "ぶらどがる・探索者",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_008.png"
+      },
+      "en": {
+        "number": "TD14/008EN",
+        "name": "Bladgal Seeker",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/008", "TD14/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/008",
+          "fetchedAt": "2026-10-08T21:48:37.033Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/008EN",
+          "fetchedAt": "2026-10-08T21:49:01.229Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-009",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/009",
+        "name": "探索者 ユースフルメイジ",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_009.png"
+      },
+      "en": {
+        "number": "TD14/009EN",
+        "name": "Seeker, Youthful Mage",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/009", "TD14/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/009",
+          "fetchedAt": "2026-10-08T21:48:37.970Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/009EN",
+          "fetchedAt": "2026-10-08T21:49:02.610Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-010",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/010",
+        "name": "誠実の探索者 シンリック",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「探索者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_010.png"
+      },
+      "en": {
+        "number": "TD14/010EN",
+        "name": "Honest Seeker, Cynric",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Seeker\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/010", "TD14/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/010",
+          "fetchedAt": "2026-10-08T21:48:40.064Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/010EN",
+          "fetchedAt": "2026-10-08T21:49:04.082Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-011",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/011",
+        "name": "正道の探索者 ガンガレン",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_011.png"
+      },
+      "en": {
+        "number": "TD14/011EN",
+        "name": "Righteousness Seeker, Gangaren",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/011", "TD14/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/011",
+          "fetchedAt": "2026-10-08T21:48:41.043Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/011EN",
+          "fetchedAt": "2026-10-08T21:49:05.007Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-012",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/012",
+        "name": "探索者 ルーンイーグル",
+        "text": "【自】【(R)】：このユニットがヴァンガードを【ブースト】した時、あなたのヴァンガードが【双闘】しているなら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_012.png"
+      },
+      "en": {
+        "number": "TD14/012EN",
+        "name": "Seeker, Rune Eagle",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a vanguard, if your vanguard is [Legion], the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/012", "TD14/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/012",
+          "fetchedAt": "2026-10-08T21:48:42.503Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/012EN",
+          "fetchedAt": "2026-10-08T21:49:06.226Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-013",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/013",
+        "name": "雄心の探索者 マーク",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_013.png"
+      },
+      "en": {
+        "number": "TD14/013EN",
+        "name": "Bravery Seeker, Marc",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/013", "TD14/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/013",
+          "fetchedAt": "2026-10-08T21:48:43.407Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/013EN",
+          "fetchedAt": "2026-10-08T21:49:07.375Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-014",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/014",
+        "name": "必殺の探索者 モドロン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_014.png"
+      },
+      "en": {
+        "number": "TD14/014EN",
+        "name": "Impact Seeker, Modoron",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_014EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/014", "TD14/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/014",
+          "fetchedAt": "2026-10-08T21:48:45.821Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/014EN",
+          "fetchedAt": "2026-10-08T21:49:08.424Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-015",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/015",
+        "name": "めっせがる・探索者",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_015.png"
+      },
+      "en": {
+        "number": "TD14/015EN",
+        "name": "Messegal Seeker",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/015", "TD14/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/015",
+          "fetchedAt": "2026-10-08T21:48:47.256Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/015EN",
+          "fetchedAt": "2026-10-08T21:49:09.314Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-016",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/016",
+        "name": "警鐘の探索者 マリス",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_016.png"
+      },
+      "en": {
+        "number": "TD14/016EN",
+        "name": "Siren Seeker, Maris",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/016", "TD14/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/016",
+          "fetchedAt": "2026-10-08T21:48:48.176Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/016EN",
+          "fetchedAt": "2026-10-08T21:49:10.472Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD14-017",
+      "set": "TD14",
+      "jp": {
+        "number": "TD14/017",
+        "name": "探索者 ラヴィングヒーラー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD14/td14_017.png"
+      },
+      "en": {
+        "number": "TD14/017EN",
+        "name": "Seeker, Loving Healer",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td14/TD14_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD14/017", "TD14/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD14/017",
+          "fetchedAt": "2026-10-08T21:48:50.375Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD14/017EN",
+          "fetchedAt": "2026-10-08T21:49:11.958Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.14: Seeker of Hope",
+    "cards": [
+      {
+        "id": "TD14-001",
+        "count": 1
+      },
+      {
+        "id": "TD14-002",
+        "count": 2
+      },
+      {
+        "id": "TD14-003",
+        "count": 4
+      },
+      {
+        "id": "TD14-004",
+        "count": 4
+      },
+      {
+        "id": "TD14-005",
+        "count": 1
+      },
+      {
+        "id": "TD14-006",
+        "count": 1
+      },
+      {
+        "id": "TD14-007",
+        "count": 4
+      },
+      {
+        "id": "TD14-008",
+        "count": 2
+      },
+      {
+        "id": "TD14-009",
+        "count": 4
+      },
+      {
+        "id": "TD14-010",
+        "count": 4
+      },
+      {
+        "id": "TD14-011",
+        "count": 4
+      },
+      {
+        "id": "TD14-012",
+        "count": 2
+      },
+      {
+        "id": "TD14-013",
+        "count": 1
+      },
+      {
+        "id": "TD14-014",
+        "count": 4
+      },
+      {
+        "id": "TD14-015",
+        "count": 4
+      },
+      {
+        "id": "TD14-016",
+        "count": 4
+      },
+      {
+        "id": "TD14-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td14/",
+      "fetchedAt": "2026-10-08T21:49:28.556Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

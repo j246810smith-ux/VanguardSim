@@ -1,0 +1,918 @@
+{
+  "set": "TD05",
+  "importedAt": "2026-10-08T21:54:24.322Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD05-001",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/001",
+        "name": "大いなる銀狼 ガルモール",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード２以下の《ゴールドパラディン》を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_001.png"
+      },
+      "en": {
+        "number": "TD05/001EN",
+        "name": "Great Silver Wolf, Garmore",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power]＋5000 until end of that battle.\n[AUTO]:[Counter-Blast2] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one grade 2 or less <<Gold Paladin>> call it to (RC), and shuffle your deck.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/001", "TD05/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/001",
+          "fetchedAt": "2026-10-08T21:38:17.765Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/001EN",
+          "fetchedAt": "2026-10-08T21:38:46.031Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-002",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/002",
+        "name": "すれいがる・ダブルエッジ",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)] 他のあなたの《ゴールドパラディン》のリアガードが４枚以上なら、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_002.png"
+      },
+      "en": {
+        "number": "TD05/002EN",
+        "name": "Sleygal Double Edge",
+        "text": "[ACT](VC/RC):[Counter-Blast1] If the number of other <<Gold Paladin>> rear-guards you have is four or more, this unit gets [Power]＋2000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/002", "TD05/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/002",
+          "fetchedAt": "2026-10-08T21:38:19.537Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/002EN",
+          "fetchedAt": "2026-10-08T21:38:48.147Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-003",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/003",
+        "name": "戦場の嵐 サグラモール",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_003.png"
+      },
+      "en": {
+        "number": "TD05/003EN",
+        "name": "Battlefield Storm, Sagramore",
+        "text": "[AUTO](VC/RC):[Counter-Blast1]When this unit attacks, you may pay the cost. If you do, this unit gets [Power]＋3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/003", "TD05/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/003",
+          "fetchedAt": "2026-10-08T21:38:23.515Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/003EN",
+          "fetchedAt": "2026-10-08T21:38:49.659Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-004",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/004",
+        "name": "神技の騎士 ボーマン",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_004.png"
+      },
+      "en": {
+        "number": "TD05/004EN",
+        "name": "Knight of Superior Skills, Beaumains",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/004", "TD05/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/004",
+          "fetchedAt": "2026-10-08T21:38:24.499Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/004EN",
+          "fetchedAt": "2026-10-08T21:38:51.172Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-005",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/005",
+        "name": "すれいがる・ソード",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)] 他のあなたの《ゴールドパラディン》のリアガードが４枚以上なら、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_005.png"
+      },
+      "en": {
+        "number": "TD05/005EN",
+        "name": "Sleygal Sword",
+        "text": "[ACT](VC/RC):[Counter-Blast1] If the number of other <<Gold Paladin>> rear-guards you have is four or more, this unit gets [Power]＋2000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/005", "TD05/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/005",
+          "fetchedAt": "2026-10-08T21:38:25.854Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/005EN",
+          "fetchedAt": "2026-10-08T21:38:52.212Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-006",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/006",
+        "name": "守護聖獣 ネメアライオン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ゴールドパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_006.png"
+      },
+      "en": {
+        "number": "TD05/006EN",
+        "name": "Sacred Guardian Beast, Nemean Lion",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <<Gold Paladin>> vanguard, this unit gets [Shield]＋5000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/006", "TD05/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/006",
+          "fetchedAt": "2026-10-08T21:38:27.771Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/006EN",
+          "fetchedAt": "2026-10-08T21:38:53.375Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-007",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/007",
+        "name": "突撃するチャリオットナイト",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が相手の手札より少ないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_007.png"
+      },
+      "en": {
+        "number": "TD05/007EN",
+        "name": "Charging Chariot Knight",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is less than your opponent's, this unit gets [Power]＋3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/007", "TD05/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/007",
+          "fetchedAt": "2026-10-08T21:38:28.680Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/007EN",
+          "fetchedAt": "2026-10-08T21:38:54.611Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-008",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/008",
+        "name": "美技の騎士 ガレス",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_008.png"
+      },
+      "en": {
+        "number": "TD05/008EN",
+        "name": "Knight of Elegant Skills, Gareth",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/008", "TD05/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/008",
+          "fetchedAt": "2026-10-08T21:38:29.713Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/008EN",
+          "fetchedAt": "2026-10-08T21:38:56.387Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-009",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/009",
+        "name": "降魔剣士 ハウガン",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_009.png"
+      },
+      "en": {
+        "number": "TD05/009EN",
+        "name": "Evil Slaying Swordsman, Haugan",
+        "text": "[ACT](VC/RC):[Counter-Blast1] This unit gets [Power]＋1000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/009", "TD05/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/009",
+          "fetchedAt": "2026-10-08T21:38:31.141Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/009EN",
+          "fetchedAt": "2026-10-08T21:38:57.789Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-010",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/010",
+        "name": "断崖の旋風 サグラモール",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]　このユニットがブーストしたバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_010.png"
+      },
+      "en": {
+        "number": "TD05/010EN",
+        "name": "Precipice Whirlwind, Sagramore",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/010", "TD05/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/010",
+          "fetchedAt": "2026-10-08T21:38:32.312Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/010EN",
+          "fetchedAt": "2026-10-08T21:38:58.867Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-011",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/011",
+        "name": "ちゃーじがる",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]このユニットが「大いなる銀狼 ガルモール」を【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋5000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_011.png"
+      },
+      "en": {
+        "number": "TD05/011EN",
+        "name": "Charjgal",
+        "text": "[AUTO](RC):[Soul-Blast 1] When this unit boosts ([Boost]) a card named \"Great Silver Wolf, Garmore\", you may pay the cost. If you do, the boosted ([Boost]) unit gets [Power]＋5000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/011", "TD05/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/011",
+          "fetchedAt": "2026-10-08T21:38:33.350Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/011EN",
+          "fetchedAt": "2026-10-08T21:39:00.256Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-012",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/012",
+        "name": "ブレッシング・オウル",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《ゴールドパラディン》を1枚選び、そのターン中、パワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_012.png"
+      },
+      "en": {
+        "number": "TD05/012EN",
+        "name": "Blessing Owl",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <<Gold Paladin>>, and that unit gets [Power]＋2000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/012", "TD05/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/012",
+          "fetchedAt": "2026-10-08T21:38:34.335Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/012EN",
+          "fetchedAt": "2026-10-08T21:39:01.174Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-013",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/013",
+        "name": "シルバーファング・ウィッチ",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《ゴールドパラディン》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_013.png"
+      },
+      "en": {
+        "number": "TD05/013EN",
+        "name": "Silver Fang Witch",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a <<Gold Paladin>> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/013", "TD05/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/013",
+          "fetchedAt": "2026-10-08T21:38:36.271Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/013EN",
+          "fetchedAt": "2026-10-08T21:39:02.702Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-014",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/014",
+        "name": "草原に吹く風 サグラモール",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_014.png"
+      },
+      "en": {
+        "number": "TD05/014EN",
+        "name": "Grassland Breeze, Sagramore",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/014", "TD05/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/014",
+          "fetchedAt": "2026-10-08T21:38:37.365Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/014EN",
+          "fetchedAt": "2026-10-08T21:39:03.617Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-015",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/015",
+        "name": "サイレント・パニッシャー",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_015.png"
+      },
+      "en": {
+        "number": "TD05/015EN",
+        "name": "Silent Punisher",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/015", "TD05/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/015",
+          "fetchedAt": "2026-10-08T21:38:39.576Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/015EN",
+          "fetchedAt": "2026-10-08T21:39:05.118Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-016",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/016",
+        "name": "武器商人 グイディオン",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ノーム",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_016.png"
+      },
+      "en": {
+        "number": "TD05/016EN",
+        "name": "Weapons Dealer, Gwydion",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Gnome",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/016", "TD05/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/016",
+          "fetchedAt": "2026-10-08T21:38:40.858Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/016EN",
+          "fetchedAt": "2026-10-08T21:39:06.496Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-017",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/017",
+        "name": "フォーチューン・ベル",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_017.png"
+      },
+      "en": {
+        "number": "TD05/017EN",
+        "name": "Fortune Bell",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_017EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/017", "TD05/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/017",
+          "fetchedAt": "2026-10-08T21:38:42.311Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/017EN",
+          "fetchedAt": "2026-10-08T21:39:07.661Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD05-018",
+      "set": "TD05",
+      "jp": {
+        "number": "TD05/018",
+        "name": "エリクサー・ソムリエ",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/TD05/td05_018.png"
+      },
+      "en": {
+        "number": "TD05/018EN",
+        "name": "Elixir Sommelier",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Gold Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/td05/TD05_018EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD05/018", "TD05/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD05/018",
+          "fetchedAt": "2026-10-08T21:38:44.583Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD05/018EN",
+          "fetchedAt": "2026-10-08T21:39:09.613Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.05: Slash of Silver Wolf",
+    "cards": [
+      {
+        "id": "TD05-001",
+        "count": 1
+      },
+      {
+        "id": "TD05-002",
+        "count": 2
+      },
+      {
+        "id": "TD05-003",
+        "count": 4
+      },
+      {
+        "id": "TD05-004",
+        "count": 4
+      },
+      {
+        "id": "TD05-005",
+        "count": 1
+      },
+      {
+        "id": "TD05-006",
+        "count": 4
+      },
+      {
+        "id": "TD05-007",
+        "count": 2
+      },
+      {
+        "id": "TD05-008",
+        "count": 4
+      },
+      {
+        "id": "TD05-009",
+        "count": 4
+      },
+      {
+        "id": "TD05-010",
+        "count": 2
+      },
+      {
+        "id": "TD05-011",
+        "count": 2
+      },
+      {
+        "id": "TD05-012",
+        "count": 2
+      },
+      {
+        "id": "TD05-013",
+        "count": 1
+      },
+      {
+        "id": "TD05-014",
+        "count": 1
+      },
+      {
+        "id": "TD05-015",
+        "count": 4
+      },
+      {
+        "id": "TD05-016",
+        "count": 4
+      },
+      {
+        "id": "TD05-017",
+        "count": 4
+      },
+      {
+        "id": "TD05-018",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td05/",
+      "fetchedAt": "2026-10-08T21:39:29.280Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

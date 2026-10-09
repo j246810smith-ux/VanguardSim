@@ -1,0 +1,868 @@
+{
+  "set": "TD17",
+  "importedAt": "2026-10-08T21:54:23.247Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD17-001",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/001",
+        "name": "星輝兵 ガーネットスター・ドラゴン",
+        "text": "【起】【(V)】：【双闘20000】「伴星の星輝兵 フォトン」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：このユニットが【双闘】した時、相手の、前列と後列の、リアガードを１枚ずつ選び、呪縛する。（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_001.png"
+      },
+      "en": {
+        "number": "TD17/001EN",
+        "name": "Star-vader, Garnet Star Dragon",
+        "text": "[ACT](VC):[Legion 20000]\"Companion Star Star-vader, Photon\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit [Legion], choose a rear-guard in your opponent's front row and back row, and lock them. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/001", "TD17/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/001",
+          "fetchedAt": "2026-10-08T21:50:37.179Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/001EN",
+          "fetchedAt": "2026-10-08T21:51:02.506Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-002",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/002",
+        "name": "星輝兵 グラヴィトン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_002.png"
+      },
+      "en": {
+        "number": "TD17/002EN",
+        "name": "Star-vader, Graviton",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/002", "TD17/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/002",
+          "fetchedAt": "2026-10-08T21:50:39.530Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/002EN",
+          "fetchedAt": "2026-10-08T21:51:04.604Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-003",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/003",
+        "name": "重爆の星輝兵 バークリウム",
+        "text": "【起】【(V)】：【双闘20000】「爆撃の星輝兵 マグネシウム」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、このユニットが【双闘】しているなら、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_003.png"
+      },
+      "en": {
+        "number": "TD17/003EN",
+        "name": "Heavy Blast Star-vader, Berkelium",
+        "text": "[ACT](VC):[Legion 20000]\"Bomber Star-vader, Magnesium\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit attacks a vanguard, if this unit is [Legion], this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/003", "TD17/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/003",
+          "fetchedAt": "2026-10-08T21:50:41.001Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/003EN",
+          "fetchedAt": "2026-10-08T21:51:06.046Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-004",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/004",
+        "name": "爆撃の星輝兵 マグネシウム",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_004.png"
+      },
+      "en": {
+        "number": "TD17/004EN",
+        "name": "Bomber Star-vader, Magnesium",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/004", "TD17/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/004",
+          "fetchedAt": "2026-10-08T21:50:42.427Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/004EN",
+          "fetchedAt": "2026-10-08T21:51:07.219Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-005",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/005",
+        "name": "伴星の星輝兵 フォトン",
+        "text": "【自】：このユニットが(R)に登場した時、あなたのカード名に「星輝兵」を含むヴァンガードがいて、相手の呪縛カードがあるなら、相手のリアガードを１枚選び、呪縛する。\n（呪縛されたカードは、裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_005.png"
+      },
+      "en": {
+        "number": "TD17/005EN",
+        "name": "Companion Star Star-vader, Photon",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a vanguard with \"Star-vader\" in its card name and your opponent has a locked card, choose one of your opponent's rear-guards, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/005", "TD17/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/005",
+          "fetchedAt": "2026-10-08T21:50:44.856Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/005EN",
+          "fetchedAt": "2026-10-08T21:51:08.570Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-006",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/006",
+        "name": "無双の星輝兵 ラドン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「星輝兵」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_006.png"
+      },
+      "en": {
+        "number": "TD17/006EN",
+        "name": "Unrivaled Star-vader, Radon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Star-vader\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/006", "TD17/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/006",
+          "fetchedAt": "2026-10-08T21:50:46.334Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/006EN",
+          "fetchedAt": "2026-10-08T21:51:09.782Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-007",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/007",
+        "name": "星輝兵 シニスター・イーグル",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのヴァンガードが【双闘】しているなら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_007.png"
+      },
+      "en": {
+        "number": "TD17/007EN",
+        "name": "Star-vader, Sinister Eagle",
+        "text": "[AUTO](RC):When this unit attacks, if your vanguard is [Legion], this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/007", "TD17/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/007",
+          "fetchedAt": "2026-10-08T21:50:47.374Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/007EN",
+          "fetchedAt": "2026-10-08T21:51:11.082Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-008",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/008",
+        "name": "星輝兵 ストロングホールド",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_008.png"
+      },
+      "en": {
+        "number": "TD17/008EN",
+        "name": "Star-vader, Stronghold",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/008", "TD17/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/008",
+          "fetchedAt": "2026-10-08T21:50:48.317Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/008EN",
+          "fetchedAt": "2026-10-08T21:51:12.242Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-009",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/009",
+        "name": "星輝兵 サテライト・ミラージュ",
+        "text": "【自】：[あなたの手札から１枚選び、捨てる]このユニットが(R)に登場した時、相手の呪縛カードが２枚以上なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_009.png"
+      },
+      "en": {
+        "number": "TD17/009EN",
+        "name": "Star-vader, Satellite Mirage",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When this unit is placed on (RC), if the number of locked cards your opponent has is two or more, you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/009", "TD17/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/009",
+          "fetchedAt": "2026-10-08T21:50:49.329Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/009EN",
+          "fetchedAt": "2026-10-08T21:51:13.211Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-010",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/010",
+        "name": "投擲の星輝兵 トゥリウム",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_010.png"
+      },
+      "en": {
+        "number": "TD17/010EN",
+        "name": "Throwing Star-vader, Thorium",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power]  +1000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/010", "TD17/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/010",
+          "fetchedAt": "2026-10-08T21:50:50.260Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/010EN",
+          "fetchedAt": "2026-10-08T21:51:14.364Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-011",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/011",
+        "name": "魔弾の星輝兵 ネオン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「星輝兵」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_011.png"
+      },
+      "en": {
+        "number": "TD17/011EN",
+        "name": "Mana Shot Star-vader, Neon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Star-vader\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/011", "TD17/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/011",
+          "fetchedAt": "2026-10-08T21:50:51.603Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/011EN",
+          "fetchedAt": "2026-10-08T21:51:15.535Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-012",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/012",
+        "name": "星輝兵 クランブルメア",
+        "text": "【自】【(R)】：このユニットがヴァンガードを【ブースト】した時、あなたのヴァンガードが【双闘】しているなら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_012.png"
+      },
+      "en": {
+        "number": "TD17/012EN",
+        "name": "Star-vader, Crumble Mare",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a vanguard, if your vanguard is [Legion], the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/012", "TD17/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/012",
+          "fetchedAt": "2026-10-08T21:50:52.644Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/012EN",
+          "fetchedAt": "2026-10-08T21:51:16.751Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-013",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/013",
+        "name": "空隙の星輝兵 クオンタム",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：このユニットが【ブースト】した時、相手の呪縛カードが２枚以上なら、そのバトル中、【ブースト】されたユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_013.png"
+      },
+      "en": {
+        "number": "TD17/013EN",
+        "name": "Aperture Star-vader, Quantum",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):When this unit boosts ([Boost]), if the number of locked cards your opponent has is two or more, during this battle, the boosted ([Boost]) unit gets [Power]  +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/013", "TD17/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/013",
+          "fetchedAt": "2026-10-08T21:50:53.540Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/013EN",
+          "fetchedAt": "2026-10-08T21:51:17.653Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-014",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/014",
+        "name": "星輝兵 アポロネイル・ドラゴン",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_014.png"
+      },
+      "en": {
+        "number": "TD17/014EN",
+        "name": "Star-vader, Apollonel Dragon",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_014EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/014", "TD17/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/014",
+          "fetchedAt": "2026-10-08T21:50:55.161Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/014EN",
+          "fetchedAt": "2026-10-08T21:51:18.790Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-015",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/015",
+        "name": "渦動の星輝兵 モリブデン",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_015.png"
+      },
+      "en": {
+        "number": "TD17/015EN",
+        "name": "Vortex Star-vader, Molybdenum",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/015", "TD17/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/015",
+          "fetchedAt": "2026-10-08T21:50:56.657Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/015EN",
+          "fetchedAt": "2026-10-08T21:51:20.051Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-016",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/016",
+        "name": "星輝兵 ガンマダイル",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_016.png"
+      },
+      "en": {
+        "number": "TD17/016EN",
+        "name": "Star-vader, Gammadile",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/016", "TD17/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/016",
+          "fetchedAt": "2026-10-08T21:50:58.002Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/016EN",
+          "fetchedAt": "2026-10-08T21:51:21.202Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD17-017",
+      "set": "TD17",
+      "jp": {
+        "number": "TD17/017",
+        "name": "星輝兵 ピクシー・パウダー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/TD17/td17_017.png"
+      },
+      "en": {
+        "number": "TD17/017EN",
+        "name": "Star-vader, Pixie Powder",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/td17/TD17_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD17/017", "TD17/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD17/017",
+          "fetchedAt": "2026-10-08T21:50:59.802Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD17/017EN",
+          "fetchedAt": "2026-10-08T21:51:22.246Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.17: Will of the Locked Dragon",
+    "cards": [
+      {
+        "id": "TD17-001",
+        "count": 1
+      },
+      {
+        "id": "TD17-002",
+        "count": 4
+      },
+      {
+        "id": "TD17-003",
+        "count": 2
+      },
+      {
+        "id": "TD17-004",
+        "count": 4
+      },
+      {
+        "id": "TD17-005",
+        "count": 1
+      },
+      {
+        "id": "TD17-006",
+        "count": 1
+      },
+      {
+        "id": "TD17-007",
+        "count": 2
+      },
+      {
+        "id": "TD17-008",
+        "count": 4
+      },
+      {
+        "id": "TD17-009",
+        "count": 4
+      },
+      {
+        "id": "TD17-010",
+        "count": 4
+      },
+      {
+        "id": "TD17-011",
+        "count": 4
+      },
+      {
+        "id": "TD17-012",
+        "count": 2
+      },
+      {
+        "id": "TD17-013",
+        "count": 1
+      },
+      {
+        "id": "TD17-014",
+        "count": 4
+      },
+      {
+        "id": "TD17-015",
+        "count": 4
+      },
+      {
+        "id": "TD17-016",
+        "count": 4
+      },
+      {
+        "id": "TD17-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td17/",
+      "fetchedAt": "2026-10-08T21:51:40.536Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

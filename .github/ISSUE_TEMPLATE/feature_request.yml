@@ -1,0 +1,15 @@
+name: Suggestion
+description: An idea or improvement (AI, UI, deck building, missing sets …).
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like, and why?
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: >
+        Out of scope for now: online multiplayer, G-era and later mechanics, and card artwork
+        (never included, see THIRD_PARTY_NOTICES.md).

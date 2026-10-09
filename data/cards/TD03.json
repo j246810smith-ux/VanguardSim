@@ -1,0 +1,768 @@
+{
+  "set": "TD03",
+  "importedAt": "2026-10-08T21:53:56.302Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD03-001",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/001",
+        "name": "ゴールド・ルチル",
+        "text": "【自】【(V)】：あなたのリアガードのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから１枚選び、表にする。\n【自】【(V)】：[【カウンターブラスト】(2)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの《ノヴァグラップラー》のリアガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_001.png"
+      },
+      "en": {
+        "number": "TD03/001EN",
+        "name": "Gold Rutile",
+        "text": "[AUTO](VC):When your rear-guard's attack hits a vanguard, choose a card from your damage zone, and turn it face up.\n[AUTO](VC):[Counter-Blast 2] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your <Nova Grappler> rear-guards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/001", "TD03/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/001",
+          "fetchedAt": "2026-10-08T21:36:24.718Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/001EN",
+          "fetchedAt": "2026-10-08T21:36:45.981Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-002",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/002",
+        "name": "デスメタル・ドロイド",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_002.png"
+      },
+      "en": {
+        "number": "TD03/002EN",
+        "name": "Death Metal Droid",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/002", "TD03/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/002",
+          "fetchedAt": "2026-10-08T21:36:27.502Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/002EN",
+          "fetchedAt": "2026-10-08T21:36:47.988Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-003",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/003",
+        "name": "Mr.インビンシブル",
+        "text": "【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、あなたのダメージゾーンから１枚選び、表にする。\n【自】【(V)/(R)】：[【ソウルブラスト】(8)，【カウンターブラスト】(5)]このユニットのアタックがヒットした時、コストを払ってよい、払ったら、あなたのユニットをすべて【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_003.png"
+      },
+      "en": {
+        "number": "TD03/003EN",
+        "name": "Mr. Invincible",
+        "text": "[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1], choose a card from your damage zone, and turn it face up.\n[AUTO](VC/RC):[Soul-Blast 8 & Counter-Blast 5] When this unit's attack hits, you may pay the cost. If you do, [Stand] all of your units.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/003", "TD03/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/003",
+          "fetchedAt": "2026-10-08T21:36:28.845Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/003EN",
+          "fetchedAt": "2026-10-08T21:36:49.238Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-004",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/004",
+        "name": "キング・オブ・ソード",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_004.png"
+      },
+      "en": {
+        "number": "TD03/004EN",
+        "name": "King of Sword",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/004", "TD03/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/004",
+          "fetchedAt": "2026-10-08T21:36:30.236Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/004EN",
+          "fetchedAt": "2026-10-08T21:36:50.408Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-005",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/005",
+        "name": "超電磁生命体 ストーム",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたの《ノヴァグラップラー》のヴァンガードがいれば、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_005.png"
+      },
+      "en": {
+        "number": "TD03/005EN",
+        "name": "Super Electromagnetic Lifeform, Storm",
+        "text": "[AUTO](VC/RC): When this unit's attack hits a vanguard, if you have a <Nova Grappler> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/005", "TD03/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/005",
+          "fetchedAt": "2026-10-08T21:36:31.570Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/005EN",
+          "fetchedAt": "2026-10-08T21:36:51.328Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-006",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/006",
+        "name": "NGMプロトタイプ",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_006.png"
+      },
+      "en": {
+        "number": "TD03/006EN",
+        "name": "NGM Prototype",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Nova Grappler> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/006", "TD03/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/006",
+          "fetchedAt": "2026-10-08T21:36:32.452Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/006EN",
+          "fetchedAt": "2026-10-08T21:36:52.560Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-007",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/007",
+        "name": "タフ・ボーイ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_007.png"
+      },
+      "en": {
+        "number": "TD03/007EN",
+        "name": "Tough Boy",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/007", "TD03/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/007",
+          "fetchedAt": "2026-10-08T21:36:33.348Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/007EN",
+          "fetchedAt": "2026-10-08T21:36:53.509Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-008",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/008",
+        "name": "オアシス・ガール",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_008.png"
+      },
+      "en": {
+        "number": "TD03/008EN",
+        "name": "Oasis Girl",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/008", "TD03/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/008",
+          "fetchedAt": "2026-10-08T21:36:34.370Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/008EN",
+          "fetchedAt": "2026-10-08T21:36:54.728Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-009",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/009",
+        "name": "叫んで踊れる実況 シャウト",
+        "text": "【起】【(V)/(R)】：[このユニットを【レスト】する，あなたの手札から１枚選び、捨てる]１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_009.png"
+      },
+      "en": {
+        "number": "TD03/009EN",
+        "name": "Screamin' and Dancin' Announcer, Shout",
+        "text": "[ACT](VC/RC):[Rest] this unit & Choose a card from your hand, and discard it] Draw a card.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/009", "TD03/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/009",
+          "fetchedAt": "2026-10-08T21:36:35.724Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/009EN",
+          "fetchedAt": "2026-10-08T21:36:55.856Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-010",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/010",
+        "name": "クイーン・オブ・ハート",
+        "text": "【自】【(R)】：このユニットが「キング・オブ・ソード」を【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_010.png"
+      },
+      "en": {
+        "number": "TD03/010EN",
+        "name": "Queen of Heart",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a unit named \"King of Sword\", the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/010", "TD03/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/010",
+          "fetchedAt": "2026-10-08T21:36:36.617Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/010EN",
+          "fetchedAt": "2026-10-08T21:36:56.777Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-011",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/011",
+        "name": "バターリング・ミノタウロス",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_011.png"
+      },
+      "en": {
+        "number": "TD03/011EN",
+        "name": "Battering Minotaur",
+        "text": "[AUTO](VC/RC):[Counter-Blast1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/011", "TD03/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/011",
+          "fetchedAt": "2026-10-08T21:36:38.038Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/011EN",
+          "fetchedAt": "2026-10-08T21:36:57.786Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-012",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/012",
+        "name": "シャイニング・レディ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_012.png"
+      },
+      "en": {
+        "number": "TD03/012EN",
+        "name": "Shining Lady",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_012EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/012", "TD03/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/012",
+          "fetchedAt": "2026-10-08T21:36:39.382Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/012EN",
+          "fetchedAt": "2026-10-08T21:36:58.799Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-013",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/013",
+        "name": "キャノン・ボール",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_013.png"
+      },
+      "en": {
+        "number": "TD03/013EN",
+        "name": "Cannon Ball",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_013EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/013", "TD03/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/013",
+          "fetchedAt": "2026-10-08T21:36:41.510Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/013EN",
+          "fetchedAt": "2026-10-08T21:37:00.102Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-014",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/014",
+        "name": "ラウンドガール クララ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_014.png"
+      },
+      "en": {
+        "number": "TD03/014EN",
+        "name": "Ring Girl, Clara",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_014EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/014", "TD03/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/014",
+          "fetchedAt": "2026-10-08T21:36:42.873Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/014EN",
+          "fetchedAt": "2026-10-08T21:37:01.303Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD03-015",
+      "set": "TD03",
+      "jp": {
+        "number": "TD03/015",
+        "name": "バトルライザー",
+        "text": "【自】：他の《ノヴァグラップラー》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD03/td03_015.png"
+      },
+      "en": {
+        "number": "TD03/015EN",
+        "name": "Battleraizer",
+        "text": "[AUTO]:When another <Nova Grappler> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle, and at the begininng of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td03/TD03_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD03/015", "TD03/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD03/015",
+          "fetchedAt": "2026-10-08T21:36:44.662Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD03/015EN",
+          "fetchedAt": "2026-10-08T21:37:02.275Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.03: Golden Mechanical Soldier",
+    "cards": [
+      {
+        "id": "TD03-001",
+        "count": 1
+      },
+      {
+        "id": "TD03-002",
+        "count": 2
+      },
+      {
+        "id": "TD03-003",
+        "count": 4
+      },
+      {
+        "id": "TD03-004",
+        "count": 4
+      },
+      {
+        "id": "TD03-005",
+        "count": 2
+      },
+      {
+        "id": "TD03-006",
+        "count": 4
+      },
+      {
+        "id": "TD03-007",
+        "count": 4
+      },
+      {
+        "id": "TD03-008",
+        "count": 4
+      },
+      {
+        "id": "TD03-009",
+        "count": 4
+      },
+      {
+        "id": "TD03-010",
+        "count": 3
+      },
+      {
+        "id": "TD03-011",
+        "count": 2
+      },
+      {
+        "id": "TD03-012",
+        "count": 4
+      },
+      {
+        "id": "TD03-013",
+        "count": 4
+      },
+      {
+        "id": "TD03-014",
+        "count": 4
+      },
+      {
+        "id": "TD03-015",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td03/",
+      "fetchedAt": "2026-10-08T21:37:17.068Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

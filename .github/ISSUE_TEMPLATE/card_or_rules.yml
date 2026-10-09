@@ -1,0 +1,27 @@
+name: Wrong card effect or rule
+description: A card or game rule behaves differently from its text or the official rules.
+labels: [cards-rules]
+body:
+  - type: input
+    id: card
+    attributes:
+      label: Card (set and number)
+      placeholder: BT08-016 Military Dragon, Raptor Colonel
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the card text or rule says
+      description: Quote the card text, or the Comprehensive Rules section / official ruling if you know it.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What the simulator did
+    validations:
+      required: true
+  - type: input
+    id: seed
+    attributes:
+      label: Version and seed
+      placeholder: v0.14.0-alpha, seed 123456

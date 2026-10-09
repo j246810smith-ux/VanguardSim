@@ -1,0 +1,868 @@
+{
+  "set": "TD12",
+  "importedAt": "2026-10-08T21:54:19.022Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "TD12-001",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/001",
+        "name": "超次元ロボ ダイカイザー",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《ディメンジョンポリス》がこのユニットにライドした時、コストを払ってよい。払ったら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000/クリティカル＋１し、『【自】【(V)】：このユニットのドライブチェックでグレード３の《ディメンジョンポリス》が出た時、相手のガーディアンを１枚選び、退却させ、そのユニットの『ヒットされない』を含む効果をすべて無効にする。』を与える。\n【自】【(V)】：このユニットが《ディメンジョンポリス》に【ブースト】された時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_001.png"
+      },
+      "en": {
+        "number": "TD12/001EN",
+        "name": "Super Dimensional Robo, Daikaiser",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When a <Dimension Police> rides this unit, you may pay the cost. If you do, choose your vanguard, and until end of turn, that unit gets [Power] +10000/[Critical] +1, and \"[AUTO](VC):When this unit's drive check reveals a grade 3 <Dimension Police>, choose one of your opponent's guardians, retire it, and that unit's effects with \"cannot be hit\" is nullified.\".\n[AUTO](VC):When this unit is boosted([Boost]) by a <Dimension Police>, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/001", "TD12/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/001",
+          "fetchedAt": "2026-10-08T21:46:13.477Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/001EN",
+          "fetchedAt": "2026-10-08T21:46:35.796Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-002",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/002",
+        "name": "超次元ロボ ダイユーシャ",
+        "text": "【自】【(V)】：あなたのアタックステップ開始時、このユニットのパワーが14000以上なら、そのバトル中、このユニットのクリティカル＋１。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_002.png"
+      },
+      "en": {
+        "number": "TD12/002EN",
+        "name": "Super Dimensional Robo, Daiyusha",
+        "text": "[AUTO](VC):At the beginning of your attack step, if this unit's [Power]  is 14000 or greater, this unit gets [Critical] +1 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/002", "TD12/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/002",
+          "fetchedAt": "2026-10-08T21:46:15.671Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/002EN",
+          "fetchedAt": "2026-10-08T21:46:37.913Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-003",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/003",
+        "name": "電星合体 コスモグレート",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、他のあなたの《ディメンジョンポリス》を１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_003.png"
+      },
+      "en": {
+        "number": "TD12/003EN",
+        "name": "Electro-star Combination, Cosmogreat",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, choose another of your <Dimension Police>, and that unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/003", "TD12/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/003",
+          "fetchedAt": "2026-10-08T21:46:16.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/003EN",
+          "fetchedAt": "2026-10-08T21:46:39.141Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-004",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/004",
+        "name": "次元ロボ ダイファイター",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_004.png"
+      },
+      "en": {
+        "number": "TD12/004EN",
+        "name": "Dimensional Robo, Daifighter",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/004", "TD12/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/004",
+          "fetchedAt": "2026-10-08T21:46:18.451Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/004EN",
+          "fetchedAt": "2026-10-08T21:46:42.957Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-005",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/005",
+        "name": "次元ロボ ダイドラゴン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「次元ロボ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_005.png"
+      },
+      "en": {
+        "number": "TD12/005EN",
+        "name": "Dimensional Robo, Daidragon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Dimensional Robo\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/005", "TD12/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/005",
+          "fetchedAt": "2026-10-08T21:46:19.442Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/005EN",
+          "fetchedAt": "2026-10-08T21:46:43.851Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-006",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/006",
+        "name": "次元ロボ カイザード",
+        "text": "【自】：《ディメンジョンポリス》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋5000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_006.png"
+      },
+      "en": {
+        "number": "TD12/006EN",
+        "name": "Dimensional Robo, Kaizard",
+        "text": "[AUTO]:When a <Dimension Police> rides this unit, choose your vanguard, and that unit gets [Power] +5000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/006", "TD12/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/006",
+          "fetchedAt": "2026-10-08T21:46:20.613Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/006EN",
+          "fetchedAt": "2026-10-08T21:46:45.092Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-007",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/007",
+        "name": "超次元ロボ ダイレディ",
+        "text": "【自】【(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたの《ディメンジョンポリス》を１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_007.png"
+      },
+      "en": {
+        "number": "TD12/007EN",
+        "name": "Super Dimensional Robo, Dailady",
+        "text": "[AUTO](RC):When this unit's attack hits a vanguard, choose one of your <Dimension Police>, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/007", "TD12/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/007",
+          "fetchedAt": "2026-10-08T21:46:21.511Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/007EN",
+          "fetchedAt": "2026-10-08T21:46:46.265Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-008",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/008",
+        "name": "次元ロボ ダイドリラー",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、他のあなたのカード名に「次元ロボ」を含むユニットを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_008.png"
+      },
+      "en": {
+        "number": "TD12/008EN",
+        "name": "Dimensional Robo, Daidriller",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose another of your units with \"Dimensional Robo\" in its card name, and that unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/008", "TD12/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/008",
+          "fetchedAt": "2026-10-08T21:46:22.954Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/008EN",
+          "fetchedAt": "2026-10-08T21:46:47.579Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-009",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/009",
+        "name": "カレンロイド デイジー",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_009.png"
+      },
+      "en": {
+        "number": "TD12/009EN",
+        "name": "Karenroid, Daisy",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/009", "TD12/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/009",
+          "fetchedAt": "2026-10-08T21:46:23.867Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/009EN",
+          "fetchedAt": "2026-10-08T21:46:48.839Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-010",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/010",
+        "name": "次元ロボ ダイタイガー",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「次元ロボ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_010.png"
+      },
+      "en": {
+        "number": "TD12/010EN",
+        "name": "Dimensional Robo, Daitiger",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Dimensional Robo\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/010", "TD12/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/010",
+          "fetchedAt": "2026-10-08T21:46:25.600Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/010EN",
+          "fetchedAt": "2026-10-08T21:46:50.067Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-011",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/011",
+        "name": "次元ロボ ダイブレイブ",
+        "text": "【起】【ソウル】：[このカードをドロップゾーンに置く]あなたの《ディメンジョンポリス》のヴァンガードを１枚まで選び、そのターン中、『【自】【(V)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引く。』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_011.png"
+      },
+      "en": {
+        "number": "TD12/011EN",
+        "name": "Dimensional Robo, Daibrave",
+        "text": "[ACT]Soul:[Put this card into your drop zone] Choose up to one of your <Dimension Police> vanguards, and until end of turn, that unit gets \"[AUTO](VC):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, draw a card.\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/011", "TD12/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/011",
+          "fetchedAt": "2026-10-08T21:46:26.581Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/011EN",
+          "fetchedAt": "2026-10-08T21:46:50.970Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-012",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/012",
+        "name": "次元ロボ ダイマリナー",
+        "text": "【起】【ソウル】：[このカードをドロップゾーンに置く]あなたの《ディメンジョンポリス》のヴァンガードを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_012.png"
+      },
+      "en": {
+        "number": "TD12/012EN",
+        "name": "Dimensional Robo, Daimariner",
+        "text": "[ACT]Soul:[Put this card into your drop zone] Choose one of your <Dimension Police> vanguards, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/012", "TD12/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/012",
+          "fetchedAt": "2026-10-08T21:46:27.492Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/012EN",
+          "fetchedAt": "2026-10-08T21:46:52.144Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-013",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/013",
+        "name": "次元ロボ ゴーユーシャ",
+        "text": "【自】：他の《ディメンジョンポリス》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【起】【(R)】：[あなたのカード名に「次元ロボ」を含むリアガードを４枚選び、ソウルに置く]あなたのカード名に「次元ロボ」を含むグレード２以上のヴァンガードがいるなら、あなたの山札からカード名に「次元ロボ」を含むグレード３のカードを１枚まで探し、ライドし、その山札をシャッフルする。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_013.png"
+      },
+      "en": {
+        "number": "TD12/013EN",
+        "name": "Dimensional Robo, Goyusha",
+        "text": "[AUTO]:When another <Dimension Police> rides this unit, you may call this card to (RC).\n[ACT](RC):[Choose four of your rear-guards with \"Dimensional Robo\" in its card name, and put them into your soul] If you have a grade 2 or greater vanguard with \"Dimensional Robo\" in its card name, search your deck for up to one grade 3 card with \"Dimensional Robo\" in its card name, ride it, and shuffle your deck.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/013", "TD12/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/013",
+          "fetchedAt": "2026-10-08T21:46:28.400Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/013EN",
+          "fetchedAt": "2026-10-08T21:46:53.118Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-014",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/014",
+        "name": "次元ロボ ダイバトルス",
+        "text": "【起】【ソウル】：[このカードをドロップゾーンに置く]あなたの《ディメンジョンポリス》のヴァンガードを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_014.png"
+      },
+      "en": {
+        "number": "TD12/014EN",
+        "name": "Dimensional Robo, Daibattles",
+        "text": "[ACT]Soul:[Put this card into your drop zone] Choose one of your <Dimension Police> vanguards, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_014EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/014", "TD12/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/014",
+          "fetchedAt": "2026-10-08T21:46:30.125Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/014EN",
+          "fetchedAt": "2026-10-08T21:46:54.318Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-015",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/015",
+        "name": "次元ロボ ダイクレーン",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_015.png"
+      },
+      "en": {
+        "number": "TD12/015EN",
+        "name": "Dimensional Robo, Daicrane",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_015EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/015", "TD12/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/015",
+          "fetchedAt": "2026-10-08T21:46:31.992Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/015EN",
+          "fetchedAt": "2026-10-08T21:46:55.458Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-016",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/016",
+        "name": "次元ロボ ゴーフライト",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_016.png"
+      },
+      "en": {
+        "number": "TD12/016EN",
+        "name": "Dimensional Robo, Goflight",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_016EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/016", "TD12/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/016",
+          "fetchedAt": "2026-10-08T21:46:32.900Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/016EN",
+          "fetchedAt": "2026-10-08T21:46:56.362Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "TD12-017",
+      "set": "TD12",
+      "jp": {
+        "number": "TD12/017",
+        "name": "次元ロボ ゴーレスキュー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/TD12/td12_017.png"
+      },
+      "en": {
+        "number": "TD12/017EN",
+        "name": "Dimensional Robo, Gorescue",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/td12/TD12_017EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["TD12/017", "TD12/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/cardlist/?cardno=TD12/017",
+          "fetchedAt": "2026-10-08T21:46:34.131Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=TD12/017EN",
+          "fetchedAt": "2026-10-08T21:46:57.402Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Trial Deck Vol.12: Dimensional Brave Kaiser",
+    "cards": [
+      {
+        "id": "TD12-001",
+        "count": 1
+      },
+      {
+        "id": "TD12-002",
+        "count": 2
+      },
+      {
+        "id": "TD12-003",
+        "count": 4
+      },
+      {
+        "id": "TD12-004",
+        "count": 4
+      },
+      {
+        "id": "TD12-005",
+        "count": 1
+      },
+      {
+        "id": "TD12-006",
+        "count": 1
+      },
+      {
+        "id": "TD12-007",
+        "count": 4
+      },
+      {
+        "id": "TD12-008",
+        "count": 2
+      },
+      {
+        "id": "TD12-009",
+        "count": 4
+      },
+      {
+        "id": "TD12-010",
+        "count": 4
+      },
+      {
+        "id": "TD12-011",
+        "count": 2
+      },
+      {
+        "id": "TD12-012",
+        "count": 4
+      },
+      {
+        "id": "TD12-013",
+        "count": 1
+      },
+      {
+        "id": "TD12-014",
+        "count": 4
+      },
+      {
+        "id": "TD12-015",
+        "count": 4
+      },
+      {
+        "id": "TD12-016",
+        "count": 4
+      },
+      {
+        "id": "TD12-017",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/td12/",
+      "fetchedAt": "2026-10-08T21:47:16.552Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -19,10 +19,18 @@ const BT_SETS = Array.from({ length: 17 }, (_, i) => `BT${String(i + 1).padStart
 /** The Trial Decks released alongside BT01–BT17 (DECISIONS D-023). */
 const TD_SETS = Array.from({ length: 17 }, (_, i) => `TD${String(i + 1).padStart(2, '0')}`);
 
+const range = (prefix: string, n: number) =>
+  Array.from({ length: n }, (_, i) => `${prefix}${String(i + 1).padStart(2, '0')}`);
+/**
+ * The Japanese side products of the same era (DECISIONS D-029): Extra Boosters, Fighter's
+ * Collections, the DAIGO set and the movie booster / trial deck. Only sets in the card pool matter.
+ */
+const SIDE_SETS = [...range('EB', 12), ...range('FC', 2), 'DG01', 'MBT01', 'MTD01'];
+
 /** Deck rules from Comprehensive Rules ver. 1.29 (identical in ver. 1.19). */
 export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
   id: 'EARLY_BT01_BT17',
-  legalSets: [...BT_SETS, ...TD_SETS],
+  legalSets: [...BT_SETS, ...TD_SETS, ...SIDE_SETS],
   deckSize: verified(50, 'CR 5.1.2.1'),
   maxCopiesPerName: verified(4, 'CR 5.1.2.2, 5.1.2.2.1'),
   triggerCount: verified(16, 'CR 5.1.2.3'),

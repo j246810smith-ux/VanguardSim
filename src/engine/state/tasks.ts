@@ -28,6 +28,11 @@ export type TaskBody =
   | { readonly kind: 'start_step' }
   /** CR 7.2.1.2–7.2.1.3: the turn player decides to attack, or no attack is possible. */
   | { readonly kind: 'start_step_decision' }
+  /**
+   * "When this unit would choose a unit to attack, choose four of your opponent's units instead"
+   * (BT17 Big Bang Knuckle Buster): the attacker picks the other three units it battles.
+   */
+  | { readonly kind: 'choose_attack_targets'; selection?: string[] }
   | { readonly kind: 'guard_step_start' }
   /** CR 7.4.1.2: the defender's play timing (auto-pass if nothing can be done). */
   | { readonly kind: 'guard_play_timing' }
@@ -38,7 +43,13 @@ export type TaskBody =
   /** CR 7.6: compare power, deal damage, retire. */
   | { readonly kind: 'damage_step' }
   /** CR 7.6.1.6: perform `remaining` more damage checks for `player`. */
-  | { readonly kind: 'damage_check'; readonly player: PlayerId; readonly remaining: number }
+  | {
+      readonly kind: 'damage_check';
+      readonly player: PlayerId;
+      readonly remaining: number;
+      /** The trigger effects of these checks are nullified (BT17 Vortex Dragonewt). */
+      readonly nullifyTriggers?: boolean;
+    }
   /** CR 7.6.1.8–7.6.1.9: retire hit rear-guards and all guardians; then "when attack hits". */
   | { readonly kind: 'retire_after_damage' }
   /** CR 7.7.1.2: the battle ends, "until end of battle" effects cease, back to the start step. */
@@ -114,6 +125,7 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'choose_standby',
   'step',
   'call_one',
+  'choose_attack_targets',
 ]);
 
 export const isChoiceTask = (task: Task): task is ChoiceTask => CHOICE_TASKS.has(task.kind);

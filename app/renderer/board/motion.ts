@@ -39,11 +39,18 @@ interface Placed {
 }
 
 /**
- * Animates card movement inside the `.stage` after every render. `takeMoves` returns (and clears)
- * the moves since the last render; `ms` is the base duration (0 = no animation).
+ * Animates card movement inside the `.stage` after a render that shows a new game view (`view`
+ * changed). `takeMoves` returns (and clears) the moves since then; `ms` is the base duration
+ * (0 = no animation).
+ *
+ * Positions are always the cards' resting places: renders for other reasons (hover, menus, the
+ * log) are not measured, and a slide still running is cancelled before measuring and continued
+ * from where it was drawn. Measuring cards mid-slide or mid-hover made the next render start a
+ * new slide, which moved cards under the mouse, which re-rendered … (v0.19 hand jitter).
  */
-export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number): void {
+export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, view: unknown): void {
   const prev = useRef<Map<string, Placed>>(new Map());
+  const running = useRef<Map<HTMLElement, Animation>>(new Map());
   useLayoutEffect(() => {
     const stage = document.querySelector<HTMLElement>('.stage');
     const moves = takeMoves();
@@ -59,11 +66,29 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number): v
         h: r.height / scale,
       };
     };
+    // where a running slide draws each card, relative to its resting place
+    const drawnOff = new Map<HTMLElement, { x: number; y: number }>();
+    for (const [el, run] of running.current) {
+      if (el.isConnected) {
+        const drawn = place(el);
+        run.cancel();
+        const rest = place(el);
+        drawnOff.set(el, {
+          x: drawn.x + drawn.w / 2 - (rest.x + rest.w / 2),
+          y: drawn.y + drawn.h / 2 - (rest.y + rest.h / 2),
+        });
+      } else run.cancel();
+    }
+    running.current.clear();
     const now = new Map<string, Placed>();
     for (const el of stage.querySelectorAll<HTMLElement>('[data-iid]')) {
       const iid = el.dataset.iid!;
       if (!now.has(iid)) now.set(iid, { el, ...place(el) });
     }
+    const track = (el: HTMLElement, run: Animation) => {
+      running.current.set(el, run);
+      run.onfinish = () => running.current.delete(el);
+    };
     const animate = ms > 0 && typeof Element.prototype.animate === 'function';
     if (animate) {
       const tile = (key: string | null) =>
@@ -72,16 +97,18 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number): v
       for (const [iid, cur] of now) {
         const before = prev.current.get(iid);
         if (before) {
-          const dx = before.x - cur.x;
-          const dy = before.y - cur.y;
+          const off = drawnOff.get(cur.el) ?? { x: 0, y: 0 };
+          const dx = before.x + off.x - cur.x;
+          const dy = before.y + off.y - cur.y;
           if (Math.hypot(dx, dy) < 6) continue;
-          cur.el.animate(
+          const run = cur.el.animate(
             [
               { translate: `${dx}px ${dy}px`, zIndex: 50 },
               { translate: '0 0', zIndex: 50 },
             ],
             { duration: ms, easing },
           );
+          track(cur.el, run);
           continue;
         }
         const from = tile(moves.get(iid)?.from ?? null);
@@ -89,12 +116,15 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number): v
         const f = place(from);
         const dx = f.x + f.w / 2 - (cur.x + cur.w / 2);
         const dy = f.y + f.h / 2 - (cur.y + cur.h / 2);
-        cur.el.animate(
-          [
-            { translate: `${dx}px ${dy}px`, scale: '0.5', opacity: 0.4 },
-            { translate: '0 0', scale: '1', opacity: 1 },
-          ],
-          { duration: ms, easing },
+        track(
+          cur.el,
+          cur.el.animate(
+            [
+              { translate: `${dx}px ${dy}px`, scale: '0.5', opacity: 0.4 },
+              { translate: '0 0', scale: '1', opacity: 1 },
+            ],
+            { duration: ms, easing },
+          ),
         );
       }
       // cards that left the screen fly into the tile of their new zone
@@ -136,5 +166,6 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number): v
       }
     }
     prev.current = now;
-  });
+    // takeMoves and ms are read when the view changes; a render for anything else measures nothing
+  }, [view]);
 }

@@ -95,5 +95,6 @@ Keep separate: the game's source (this repository), the packaged program (GitHub
 downloaded artwork (only on users' PCs; `assets/cards/` and every `cards\` folder are git-ignored and
 never packaged).
 
-Coverage: the manifest lists every card of the playable sets (BT01–BT15 and TD01–TD17 except TD15:
-1690 cards as of v0.17.0); BT16–BT17 join when their cards are added to the game.
+Coverage: the manifest lists every card of the playable sets (BT01–BT17, TD01–TD17 except TD15,
+and the side sets added so far, EB01–EB06: 2104 cards as of v0.22.0); later side sets (D-029)
+join when their cards are added to the game.

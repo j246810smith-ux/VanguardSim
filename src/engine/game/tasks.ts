@@ -1,5 +1,6 @@
 import { callOne, checkTiming, chooseStandby, endFrame, runStep } from '../abilities/runtime';
 import type { Task } from '../state/tasks';
+import { chooseAttackTargets } from './battle';
 import { runCheckTask } from './checks';
 import type { Draft } from './context';
 import { runFlowTask } from './flow';
@@ -33,6 +34,8 @@ function handle(d: Draft, task: Task): boolean {
       return runStep(d, task);
     case 'call_one':
       return callOne(d, task);
+    case 'choose_attack_targets':
+      return chooseAttackTargets(d, task);
     case 'choose_standby':
       return chooseStandby(d, task);
     case 'end_frame':

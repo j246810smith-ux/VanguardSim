@@ -8,14 +8,23 @@ import { locate } from './locate';
 import { drawCard, moveCard } from './zones';
 
 /** Puts the top card of `player`'s deck into the trigger zone and queues its resolution. */
-function check(d: Draft, player: PlayerId, kind: CheckKind, next: Task | null): void {
+function check(
+  d: Draft,
+  player: PlayerId,
+  kind: CheckKind,
+  next: Task | null,
+  nullifyTriggers = false,
+): void {
   const s = d.state;
   const card = s.players[player].deck[0];
   if (card === undefined) return; // an empty deck has already lost at check timing (CR 9.2.3)
   moveCard(d, card, { player, zone: 'trigger' }, 'check');
   const trigger = d.ctx.registry.get(s.cards[card]!.definitionId).trigger;
   // CR 7.5.1.2.2 / 7.6.1.6.2: the trigger resolves only if a unit on VC/RC shares its clan.
-  const active = trigger !== null && unitsOf(s, player).some((u) => shareClan(s, d.ctx, u, card));
+  const active =
+    !nullifyTriggers &&
+    trigger !== null &&
+    unitsOf(s, player).some((u) => shareClan(s, d.ctx, u, card));
   emit(d, { type: 'CHECK_REVEALED', check: kind, player, instanceId: card, trigger, active });
   const tasks: Task[] = [];
   // the icon resolves immediately (no check timing in between), then a check timing, then the
@@ -82,9 +91,14 @@ export function runCheckTask(d: Draft, task: CheckTask): boolean {
       if (task.remaining > 0) {
         const next: Task | null =
           task.remaining > 1
-            ? { kind: 'damage_check', player: task.player, remaining: task.remaining - 1 }
+            ? {
+                kind: 'damage_check',
+                player: task.player,
+                remaining: task.remaining - 1,
+                ...(task.nullifyTriggers ? { nullifyTriggers: true } : {}),
+              }
             : null;
-        check(d, task.player, 'damage', next);
+        check(d, task.player, 'damage', next, task.nullifyTriggers);
       }
       return true;
 

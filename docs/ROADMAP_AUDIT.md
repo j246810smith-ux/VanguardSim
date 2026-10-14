@@ -91,6 +91,7 @@ and match music, then card-movement animations.
 - Feedback: recent-events feed under the phase rail, large hover preview of any visible card,
   result screen with how the game ended, turns, damage and decks.
 - `npm run ui:shots`: drives the real app and saves screenshots (and console messages) for review.
+- `npm run ui:jitter`: drives the real app and fails if hand cards start movement animations while the hand is unchanged (hover, log, selection, resize, a long game). Keep the window visible while it runs; a hidden window freezes animations and the check reports INCONCLUSIVE.
 
 **Tests:** `npm run check` — 1502 tests pass, including cue mapping, a whole game checked for at
 most three distinct cues per batch, an unchanged final state with and without sound, the game's

@@ -2,20 +2,73 @@
 
 ## Done so far
 
-| Phase                                                                                    | Status                                                                                                                |
-| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 1 Foundation (TS engine, tests, lint)                                                    | done                                                                                                                  |
-| 2 Rules verification (CR 1.29, Nov 2014)                                                 | done (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                              |
-| 3 Core game (turns, battle, triggers)                                                    | done                                                                                                                  |
-| 4 Effect system (abilities as data)                                                      | done                                                                                                                  |
-| 5 Historical mechanics (Limit Break, Break Ride, Persona Blast, Lock, Legion, Seek Mate) | done                                                                                                                  |
-| 6 Card data                                                                              | **BT01–BT15 + TD01–TD17 (no TD15) complete** (implemented and tested, `docs/CARD_STATUS_REPORT.md`). BT16–BT17 to do. |
-| Terminal playtest                                                                        | `npm run play` (desktop shortcut "Vanguard Playtest"), BT01 starter decks vs Basic AI                                 |
-| 7 UI                                                                                     | **in progress**, see below                                                                                            |
+| Phase                                                                                    | Status                                                                                                           |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| 1 Foundation (TS engine, tests, lint)                                                    | done                                                                                                             |
+| 2 Rules verification (CR 1.29, Nov 2014)                                                 | done (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                         |
+| 3 Core game (turns, battle, triggers)                                                    | done                                                                                                             |
+| 4 Effect system (abilities as data)                                                      | done                                                                                                             |
+| 5 Historical mechanics (Limit Break, Break Ride, Persona Blast, Lock, Legion, Seek Mate) | done                                                                                                             |
+| 6 Card data                                                                              | **BT01–BT16 + TD01–TD17 (no TD15) complete** (implemented and tested, `docs/CARD_STATUS_REPORT.md`). BT17 to do. |
+| Terminal playtest                                                                        | `npm run play` (desktop shortcut "Vanguard Playtest"), BT01 starter decks vs Basic AI                            |
+| 7 UI                                                                                     | **in progress**, see below                                                                                       |
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
-## ▶ Pick up here
+## ▶ Pick up here (session 2026-10-14, end)
+
+**v0.22.0-alpha, published.** Done this session: hand-jitter fix; BT17 (the booster pool is
+complete); importer ported to the redesigned Japanese site (JSON API, below); side sets **EB01–EB06**
+(each with tests in `tests/cards/EB0n.test.ts` and one starter deck). Shared test helpers:
+`tests/fixtures/setHelpers.ts` (`pull` moves real copies, `stock` renames, `settle`, `onField`).
+The user asked to stop after EB06 and publish.
+
+**Next:** the remaining side sets of D-029 in release order: EB07 (2013-08), EB08, EB09, EB10,
+FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, then PR cards 2011–2014. Per set: the import → script
+→ tests → deck loop (`tools/cardgen/README.md`); importer notes: English numbering can differ
+(EB03 needed PAIRING_OVERRIDES), English pages may lack a stat (EB06-008, REVIEWED_DIFFERENCES).
+PR cards are numbered "PR/0001" and will need an id scheme decision.
+
+## ▶ Pick up here (session 2026-10-14, earlier)
+
+**Done (v0.21.0-alpha):** (1) the v0.19 hand-jitter bug is fixed (`app/renderer/board/motion.ts`,
+`npm run ui:jitter` checks the real app; keep its window visible or it reports INCONCLUSIVE).
+(2) **BT17 complete** (102/102, `tests/cards/BT17.test.ts`, four starter decks): the BT01–BT17
+booster pool is done. New engine pieces: `limit_break_always` (CONT, read in `limitBreakMet`),
+permission `attack_four_units` (task `choose_attack_targets`), `dealDamage(n, nullifyTriggers)`,
+condition `distinct_names`, filter `sameColumnAsBound`; "same column" across players now follows
+CR 4.6.2.1 (`sharedColumn` in `evaluate.ts`).
+
+**Next: side sets (D-029)**, in Japanese release order: EB01 (2011-12), EB02, EB03, EB04, EB05,
+EB06, FC01, DG01, EB07, EB08, EB09, EB10, FC02, EB11, EB12, MBT01, MTD01, then PR cards 2011–2014.
+**The importer must be ported first:** the official sites were redesigned after 2026-10-09; card
+pages are now empty shells filled by JavaScript from a JSON API (`PWOCG_CFG` in the page:
+`apiBase` `https://cf-vanguard.com/manage`, endpoints `/card-list-user/products` (all products
+with ids and release dates; EB01 = 12 … MBT01 = 63, MTD01 = 62), `/card-list-user/list` and
+`/card-list-user/detail`, see `sys.cardlist.js` / `sys.carddetail.js` under
+`wp-content/plugins/bushiroad-card-manager/assets/`). Check the English site the same way. The
+raw cache for BT01–BT17/TDs still works offline. `scripts/cards/import.ts` also only accepts
+`BT`/`TD` codes. Test quirk: renaming a card in a test does not give it abilities; move real
+copies (BT17 test helper `pull`). Scenes start with one card in the soul.
+
+## ▶ Pick up here (session 2026-10-10)
+
+**Done this session (v0.20.0-alpha):** (1) Battle UI, the user's choices (D-028): the Legion
+leader and mate are now side by side at full size, and an attack-power panel on the right during
+your battle phase shows each column's attacker + booster = total vs the opponent's vanguard and
+the shield needed. (2) **BT16 complete** (102/102, tests in `tests/cards/BT16.test.ts`, four
+starter decks). (3) The importer handles the English "ver.E" BT16/BT17 reshuffle (see
+UNRESOLVED_RULINGS "BT16 notes"). **BT17 data is already imported** (`data/cards/BT17.json`, all
+102 pairs checked by name, art downloaded): next is the per-set loop from step 2
+(`npm run cards:reprints -- BT17`, `newtexts.py`, spec, tests, decks).
+
+**Ask the user:** 86 English-only cards from English BT16/BT17 (the Deletors, Light Source Seeker
+Alfred Exiv, Dragonic Overlord the Great, Brawler, Wildfist Dragon …) came out after BT17 in
+Japan, so they are not in the pool; Wild Rush Dragon can never Legion without Wildfist Dragon.
+Add them or not? Also: the user has not yet given feedback on the new legion layout, the attack
+panel, or the phase 2 audio.
+
+### Earlier plan
 
 The user's "master roadmap" (Windows polish → deck building → rules/AI → online-play preparation →
 online PvP → maybe a browser client) is the plan now: phase 1 audit in `docs/ROADMAP_AUDIT.md`.
@@ -106,10 +159,7 @@ choice kind `ability` (UI prompt + both AIs), `boundBy` on bound cards + `boundB
 bind. Shapes: `placedPump4000`, `endPhaseDropAbility`, `hitDiscardDraw`, `chainStarter`, `chainRide`,
 `dropCallNamed`. `gen_set.py` spec option `QUOTE_SPLIT` for texts joined with `"[`.
 
-**BT16 and BT17:** not yet scripted. `npm run cards:import -- BT16` now gets past the empty cached
-page that broke it before, but stops at the English "Legend" printings (`BT16/L02EN` Blaster Blade
-Seeker …) that match no base card: they need handling in `scripts/cards/import.ts` (skip or pair
-like the "S" printings), then the per-set loop as usual.
+**BT16 and BT17:** BT16 done (0.20.0); BT17 imported, not yet scripted.
 
 ## Phase 7 UI: current state
 

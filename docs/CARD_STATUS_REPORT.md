@@ -124,6 +124,22 @@ All cards complete.
 
 All cards complete.
 
+## BT16
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+
+All cards complete.
+
+## BT17
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+
+All cards complete.
+
 ## TD01
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
@@ -249,5 +265,53 @@ All cards complete.
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
 | 17    | 17                  | 17                  | 0               | 0            | 17            | 17  | 17       |
+
+All cards complete.
+
+## EB01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB04
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB05
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB06
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
 
 All cards complete.

@@ -408,16 +408,21 @@ button {
   padding: 2px 7px;
   box-shadow: 0 0 10px var(--gold-glow);
 }
+/* Legion: leader and mate side by side at full size, centred on the vanguard circle (D-028) */
+.circle.legion > .unit {
+  translate: -68px 0;
+}
 .mate {
   position: absolute;
-  left: 78px;
-  top: 18px;
-  z-index: 1;
-  scale: 0.88;
+  left: 50%;
+  top: 50%;
+  translate: calc(-50% + 68px) -50%;
+  z-index: 2;
+  cursor: pointer;
 }
 .legion-bracket {
   position: absolute;
-  inset: -8px -70px -8px -8px;
+  inset: -6px -34px;
   border: 2px solid var(--gold);
   border-radius: 12px;
   box-shadow: 0 0 14px var(--gold-glow);
@@ -428,6 +433,7 @@ button {
   top: -26px;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
   font: 800 13px var(--font-display);
   color: var(--gold);
   letter-spacing: 0.2em;
@@ -672,15 +678,16 @@ button {
   height: 0;
   width: 0;
 }
+/* The .hand-card box (data-iid) never moves on hover or selection: only the picture inside lifts.
+   A box that lifted left the mouse below it (hover flicker) and was measured mid-lift by the
+   movement animation (board/motion.ts), which made the hand jitter (v0.19). For the same reason
+   the box has no transition: motion.ts slides the cards when the hand re-fans. */
 .hand-card {
   position: absolute;
   bottom: -40px;
   width: 124px;
   height: 180px;
   transform-origin: 50% 120%;
-  transition:
-    transform calc(0.18s * var(--anim)) ease,
-    bottom calc(0.18s * var(--anim)) ease;
   cursor: pointer;
 }
 .hand-card .card {
@@ -689,12 +696,11 @@ button {
 }
 .hand-card:hover,
 .hand-card.selected {
-  bottom: 30px;
   z-index: 20;
 }
 .hand-card:hover .card,
 .hand-card.selected .card {
-  transform: scale(1.35);
+  transform: translateY(-70px) scale(1.35);
   box-shadow:
     0 0 24px var(--me-glow),
     0 10px 30px rgba(0, 0, 0, 0.8);
@@ -725,6 +731,11 @@ button {
   color: var(--me);
   white-space: nowrap;
   text-shadow: 0 0 6px #000;
+  transition: transform calc(0.18s * var(--anim)) ease;
+}
+.hand-card:hover .shield-tag,
+.hand-card.selected .shield-tag {
+  transform: translate(-50%, -70px);
 }
 
 /* ---- action bar ----------------------------------------------------------------------------- */
@@ -1819,4 +1830,76 @@ input.text {
   pointer-events: none;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8));
   animation: event-in calc(0.15s * var(--anim)) ease-out;
+}
+
+/* ---- attack preview (D-028) ------------------------------------------------------------------ */
+.attack-preview {
+  left: 1596px;
+  top: 326px;
+  width: 300px;
+  padding: 8px 12px 8px;
+  font-family: var(--font-body);
+  z-index: 20;
+  pointer-events: none;
+}
+.attack-preview .ap-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font: 700 12px var(--font-display);
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.attack-preview .ap-vs b {
+  color: var(--opp);
+  font: 700 17px var(--font-body);
+  letter-spacing: 0;
+}
+.attack-preview .ap-row {
+  display: grid;
+  grid-template-columns: 74px 1fr 64px 30px;
+  align-items: baseline;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font: 600 16px var(--font-body);
+}
+.attack-preview .ap-row.focus {
+  background: rgba(255, 211, 77, 0.14);
+  outline: 1px solid var(--gold);
+}
+.attack-preview .ap-row.off {
+  opacity: 0.45;
+}
+.attack-preview .ap-col {
+  font: 700 11px var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--me);
+}
+.attack-preview .ap-sum {
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.attack-preview .ap-total {
+  font: 800 20px var(--font-body);
+  text-align: right;
+}
+.attack-preview .ap-total.hits {
+  color: var(--gold);
+}
+.attack-preview .ap-crit {
+  color: var(--gold);
+  font-size: 14px;
+}
+.attack-preview .ap-note {
+  grid-column: 2 / -1;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.attack-preview .ap-foot {
+  margin-top: 4px;
+  font: 600 13px var(--font-body);
+  color: var(--text);
+  min-height: 18px;
 }

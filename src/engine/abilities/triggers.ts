@@ -15,7 +15,7 @@ import {
 } from '../state/types';
 import { abilitiesOf, grantAbilityId, holders } from './catalog';
 import { activeZoneOf, limitBreakMet, zoneAllows } from './continuous';
-import { evaluate, matches, type EvalContext } from './evaluate';
+import { COLUMN_OF, evaluate, matches, type EvalContext } from './evaluate';
 import type { AutoAbility, StepName, Subject, TriggerCondition } from './types';
 
 const PHASE_STEP: Partial<Record<Phase, StepName>> = {
@@ -117,7 +117,12 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'retired': {
       // CR 10.1.3.2: moved from the field to the drop zone.
       if (e.type !== 'CARD_MOVED' || !isFieldZone(e.from) || e.to.zone !== 'drop') return null;
-      return subjectIs(ec, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
+      // the card is already in the drop zone: column filters use the circle it left
+      const at =
+        e.from.zone === 'circle'
+          ? { ...ec, eventCard: e.instanceId, eventColumn: COLUMN_OF[e.from.circle] }
+          : ec;
+      return subjectIs(at, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     }
     case 'check_reveals': {
       if (e.type !== 'CHECK_REVEALED' || e.check !== t.check) return null;
@@ -163,12 +168,20 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       const fromOk =
         t.from === 'soul'
           ? e.from.zone === 'soul'
-          : isFieldZone(e.from) && fieldZone(e.from) === t.from;
+          : t.from === 'front_RC'
+            ? e.from.zone === 'circle' &&
+              (e.from.circle === 'front_left' || e.from.circle === 'front_right')
+            : isFieldZone(e.from) && fieldZone(e.from) === t.from;
       if (!fromOk) return null;
       if (t.byYourEffect && !(e.reason === 'effect' && e.by === ec.master)) return null;
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
-      return subjectIs(ec, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
+      // the card is already in the drop zone: column filters use the circle it left
+      const at =
+        e.from.zone === 'circle'
+          ? { ...ec, eventCard: e.instanceId, eventColumn: COLUMN_OF[e.from.circle] }
+          : ec;
+      return subjectIs(at, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     }
     case 'put_into_soul':
       return e.type === 'CARD_MOVED' &&
@@ -196,6 +209,16 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return e.type === 'CARD_UNLOCKED' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
         : null;
+    case 'returned_to_hand':
+      // a rear-guard moved from (RC) to its owner's hand
+      if (
+        e.type !== 'CARD_MOVED' ||
+        e.to.zone !== 'hand' ||
+        e.from.zone !== 'circle' ||
+        e.from.circle === 'vanguard'
+      )
+        return null;
+      return subjectIs(ec, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     case 'drawn':
       return e.type === 'CARD_MOVED' &&
         e.reason === 'draw' &&
@@ -264,6 +287,9 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
         source: id,
         abilityId: a.id,
         eventCard: m.eventCard,
+        ...(event.type === 'CARD_MOVED' && event.from.zone === 'circle'
+          ? { eventColumn: COLUMN_OF[event.from.circle] }
+          : {}),
         ...(a.id.startsWith('g') && s.grants.some((g) => grantAbilityId(g.id) === a.id)
           ? { granted: a }
           : {}),
@@ -283,6 +309,6 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
 
 /** Limit Break (checked when the ability triggers, CR 10.2.5.3.2.1) and once-per-turn use. */
 function isUsable(d: Draft, source: InstanceId, a: AutoAbility, master: PlayerId): boolean {
-  if (!limitBreakMet(d.state, master, a.limitBreak)) return false;
+  if (!limitBreakMet(d.state, d.ctx, master, a.limitBreak, source)) return false;
   return !(a.oncePerTurn && d.state.usedThisTurn.includes(`${source}/${a.id}`));
 }

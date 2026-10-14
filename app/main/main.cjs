@@ -19,6 +19,9 @@ const { pathToFileURL } = require('node:url');
 const devUrl = process.env.VANGUARD_DEV_URL;
 /** Set by the release smoke test (docs/RELEASING.md): load, report, quit. */
 const smokeTest = process.env.VANGUARD_SMOKE_TEST === '1';
+// the jitter probe (runJitterProbe) runs with default settings in a throwaway profile
+if (process.env.VANGUARD_JITTER)
+  app.setPath('userData', path.join(app.getPath('temp'), 'vanguard-sim-jitter-probe'));
 
 // the menu music (synthesised in the renderer, roadmap phase 2) may start before the first click
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
@@ -169,6 +172,7 @@ function createWindow() {
   else win.loadFile(path.join(__dirname, '../../dist/renderer/index.html'));
   if (smokeTest) runSmokeTest(win);
   else if (shotsDir) runShots(win);
+  else if (jitterOut) runJitterProbe(win);
 }
 
 /**
@@ -177,8 +181,7 @@ function createWindow() {
  * VANGUARD_SHOTS, so UI changes can be reviewed as pictures. Never active in normal use.
  */
 const shotsDir = process.env.VANGUARD_SHOTS;
-function runShots(win) {
-  const step = `(() => {
+const shotsStep = `(() => {
     const q = (s) => document.querySelector(s);
     const click = (el) => (el ? (el.click(), el.textContent || el.dataset.testid || 'clicked') : null);
     const hand = q('[data-testid=hand-0]');
@@ -198,6 +201,8 @@ function runShots(win) {
       'wait'
     );
   })()`;
+function runShots(win) {
+  const step = shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);
@@ -250,6 +255,157 @@ function runShots(win) {
       (await win.webContents.capturePage()).toPNG(),
     );
     fs.writeFileSync(path.join(shotsDir, 'console.txt'), errors.join('\n'));
+    app.exit(0);
+  });
+}
+
+/**
+ * Development aid (`npm run ui:jitter`): repeatable check for hand cards moving on their own
+ * (KNOWN_ISSUES: v0.19 hand jitter). Starts a game through the UI, then counts movement animations
+ * that start on hand cards although the hand did not change, while the mouse is away, rests on a
+ * card, sweeps across the hand, and while the game goes on. Writes JSON to VANGUARD_JITTER.
+ */
+const jitterOut = process.env.VANGUARD_JITTER;
+function runJitterProbe(win) {
+  const instrument = `(() => {
+    const handIds = () => [...document.querySelectorAll('.hand [data-iid]')].map((e) => e.dataset.iid).join();
+    const s = (window.__jit = { phase: 'setup', stats: {}, last: handIds(), changedAt: 0 });
+    const bump = (k) => {
+      const p = (s.stats[s.phase] ??= { handAnims: 0, spurious: 0, handChanges: 0, mouseovers: 0 });
+      p[k]++;
+    };
+    const animate = Element.prototype.animate;
+    Element.prototype.animate = function (...args) {
+      if (this.dataset?.iid && this.closest('.hand')) {
+        bump('handAnims');
+        if (handIds() !== s.last) s.changedAt = performance.now();
+        // a slide may continue (from where it is drawn) while it runs; any other slide needs a new hand
+        const sinceChange = performance.now() - s.changedAt;
+        if (handIds() === s.last && sinceChange > 800) {
+          bump('spurious');
+          (s.samples ??= []).push({ phase: s.phase, iid: this.dataset.iid, from: args[0]?.[0], sinceChange });
+        }
+      }
+      return animate.apply(this, args);
+    };
+    window.addEventListener('mouseover', () => bump('mouseovers'));
+    // runs after React's commit (and its layout effects), so animate() above still sees the old hand;
+    // a MutationObserver keeps working when the window is hidden, unlike requestAnimationFrame
+    new MutationObserver(() => {
+      const ids = handIds();
+      if (ids !== s.last) {
+        bump('handChanges');
+        s.changedAt = performance.now();
+      }
+      s.last = ids;
+    }).observe(document.body, { childList: true, subtree: true });
+  })()`;
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const js = (code) => win.webContents.executeJavaScript(code);
+  const hidden = [];
+  // a hidden or covered window stops animations and gets no hover, so its numbers mean nothing
+  const drawing = () =>
+    js(`new Promise((done) => {
+      const t0 = document.timeline.currentTime;
+      setTimeout(() => done({
+        visible: document.visibilityState === 'visible',
+        focused: document.hasFocus(),
+        animating: document.timeline.currentTime - t0 > 100,
+      }), 200);
+    })`);
+  const phase = async (name) => {
+    const d = await drawing();
+    if (!d.visible || !d.animating) hidden.push(`${name} ${JSON.stringify(d)}`);
+    await js(`(() => {
+      const s = window.__jit;
+      s.phase = ${JSON.stringify(name)};
+      s.stats[s.phase] ??= { handAnims: 0, spurious: 0, handChanges: 0, mouseovers: 0 };
+    })()`);
+  };
+  const move = (x, y) =>
+    win.webContents.sendInputEvent({ type: 'mouseMove', x: Math.round(x), y: Math.round(y) });
+  win.webContents.on('did-finish-load', async () => {
+    await wait(1500);
+    for (let i = 0; i < 40; i++) {
+      await js(shotsStep);
+      await wait(700);
+      if (
+        await js(
+          `!!document.querySelector('[data-testid=hand-0]') && !document.querySelector('[data-testid=mulligan]')`,
+        )
+      )
+        break;
+    }
+    await js(instrument);
+    const [w, h] = win.getContentSize();
+    await phase('idle, mouse away');
+    move(w / 2, h * 0.2);
+    await wait(3000);
+    await phase('mouse resting low on a hand card');
+    move(w / 2, h * 0.975);
+    await wait(4000);
+    await phase('mouse sweeping across the hand');
+    for (let t = 0; t < 200; t++) {
+      move(w / 2 + Math.sin(t / 12) * w * 0.2, h * (0.93 + 0.04 * Math.sin(t / 5)));
+      await wait(25);
+    }
+    move(w / 2, h * 0.95);
+    await wait(500);
+    // hover must still lift and enlarge the card's picture
+    const hoverLift = await js(`(() => {
+      const el = document.querySelector('.hand-card:hover .card');
+      return el ? getComputedStyle(el).transform : null;
+    })()`);
+    await phase('game goes on, mouse on the hand');
+    move(w / 2, h * 0.95);
+    for (let i = 0; i < 12; i++) {
+      await js(shotsStep);
+      await wait(700);
+    }
+    await phase('log opened and closed, mouse on the hand');
+    for (let i = 0; i < 8; i++) {
+      await js(`document.querySelector('[data-testid=action-log]')?.click()`);
+      await wait(250);
+      await js(`document.querySelector('[data-testid=log] .btn')?.click()`);
+      await wait(250);
+    }
+    await phase('hand cards selected and deselected');
+    for (let i = 0; i < 6; i++) {
+      await js(`document.querySelector('[data-testid=hand-${i % 3}]')?.click()`);
+      await wait(300);
+      await js(`document.querySelector('[data-testid=action-cancel]')?.click()`);
+      await wait(300);
+    }
+    await phase('window resized');
+    const [ow, oh] = win.getSize();
+    for (const [sw, sh] of [
+      [1024, 640],
+      [1600, 900],
+      [ow, oh],
+    ]) {
+      win.setSize(sw, sh);
+      await wait(600);
+    }
+    await phase('long game (draws, calls, battles), mouse on the hand');
+    for (let i = 0; i < 120; i++) {
+      if (i % 10 === 0) move(w / 2 + ((i % 30) - 15) * 12, h * 0.95);
+      const did = await js(shotsStep);
+      await wait(400);
+      if (await js(`!!document.querySelector('[data-testid=game-over]')`)) break;
+      if (did === 'wait' && i > 100) break;
+    }
+    const stats = await js('window.__jit.stats');
+    stats.hoverLift = hoverLift;
+    const d = await drawing();
+    if (!d.visible || !d.animating) hidden.push(`end ${JSON.stringify(d)}`);
+    stats.hidden = hidden;
+    stats.samples = await js('(window.__jit.samples ?? []).slice(0, 20)');
+    stats.context = await js(`({
+      handCards: document.querySelectorAll('.hand [data-iid]').length,
+      reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
+      settings: localStorage.getItem(Object.keys(localStorage).find((k) => /setting/i.test(k)) ?? ''),
+    })`);
+    fs.writeFileSync(jitterOut, JSON.stringify(stats, null, 2));
     app.exit(0);
   });
 }

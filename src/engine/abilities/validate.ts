@@ -147,7 +147,13 @@ export function validateAbilities(
       case 'CONT':
         if (a.condition) checkCondition(a.condition, 'condition');
         for (const e of a.effects) {
-          if (e.ce === 'forbid_guard' || e.ce === 'also_clan' || e.ce === 'deck_limit') continue;
+          if (
+            e.ce === 'forbid_guard' ||
+            e.ce === 'also_clan' ||
+            e.ce === 'deck_limit' ||
+            e.ce === 'limit_break_always'
+          )
+            continue;
           checkSelector(e.target, 'effect');
           if (e.ce === 'modify' && e.per) checkSelector(e.per, 'effect per');
         }

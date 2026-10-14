@@ -92,6 +92,8 @@ export interface TurnFlags {
   stood?: InstanceId[];
   /** Cards put into a drop zone from (RC) this turn (either player's). */
   droppedFromRC?: InstanceId[];
+  /** Legion Leaders that entered a legion this turn ("during the turn your vanguard [Legion]"). */
+  legioned?: InstanceId[];
 }
 
 /** `end_of_game`: never ends (it is still lost when the card changes zone, CR 4.1.4). */
@@ -126,6 +128,8 @@ export interface Standby {
   readonly abilityId: string;
   /** The card the triggering event was about. */
   readonly eventCard: InstanceId | null;
+  /** The column of the circle the event card left (e.g. a retired rear-guard's column). */
+  readonly eventColumn?: Column;
   /**
    * A granted ability as it was when it triggered: it is still played if the grant has ended since
    * (e.g. "when this unit is put into the drop zone" — the grant is lost with the zone change, CR 8.6.7).
@@ -155,8 +159,12 @@ export interface Frame {
   readonly source: InstanceId;
   readonly abilityId: string;
   readonly eventCard: InstanceId | null;
+  readonly eventColumn?: Column;
   bindings: Record<string, InstanceId[]>;
 }
+
+/** A column of a player's field (CR 4.6.2): the vanguard circle is in the centre column. */
+export type Column = 'left' | 'centre' | 'right';
 
 /** The battle in progress (CR 7.3–7.7). Units count only while they stay on the recorded circle. */
 export interface BattleState {

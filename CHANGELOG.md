@@ -1,5 +1,71 @@
 # Changelog
 
+## 0.22.0-alpha — 2026-10-14
+
+- **Side sets begin (D-029): EB01 "Comic Style Vol.1"**: all 35 cards implemented and tested,
+  with a Nova Grappler "Perfect Raizer" starter deck.
+- **EB02 "Dazzling Divas"**: all 35 cards, with a Bermuda Triangle "Top Idol, Riviere" deck. New
+  trigger: "when this unit is returned to your hand from (RC)".
+- **EB03 "Cavalry of Black Steel"**: all 35 cards, with a Gold Paladin "Spectral Duke Dragon" deck.
+- **EB04 "Infinite Phantom Legion"**: all 35 cards (mostly Nova Grappler reprints), with a
+  "Death Army Cosmo Lord" deck.
+- **EB05 "Celestial Valkyries"**: all 35 cards (mostly Oracle Think Tank reprints), with a
+  "Battle Sister, Fromage" deck.
+- **EB06 "Dazzling Divas II"**: all 35 cards, with a Bermuda Triangle "PR♥ISM-Promise, Labrador"
+  deck.
+- Card importer: reads the redesigned official Japanese site through its JSON API (products,
+  card list and card details; cached in `data/raw/jp/` like the pages); accepts the side-set
+  codes EB, FC, DG, MBT and MTD. Sets imported earlier keep their cached pages. Names with a
+  numeric entity missing its semicolon ("PR&#9829ISM") are decoded; a missing English critical
+  ("Critical -") becomes a reviewable mismatch.
+- Engine: "may attack an opponent's unit in the back row", "with the same grade as your
+  vanguard", "(RC) in the left/right column of the front row".
+- Artwork Manager: recognises side-set file names and has a "Side sets" selection button.
+
+## 0.21.0-alpha — 2026-10-14
+
+- **BT17 "Blazing Perdition"**: all 102 cards implemented and tested (Liberators, Perdition
+  Dragons, Ancient Dragons, Star-vaders, Blue Storm, Seekers, Big Bang Knuckle Buster), with four
+  new starter decks (Prominence Core, Vortex Dragonewt, Imaginary Plane Dragon, Tetra-burst
+  Dragon). The BT01–BT17 booster card pool is complete.
+- Engine: "your vanguard's [Limit-Break 4] is active even when you have three or less damage";
+  "choose four of your opponent's units instead, and this unit battles all of them" (an extra
+  target choice with the attack); "deal one damage, during that damage check, all trigger effects
+  are nullified"; "rear-guards with different card names"; "in the same column as that unit".
+- Rules fix: "the same column" now follows CR 4.6.2.1 across players (your left column is your
+  opponent's right column). No earlier card compared columns across players.
+- Next: the side sets (D-029): Extra Boosters EB01–EB12, Fighter's Collections, PR cards and the
+  movie booster.
+- **Fix: hand cards jittering during a match** (since 0.19.0-alpha). The card-movement animation
+  measured the cards after every render, including renders for hover, so it measured cards that
+  were lifted by hover or still sliding and started new slides from those places; the slides
+  moved cards under the mouse, which re-rendered, and the hand kept bouncing until a render with
+  everything at rest (opening the log covered the hand, so the hover stopped). Now the cards are
+  only measured when the game view changes, a slide still running is continued from where it is
+  drawn, and hovering or selecting a hand card lifts only its picture, not the card's box (which
+  also ends a hover flicker low on a card). Regression tests in `app/tests/motion.test.tsx`;
+  `npm run ui:jitter` checks the running app.
+
+## 0.20.0-alpha — 2026-10-10
+
+- **BT16 "Legion of Dragons and Blades"**: all 102 cards implemented and tested (Seekers,
+  Brawlers, Raizers, Metalborgs, Musketeers, Spike Brothers), with four new starter decks
+  (Thing Saver Dragon, Big Bang Knuckle Dragon, Mega-flare, Sin Buster).
+- Card importer: the English "ver.E" BT16/BT17 are numbered differently from the Japanese sets and
+  share cards between them; both English sets are searched, "Legend" printings are handled, and
+  every pairing was checked by name.
+- Engine: "during the turn your vanguard [Legion]", "the column of the (RC) that card was on",
+  "rear-guard in the front row is put into the drop zone", "cannot be retired by card effects",
+  "ride … and [Legion]" with a card from the soul, "a card that can [Legion] with your
+  vanguard", "same card name as a unit on your (VC)", "with a unit behind it"; "X in its card
+  name" now ignores case (Cannonraizer counts as a Raizer).
+- Legion: the leader and the mate now stand side by side at full size inside the LEGION frame,
+  which shows the legion's combined attack power (D-028).
+- Attack-power panel (D-028): during your battle phase, a panel on the right shows each
+  front-row column's attacker power + booster = total and critical, compared with the
+  opponent's vanguard and the shield it needs; the attacker you pick is highlighted and the
+  numbers follow the boost toggle. Rested and empty columns are dimmed.
+
 ## 0.19.0-alpha — 2026-10-09
 
 - Sound (roadmap phase 2): original synthesised sound effects for drawing, calling, riding,

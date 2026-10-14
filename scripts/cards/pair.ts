@@ -57,6 +57,8 @@ export function pairPrintings(
   en: ReadonlyMap<string, ParsedCard>,
   known: NameDictionary,
   overrides: Readonly<Record<string, string>> = {},
+  /** Pair equal numbers first; off for sets whose English numbering is unrelated (BT16/BT17). */
+  sameNumberFirst = true,
 ): Pairing {
   const names: NameDictionary = { clan: new Map(known.clan), race: new Map(known.race) };
   const pairs = new Map<string, string>();
@@ -72,7 +74,7 @@ export function pairPrintings(
     add(j, e);
   }
   // same number, identical stats and compatible names: the usual case (e.g. all of BT01/BT02)
-  for (const [no, j] of jp) {
+  for (const [no, j] of sameNumberFirst ? jp : []) {
     const e = en.get(no);
     if (pairs.has(no) || !e || usedEn.has(no)) continue;
     if (sameStats(j, e) && namesFit(names, j, e)) add(no, no);

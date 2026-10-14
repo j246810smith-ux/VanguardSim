@@ -23,6 +23,7 @@ import {
   other,
   REAR_GUARD_CIRCLES,
   vanguardOf,
+  type Column,
   type Frame,
   type GameState,
   type InstanceId,
@@ -30,7 +31,7 @@ import {
   type RearGuardCircle,
 } from '../state/types';
 import { abilitiesOf, holders } from './catalog';
-import { activeZoneOf, limitBreakMet, zoneAllows } from './continuous';
+import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
 import { columnOf, evaluate, select, type EvalContext } from './evaluate';
 import type { AbilityDefinition, ActAbility, AutoAbility, Cost, Destination, Step } from './types';
 
@@ -57,6 +58,7 @@ const ecOf = (d: Draft, f: Frame): EvalContext => ({
   source: f.source,
   bindings: f.bindings,
   eventCard: f.eventCard,
+  ...(f.eventColumn ? { eventColumn: f.eventColumn } : {}),
 });
 
 const useKey = (source: InstanceId, abilityId: string) => `${source}/${abilityId}`;
@@ -105,9 +107,18 @@ function openFrame(
   abilityId: string,
   eventCard: InstanceId | null,
   steps: readonly Step[],
+  eventColumn?: Column,
 ): void {
   const s = d.state;
-  const frame: Frame = { id: s.nextId++, master, source, abilityId, eventCard, bindings: {} };
+  const frame: Frame = {
+    id: s.nextId++,
+    master,
+    source,
+    abilityId,
+    eventCard,
+    ...(eventColumn ? { eventColumn } : {}),
+    bindings: {},
+  };
   s.frames.push(frame);
   emit(d, { type: 'ABILITY_RESOLVING', kind, frame: frame.id, master, source, abilityId });
   s.tasks.unshift(...stepTasks(frame.id, steps), {
@@ -140,7 +151,16 @@ export function playStandby(d: Draft, standbyId: number): void {
     if (s.usedThisTurn.includes(key)) return;
     s.usedThisTurn.push(key);
   }
-  openFrame(d, 'AUTO', entry.master, entry.source, a.id, entry.eventCard, autoProgram(a));
+  openFrame(
+    d,
+    'AUTO',
+    entry.master,
+    entry.source,
+    a.id,
+    entry.eventCard,
+    autoProgram(a),
+    entry.eventColumn,
+  );
 }
 
 // Activated abilities (CR 8.1.1.1, 8.5.2) --------------------------------------------------------
@@ -160,7 +180,7 @@ export function actOptions(state: GameState, ctx: EngineContext, player: PlayerI
     const zone = activeZoneOf(where);
     for (const a of abilities) {
       if (a.kind !== 'ACT' || !zoneAllows(a.zones, zone)) continue;
-      if (!limitBreakMet(state, player, a.limitBreak)) continue; // CR 10.2.5.3.3
+      if (!limitBreakMet(state, ctx, player, a.limitBreak, id)) continue; // CR 10.2.5.3.3
       if (a.oncePerTurn && state.usedThisTurn.includes(useKey(id, a.id))) continue;
       if (a.oncePerGame && state.usedThisGame.includes(useKey(id, a.id))) continue;
       const ec: EvalContext = {
@@ -454,7 +474,12 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     }
     case 'retire':
-      for (const id of targets) if (onField(s, id)) moveTo(d, id, 'drop', 'effect', frame);
+      for (const id of targets) {
+        // e.g. Tankraizer: "cannot be retired by card effects"
+        if (onField(s, id) && !isRestricted(s, d.ctx, id, 'cannot_be_retired')) {
+          moveTo(d, id, 'drop', 'effect', frame);
+        }
+      }
       return true;
     case 'move':
       for (const id of targets) {
@@ -561,7 +586,12 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       s.players[other(frame.master)].pendingLoss = 'effect';
       return true;
     case 'deal_damage':
-      s.tasks.unshift({ kind: 'damage_check', player: other(frame.master), remaining: step.n });
+      s.tasks.unshift({
+        kind: 'damage_check',
+        player: other(frame.master),
+        remaining: step.n,
+        ...(step.nullifyTriggers ? { nullifyTriggers: true } : {}),
+      });
       return true;
     case 'redirect_attack': {
       const b = s.battle;
@@ -833,8 +863,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       // CR 10.1.24.1: next to the source, which must be a vanguard not already in legion
       const p = s.players[frame.master];
       const mate = targets[0];
-      if (mate !== undefined && vanguardOf(p) === frame.source && p.legion === null) {
-        legion(d, frame.master, frame.source, mate);
+      const leader = step.withVanguard ? vanguardOf(p) : frame.source;
+      if (mate !== undefined && leader !== null && vanguardOf(p) === leader && p.legion === null) {
+        legion(d, frame.master, leader, mate);
       }
       return true;
     }

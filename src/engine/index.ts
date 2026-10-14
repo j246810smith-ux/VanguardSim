@@ -10,7 +10,13 @@ export {
   type LegalAction,
 } from './actions/legalActions';
 export type { AttackOption } from './game/combat';
-export { currentCritical, currentPower, currentShield, currentGrade } from './game/stats';
+export {
+  basePower,
+  currentCritical,
+  currentPower,
+  currentShield,
+  currentGrade,
+} from './game/stats';
 export type { CheckKind, Task } from './state/tasks';
 export { CardRegistry } from './cards/registry';
 export type { CardDefinition, CardType, SkillIcon, TriggerType } from './cards/types';

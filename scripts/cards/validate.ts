@@ -19,7 +19,7 @@ const SKILL_FOR_GRADE: Record<number, string> = {
 function checkRecord(r: CardRecord, set: string): void {
   const e = (m: string) => errors.push(`${r.id}: ${m}`);
   const w = (m: string) => warnings.push(`${r.id}: ${m}`);
-  if (!/^(BT|TD)\d{2}-\d{3}$/.test(r.id)) e('bad id format');
+  if (!/^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}-\d{3}$/.test(r.id)) e('bad id format');
   if (r.set !== set) e(`set ${r.set} in file ${set}`);
   if (!r.jp) e('missing Japanese record (canonical source)');
   if (!r.en) w('missing English record');

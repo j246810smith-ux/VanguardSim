@@ -54,10 +54,13 @@ export function buildManifest(sets: readonly SetData[], cardData: string): Artwo
 export const imagePath = (id: string, ext: ImageExtension): string =>
   `${id.slice(0, id.indexOf('-'))}/${id}.${ext}`;
 
-/** Sets in the manifest, boosters first then trial decks, each in number order. */
+const SET_KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD'];
+const kindOf = (set: string) => SET_KINDS.indexOf(set.replace(/\d+$/, ''));
+
+/** Sets in the manifest: boosters, trial decks, then the side sets, each in number order. */
 export function setsOf(manifest: ArtworkManifest): string[] {
-  return [...new Set(manifest.entries.map((e) => e.set))].sort((a, b) =>
-    a.slice(0, 2) === b.slice(0, 2) ? a.localeCompare(b) : a.startsWith('BT') ? -1 : 1,
+  return [...new Set(manifest.entries.map((e) => e.set))].sort(
+    (a, b) => kindOf(a) - kindOf(b) || a.localeCompare(b),
   );
 }
 
@@ -68,7 +71,7 @@ export function setsOf(manifest: ArtworkManifest): string[] {
  */
 export function cardIdFromFileName(fileName: string): string | null {
   const stem = fileName.replace(/\.[^.]+$/, '');
-  const m = /^(BT|TD)(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
+  const m = /^(BT|TD|EB|FC|DG|MBT|MTD)(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
   if (!m) return null;
   return `${m[1]!.toUpperCase()}${m[2]}-${m[3]}`;
 }

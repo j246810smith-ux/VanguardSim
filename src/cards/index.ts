@@ -14,6 +14,8 @@ import bt12Data from '../../data/cards/BT12.json';
 import bt13Data from '../../data/cards/BT13.json';
 import bt14Data from '../../data/cards/BT14.json';
 import bt15Data from '../../data/cards/BT15.json';
+import bt16Data from '../../data/cards/BT16.json';
+import bt17Data from '../../data/cards/BT17.json';
 import td01Data from '../../data/cards/TD01.json';
 import td02Data from '../../data/cards/TD02.json';
 import td03Data from '../../data/cards/TD03.json';
@@ -30,6 +32,12 @@ import td13Data from '../../data/cards/TD13.json';
 import td14Data from '../../data/cards/TD14.json';
 import td16Data from '../../data/cards/TD16.json';
 import td17Data from '../../data/cards/TD17.json';
+import eb01Data from '../../data/cards/EB01.json';
+import eb02Data from '../../data/cards/EB02.json';
+import eb03Data from '../../data/cards/EB03.json';
+import eb04Data from '../../data/cards/EB04.json';
+import eb05Data from '../../data/cards/EB05.json';
+import eb06Data from '../../data/cards/EB06.json';
 import { BT01 } from './BT01';
 import { BT02 } from './BT02';
 import { BT03 } from './BT03';
@@ -45,6 +53,8 @@ import { BT12 } from './BT12';
 import { BT13 } from './BT13';
 import { BT14 } from './BT14';
 import { BT15 } from './BT15';
+import { BT16 } from './BT16';
+import { BT17 } from './BT17';
 import { TD01 } from './TD01';
 import { TD02 } from './TD02';
 import { TD03 } from './TD03';
@@ -61,6 +71,12 @@ import { TD13 } from './TD13';
 import { TD14 } from './TD14';
 import { TD16 } from './TD16';
 import { TD17 } from './TD17';
+import { EB01 } from './EB01';
+import { EB02 } from './EB02';
+import { EB03 } from './EB03';
+import { EB04 } from './EB04';
+import { EB05 } from './EB05';
+import { EB06 } from './EB06';
 import { registryFor, type SetAbilities } from './load';
 import type { SetFile } from './record';
 
@@ -80,6 +96,8 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: bt13Data as SetFile, abilities: BT13 },
   { file: bt14Data as SetFile, abilities: BT14 },
   { file: bt15Data as SetFile, abilities: BT15 },
+  { file: bt16Data as SetFile, abilities: BT16 },
+  { file: bt17Data as SetFile, abilities: BT17 },
   { file: td01Data as SetFile, abilities: TD01 },
   { file: td02Data as SetFile, abilities: TD02 },
   { file: td03Data as SetFile, abilities: TD03 },
@@ -96,9 +114,15 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: td14Data as SetFile, abilities: TD14 },
   { file: td16Data as SetFile, abilities: TD16 },
   { file: td17Data as SetFile, abilities: TD17 },
+  { file: eb01Data as SetFile, abilities: EB01 },
+  { file: eb02Data as SetFile, abilities: EB02 },
+  { file: eb03Data as SetFile, abilities: EB03 },
+  { file: eb04Data as SetFile, abilities: EB04 },
+  { file: eb05Data as SetFile, abilities: EB05 },
+  { file: eb06Data as SetFile, abilities: EB06 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'bt15-1.0.0';
+export const CARD_DATA_VERSION = 'eb06-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

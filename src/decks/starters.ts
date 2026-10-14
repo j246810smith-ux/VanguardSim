@@ -1289,4 +1289,348 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- BT16 ---------------------------------------------------------------------------------------
+  {
+    name: 'Royal Paladin — Seeker, Thing Saver Dragon',
+    description:
+      'Legion with Blaster Blade Seeker; after the attack, ride a fresh Thing Saver Dragon and Legion again.',
+    deck: {
+      firstVanguard: 'BT16-024',
+      cards: [
+        ...n(1, 'BT16-024'),
+        ...n(4, 'BT16-049'), // Seeker, Hallowed Breath Dragon (critical)
+        ...n(4, 'TD14-015'), // Messegal Seeker (draw)
+        ...n(4, 'BT16-050'), // Seeker, Bouquet Paros (stand)
+        ...n(4, 'TD14-017'), // Seeker, Loving Healer (heal)
+        ...n(4, 'BT16-010'), // Defending Seeker, Shiron (G1 sentinel)
+        ...n(4, 'BT16-022'), // Flail Seeker, Isbuzzard
+        ...n(3, 'BT16-023'), // Grynngal Seeker
+        ...n(3, 'BT16-046'), // Heaven Arrow Seeker, Lunate
+        ...n(4, 'BT16-009'), // Blaster Blade Seeker (G2)
+        ...n(4, 'BT16-021'), // Great Crossbow Seeker, Gildas
+        ...n(3, 'BT16-044'), // Heaven Bow Seeker, Morvi
+        ...n(4, 'BT16-001'), // Seeker, Thing Saver Dragon (G3)
+        ...n(4, 'BT16-043'), // Seeker, Gigantech Driver
+      ],
+    },
+  },
+  {
+    name: 'Narukami — Brawler, Big Bang Knuckle Dragon',
+    description:
+      'Legion with Big Bang Slash Dragon and attack the whole front row; Brawlers retire everything in the way.',
+    deck: {
+      firstVanguard: 'BT16-028',
+      cards: [
+        ...n(1, 'BT16-028'),
+        ...n(4, 'BT16-057'), // Heaven Rising Brawler, Yohzen (critical)
+        ...n(4, 'BT09-099'), // Spark Edge Dracokid (critical)
+        ...n(4, 'BT12-060'), // Eradicator, Blue Gem Carbuncle (draw)
+        ...n(4, 'BT16-058'), // War Drum Brawler, Haoka (stand)
+        ...n(4, 'BT16-012'), // Hardship Brawler, Toshu (G1 sentinel)
+        ...n(4, 'BT16-026'), // Threatening Brawler, Kohmei
+        ...n(3, 'BT16-027'), // Tonfa Brawler, Arc
+        ...n(3, 'BT16-054'), // Brawler, Igo
+        ...n(4, 'BT16-011'), // Brawler, Big Bang Slash Dragon (G2)
+        ...n(4, 'BT16-025'), // Brawler, Yojin
+        ...n(3, 'BT16-052'), // Violent Brawler, Shuki
+        ...n(4, 'BT16-003'), // Brawler, Big Bang Knuckle Dragon (G3)
+        ...n(4, 'BT16-051'), // Brawler, Headband of Greed
+      ],
+    },
+  },
+  {
+    name: 'Nova Grappler — Ultimate Raizer Mega-flare',
+    description:
+      'Raizers stand up again and again; in legion, Mega-flare gains a critical with four rested units.',
+    deck: {
+      firstVanguard: 'BT16-032',
+      cards: [
+        ...n(1, 'BT16-032'),
+        ...n(4, 'BT16-069'), // Meteoraizer (critical)
+        ...n(4, 'BT16-070'), // Raizer Crew (draw)
+        ...n(4, 'BT16-072'), // Subliminal Gray (stand)
+        ...n(4, 'BT16-071'), // Raizer Girl, Kate (heal)
+        ...n(4, 'BT16-014'), // Shieldraizer (G1 sentinel)
+        ...n(4, 'BT16-031'), // Tankraizer
+        ...n(3, 'BT16-064'), // Cannonraizer
+        ...n(3, 'BT16-066'), // Reserveraizer
+        ...n(4, 'BT16-029'), // Ultimate Raizer Dual-flare (G2)
+        ...n(4, 'BT16-030'), // Phoenixraizer Flame-wing
+        ...n(3, 'BT16-062'), // Wingraizer
+        ...n(4, 'BT16-005'), // Ultimate Raizer Mega-flare (G3)
+        ...n(4, 'BT16-013'), // Phoenixraizer Drill-wing
+      ],
+    },
+  },
+  {
+    name: 'Dimension Police — Metalborg, Sin Buster',
+    description:
+      'Pump the vanguard past 30000: then the opponent cannot guard with grade 1 or greater cards.',
+    deck: {
+      firstVanguard: 'BT16-036',
+      cards: [
+        ...n(1, 'BT16-036'),
+        ...n(4, 'BT16-083'), // Metalborg, Battle Roller (critical)
+        ...n(4, 'BT16-085'), // Metalborg, Devil Loader (draw)
+        ...n(4, 'BT16-086'), // Metalborg Operator, Kilika (stand)
+        ...n(4, 'BT16-084'), // Metalborg, Black Nurse (heal)
+        ...n(4, 'BT16-016'), // Metalborg, Bryknuckle (G1 sentinel)
+        ...n(4, 'BT16-079'), // Metalborg, Mist Ghost
+        ...n(3, 'BT16-078'), // Metalborg, X Blaise
+        ...n(3, 'BT16-080'), // Metalborg, Black Doctor
+        ...n(4, 'BT16-033'), // Metalborg, Ur Buster (G2)
+        ...n(4, 'BT16-034'), // Metalborg, Lionetter
+        ...n(3, 'BT16-076'), // Metalborg, Russell Blizzard
+        ...n(4, 'BT16-006'), // Metalborg, Sin Buster (G3)
+        ...n(4, 'BT16-015'), // Metalborg, Drion
+      ],
+    },
+  },
+  // ---- BT17 ---------------------------------------------------------------------------------------
+  {
+    name: 'Gold Paladin — Bluish Flame Liberator, Prominence Core',
+    description:
+      'Legion with Aglovale or Trahern, then call Liberators straight from the deck; copies of your vanguard called from the deck power up Prominence Core.',
+    deck: {
+      firstVanguard: 'BT17-054',
+      cards: [
+        ...n(1, 'BT17-054'),
+        ...n(4, 'BT17-055'), // Steel Blade Liberator, Alwilla (critical)
+        ...n(4, 'TD16-015'), // Liberator, Lucky Charmy (draw)
+        ...n(4, 'BT17-056'), // Ketchgal Liberator (stand)
+        ...n(4, 'TD16-017'), // Numinous Tree Liberator, Elchea (heal)
+        ...n(4, 'BT17-011'), // Light Formation Liberator, Erdre (G1 sentinel)
+        ...n(4, 'BT17-024'), // Twin Axe Liberator, Bassia
+        ...n(3, 'BT17-052'), // Liberator, Bright Bicorn
+        ...n(3, 'BT17-053'), // Liberator, Holy Acolyte
+        ...n(4, 'TD16-006'), // Oath Liberator, Aglovale (G2, Legion mate)
+        ...n(4, 'BT17-022'), // Shower Liberator, Trahern (G2, Legion mate)
+        ...n(3, 'BT17-023'), // Liberator, Lawful Trumpeter
+        ...n(4, 'BT17-001'), // Bluish Flame Liberator, Prominence Core (G3)
+        ...n(4, 'BT17-002'), // Murasame Liberator, Coil (G3)
+      ],
+    },
+  },
+  {
+    name: 'Kagero — Perdition Dragon, Vortex Dragonewt',
+    description:
+      'Legion to retire grade 2 or less rear-guards and deal damage that cannot trigger; Pain Laser Dragon clears a whole column.',
+    deck: {
+      firstVanguard: 'BT17-067',
+      cards: [
+        ...n(1, 'BT17-067'),
+        ...n(4, 'BT17-068'), // Perdition Dragon, Buster Rain Dragon (critical)
+        ...n(4, 'BT17-069'), // Perdition Sprite, Flarelooper (draw)
+        ...n(4, 'BT17-071'), // Perdition Cleric, Hakkai (stand)
+        ...n(4, 'BT17-070'), // Perdition Dancer, Agafia (heal)
+        ...n(4, 'BT17-013'), // Perdition Dragon, Rampart Dragon (G1 sentinel)
+        ...n(4, 'BT17-063'), // Perdition Battler, Maleisei
+        ...n(3, 'BT17-062'), // Perdition Battler, Maleikoh
+        ...n(3, 'BT17-066'), // Perdition Wyvern, Grue
+        ...n(4, 'BT17-027'), // Perdition Dragon, Whirlwind Dragon (G2, Legion mate)
+        ...n(4, 'BT17-012'), // Perdition Dragon, Menace Laser Dragon (G2, Legion mate)
+        ...n(3, 'BT17-060'), // Perdition Dragon Knight, Sabha
+        ...n(4, 'BT17-004'), // Perdition Dragon, Vortex Dragonewt (G3)
+        ...n(4, 'BT17-003'), // Perdition Dragon, Pain Laser Dragon (G3)
+      ],
+    },
+  },
+  {
+    name: 'Link Joker — Star-vader, Imaginary Plane Dragon',
+    description:
+      "Legion and lock a rear-guard for every Star-vader in your middle column; Dark Zodiac keeps them locked through the opponent's end phase.",
+    deck: {
+      firstVanguard: 'BT17-089',
+      cards: [
+        ...n(1, 'BT17-089'),
+        ...n(4, 'BT17-090'), // Star-vader, Null Chameleon (critical)
+        ...n(4, 'TD17-015'), // Vortex Star-vader, Molybdenum (draw)
+        ...n(4, 'BT17-091'), // Shockwave Star-vader, Dysprosium (stand)
+        ...n(4, 'TD17-017'), // Star-vader, Pixie Powder (heal)
+        ...n(4, 'BT17-017'), // Star-vader, Rejection Dragon (G1 sentinel)
+        ...n(4, 'BT17-085'), // Ray Star-vader, Samarium
+        ...n(3, 'BT17-087'), // Deception Star-vader, Nickel
+        ...n(3, 'BT17-035'), // Star-vader, Volt Line
+        ...n(4, 'BT17-034'), // Flash Gun Star-vader, Osmium (G2, Legion mate)
+        ...n(4, 'BT17-033'), // Star-vader, Astro-reaper (G2, Legion mate)
+        ...n(3, 'BT17-084'), // Emission Line Star-vader, Antimony
+        ...n(4, 'BT17-006'), // Star-vader, Imaginary Plane Dragon (G3)
+        ...n(4, 'BT17-007'), // Star-vader, Dark Zodiac (G3)
+      ],
+    },
+  },
+  {
+    name: 'Aqua Force — Blue Storm Wave Dragon, Tetra-burst Dragon',
+    description:
+      'Legion and attack again and again: from the fourth battle Tetra-burst gets +5000 and a critical; Zaharias stands rear-guards on drive checks.',
+    deck: {
+      firstVanguard: 'BT17-102',
+      cards: [
+        ...n(1, 'BT17-102'),
+        ...n(4, 'BT15-091'), // Blue Storm Soldier, Missile Trooper (critical)
+        ...n(4, 'BT15-092'), // Blue Storm Battle Princess, Doria (draw)
+        ...n(4, 'BT15-093'), // Angler Soldier of the Blue Storm Fleet (stand)
+        ...n(4, 'BT15-094'), // Blue Storm Soldier, Kitchen Sailor (heal)
+        ...n(4, 'BT17-020'), // Blue Storm Battle Princess, Electra (G1 sentinel)
+        ...n(4, 'BT17-100'), // Blue Storm Soldier, Tempest Border
+        ...n(3, 'BT17-101'), // Mola Mola Soldier of the Blue Storm Fleet
+        ...n(3, 'BT15-087'), // Blue Storm Marine General, Hermes
+        ...n(4, 'BT17-042'), // Blue Storm Marine General, Starless (G2, Legion mate)
+        ...n(4, 'BT17-041'), // Blue Storm Marine General, Ianis (G2, Legion mate)
+        ...n(3, 'BT15-085'), // Blue Storm Marine General, Spyros
+        ...n(4, 'BT17-008'), // Blue Storm Wave Dragon, Tetra-burst Dragon (G3)
+        ...n(4, 'BT17-040'), // Blue Storm Marine General, Zaharias (G3)
+      ],
+    },
+  },
+  // ---- EB01 ---------------------------------------------------------------------------------------
+  {
+    name: 'Nova Grappler — Perfect Raizer',
+    description:
+      'Fill the soul with Raizers: Perfect Raizer gets +3000 for each and a critical with four; Raizer Customs grow huge with Battleraizer behind them.',
+    deck: {
+      firstVanguard: 'BT16-032',
+      cards: [
+        ...n(1, 'BT16-032'),
+        ...n(4, 'BT16-069'), // Meteoraizer (critical)
+        ...n(4, 'BT16-070'), // Raizer Crew (draw)
+        ...n(4, 'EB01-020'), // Battleraizer (stand)
+        ...n(4, 'BT16-071'), // Raizer Girl, Kate (heal)
+        ...n(4, 'BT16-014'), // Shieldraizer (G1 sentinel)
+        ...n(4, 'EB01-017'), // Raizer Custom
+        ...n(3, 'BT16-064'), // Cannonraizer
+        ...n(3, 'BT16-031'), // Tankraizer
+        ...n(4, 'EB01-003'), // Hi-powered Raizer Custom (G2)
+        ...n(4, 'BT16-062'), // Wingraizer
+        ...n(3, 'BT16-063'), // Rapidraizer
+        ...n(4, 'EB01-001'), // Perfect Raizer (G3)
+        ...n(4, 'BT16-013'), // Phoenixraizer Drill-wing (G3)
+      ],
+    },
+  },
+  // ---- EB02 ---------------------------------------------------------------------------------------
+  {
+    name: 'Bermuda Triangle — Top Idol, Riviere',
+    description:
+      'Ride Cadet → Mermaid Idol → Super Idol → Top Idol Riviere, drawing along the way; return rear-guards to your hand for value and finish with Pacifica.',
+    deck: {
+      firstVanguard: 'EB02-015',
+      cards: [
+        ...n(1, 'EB02-015'),
+        ...n(4, 'EB02-032'), // Drive Quartet, Shuplu (critical)
+        ...n(4, 'EB02-033'), // Drive Quartet, Bubblin (draw)
+        ...n(4, 'EB02-030'), // Drive Quartet, Ressac (stand)
+        ...n(4, 'EB02-031'), // Drive Quartet, Flows (heal)
+        ...n(4, 'EB02-007'), // Mermaid Idol, Elly (G1 sentinel)
+        ...n(4, 'EB02-024'), // Mermaid Idol, Riviere
+        ...n(3, 'EB02-023'), // Mermaid Idol, Felucca
+        ...n(3, 'EB02-022'), // Prism on the Water, Myrtoa
+        ...n(4, 'EB02-011'), // Super Idol, Riviere (G2)
+        ...n(4, 'EB02-012'), // Mermaid Idol, Flute
+        ...n(3, 'EB02-006'), // Girls' Rock, Rio
+        ...n(4, 'EB02-002'), // Top Idol, Riviere (G3)
+        ...n(4, 'EB02-001'), // Top Idol, Pacifica (G3)
+      ],
+    },
+  },
+  // ---- EB03 ---------------------------------------------------------------------------------------
+  {
+    name: 'Gold Paladin — Spectral Duke Dragon',
+    description:
+      'Ride the Vortimer chain to call Gold Paladins from the deck, then Spectral Duke Dragon retires three to stand and attack again.',
+    deck: {
+      firstVanguard: 'EB03-015',
+      cards: [
+        ...n(1, 'EB03-015'),
+        ...n(4, 'TD08-014'), // Strike Liberator (critical)
+        ...n(4, 'EB03-032'), // Falcon Knight of the Azure (draw)
+        ...n(4, 'TD08-016'), // Fortune Liberator (stand)
+        ...n(4, 'TD08-017'), // Elixir Liberator (heal)
+        ...n(4, 'BT10-011'), // Halo Liberator, Mark (G1 sentinel)
+        ...n(4, 'EB03-029'), // Scout of Darkness, Vortimer
+        ...n(3, 'EB03-030'), // Blade Feather Valkyrie
+        ...n(3, 'EB03-031'), // War-horse, Raging Storm
+        ...n(4, 'EB03-014'), // Black Dragon Knight, Vortimer (G2)
+        ...n(4, 'EB03-028'), // Flash Edge Valkyrie
+        ...n(3, 'BT06-032'), // Knight of Superior Skills, Beaumains
+        ...n(4, 'EB03-002'), // Spectral Duke Dragon (G3)
+        ...n(4, 'EB03-013'), // Gigantech Destroyer (G3)
+      ],
+    },
+  },
+  // ---- EB04 ---------------------------------------------------------------------------------------
+  {
+    name: 'Nova Grappler — Death Army Cosmo Lord',
+    description:
+      'Rest Death Army units for power, stand them again with Bishop and Knight, and with Limit Break Cosmo Lord stands your whole field for a critical.',
+    deck: {
+      firstVanguard: 'EB04-028',
+      cards: [
+        ...n(1, 'EB04-028'),
+        ...n(4, 'EB04-029'), // Minimum Raizer (critical)
+        ...n(4, 'EB04-030'), // Three Minutes (draw)
+        ...n(4, 'EB04-034'), // Turboraizer (stand)
+        ...n(4, 'EB04-032'), // Wall Boy (heal)
+        ...n(4, 'EB04-007'), // Twin Blader (G1 sentinel)
+        ...n(4, 'EB04-006'), // Death Army Bishop
+        ...n(4, 'EB04-015'), // Death Army Guy
+        ...n(2, 'EB04-022'), // Tough Boy
+        ...n(4, 'EB04-012'), // Death Army Knight (G2)
+        ...n(4, 'EB04-013'), // Death Army Lady
+        ...n(3, 'EB04-018'), // Death Army Rook
+        ...n(4, 'EB04-002'), // Infinite Corrosion Form, Death Army Cosmo Lord (G3)
+        ...n(4, 'EB04-009'), // Brutal Joker (G3)
+      ],
+    },
+  },
+  // ---- EB05 ---------------------------------------------------------------------------------------
+  {
+    name: 'Oracle Think Tank — Battle Sister, Fromage',
+    description:
+      'Fill the field with Battle Sisters: Fromage gets +4000 with four of them and draws two with Limit Break; Waffle calls more from the deck.',
+    deck: {
+      firstVanguard: 'EB05-028',
+      cards: [
+        ...n(1, 'EB05-028'),
+        ...n(4, 'EB05-029'), // Battle Sister, Ginger (critical)
+        ...n(4, 'EB05-031'), // Battle Sister, Tiramisu (draw)
+        ...n(4, 'EB05-032'), // Battle Sister, Assam (stand)
+        ...n(4, 'EB05-033'), // Battle Sister, Chai (heal)
+        ...n(4, 'EB05-007'), // Battle Sister, Chocolat (G1 sentinel)
+        ...n(4, 'EB05-013'), // Battle Sister, Omelet
+        ...n(3, 'EB05-015'), // Battle Sister, Cocoa
+        ...n(3, 'EB05-025'), // Battle Sister, Vanilla
+        ...n(4, 'EB05-005'), // Battle Sister, Macaron (G2)
+        ...n(4, 'EB05-019'), // Battle Sister, Tarte
+        ...n(3, 'EB05-010'), // Battle Sister, Glace
+        ...n(4, 'EB05-002'), // Battle Sister, Fromage (G3)
+        ...n(4, 'EB05-018'), // Battle Sister, Souffle (G3)
+      ],
+    },
+  },
+  // ---- EB06 ---------------------------------------------------------------------------------------
+  {
+    name: 'Bermuda Triangle — PR♥ISM-Promise, Labrador',
+    description:
+      'Keep PR♥ISM cards in hand: with Limit Break, Labrador calls three of them as it attacks for +10000 and a critical; returned PR♥ISM units power up the rest.',
+    deck: {
+      firstVanguard: 'EB06-027',
+      cards: [
+        ...n(1, 'EB06-027'),
+        ...n(4, 'EB06-030'), // PR♥ISM-Miracle, Canary (critical)
+        ...n(4, 'EB06-031'), // PR♥ISM-Miracle, Adria (draw)
+        ...n(4, 'EB06-035'), // PR♥ISM-Miracle, Irish (stand)
+        ...n(4, 'EB06-033'), // PR♥ISM-Miracle, Timor (heal)
+        ...n(4, 'EB06-007'), // Mermaid Idol, Elly (G1 sentinel)
+        ...n(4, 'EB06-013'), // PR♥ISM-Romance, Mercure
+        ...n(3, 'EB06-006'), // PR♥ISM-Image, Clear
+        ...n(3, 'EB06-023'), // PR♥ISM-Promise, Leyte
+        ...n(4, 'EB06-011'), // PR♥ISM-Romance, Lumiere (G2)
+        ...n(4, 'EB06-005'), // PR♥ISM-Promise, Celtic
+        ...n(3, 'EB06-009'), // PR♥ISM-Smile, Ligurian
+        ...n(4, 'EB06-002'), // PR♥ISM-Promise, Labrador (G3)
+        ...n(4, 'EB06-003'), // PR♥ISM-Image, Vert (G3)
+      ],
+    },
+  },
 ];

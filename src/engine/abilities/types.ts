@@ -76,6 +76,23 @@ export interface CardFilter {
   readonly limitBreak?: number;
   /** Another unit with the same name is on its controller's (VC) or (RC). */
   readonly sameNameAsAnotherUnit?: boolean;
+  /** "with the same card name as a unit on your (VC)" (the master's vanguards). */
+  readonly sameNameAsVanguard?: boolean;
+  /** "rear-guards in your front row with a unit in your back row of the same column" */
+  readonly withUnitBehind?: boolean;
+  /** "in the same column as the (RC) that card was on": the column the event card left. */
+  readonly sameColumnAsEvent?: boolean;
+  /** "in the same column as that unit": the column of a card bound earlier (CR 4.6.2.1 across players). */
+  readonly sameColumnAsBound?: string;
+  /** On this circle of its player's field ("(RC) in the left column of the front row"). */
+  readonly onCircle?:
+    'vanguard' | 'front_left' | 'front_right' | 'back_left' | 'back_center' | 'back_right';
+  /** "with the same grade as your vanguard" (the master's vanguard). */
+  readonly sameGradeAsVanguard?: boolean;
+  /** "a card that can [Legion] with your vanguard": its Seek Mate names your vanguard. */
+  readonly canLegionWithVanguard?: boolean;
+  /** "a unit … that can [Legion] with your vanguard": your vanguard's Seek Mate names it. */
+  readonly vanguardCanLegionWith?: boolean;
 }
 
 export type BattleRole = 'attacker' | 'attacked' | 'booster' | 'boosted';
@@ -131,12 +148,19 @@ export type Condition =
    * For automatic abilities only: a continuous ability that reads power would depend on itself.
    */
   | { readonly cond: 'power'; readonly of: Selector; readonly range: Range }
+  /** How many different card names the selected (unlocked) cards have ("rear-guards with different card names"). */
+  | { readonly cond: 'distinct_names'; readonly of: Selector; readonly range: Range }
   /** How many cards matching `filter` the master called to (RC) this turn. */
   | { readonly cond: 'called_this_turn'; readonly filter: CardFilter; readonly range: Range }
   /** "If it is the nth battle of that turn or more" (TurnFlags.battles). */
   | { readonly cond: 'battle_number'; readonly range: Range }
   /** "If this unit has not become [Stand] during that turn": stood by an effect (not the stand phase). */
   | { readonly cond: 'stood_this_turn'; readonly of: Selector }
+  /**
+   * "During the turn when your vanguard [Legion]": one of the master's units entered a legion as
+   * its leader this turn; with `of`, one of the selected units did ("the turn this unit [Legion]").
+   */
+  | { readonly cond: 'legioned_this_turn'; readonly of?: Selector }
   /** "If your <clan> had been put into the drop zone from (RC) during this turn" (master's cards). */
   | {
       readonly cond: 'dropped_from_rc_this_turn';
@@ -167,9 +191,17 @@ export type Restriction =
   /** A locked card that is not unlocked in its owner's end phase (Glendios). */
   | 'cannot_unlock'
   /** "Does not deal damage even if its attack hits" (the hit still happens). */
-  | 'no_damage';
+  | 'no_damage'
+  /** "Cannot be retired by card effects" (costs and rule actions still move it). */
+  | 'cannot_be_retired';
 /** Rule permissions a continuous ability can give. */
-export type Permission = 'attack_back_row_same_column' | 'attack_entire_front_row';
+export type Permission =
+  | 'attack_back_row_same_column'
+  | 'attack_entire_front_row'
+  /** "When this unit would choose a unit to attack, choose four of your opponent's units instead" */
+  | 'attack_four_units'
+  /** "If this unit would attack, it may instead attack an opponent's unit in the back row" */
+  | 'attack_back_row';
 /** What a "loses …" effect removes: an ability (by id) or a skill icon. */
 export type Losable = { readonly ability: string } | { readonly icon: 'twin_drive' };
 export type Destination = 'hand' | 'soul' | 'drop' | 'deck_top' | 'deck_bottom' | 'damage' | 'bind';
@@ -223,7 +255,12 @@ export type Step =
   /** "You win the game" (CR 1.2.2: the opponent loses at the next rule-action check). */
   | { readonly op: 'win' }
   /** "Choose one of your opponent's vanguard, and deal n damage" (damage checks, CR 7.6.2). */
-  | { readonly op: 'deal_damage'; readonly n: number }
+  | {
+      readonly op: 'deal_damage';
+      readonly n: number;
+      /** "during that damage check, all trigger effects are nullified" */
+      readonly nullifyTriggers?: boolean;
+    }
   /** "The unit that is being attacked during that battle changes to that unit, and all of your guardians guard that unit." */
   | { readonly op: 'redirect_attack'; readonly target: Selector }
   /** "Choose one of your (RC), and put the top card of your deck into that (RC) face down as a locked card." */
@@ -357,8 +394,11 @@ export type Step =
   | { readonly op: 'lock'; readonly target: Selector }
   /** CR 10.1.23 */
   | { readonly op: 'unlock'; readonly target: Selector }
-  /** CR 10.1.24: put the target next to the source vanguard and enter the legion state. */
-  | { readonly op: 'legion'; readonly target: Selector };
+  /**
+   * CR 10.1.24: put the target next to the source vanguard and enter the legion state.
+   * `withVanguard`: next to the master's current vanguard instead ("ride it …, and [Legion]").
+   */
+  | { readonly op: 'legion'; readonly target: Selector; readonly withVanguard?: boolean };
 
 /** Costs (CR 3.1.1.5, 8.5.2.3, 10.1.15–10.1.16). */
 export type Cost =
@@ -479,8 +519,8 @@ export type TriggerCondition =
   | {
       readonly on: 'put_into_drop';
       readonly who: Subject;
-      /** 'soul': "when this card is put into the drop zone from your soul" */
-      readonly from: 'VC' | 'RC' | 'GC' | 'soul';
+      /** 'soul': "when this card is put into the drop zone from your soul"; 'front_RC': "rear-guard in the front row" */
+      readonly from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC';
       /** "due to an effect from one of your cards" */
       readonly byYourEffect?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
@@ -499,7 +539,9 @@ export type TriggerCondition =
   /** CR 10.1.24.13: "when this unit legions". */
   | { readonly on: 'legion'; readonly who: Subject }
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */
-  | { readonly on: 'drawn'; readonly who: Subject };
+  | { readonly on: 'drawn'; readonly who: Subject }
+  /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
+  | { readonly on: 'returned_to_hand'; readonly who: Subject };
 
 // ---------------------------------------------------------------------------------------------
 // Abilities
@@ -576,7 +618,9 @@ export type ContinuousEffect =
   /** `rearGuardsNamed`: (VC) gives the clan to your rear-guards with that text in their names. */
   | { readonly ce: 'also_clan'; readonly clan: string; readonly rearGuardsNamed?: string }
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
-  | { readonly ce: 'deck_limit'; readonly copies: number };
+  | { readonly ce: 'deck_limit'; readonly copies: number }
+  /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
+  | { readonly ce: 'limit_break_always' };
 
 export interface ContAbility extends AbilityBase {
   readonly kind: 'CONT';

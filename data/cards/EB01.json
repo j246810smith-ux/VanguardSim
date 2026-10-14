@@ -1,0 +1,1618 @@
+{
+  "set": "EB01",
+  "importedAt": "2026-10-14T20:12:31.358Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "EB01-001",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/001",
+        "name": "パーフェクトライザー",
+        "text": "【永】【(V)/(R)】：あなたの、(V)か(R)に、他のカード名に「ライザー」を含むカードがいないなら、このユニットのパワー－2000。\n【永】【(V)】：あなたのターン中、あなたのソウルのカード名に「ライザー」を含むカード１枚につき、このユニットのパワー＋3000。\n【永】【(V)】：あなたのターン中、あなたのソウルのカード名に「ライザー」を含むカードが４枚以上なら、このユニットのクリティカル＋１。\n【自】：このユニットが(V)に登場した時、あなたのカード名に「ライザー」を含むリアガードをすべてソウルに置く。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_001.png"
+      },
+      "en": {
+        "number": "EB01/001EN",
+        "name": "Perfect Raizer",
+        "text": "[CONT](VC/RC):If you do not have another card with \"Raizer\" in its card name on your (VC) or (RC), this unit gets [Power] -2000.\n[CONT](VC):During your turn, this unit gets [Power] +3000 for each card in your soul with \"Raizer\" in its card name.\n[CONT](VC):During your turn, if the number of cards in your soul with \"Raizer\" in its card name is four or more, this unit gets [Critical] +1.\n[AUTO]:When this unit is placed on (VC), put all rear-guards you have with \"Raizer\" in its card name into your soul.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB01/001", "EB01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F001",
+          "fetchedAt": "2026-10-14T20:10:39.602Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/001EN",
+          "fetchedAt": "2026-10-14T20:11:13.512Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-002",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/002",
+        "name": "決闘龍 ZANBAKU",
+        "text": "【永】【(V)/(R)】：《むらくも》以外のあなたの、ヴァンガードかリアガードがいるなら、このユニットのパワー－2000。\n【自】【(V)】：相手のライドフェイズ開始時、相手のグレード３以上のヴァンガードがいるなら、相手は自分の手札から１枚選び、捨ててよい。捨てないなら、そのライドフェイズ中、相手はノーマルライドできない。",
+        "clan": "むらくも",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_002.png"
+      },
+      "en": {
+        "number": "EB01/002EN",
+        "name": "Dueling Dragon, ZANBAKU",
+        "text": "[CONT](VC/RC):If you have a non-<Murakumo> vanguard or rear-guard, this unit gets [Power] -2000.\n[AUTO](VC):At the beginning of your opponent's ride phase, if your opponent has a grade 3 or greater vanguard, your opponent may choose a card from his or her hand, and discard it. If your opponent does not, your opponent cannot normal ride during that ride phase.",
+        "clan": "Murakumo",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB01/002", "EB01/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F002",
+          "fetchedAt": "2026-10-14T20:10:40.778Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/002EN",
+          "fetchedAt": "2026-10-14T20:11:16.089Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-003",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/003",
+        "name": "ハイパワードライザーカスタム",
+        "text": "【永】【(V)/(R)】：あなたのターン中、このユニットと同じ縦列の後列にあなたの「バトルライザー」がいるなら、このユニットのパワー＋8000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_003.png"
+      },
+      "en": {
+        "number": "EB01/003EN",
+        "name": "Hi-powered Raizer Custom",
+        "text": "[CONT](VC/RC):During your turn, if you have a unit named \"Battleraizer\" in the back row of the same column as this unit, this unit gets [Power] +8000.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB01/003", "EB01/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F003",
+          "fetchedAt": "2026-10-14T20:10:41.526Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/003EN",
+          "fetchedAt": "2026-10-14T20:11:17.209Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-004",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/004",
+        "name": "ゴールデン・ビーストテイマー",
+        "text": "【永】【(V)/(R)】：拘束（このユニットはアタックできない。）\n【起】【(V)/(R)】：[【ソウルブラスト】(3)]そのターン中、このユニットは『拘束』を失う。\n【永】【(V)】：あなたのターン中、前列のあなたの《ペイルムーン》のリアガードすべてのパワー＋3000。\n【自】：このユニットが(V)に登場した時、あなたのソウルから《ペイルムーン》の〈キメラ〉を１枚選び、(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_004.png"
+      },
+      "en": {
+        "number": "EB01/004EN",
+        "name": "Golden Beast Tamer",
+        "text": "[CONT](VC/RC):Restraint (This unit cannot attack.)\n[ACT](VC/RC): This unit loses \"Restraint\" until end of turn.\n[CONT](VC):During your turn, all of your <Pale Moon> rear-guards in your front row get [Power] +3000.\n[AUTO]:When this unit is placed on (VC), choose a <Pale Moon> <Chimera> from your soul, and call it to (RC).",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB01/004", "EB01/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F004",
+          "fetchedAt": "2026-10-14T20:10:42.690Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/004EN",
+          "fetchedAt": "2026-10-14T20:11:18.344Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-005",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/005",
+        "name": "マシニング・スターグビートル",
+        "text": "【自】：このユニットが(V)に登場した時、あなたのソウルからカード名に「マシニング」を含む《メガコロニー》を２枚まで選び、別々の(R)に【レスト】でコールし、そのターン中、このユニットのパワーを増やす。増やす数値は、この効果でコールしたユニットの元々のパワーの合計である。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_005.png"
+      },
+      "en": {
+        "number": "EB01/005EN",
+        "name": "Machining Stag Beetle",
+        "text": "[AUTO]:When this unit is placed on (VC), choose up to two <Megacolony> with \"Machining\" in its card name from your soul, call them to separate (RC) as [Rest], and increase this unit's [Power]  by the sum of the original [Power]  of the units called with this effect until end of turn.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB01/005", "EB01/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F005",
+          "fetchedAt": "2026-10-14T20:10:43.887Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/005EN",
+          "fetchedAt": "2026-10-14T20:11:19.315Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-006",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/006",
+        "name": "インペリアル・ドーター",
+        "text": "【永】【(V)/(R)】：拘束（このユニットはアタックできない。）\n【起】【(V)/(R)】：[【カウンターブラスト】(1)，他のあなたの《オラクルシンクタンク》のリアガードを１枚選び、ソウルに置く]そのターン中、このユニットは『拘束』を失う。\n【永】【(V)】：あなたのターン中、あなたのリアガードがいないなら、このユニットのパワー＋10000/クリティカル＋１し、『拘束』を失う。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_006.png"
+      },
+      "en": {
+        "number": "EB01/006EN",
+        "name": "Imperial Daughter",
+        "text": "[CONT](VC/RC):Restraint (This unit cannot attack.)\n[ACT](VC/RC):[Counter-Blast 1 & Choose another of your <Oracle Think Tank> rear-guards, and put it into your soul] This unit loses \"Restraint\" until end of turn.\n[CONT](VC):During your turn, if you do not have any rear-guards, this unit gets [Power] +10000/[Critical] +1 and loses \"Restraint\".",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB01/006", "EB01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F006",
+          "fetchedAt": "2026-10-14T20:10:44.630Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/006EN",
+          "fetchedAt": "2026-10-14T20:11:20.248Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-007",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/007",
+        "name": "ウェザーフォーキャスター ミス・ミスト",
+        "text": "【自】：このユニットが(G)に登場した時、相手のグレード２以下のヴァンガードがアタックしたバトル中なら、そのバトル中、あなたの《オラクルシンクタンク》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "オラクルシンクタンク",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_007.png"
+      },
+      "en": {
+        "number": "EB01/007EN",
+        "name": "Weather Forecaster, Miss Mist",
+        "text": "[AUTO]:When this unit is placed on (GC), if it is during the battle in which your opponent's grade 2 or less vanguard attacked, choose one of your <Oracle Think Tank> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB01/007", "EB01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F007",
+          "fetchedAt": "2026-10-14T20:10:45.379Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/007EN",
+          "fetchedAt": "2026-10-14T20:11:21.177Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-008",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/008",
+        "name": "Miss スプレンダー",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、そのバトル中、相手のユニットすべては【インターセプト】できない。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_008.png"
+      },
+      "en": {
+        "number": "EB01/008EN",
+        "name": "Miss Splendor",
+        "text": "[AUTO](VC/RC):When this unit attacks, your opponent's units cannot intercept ([Intercept]) until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/008", "EB01/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F008",
+          "fetchedAt": "2026-10-14T20:10:46.120Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/008EN",
+          "fetchedAt": "2026-10-14T20:11:22.296Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-009",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/009",
+        "name": "ロケットハンマーマン",
+        "text": "【起】【(R)】：[このユニットを【レスト】する]他のあなたの《ノヴァグラップラー》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_009.png"
+      },
+      "en": {
+        "number": "EB01/009EN",
+        "name": "Rocket Hammer Man",
+        "text": "[ACT](RC):[Rest] this unit] Choose another of your <Nova Grappler>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/009", "EB01/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F009",
+          "fetchedAt": "2026-10-14T20:10:47.293Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/009EN",
+          "fetchedAt": "2026-10-14T20:11:23.415Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-010",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/010",
+        "name": "双剣士 MUSASHI",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "むらくも",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_010.png"
+      },
+      "en": {
+        "number": "EB01/010EN",
+        "name": "Twin Swordsman, MUSASHI",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Murakumo",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/010", "EB01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F010",
+          "fetchedAt": "2026-10-14T20:10:48.472Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/010EN",
+          "fetchedAt": "2026-10-14T20:11:24.288Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-011",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/011",
+        "name": "プロミス・ドーター",
+        "text": "【自】【(V)/(R)】：[あなたの手札から《オラクルシンクタンク》を１枚選び、捨てる]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_011.png"
+      },
+      "en": {
+        "number": "EB01/011EN",
+        "name": "Promise Daughter",
+        "text": "[AUTO](VC/RC):[Choose an <Oracle Think Tank> from your hand, and discard it] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/011", "EB01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F011",
+          "fetchedAt": "2026-10-14T20:10:49.224Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/011EN",
+          "fetchedAt": "2026-10-14T20:11:25.764Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-012",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/012",
+        "name": "ベリコウスティドラゴン",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたの《かげろう》のヴァンガードがいるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_012.png"
+      },
+      "en": {
+        "number": "EB01/012EN",
+        "name": "Bellicosity Dragon",
+        "text": "[AUTO](VC/RC):When this unit's attack hits a vanguard, if you have a <Kagero> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/012", "EB01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F012",
+          "fetchedAt": "2026-10-14T20:10:50.005Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/012EN",
+          "fetchedAt": "2026-10-14T20:11:27.305Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-013",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/013",
+        "name": "ガード・グリフォン",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(G)に登場した時、あなたの《かげろう》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "かげろう",
+        "race": "キメラ",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_013.png"
+      },
+      "en": {
+        "number": "EB01/013EN",
+        "name": "Guard Griffin",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (GC), if you have a <Kagero> vanguard, you may pay the cost. If you do, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Chimera",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/013", "EB01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F013",
+          "fetchedAt": "2026-10-14T20:10:51.185Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/013EN",
+          "fetchedAt": "2026-10-14T20:11:28.232Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-014",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/014",
+        "name": "導きの賢者 ゼノン",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、あなたの山札の上を公開する。そのカードがあなたのヴァンガードと同じグレードの《ロイヤルパラディン》なら、そのカードをライドし、違うなら、そのカードをドロップゾーンに置く。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_014.png"
+      },
+      "en": {
+        "number": "EB01/014EN",
+        "name": "Sage of Guidance, Zenon",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a <Royal Paladin> vanguard, reveal the top card of your deck. If the revealed card is a <Royal Paladin> with the same grade as your vanguard, ride it, and if it is not, put that card into your drop zone.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/014", "EB01/S01", "EB01/014EN", "EB01/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F014",
+          "fetchedAt": "2026-10-14T20:10:51.930Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/014EN",
+          "fetchedAt": "2026-10-14T20:11:29.135Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-015",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/015",
+        "name": "サベイジ・キング",
+        "text": "【起】【(V)/(R)】：[【ソウルブラスト】(1)，他のあなたの《たちかぜ》のリアガードを１枚選び、退却させる]そのターン中、このユニットのパワー＋3000。",
+        "clan": "たちかぜ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_015.png"
+      },
+      "en": {
+        "number": "EB01/015EN",
+        "name": "Savage King",
+        "text": "[ACT](VC/RC):[Soul-Blast 1 & Choose another of your <Tachikaze> rear-guards, and retire it] This unit gets [Power] +3000 until end of turn.",
+        "clan": "Tachikaze",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_015EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB01/015", "EB01/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F015",
+          "fetchedAt": "2026-10-14T20:10:52.679Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/015EN",
+          "fetchedAt": "2026-10-14T20:11:30.306Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-016",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/016",
+        "name": "ブーメラン・スロアー",
+        "text": "【自】：このユニットが《ノヴァグラップラー》にライドした時、そのターン中、このユニットは『【永】【(V)】：このユニットは、後列にいる相手のユニットをバトル相手のユニットに選べる。』を得る。",
+        "clan": "ノヴァグラップラー",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_016.png"
+      },
+      "en": {
+        "number": "EB01/016EN",
+        "name": "Boomerang Thrower",
+        "text": "[AUTO]:When this unit rides a <Nova Grappler>, this unit gets \"[CONT](VC):If this unit would attack, it may instead attack an opponent's unit in the back row.\" until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_016EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/016", "EB01/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F016",
+          "fetchedAt": "2026-10-14T20:10:53.841Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/016EN",
+          "fetchedAt": "2026-10-14T20:11:31.229Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-017",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/017",
+        "name": "ライザーカスタム",
+        "text": "【永】【(V)/(R)】：あなたのターン中、このユニットと同じ縦列の後列にあなたの「バトルライザー」がいるなら、このユニットのパワー＋6000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_017.png"
+      },
+      "en": {
+        "number": "EB01/017EN",
+        "name": "Raizer Custom",
+        "text": "[CONT](VC/RC):During your turn, if you have a unit named \"Battleraizer\" in the back row of the same column as this unit, this unit gets [Power] +6000.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_017EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/017", "EB01/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F017",
+          "fetchedAt": "2026-10-14T20:10:54.586Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/017EN",
+          "fetchedAt": "2026-10-14T20:11:32.381Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-018",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/018",
+        "name": "ウォールボーイ",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_018.png"
+      },
+      "en": {
+        "number": "EB01/018EN",
+        "name": "Wall Boy",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_018EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/018", "EB01/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F018",
+          "fetchedAt": "2026-10-14T20:10:55.339Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/018EN",
+          "fetchedAt": "2026-10-14T20:11:33.329Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-019",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/019",
+        "name": "ネコ執事",
+        "text": "【自】【(R)】：[このユニットを退却させる]あなたのヴァンガードがアタックしたバトルのクローズステップ開始時、そのバトル中、アタックがヒットしていなかったら、コストを払ってよい。払ったら、あなたのグレード２以下の《ノヴァグラップラー》のヴァンガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_019.png"
+      },
+      "en": {
+        "number": "EB01/019EN",
+        "name": "Cat Butler",
+        "text": "[AUTO](RC):［Retire this unit］ At the beginning of the close step of the battle that your vanguard attacked, if the attack did not hit during that battle, you may pay the cost. If you do, choose one of your grade 2 or less <Nova Grappler> vanguards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_019EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/019", "EB01/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F019",
+          "fetchedAt": "2026-10-14T20:10:56.088Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/019EN",
+          "fetchedAt": "2026-10-14T20:11:34.741Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-020",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/020",
+        "name": "バトルライザー",
+        "text": "【自】：他の《ノヴァグラップラー》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_020.png"
+      },
+      "en": {
+        "number": "EB01/020EN",
+        "name": "Battleraizer",
+        "text": "[AUTO]:When another <Nova Grappler> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts, the boosted unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_020EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/020", "EB01/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F020",
+          "fetchedAt": "2026-10-14T20:10:56.850Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/020EN",
+          "fetchedAt": "2026-10-14T20:11:35.608Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-021",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/021",
+        "name": "ジャンピング・ジル",
+        "text": "【自】：このユニットがソウルから(R)に登場した時、あなたの《ペイルムーン》のヴァンガードがいれば、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_021.png"
+      },
+      "en": {
+        "number": "EB01/021EN",
+        "name": "Jumping Jill",
+        "text": "[AUTO]:When this unit is placed on (RC) from your soul, if you have a <Pale Moon> vanguard, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_021EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/021", "EB01/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F021",
+          "fetchedAt": "2026-10-14T20:10:58.008Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/021EN",
+          "fetchedAt": "2026-10-14T20:11:36.733Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-022",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/022",
+        "name": "ニトロジャグラー",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《ペイルムーン》のヴァンガードがいるなら、【ソウルチャージ】(1)してよい。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_022.png"
+      },
+      "en": {
+        "number": "EB01/022EN",
+        "name": "Nitro Juggler",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Pale Moon> vanguard, you may [Soul-Charge 1].",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_022EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/022", "EB01/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F022",
+          "fetchedAt": "2026-10-14T20:10:59.180Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/022EN",
+          "fetchedAt": "2026-10-14T20:11:37.896Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-023",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/023",
+        "name": "スターティング・プレゼンター",
+        "text": "【自】：他の《ペイルムーン》がこのユニットにライドした時、【ソウルチャージ】(2)してよい。",
+        "clan": "ペイルムーン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_023.png"
+      },
+      "en": {
+        "number": "EB01/023EN",
+        "name": "Starting Presenter",
+        "text": "[AUTO]:When another <Pale Moon> rides this unit, you may [Soul-Charge 2].",
+        "clan": "Pale Moon",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_023EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/023", "EB01/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F023",
+          "fetchedAt": "2026-10-14T20:11:00.000Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/023EN",
+          "fetchedAt": "2026-10-14T20:11:38.759Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-024",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/024",
+        "name": "フープ・マジシャン",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_024.png"
+      },
+      "en": {
+        "number": "EB01/024EN",
+        "name": "Hoop Magician",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_024EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/024", "EB01/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F024",
+          "fetchedAt": "2026-10-14T20:11:00.751Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/024EN",
+          "fetchedAt": "2026-10-14T20:11:39.621Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-025",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/025",
+        "name": "ラーク・ピジョン",
+        "text": "【自】【ソウル】：あなたのガードステップ開始時、あなたの《ペイルムーン》のヴァンガードがいて、あなたの手札がないなら、このカードを(G)に【レスト】でコールしてよい。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_025.png"
+      },
+      "en": {
+        "number": "EB01/025EN",
+        "name": "Lark Pigeon",
+        "text": "[AUTO]Soul:At the beginning of your guard step, if you have a <Pale Moon> vanguard, and you do not have any cards in your hand, you may call this card to (GC) as [Rest].",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_025EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/025", "EB01/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F025",
+          "fetchedAt": "2026-10-14T20:11:01.924Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/025EN",
+          "fetchedAt": "2026-10-14T20:11:41.613Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-026",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/026",
+        "name": "早矢士 FUSHIMI",
+        "text": "【自】：このユニットが《むらくも》にライドした時、そのターン中、このユニットは『【永】【(V)】：このユニットは、後列にいる相手のユニットをバトル相手のユニットに選べる。』を得る。",
+        "clan": "むらくも",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_026.png"
+      },
+      "en": {
+        "number": "EB01/026EN",
+        "name": "Swift Archer, FUSHIMI",
+        "text": "[AUTO]:When this unit rides a <Murakumo>, this unit gets \"[CONT](VC):If this unit would attack, it may instead attack an opponent's unit in the back row.\" until end of turn.",
+        "clan": "Murakumo",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_026EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/026", "EB01/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F026",
+          "fetchedAt": "2026-10-14T20:11:02.659Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/026EN",
+          "fetchedAt": "2026-10-14T20:11:42.801Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-027",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/027",
+        "name": "レフト・アレスター",
+        "text": "【永】【前列の左列(R)】：あなたの《むらくも》のヴァンガードがいて、前列の右列(R)にあなたの「ライト・アレスター」がいるなら、このユニットのパワー＋3000。",
+        "clan": "むらくも",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_027.png"
+      },
+      "en": {
+        "number": "EB01/027EN",
+        "name": "Left Arrester",
+        "text": "[CONT](RC) in the left column of the front row:If you have a <Murakumo> vanguard, and you have a unit named \"Right Arrester\" on (RC) in the right column of the front row, this unit gets [Power] +3000.",
+        "clan": "Murakumo",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_027EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/027", "EB01/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F027",
+          "fetchedAt": "2026-10-14T20:11:03.820Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/027EN",
+          "fetchedAt": "2026-10-14T20:11:43.915Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-028",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/028",
+        "name": "ライト・アレスター",
+        "text": "【永】【前列の右列(R)】：あなたの《むらくも》のヴァンガードがいて、前列の左列(R)にあなたの「レフト・アレスター」がいるなら、このユニットのパワー＋3000。",
+        "clan": "むらくも",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_028.png"
+      },
+      "en": {
+        "number": "EB01/028EN",
+        "name": "Right Arrester",
+        "text": "[CONT](RC) in the right column of the front row:If you have a <Murakumo> vanguard, and you have a unit named \"Left Arrester\" on (RC) in the left column of the front row, this unit gets [Power] +3000.",
+        "clan": "Murakumo",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_028EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/028", "EB01/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F028",
+          "fetchedAt": "2026-10-14T20:11:04.996Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/028EN",
+          "fetchedAt": "2026-10-14T20:11:44.785Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-029",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/029",
+        "name": "マシニング・マンティス",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたのソウルにカード名に「マシニング」を含む《メガコロニー》があるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_029.png"
+      },
+      "en": {
+        "number": "EB01/029EN",
+        "name": "Machining Mantis",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Megacolony> with \"Machining\" in its card name in your soul, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_029EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/029", "EB01/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F029",
+          "fetchedAt": "2026-10-14T20:11:05.747Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/029EN",
+          "fetchedAt": "2026-10-14T20:11:46.079Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-030",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/030",
+        "name": "マシニング・ホーネット",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたのソウルにカード名に「マシニング」を含む《メガコロニー》があるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_030.png"
+      },
+      "en": {
+        "number": "EB01/030EN",
+        "name": "Machining Hornet",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Megacolony> with \"Machining\" in its card name in your soul, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_030EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/030", "EB01/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F030",
+          "fetchedAt": "2026-10-14T20:11:06.545Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/030EN",
+          "fetchedAt": "2026-10-14T20:11:47.026Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-031",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/031",
+        "name": "マシニング・ワーカーアント",
+        "text": "【自】：このユニットが(R)に登場した時、カード名に「マシニング」を含む《メガコロニー》のリアガードを１枚選び、【スタンド】する。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_031.png"
+      },
+      "en": {
+        "number": "EB01/031EN",
+        "name": "Machining Worker Ant",
+        "text": "[AUTO]:When this unit is placed on (RC), choose one of your rear-guards with \"Machining\" in its card name, and [Stand] it.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_031EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/031", "EB01/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F031",
+          "fetchedAt": "2026-10-14T20:11:07.284Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/031EN",
+          "fetchedAt": "2026-10-14T20:11:48.217Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-032",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/032",
+        "name": "シェルタービートル",
+        "text": "",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_032.png"
+      },
+      "en": {
+        "number": "EB01/032EN",
+        "name": "Shelter Beetle",
+        "text": "",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_032EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/032", "EB01/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F032",
+          "fetchedAt": "2026-10-14T20:11:08.066Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/032EN",
+          "fetchedAt": "2026-10-14T20:11:49.095Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-033",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/033",
+        "name": "ロゼンジ・メイガス",
+        "text": "（【治】はデッキに４枚までしか入れられない。）\n【自】：他の《オラクルシンクタンク》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_033.png"
+      },
+      "en": {
+        "number": "EB01/033EN",
+        "name": "Lozenge Magus",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)\n[AUTO]:When another <Oracle Think Tank> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts, the boosted unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_033EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/033", "EB01/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F033",
+          "fetchedAt": "2026-10-14T20:11:09.259Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/033EN",
+          "fetchedAt": "2026-10-14T20:11:50.284Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-034",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/034",
+        "name": "臥竜 ストライケン",
+        "text": "【永】【(V)】：拘束（このユニットはアタックできない。）\n【自】【(V)】：このユニットがアタックされた時、そのバトルで【ブースト】したユニットがいないなら、そのバトル中、このユニットのパワー＋5000。【自】：他の《かげろう》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋5000/クリティカル＋１。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_034.png"
+      },
+      "en": {
+        "number": "EB01/034EN",
+        "name": "Prowling Dragon, Striken",
+        "text": "[CONT](VC):Restraint (This unit cannot attack.)\n[AUTO](VC):When this unit is attacked, if there are no boosting ([Boost]) units, this unit gets [Power] +5000 until end of that battle.\n[AUTO]:When another <Kagero> rides this unit, choose one of your vanguards, and that unit gets [Power] +5000/[Critical] +1 until end of turn.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_034EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/034", "EB01/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F034",
+          "fetchedAt": "2026-10-14T20:11:10.434Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/034EN",
+          "fetchedAt": "2026-10-14T20:11:51.172Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB01-035",
+      "set": "EB01",
+      "jp": {
+        "number": "EB01/035",
+        "name": "スパイクバウンサー",
+        "text": "【自】【(V)/(R)】：他のあなたの《スパイクブラザーズ》のアタックがヴァンガードにヒットした時、そのターン中、このユニットをパワー＋3000。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/EB01/eb01_035.png"
+      },
+      "en": {
+        "number": "EB01/035EN",
+        "name": "Spike Bouncer",
+        "text": "[AUTO](VC/RC):When an attack by another of your <Spike Brothers> hits a vanguard, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_035EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB01/035", "EB01/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB01%2F035",
+          "fetchedAt": "2026-10-14T20:11:11.178Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB01/035EN",
+          "fetchedAt": "2026-10-14T20:11:52.395Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

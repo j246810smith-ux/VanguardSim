@@ -1,5 +1,7 @@
 import { isChoiceTask } from '../state/tasks';
-import { other, type InstanceId } from '../state/types';
+import { other, unitsOf, type InstanceId } from '../state/types';
+import { ask } from './choice';
+import { locate } from './locate';
 import { hasPermission } from '../abilities/continuous';
 import { attackOptions } from './combat';
 import { emit, type Draft } from './context';
@@ -58,7 +60,37 @@ export function declareAttack(
     target,
     booster: s.battle.booster,
   });
+  // the extra targets are chosen with the attack, before "when this unit attacks" abilities play
+  if (hasPermission(s, d.ctx, attacker, 'attack_four_units')) {
+    s.tasks.push({ kind: 'choose_attack_targets', atomic: true });
+  }
   s.tasks.push({ kind: 'guard_step_start' });
+}
+
+/**
+ * "Choose four of your opponent's units instead, and this unit battles all of the chosen units in
+ * one attack": three more of the opponent's units (any circle) besides the declared target; all
+ * of them if there are three or fewer (UNRESOLVED_RULINGS "BT17 notes").
+ */
+export function chooseAttackTargets(d: Draft, task: { selection?: string[] }): boolean {
+  const s = d.state;
+  const b = s.battle;
+  if (!b) return true;
+  const options = unitsOf(s, other(s.activePlayer)).filter((id) => id !== b.target);
+  const picked = ask(d, task, {
+    player: s.activePlayer,
+    kind: 'select',
+    options,
+    min: 3,
+    max: 3,
+    prompt: "Choose three more of your opponent's units to battle in this attack",
+  });
+  if (picked === null) return false;
+  (b as { extraTargets: typeof b.extraTargets }).extraTargets = picked.flatMap((id) => {
+    const at = locate(s, id);
+    return at.zone === 'circle' ? [{ id, circle: at.circle }] : [];
+  });
+  return true;
 }
 
 /** CR 7.4.1.2.1: call a card from hand to the guardian circle, resting; then back to 7.4.1.2. */

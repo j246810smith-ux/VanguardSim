@@ -1,8 +1,8 @@
 # Vanguard Sim
 
 An **unofficial, offline** Windows simulator for the original _Cardfight!! Vanguard_ trading card
-game, covering the historical **VG-BT01 to VG-BT17** era (Japanese-original set structure, classic
-pre-G rules, Comprehensive Rules ver. 1.29 as the target). Play against an AI on your own PC; no
+game, covering the historical **VG-BT01 to VG-BT17** era and its side sets (Japanese-original set
+structure, classic pre-G rules, Comprehensive Rules ver. 1.29 as the target). Play against an AI on your own PC; no
 account or server is needed and the game itself never goes online (the optional Artwork Manager
 downloads card art only when you ask it to).
 
@@ -13,13 +13,13 @@ downloads card art only when you ask it to).
 
 ## Status: alpha
 
-| Area         | State                                                                                                                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                |
-| Cards        | **Playable: BT01–BT15 and Trial Decks TD01–TD17** (except the Japanese-only TD15), every effect implemented and tested. BT16–BT17: not yet playable. Progress: `docs/CARD_STATUS_REPORT.md`                     |
-| Game         | Desktop app with music, sound effects and card animations: main menu, 52 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art |
-| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                         |
-| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                 |
+| Area         | State                                                                                                                                                                                                                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                           |
+| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **and Extra Boosters EB01–EB06**: 2104 cards, every effect implemented and tested. Coming next: EB07–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
+| Game         | Desktop app with music, sound effects and card animations: main menu, 66 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art                                                                                            |
+| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                    |
+| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                                                                                                            |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.
@@ -28,10 +28,10 @@ Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) 
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.19.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.19.0-alpha/VanguardSim-0.19.0-alpha-portable.exe)
+**Latest version: v0.22.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.22.0-alpha/VanguardSim-0.22.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.19.0-alpha/VanguardSim-0.19.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.22.0-alpha/VanguardSim-0.22.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either
@@ -62,7 +62,7 @@ missing; see [docs/ARTWORK.md](docs/ARTWORK.md). Or add them by hand:
    - **zip download:** the folder you unzipped contains `Vanguard Sim.exe` and a `cards` folder;
    - **portable .exe:** create a folder named `cards` in the same folder as
      `VanguardSim-<version>-portable.exe`.
-2. **Make one sub-folder per set**, named by the set code: `BT01`, `BT02`, …, `TD01`, ….
+2. **Make one sub-folder per set**, named by the set code: `BT01`, `BT02`, …, `TD01`, …, `EB01`, ….
 3. **Name each image by its card number**: the set code, a dash and the three-digit number, e.g.
    `BT01-001.png` (or `.jpg`). The game's card details (right-click a card) show the printed
    number, such as `BT01/001EN`: that card's file is `BT01-001.png`.

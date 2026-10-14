@@ -4,6 +4,8 @@ import { HoverPreview, RecentEvents, useHoveredCard } from '../board/Feedback';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   HIDDEN,
+  basePower,
+  currentCritical,
   type Circle,
   type Command,
   type InstanceId,
@@ -12,7 +14,7 @@ import {
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
 import { DamageZone, Pile, PhaseRail, PlayerPlate, TriggerZone } from '../board/Panels';
-import { AttackLines, BattleHud, FxLayer } from '../combat/Combat';
+import { AttackLines, AttackPreviewPanel, BattleHud, FxLayer } from '../combat/Combat';
 import { AI, ctx, ME } from '../engine';
 import {
   circleState,
@@ -22,6 +24,7 @@ import {
   type Click,
   type Selection,
 } from '../game/interaction';
+import { attackPreview } from '../game/attackPreview';
 import { GameSession, type SessionConfig } from '../game/session';
 import { CardDetails, ZoneViewer } from '../prompts/CardDetails';
 import {
@@ -111,6 +114,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
     settings.speed === 'instant' || settings.reducedMotion || systemReducedMotion()
       ? 0
       : paced(settings, 360),
+    view,
   );
 
   // sounds for what the engine just resolved (after it happened, never before)
@@ -309,6 +313,13 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
     : selection?.kind === 'attacker'
       ? selection.booster
       : null;
+  const preview =
+    view.phase === 'battle' && view.activePlayer === ME && view.status !== 'finished'
+      ? attackPreview(view, ME, legal.attack, selection, {
+          power: (id) => basePower(view, ctx, id),
+          critical: (id) => currentCritical(view, ctx, id),
+        })
+      : null;
   const opp = view.players[AI];
   const me = view.players[ME];
   const openZone = (title: string, ids: readonly InstanceId[]) => setZone({ title, ids });
@@ -348,6 +359,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
         booster={lineBooster}
       />
       <BattleHud view={view} />
+      {preview && <AttackPreviewPanel preview={preview} />}
 
       {/* opponent (top) */}
       <PlayerPlate

@@ -1758,3 +1758,98 @@ export const soulDiscardDraw = (clan: string, text: string): AbilityDefinition =
     effect: [ab.if_(ab.vanguardIs({ clan }), [ab.draw(1)])],
     text,
   });
+
+// ---- shapes introduced by BT16 --------------------------------------------------------------
+
+/** "[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC) at [Rest]." */
+export const sentinelCallFive = (text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['any'],
+    trigger: ab.placedOn('GC', 'self', 'hand'),
+    cost: [ab.counterBlast(1)],
+    optional: true,
+    effect: [ab.lookTop('r', 5), ab.callGuardians(ab.bound('r'))],
+    text,
+  });
+
+/** "[AUTO](VC/RC):[Soul-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle." */
+export const attackVanguardSB1Pump3000 = (text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['VC', 'RC'],
+    trigger: ab.attacksVanguard(),
+    cost: [ab.soulBlast(1)],
+    optional: true,
+    effect: [ab.power(ab.self(), 3000, 'end_of_battle')],
+    text,
+  });
+
+/** "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose another of your units, and that unit gets [Power] +5000 until end of turn." */
+export const placedSB1Pump5000 = (text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['any'],
+    trigger: ab.placedOn('RC'),
+    cost: [ab.soulBlast(1)],
+    optional: true,
+    effect: [
+      ab.choose('t', ab.units('you', ['VC', 'RC'], { excludeSelf: true })),
+      ab.power(ab.bound('t'), 5000),
+    ],
+    text,
+  });
+
+/** "[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +5000 until end of turn." */
+export const legionPump5000 = (text: string, id = '1'): AbilityDefinition =>
+  ab.auto({
+    id,
+    zones: ['RC'],
+    trigger: ab.legions({ owner: 'you' }),
+    effect: [ab.power(ab.self(), 5000)],
+    text,
+  });
+
+/** "[AUTO](VC):When this unit attacks a vanguard, if you have another unit in your middle column, this unit gets [Power] +3000 until end of that battle." */
+export const middleColumnPump3000 = (text: string, id: string): AbilityDefinition =>
+  attackPower({
+    id,
+    amount: 3000,
+    zones: ['VC'],
+    vanguardOnly: true,
+    condition: ab.exists(
+      ab.units('you', ['VC', 'RC'], { sameColumnAsSource: true, excludeSelf: true }),
+    ),
+    text,
+  });
+
+/** "[AUTO](RC):When this unit's attack hits a vanguard, if your vanguard is [Legion], draw a card." */
+export const legionHitDraw = (text: string): AbilityDefinition =>
+  ab.auto({
+    id: '1',
+    zones: ['RC'],
+    trigger: ab.attackHits('vanguard'),
+    condition: vanguardInLegion(),
+    effect: [ab.draw(1)],
+    text,
+  });
+
+/** "Look at n cards from the top of your deck, search for up to `max` matching cards from among them, call them to (separate) (RC), and shuffle your deck." */
+export const lookCallShuffle = (n: number, filter: CardFilter, max = 1): Step[] => [
+  ab.lookTop('l', n),
+  ab.choose('c', ab.bound('l', filter), max, { upTo: true }),
+  ab.superiorCall(ab.bound('c'), max > 1 ? { separate: true } : {}),
+  ab.shuffle(),
+];
+
+/** "choose one of your opponent's rear-guards in the same column as the (RC) that card was on, and retire it" */
+export const retireInEventColumn: Step[] = [
+  ab.choose('t', ab.units('opponent', ['RC'], { sameColumnAsEvent: true })),
+  ab.retire(ab.bound('t')),
+];
+
+/** "choose up to n units on your (VC), and those units get [Power] +amount until end of turn" */
+export const vanguardsPump = (n: number, amount: number): Step[] => [
+  ab.choose('v', ab.units('you', ['VC']), n, { upTo: true }),
+  ab.power(ab.bound('v'), amount),
+];

@@ -7,15 +7,27 @@ import { checkZoneInvariant, validateDeck } from '../../src/engine';
 import { replayMatch, runMatch } from '../../src/sim/runMatch';
 import { ctx } from '../fixtures/bt01';
 
-/** The newest booster a deck uses, e.g. "BT04" (trial deck cards don't count; trial decks have their own test). */
-const setOf = (cards: readonly string[]) =>
-  cards
-    .map((id) => id.slice(0, 4))
-    .filter((s) => s.startsWith('BT'))
-    .sort()
-    .at(-1) ?? 'TD';
+/** Booster-like sets: boosters and the side sets of D-029 (trial decks have their own test). */
+const BOOSTER = /^(BT|EB|FC|DG|MBT)\d{2}$/;
+/**
+ * The set a deck showcases: its newest side set if it has one, else its newest booster, e.g.
+ * "BT04" (trial deck cards don't count).
+ */
+const setOf = (cards: readonly string[]) => {
+  const sets = [...new Set(cards.map((id) => id.slice(0, id.indexOf('-'))))].filter((s) =>
+    BOOSTER.test(s),
+  );
+  return (
+    sets
+      .filter((s) => !s.startsWith('BT'))
+      .sort()
+      .at(-1) ??
+    sets.sort().at(-1) ??
+    'TD'
+  );
+};
 const SETS = [...new Set(STARTER_DECKS.map((d) => setOf(d.deck.cards)))].filter(
-  (s) => s.startsWith('BT') && s >= 'BT03',
+  (s) => BOOSTER.test(s) && (!s.startsWith('BT') || s >= 'BT03'),
 );
 
 describe.each(SETS)('%s starter decks', (set) => {

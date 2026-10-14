@@ -1,0 +1,1618 @@
+{
+  "set": "EB02",
+  "importedAt": "2026-10-14T20:33:07.285Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "EB02-001",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/001",
+        "name": "トップアイドル パシフィカ",
+        "text": "【永】【(V)】：あなたのターン中、あなたの《バミューダ△》のリアガードが４枚以上なら、このユニットのパワー＋3000。\n【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、１枚引き、あなたの手札から１枚選び、山札の下に置く。\n【自】【(V)/(R)】：[【ソウルブラスト】(8)，【カウンターブラスト】(5)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札から《バミューダ△》を３枚まで探し、別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_001.png"
+      },
+      "en": {
+        "number": "EB02/001EN",
+        "name": "Top Idol, Pacifica",
+        "text": "[CONT](VC):During your turn, if the number of <Bermuda Triangle> rear-guards you have is four or more, this unit gets [Power] +3000.\n[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1], draw a card, choose a card from your hand, and put it on the bottom of your deck.\n[AUTO](VC/RC):[Soul-Blast 8 & Counter-Blast 5] When this unit's attack hits a vanguard, you may pay the cost. If you do, search your deck for up to three <Bermuda Triangle>, call them to separate (RC), and shuffle your deck.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_001EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB02/001", "EB02/S01", "EB02/001EN", "EB02/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F001",
+          "fetchedAt": "2026-10-14T20:30:10.875Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/001EN",
+          "fetchedAt": "2026-10-14T20:31:14.663Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-002",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/002",
+        "name": "トップアイドル リヴィエール",
+        "text": "【永】【(V)】：あなたのソウルに「スーパーアイドル リヴィエール」があるなら、このユニットのパワー＋1000。\n【自】【(V)】：[【カウンターブラスト】(2)，あなたの手札から「トップアイドル リヴィエール」を１枚選び、捨てる]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの《バミューダ△》のリアガードを３枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_002.png"
+      },
+      "en": {
+        "number": "EB02/002EN",
+        "name": "Top Idol, Riviere",
+        "text": "[CONT](VC):If you have a card named \"Super Idol, Riviere\" in your soul, this unit gets [Power] +1000.\n[AUTO](VC):[Counter-Blast 2 & Choose a card named \"Top Idol, Riviere\" from your hand, and discard it] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose up to three of your <Bermuda Triangle> rear-guards, and those units get [Power] +5000 until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB02/002", "EB02/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F002",
+          "fetchedAt": "2026-10-14T20:30:12.070Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/002EN",
+          "fetchedAt": "2026-10-14T20:31:21.921Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-003",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/003",
+        "name": "バミューダプリンセス　レナ",
+        "text": "【永】【(V)】：あなたのターン中、あなたの《バミューダ△》のリアガードが４枚以上なら、このユニットのパワー＋3000。\n【自】：このユニットが(V)に登場した時、あなたの《バミューダ△》のリアガードを手札にすべて戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_003.png"
+      },
+      "en": {
+        "number": "EB02/003EN",
+        "name": "Bermuda Princess, Lena",
+        "text": "[CONT](VC):During your turn, if the number of <Bermuda Triangle> rear-guards you have is four or more, this unit gets [Power] +3000.\n[AUTO]:When this unit is placed on (VC), return all of your <Bermuda Triangle> rear-guards to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_003EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB02/003", "EB02/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F003",
+          "fetchedAt": "2026-10-14T20:30:13.254Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/003EN",
+          "fetchedAt": "2026-10-14T20:31:23.055Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-004",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/004",
+        "name": "パールシスターズ ペルル",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの《バミューダ△》のヴァンガードがいるなら、あなたの「パールシスターズ ペルラ」を１枚選び、そのターン中、『【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、【ソウルチャージ】(1)し、１枚引く。』を与える。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_004.png"
+      },
+      "en": {
+        "number": "EB02/004EN",
+        "name": "Pearl Sisters, Perle",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a <Bermuda Triangle> vanguard, choose one of your units named \"Pearl Sisters, Perla\", and that unit gets \"[AUTO](VC/RC):When this unit's attack hits a vanguard, [Soul-Charge 1], and draw a card.\" until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_004EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB02/004", "EB02/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F004",
+          "fetchedAt": "2026-10-14T20:30:14.017Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/004EN",
+          "fetchedAt": "2026-10-14T20:31:24.285Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-005",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/005",
+        "name": "パールシスターズ ペルラ",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、他のあなたの《バミューダ△》のリアガードを１枚選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_005.png"
+      },
+      "en": {
+        "number": "EB02/005EN",
+        "name": "Pearl Sisters, Perla",
+        "text": "[AUTO](VC/RC):[Soul-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose another of your <Bermuda Triangle> rear-guards, and return it to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_005EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB02/005", "EB02/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F005",
+          "fetchedAt": "2026-10-14T20:30:14.792Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/005EN",
+          "fetchedAt": "2026-10-14T20:31:25.188Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-006",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/006",
+        "name": "ガールズロック リオ",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)から手札に戻された時、あなたの《バミューダ△》のヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_006.png"
+      },
+      "en": {
+        "number": "EB02/006EN",
+        "name": "Girls' Rock, Rio",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is returned to your hand from (RC), if you have a <Bermuda Triangle> vanguard, you may pay the cost. If you do, [Soul-Charge 1], and draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_006EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB02/006", "EB02/S02", "EB02/006EN", "EB02/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F006",
+          "fetchedAt": "2026-10-14T20:30:15.537Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/006EN",
+          "fetchedAt": "2026-10-14T20:31:26.426Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-007",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/007",
+        "name": "マーメイドアイドル エリー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《バミューダ△》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《バミューダ△》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_007_2.png"
+      },
+      "en": {
+        "number": "EB02/007EN",
+        "name": "Mermaid Idol, Elly",
+        "text": "[AUTO]:[Choose a <Bermuda Triangle> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Bermuda Triangle> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_007EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["EB02/007", "EB02/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F007",
+          "fetchedAt": "2026-10-14T20:30:16.284Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/007EN",
+          "fetchedAt": "2026-10-14T20:31:27.318Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-008",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/008",
+        "name": "スーパーアイドル セラム",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_008.png"
+      },
+      "en": {
+        "number": "EB02/008EN",
+        "name": "Super Idol, Ceram",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_008EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/008", "EB02/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F008",
+          "fetchedAt": "2026-10-14T20:30:17.521Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/008EN",
+          "fetchedAt": "2026-10-14T20:31:36.073Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-009",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/009",
+        "name": "トップアイドル フローレス",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_009.png"
+      },
+      "en": {
+        "number": "EB02/009EN",
+        "name": "Top Idol, Flores",
+        "text": "[AUTO](VC/RC):[Soul-Blast 2] When this unit's attack hits, you may pay the cost. If you do, choose one of your <Bermuda Triangle> rear-guards, and return it to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_009EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/009", "EB02/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F009",
+          "fetchedAt": "2026-10-14T20:30:18.262Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/009EN",
+          "fetchedAt": "2026-10-14T20:31:36.988Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-010",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/010",
+        "name": "トップアイドル アクア",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_010.png"
+      },
+      "en": {
+        "number": "EB02/010EN",
+        "name": "Top Idol, Aqua",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_010EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/010", "EB02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F010",
+          "fetchedAt": "2026-10-14T20:30:19.437Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/010EN",
+          "fetchedAt": "2026-10-14T20:31:37.840Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-011",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/011",
+        "name": "スーパーアイドル リヴィエール",
+        "text": "【永】【(V)】：あなたのソウルに「マーメイドアイドル リヴィエール」があるなら、このユニットのパワー＋1000。\n【自】：「トップアイドル リヴィエール」がこのユニットにライドした時、あなたのソウルに「マーメイドアイドル リヴィエール」があるなら、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_011.png"
+      },
+      "en": {
+        "number": "EB02/011EN",
+        "name": "Super Idol, Riviere",
+        "text": "[CONT](VC):If you have a card named \"Mermaid Idol, Riviere\" in your soul, this unit gets [Power] +1000.\n[AUTO]:When a card named \"Top Idol, Riviere\" rides this unit, if you have a card named \"Mermaid Idol, Riviere\" in your soul, draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_011EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/011", "EB02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F011",
+          "fetchedAt": "2026-10-14T20:30:20.621Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/011EN",
+          "fetchedAt": "2026-10-14T20:31:39.004Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-012",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/012",
+        "name": "マーメイドアイドル フリュート",
+        "text": "【永】【(V)/(R)】：あなたのターン中、あなたの《バミューダ△》のリアガードが４枚以上いるなら、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_012.png"
+      },
+      "en": {
+        "number": "EB02/012EN",
+        "name": "Mermaid Idol, Flute",
+        "text": "[CONT](VC/RC):During your turn, if the number of <Bermuda Triangle> rear-guards you have is four or more, this unit gets [Power] +3000.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/012", "EB02/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F012",
+          "fetchedAt": "2026-10-14T20:30:21.793Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/012EN",
+          "fetchedAt": "2026-10-14T20:31:42.082Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-013",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/013",
+        "name": "ターコイズブルー ティレニア",
+        "text": "【自】【(R)】：[【ソウルブラスト】(2)]このユニットが《バミューダ△》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、他のあなたの《バミューダ△》のリアガードを１枚選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_013.png"
+      },
+      "en": {
+        "number": "EB02/013EN",
+        "name": "Turquoise Blue, Tyrrhenia",
+        "text": "[AUTO](RC):[Soul-Blast 2] When an attack hits a vanguard during the battle that this unit boosted ([Boost] ) a <Bermuda Triangle>, you may pay the cost. If you do, choose another of your <Bermuda Triangle> rear-guards, and return it to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_013EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/013", "EB02/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F013",
+          "fetchedAt": "2026-10-14T20:30:22.542Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/013EN",
+          "fetchedAt": "2026-10-14T20:31:43.086Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-014",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/014",
+        "name": "バミューダ△候補生 ウェッデル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く]あなたの《バミューダ△》のヴァンガードがいるなら、あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_0014.png"
+      },
+      "en": {
+        "number": "EB02/014EN",
+        "name": "Bermuda Triangle Cadet, Weddell",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] If you have a <Bermuda Triangle> vanguard, choose one of your <Bermuda Triangle> rear-guards, and return it to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_014EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/014", "EB02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F014",
+          "fetchedAt": "2026-10-14T20:30:23.296Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/014EN",
+          "fetchedAt": "2026-10-14T20:31:44.689Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-015",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/015",
+        "name": "バミューダ△候補生 リヴィエール",
+        "text": "【自】：「マーメイドアイドル リヴィエール」がこのユニットにライドした時、あなたの山札の上から７枚まで見て、「トップアイドル リヴィエール」か「スーパーアイドル リヴィエール」を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。\n【自】：「マーメイドアイドル リヴィエール」以外の《バミューダ△》がこのユニットにライドした時、このカードを(R)にコールしてよい。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_015.png"
+      },
+      "en": {
+        "number": "EB02/015EN",
+        "name": "Bermuda Triangle Cadet, Riviere",
+        "text": "[AUTO]:When a card named \"Mermaid Idol, Riviere\" rides this unit, look at up to seven cards from the top of your deck, search for up to one card named \"Top Idol, Riviere\" or \"Super Idol, Riviere\" from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.\n[AUTO]:When a <Bermuda Triangle> other than a card named \"Mermaid Idol, Riviere\" rides this unit, you may call this card to (RC).",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_015EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB02/015", "EB02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F015",
+          "fetchedAt": "2026-10-14T20:30:24.485Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/015EN",
+          "fetchedAt": "2026-10-14T20:31:45.620Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-016",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/016",
+        "name": "ベルベットボイス レインディア",
+        "text": "【自】【(V)】：[あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す]このユニットのドライブチェックでグレード３の《バミューダ△》がでた時、コストを払ってよい。払ったら、あなたの手札から《バミューダ△》を１枚まで選び、ユニットのいない(R)にコールする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_016.png"
+      },
+      "en": {
+        "number": "EB02/016EN",
+        "name": "Velvet Voice, Raindear",
+        "text": "[AUTO](VC):[Choose one of your <Bermuda Triangle> rear-guards, and return it to your hand] When this unit's drive check reveals a grade 3 <Bermuda Triangle>, you may pay the cost. If you do, choose up to one <Bermuda Triangle> from your hand, and call it to an open (RC).",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_016EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/016", "EB02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F016",
+          "fetchedAt": "2026-10-14T20:30:25.983Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/016EN",
+          "fetchedAt": "2026-10-14T20:31:46.818Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-017",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/017",
+        "name": "レインボーライト キャリン",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)から手札に戻された時、あなたの《バミューダ△》のヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_017.png"
+      },
+      "en": {
+        "number": "EB02/017EN",
+        "name": "Rainbow Light, Carine",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is returned to your hand from (RC), if you have a <Bermuda Triangle> vanguard, you may pay the cost. If you do, [Soul-Charge 1], and draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_017EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/017", "EB02/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F017",
+          "fetchedAt": "2026-10-14T20:30:27.684Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/017EN",
+          "fetchedAt": "2026-10-14T20:31:48.811Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-018",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/018",
+        "name": "インテリアイドル メルビル",
+        "text": "【自】【(V)】：[あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す]このユニットのドライブチェックでグレード３の《バミューダ△》がでた時、コストを払ってよい。払ったら、あなたの手札から《バミューダ△》を１枚まで選び、ユニットのいない(R)にコールする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_018.png"
+      },
+      "en": {
+        "number": "EB02/018EN",
+        "name": "Intelli-idol, Melville",
+        "text": "[AUTO](VC):[Choose one of your <Bermuda Triangle> rear-guards, and return it to your hand] When this unit's drive check reveals a grade 3 <Bermuda Triangle>, you may pay the cost. If you do, choose up to one <Bermuda Triangle> from your hand, and call it to an open (RC).",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_018EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/018", "EB02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F018",
+          "fetchedAt": "2026-10-14T20:30:28.859Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/018EN",
+          "fetchedAt": "2026-10-14T20:31:50.113Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-019",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/019",
+        "name": "珊瑚の白雪姫 クレア",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《バミューダ△》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_019.png"
+      },
+      "en": {
+        "number": "EB02/019EN",
+        "name": "Snow White of the Corals, Claire",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Bermuda Triangle>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_019EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/019", "EB02/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F019",
+          "fetchedAt": "2026-10-14T20:30:29.608Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/019EN",
+          "fetchedAt": "2026-10-14T20:31:50.975Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-020",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/020",
+        "name": "透き通る海の歌姫 イズミ",
+        "text": "【自】：このユニットがインターセプトした時、あなたの《バミューダ△》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_020.png"
+      },
+      "en": {
+        "number": "EB02/020EN",
+        "name": "Diva of Clear Waters, Izumi",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Bermuda Triangle> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_020EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/020", "EB02/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F020",
+          "fetchedAt": "2026-10-14T20:30:30.775Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/020EN",
+          "fetchedAt": "2026-10-14T20:31:52.087Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-021",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/021",
+        "name": "マーメイドアイドル セドナ",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_021.png"
+      },
+      "en": {
+        "number": "EB02/021EN",
+        "name": "Mermaid Idol, Sedna",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_021EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/021", "EB02/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F021",
+          "fetchedAt": "2026-10-14T20:30:31.967Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/021EN",
+          "fetchedAt": "2026-10-14T20:31:53.238Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-022",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/022",
+        "name": "水面のプリズム ミルトア",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《バミューダ△》のヴァンガードがいるなら、すべてのプレイヤーは１枚引いてよい。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_022.png"
+      },
+      "en": {
+        "number": "EB02/022EN",
+        "name": "Prism on the Water, Myrtoa",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Bermuda Triangle> vanguard, each player may draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_022EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/022", "EB02/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F022",
+          "fetchedAt": "2026-10-14T20:30:32.701Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/022EN",
+          "fetchedAt": "2026-10-14T20:31:54.157Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-023",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/023",
+        "name": "マーメイドアイドル ファルーカ",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《バミューダ△》のヴァンガードがいるなら、【ソウルチャージ】(1)してよい。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_023.png"
+      },
+      "en": {
+        "number": "EB02/023EN",
+        "name": "Mermaid Idol, Felucca",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Bermuda Triangle> vanguard, you may [Soul-Charge 1].",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_023EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/023", "EB02/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F023",
+          "fetchedAt": "2026-10-14T20:30:33.470Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/023EN",
+          "fetchedAt": "2026-10-14T20:31:55.030Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-024",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/024",
+        "name": "マーメイドアイドル リヴィエール",
+        "text": "【永】【(V)】：あなたのソウルに「バミューダ△候補生 リヴィエール」があるなら、このユニットのパワー＋1000。\n【自】：「スーパーアイドル リヴィエール」がこのユニットにライドした時、あなたのソウルに「バミューダ△候補生 リヴィエール」があるなら、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_024.png"
+      },
+      "en": {
+        "number": "EB02/024EN",
+        "name": "Mermaid Idol, Riviere",
+        "text": "[CONT](VC):If you have a card named \"Bermuda Triangle Cadet, Riviere\" in your soul, this unit gets [Power] +1000.\n[AUTO]:When a card named \"Super Idol, Riviere\" rides this unit, if you have a card named \"Bermuda Triangle Cadet, Riviere\" in your soul, draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_024EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/024", "EB02/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F024",
+          "fetchedAt": "2026-10-14T20:30:34.650Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/024EN",
+          "fetchedAt": "2026-10-14T20:31:57.945Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-025",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/025",
+        "name": "ネイビードルフィン アムール",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_025.png"
+      },
+      "en": {
+        "number": "EB02/025EN",
+        "name": "Navy Dolphin, Amur",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost] ), you may pay the cost. If you do, draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_025EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/025", "EB02/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F025",
+          "fetchedAt": "2026-10-14T20:30:46.425Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/025EN",
+          "fetchedAt": "2026-10-14T20:31:59.303Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-026",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/026",
+        "name": "ブレザープレジャーズ",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《バミューダ△》を１枚選び、そのターン中、パワー＋2000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_026.png"
+      },
+      "en": {
+        "number": "EB02/026EN",
+        "name": "Blazer Idols",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Bermuda Triangle>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_026EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/026", "EB02/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F026",
+          "fetchedAt": "2026-10-14T20:30:47.173Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/026EN",
+          "fetchedAt": "2026-10-14T20:32:00.428Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-027",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/027",
+        "name": "コミカル・レイニー",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_027.png"
+      },
+      "en": {
+        "number": "EB02/027EN",
+        "name": "Comical Rainie",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_027EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/027", "EB02/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F027",
+          "fetchedAt": "2026-10-14T20:30:48.350Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/027EN",
+          "fetchedAt": "2026-10-14T20:32:01.627Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-028",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/028",
+        "name": "クッキング・カスピ",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_028.png"
+      },
+      "en": {
+        "number": "EB02/028EN",
+        "name": "Cooking Caspi",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_028EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/028", "EB02/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F028",
+          "fetchedAt": "2026-10-14T20:30:49.530Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/028EN",
+          "fetchedAt": "2026-10-14T20:32:03.367Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-029",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/029",
+        "name": "眠り姫 ムース",
+        "text": "",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_029.png"
+      },
+      "en": {
+        "number": "EB02/029EN",
+        "name": "Sleeping Beauty, Mousse",
+        "text": "",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_029EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/029", "EB02/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F029",
+          "fetchedAt": "2026-10-14T20:30:50.724Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/029EN",
+          "fetchedAt": "2026-10-14T20:32:04.312Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-030",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/030",
+        "name": "ドライブ・カルテット リサッカ",
+        "text": "【永】【(R)】：あなたの(R)に「ドライブ・カルテット フロース」がいるなら、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_030.png"
+      },
+      "en": {
+        "number": "EB02/030EN",
+        "name": "Drive Quartet, Ressac",
+        "text": "[CONT](RC):If you have a unit named \"Drive Quartet, Flows\" on your (RC), this unit gets [Power] +3000.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_030EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/030", "EB02/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F030",
+          "fetchedAt": "2026-10-14T20:30:51.900Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/030EN",
+          "fetchedAt": "2026-10-14T20:32:05.443Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-031",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/031",
+        "name": "ドライブ・カルテット フロース",
+        "text": "（【治】はデッキに４枚までしか入れられない。）\n【永】【(R)】：あなたの(R)に「ドライブ・カルテット シュプリュ」がいるなら、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_031.png"
+      },
+      "en": {
+        "number": "EB02/031EN",
+        "name": "Drive Quartet, Flows",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)\n[CONT](RC):If you have a unit named \"Drive Quartet, Shuplu\" on your (RC), this unit gets [Power] +3000.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_031EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/031", "EB02/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F031",
+          "fetchedAt": "2026-10-14T20:30:53.086Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/031EN",
+          "fetchedAt": "2026-10-14T20:32:06.367Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-032",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/032",
+        "name": "ドライブ・カルテット シュプリュ",
+        "text": "【永】【(R)】：あなたの(R)に「ドライブ・カルテット バブリン」がいるなら、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_032.png"
+      },
+      "en": {
+        "number": "EB02/032EN",
+        "name": "Drive Quartet, Shuplu",
+        "text": "[CONT](RC):If you have a unit named \"Drive Quartet, Bubblin\" on your (RC), this unit gets [Power] +3000.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_032EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/032", "EB02/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F032",
+          "fetchedAt": "2026-10-14T20:30:53.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/032EN",
+          "fetchedAt": "2026-10-14T20:32:18.802Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-033",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/033",
+        "name": "ドライブ・カルテット バブリン",
+        "text": "【永】【(R)】：あなたの(R)に「ドライブ・カルテット リサッカ」がいるなら、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_033.png"
+      },
+      "en": {
+        "number": "EB02/033EN",
+        "name": "Drive Quartet, Bubblin",
+        "text": "[CONT](RC):If you have a unit named \"Drive Quartet, Ressac\" on your (RC), this unit gets [Power] +3000.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_033EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/033", "EB02/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F033",
+          "fetchedAt": "2026-10-14T20:30:55.195Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/033EN",
+          "fetchedAt": "2026-10-14T20:32:19.672Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-034",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/034",
+        "name": "バミューダ△候補生 シズク",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から５枚まで見て、グレード３の《バミューダ△》を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_0034.png"
+      },
+      "en": {
+        "number": "EB02/034EN",
+        "name": "Bermuda Triangle Cadet, Shizuku",
+        "text": "AUTO:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 <Bermuda Triangle> from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_034EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/034", "EB02/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F034",
+          "fetchedAt": "2026-10-14T20:30:56.454Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/034EN",
+          "fetchedAt": "2026-10-14T20:32:22.709Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB02-035",
+      "set": "EB02",
+      "jp": {
+        "number": "EB02/035",
+        "name": "バミューダ△候補生 キャラベル",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《バミューダ△》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB02/eb02_035.png"
+      },
+      "en": {
+        "number": "EB02/035EN",
+        "name": "Bermuda Triangle Cadet, Caravel",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a <Bermuda Triangle> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_035EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB02/035", "EB02/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB02%2F035",
+          "fetchedAt": "2026-10-14T20:30:57.236Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB02/035EN",
+          "fetchedAt": "2026-10-14T20:32:23.820Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

@@ -197,7 +197,9 @@ export function legionUp(
     extra?: readonly string[];
     oppField?: Partial<Record<'front_left' | 'front_right' | 'back_left' | 'back_right', string>>;
     at?: 'main' | 'battle';
-    others?: Partial<Record<'front_left' | 'back_left' | 'back_center', string>>;
+    others?: Partial<
+      Record<'front_left' | 'front_right' | 'back_left' | 'back_center' | 'back_right', string>
+    >;
     before?: (s: GameState) => void;
   } = {},
 ): { s: GameState; r: Run } {

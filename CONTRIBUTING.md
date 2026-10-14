@@ -24,7 +24,7 @@ are all welcome.
   enforces it. Games must replay exactly from their seed and commands.
 - **Cards are data**, not special cases in the engine: abilities are written with the builders in
   `src/engine/abilities/builders.ts` (see below).
-- **Historical format only**: BT01–BT17 era rules and cards. No G-era or later mechanics.
+- **Historical format only**: BT01–BT17 era rules and cards (boosters, trial decks and the side sets of D-029). No G-era or later mechanics.
 - **No card artwork** in the repository or in pull requests, ever (`THIRD_PARTY_NOTICES.md`).
 - Keep `CHANGELOG.md` up to date for user-visible changes.
 

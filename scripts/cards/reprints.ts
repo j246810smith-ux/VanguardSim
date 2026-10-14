@@ -16,7 +16,7 @@ if (!set) {
 }
 const dir = join('data', 'cards');
 const files = readdirSync(dir)
-  .filter((f) => /^(BT|TD)\d{2}\.json$/.test(f))
+  .filter((f) => /^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}\.json$/.test(f))
   .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as SetFile);
 const target = files.find((f) => f.set === set);
 if (!target) throw new Error(`no data/cards/${set}.json`);

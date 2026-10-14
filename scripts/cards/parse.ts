@@ -34,17 +34,22 @@ const ENTITIES: Record<string, string> = {
   '#39': "'",
   nbsp: ' ',
 };
-/** HTML entities; also the legacy `&lt` / `&gt` / `&amp` / `&quot` without a semicolon, which
- * browsers decode and the official English site uses in some card text (e.g. BT03/072EN). */
+/** HTML entities; also the legacy `&lt` / `&gt` / `&amp` / `&quot` and numeric `&#9829` without a
+ * semicolon, which browsers decode and the official English site uses in some card text and names
+ * (BT03/072EN, EB06 "PR&#9829ISM"). */
 export const decode = (s: string): string =>
-  s.replace(/&(#\d+|#x[0-9a-f]+|\w+);|&(lt|gt|amp|quot)/gi, (m, e?: string, legacy?: string) => {
-    if (legacy) return ENTITIES[legacy.toLowerCase()]!;
-    e = e!;
-    if (e in ENTITIES) return ENTITIES[e]!;
-    if (e.startsWith('#x')) return String.fromCodePoint(parseInt(e.slice(2), 16));
-    if (e.startsWith('#')) return String.fromCodePoint(parseInt(e.slice(1), 10));
-    return m;
-  });
+  s.replace(
+    /&(#\d+|#x[0-9a-f]+|\w+);|&(lt|gt|amp|quot)|&#(\d+)/gi,
+    (m, e?: string, legacy?: string, num?: string) => {
+      if (num) return String.fromCodePoint(parseInt(num, 10));
+      if (legacy) return ENTITIES[legacy.toLowerCase()]!;
+      e = e!;
+      if (e in ENTITIES) return ENTITIES[e]!;
+      if (e.startsWith('#x')) return String.fromCodePoint(parseInt(e.slice(2), 16));
+      if (e.startsWith('#')) return String.fromCodePoint(parseInt(e.slice(1), 10));
+      return m;
+    },
+  );
 
 const clean = (html: string): string =>
   decode(html.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, ''))
@@ -110,7 +115,11 @@ export function parseCardPage(html: string, site: 'en' | 'jp'): ParsedCard {
     race: field(block, 'race'),
     grade: number(field(block, 'grade'), 'grade'),
     power: number(field(block, 'power'), 'power'),
-    critical: number(field(block, 'critical'), 'critical'),
+    // a few English pages print "Critical -" (missing data): read as 0, which then shows up as a
+    // JP/EN mismatch to review
+    critical: /\d/.test(field(block, 'critical'))
+      ? number(field(block, 'critical'), 'critical')
+      : 0,
     shield: /\d/.test(shield) ? number(shield, 'shield') : 0,
     skillIcon: skill(field(block, 'skill')),
     trigger: trigger(field(block, 'gift')),
@@ -121,6 +130,61 @@ export function parseCardPage(html: string, site: 'en' | 'jp'): ParsedCard {
     expansions: [
       ...new Set([...html.matchAll(/cardsearch\/\?expansion=(\d+)/g)].map((x) => Number(x[1]))),
     ],
+  };
+}
+
+/** A card as the redesigned Japanese site's JSON API returns it (`/manage/card-list-user/detail`). */
+export interface ApiCard {
+  readonly card_number: string;
+  readonly card_name: string;
+  readonly card_kind_name: string;
+  readonly clan: string;
+  readonly tribe?: string;
+  readonly grade: string;
+  readonly power: string;
+  readonly critical: string;
+  readonly shield: string;
+  readonly skill_icon: string;
+  readonly card_trigger: string;
+  readonly text: string;
+  readonly text_html?: string;
+  readonly regulation: string;
+  readonly rare: string;
+  readonly picture: string;
+}
+
+/** Japanese card image folder, the API's `cardImageBase` (the same path the old pages used). */
+export const JP_IMAGE_BASE = '/wordpress/wp-content/images/cardlist/';
+
+/**
+ * The same fields as parseCardPage, from the Japanese JSON API (the official Japanese site loads
+ * its card pages from it since its 2026-10 redesign; the English site still serves pages).
+ */
+export function parseApiCard(c: ApiCard, expansions: readonly { id: string }[]): ParsedCard {
+  const kind = c.card_kind_name;
+  const type = /トリガー/.test(kind) ? 'trigger_unit' : 'normal_unit';
+  if (type === 'normal_unit' && !/ノーマル/.test(kind)) {
+    throw new Error(`card API: unsupported card type "${kind}"`);
+  }
+  const text = clean(c.text_html ?? c.text);
+  return {
+    site: 'jp',
+    number: c.card_number,
+    name: clean(c.card_name),
+    type,
+    clan: clean(c.clan),
+    race: clean(c.tribe ?? ''),
+    grade: number(c.grade, 'grade'),
+    power: number(c.power, 'power'),
+    critical: number(c.critical, 'critical'),
+    shield: /\d/.test(c.shield) ? number(c.shield, 'shield') : 0,
+    skillIcon: skill(c.skill_icon),
+    trigger: trigger(c.card_trigger),
+    text: text === '-' ? '' : text,
+    regulation: c.regulation,
+    rarity: c.rare,
+    image: c.picture ? JP_IMAGE_BASE + c.picture : null,
+    expansions: [...new Set(expansions.map((e) => Number(e.id)))],
   };
 }
 

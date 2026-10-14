@@ -14,7 +14,9 @@ import { HIDDEN } from '../view';
 import {
   other,
   REAR_GUARD_CIRCLES,
+  vanguardOf,
   type Circle,
+  type Column,
   type GameState,
   type InstanceId,
   type PlayerId,
@@ -31,6 +33,8 @@ export interface EvalContext {
   readonly bindings: Readonly<Record<string, readonly InstanceId[]>>;
   /** For automatic abilities: the card the triggering event was about. */
   readonly eventCard: InstanceId | null;
+  /** For automatic abilities: the column of the circle the event card left, if it left one. */
+  readonly eventColumn?: Column;
 }
 
 const AREA_CIRCLES: Partial<Record<Area, readonly Circle[]>> = {
@@ -112,6 +116,10 @@ const CHARACTERISTIC_FILTERS: readonly (keyof CardFilter)[] = [
   'sentinel',
   'sameNameAsAnotherUnit',
   'limitBreak',
+  'sameNameAsVanguard',
+  'sameGradeAsVanguard',
+  'canLegionWithVanguard',
+  'vanguardCanLegionWith',
 ];
 const hasCharacteristicFilter = (f: CardFilter): boolean =>
   CHARACTERISTIC_FILTERS.some((k) => f[k] !== undefined);
@@ -142,8 +150,40 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     return false;
   }
   if (filter.sameColumnAsSource) {
-    const here = columnOf(state, id);
-    if (here === null || here !== columnOf(state, ec.source)) return false;
+    // the event card may already have left its circle ("… in the same column as this unit is put
+    // into the drop zone"): use the column it left
+    const here =
+      id === ec.eventCard && ec.eventColumn && locate(state, id).zone !== 'circle'
+        ? facing(ec.eventColumn, card.owner)
+        : sharedColumn(state, id);
+    if (here === null || here !== sharedColumn(state, ec.source)) return false;
+  }
+  if (filter.sameColumnAsEvent) {
+    const column =
+      ec.eventColumn !== undefined
+        ? facing(ec.eventColumn, ec.eventCard ? state.cards[ec.eventCard]!.owner : ec.master)
+        : ec.eventCard
+          ? sharedColumn(state, ec.eventCard)
+          : null;
+    const here = sharedColumn(state, id);
+    if (here === null || here !== column) return false;
+  }
+  if (filter.onCircle !== undefined) {
+    const where = locate(state, id);
+    if (where.zone !== 'circle' || where.circle !== filter.onCircle) return false;
+  }
+  if (filter.sameColumnAsBound !== undefined) {
+    const columns = (ec.bindings[filter.sameColumnAsBound] ?? []).map((b) =>
+      sharedColumn(state, b),
+    );
+    const here = sharedColumn(state, id);
+    if (here === null || !columns.includes(here)) return false;
+  }
+  if (filter.withUnitBehind) {
+    const where = locate(state, id);
+    const behind = where.zone === 'circle' ? BEHIND[where.circle] : undefined;
+    const back = behind ? state.players[where.player].circles[behind].at(-1) : undefined;
+    if (back === undefined || state.cards[back]!.locked) return false;
   }
   // a locked card has no characteristics (CR 10.1.21.3), so it matches no characteristic filter
   // a locked card has no characteristics; a hidden card (in a player's view) has unknown ones
@@ -169,13 +209,33 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
       .some((u) => u !== id && !state.cards[u]!.locked && currentName(state, ctx, u) === name);
     if (!twin) return false;
   }
+  if (filter.sameNameAsVanguard) {
+    const names = cardsIn(state, ec.master, 'VC').map((v) => currentName(state, ctx, v));
+    if (!names.includes(currentName(state, ctx, id))) return false;
+  }
+  if (filter.sameGradeAsVanguard) {
+    const vc = vanguardOf(state.players[ec.master]);
+    if (vc === null || currentGrade(state, ctx, id) !== currentGrade(state, ctx, vc)) return false;
+  }
+  if (filter.canLegionWithVanguard) {
+    const mates = seekMateNames(state, ctx, id);
+    const vanguards = cardsIn(state, ec.master, 'VC').map((v) => currentName(state, ctx, v));
+    if (!vanguards.some((n) => mates.includes(n))) return false;
+  }
+  if (filter.vanguardCanLegionWith) {
+    const vc = vanguardOf(state.players[ec.master]);
+    const mates = vc === null ? [] : seekMateNames(state, ctx, vc);
+    if (!mates.includes(currentName(state, ctx, id))) return false;
+  }
   if (filter.name !== undefined && currentName(state, ctx, id) !== filter.name) return false;
   if (filter.nameIn !== undefined && !filter.nameIn.includes(currentName(state, ctx, id)))
     return false;
   if (filter.notName !== undefined && currentName(state, ctx, id) === filter.notName) return false;
+  // case-insensitive: English names write the Japanese part ライザー both as "Raizer" and as
+  // "…raizer" (Cannonraizer); the text "with "Raizer" in its card name" means both
   if (
     filter.nameIncludes !== undefined &&
-    !currentName(state, ctx, id).includes(filter.nameIncludes)
+    !currentName(state, ctx, id).toLowerCase().includes(filter.nameIncludes.toLowerCase())
   )
     return false;
   if (filter.clan !== undefined && !clansOf(state, ctx, id).includes(filter.clan)) return false;
@@ -224,13 +284,41 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   return true;
 }
 
-/** The column (CR 4.6.2) of the circle a card is on, or null off the field. */
+/** The back circle behind each front circle (same column, CR 4.6.2). */
+const BEHIND: Partial<Record<Circle, Circle>> = {
+  front_left: 'back_left',
+  vanguard: 'back_center',
+  front_right: 'back_right',
+};
+
+/** The names a card's printed Seek Mate ability searches for (CR 1.36 10.2.9.2). */
+export function seekMateNames(state: GameState, ctx: EngineContext, id: InstanceId): string[] {
+  for (const a of definitionOf(state, ctx, id).abilities) {
+    if (a.kind !== 'ACT') continue;
+    for (const step of a.effect) {
+      if (step.op === 'search' && step.as === '__seek_mate') return [...(step.filter.nameIn ?? [])];
+    }
+  }
+  return [];
+}
+
+const MIRROR: Record<Column, Column> = { left: 'right', centre: 'centre', right: 'left' };
+/** CR 4.6.2.1: a column as seen from player 0's side (your left column is your opponent's right). */
+const facing = (column: Column, player: PlayerId): Column =>
+  player === 0 ? column : MIRROR[column];
+/** The column of a card on the field, the same for both players (CR 4.6.2.1), or null. */
+function sharedColumn(state: GameState, id: InstanceId): Column | null {
+  const where = locate(state, id);
+  return where.zone === 'circle' ? facing(COLUMN_OF[where.circle], where.player) : null;
+}
+
+/** The column (CR 4.6.2) of the circle a card is on, from its own player's side, or null. */
 export function columnOf(state: GameState, id: InstanceId): 'left' | 'centre' | 'right' | null {
   const where = locate(state, id);
   if (where.zone !== 'circle') return null;
   return COLUMN_OF[where.circle];
 }
-const COLUMN_OF: Record<Circle, 'left' | 'centre' | 'right'> = {
+export const COLUMN_OF: Record<Circle, Column> = {
   front_left: 'left',
   back_left: 'left',
   vanguard: 'centre',
@@ -315,6 +403,11 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       return select(ec, condition.of).some((id) => ec.state.everInLegion.includes(id));
     case 'battle_number':
       return inRange(ec.state.turnFlags.battles ?? 0, condition.range);
+    case 'legioned_this_turn': {
+      const leaders = ec.state.turnFlags.legioned ?? [];
+      if (condition.of) return select(ec, condition.of).some((id) => leaders.includes(id));
+      return leaders.some((id) => ec.state.cards[id]!.owner === ec.master);
+    }
     case 'stood_this_turn': {
       const stood = ec.state.turnFlags.stood ?? [];
       return select(ec, condition.of).some((id) => stood.includes(id));
@@ -331,6 +424,11 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
         matches(ec, id, condition.filter),
       );
       return inRange(called.length, condition.range);
+    }
+    case 'distinct_names': {
+      const ids = select(ec, condition.of).filter((id) => !ec.state.cards[id]!.locked);
+      const names = new Set(ids.map((id) => currentName(ec.state, ec.ctx, id)));
+      return inRange(names.size, condition.range);
     }
     case 'power': {
       const ids = select(ec, condition.of);

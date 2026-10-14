@@ -40,6 +40,7 @@ const def = (state: GameState, ctx: EngineContext, id: InstanceId) =>
   ctx.registry.get(state.cards[id]!.definitionId);
 
 /** The opponent's back circle in the same column as each of my front-row circles. */
+const BACK_ROW: readonly RearGuardCircle[] = ['back_left', 'back_center', 'back_right'];
 const OPPOSING_BACK: Readonly<Record<string, RearGuardCircle>> = {
   front_left: 'back_right',
   vanguard: 'back_center',
@@ -102,10 +103,16 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
     const backTarget = hasPermission(state, ctx, attacker, 'attack_back_row_same_column')
       ? unitOn(state, opp, OPPOSING_BACK[circle]!)
       : null;
-    const allowed =
-      backTarget === null
-        ? targets
-        : [...targets, { id: backTarget, circle: OPPOSING_BACK[circle]! }];
+    // e.g. Boomerang Thrower: "it may instead attack an opponent's unit in the back row"
+    const backRow = hasPermission(state, ctx, attacker, 'attack_back_row')
+      ? BACK_ROW.flatMap((c) => {
+          const id = unitOn(state, opp, c);
+          return id === null ? [] : [{ id, circle: c }];
+        })
+      : backTarget === null
+        ? []
+        : [{ id: backTarget, circle: OPPOSING_BACK[circle]! }];
+    const allowed = [...targets, ...backRow];
     const onlyVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_rear_guard');
     return [
       {

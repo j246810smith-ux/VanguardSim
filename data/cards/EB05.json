@@ -1,0 +1,1618 @@
+{
+  "set": "EB05",
+  "importedAt": "2026-10-14T21:25:43.720Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "EB05-001",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/001",
+        "name": "CEO アマテラス",
+        "text": "【永】【(V)】：あなたのターン中、あなたの手札が４枚以上なら、このユニットのパワー＋4000。\n【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、あなたの山札の上から１枚見て、山札の上か下に置く。\n【自】【(V)/(R)】：[【ソウルブラスト】(8)，【カウンターブラスト】(5)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、５枚まで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_001.png"
+      },
+      "en": {
+        "number": "EB05/001EN",
+        "name": "CEO Amaterasu",
+        "text": "[CONT](VC):During your turn, if the number of cards in your hand is four or greater, this unit gets [Power] +4000.\n[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1], look at the top card of your deck, and put that card on the top or the bottom of your deck.\n[AUTO](VC/RC):[Soul-Blast 8 & Counter-Blast 5] When this unit's attack hits, you may pay the cost. If you do, draw up to five cards.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB05/001", "EB05/S01", "EB05/001EN", "EB05/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F001",
+          "fetchedAt": "2026-10-14T21:16:08.634Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/001EN",
+          "fetchedAt": "2026-10-14T21:22:33.197Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-002",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/002",
+        "name": "バトルシスター ふろまーじゅ",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(3)]あなたのカード名に「バトルシスター」を含むリアガードが４枚以上なら、２枚引く。\n【永】【(V)】：あなたのターン中、あなたのカード名に「バトルシスター」を含むリアガードが４枚以上なら、このユニットのパワー＋4000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_002.png"
+      },
+      "en": {
+        "number": "EB05/002EN",
+        "name": "Battle Sister, Fromage",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 3] If you have four or more rear-guards with \"Battle Sister\" in its card name, draw two cards.\n[CONT](VC):During your turn, if you have four or more rear-guards with \"Battle Sister\" in its card name, this unit gets [Power] +4000.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB05/002", "EB05/S02", "EB05/002EN", "EB05/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F002",
+          "fetchedAt": "2026-10-14T21:16:09.840Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/002EN",
+          "fetchedAt": "2026-10-14T21:22:36.356Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-003",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/003",
+        "name": "スカーレットウィッチ ココ",
+        "text": "【永】【(V)】：あなたのターン中、あなたのソウルにカードがないなら、このユニットのパワー＋3000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、あなたのソウルが１枚以下なら、コストを払ってよい。払ったら、２枚まで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_003.png"
+      },
+      "en": {
+        "number": "EB05/003EN",
+        "name": "Scarlet Witch, CoCo",
+        "text": "[CONT](VC):During your turn, if you do not have any cards in your soul, this unit gets [Power] +3000.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), if the number of cards in your soul is one or less, you may pay the cost. If you do, draw up to two cards.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB05/003", "EB05/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F003",
+          "fetchedAt": "2026-10-14T21:16:10.629Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/003EN",
+          "fetchedAt": "2026-10-14T21:22:37.862Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-004",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/004",
+        "name": "花占いの女神 サクヤ",
+        "text": "【永】【(V)】：あなたのターン中、あなたの手札が４枚以上なら、このユニットのパワー＋4000。\n【自】：このユニットが(V)に登場した時、あなたの《オラクルシンクタンク》のリアガードを手札にすべて戻す。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_004.png"
+      },
+      "en": {
+        "number": "EB05/004EN",
+        "name": "Goddess of Flower Divination, Sakuya",
+        "text": "[CONT](VC):During your turn, if the number of cards in your hand is four or more, this unit gets [Power] +4000.\n[AUTO]:When this unit is placed on (VC), return all of your <Oracle Think Tank> rear-guards to your hand.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB05/004", "EB05/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F004",
+          "fetchedAt": "2026-10-14T21:16:11.793Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/004EN",
+          "fetchedAt": "2026-10-14T21:22:39.160Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-005",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/005",
+        "name": "バトルシスター まかろん",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「バトルシスター」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_005.png"
+      },
+      "en": {
+        "number": "EB05/005EN",
+        "name": "Battle Sister, Macaron",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Battle Sister\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB05/005", "EB05/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F005",
+          "fetchedAt": "2026-10-14T21:16:12.547Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/005EN",
+          "fetchedAt": "2026-10-14T21:22:40.152Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-006",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/006",
+        "name": "サイレント・トム",
+        "text": "【永】【(V)/(R)】：このユニットがアタックしたバトル中、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、相手はグレード０のカードを手札から(G)にノーマルコールできない。",
+        "clan": "オラクルシンクタンク",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_006.png"
+      },
+      "en": {
+        "number": "EB05/006EN",
+        "name": "Silent Tom",
+        "text": "[CONT](VC/RC):During the battle that this unit attacks, if you have an <Oracle Think Tank> vanguard, your opponent cannot normal call grade 0 units to (GC).",
+        "clan": "Oracle Think Tank",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB05/006", "EB05/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F006",
+          "fetchedAt": "2026-10-14T21:16:13.734Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/006EN",
+          "fetchedAt": "2026-10-14T21:22:42.517Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-007",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/007",
+        "name": "バトルシスター しょこら",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《オラクルシンクタンク》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《オラクルシンクタンク》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_007_2.png"
+      },
+      "en": {
+        "number": "EB05/007EN",
+        "name": "Battle Sister, Chocolat",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose an <Oracle Think Tank> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Oracle Think Tank> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["EB05/007", "EB05/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F007",
+          "fetchedAt": "2026-10-14T21:16:14.492Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/007EN",
+          "fetchedAt": "2026-10-14T21:22:43.914Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-008",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/008",
+        "name": "メテオブレイク・ウィザード",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_008.png"
+      },
+      "en": {
+        "number": "EB05/008EN",
+        "name": "Meteor Break Wizard",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/008", "EB05/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F008",
+          "fetchedAt": "2026-10-14T21:16:16.480Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/008EN",
+          "fetchedAt": "2026-10-14T21:22:44.918Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-009",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/009",
+        "name": "メイデン・オブ・ライブラ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_009.png"
+      },
+      "en": {
+        "number": "EB05/009EN",
+        "name": "Maiden of Libra",
+        "text": "[AUTO](VC/RC):[Counter-Blast 2] When this unit's attack hits, if you have an <Oracle Think Tank> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/009", "EB05/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F009",
+          "fetchedAt": "2026-10-14T21:16:17.246Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/009EN",
+          "fetchedAt": "2026-10-14T21:22:46.205Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-010",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/010",
+        "name": "バトルシスター ぐらっせ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのソウルにカードがないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_010.png"
+      },
+      "en": {
+        "number": "EB05/010EN",
+        "name": "Battle Sister, Glace",
+        "text": "[AUTO](VC/RC):When this unit attacks, if you do not have any cards in your soul, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/010", "EB05/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F010",
+          "fetchedAt": "2026-10-14T21:16:18.455Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/010EN",
+          "fetchedAt": "2026-10-14T21:22:47.199Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-011",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/011",
+        "name": "バトルシスター もか",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が４枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_011.png"
+      },
+      "en": {
+        "number": "EB05/011EN",
+        "name": "Battle Sister, Mocha",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of cards in your hand is four or greater, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/011", "EB05/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F011",
+          "fetchedAt": "2026-10-14T21:16:19.639Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/011EN",
+          "fetchedAt": "2026-10-14T21:22:48.520Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-012",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/012",
+        "name": "サークル・メイガス",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、あなたの山札の上から１枚見て、山札の上に置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_012.png"
+      },
+      "en": {
+        "number": "EB05/012EN",
+        "name": "Circle Magus",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have an <Oracle Think Tank> vanguard, look at the top card of your deck, and put that card on top of your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/012", "EB05/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F012",
+          "fetchedAt": "2026-10-14T21:18:29.273Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/012EN",
+          "fetchedAt": "2026-10-14T21:22:49.748Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-013",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/013",
+        "name": "バトルシスター おむれっと",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたの《オラクルシンクタンク》のヴァンガードがいて、あなたのソウルにカードがないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_013.png"
+      },
+      "en": {
+        "number": "EB05/013EN",
+        "name": "Battle Sister, Omelet",
+        "text": "[AUTO](RC):When this unit attacks, if you have an <Oracle Think Tank> vanguard, and you do not have any cards in your soul, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/013", "EB05/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F013",
+          "fetchedAt": "2026-10-14T21:20:16.244Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/013EN",
+          "fetchedAt": "2026-10-14T21:22:50.958Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-014",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/014",
+        "name": "ウェザーフォーキャスター ミス・ミスト",
+        "text": "【自】：このユニットが(G)に登場した時、相手のグレード２以下のヴァンガードがアタックしたバトル中なら、あなたのアタックされている《オラクルシンクタンク》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "オラクルシンクタンク",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_014.png"
+      },
+      "en": {
+        "number": "EB05/014EN",
+        "name": "Weather Forecaster, Miss Mist",
+        "text": "[AUTO]:When this unit is placed on (GC), if it is during the battle in which your opponent's grade 2 or less vanguard attacked, choose one of your <Oracle Think Tank> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/014", "EB05/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F014",
+          "fetchedAt": "2026-10-14T21:22:01.928Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/014EN",
+          "fetchedAt": "2026-10-14T21:22:51.959Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-015",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/015",
+        "name": "バトルシスター ここあ",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、あなたの山札の上から１枚見て、山札の上か下に置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_015.png"
+      },
+      "en": {
+        "number": "EB05/015EN",
+        "name": "Battle Sister, Cocoa",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have an <Oracle Think Tank> vanguard, look at the top card of your deck, and put that card on the top or the bottom of your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB05/015", "EB05/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F015",
+          "fetchedAt": "2026-10-14T21:22:02.682Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/015EN",
+          "fetchedAt": "2026-10-14T21:22:53.327Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-016",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/016",
+        "name": "オムニサイエンス・マドンナ",
+        "text": "【自】【(V)/(R)】：[あなたの手札から１枚選び、捨てる]このユニットのアタックがヒットした時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_016.png"
+      },
+      "en": {
+        "number": "EB05/016EN",
+        "name": "Omniscience Madonna",
+        "text": "[AUTO](VC/RC):[Choose a card from your hand, and discard it] When this unit's attack hits, if you have an <Oracle Think Tank> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/016", "EB05/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F016",
+          "fetchedAt": "2026-10-14T21:22:03.849Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/016EN",
+          "fetchedAt": "2026-10-14T21:22:55.610Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-017",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/017",
+        "name": "オラクルガーディアン アポロン",
+        "text": "【自】【(V)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、２枚引き、あなたの手札から１枚選び、山札に戻し、その山札をシャッフルする。\n【自】【(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_017.png"
+      },
+      "en": {
+        "number": "EB05/017EN",
+        "name": "Oracle Guardian, Apollon",
+        "text": "[AUTO](VC): [Counter-Blast 2] When this unit's attack hits, you may pay the cost. If you do, draw two cards, choose a card from your hand, return it to your deck, and shuffle your deck.\n[AUTO](RC): [Counter-Blast 2] When this unit's attack hits, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/017", "EB05/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F017",
+          "fetchedAt": "2026-10-14T21:22:05.080Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/017EN",
+          "fetchedAt": "2026-10-14T21:22:56.632Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-018",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/018",
+        "name": "バトルシスター すふれ",
+        "text": "【自】【(V)/(R)】：このユニットが《オラクルシンクタンク》に【ブースト】された時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_018.png"
+      },
+      "en": {
+        "number": "EB05/018EN",
+        "name": "Battle Sister, Souffle",
+        "text": "[AUTO](VC/RC):When this unit is boosted ([Boost]) by an <Oracle Think Tank>, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/018", "EB05/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F018",
+          "fetchedAt": "2026-10-14T21:22:06.265Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/018EN",
+          "fetchedAt": "2026-10-14T21:22:57.802Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-019",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/019",
+        "name": "バトルシスター たると",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_019.png"
+      },
+      "en": {
+        "number": "EB05/019EN",
+        "name": "Battle Sister, Tarte",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/019", "EB05/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F019",
+          "fetchedAt": "2026-10-14T21:22:10.226Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/019EN",
+          "fetchedAt": "2026-10-14T21:22:58.857Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-020",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/020",
+        "name": "戦巫女 タギツヒメ",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのソウルの《オラクルシンクタンク》が６枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_020.png"
+      },
+      "en": {
+        "number": "EB05/020EN",
+        "name": "Battle Maiden, Tagitsuhime",
+        "text": "[AUTO](RC):When this unit attacks, if the number of <Oracle Think Tank> in your soul is six or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/020", "EB05/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F020",
+          "fetchedAt": "2026-10-14T21:22:11.414Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/020EN",
+          "fetchedAt": "2026-10-14T21:23:00.249Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-021",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/021",
+        "name": "オラクルガーディアン レッドアイ",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヒットした時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、【ソウルチャージ】(1)してよい。",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_021.png"
+      },
+      "en": {
+        "number": "EB05/021EN",
+        "name": "Oracle Guardian, Red Eye",
+        "text": "[AUTO](VC/RC): When this unit's attack hits, if you have an <Oracle Think Tank> vanguard, you may [Soul-Charge 1].",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/021", "EB05/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F021",
+          "fetchedAt": "2026-10-14T21:22:12.576Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/021EN",
+          "fetchedAt": "2026-10-14T21:23:01.523Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-022",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/022",
+        "name": "オラクルガーディアン ジェミニ",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_022.png"
+      },
+      "en": {
+        "number": "EB05/022EN",
+        "name": "Oracle Guardian, Gemini",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/022", "EB05/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F022",
+          "fetchedAt": "2026-10-14T21:22:15.043Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/022EN",
+          "fetchedAt": "2026-10-14T21:23:02.908Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-023",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/023",
+        "name": "ダーク・キャット",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、すべてのプレイヤーは１枚引いてよい。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_023.png"
+      },
+      "en": {
+        "number": "EB05/023EN",
+        "name": "Dark Cat",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have an <Oracle Think Tank> vanguard, each player may draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_023EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/023", "EB05/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F023",
+          "fetchedAt": "2026-10-14T21:22:15.779Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/023EN",
+          "fetchedAt": "2026-10-14T21:23:03.972Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-024",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/024",
+        "name": "稲葉の白兎",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、あなたの手札から《オラクルシンクタンク》を１枚まで選び、ソウルに置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_024.png"
+      },
+      "en": {
+        "number": "EB05/024EN",
+        "name": "White Hare of Inaba",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have an <Oracle Think Tank> vanguard, choose up to one <Oracle Think Tank> from your hand, and put it into your soul.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/024", "EB05/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F024",
+          "fetchedAt": "2026-10-14T21:22:16.942Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/024EN",
+          "fetchedAt": "2026-10-14T21:23:04.952Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-025",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/025",
+        "name": "バトルシスター ばにら",
+        "text": "【自】：このユニットが(G)に登場した時、あなたのソウルの《オラクルシンクタンク》が６枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_025.png"
+      },
+      "en": {
+        "number": "EB05/025EN",
+        "name": "Battle Sister, Vanilla",
+        "text": "[AUTO]:When this unit is placed on (GC), if the number of <Oracle Think Tank> in your soul is six or more, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/025", "EB05/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F025",
+          "fetchedAt": "2026-10-14T21:22:18.707Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/025EN",
+          "fetchedAt": "2026-10-14T21:23:06.654Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-026",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/026",
+        "name": "真実を見つめる者",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(1)]このユニットがアタックした時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_026.png"
+      },
+      "en": {
+        "number": "EB05/026EN",
+        "name": "One Who Gazes at the Truth",
+        "text": "[AUTO](VC/RC):[Soul-Blast 1] When this unit attacks, if you have an <Oracle Think Tank> vanguard, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/026", "EB05/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F026",
+          "fetchedAt": "2026-10-14T21:22:20.317Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/026EN",
+          "fetchedAt": "2026-10-14T21:23:07.827Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-027",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/027",
+        "name": "ラック・バード",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、あなたの《オラクルシンクタンク》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_027.png"
+      },
+      "en": {
+        "number": "EB05/027EN",
+        "name": "Luck Bird",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have an <Oracle Think Tank> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/027", "EB05/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F027",
+          "fetchedAt": "2026-10-14T21:22:21.467Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/027EN",
+          "fetchedAt": "2026-10-14T21:23:09.041Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-028",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/028",
+        "name": "バトルシスター わっふる",
+        "text": "【自】：他の《オラクルシンクタンク》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から３枚まで見て、カード名に「バトルシスター」を含むカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターン中、そのユニットのパワー＋2000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_028.png"
+      },
+      "en": {
+        "number": "EB05/028EN",
+        "name": "Battle Sister, Waffle",
+        "text": "[AUTO]:When another <Oracle Think Tank> rides this unit, you may call this card to (RC).\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to three cards from the top of your deck, search for up to one card with \"Battle Sister\" in its card name from among them, call it to (RC), shuffle your deck, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/028", "EB05/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F028",
+          "fetchedAt": "2026-10-14T21:22:22.205Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/028EN",
+          "fetchedAt": "2026-10-14T21:23:10.477Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-029",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/029",
+        "name": "バトルシスター じんじゃー",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_029.png"
+      },
+      "en": {
+        "number": "EB05/029EN",
+        "name": "Battle Sister, Ginger",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_029EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/029", "EB05/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F029",
+          "fetchedAt": "2026-10-14T21:22:23.010Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/029EN",
+          "fetchedAt": "2026-10-14T21:23:11.581Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-030",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/030",
+        "name": "ドリーム・イーター",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_030.png"
+      },
+      "en": {
+        "number": "EB05/030EN",
+        "name": "Dream Eater",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_030EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/030", "EB05/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F030",
+          "fetchedAt": "2026-10-14T21:22:23.750Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/030EN",
+          "fetchedAt": "2026-10-14T21:23:12.951Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-031",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/031",
+        "name": "バトルシスター てぃらみす",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_031.png"
+      },
+      "en": {
+        "number": "EB05/031EN",
+        "name": "Battle Sister, Tiramisu",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_031EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/031", "EB05/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F031",
+          "fetchedAt": "2026-10-14T21:22:24.921Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/031EN",
+          "fetchedAt": "2026-10-14T21:23:13.972Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-032",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/032",
+        "name": "バトルシスター あっさむ",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_032.png"
+      },
+      "en": {
+        "number": "EB05/032EN",
+        "name": "Battle Sister, Assam",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_032EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/032", "EB05/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F032",
+          "fetchedAt": "2026-10-14T21:22:26.089Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/032EN",
+          "fetchedAt": "2026-10-14T21:23:15.037Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-033",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/033",
+        "name": "バトルシスター ちゃい",
+        "text": "（【治】はデッキに４枚までしか入れられない。）",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_033.png"
+      },
+      "en": {
+        "number": "EB05/033EN",
+        "name": "Battle Sister, Chai",
+        "text": "(You may only have up to four cards with \"[Heal]HEAL\" in a deck.)",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_033EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/033", "EB05/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F033",
+          "fetchedAt": "2026-10-14T21:22:26.910Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/033EN",
+          "fetchedAt": "2026-10-14T21:23:15.983Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-034",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/034",
+        "name": "サイキック・バード",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《オラクルシンクタンク》のヴァンガードがいるなら、１枚まで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_034.png"
+      },
+      "en": {
+        "number": "EB05/034EN",
+        "name": "Psychic Bird",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have an <Oracle Think Tank> vanguard, draw up to one card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_034EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/034", "EB05/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F034",
+          "fetchedAt": "2026-10-14T21:22:27.698Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/034EN",
+          "fetchedAt": "2026-10-14T21:23:17.481Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB05-035",
+      "set": "EB05",
+      "jp": {
+        "number": "EB05/035",
+        "name": "ロゼンジ・メイガス",
+        "text": "（【治】はデッキに４枚までしか入れられない。）\n【自】：他の《オラクルシンクタンク》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンの終了時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB05/eb05_035.png"
+      },
+      "en": {
+        "number": "EB05/035EN",
+        "name": "Lozenge Magus",
+        "text": "(You may only have up to four cards with \"[Heal]HEAL\" in a deck.)\n[AUTO]:When another <Oracle Think Tank> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb05/EB05_035EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB05/035", "EB05/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB05%2F035",
+          "fetchedAt": "2026-10-14T21:22:28.852Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB05/035EN",
+          "fetchedAt": "2026-10-14T21:23:18.605Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

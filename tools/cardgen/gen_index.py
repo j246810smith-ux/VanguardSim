@@ -5,9 +5,11 @@ os.chdir(sys.argv[1])
 version = sys.argv[2]
 sets = sorted(
     f[:-5] for f in os.listdir('data/cards')
-    if re.fullmatch(r'(BT|TD)\d{2}\.json', f) and os.path.exists(f'src/cards/{f[:-5]}.ts')
+    if re.fullmatch(r'(BT|TD|EB|FC|DG|MBT|MTD)\d{2}\.json', f) and os.path.exists(f'src/cards/{f[:-5]}.ts')
 )
-order = lambda s: (int(s[2:]) if s.startswith('BT') else 100 + int(s[2:]))
+# boosters, trial decks, then the side sets (D-029) by kind
+KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD']
+order = lambda s: (KINDS.index(s.rstrip('0123456789')), int(s[-2:]))
 sets.sort(key=order)
 lines = ['/** The real card pool: imported data + ability scripts per set (boosters, then trial decks). */']
 lines += [f"import {s.lower()}Data from '../../data/cards/{s}.json';" for s in sets]

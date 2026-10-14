@@ -39,6 +39,21 @@ describe('pairPrintings', () => {
     expect(r.enOnly).toEqual([]);
   });
 
+  it('does not trust equal numbers in reshuffled sets (BT17-003 is not English BT17/003)', () => {
+    const jp = map([['003', card('jp', { grade: 3, power: 11000, name: 'ペインレーザー' })]]);
+    const en = map([
+      ['002', card('en', { grade: 3, power: 11000, name: 'Pain Laser' })],
+      ['003', card('en', { grade: 3, power: 11000, name: 'Vortex Dragonewt' })],
+    ]);
+    expect([...pairPrintings(jp, en, known()).pairs]).toEqual([['003', '003']]);
+    const r = pairPrintings(jp, en, known(), {}, false);
+    expect(r.pairs.size).toBe(0);
+    expect(r.ambiguous.map((a) => a.candidates)).toEqual([['002', '003']]);
+    expect([...pairPrintings(jp, en, known(), { '003': '002' }, false).pairs]).toEqual([
+      ['003', '002'],
+    ]);
+  });
+
   it('pairs by identity when the English set inserts a card (BT03)', () => {
     const r = pairPrintings(
       map([

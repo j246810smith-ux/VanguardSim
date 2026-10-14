@@ -31,9 +31,37 @@ export function activeZoneOf(ref: ZoneRef): ActiveZone | null {
 export const zoneAllows = (zones: readonly ActiveZone[], zone: ActiveZone | null): boolean =>
   zones.includes('any') || (zone !== null && zones.includes(zone));
 
-/** CR 10.2.5: a Limit Break ability is active with at least n cards in the master's damage zone. */
-export const limitBreakMet = (state: GameState, master: PlayerId, n: number | undefined): boolean =>
-  n === undefined || state.players[master].damage.length >= n;
+/**
+ * CR 10.2.5: a Limit Break ability is active with at least n cards in the master's damage zone.
+ * "[CONT](RC):Your vanguard's [Limit-Break 4] is active even when you have three or less damage"
+ * (BT17): with such a rear-guard, the [Limit-Break 4] abilities of the master's vanguard (`source`
+ * on (VC)) are active anyway. Read from the rear-guards' abilities directly (no conditions), so
+ * this never evaluates continuous effects.
+ */
+export function limitBreakMet(
+  state: GameState,
+  ctx: EngineContext,
+  master: PlayerId,
+  n: number | undefined,
+  source: InstanceId,
+): boolean {
+  if (n === undefined || state.players[master].damage.length >= n) return true;
+  if (n !== 4) return false;
+  const at = locate(state, source);
+  if (at.player !== master || at.zone !== 'circle' || at.circle !== 'vanguard') return false;
+  return Object.entries(state.players[master].circles).some(
+    ([circle, stack]) =>
+      circle !== 'vanguard' &&
+      stack.some((id) =>
+        abilitiesOf(state, ctx, id).some(
+          (a) =>
+            a.kind === 'CONT' &&
+            a.zones.includes('RC') &&
+            a.effects.some((e) => e.ce === 'limit_break_always'),
+        ),
+      ),
+  );
+}
 
 const MAX_DEPTH = 8;
 let depth = 0;
@@ -64,7 +92,7 @@ function activeContinuous(
       };
       for (const a of abilities) {
         if (a.kind !== 'CONT' || !zoneAllows(a.zones, zone)) continue;
-        if (!limitBreakMet(state, where.player, a.limitBreak)) continue;
+        if (!limitBreakMet(state, ctx, where.player, a.limitBreak, id)) continue;
         if (a.condition && !evaluate(ec, a.condition)) continue;
         out.push({ ec, a });
       }

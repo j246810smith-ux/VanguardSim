@@ -137,8 +137,11 @@ describe('manifest', () => {
     const cards = SETS.reduce((n, s) => n + s.file.cards.length, 0);
     expect(manifest.entries).toHaveLength(cards);
     expect(new Set(manifest.entries.map((e) => e.id)).size).toBe(cards);
-    expect(setsOf(manifest)[0]).toBe('BT01');
-    expect(setsOf(manifest).at(-1)!.startsWith('TD')).toBe(true);
+    // boosters, then trial decks, then side sets (D-029)
+    const sets = setsOf(manifest);
+    expect(sets[0]).toBe('BT01');
+    const kind = (s: string) => ['BT', 'TD'].indexOf(s.slice(0, 2)) >>> 0;
+    expect(sets.map(kind)).toEqual([...sets.map(kind)].sort((a, b) => a - b));
     const noImage = manifest.entries.filter((e) => !e.images.en && !e.images.jp);
     expect(noImage).toEqual([]);
   });
@@ -148,6 +151,8 @@ describe('manifest', () => {
     expect(cardIdFromFileName('bt01_001EN.png')).toBe('BT01-001');
     expect(cardIdFromFileName('BT09 012en.JPG')).toBe('BT09-012');
     expect(cardIdFromFileName('td03-016.jpg')).toBe('TD03-016');
+    expect(cardIdFromFileName('EB01_001EN.png')).toBe('EB01-001');
+    expect(cardIdFromFileName('mbt01-005.png')).toBe('MBT01-005');
     expect(cardIdFromFileName('BT01_S01.png')).toBeNull();
     expect(cardIdFromFileName('Blaster Blade.png')).toBeNull();
     expect(cardIdFromFileName('BT1-1.png')).toBeNull();

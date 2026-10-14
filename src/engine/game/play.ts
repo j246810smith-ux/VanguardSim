@@ -37,6 +37,7 @@ export function legion(d: Draft, player: PlayerId, leader: InstanceId, mate: Ins
   const orientation = s.cards[leader]!.orientation;
   moveCard(d, mate, { player, zone: 'circle', circle: 'vanguard' }, 'legion', { orientation });
   s.players[player].legion = { leader, mate };
+  s.turnFlags.legioned = [...(s.turnFlags.legioned ?? []), leader];
   for (const id of [leader, mate]) if (!s.everInLegion.includes(id)) s.everInLegion.push(id);
   emit(d, { type: 'LEGION', player, leader, mate });
 }

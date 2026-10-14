@@ -141,6 +141,9 @@ export function ArtworkApp() {
           <button className="btn" onClick={() => choose((s) => s.startsWith('TD'))}>
             Trial decks
           </button>
+          <button className="btn" onClick={() => choose((s) => !/^(BT|TD)/.test(s))}>
+            Side sets
+          </button>
           <button className="btn" onClick={() => choose(() => false)}>
             None
           </button>

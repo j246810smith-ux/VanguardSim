@@ -1,6 +1,7 @@
 import { useState, type DragEvent, type MouseEvent } from 'react';
 import {
   CIRCLES,
+  basePower,
   currentCritical,
   currentPower,
   type Circle,
@@ -106,6 +107,7 @@ function CircleSlot({
   const cls = [
     'circle',
     vc ? 'vc' : 'rc',
+    legion ? 'legion' : '',
     player === ME ? 'side-me' : 'side-opp',
     st.mark ? `hl hl-${st.mark}` : '',
     st.selected ? `sel-${st.selected}` : '',
@@ -153,7 +155,13 @@ function CircleSlot({
       {legion && (
         <>
           <div className="legion-bracket" />
-          <div className="legion-tag">LEGION</div>
+          {/* a legion attacks with both units' power (CR 10.1.24.6); it defends with the leader's */}
+          <div className="legion-tag">
+            LEGION{' '}
+            <span title="Attack power (leader + mate)">
+              ⚔ {basePower(view, ctx, legion.leader) + basePower(view, ctx, legion.mate)}
+            </span>
+          </div>
         </>
       )}
       {!top && <div className="circle-label">{LABELS[circle]}</div>}

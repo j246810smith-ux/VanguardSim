@@ -8,6 +8,7 @@ import {
 } from '../../../src/engine';
 import { circlePos, type Point } from '../board/layout';
 import { ctx, ME } from '../engine';
+import type { AttackPreview } from '../game/attackPreview';
 import type { Fx } from '../game/session';
 import { paced, useSettings } from '../settings';
 import { CardView } from '../ui/CardView';
@@ -103,6 +104,53 @@ export function BattleHud({ view }: { view: GameState }) {
         </div>
       )}
     </>
+  );
+}
+
+/** Per-column attack power during my battle phase, compared with the opponent's vanguard (D-028). */
+export function AttackPreviewPanel({ preview }: { preview: AttackPreview }) {
+  const focus = preview.columns.find((c) => c.selected || c.attacking);
+  return (
+    <div className="panel attack-preview" data-testid="attack-preview">
+      <div className="ap-head">
+        <span>ATTACK POWER</span>
+        <span className="ap-vs">
+          vs VG <b>{preview.targetPower}</b>
+        </span>
+      </div>
+      {preview.columns.map((c) => (
+        <div
+          key={c.circle}
+          className={[
+            'ap-row',
+            c.ready || c.attacking ? '' : 'off',
+            c.selected || c.attacking ? 'focus' : '',
+          ].join(' ')}
+        >
+          <span className="ap-col">{c.label}</span>
+          {c.attacker === null ? (
+            <span className="ap-note">empty</span>
+          ) : (
+            <>
+              <span className="ap-sum">
+                {c.attack}
+                {c.boost > 0 ? ` + ${c.boost}` : ''}
+              </span>
+              <span className={`ap-total ${c.needs > 0 ? 'hits' : ''}`}>{c.total}</span>
+              <span className="ap-crit">★{c.critical}</span>
+              {c.note && <span className="ap-note">{c.note}</span>}
+            </>
+          )}
+        </div>
+      ))}
+      <div className="ap-foot">
+        {focus
+          ? focus.needs > 0
+            ? `${focus.label}: ${focus.total} vs ${preview.targetPower} · needs ${focus.needs} shield`
+            : `${focus.label}: ${focus.total} vs ${preview.targetPower} · no hit unless powered up`
+          : 'Pick an attacker to see its attack.'}
+      </div>
+    </div>
   );
 }
 

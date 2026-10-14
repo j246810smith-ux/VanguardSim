@@ -154,7 +154,7 @@ export const boostedAttackHits = (
 });
 /** "When this unit is put into the drop zone from (RC)/(GC)" */
 export const putIntoDropFrom = (
-  from: 'VC' | 'RC' | 'GC' | 'soul',
+  from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC',
   who: Subject = 'self',
   byYourEffect = false,
 ): TriggerCondition => ({
@@ -206,6 +206,11 @@ export const lockedByYou = (who: Subject = { owner: 'opponent' }): TriggerCondit
   byYourEffect: true,
 });
 export const legions = (who: Subject = 'self'): TriggerCondition => ({ on: 'legion', who });
+/** "When this unit is returned to your hand from (RC)" */
+export const returnedToHand = (who: Subject = 'self'): TriggerCondition => ({
+  on: 'returned_to_hand',
+  who,
+});
 /** "When you draw a card" */
 export const drawn = (who: Subject = { owner: 'you' }): TriggerCondition => ({ on: 'drawn', who });
 export const atStartOf = (
@@ -250,8 +255,9 @@ export const superiorCall = (
 export const lookTop = (as: string, n: number): Step => ({ op: 'look_top', n, as });
 /** "You win the game" */
 export const win = (): Step => ({ op: 'win' });
-/** "Deal n damage" to the opponent's vanguard (damage checks). */
-export const dealDamage = (n = 1): Step => ({ op: 'deal_damage', n });
+/** "Deal n damage" to the opponent's vanguard (damage checks); `nullifyTriggers`: "during that damage check, all trigger effects are nullified". */
+export const dealDamage = (n = 1, nullifyTriggers = false): Step =>
+  nullifyTriggers ? { op: 'deal_damage', n, nullifyTriggers } : { op: 'deal_damage', n };
 /** The attacked unit of the current battle becomes `target`; every guardian guards it. */
 export const redirectAttack = (target: Selector): Step => ({ op: 'redirect_attack', target });
 /** Put the top card of your deck onto one of your (RC) as a locked card. */
@@ -327,8 +333,8 @@ export const eachMayDraw = (): Step[] => [
   may('Draw a card?', [draw(1, 'opponent')], 'opponent'),
 ];
 /** Counter Charge n (an effect, not a cost): turn n face-down damage cards face up. */
-export const counterCharge = (n = 1): Step[] => [
-  choose('__counter_charge', cards('you', ['damage'], { faceUp: false }), n),
+export const counterCharge = (n = 1, upTo = false): Step[] => [
+  choose('__counter_charge', cards('you', ['damage'], { faceUp: false }), n, upTo ? { upTo } : {}),
   { op: 'turn_face', target: bound('__counter_charge'), faceUp: true },
 ];
 
@@ -345,7 +351,11 @@ export const grant = (
 });
 export const lock = (target: Selector): Step => ({ op: 'lock', target });
 export const unlock = (target: Selector): Step => ({ op: 'unlock', target });
-export const legion = (mate: Selector): Step => ({ op: 'legion', target: mate });
+export const legion = (mate: Selector, withVanguard = false): Step =>
+  withVanguard ? { op: 'legion', target: mate, withVanguard } : { op: 'legion', target: mate };
+/** "During the turn when your vanguard [Legion]" / "the turn this unit [Legion]" (with `of`). */
+export const legionedThisTurn = (of?: Selector): Condition =>
+  of ? { cond: 'legioned_this_turn', of } : { cond: 'legioned_this_turn' };
 
 /** CR 10.1.20.2: the targets lose an ability (by id) or the Twin Drive!! icon. */
 export const lose = (

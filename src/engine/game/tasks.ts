@@ -2,6 +2,7 @@ import { callOne, checkTiming, chooseStandby, endFrame, runStep } from '../abili
 import type { Task } from '../state/tasks';
 import { chooseAttackTargets } from './battle';
 import { runCheckTask } from './checks';
+import { endDelayedLegion } from './delayedLegion';
 import type { Draft } from './context';
 import { runFlowTask } from './flow';
 
@@ -38,6 +39,8 @@ function handle(d: Draft, task: Task): boolean {
       return chooseAttackTargets(d, task);
     case 'choose_standby':
       return chooseStandby(d, task);
+    case 'delayed_legion_end':
+      return endDelayedLegion(d, task);
     case 'end_frame':
       endFrame(d, task.frame);
       return true;

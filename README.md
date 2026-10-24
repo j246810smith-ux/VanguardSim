@@ -16,22 +16,32 @@ downloads card art only when you ask it to).
 | Area         | State                                                                                                                                                                                                                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                           |
-| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **and Extra Boosters EB01–EB06**: 2104 cards, every effect implemented and tested. Coming next: EB07–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
-| Game         | Desktop app with music, sound effects and card animations: main menu, 66 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, Artwork Manager for optional card art                                                                                            |
+| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **and Extra Boosters EB01–EB07**: 2139 cards, every effect implemented and tested. Coming next: EB08–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
+| Game         | Desktop app with music, sound effects and card animations: main menu, 67 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, an optional **Delayed Legion** house rule, Artwork Manager for optional card art                                                 |
 | AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                    |
 | Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                                                                                                            |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.
 
+## Custom rules
+
+On the **Game Setup** screen, the _Custom rules_ row turns optional house rules on for that game.
+All are off by default; standard games follow the official rules.
+
+- **Delayed Legion**: Seek Mate's cost must be four normal units without Sentinel from your drop
+  zone; they go back into the deck, which is shuffled before you search for the Legion Mate. At
+  the beginning of your next stand phase you put the Legion Mate into your soul or your drop zone,
+  and the legion ends. That vanguard cannot Legion again while it stays on the vanguard circle.
+
 ## Download and play (Windows)
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.22.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.22.0-alpha/VanguardSim-0.22.0-alpha-portable.exe)
+**Latest version: v0.23.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.23.0-alpha/VanguardSim-0.23.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.22.0-alpha/VanguardSim-0.22.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.23.0-alpha/VanguardSim-0.23.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

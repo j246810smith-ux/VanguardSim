@@ -401,6 +401,8 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     }
     case 'ever_in_legion':
       return select(ec, condition.of).some((id) => ec.state.everInLegion.includes(id));
+    case 'custom_rule':
+      return ec.state.customRules?.[condition.rule] === true;
     case 'battle_number':
       return inRange(ec.state.turnFlags.battles ?? 0, condition.range);
     case 'legioned_this_turn': {

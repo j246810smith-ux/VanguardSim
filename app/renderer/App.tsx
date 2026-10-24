@@ -185,6 +185,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
   const [theirs, setTheirs] = useState(1);
   const [ai, setAi] = useState<AiLevel>('smart');
   const [seed, setSeed] = useState('');
+  const [delayedLegion, setDelayedLegion] = useState(false);
   const start = () => {
     const my = entries[mine]!;
     const their = entries[theirs]!;
@@ -196,6 +197,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       aiDeck: their.deck,
       aiDeckName: their.name,
       aiLevel: ai,
+      delayedLegion,
     });
   };
   return (
@@ -229,6 +231,19 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
           value={seed}
           onChange={(e) => setSeed(e.target.value)}
         />
+      </div>
+      <div className="row">
+        Custom rules
+        <span className="seg">
+          <button
+            className={delayedLegion ? 'on' : ''}
+            onClick={() => setDelayedLegion((v) => !v)}
+            data-testid="rule-delayed-legion"
+            title="Seek Mate returns four normal units without Sentinel. At the start of your next stand phase, the Legion Mate goes into your soul or drop zone."
+          >
+            Delayed Legion: {delayedLegion ? 'ON' : 'OFF'}
+          </button>
+        </span>
       </div>
       <div className="row" style={{ marginTop: 10 }}>
         <button className="menu-btn" style={{ width: 300 }} onClick={onBack}>

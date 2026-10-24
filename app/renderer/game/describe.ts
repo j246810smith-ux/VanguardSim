@@ -89,6 +89,15 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       if (e.reason === 'draw' && e.to.player === ME)
         return { text: `You drew ${n(e.instanceId)}`, tone: 'me' };
       return null;
+    case 'NAME_DECLARED':
+      return { text: `${who(e.player)} declared "${e.name}"`, tone: tone(e.player) };
+    case 'CARDS_REVEALED':
+      return e.instanceIds.length > 0
+        ? {
+            text: `${who(e.player)} revealed ${e.instanceIds.map(n).join(', ')}`,
+            tone: tone(e.player),
+          }
+        : null;
     case 'CARD_LOCKED':
       return { text: `${n(e.instanceId)} was locked`, tone: tone(e.player) };
     case 'CARD_UNLOCKED':

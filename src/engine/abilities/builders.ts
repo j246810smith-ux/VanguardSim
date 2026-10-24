@@ -81,6 +81,8 @@ export const battleHit = (hit = true): Condition => ({ cond: 'battle_hit', hit }
 export const battleTarget = (vanguard: boolean): Condition => ({ cond: 'battle_target', vanguard });
 export const inLegion = (of: Selector = self()): Condition => ({ cond: 'in_legion', of });
 export const everInLegion = (of: Selector = self()): Condition => ({ cond: 'ever_in_legion', of });
+/** The Delayed Legion house rule is on for this game. */
+export const delayedLegionRule = (): Condition => ({ cond: 'custom_rule', rule: 'delayedLegion' });
 export const compare = (
   a: Selector,
   op: '>' | '<' | '>=' | '<=' | '=',
@@ -251,6 +253,12 @@ export const superiorCall = (
     rested?: boolean;
   } = {},
 ): Step => ({ op: 'call', target, ...opts });
+/** "Declare a <filter> card name, and reveal the top card of your deck": `as` = the top card if it has that name. */
+export const declareReveal = (as: string, filter: CardFilter): Step => ({
+  op: 'declare_reveal',
+  as,
+  filter,
+});
 /** Look at the top n cards of your deck; bind them as `as`. */
 export const lookTop = (as: string, n: number): Step => ({ op: 'look_top', n, as });
 /** "You win the game" */
@@ -462,6 +470,12 @@ export const atNext = (step: StepName, effect: Step[], until: Duration, text: st
 });
 /** "Put the rest on the bottom of your deck in any order" */
 export const bottomInOrder = (target: Selector): Step => ({ op: 'bottom_in_order', target });
+/** "Put the rest on the top of your deck in any order" (the first card picked ends up on top) */
+export const topInOrder = (target: Selector): Step => ({
+  op: 'bottom_in_order',
+  target,
+  top: true,
+});
 /** "You cannot normal ride during that ride phase" */
 export const endNormalRide = (): Step => ({ op: 'end_normal_ride' });
 export const putOnVC = (target: Selector): Step => ({ op: 'put_on_vc', target });
@@ -591,7 +605,14 @@ export const breakRide = (a: {
  * your drop zone into your deck once, search your deck for [name], Legion, and shuffle your deck.
  * This ability cannot be used for the rest of that game." Not usable with fewer than four cards
  * in the drop zone.
+ *
+ * With the Delayed Legion house rule on, the four cards must be normal units without Sentinel,
+ * the deck is shuffled before the search, and the Legion Mate leaves at the start of the
+ * player's next stand phase (game/delayedLegion.ts).
  */
+/** Delayed Legion's Seek Mate cost: normal units (no trigger icon) without Sentinel. */
+const DELAYED_COST = { trigger: 'none', sentinel: false } as const;
+
 export const seekMate = (a: {
   id?: string;
   names: string[];
@@ -605,17 +626,32 @@ export const seekMate = (a: {
     requires: all(
       not(everInLegion()),
       exists(units('opponent', ['VC'], { grade: { min: 3 } })),
-      count(cards('you', ['drop']), { min: 4 }),
+      any(
+        all(not(delayedLegionRule()), count(cards('you', ['drop']), { min: 4 })),
+        all(delayedLegionRule(), count(cards('you', ['drop'], DELAYED_COST), { min: 4 })),
+      ),
     ),
     cost: [],
     effect: [
-      choose('__seek_return', cards('you', ['drop']), 4, {
-        prompt: 'Return four cards from your drop zone to your deck',
-      }),
+      if_(
+        delayedLegionRule(),
+        [
+          choose('__seek_return', cards('you', ['drop'], DELAYED_COST), 4, {
+            prompt: 'Return four normal units without Sentinel from your drop zone to your deck',
+          }),
+        ],
+        [
+          choose('__seek_return', cards('you', ['drop']), 4, {
+            prompt: 'Return four cards from your drop zone to your deck',
+          }),
+        ],
+      ),
       moveTo(bound('__seek_return'), 'deck_bottom'),
+      if_(delayedLegionRule(), [shuffle()]),
       search('__seek_mate', { nameIn: a.names }, 1),
       legion(bound('__seek_mate')),
       shuffle(),
+      if_(delayedLegionRule(), [{ op: 'delay_legion_end' }]),
     ],
     text:
       a.text ??

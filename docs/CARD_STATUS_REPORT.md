@@ -315,3 +315,47 @@ All cards complete.
 | 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
 
 All cards complete.
+
+## EB07
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 0   | 0        |
+
+### Incomplete
+
+- EB07-001 Hexagonal Magus — no art
+- EB07-002 Battle Sister, Parfait — no art
+- EB07-003 Battle Sister, Monaka — no art
+- EB07-004 Stellar Magus — no art
+- EB07-005 Battle Sister, Cocotte — no art
+- EB07-006 Briolette Magus — no art
+- EB07-007 Tetra Magus — no art
+- EB07-008 Imperial Daughter — no art
+- EB07-009 Evil-eye Princess, Euryale — no art
+- EB07-010 Oracle Agent, Royce — no art
+- EB07-011 Cuore Magus — no art
+- EB07-012 Battle Sister, Macaron — no art
+- EB07-013 Promise Daughter — no art
+- EB07-014 Crescent Magus — no art
+- EB07-015 Little Witch, LuLu — no art
+- EB07-016 Cylindre Magus — no art
+- EB07-017 Battle Sister, Tarte — no art
+- EB07-018 Battle Sister, Caramel — no art
+- EB07-019 Blue Scale Deer — no art
+- EB07-020 Onmyoji of the Moonlit Night — no art
+- EB07-021 Oracle Guardian, Gemini — no art
+- EB07-022 Circle Magus — no art
+- EB07-023 Battle Sister, Omelet — no art
+- EB07-024 Ripis Magus — no art
+- EB07-025 Battle Sister, Maple — no art
+- EB07-026 Petal Fairy — no art
+- EB07-027 Battle Sister, Lemonade — no art
+- EB07-028 Luck Bird — no art
+- EB07-029 Battle Sister, Ginger — no art
+- EB07-030 Miracle Kid — no art
+- EB07-031 Battle Sister, Tiramisu — no art
+- EB07-032 Battle Sister, Assam — no art
+- EB07-033 Battle Sister, Chai — no art
+- EB07-034 Psychic Bird — no art
+- EB07-035 Lozenge Magus — no art

@@ -143,6 +143,8 @@ export type Condition =
   | { readonly cond: 'in_legion'; readonly of: Selector }
   /** The unit has been in a legion state at some point this game (Seek Mate, CR 1.36 10.2.9.2). */
   | { readonly cond: 'ever_in_legion'; readonly of: Selector }
+  /** A house rule chosen for this game is on (see CustomRules). */
+  | { readonly cond: 'custom_rule'; readonly rule: 'delayedLegion' }
   /**
    * The selected unit's current power is in range ("if this unit's [Power] is 14000 or greater").
    * For automatic abilities only: a continuous ability that reads power would depend on itself.
@@ -280,6 +282,12 @@ export type Step =
       readonly from: Selector;
       readonly count: number;
     }
+  /**
+   * "Declare a <clan> card name, and reveal the top card of your deck": the master names a card
+   * (a choice of kind 'name' among the pool's names matching `filter`), the top card is revealed,
+   * and it is bound as `as` if it has the declared name (otherwise `as` is empty).
+   */
+  | { readonly op: 'declare_reveal'; readonly as: string; readonly filter: CardFilter }
   /** Look at the top n cards of your deck (privately); bind them as `as`. */
   | { readonly op: 'look_top'; readonly n: number; readonly as: string }
   /** Superior ride (CR 10.1.5.1.1). */
@@ -347,8 +355,11 @@ export type Step =
   | { readonly op: 'as_opponent'; readonly steps: readonly Step[] }
   /** Look at the top card of your deck and put it on the top or the bottom. */
   | { readonly op: 'look_top_place' }
-  /** "Put the rest on the bottom of your deck in any order": the master picks them one by one. */
-  | { readonly op: 'bottom_in_order'; readonly target: Selector }
+  /**
+   * "Put the rest on the bottom of your deck in any order": the master picks them one by one.
+   * `top`: "on the top of your deck in any order" (the first card picked ends up on top).
+   */
+  | { readonly op: 'bottom_in_order'; readonly target: Selector; readonly top?: boolean }
   /** "You cannot normal ride during that ride phase." */
   | { readonly op: 'end_normal_ride' }
   /**
@@ -398,7 +409,9 @@ export type Step =
    * CR 10.1.24: put the target next to the source vanguard and enter the legion state.
    * `withVanguard`: next to the master's current vanguard instead ("ride it …, and [Legion]").
    */
-  | { readonly op: 'legion'; readonly target: Selector; readonly withVanguard?: boolean };
+  | { readonly op: 'legion'; readonly target: Selector; readonly withVanguard?: boolean }
+  /** Delayed Legion: if the source now leads a legion, its mate leaves at the next stand phase. */
+  | { readonly op: 'delay_legion_end' };
 
 /** Costs (CR 3.1.1.5, 8.5.2.3, 10.1.15–10.1.16). */
 export type Cost =

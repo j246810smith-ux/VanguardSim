@@ -15,6 +15,26 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (session 2026-10-24)
+
+**v0.23.0-alpha, published** (EB07 + the Delayed Legion house rule, D-030). The rule is a toggle
+on Game Setup (`SessionConfig.delayedLegion` → `GameSetup.customRules`), stored in
+`GameState.customRules`; Seek Mate branches on the `custom_rule` condition, step
+`delay_legion_end` records the legion in `GameState.delayedLegions`, and task
+`delayed_legion_end` (inserted at the start of that player's stand phase) asks `soul_or_drop`.
+**Next:** EB08 onward, as below.
+
+## ▶ Pick up here (session 2026-10-16)
+
+**EB07 done** (committed, not yet published; CHANGELOG "Unreleased"). New engine pieces: step
+`declare_reveal` (choice kind `name`, event `NAME_DECLARED`, AI `src/ai/declare.ts`, UI name
+list in `Prompts.tsx`) and `topInOrder` (`bottom_in_order` with `top`). Handy helper used this
+session: a script that finds the most similar already-scripted card text for each new card
+(difflib over `tools/cardgen/specs/*.py`); worth adding to `tools/cardgen/` next time.
+
+**Next:** EB08, EB09, EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, then PR cards. Publish
+(v0.23.0-alpha, see `docs/RELEASING.md`) when the user asks.
+
 ## ▶ Pick up here (session 2026-10-14, end)
 
 **v0.22.0-alpha, published.** Done this session: hand-jitter fix; BT17 (the booster pool is

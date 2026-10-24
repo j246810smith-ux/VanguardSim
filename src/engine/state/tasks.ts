@@ -18,6 +18,8 @@ export type TaskBody =
   | { readonly kind: 'enter_phase'; readonly phase: Phase }
   | { readonly kind: 'stand_units' }
   | { readonly kind: 'turn_draw' }
+  /** Delayed Legion (custom rule): the player's Legion Mate goes into the soul or drop zone. */
+  | { readonly kind: 'delayed_legion_end'; readonly player: PlayerId; selection?: string[] }
   /** CR 6.8.1.1: unlock the turn player's locked cards. */
   | { readonly kind: 'unlock_all' }
   /** CR 6.8.1.4: "until end of turn" effects cease. */
@@ -126,6 +128,7 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'step',
   'call_one',
   'choose_attack_targets',
+  'delayed_legion_end',
 ]);
 
 export const isChoiceTask = (task: Task): task is ChoiceTask => CHOICE_TASKS.has(task.kind);

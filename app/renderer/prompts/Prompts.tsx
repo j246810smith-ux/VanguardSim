@@ -71,11 +71,28 @@ export function ChoicePrompt({
           {buttons(choose.options.map((o) => [o, o]))}
         </div>
       );
+    case 'name':
+      return (
+        <div className="prompt" data-testid="choice">
+          <h3>{choose.prompt}</h3>
+          <div className="name-list">{buttons(choose.options.map((o) => [o, o]))}</div>
+        </div>
+      );
     case 'top_or_bottom':
       return (
         <div className="prompt docked" data-testid="choice">
           <h3>{choose.prompt}</h3>
           {buttons(choose.options.map((o) => [o, o === 'top' ? 'Top of deck' : 'Bottom of deck']))}
+        </div>
+      );
+    case 'soul_or_drop':
+      return (
+        <div className="prompt docked" data-testid="choice">
+          <h3>{choose.prompt}</h3>
+          {buttons([
+            ['soul', 'Soul'],
+            ['drop', 'Drop Zone'],
+          ])}
         </div>
       );
     case 'circle':

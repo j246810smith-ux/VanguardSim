@@ -209,7 +209,11 @@ export interface PendingChoice {
     | 'top_or_bottom'
     | 'circle'
     | 'order_abilities'
-    | 'ability';
+    | 'ability'
+    /** A card name to declare (options are card names). */
+    | 'name'
+    /** Delayed Legion: where the Legion Mate goes (options 'soul', 'drop'). */
+    | 'soul_or_drop';
   /**
    * Card instance IDs, or 'yes'/'no', circle names, standby IDs, or `${instanceId}/${abilityId}`
    * (kind 'ability'), depending on `kind`.
@@ -218,6 +222,22 @@ export interface PendingChoice {
   readonly min: number;
   readonly max: number;
   readonly prompt: string;
+}
+
+/** Optional house rules, chosen when the game is created. Every rule is off unless set. */
+export interface CustomRules {
+  /**
+   * Delayed Legion: Seek Mate returns four normal units without Sentinel, and at the start of
+   * the player's next stand phase the Legion Mate goes into the soul or the drop zone.
+   */
+  readonly delayedLegion?: boolean;
+}
+
+/** Delayed Legion: a legion whose mate leaves at the start of `player`'s next stand phase. */
+export interface DelayedLegion {
+  readonly player: PlayerId;
+  readonly leader: InstanceId;
+  readonly mate: InstanceId;
 }
 
 /** The single authoritative game state. Plain JSON: no classes, no functions, no cycles. */
@@ -255,6 +275,10 @@ export interface GameState {
   usedThisGame: string[];
   /** Units that have been in a legion state at some point (Seek Mate, CR 1.36 10.2.9.2). */
   everInLegion: InstanceId[];
+  /** House rules for this game; absent in a standard game. */
+  readonly customRules?: CustomRules;
+  /** Delayed Legion: legions waiting for their mate to leave (replaced, never mutated). */
+  delayedLegions?: DelayedLegion[];
   /** Abilities given to cards by effects (CR 10.1.20). */
   grants: Grant[];
   suppressions: Suppression[];

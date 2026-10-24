@@ -86,6 +86,8 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   // シャイニングシンガー イオニア Shining Singer, Ionia: the English page lacks the critical, so the
   // stats differ (REVIEWED_DIFFERENCES)
   EB06: { '008': '008' },
+  // リピス・メイガス Ripis Magus: identical stats to another English card; checked by name
+  EB07: { '024': '024' },
   // by name: ツイン・オーダー Twin Order, イニグロイド・コムラード Enigroid Comrade, イニグマン・リプル
   // Enigman Ripple, グローリー・メーカー Glory Maker, 蛹怪人 ギラファ Pupa Mutant, Giraffa,
   // ステルス・ミリピード Stealth Millipede

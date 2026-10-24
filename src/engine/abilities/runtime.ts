@@ -33,7 +33,15 @@ import {
 import { abilitiesOf, holders } from './catalog';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
 import { columnOf, evaluate, select, type EvalContext } from './evaluate';
-import type { AbilityDefinition, ActAbility, AutoAbility, Cost, Destination, Step } from './types';
+import type {
+  AbilityDefinition,
+  ActAbility,
+  AutoAbility,
+  CardFilter,
+  Cost,
+  Destination,
+  Step,
+} from './types';
 
 // Lookup -----------------------------------------------------------------------------------------
 
@@ -62,6 +70,27 @@ const ecOf = (d: Draft, f: Frame): EvalContext => ({
 });
 
 const useKey = (source: InstanceId, abilityId: string) => `${source}/${abilityId}`;
+
+const nameCache = new WeakMap<object, Map<string, string[]>>();
+/** The card names in the pool a player may declare for `filter` (printed clan, name and grade). */
+function declarableNames(ctx: EngineContext, filter: CardFilter): string[] {
+  const key = JSON.stringify(filter);
+  let byFilter = nameCache.get(ctx.registry);
+  if (!byFilter) nameCache.set(ctx.registry, (byFilter = new Map()));
+  const cached = byFilter.get(key);
+  if (cached) return cached;
+  const names = new Set<string>();
+  for (const def of ctx.registry.all()) {
+    if (filter.clan !== undefined && def.clan !== filter.clan) continue;
+    if (filter.nameIncludes !== undefined && !def.name.includes(filter.nameIncludes)) continue;
+    if (filter.grade?.min !== undefined && def.grade < filter.grade.min) continue;
+    if (filter.grade?.max !== undefined && def.grade > filter.grade.max) continue;
+    names.add(def.name);
+  }
+  const list = [...names].sort();
+  byFilter.set(key, list);
+  return list;
+}
 
 // Check timing (CR 8.4.1) ------------------------------------------------------------------------
 
@@ -578,6 +607,26 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       );
       return true;
     }
+    case 'declare_reveal': {
+      const picked = ask(d, task, {
+        player: frame.master,
+        kind: 'name',
+        options: declarableNames(d.ctx, step.filter),
+        min: 1,
+        max: 1,
+        prompt: 'Declare a card name',
+      });
+      if (picked === null) return false;
+      const name = picked[0] ?? '';
+      emit(d, { type: 'NAME_DECLARED', player: frame.master, name });
+      const top = s.players[frame.master].deck[0];
+      frame.bindings[step.as] = [];
+      if (top === undefined) return true;
+      emit(d, { type: 'CARDS_REVEALED', player: frame.master, instanceIds: [top] });
+      if (d.ctx.registry.get(s.cards[top]!.definitionId).name === name)
+        frame.bindings[step.as] = [top];
+      return true;
+    }
     case 'look_top':
       frame.bindings[step.as] = s.players[frame.master].deck.slice(0, step.n);
       return true;
@@ -692,6 +741,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       const left = targets.filter((id) => !done.includes(id));
       if (left.length === 0) {
         delete frame.bindings['__bottom_done'];
+        // on top: placed in reverse so the first card picked ends up on top
+        if (step.top) for (const id of [...done].reverse()) moveTo(d, id, 'deck_top', 'effect');
         return true;
       }
       const picked =
@@ -703,10 +754,12 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
               options: left,
               min: 1,
               max: 1,
-              prompt: 'Put the rest on the bottom of your deck in any order: choose the next card',
+              prompt: step.top
+                ? 'Put the rest on the top of your deck in any order: choose the next card from the top'
+                : 'Put the rest on the bottom of your deck in any order: choose the next card',
             });
       if (picked === null) return false;
-      moveTo(d, picked[0]!, 'deck_bottom', 'effect');
+      if (!step.top) moveTo(d, picked[0]!, 'deck_bottom', 'effect');
       frame.bindings['__bottom_done'] = [...done, picked[0]!];
       s.tasks.unshift(...stepTasks(frame.id, [step]));
       return true;
@@ -866,6 +919,13 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       const leader = step.withVanguard ? vanguardOf(p) : frame.source;
       if (mate !== undefined && leader !== null && vanguardOf(p) === leader && p.legion === null) {
         legion(d, frame.master, leader, mate);
+      }
+      return true;
+    }
+    case 'delay_legion_end': {
+      const lg = s.players[frame.master].legion;
+      if (lg !== null && lg.leader === frame.source) {
+        s.delayedLegions = [...(s.delayedLegions ?? []), { player: frame.master, ...lg }];
       }
       return true;
     }

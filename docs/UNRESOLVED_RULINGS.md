@@ -249,6 +249,16 @@ file. A verified value is `verified(value, 'CR <section>')`; a test fails if it 
 | "PR&#9829ISM" in English names                        | Shown as "PR♥ISM" (the official English site writes the entity without its semicolon).             | How browsers show the official page. |
 | PR♥ISM-Promise, Labrador: "If you called three cards" | Counts the cards chosen and called by that ability.                                                | Card text.                           |
 
+### EB07 notes
+
+| Topic                                                 | Engine behaviour                                                                                                                           | Why                                                          |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| Declaring a card name (Stellar Magus, Crescent Magus) | The player picks from every card name of that clan in the card pool; the top card is revealed and stays on top unless the effect takes it. | Card text; the pool is the game's card list.                 |
+| AI name declaration                                   | The deck is hidden, so the AI declares the name of its own clan cards it has seen the fewest copies of (assuming four of each).            | Uses only what the player knows.                             |
+| Crescent Magus: "boosts an <Oracle Think Tank>"       | Any Oracle Think Tank (the English text adds "vanguard").                                                                                  | The Japanese original is canonical.                          |
+| Battle Sister, Parfait: [CONT] that gives an [AUTO]   | The draw is a separate [AUTO] with the same Limit Break and "four or more cards in hand" condition, checked when the attack hits.          | Same result as the granted ability while the [CONT] applies. |
+| "Put the rest on the top of your deck in any order"   | The player picks the cards from the top down.                                                                                              | Card text.                                                   |
+
 ### Trial Deck notes (D-023)
 
 | Topic                                                                                                                                                    | Engine behaviour                                                                                                                      | Why                                                                                                               |

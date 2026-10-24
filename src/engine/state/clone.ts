@@ -56,6 +56,7 @@ export function cloneState(s: GameState): GameState {
     usedThisTurn: [...s.usedThisTurn],
     usedThisGame: [...s.usedThisGame],
     everInLegion: [...s.everInLegion],
+    ...(s.delayedLegions ? { delayedLegions: [...s.delayedLegions] } : {}),
     grants: [...s.grants],
     suppressions: [...s.suppressions],
     players: [clonePlayer(s.players[0]), clonePlayer(s.players[1])],

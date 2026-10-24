@@ -18,6 +18,7 @@ import {
   type PlayerId,
 } from '../engine';
 import type { PlayerController } from './controller';
+import { nameToDeclare } from './declare';
 import { alreadySafe, payableSentinel } from './guarding';
 
 const FRONT = ['front_left', 'front_right'] as const;
@@ -173,6 +174,10 @@ export class BasicController implements PlayerController {
         return ['yes'];
       case 'top_or_bottom':
         return ['top'];
+      case 'soul_or_drop':
+        return ['soul']; // more soul for Soul Blast costs
+      case 'name':
+        return [nameToDeclare(s, this.ctx, player, c.options)];
       case 'number':
         return [c.options.at(-1)!];
       case 'ability':

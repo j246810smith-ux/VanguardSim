@@ -23,6 +23,7 @@ import {
   type LegalAction,
   type PlayerId,
 } from '../engine';
+import { nameToDeclare } from './declare';
 import { BasicController } from './basicController';
 import type { PlayerController } from './controller';
 import { determinize } from './determinize';
@@ -536,6 +537,10 @@ export class SmartController implements PlayerController {
         return ['yes'];
       case 'top_or_bottom':
         return ['top'];
+      case 'soul_or_drop':
+        return ['soul']; // more soul for Soul Blast costs
+      case 'name':
+        return [nameToDeclare(s, this.ctx, me, c.options)];
       case 'number':
         return [c.options.at(-1)!];
       case 'order_abilities':

@@ -36,6 +36,8 @@ export interface SessionConfig {
   readonly aiDeck: DeckList;
   readonly aiDeckName: string;
   readonly aiLevel: AiLevel;
+  /** The Delayed Legion house rule (off by default). */
+  readonly delayedLegion?: boolean;
 }
 
 /** Short-lived presentation moments derived from events (never affect the game). */
@@ -85,7 +87,11 @@ export class GameSession {
 
   constructor(readonly config: SessionConfig) {
     const { state, events } = createGame(
-      { seed: config.seed, decks: [config.myDeck, config.aiDeck] },
+      {
+        seed: config.seed,
+        decks: [config.myDeck, config.aiDeck],
+        ...(config.delayedLegion ? { customRules: { delayedLegion: true } } : {}),
+      },
       ctx,
     );
     this.state = state;

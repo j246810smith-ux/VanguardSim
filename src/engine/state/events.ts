@@ -114,6 +114,7 @@ export type GameEvent =
       readonly instanceId: InstanceId;
       readonly faceUp: boolean;
     }
+  | { readonly type: 'NAME_DECLARED'; readonly player: PlayerId; readonly name: string }
   | {
       readonly type: 'CARDS_REVEALED';
       readonly player: PlayerId;

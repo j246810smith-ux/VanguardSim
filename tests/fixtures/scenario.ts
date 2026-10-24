@@ -1,6 +1,7 @@
 import {
   applyCommand,
   createGame,
+  type CustomRules,
   type Command,
   type EngineContext,
   type GameState,
@@ -103,10 +104,20 @@ export function battleScenario(spec: {
   readonly at?: 'ride' | 'main' | 'battle';
   /** Engine context (card pool); default: the synthetic test cards. */
   readonly ctx?: EngineContext;
+  /** House rules for the game (default: none). */
+  readonly customRules?: CustomRules;
 }): GameState {
   const ctx = spec.ctx ?? testContext;
   const decks = spec.decks ?? [makeTestDeck(), makeTestDeck()];
-  let { state } = createGame({ seed: 3, decks: [decks[0], decks[1]], firstPlayer: 0 }, ctx);
+  let { state } = createGame(
+    {
+      seed: 3,
+      decks: [decks[0], decks[1]],
+      firstPlayer: 0,
+      ...(spec.customRules ? { customRules: spec.customRules } : {}),
+    },
+    ctx,
+  );
   for (const player of [0, 1] as PlayerId[]) {
     state = applyCommand(state, { type: 'MULLIGAN', player, cardIds: [] }, ctx).state;
   }

@@ -1633,4 +1633,29 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- EB07 ---------------------------------------------------------------------------------------
+  {
+    name: 'Oracle Think Tank — Hexagonal Magus',
+    description:
+      'Magus cards read the top of the deck: declare a name with Stellar and Crescent Magus, keep four cards in hand, and Break Ride Hexagonal Magus to dig for the right card and push +10000.',
+    deck: {
+      firstVanguard: 'EB07-015',
+      cards: [
+        ...n(1, 'EB07-015'),
+        ...n(4, 'EB07-034'), // Psychic Bird (critical)
+        ...n(4, 'EB07-030'), // Miracle Kid (draw)
+        ...n(4, 'EB07-032'), // Battle Sister, Assam (stand)
+        ...n(4, 'EB07-035'), // Lozenge Magus (heal)
+        ...n(4, 'EB07-007'), // Tetra Magus (G1 sentinel)
+        ...n(4, 'EB07-014'), // Crescent Magus
+        ...n(3, 'EB07-024'), // Ripis Magus
+        ...n(3, 'EB07-022'), // Circle Magus
+        ...n(4, 'EB07-004'), // Stellar Magus (G2)
+        ...n(4, 'EB07-011'), // Cuore Magus
+        ...n(3, 'EB07-006'), // Briolette Magus
+        ...n(4, 'EB07-001'), // Hexagonal Magus (G3)
+        ...n(4, 'EB07-016'), // Cylindre Magus (G3)
+      ],
+    },
+  },
 ];

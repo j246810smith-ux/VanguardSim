@@ -75,6 +75,9 @@ export function validateAbilities(
             checkSelector(st.from, here);
             bound.add(st.as);
             break;
+          case 'declare_reveal':
+            bound.add(st.as);
+            break;
           case 'choose_grade_sum':
             checkSelector(st.from, here);
             bound.add(st.as);
@@ -88,6 +91,7 @@ export function validateAbilities(
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             break;
           case 'shuffle':
+          case 'delay_legion_end':
           case 'look_top_place':
           case 'end_normal_ride':
           case 'extra_drive_check':

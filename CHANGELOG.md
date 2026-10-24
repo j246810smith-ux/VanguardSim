@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.23.0-alpha — 2026-10-24
+
+- **Delayed Legion (custom rule, D-030)**: a new toggle on Game Setup, off by default. With it
+  on, Seek Mate's cost must be four normal units without Sentinel, the deck is shuffled before
+  the search, and at the start of your next stand phase you put the Legion Mate into your soul
+  or drop zone (the legion then ends). Saves and replays keep the setting. Standard games are
+  unchanged.
+- **EB07 "Mystical Magus"**: all 35 cards implemented and tested, with an Oracle Think Tank
+  "Hexagonal Magus" deck. New: "declare a card name, and reveal the top card of your deck" (a
+  name choice in the UI; the AI declares the name it has seen fewest copies of) and "put the
+  rest on the top of your deck in any order". The battle log now shows declared names and
+  revealed cards.
+
 ## 0.22.0-alpha — 2026-10-14
 
 - **Side sets begin (D-029): EB01 "Comic Style Vol.1"**: all 35 cards implemented and tested,

@@ -55,7 +55,13 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Current state (2026-10-14)
+## Current state (2026-10-24)
+
+**v0.23.0-alpha published**: EB07 and the **Delayed Legion** house rule (D-030; `GameState.customRules`,
+`game/delayedLegion.ts`, Game Setup toggle; tests `tests/abilities/delayedLegion.test.ts`). New house
+rules go in `CustomRules` + a `custom_rule` condition, off by default. Next: EB08 — see `docs/NEXT_SESSION.md`.
+
+## State at v0.22.0-alpha (2026-10-14)
 
 **v0.22.0-alpha: BT01–BT17, TD01–TD17 (minus TD15) and side sets EB01–EB06 complete** (2104
 cards). Next: the remaining side sets (D-029) — see `docs/NEXT_SESSION.md` "Pick up here

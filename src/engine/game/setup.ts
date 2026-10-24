@@ -4,6 +4,7 @@ import { nextInt, seedRng } from '../rng';
 import type { GameEvent } from '../state/events';
 import {
   other,
+  type CustomRules,
   type GameState,
   type InstanceId,
   type PlayerId,
@@ -19,6 +20,8 @@ export interface GameSetup {
   readonly decks: readonly [DeckList, DeckList];
   /** Omit to decide randomly from the seed. */
   readonly firstPlayer?: PlayerId;
+  /** House rules (all off by default). */
+  readonly customRules?: CustomRules;
 }
 
 const emptyPlayer = (id: PlayerId): PlayerState => ({
@@ -106,6 +109,7 @@ export function createGame(
     usedThisTurn: [],
     usedThisGame: [],
     everInLegion: [],
+    ...(setup.customRules?.delayedLegion ? { customRules: { delayedLegion: true } } : {}),
     grants: [],
     suppressions: [],
     players,

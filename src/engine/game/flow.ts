@@ -84,6 +84,10 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player: task.player });
       s.tasks.unshift(
         { kind: 'enter_phase', phase: 'stand' },
+        // Delayed Legion (custom rule): "at the beginning of your next stand phase"
+        ...(s.delayedLegions?.some((x) => x.player === task.player)
+          ? [{ kind: 'delayed_legion_end' as const, player: task.player }]
+          : []),
         { kind: 'stand_units' },
         { kind: 'enter_phase', phase: 'draw' },
         { kind: 'turn_draw' },

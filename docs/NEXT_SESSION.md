@@ -15,6 +15,24 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (session 2026-10-28)
+
+The user's answers this session: **add the English-only BT16/BT17 cards** (done, D-031: 85 cards,
+ids like `BT16-001EN`, tests in `tests/cards/BT16EN.test.ts` / `BT17EN.test.ts`, a Deletor starter
+deck), **BT03 regional triggers use the Japanese printing** (draw; this reverses D-020 for those
+three cards; the earlier note here that "Japanese is current" was wrong), the Legion layout and
+attack panel are fine, **the hand covered the back-centre circle** (fixed: back row higher, hand
+lower), and **a foil effect by rarity** (done, Settings toggle, `ui/CardView.tsx` `foilOf`). New
+engine piece: **Delete** (CR 1.36 10.1.25; `RuntimeCard.deleted`, `deleteCard`/`undeleteCard` in
+`game/zones.ts`, step `delete` (`ab.del`), trigger `deleted`, filters `deleted` and `legionMate`).
+New tool: `tools/cardgen/similar.py <repo> <SET> [--only-en]` prints the closest scripted card per
+new card. **EB08 done** (35 cards, Galaxy Blaukluger deck). **EB09 done** (35 cards, Nouvelle Vague deck;
+grade 4 supported, `ce: 'nullify_triggers'`, condition `critical`). The user also asked to move
+everything that popped up over the back-centre circle: the hint line, docked prompts and check
+pop-ups now live in the right column (done). The user asked to wrap up and commit after EB09.
+**Next:** EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, then PR cards; publish the batch
+(v0.24.0-alpha, `docs/RELEASING.md`) when the user asks.
+
 ## ▶ Pick up here (session 2026-10-24)
 
 **v0.23.0-alpha, published** (EB07 + the Delayed Legion house rule, D-030). The rule is a toggle

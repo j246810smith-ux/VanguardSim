@@ -7,6 +7,8 @@ export interface Settings {
   readonly speed: Speed;
   readonly reducedMotion: boolean;
   readonly showArt: boolean;
+  /** Holographic foil on R/RR/RRR cards (ui/CardView.tsx `foilOf`). */
+  readonly foil: boolean;
   /** Background music volume, 0–100. */
   readonly musicVolume: number;
   /** Sound-effect volume, 0–100. */
@@ -18,6 +20,7 @@ export const DEFAULT_SETTINGS: Settings = {
   speed: 'normal',
   reducedMotion: false,
   showArt: true,
+  foil: true,
   musicVolume: 50,
   sfxVolume: 70,
   muted: false,

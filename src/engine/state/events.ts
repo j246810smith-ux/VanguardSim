@@ -166,6 +166,15 @@ export type GameEvent =
       readonly cause?: InstanceId;
     }
   | { readonly type: 'CARD_UNLOCKED'; readonly player: PlayerId; readonly instanceId: InstanceId }
+  /** CR 10.1.25: a unit was deleted (by an ability: that ability's master and card). */
+  | {
+      readonly type: 'CARD_DELETED';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+      readonly by?: PlayerId;
+      readonly cause?: InstanceId;
+    }
+  | { readonly type: 'CARD_UNDELETED'; readonly player: PlayerId; readonly instanceId: InstanceId }
   | {
       readonly type: 'LEGION';
       readonly player: PlayerId;

@@ -66,11 +66,13 @@ function UnitCard({
   const crit = currentCritical(view, ctx, id);
   return (
     <div className="unit" data-iid={id}>
+      {/* a deleted unit is face down but still a unit with power (CR 10.1.25) */}
       <CardView
-        definitionId={card.definitionId}
+        definitionId={card.deleted ? null : card.definitionId}
         width={size.w}
         height={size.h}
         rested={card.orientation === 'rest'}
+        deleted={card.deleted === true}
       />
       {/* re-mounted when the power changes, so the change flashes */}
       <div

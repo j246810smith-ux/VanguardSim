@@ -49,6 +49,8 @@ export interface CardRecord {
     readonly reviewed?: string;
     /** Which printing's stats the game uses for a reviewed difference (default Japanese). */
     readonly statsFrom?: 'jp' | 'en';
+    /** Why a card printed only in English is in the pool (DECISIONS D-031); id 'BT16-001EN'. */
+    readonly englishOnly?: string;
   };
 }
 

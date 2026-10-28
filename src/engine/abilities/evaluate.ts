@@ -9,7 +9,7 @@ import {
 } from '../game/characteristics';
 import type { EngineContext } from '../game/context';
 import { locate } from '../game/locate';
-import { currentPower } from '../game/stats';
+import { criticalWithoutContinuous, currentPower } from '../game/stats';
 import { HIDDEN } from '../view';
 import {
   other,
@@ -144,6 +144,13 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.excludeSelf && id === ec.source) return false;
   if (filter.orientation !== undefined && card.orientation !== filter.orientation) return false;
   if (filter.faceUp !== undefined && card.faceUp !== filter.faceUp) return false;
+  if (filter.deleted !== undefined && (card.deleted === true) !== filter.deleted) return false;
+  if (
+    filter.legionMate !== undefined &&
+    state.players.some((p) => p.legion?.mate === id) !== filter.legionMate
+  ) {
+    return false;
+  }
   if (filter.zone !== undefined && locate(state, id).zone !== filter.zone) return false;
   if (filter.boundBySource && card.boundBy !== ec.source) return false;
   if (filter.power !== undefined && !inRange(currentPower(state, ctx, id), filter.power)) {
@@ -431,6 +438,13 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       const ids = select(ec, condition.of).filter((id) => !ec.state.cards[id]!.locked);
       const names = new Set(ids.map((id) => currentName(ec.state, ec.ctx, id)));
       return inRange(names.size, condition.range);
+    }
+    case 'critical': {
+      const ids = select(ec, condition.of);
+      return (
+        ids.length > 0 &&
+        ids.every((id) => inRange(criticalWithoutContinuous(ec.state, ec.ctx, id), condition.range))
+      );
     }
     case 'power': {
       const ids = select(ec, condition.of);

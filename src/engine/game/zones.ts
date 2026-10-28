@@ -68,6 +68,7 @@ export function moveCard(
   // CR 4.1.4: except circle-to-circle moves (the guardian circle is a circle, CR 4.6.1), the card
   // becomes a new card and loses its effects.
   const newCard = !(isCircle(from) && isCircle(to));
+  if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
   if (newCard) {
     s.modifiers = s.modifiers.filter((m) => m.target !== id);
     s.restrictions = s.restrictions.filter((r) => r.target !== id);
@@ -147,6 +148,32 @@ export function lockCard(
     instanceId: id,
     ...(cause ? { by: cause.by, cause: cause.card } : {}),
   });
+}
+
+/** CR 10.1.25: delete a unit (it stays a unit; power 0 and no printed text until its owner's end phase). */
+export function deleteCard(
+  d: Draft,
+  id: InstanceId,
+  cause?: { by: PlayerId; card: InstanceId },
+): void {
+  const s = d.state;
+  const card = s.cards[id]!;
+  if (card.deleted || card.locked || locate(s, id).zone !== 'circle') return;
+  card.deleted = true;
+  emit(d, {
+    type: 'CARD_DELETED',
+    player: locate(s, id).player,
+    instanceId: id,
+    ...(cause ? { by: cause.by, cause: cause.card } : {}),
+  });
+}
+
+/** CR 6.8.1.1.2 / 10.1.25.5: a deleted unit returns to normal (turned face up). */
+export function undeleteCard(d: Draft, id: InstanceId): void {
+  const card = d.state.cards[id]!;
+  if (!card.deleted) return;
+  delete card.deleted;
+  emit(d, { type: 'CARD_UNDELETED', player: locate(d.state, id).player, instanceId: id });
 }
 
 /** CR 10.1.23: unlock (face up, standing, not the same card as before, not "placed"). */

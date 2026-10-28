@@ -175,7 +175,7 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
     <div className="fx" key={fx.id}>
       {fx.kind === 'check' && (
         <div className={`fx-check ${fx.player === ME ? 'me' : 'opp'}`}>
-          <CardView definitionId={fx.definitionId} width={220} height={320} />
+          <CardView definitionId={fx.definitionId} width={110} height={160} />
           <div>
             <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
             {fx.trigger && fx.active ? (

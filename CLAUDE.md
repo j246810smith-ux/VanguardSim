@@ -55,7 +55,13 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Current state (2026-10-24)
+## Current state (2026-10-28)
+
+Unreleased since v0.23.0-alpha: the 85 English-only BT16/BT17 cards and **Delete** (D-031), BT03's
+regional triggers back to the Japanese draw triggers, foil effect by rarity, hand/back-row spacing,
+EB08, EB09 (first grade 4 card), battle UI pop-ups moved to the right column. Next: EB10 — see `docs/NEXT_SESSION.md` "Pick up here (session 2026-10-28)".
+
+## State at v0.23.0-alpha (2026-10-24)
 
 **v0.23.0-alpha published**: EB07 and the **Delayed Legion** house rule (D-030; `GameState.customRules`,
 `game/delayedLegion.ts`, Game Setup toggle; tests `tests/abilities/delayedLegion.test.ts`). New house

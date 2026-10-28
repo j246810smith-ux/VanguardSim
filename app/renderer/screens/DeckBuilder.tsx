@@ -142,7 +142,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   };
   const confirmDiscard = () => !dirty || window.confirm('Discard unsaved changes?');
 
-  const grouped = [0, 1, 2, 3].map((g) => ({
+  const grouped = [0, 1, 2, 3, 4].map((g) => ({
     grade: g,
     ids: [...counts.keys()]
       .filter((id) => ctx.registry.get(id).grade === g)
@@ -185,7 +185,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
         </select>
         <select value={filters.grade} onChange={set('grade')}>
           <option value="">Any grade</option>
-          {[0, 1, 2, 3].map((g) => (
+          {[0, 1, 2, 3, 4].map((g) => (
             <option key={g} value={g}>
               Grade {g}
             </option>

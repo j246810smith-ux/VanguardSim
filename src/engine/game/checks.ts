@@ -1,6 +1,7 @@
 /** Drive checks, damage checks and trigger icons (CR 2.8, 7.5, 7.6.1.6). */
 import type { CheckKind, Task } from '../state/tasks';
 import { other, REAR_GUARD_CIRCLES, unitsOf, type InstanceId, type PlayerId } from '../state/types';
+import { triggersNullified } from '../abilities/continuous';
 import { shareClan } from './characteristics';
 import { ask } from './choice';
 import { emit, type Draft } from './context';
@@ -24,6 +25,7 @@ function check(
   const active =
     !nullifyTriggers &&
     trigger !== null &&
+    !triggersNullified(s, d.ctx, player) &&
     unitsOf(s, player).some((u) => shareClan(s, d.ctx, u, card));
   emit(d, { type: 'CHECK_REVEALED', check: kind, player, instanceId: card, trigger, active });
   const tasks: Task[] = [];

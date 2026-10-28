@@ -20,12 +20,16 @@ export interface ParsedDeck {
   readonly problems: readonly string[];
 }
 
-/** "BT01/012EN", "bt01-012" → "BT01-012"; null if it does not look like a card ID. */
-export function normalizeId(raw: string): string | null {
+/**
+ * "BT01/012EN", "bt01-012" → "BT01-012"; null if it does not look like a card ID. With `has`, an
+ * English number of an English-only card keeps its "EN" ("BT16/001EN" → "BT16-001EN", D-031).
+ */
+export function normalizeId(raw: string, has?: (id: string) => boolean): string | null {
   const m = /^([A-Za-z]{2,3}\d{2})[-/](S?P?\d{1,3})(EN)?$/i.exec(raw.trim());
   if (!m) return null;
   const num = /^\d+$/.test(m[2]!) ? m[2]!.padStart(3, '0') : m[2]!.toUpperCase();
-  return `${m[1]!.toUpperCase()}-${num}`;
+  const id = `${m[1]!.toUpperCase()}-${num}`;
+  return m[3] && has?.(`${id}EN`) ? `${id}EN` : id;
 }
 
 export function exportDeck(name: string, deck: DeckList, registry: CardRegistry): string {
@@ -57,13 +61,13 @@ export function parseDeck(text: string, registry: CardRegistry): ParsedDeck {
     }
     const start = /^(?:starting|first)\s+vanguard\s*:\s*(\S+)/i.exec(line);
     if (start) {
-      const id = normalizeId(start[1]!);
+      const id = normalizeId(start[1]!, (x) => registry.has(x));
       if (id && registry.has(id)) first = id;
       else problems.push(`Unknown starting vanguard: ${line}`);
       continue;
     }
     const entry = /^(\d+)\s*[x×]?\s+(\S+)/i.exec(line);
-    const id = entry ? normalizeId(entry[2]!) : null;
+    const id = entry ? normalizeId(entry[2]!, (x) => registry.has(x)) : null;
     if (!entry || !id) {
       problems.push(`Could not read: ${line}`);
       continue;

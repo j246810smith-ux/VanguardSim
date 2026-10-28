@@ -703,3 +703,307 @@ CARDS = {
       text: {t1},
     })""",
 }
+
+# ---- English-only cards of English BT16 (DECISIONS D-031): ids carry the English number
+PRELUDE += r"""
+const DELETOR = 'Deletor';
+const LIBERATOR = 'Liberator';
+const BLUISH_FLAME = 'Bluish Flame';
+/** "if your opponent has a deleted vanguard" / "if your opponent's vanguard is deleted" (CR 10.1.25) */
+const oppVanguardDeleted = ab.exists(ab.units('opponent', ['VC'], { deleted: true }));
+/** "delete all of your opponent's vanguards" */
+const deleteOppVanguards = ab.del(ab.units('opponent', ['VC']));
+/** "choose one of your opponent's rear-guards in the front row, and lock it" */
+const lockOppFront: Step[] = [ab.choose('l', ab.units('opponent', ['front_RC'])), ab.lock(ab.bound('l'))];
+/** "if you have a card named "Blaster Blade Seeker" in your (VC)" */
+const bbsOnVC = ab.vanguardIs({ name: 'Blaster Blade Seeker' });
+/** "for each of your other units with "Seeker" in its card name" */
+const otherSeekers = ab.units('you', ['VC', 'RC'], { nameIncludes: SEEKER, excludeSelf: true });
+/** "[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +10000 until end of turn." */
+const legionPump10000 = (text: string) =>
+  ab.auto({ id: '1', zones: ['RC'], trigger: ab.legions({ owner: 'you' }), effect: [ab.power(ab.self(), 10000)], text });
+/** "[AUTO](VC/RC):[cost] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +n until end of that battle." */
+const paidAttackPump = (cost: Cost[], amount: number, text: string) =>
+  ab.auto({ id: '1', zones: ['VC', 'RC'], trigger: ab.attacks(), cost, optional: true, effect: [ab.power(ab.self(), amount, 'end_of_battle')], text });
+/** "look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order" */
+const lookThreeCallAny = lookCallOpen(3, {});
+/** "choose another of your units, and that unit gets [Power] +n until end of turn" */
+const pumpAnother = (amount: number): Step[] => [
+  ab.choose('t', ab.units('you', ['VC', 'RC'], { excludeSelf: true })),
+  ab.power(ab.bound('t'), amount),
+];"""
+
+CARDS.update({
+    # Light Source Seeker, Alfred Exiv
+    'BT16-001EN': r"""ab.seekMate({ id: '1', names: ['Blaster Blade', 'Blaster Blade Seeker'], legionPower: 20000, text: {t0} }),
+    ab.cont({ id: '2', zones: ['VC'], condition: ab.all(ab.yourTurn(), ab.inLegion()), effects: [ab.gets(ab.self(), 'power', 1000, otherSeekers)], text: {t1} }),
+    ab.cont({
+      id: '2c',
+      zones: ['VC'],
+      condition: ab.all(ab.yourTurn(), ab.inLegion(), ab.count(ab.units('you', ['RC']), { min: 5 })),
+      effects: [ab.gets(ab.self(), 'critical', 1)],
+      text: {t1},
+    }),
+    ab.act({
+      id: '3',
+      zones: ['VC'],
+      cost: [ab.counterBlast(2, { nameIncludes: SEEKER })],
+      effect: [ab.search('s', { nameIncludes: SEEKER }), ab.superiorCall(ab.bound('s')), ab.shuffle()],
+      text: {t2},
+    })""",
+    # Bluish Flame Liberator, Prominence Glare
+    'BT16-003EN': r"""seek('Regulation Liberator, Aglovale', {t0}),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.placedOn('RC', { owner: 'you' }, 'deck'),
+      condition: ab.inLegion(),
+      cost: [ab.counterBlast(1), ab.discard(1, { nameIncludes: BLUISH_FLAME })],
+      optional: true,
+      effect: [
+        ab.critical(ab.self(), 1),
+        ab.grant(
+          ab.self(),
+          ab.cont({
+            id: 'no_guard',
+            zones: ['VC'],
+            condition: ab.is(ab.self(), { attacking: true }),
+            effects: [ab.forbidGuard('opponent', { grade: { min: 1 } })],
+            text: '[CONT](VC):During the battle that this unit attacks, your opponent cannot call grade 1 or greater units from hand to (GC).',
+          }),
+        ),
+      ],
+      text: {t1},
+    }),
+    ab.act({
+      id: '3',
+      zones: ['VC'],
+      oncePerTurn: true,
+      cost: [ab.counterBlast(1), ab.retireCost(ab.units('you', ['RC']))],
+      effect: [
+        ab.lookTop('l', 4),
+        ab.choose('c', ab.bound('l', { nameIncludes: LIBERATOR }), 1, { upTo: true }),
+        ab.superiorCall(ab.bound('c')),
+        ab.bottomInOrder(ab.bound('l', { zone: 'deck' })),
+      ],
+      text: {t2},
+    })""",
+    # Juxtapose Deletor, Zaele
+    'BT16-008EN': r"""seek('Juxtapose Deletor, Gaele', {t0}),
+    ab.auto({ id: '2', zones: ['VC'], trigger: ab.legions(), cost: [ab.counterBlast(2), ab.discard(1)], optional: true, effect: [deleteOppVanguards], text: {t1} }),
+    vcAttackVanguard2000({t2}, '3')""",
+    # Daunting Deletor, Oksizz
+    'BT16-009EN': r"""ab.act({
+      id: '1',
+      zones: ['VC'],
+      cost: [ab.counterBlast(3, { nameIncludes: DELETOR }), ab.moveChosenCost(ab.units('you', ['RC']), 'soul')],
+      effect: [deleteOppVanguards, ab.power(ab.self(), 10000)],
+      text: {t0},
+    }),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.atStartOf('ride_phase', 'opponent'),
+      condition: oppVanguardDeleted,
+      effect: [
+        // the opponent's choice: discard a card, or no normal ride this ride phase
+        ab.asOpponent([
+          ab.choose('d', ab.cards('you', ['hand']), 1, { upTo: true, prompt: 'Discard a card (or you cannot normal ride this ride phase)' }),
+          ab.moveTo(ab.bound('d'), 'drop'),
+          ab.if_(ab.count(ab.bound('d'), { max: 0 }), [ab.endNormalRide()]),
+        ]),
+      ],
+      text: {t1},
+    })""",
+    # Energy Seeker, Maddan
+    'BT16-013EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attacksVanguard(),
+      condition: bbsOnVC,
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: [ab.power(ab.self(), 1000, 'end_of_battle', otherSeekers)],
+      text: {t},
+    })""",
+    'BT16-015EN': 'sentinelCallFive({t1})',
+    # Regulation Liberator, Aglovale (English-only; not the Japanese BT17 "Oath Liberator, Aglovale")
+    'BT16-016EN': r"""attackPower({ id: '1', amount: 2000, zones: ['RC'], condition: ab.vanguardIs({ nameIncludes: BLUISH_FLAME }), text: {t0} }),
+    ab.auto({
+      id: '2',
+      zones: ['any'],
+      trigger: ab.placedOn('RC', 'self', 'deck'),
+      cost: [ab.soulBlast(1)],
+      optional: true,
+      effect: lookAndTake(5, { nameIncludes: BLUISH_FLAME }, 'hand'),
+      text: {t1},
+    })""",
+    # Brawler, Skybeat Dragon
+    'BT16-018EN': r"""...legionLeader('Brawler, Skyhowl Dragon', [ab.choose('r', ab.units('opponent', ['front_RC'])), ab.retire(ab.bound('r'))], {T})""",
+    # Refusing Deletor, Evil
+    'BT16-022EN': r"""ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('GC'),
+      cost: [ab.discard(1)],
+      optional: true,
+      effect: [ab.choose('t', ab.units('you', ['VC', 'RC'], { beingAttacked: true })), ab.restrict(ab.bound('t'), 'cannot_be_hit', 'end_of_battle')],
+      text: {t1},
+    })""",
+    # Agreement Seeker, Menprius
+    'BT16-027EN': r"""ab.auto({
+      id: '1',
+      zones: ['VC', 'RC'],
+      trigger: ab.attackHits('vanguard'),
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: lookAndTake(5, { grade: { min: 3 } }, 'hand'),
+      text: {t},
+    })""",
+    # Citation Liberator, Heli
+    'BT16-035EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attackHits('vanguard'),
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: lookThreeCallAny,
+      text: {t},
+    })""",
+    # Flaming Passion Liberator, Guido: the English text prints "[AUTO]RC:" with no timing; an [ACT](RC) (UNRESOLVED_RULINGS)
+    'BT16-039EN': r"""ab.forerunner(),
+    ab.act({
+      id: '2',
+      zones: ['RC'],
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      effect: [
+        ab.if_(vanguardInLegion(), [
+          ab.lookTop('l', 3),
+          ab.choose('c', ab.bound('l', { nameIncludes: LIBERATOR }), 1, { upTo: true }),
+          ab.superiorCall(ab.bound('c'), { open: true }),
+          ab.shuffle(),
+        ]),
+      ],
+      text: {t1},
+    })""",
+    # Brawler, Skyhowl Dragon
+    'BT16-040EN': r"""ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: ab.vanguardIs({ nameIncludes: BRAWLER }),
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: [ab.choose('r', ab.units('opponent', ['front_RC'])), ab.retire(ab.bound('r'))],
+      text: {t},
+    })""",
+    'BT16-042EN': 'nameVanguardAttack(BRAWLER, {t})',
+    # Juxtapose Deletor, Gaele
+    'BT16-046EN': "ab.auto({ id: '1', zones: ['any'], trigger: ab.placedOn('RC'), condition: oppVanguardDeleted, effect: lockOppFront, text: {t} })",
+    'BT16-047EN': 'nameVanguardAttack(DELETOR, {t})',
+    # Idolizing Deletor, Guim
+    'BT16-048EN': "ab.auto({ id: '1', zones: ['RC'], trigger: ab.boostedAttackHits(undefined, 'self', 'vanguard'), condition: oppVanguardDeleted, effect: lockOppFront, text: {t} })",
+    'BT16-049EN': "ab.auto({ id: '1', zones: ['any'], trigger: ab.placedOn('RC'), cost: [ab.soulBlast(2)], optional: true, effect: [ab.draw(1)], text: {t} })",
+    # Acquire Deletor, Igor
+    'BT16-050EN': r"""ab.forerunner(),
+    ab.auto({
+      id: '2',
+      zones: ['RC'],
+      trigger: ab.deleted({ owner: 'opponent', filter: { isVanguard: true } }),
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: [ab.draw(1), ...ab.counterCharge(1)],
+      text: {t1},
+    })""",
+    # Rousing Seeker, Aremil
+    'BT16-063EN': r"""ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: bbsOnVC,
+      cost: [ab.soulBlast(2)],
+      optional: true,
+      effect: [ab.power(ab.self(), 1000, 'end_of_turn', otherSeekers)],
+      text: {t},
+    })""",
+    'BT16-072EN': 'paidAttackPump([ab.counterBlast(1), ab.soulBlast(1)], 5000, {t})',
+    'BT16-076EN': 'legionPump10000({t})',
+    # Invitation Liberator, Rud
+    'BT16-077EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.boostedAttackHits(undefined, 'self', 'vanguard'),
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: lookThreeCallAny,
+      text: {t},
+    })""",
+    'BT16-081EN': 'attackVanguardSB1Pump3000({t})',
+    # Liberator, Dulcet Archer
+    'BT16-082EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      oncePerTurn: true,
+      trigger: ab.placedOn('RC', { owner: 'you', filter: { nameIncludes: LIBERATOR, excludeSelf: true } }, 'deck'),
+      cost: [ab.discard(1)],
+      optional: true,
+      effect: [ab.draw(1)],
+      text: {t},
+    })""",
+    'BT16-086EN': 'attackCB1Pump3000({t})',
+    'BT16-088EN': "...legionAttacker('Jaillock Brawler, Kotenka', {T})",
+    'BT16-093EN': 'interceptShieldAny({t})',
+    'BT16-094EN': 'legionAttack4000({t})',
+    'BT16-097EN': '{ ...cb1Plus1000, text: {t} }',
+    'BT16-098EN': "attackPower({ amount: 2000, zones: ['RC'], vanguardOnly: true, text: {t} })",
+    'BT16-099EN': 'nameVanguardAttack(BRAWLER, {t})',
+    'BT16-101EN': 'legionBoost4000({t})',
+    # Squirm Deletor, Lourelou
+    'BT16-113EN': r"""ab.auto({
+      id: '1',
+      zones: ['VC'],
+      trigger: ab.driveCheckReveals({ grade: { min: 3, max: 3 } }),
+      effect: [
+        ab.grant(
+          ab.self(),
+          ab.auto({
+            id: 'squirm',
+            zones: ['VC'],
+            trigger: ab.atStartOf('close_step'),
+            triggerIf: ab.is(ab.self(), { attacking: true }),
+            cost: [ab.retireCost(ab.units('you', ['RC'], { grade: { min: 3, max: 3 }, nameIncludes: DELETOR }))],
+            optional: true,
+            effect: [deleteOppVanguards],
+            text: '[AUTO](VC):[Choose one of your grade 3 rear-guards with "Deletor" in its card name, and retire it] At the end of the battle that this unit attacked, you may pay the cost. If you do, delete all of your opponent\'s vanguards.',
+          }),
+          'end_of_battle',
+        ),
+      ],
+      text: {t0},
+    }),
+    attackPower({ id: '2', amount: 3000, zones: ['VC'], vanguardOnly: true, text: {t1} })""",
+    # Diverging Deletor, Newark
+    'BT16-114EN': "ab.auto({ id: '1', zones: ['RC'], trigger: ab.attackHits('vanguard'), effect: pumpAnother(3000), text: {t} })",
+    'BT16-115EN': 'attackCB1Pump3000({t})',
+    # Penetrate Deletor, Iggy
+    'BT16-116EN': "ab.auto({ id: '1', zones: ['RC'], trigger: ab.attackHits('vanguard'), condition: oppVanguardDeleted, effect: lockOppFront, text: {t} })",
+    # Mashing Deletor, Gaon
+    'BT16-117EN': "ab.auto({ id: '1', zones: ['VC'], trigger: ab.attacksVanguard(), condition: { cond: 'power', of: ab.attackedUnit(), range: { min: 12000 } }, effect: [ab.power(ab.self(), 10000, 'end_of_battle')], text: {t0} }), attackPower({ id: '2', amount: 2000, zones: ['RC'], vanguardOnly: true, text: {t1} })",
+    'BT16-119EN': "ab.auto({ id: '1', zones: ['VC', 'RC'], trigger: ab.attackHits('vanguard'), effect: ab.counterCharge(1), text: {t} })",
+    # Peeling Deletor, Progue
+    'BT16-120EN': "ab.auto({ id: '1', zones: ['RC'], trigger: ab.deleted({ owner: 'opponent', filter: { isVanguard: true } }), effect: [ab.power(ab.self(), 2000)], text: {t} })",
+    'BT16-121EN': "ab.auto({ id: '1', zones: ['any'], trigger: ab.placedOn('RC'), effect: pumpAnother(2000), text: {t} })",
+    'BT16-123EN': 'nameVanguardAttack(DELETOR, {t})',
+    # Chewing Deletor, Boroh
+    'BT16-124EN': "boostPower(5000, oppVanguardDeleted, {t}, { name: 'Daunting Deletor, Oksizz' })",
+    'BT16-125EN': "ab.act({ id: '1', zones: ['RC'], cost: [ab.restCost()], effect: pumpAnother(2000), text: {t} })",
+    # Natatorial Deletor, Nie
+    'BT16-126EN': r"""ab.forerunner(),
+    ab.act({
+      id: '2',
+      zones: ['RC'],
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      effect: lookAndTake(5, { grade: { min: 3 } }, 'hand'),
+      text: {t1},
+    })""",
+})

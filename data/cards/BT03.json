@@ -1,6 +1,6 @@
 {
   "set": "BT03",
-  "importedAt": "2026-10-08T16:57:26.497Z",
+  "importedAt": "2026-10-28T09:05:21.461Z",
   "importerVersion": 2,
   "cards": [
     {
@@ -2374,7 +2374,7 @@
       "shield": 5000,
       "critical": 1,
       "skillIcon": "boost",
-      "trigger": "critical",
+      "trigger": "draw",
       "sentinel": false,
       "rarity": "C",
       "printings": ["BT03/052", "BT03/054EN"],
@@ -2393,8 +2393,8 @@
       "checks": {
         "jpEnStatsMatch": false,
         "mismatches": ["trigger: JP draw vs EN critical"],
-        "reviewed": "English BT03 prints Spiral Master as a critical trigger; the Japanese original is a draw trigger.",
-        "statsFrom": "en"
+        "reviewed": "English BT03 prints Spiral Master as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).",
+        "statsFrom": "jp"
       }
     },
     {
@@ -2652,7 +2652,7 @@
       "shield": 5000,
       "critical": 1,
       "skillIcon": "boost",
-      "trigger": "critical",
+      "trigger": "draw",
       "sentinel": false,
       "rarity": "C",
       "printings": ["BT03/058", "BT03/060EN"],
@@ -2671,8 +2671,8 @@
       "checks": {
         "jpEnStatsMatch": false,
         "mismatches": ["trigger: JP draw vs EN critical"],
-        "reviewed": "English BT03 prints Herbivorous Dragon, Brutosaurus as a critical trigger; the Japanese original is a draw trigger.",
-        "statsFrom": "en"
+        "reviewed": "English BT03 prints Herbivorous Dragon, Brutosaurus as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).",
+        "statsFrom": "jp"
       }
     },
     {
@@ -3344,7 +3344,7 @@
       "shield": 5000,
       "critical": 1,
       "skillIcon": "boost",
-      "trigger": "critical",
+      "trigger": "draw",
       "sentinel": false,
       "rarity": "C",
       "printings": ["BT03/073", "BT03/075EN"],
@@ -3363,8 +3363,8 @@
       "checks": {
         "jpEnStatsMatch": false,
         "mismatches": ["trigger: JP draw vs EN critical"],
-        "reviewed": "English BT03 prints Victory Maker as a critical trigger; the Japanese original is a draw trigger.",
-        "statsFrom": "en"
+        "reviewed": "English BT03 prints Victory Maker as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).",
+        "statsFrom": "jp"
       }
     },
     {

@@ -48,6 +48,12 @@ export interface RuntimeCard {
   orientation: 'stand' | 'rest';
   /** CR 10.1.21: a locked card is face down, not a unit, and has no characteristics. */
   locked: boolean;
+  /**
+   * CR 10.1.25 (CR 1.36): a deleted unit is still a unit, but its original power is 0 and it has
+   * none of its printed text. Its face stays public to both players (10.1.25.6), so the engine
+   * keeps `faceUp` true and the UI draws it face down. Cleared in its owner's end phase.
+   */
+  deleted?: boolean;
   /** In the bind zone: the card whose effect bound it ("cards bound with this card's effect"). */
   boundBy?: InstanceId;
 }

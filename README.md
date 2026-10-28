@@ -13,13 +13,13 @@ downloads card art only when you ask it to).
 
 ## Status: alpha
 
-| Area         | State                                                                                                                                                                                                                                                                                                      |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                           |
-| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **and Extra Boosters EB01–EB07**: 2139 cards, every effect implemented and tested. Coming next: EB08–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
-| Game         | Desktop app with music, sound effects and card animations: main menu, 67 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, an optional **Delayed Legion** house rule, Artwork Manager for optional card art                                                 |
-| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                    |
-| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                                                                                                            |
+| Area         | State                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                                                                                            |
+| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **Extra Boosters EB01–EB09, and the English-only cards of English BT16/BT17** (Deletors and more): 2294 cards, every effect implemented and tested. Coming next: EB10–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
+| Game         | Desktop app with music, sound effects and card animations: main menu, 70 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, foil effects on rare cards, an optional **Delayed Legion** house rule, Artwork Manager for optional card art                                                                                      |
+| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                                                                                     |
+| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                                                                                                                                                                             |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.
@@ -38,10 +38,10 @@ All are off by default; standard games follow the official rules.
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.23.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.23.0-alpha/VanguardSim-0.23.0-alpha-portable.exe)
+**Latest version: v0.24.0-alpha** — direct downloads:
+[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.24.0-alpha/VanguardSim-0.24.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.23.0-alpha/VanguardSim-0.23.0-alpha-win-x64.zip)
+[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.24.0-alpha/VanguardSim-0.24.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

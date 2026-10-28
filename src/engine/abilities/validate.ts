@@ -155,7 +155,8 @@ export function validateAbilities(
             e.ce === 'forbid_guard' ||
             e.ce === 'also_clan' ||
             e.ce === 'deck_limit' ||
-            e.ce === 'limit_break_always'
+            e.ce === 'limit_break_always' ||
+            e.ce === 'nullify_triggers'
           )
             continue;
           checkSelector(e.target, 'effect');

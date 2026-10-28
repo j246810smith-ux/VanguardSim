@@ -27,18 +27,18 @@ const REVIEWED_DIFFERENCES: Readonly<
 > = {
   'BT03-052': {
     reason:
-      'English BT03 prints Spiral Master as a critical trigger; the Japanese original is a draw trigger.',
-    use: 'en',
+      'English BT03 prints Spiral Master as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).',
+    use: 'jp',
   },
   'BT03-058': {
     reason:
-      'English BT03 prints Herbivorous Dragon, Brutosaurus as a critical trigger; the Japanese original is a draw trigger.',
-    use: 'en',
+      'English BT03 prints Herbivorous Dragon, Brutosaurus as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).',
+    use: 'jp',
   },
   'BT03-073': {
     reason:
-      'English BT03 prints Victory Maker as a critical trigger; the Japanese original is a draw trigger.',
-    use: 'en',
+      'English BT03 prints Victory Maker as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).',
+    use: 'jp',
   },
   'BT08-058': {
     reason:
@@ -232,6 +232,12 @@ const EN_SHARED_SETS: Readonly<Record<string, readonly string[]>> = {
   BT16: ['BT17'],
   BT17: ['BT16'],
 };
+/**
+ * Sets whose English-only cards join the pool (DECISIONS D-031): the English "ver.E" BT16/BT17
+ * printed cards that the Japanese sets do not have. They get the English number as id
+ * ('BT16-001EN') and the English record as their only source.
+ */
+const EN_ONLY_IN_POOL = new Set(['BT16', 'BT17']);
 const HOSTS = { en: 'https://en.cf-vanguard.com', jp: 'https://cf-vanguard.com' } as const;
 const DELAY_MS = 400; // be polite to the official site
 const USER_AGENT = 'VanguardSim card importer (personal offline simulator)';
@@ -589,6 +595,46 @@ async function main(): Promise<void> {
   }
   // a Trial Deck is a fixed 50-card product: its contents come from the official English
   // product page (the Japanese pages and the card pages list no quantities)
+  // D-031: English cards that no Japanese card of this set or of the shared sets pairs with
+  const pairedElsewhere = new Set(
+    (EN_SHARED_SETS[set!] ?? []).flatMap((other) => {
+      const f = join('data', 'cards', `${other}.json`);
+      if (!existsSync(f)) throw new Error(`${set}: import ${other} first (English-only cards)`);
+      return (JSON.parse(readFileSync(f, 'utf8')) as SetFile).cards.flatMap((c) => c.printings);
+    }),
+  );
+  const englishOnly = pairing.enOnly.filter(
+    (no) => !shared.has(no) && !pairedElsewhere.has(en.bases.get(no)!.card.number),
+  );
+  if (EN_ONLY_IN_POOL.has(set!)) {
+    for (const no of englishOnly) {
+      const e = en.bases.get(no)!;
+      const id = `${set}-${no}EN`;
+      cards.push({
+        id,
+        set: set!,
+        jp: null,
+        en: localized(e.card),
+        cardType: e.card.type,
+        grade: e.card.grade,
+        power: e.card.power,
+        shield: e.card.shield,
+        critical: e.card.critical,
+        skillIcon: e.card.skillIcon,
+        trigger: e.card.trigger,
+        sentinel: /:Sentinel/.test(e.card.text),
+        rarity: e.card.rarity,
+        printings: en.printings.get(no) ?? [],
+        sources: { en: e.source },
+        checks: {
+          jpEnStatsMatch: true,
+          mismatches: [],
+          englishOnly: 'Printed only in the English ver.E set; added by the user (D-031).',
+        },
+      });
+      await downloadImage(id, e.card, 'en');
+    }
+  }
   const product = set!.startsWith('TD') ? await productDeck(pairing.pairs) : undefined;
   const file: SetFile = {
     set: set!,
@@ -597,7 +643,7 @@ async function main(): Promise<void> {
     cards,
     ...(product ? { product } : {}),
     enOnly: pairing.enOnly
-      .filter((no) => !shared.has(no))
+      .filter((no) => !shared.has(no) && !(EN_ONLY_IN_POOL.has(set!) && englishOnly.includes(no)))
       .map((no) => {
         const c = en.bases.get(no)!.card;
         return { number: c.number, name: c.name, printings: en.printings.get(no) ?? [] };

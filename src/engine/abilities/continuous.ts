@@ -151,6 +151,15 @@ export function hasPermission(
   );
 }
 
+/** Are `player`'s trigger effects nullified by a continuous ability (Dragonic Nouvelle Vague)? */
+export function triggersNullified(state: GameState, ctx: EngineContext, player: PlayerId): boolean {
+  return activeContinuous(state, ctx).some(({ ec, a }) =>
+    a.effects.some(
+      (e) => e.ce === 'nullify_triggers' && (e.player === 'you') === (ec.master === player),
+    ),
+  );
+}
+
 /** May `player` not normal call `card` to (GC) because of a continuous ability (e.g. Silent Tom)? */
 export function guardForbidden(
   state: GameState,

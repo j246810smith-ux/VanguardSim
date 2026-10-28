@@ -150,6 +150,9 @@ describe('manifest', () => {
     expect(cardIdFromFileName('BT01-001.png')).toBe('BT01-001');
     expect(cardIdFromFileName('bt01_001EN.png')).toBe('BT01-001');
     expect(cardIdFromFileName('BT09 012en.JPG')).toBe('BT09-012');
+    // English-only cards (D-031) keep the English number when the game has such a card
+    expect(cardIdFromFileName('BT16_001EN.png', new Set(['BT16-001EN']))).toBe('BT16-001EN');
+    expect(cardIdFromFileName('BT16_001EN.png', new Set(['BT16-001']))).toBe('BT16-001');
     expect(cardIdFromFileName('td03-016.jpg')).toBe('TD03-016');
     expect(cardIdFromFileName('EB01_001EN.png')).toBe('EB01-001');
     expect(cardIdFromFileName('mbt01-005.png')).toBe('MBT01-005');

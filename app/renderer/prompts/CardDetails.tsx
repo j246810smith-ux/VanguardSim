@@ -86,6 +86,11 @@ export function CardDetails({
           <div className="num">
             {meta?.number ?? def.id} · {meta?.rarity || '—'} · {zoneOf(view, id)}
           </div>
+          {card.deleted && (
+            <div className="num">
+              DELETED: original power 0 and no text until its owner&apos;s end phase
+            </div>
+          )}
           <dl className="stats">
             <div>
               <dt>GRADE</dt>

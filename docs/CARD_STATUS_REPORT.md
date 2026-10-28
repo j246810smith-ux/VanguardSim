@@ -128,7 +128,7 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+| 161   | 161                 | 161                 | 0               | 0            | 161           | 161 | 161      |
 
 All cards complete.
 
@@ -136,7 +136,7 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 102   | 102                 | 102                 | 0               | 0            | 102           | 102 | 102      |
+| 128   | 128                 | 128                 | 0               | 0            | 128           | 128 | 128      |
 
 All cards complete.
 
@@ -359,3 +359,19 @@ All cards complete.
 - EB07-033 Battle Sister, Chai — no art
 - EB07-034 Psychic Bird — no art
 - EB07-035 Lozenge Magus — no art
+
+## EB08
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## EB09
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.

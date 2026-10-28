@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
-import { CardView } from '../renderer/ui/CardView';
+import { DEFAULT_SETTINGS, SettingsContext } from '../renderer/settings';
+import { CardView, foilOf } from '../renderer/ui/CardView';
 
 describe('card art', () => {
   afterEach(cleanup);
@@ -26,5 +27,33 @@ describe('card art', () => {
     fireEvent.error(container.querySelector('img')!);
     rerender(<CardView definitionId="BT01-001" width={100} height={146} />);
     expect(container.querySelector('img')?.getAttribute('src')).toBe('cards/BT01/BT01-001.png');
+  });
+});
+
+describe('foil by rarity', () => {
+  afterEach(cleanup);
+
+  it('maps printed rarities to foil levels; C and TD cards are plain', () => {
+    expect(['C', 'TD', 'R', 'RR', 'RRR', 'ЯЯЯ', ''].map(foilOf)).toEqual([
+      null,
+      null,
+      'r',
+      'rr',
+      'rrr',
+      'rev',
+      null,
+    ]);
+  });
+
+  it('adds the foil layer to rare cards only, and not when the setting is off', () => {
+    const foil = (id: string, on = true) =>
+      render(
+        <SettingsContext.Provider value={{ ...DEFAULT_SETTINGS, foil: on }}>
+          <CardView definitionId={id} width={100} height={146} />
+        </SettingsContext.Provider>,
+      ).container.querySelector('.foil-layer') !== null;
+    expect(foil('BT01-001')).toBe(true); // RRR
+    expect(foil('BT01-041')).toBe(false); // C
+    expect(foil('BT01-001', false)).toBe(false);
   });
 });

@@ -205,6 +205,10 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (e.type !== 'CARD_LOCKED' || !subjectIs(ec, t.who, e.instanceId, e.player)) return null;
       if (t.byYourEffect && e.by !== ec.master) return null;
       return { eventCard: e.instanceId };
+    case 'deleted':
+      return e.type === 'CARD_DELETED' && subjectIs(ec, t.who, e.instanceId, e.player)
+        ? { eventCard: e.instanceId }
+        : null;
     case 'unlocked':
       return e.type === 'CARD_UNLOCKED' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
@@ -252,6 +256,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'STEP_STARTED',
   'CARD_UNLOCKED',
   'CARD_LOCKED',
+  'CARD_DELETED',
   'UNIT_STOOD',
   'UNIT_RESTED',
   'CHECK_REVEALED',

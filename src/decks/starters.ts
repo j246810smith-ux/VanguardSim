@@ -140,7 +140,7 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       cards: [
         ...n(1, 'BT03-031'), // Hades Ringmaster (G0)
         ...n(4, 'BT03-051'), // Dynamite Juggler (critical)
-        ...n(4, 'BT03-052'), // Spiral Master (critical)
+        ...n(4, 'BT03-052'), // Spiral Master (draw)
         ...n(4, 'BT03-053'), // Candy Clown (heal)
         ...n(4, 'BT03-054'), // Rainbow Magician (draw)
         ...n(4, 'BT03-016'), // Hades Hypnotist (G1 sentinel)
@@ -188,7 +188,7 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       firstVanguard: 'BT03-038', // Godhawk, Ichibyoshi
       cards: [
         ...n(1, 'BT03-038'), // Godhawk, Ichibyoshi (G0, rides Crescent Moon)
-        ...n(4, 'BT03-073'), // Victory Maker (critical)
+        ...n(4, 'BT03-073'), // Victory Maker (draw)
         ...n(4, 'BT01-027'), // heal
         ...n(4, 'BT01-056'), // critical
         ...n(4, 'BT02-067'), // stand
@@ -211,7 +211,7 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       firstVanguard: 'BT01-067', // Ironclad Dragon, Shieldon
       cards: [
         ...n(1, 'BT01-067'), // Ironclad Dragon, Shieldon (G0)
-        ...n(4, 'BT03-058'), // Herbivorous Dragon, Brutosaurus (critical)
+        ...n(4, 'BT03-058'), // Herbivorous Dragon, Brutosaurus (draw)
         ...n(4, 'BT03-059'), // Pack Dragon, Tinyrex (stand)
         ...n(4, 'BT03-060'), // Savage Shaman (heal)
         ...n(4, 'BT03-061'), // Black Cannon Tiger (critical)
@@ -1655,6 +1655,90 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
         ...n(3, 'EB07-006'), // Briolette Magus
         ...n(4, 'EB07-001'), // Hexagonal Magus (G3)
         ...n(4, 'EB07-016'), // Cylindre Magus (G3)
+      ],
+    },
+  },
+  // ---- BT16 ---------------------------------------------------------------------------------------
+  {
+    name: 'Link Joker — Juxtapose Deletor, Zaele',
+    description:
+      "Deletors (English-only cards, D-031): Legion Zaele with Gaele to delete the opposing vanguard (power 0, no text until its owner's end phase), then lock the front row with Gaele, Guim and Iggy-style attacks while Oksizz keeps the opponent from riding.",
+    deck: {
+      firstVanguard: 'BT16-050EN',
+      cards: [
+        ...n(1, 'BT16-050EN'),
+        ...n(4, 'BT16-127EN'), // Override Deletor, Olg (critical)
+        ...n(4, 'BT16-128EN'), // Marching Deletor, Maze (critical)
+        ...n(4, 'BT16-129EN'), // Exulting Deletor, Maestol (draw)
+        ...n(4, 'BT16-132EN'), // Taunting Deletor, Gotho (heal)
+        ...n(4, 'BT16-022EN'), // Refusing Deletor, Evil (G1 sentinel)
+        ...n(4, 'BT16-048EN'), // Idolizing Deletor, Guim
+        ...n(3, 'BT16-124EN'), // Chewing Deletor, Boroh
+        ...n(3, 'BT16-122EN'), // Poisonous Deletor, Edda
+        ...n(4, 'BT16-046EN'), // Juxtapose Deletor, Gaele (G2, Legion Mate)
+        ...n(3, 'BT16-047EN'), // Pursuing Deletor, Egotte
+        ...n(2, 'BT16-119EN'), // Greedy Deletor, Jail
+        ...n(2, 'BT16-120EN'), // Peeling Deletor, Progue
+        ...n(4, 'BT16-008EN'), // Juxtapose Deletor, Zaele (G3)
+        ...n(2, 'BT16-009EN'), // Daunting Deletor, Oksizz (G3)
+        ...n(2, 'BT16-113EN'), // Squirm Deletor, Lourelou (G3)
+      ],
+    },
+  },
+  // ---- EB08 ---------------------------------------------------------------------------------------
+  {
+    name: 'Nova Grappler — Galaxy Blaukluger',
+    description:
+      'Ride Blaujunger, Blaupanzer, Blaukluger and Stern Blaukluger in order to search each step, then Break Ride Mond Blaukluger or lead with Galaxy Blaukluger: every Blau hit stands a column, and Mars Blaukluger and Flower Ray Leprechaun stand themselves for another swing.',
+    deck: {
+      firstVanguard: 'EB08-028',
+      cards: [
+        ...n(1, 'EB08-028'),
+        ...n(4, 'EB08-029'), // Schones Wetter (critical)
+        ...n(4, 'EB08-030'), // Shining Lady (critical)
+        ...n(4, 'EB08-033'), // Regenbogen (heal)
+        ...n(4, 'EB08-034'), // Starker Wind (stand)
+        ...n(4, 'EB08-008'), // Blau Dunkelheit (G1 sentinel)
+        ...n(4, 'EB08-026'), // Blaupanzer
+        ...n(3, 'EB08-007'), // Flower Ray Leprechaun
+        ...n(3, 'EB08-015'), // Polar Stern
+        ...n(4, 'EB08-014'), // Blaukluger (G2)
+        ...n(3, 'EB08-006'), // Mars Blaukluger
+        ...n(2, 'EB08-012'), // Grosse Baer
+        ...n(2, 'EB08-011'), // Jupiter Blaukluger
+        ...n(3, 'EB08-005'), // Stern Blaukluger (G3)
+        ...n(2, 'EB08-003'), // Mond Blaukluger (G3)
+        ...n(2, 'EB08-002'), // Galaxy Blaukluger (G3)
+        ...n(1, 'EB08-017'), // Pluto Blaukluger (G3)
+      ],
+    },
+  },
+  // ---- EB09 ---------------------------------------------------------------------------------------
+  {
+    name: 'Kagero — Transcendence Dragon, Dragonic Nouvelle Vague',
+    description:
+      "Ride a grade 3 such as Blast Bulk Dragon, then the grade 4 Nouvelle Vague: during your turn your opponent's triggers do nothing, grade 0s cannot guard its attacks, and at Limit Break it retires the whole opposing field. Nouvellecritic and Nouvelleroman Dragon use Nouvelle Vague in hand to retire and search.",
+    deck: {
+      firstVanguard: 'EB09-028',
+      cards: [
+        ...n(1, 'EB09-028'),
+        ...n(4, 'EB09-029'), // Blue Ray Dracokid (critical)
+        ...n(4, 'EB09-030'), // Embodiment of Spear, Tahr (critical)
+        ...n(4, 'EB09-031'), // Dragon Dancer, Monica (draw)
+        ...n(4, 'EB09-033'), // Dragon Monk, Genjo (heal)
+        ...n(4, 'EB09-008'), // Dragon Dancer, Maria (G1 sentinel)
+        ...n(3, 'EB09-014'), // Nouvelleroman Dragon
+        ...n(3, 'EB09-013'), // Dragon Knight, Ashgar
+        ...n(2, 'EB09-023'), // Embodiment of Armor, Bahr
+        ...n(2, 'EB09-007'), // Dragonic Gaias
+        ...n(4, 'EB09-006'), // Nouvellecritic Dragon (G2)
+        ...n(3, 'EB09-010'), // Dragon Knight, Neshat
+        ...n(2, 'EB09-022'), // Demonic Dragon Mage, Kongara
+        ...n(2, 'EB09-021'), // Dragon Knight, Nehalem
+        ...n(3, 'EB09-003'), // Blast Bulk Dragon (G3)
+        ...n(2, 'EB09-004'), // Dragonic Overlord (G3)
+        ...n(1, 'EB09-002'), // Cruel Dragon (G3)
+        ...n(2, 'EB09-001'), // Transcendence Dragon, Dragonic Nouvelle Vague (G4)
       ],
     },
   },

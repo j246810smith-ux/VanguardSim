@@ -51,6 +51,10 @@ export interface CardFilter {
   readonly sentinel?: boolean;
   readonly orientation?: 'stand' | 'rest';
   readonly faceUp?: boolean;
+  /** A deleted unit (CR 10.1.25): "if your opponent has a deleted vanguard". */
+  readonly deleted?: boolean;
+  /** Is a Legion Mate (CR 10.1.24): "choose one of your opponent's legion mates". */
+  readonly legionMate?: boolean;
   /** Is a unit being attacked in the current battle. */
   readonly beingAttacked?: boolean;
   /** Is the attacking unit in the current battle. */
@@ -150,6 +154,11 @@ export type Condition =
    * For automatic abilities only: a continuous ability that reads power would depend on itself.
    */
   | { readonly cond: 'power'; readonly of: Selector; readonly range: Range }
+  /**
+   * The selected unit's critical is in range ("if this unit's [Critical] is two or more"): printed
+   * critical plus effects, not continuous bonuses, so continuous abilities may read it.
+   */
+  | { readonly cond: 'critical'; readonly of: Selector; readonly range: Range }
   /** How many different card names the selected (unlocked) cards have ("rear-guards with different card names"). */
   | { readonly cond: 'distinct_names'; readonly of: Selector; readonly range: Range }
   /** How many cards matching `filter` the master called to (RC) this turn. */
@@ -405,6 +414,8 @@ export type Step =
   | { readonly op: 'lock'; readonly target: Selector }
   /** CR 10.1.23 */
   | { readonly op: 'unlock'; readonly target: Selector }
+  /** CR 10.1.25: "delete all of your opponent's vanguards". */
+  | { readonly op: 'delete'; readonly target: Selector }
   /**
    * CR 10.1.24: put the target next to the source vanguard and enter the legion state.
    * `withVanguard`: next to the master's current vanguard instead ("ride it …, and [Legion]").
@@ -547,6 +558,8 @@ export type TriggerCondition =
   | { readonly on: 'intercepts'; readonly who: Subject }
   /** "When <a card> is placed in a bind zone" (who: the card, e.g. an opponent's card). */
   | { readonly on: 'put_into_bind'; readonly who: Subject }
+  /** "When your opponent's vanguard is deleted" (CR 10.1.25). */
+  | { readonly on: 'deleted'; readonly who: Subject }
   /** CR 6.8.1.2: "when a card is unlocked". */
   | { readonly on: 'unlocked'; readonly who: Subject }
   /** CR 10.1.24.13: "when this unit legions". */
@@ -633,7 +646,9 @@ export type ContinuousEffect =
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
   | { readonly ce: 'deck_limit'; readonly copies: number }
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
-  | { readonly ce: 'limit_break_always' };
+  | { readonly ce: 'limit_break_always' }
+  /** "All of your opponent's trigger effects are nullified" (the trigger icons of their checks do nothing). */
+  | { readonly ce: 'nullify_triggers'; readonly player: 'you' | 'opponent' };
 
 export interface ContAbility extends AbilityBase {
   readonly kind: 'CONT';

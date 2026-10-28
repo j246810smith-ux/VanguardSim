@@ -13,7 +13,8 @@ export function abilitiesOf(
 ): readonly AbilityDefinition[] {
   const card = state.cards[id];
   if (!card || card.locked) return []; // CR 10.1.21.3: a locked card has no characteristics
-  const printed = ctx.registry.get(card.definitionId).abilities;
+  // CR 10.1.25.3: a deleted unit loses its printed text; given abilities stay (10.1.25.7)
+  const printed = card.deleted ? [] : ctx.registry.get(card.definitionId).abilities;
   const granted = state.grants.filter((g) => g.target === id);
   const all =
     granted.length === 0

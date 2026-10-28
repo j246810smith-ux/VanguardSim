@@ -102,6 +102,10 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       return { text: `${n(e.instanceId)} was locked`, tone: tone(e.player) };
     case 'CARD_UNLOCKED':
       return { text: `${n(e.instanceId)} was unlocked`, tone: tone(e.player) };
+    case 'CARD_DELETED':
+      return { text: `${n(e.instanceId)} was deleted`, tone: tone(e.player) };
+    case 'CARD_UNDELETED':
+      return { text: `${n(e.instanceId)} is no longer deleted`, tone: tone(e.player) };
     case 'LEGION':
       return { text: `${who(e.player)}: LEGION! ${n(e.leader)} + ${n(e.mate)}`, tone: 'trigger' };
     case 'GAME_ENDED':

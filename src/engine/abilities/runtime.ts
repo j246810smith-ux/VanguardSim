@@ -17,6 +17,7 @@ import {
   setOrientation,
   shuffleDeck,
   unlockCard,
+  deleteCard,
 } from '../game/zones';
 import type { Task } from '../state/tasks';
 import {
@@ -911,6 +912,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     case 'unlock':
       for (const id of targets) unlockCard(d, id);
+      return true;
+    case 'delete':
+      for (const id of targets) deleteCard(d, id, { by: frame.master, card: frame.source });
       return true;
     case 'legion': {
       // CR 10.1.24.1: next to the source, which must be a vanguard not already in legion

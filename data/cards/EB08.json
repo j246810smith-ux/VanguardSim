@@ -1,0 +1,1618 @@
+{
+  "set": "EB08",
+  "importedAt": "2026-10-28T09:21:56.507Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "EB08-001",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/001",
+        "name": "永劫不敗 アシュラ・カイザー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットのドライブチェックでグレード３の《ノヴァグラップラー》がでた時、そのバトル中、このユニットは『【自】【(V)】：[【カウンターブラスト】(2)，あなたの手札から《ノヴァグラップラー》を２枚選び、捨てる]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、あなたの、ヴァンガードとリアガードを１枚ずつ選び、【スタンド】し、そのターン中、このユニットのパワー＋10000。』を得る。そのターン中、この能力は使えなくなる。\n【永】【(V)】：あなたのソウルに「アシュラ・カイザー」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_001.png"
+      },
+      "en": {
+        "number": "EB08/001EN",
+        "name": "Immortal, Asura Kaiser",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit's drive check reveals a grade 3 <Nova Grappler>, until end of that battle, this unit gets \"[AUTO](VC):([Counter-Blast 2 & Choose two <Nova Grappler> from your hand, and discard them) At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose your vanguard and one of your rear-guards, [Stand] them, and this unit gets [Power] +10000 until end of turn.\". This ability cannot be used for the rest of that turn.\n[CONT](VC):If you have a card named \"Asura Kaiser\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB08/001", "EB08/S01", "EB08/001EN", "EB08/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F001",
+          "fetchedAt": "2026-10-28T09:19:23.109Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/001EN",
+          "fetchedAt": "2026-10-28T09:20:26.170Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-002",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/002",
+        "name": "ギャラクシー・ブラウクリューガー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)，あなたの手札から《ノヴァグラップラー》を２枚選び、捨てる]あなたのカード名に「ブラウ」を含む、ヴァンガードかリアガードのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、このユニットと同じ縦列にいるあなたのユニットをすべて【スタンド】する。そのターン中、この能力は使えなくなる。（コストを払わなくても、この能力は使えなくなる）\n【永】【(V)】：あなたのソウルに「シュテルン・ブラウクリューガー」があるなら、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_002.png"
+      },
+      "en": {
+        "number": "EB08/002EN",
+        "name": "Galaxy Blaukluger",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):([Counter-Blast 2 & Choose two <Nova Grappler> from your hand, and discard them) When your vanguard or rear-guard with \"Blau\" in its card name's attack hits a vanguard, you may pay the cost. If you do, [Stand] all of your units in the same column as this unit. This ability cannot be used for the rest of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)\n[CONT](VC):If you have a card named \"Stern Blaukluger\" in your soul, this unit gets [Power] +2000.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB08/002", "EB08/S02", "EB08/002EN", "EB08/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F002",
+          "fetchedAt": "2026-10-28T09:19:24.305Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/002EN",
+          "fetchedAt": "2026-10-28T09:20:29.331Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-003",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/003",
+        "name": "モーント・ブラウクリューガー",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《ノヴァグラップラー》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、『【自】【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、あなたの《ノヴァグラップラー》のリアガードをすべて【スタンド】する。』を与える。\n【自】【(V)】：このユニットが《ノヴァグラップラー》に【ブースト】された時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_003.png"
+      },
+      "en": {
+        "number": "EB08/003EN",
+        "name": "Mond Blaukluger",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When a <Nova Grappler> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and \"[AUTO](VC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, [Stand] all of your <Nova Grappler> rear-guards.\".\n[AUTO](VC):When this unit is boosted([Boost]) by a <Nova Grappler>, this unit gets [Power] +2000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB08/003", "EB08/S03", "EB08/003EN", "EB08/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F003",
+          "fetchedAt": "2026-10-28T09:19:25.480Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/003EN",
+          "fetchedAt": "2026-10-28T09:20:30.702Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-004",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/004",
+        "name": "アシュラ・カイザー",
+        "text": "【永】【(V)/(R)】：他のあなたの《ノヴァグラップラー》の、ヴァンガードかリアガードがいないなら、このユニットのパワー－2000。\n【自】【(V)】：このユニットのドライブチェックでグレード３の《ノヴァグラップラー》がでた時、あなたのリアガードを１枚選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_004.png"
+      },
+      "en": {
+        "number": "EB08/004EN",
+        "name": "Asura Kaiser",
+        "text": "[CONT](VC/RC):If you do not have another <Nova Grappler> vanguard or rear-guard, this unit gets [Power] -2000.\n[AUTO](VC):When this unit's drive check reveals a grade 3 <Nova Grappler>, choose one of your rear-guards, and [Stand] it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB08/004", "EB08/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F004",
+          "fetchedAt": "2026-10-28T09:19:26.241Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/004EN",
+          "fetchedAt": "2026-10-28T09:20:31.611Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-005",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/005",
+        "name": "シュテルン・ブラウクリューガー",
+        "text": "【永】【(V)】：あなたのソウルに「ブラウクリューガー」があるなら、このユニットのパワー＋1000。\n【自】【(V)】：[【カウンターブラスト】(2)，あなたの手札から《ノヴァグラップラー》を２枚選び、捨てる]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、このユニットと同じ縦列にいるあなたのユニットをすべて【スタンド】し、そのターン中、このユニットは『【ツインドライブ!!】』を失う。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_005.png"
+      },
+      "en": {
+        "number": "EB08/005EN",
+        "name": "Stern Blaukluger",
+        "text": "[CONT](VC):If you have a card named \"Blaukluger\" in your soul, this unit gets [Power] +1000.\n[AUTO](VC):([Counter-Blast 2 & Choose two <Nova Grappler> from your hand, and discard them) When this unit's attack hits a vanguard, you may pay the cost. If you do, [Stand] all of your units in the same column as this unit, and this unit loses \"Twin Drive!!\"[TWIN DRIVE] until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB08/005", "EB08/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F005",
+          "fetchedAt": "2026-10-28T09:19:27.416Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/005EN",
+          "fetchedAt": "2026-10-28T09:20:32.750Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-006",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/006",
+        "name": "マルス・ブラウクリューガー",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]あなたのカード名に「ブラウ」を含むヴァンガードのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、このユニットを【スタンド】し、そのターン中、パワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_006.png"
+      },
+      "en": {
+        "number": "EB08/006EN",
+        "name": "Mars Blaukluger",
+        "text": "[AUTO](RC):[Counter-Blast 1] When your vanguard with \"Blau\" in its card name's attack hits a vanguard, you may pay the cost. If you do, [Stand] this unit, and this unit gets [Power] +5000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB08/006", "EB08/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F006",
+          "fetchedAt": "2026-10-28T09:19:28.798Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/006EN",
+          "fetchedAt": "2026-10-28T09:20:33.813Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-007",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/007",
+        "name": "フラワーレイ・レプラカーン",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]あなたのカード名に「ブラウ」を含むヴァンガードのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、このユニットを【スタンド】し、そのターン中、パワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_007.png"
+      },
+      "en": {
+        "number": "EB08/007EN",
+        "name": "Flower Ray Leprechaun",
+        "text": "[AUTO](RC):[Counter-Blast 1] When your vanguard with \"Blau\" in its card name's attack hits a vanguard, you may pay the cost. If you do, [Stand] this unit, and this unit gets [Power] +5000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB08/007", "EB08/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F007",
+          "fetchedAt": "2026-10-28T09:19:30.160Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/007EN",
+          "fetchedAt": "2026-10-28T09:20:34.755Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-008",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/008",
+        "name": "ブラウ・ドゥンケルハイト",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ノヴァグラップラー》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《ノヴァグラップラー》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_008.png"
+      },
+      "en": {
+        "number": "EB08/008EN",
+        "name": "Blau Dunkelheit",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Nova Grappler> from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Nova Grappler> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["EB08/008", "EB08/S04", "EB08/008EN", "EB08/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F008",
+          "fetchedAt": "2026-10-28T09:19:30.923Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/008EN",
+          "fetchedAt": "2026-10-28T09:20:35.883Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-009",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/009",
+        "name": "アーマードヘヴィ・ガンナー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_009.png"
+      },
+      "en": {
+        "number": "EB08/009EN",
+        "name": "Armored Heavy Gunner",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Nova Grappler> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/009", "EB08/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F009",
+          "fetchedAt": "2026-10-28T09:19:32.112Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/009EN",
+          "fetchedAt": "2026-10-28T09:20:37.212Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-010",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/010",
+        "name": "ジェノサイド・ジャック",
+        "text": "【永】【(V)/(R)】：拘束（このユニットはアタックできない。）\n【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットは『拘束』を失う。\n【自】【(V)】：このユニットが《ノヴァグラップラー》に【ブースト】された時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_010.png"
+      },
+      "en": {
+        "number": "EB08/010EN",
+        "name": "Brutal Jack",
+        "text": "[CONT](VC/RC):Restraint (This unit cannot attack.)\n[ACT](VC/RC):[Counter-Blast 1] Until end of turn, this unit loses \"Restraint\".\n[AUTO](VC):When this unit is boosted([Boost]) by a <Nova Grappler>, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 11000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/010", "EB08/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F010",
+          "fetchedAt": "2026-10-28T09:19:33.437Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/010EN",
+          "fetchedAt": "2026-10-28T09:20:38.358Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-011",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/011",
+        "name": "ユーピター・ブラウクリューガー",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_011.png"
+      },
+      "en": {
+        "number": "EB08/011EN",
+        "name": "Jupiter Blaukluger",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/011", "EB08/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F011",
+          "fetchedAt": "2026-10-28T09:19:34.372Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/011EN",
+          "fetchedAt": "2026-10-28T09:20:39.755Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-012",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/012",
+        "name": "グローセ・ベーア",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「ブラウ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_012.png"
+      },
+      "en": {
+        "number": "EB08/012EN",
+        "name": "Grosse Baer",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Blau\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/012", "EB08/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F012",
+          "fetchedAt": "2026-10-28T09:19:46.425Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/012EN",
+          "fetchedAt": "2026-10-28T09:20:40.655Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-013",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/013",
+        "name": "デアデビル・サムラーイ",
+        "text": "【自】【(R)】：あなたのバトルフェイズ中、あなたの《ノヴァグラップラー》が【スタンド】した時、あなたのカード名に「アシュラ」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_013.png"
+      },
+      "en": {
+        "number": "EB08/013EN",
+        "name": "Daredevil Samurai",
+        "text": "[AUTO](RC):During your battle phase, when your <Nova Grappler> becomes [Stand], if you have a vanguard with \"Asura\" in its card name, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/013", "EB08/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F013",
+          "fetchedAt": "2026-10-28T09:19:47.175Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/013EN",
+          "fetchedAt": "2026-10-28T09:20:41.680Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-014",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/014",
+        "name": "ブラウクリューガー",
+        "text": "【永】【(V)】：あなたのソウルに「ブラウパンツァー」があるなら、このユニットのパワー＋1000。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_014.png"
+      },
+      "en": {
+        "number": "EB08/014EN",
+        "name": "Blaukluger",
+        "text": "[CONT](VC):If you have a card named \"Blaupanzer\" in your soul, this unit gets [Power] +1000.\n[AUTO](VC):When this unit's attack hits a vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/014", "EB08/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F014",
+          "fetchedAt": "2026-10-28T09:19:47.914Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/014EN",
+          "fetchedAt": "2026-10-28T09:20:42.873Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-015",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/015",
+        "name": "ポラール・シュテルン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「ブラウ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_015.png"
+      },
+      "en": {
+        "number": "EB08/015EN",
+        "name": "Polar Stern",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Blau\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/015", "EB08/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F015",
+          "fetchedAt": "2026-10-28T09:19:49.098Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/015EN",
+          "fetchedAt": "2026-10-28T09:20:44.026Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-016",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/016",
+        "name": "モルゲンロート",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[【カウンターブラスト】(1)]あなたのカード名に「ブラウ」を含むヴァンガードのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札の上から３枚まで見て、カード名に「ブラウ」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_016.png"
+      },
+      "en": {
+        "number": "EB08/016EN",
+        "name": "Morgenrot",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Counter-Blast 1] When your vanguard with \"Blau\" in its card name's attack hits a vanguard, you may pay the cost. If you do, look at up to three cards from the top of your deck, search for up to one card with \"Blau\" in its card name from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB08/016", "EB08/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F016",
+          "fetchedAt": "2026-10-28T09:19:50.293Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/016EN",
+          "fetchedAt": "2026-10-28T09:20:45.111Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-017",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/017",
+        "name": "プルート・ブラウクリューガー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(V)】：[【カウンターブラスト】(3)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの《ノヴァグラップラー》のリアガードを２枚まで選び、【スタンド】する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_017.png"
+      },
+      "en": {
+        "number": "EB08/017EN",
+        "name": "Pluto Blaukluger",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](VC):[Counter-Blast 3] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose up to two of your <Nova Grappler> rear-guards, and [Stand] them.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/017", "EB08/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F017",
+          "fetchedAt": "2026-10-28T09:19:51.703Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/017EN",
+          "fetchedAt": "2026-10-28T09:20:46.272Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-018",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/018",
+        "name": "マッスル・ヘラクレス",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、あなたのダメージゾーンから１枚選び、表向きにする。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_018.png"
+      },
+      "en": {
+        "number": "EB08/018EN",
+        "name": "Muscle Hercules",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), if you have a <Nova Grappler> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/018", "EB08/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F018",
+          "fetchedAt": "2026-10-28T09:19:52.443Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/018EN",
+          "fetchedAt": "2026-10-28T09:20:47.378Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-019",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/019",
+        "name": "アイゼンクーゲル",
+        "text": "【永】【(V)/(R)】：あなたの(V)に、「シュテルン・ブラウクリューガー」か「ブラウクリューガー」がいないなら、このユニットのパワー－5000。\n【自】【(V)/(R)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_019.png"
+      },
+      "en": {
+        "number": "EB08/019EN",
+        "name": "Eisenkugel",
+        "text": "[CONT](VC/RC):If you do not have a unit named \"Stern Blaukluger\" or a unit named \"Blaukluger\" on your (VC), this unit gets [Power] -5000.\n[AUTO](VC/RC):When this unit attacks, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/019", "EB08/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F019",
+          "fetchedAt": "2026-10-28T09:19:53.221Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/019EN",
+          "fetchedAt": "2026-10-28T09:20:52.283Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-020",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/020",
+        "name": "ハングリー・ダンプティ",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_020.png"
+      },
+      "en": {
+        "number": "EB08/020EN",
+        "name": "Hungry Dumpty",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a <Nova Grappler> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/020", "EB08/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F020",
+          "fetchedAt": "2026-10-28T09:19:53.963Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/020EN",
+          "fetchedAt": "2026-10-28T09:20:53.515Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-021",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/021",
+        "name": "タフ・ボーイ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_021.png"
+      },
+      "en": {
+        "number": "EB08/021EN",
+        "name": "Tough Boy",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/021", "EB08/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F021",
+          "fetchedAt": "2026-10-28T09:19:54.728Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/021EN",
+          "fetchedAt": "2026-10-28T09:20:54.429Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-022",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/022",
+        "name": "オアシス・ガール",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_022.png"
+      },
+      "en": {
+        "number": "EB08/022EN",
+        "name": "Oasis Girl",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/022", "EB08/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F022",
+          "fetchedAt": "2026-10-28T09:19:55.945Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/022EN",
+          "fetchedAt": "2026-10-28T09:20:55.655Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-023",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/023",
+        "name": "ドグー・メカニック",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの《ノヴァグラップラー》のヴァンガードがいるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_023.png"
+      },
+      "en": {
+        "number": "EB08/023EN",
+        "name": "Clay-doll Mechanic",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a <Nova Grappler> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_023EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/023", "EB08/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F023",
+          "fetchedAt": "2026-10-28T09:19:56.694Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/023EN",
+          "fetchedAt": "2026-10-28T09:20:57.044Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-024",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/024",
+        "name": "ベアダウン・サムラーイ",
+        "text": "【自】【(R)】：あなたのバトルフェイズ中、あなたの《ノヴァグラップラー》が【スタンド】した時、あなたのカード名に「アシュラ」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_024.png"
+      },
+      "en": {
+        "number": "EB08/024EN",
+        "name": "Bear Down Samurai",
+        "text": "[AUTO](RC):During your battle phase, when your <Nova Grappler> becomes [Stand], if you have a vanguard with \"Asura\" in its card name, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/024", "EB08/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F024",
+          "fetchedAt": "2026-10-28T09:20:08.307Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/024EN",
+          "fetchedAt": "2026-10-28T09:20:58.296Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-025",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/025",
+        "name": "オールマイティ・レポーター",
+        "text": "【自】【(R)】：このユニットが《ノヴァグラップラー》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、このユニットを手札に戻してよい。",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_025.png"
+      },
+      "en": {
+        "number": "EB08/025EN",
+        "name": "Almighty Reporter",
+        "text": "[AUTO](RC):When an attack hits a vanguard during the battle that this unit boosted([Boost]) a <Nova Grappler>, you may return this unit to your hand.",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/025", "EB08/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F025",
+          "fetchedAt": "2026-10-28T09:20:09.880Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/025EN",
+          "fetchedAt": "2026-10-28T09:20:59.153Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-026",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/026",
+        "name": "ブラウパンツァー",
+        "text": "【永】【(V)】：あなたのソウルに「ブラウユンガー」があるなら、このユニットのパワー＋2000。\n【自】：[あなたの手札からグレード３の《ノヴァグラップラー》を１枚選び、捨てる]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「シュテルン・ブラウクリューガー」を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_026.png"
+      },
+      "en": {
+        "number": "EB08/026EN",
+        "name": "Blaupanzer",
+        "text": "[CONT](VC):If you have a card named \"Blaujunger\" in your soul, this unit gets [Power] +2000.\n[AUTO]:[Choose a grade 3 <Nova Grappler> from your hand, and discard it] When this unit is placed on (RC), you may pay the cost. If you do, search your deck for up to one card named \"Stern Blaukluger\", reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/026", "EB08/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F026",
+          "fetchedAt": "2026-10-28T09:20:10.620Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/026EN",
+          "fetchedAt": "2026-10-28T09:21:00.457Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-027",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/027",
+        "name": "ブレードアーム・レプラカーン",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]このユニットがカード名に「ブラウ」を含むユニットを【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋6000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_027.png"
+      },
+      "en": {
+        "number": "EB08/027EN",
+        "name": "Blade Arm Leprechaun",
+        "text": "[AUTO](RC): When this unit boosts a unit with \"Blau\" in its card name, you may pay the cost. If you do, the boosted([Boost]) unit gets [Power] +6000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/027", "EB08/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F027",
+          "fetchedAt": "2026-10-28T09:20:11.824Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/027EN",
+          "fetchedAt": "2026-10-28T09:21:01.375Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-028",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/028",
+        "name": "ブラウユンガー",
+        "text": "【自】：「ブラウパンツァー」がこのユニットにライドした時、あなたの山札から「ブラウクリューガー」を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_028.png"
+      },
+      "en": {
+        "number": "EB08/028EN",
+        "name": "Blaujunger",
+        "text": "[AUTO]:When a card named \"Blaupanzer\" rides this unit, search your deck for up to one card named \"Blaukluger\", reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/028", "EB08/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F028",
+          "fetchedAt": "2026-10-28T09:20:12.574Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/028EN",
+          "fetchedAt": "2026-10-28T09:21:02.547Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-029",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/029",
+        "name": "シェーネス・ヴェッター",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_029.png"
+      },
+      "en": {
+        "number": "EB08/029EN",
+        "name": "Schones Wetter",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_029EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/029", "EB08/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F029",
+          "fetchedAt": "2026-10-28T09:20:13.752Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/029EN",
+          "fetchedAt": "2026-10-28T09:21:03.852Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-030",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/030",
+        "name": "シャイニング・レディ",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_030.png"
+      },
+      "en": {
+        "number": "EB08/030EN",
+        "name": "Shining Lady",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_030EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/030", "EB08/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F030",
+          "fetchedAt": "2026-10-28T09:20:15.760Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/030EN",
+          "fetchedAt": "2026-10-28T09:21:04.714Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-031",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/031",
+        "name": "シュネーレーゲン",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_031.png"
+      },
+      "en": {
+        "number": "EB08/031EN",
+        "name": "Schnee Regen",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_031EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/031", "EB08/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F031",
+          "fetchedAt": "2026-10-28T09:20:16.495Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/031EN",
+          "fetchedAt": "2026-10-28T09:21:05.703Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-032",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/032",
+        "name": "ザ・ゴング",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_032.png"
+      },
+      "en": {
+        "number": "EB08/032EN",
+        "name": "The Gong",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_032EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/032", "EB08/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F032",
+          "fetchedAt": "2026-10-28T09:20:17.676Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/032EN",
+          "fetchedAt": "2026-10-28T09:21:06.597Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-033",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/033",
+        "name": "レーゲンボーゲン",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_033.png"
+      },
+      "en": {
+        "number": "EB08/033EN",
+        "name": "Regenbogen",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_033EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/033", "EB08/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F033",
+          "fetchedAt": "2026-10-28T09:20:19.103Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/033EN",
+          "fetchedAt": "2026-10-28T09:21:07.712Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-034",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/034",
+        "name": "シュタルカー・ヴィント",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「ブラウ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_034.png"
+      },
+      "en": {
+        "number": "EB08/034EN",
+        "name": "Starker Wind",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Blau\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_034EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/034", "EB08/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F034",
+          "fetchedAt": "2026-10-28T09:20:20.116Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/034EN",
+          "fetchedAt": "2026-10-28T09:21:08.605Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB08-035",
+      "set": "EB08",
+      "jp": {
+        "number": "EB08/035",
+        "name": "バトルライザー",
+        "text": "【自】：他の《ノヴァグラップラー》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンの終了時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/EB08/eb08_035.png"
+      },
+      "en": {
+        "number": "EB08/035EN",
+        "name": "Battleraizer",
+        "text": "[AUTO]:When another <Nova Grappler> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts, the boosted unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/eb08/EB08_035EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB08/035", "EB08/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB08%2F035",
+          "fetchedAt": "2026-10-28T09:20:21.287Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB08/035EN",
+          "fetchedAt": "2026-10-28T09:21:09.740Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

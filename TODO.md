@@ -14,5 +14,8 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] Importer reads the redesigned Japanese card site (JSON API, 2026-10)
 - [x] Side sets (D-029): EB01–EB07
 - [x] Custom rules: Delayed Legion (D-030), Game Setup toggle
-- [ ] Side sets: EB08, EB09, EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, PR cards 2011–2014
+- [x] English-only BT16/BT17 cards and Delete (D-031)
+- [x] Foil effect by rarity
+- [x] Side sets EB08, EB09
+- [ ] Side sets: EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, PR cards 2011–2014
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

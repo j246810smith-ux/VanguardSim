@@ -2,18 +2,25 @@
  * BT16 "Legion of Dragons and Blades" (DECISIONS D-023): ability scripts. Reprints use the
  * original's abilities (`sameAs`); the trial-exclusive cards are scripted here.
  */
-import { ab } from '../engine';
+import { ab, type Cost, type Step } from '../engine';
 import type { SetAbilities } from './load';
 import {
   attackBonus,
+  attackCB1Pump3000,
   attackPower,
   attackVanguardSB1Pump3000,
   boostPower,
+  cb1Plus1000,
+  interceptShieldAny,
   legionAttacker,
   legionHitDraw,
+  legionLeader,
   legionPump5000,
+  lookAndTake,
+  lookCallOpen,
   lookCallShuffle,
   middleColumnPump3000,
+  nameVanguardAttack,
   placedDiscardDraw,
   placedSB1Pump5000,
   retireInEventColumn,
@@ -47,6 +54,49 @@ const legionAttack4000 = (text: string) =>
 const legionBoost4000 = (text: string) => boostPower(4000, vanguardInLegion(), text);
 /** "During your turn, when your opponent's rear-guard in the front row is put into the drop zone" */
 const oppFrontRearGuardDropped = ab.putIntoDropFrom('front_RC', { owner: 'opponent' });
+const DELETOR = 'Deletor';
+const LIBERATOR = 'Liberator';
+const BLUISH_FLAME = 'Bluish Flame';
+/** "if your opponent has a deleted vanguard" / "if your opponent's vanguard is deleted" (CR 10.1.25) */
+const oppVanguardDeleted = ab.exists(ab.units('opponent', ['VC'], { deleted: true }));
+/** "delete all of your opponent's vanguards" */
+const deleteOppVanguards = ab.del(ab.units('opponent', ['VC']));
+/** "choose one of your opponent's rear-guards in the front row, and lock it" */
+const lockOppFront: Step[] = [
+  ab.choose('l', ab.units('opponent', ['front_RC'])),
+  ab.lock(ab.bound('l')),
+];
+/** "if you have a card named "Blaster Blade Seeker" in your (VC)" */
+const bbsOnVC = ab.vanguardIs({ name: 'Blaster Blade Seeker' });
+/** "for each of your other units with "Seeker" in its card name" */
+const otherSeekers = ab.units('you', ['VC', 'RC'], { nameIncludes: SEEKER, excludeSelf: true });
+/** "[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +10000 until end of turn." */
+const legionPump10000 = (text: string) =>
+  ab.auto({
+    id: '1',
+    zones: ['RC'],
+    trigger: ab.legions({ owner: 'you' }),
+    effect: [ab.power(ab.self(), 10000)],
+    text,
+  });
+/** "[AUTO](VC/RC):[cost] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +n until end of that battle." */
+const paidAttackPump = (cost: Cost[], amount: number, text: string) =>
+  ab.auto({
+    id: '1',
+    zones: ['VC', 'RC'],
+    trigger: ab.attacks(),
+    cost,
+    optional: true,
+    effect: [ab.power(ab.self(), amount, 'end_of_battle')],
+    text,
+  });
+/** "look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order" */
+const lookThreeCallAny = lookCallOpen(3, {});
+/** "choose another of your units, and that unit gets [Power] +n until end of turn" */
+const pumpAnother = (amount: number): Step[] => [
+  ab.choose('t', ab.units('you', ['VC', 'RC'], { excludeSelf: true })),
+  ab.power(ab.bound('t'), amount),
+];
 
 export const BT16: SetAbilities = {
   // Seeker, Thing Saver Dragon
@@ -1224,4 +1274,590 @@ export const BT16: SetAbilities = {
     }),
   ],
   'BT16-102': [], // Lotus Musketeer, Liana
+  // Light Source Seeker, Alfred Exiv
+  'BT16-001EN': [
+    ab.seekMate({
+      id: '1',
+      names: ['Blaster Blade', 'Blaster Blade Seeker'],
+      legionPower: 20000,
+      text: '[ACT](VC):[Legion 20000]"Blaster Blade" or "Blaster Blade Seeker"(If your opponent\'s vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)',
+    }),
+    ab.cont({
+      id: '2',
+      zones: ['VC'],
+      condition: ab.all(ab.yourTurn(), ab.inLegion()),
+      effects: [ab.gets(ab.self(), 'power', 1000, otherSeekers)],
+      text: '[CONT](VC):During your turn, if this card is [Legion], this card gets [Power] +1000 for each of your other units with "Seeker" in its card name. Then, if the number of rear-guards you have is five or greater, this unit gets [Critical] +1.',
+    }),
+    ab.cont({
+      id: '2c',
+      zones: ['VC'],
+      condition: ab.all(
+        ab.yourTurn(),
+        ab.inLegion(),
+        ab.count(ab.units('you', ['RC']), { min: 5 }),
+      ),
+      effects: [ab.gets(ab.self(), 'critical', 1)],
+      text: '[CONT](VC):During your turn, if this card is [Legion], this card gets [Power] +1000 for each of your other units with "Seeker" in its card name. Then, if the number of rear-guards you have is five or greater, this unit gets [Critical] +1.',
+    }),
+    ab.act({
+      id: '3',
+      zones: ['VC'],
+      cost: [ab.counterBlast(2, { nameIncludes: SEEKER })],
+      effect: [
+        ab.search('s', { nameIncludes: SEEKER }),
+        ab.superiorCall(ab.bound('s')),
+        ab.shuffle(),
+      ],
+      text: '[ACT](VC):[Counter-Blast 2]-card with "Seeker" in its card name] Search your deck for up to one card with "Seeker" in its card name, call it to (RC), and shuffle your deck.',
+    }),
+  ],
+  // Bluish Flame Liberator, Prominence Glare
+  'BT16-003EN': [
+    seek(
+      'Regulation Liberator, Aglovale',
+      '[ACT](VC):[Legion 20000]"Regulation Liberator, Aglovale"(If your opponent\'s vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)',
+    ),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.placedOn('RC', { owner: 'you' }, 'deck'),
+      condition: ab.inLegion(),
+      cost: [ab.counterBlast(1), ab.discard(1, { nameIncludes: BLUISH_FLAME })],
+      optional: true,
+      effect: [
+        ab.critical(ab.self(), 1),
+        ab.grant(
+          ab.self(),
+          ab.cont({
+            id: 'no_guard',
+            zones: ['VC'],
+            condition: ab.is(ab.self(), { attacking: true }),
+            effects: [ab.forbidGuard('opponent', { grade: { min: 1 } })],
+            text: '[CONT](VC):During the battle that this unit attacks, your opponent cannot call grade 1 or greater units from hand to (GC).',
+          }),
+        ),
+      ],
+      text: '[AUTO](VC):[Counter-Blast 1 & Choose a card with "Bluish Flame" in its card name from your hand, and discard it] When your unit is placed on (RC) from your deck, if this unit is [Legion], you may pay the cost. If you do, until end of turn, this unit gets [Critical] +1 and "[CONT](VC):During the battle that this unit attacks, your opponent cannot call grade 1 or greater units from hand to (GC).".',
+    }),
+    ab.act({
+      id: '3',
+      zones: ['VC'],
+      oncePerTurn: true,
+      cost: [ab.counterBlast(1), ab.retireCost(ab.units('you', ['RC']))],
+      effect: [
+        ab.lookTop('l', 4),
+        ab.choose('c', ab.bound('l', { nameIncludes: LIBERATOR }), 1, { upTo: true }),
+        ab.superiorCall(ab.bound('c')),
+        ab.bottomInOrder(ab.bound('l', { zone: 'deck' })),
+      ],
+      text: '[ACT](VC):[Counter-Blast 1 & Choose one of your rear-guards, and retire it] Look at four cards from the top of your deck, search for up to one card with "Liberator" in its card name from among them, call it to (RC), and put the rest on the bottom of your deck in any order. This ability cannot be used for the rest of that turn.',
+    }),
+  ],
+  // Juxtapose Deletor, Zaele
+  'BT16-008EN': [
+    seek(
+      'Juxtapose Deletor, Gaele',
+      '[ACT](VC):[Legion 20000]"Juxtapose Deletor, Gaele"(If your opponent\'s vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)',
+    ),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.legions(),
+      cost: [ab.counterBlast(2), ab.discard(1)],
+      optional: true,
+      effect: [deleteOppVanguards],
+      text: "[AUTO](VC):[Counter-Blast 2 & Choose a card from your hand, and discard it] When this unit [Legion], you may pay the cost. If you do, delete all of your opponent's vanguards. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)",
+    }),
+    vcAttackVanguard2000(
+      '[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
+      '3',
+    ),
+  ],
+  // Daunting Deletor, Oksizz
+  'BT16-009EN': [
+    ab.act({
+      id: '1',
+      zones: ['VC'],
+      cost: [
+        ab.counterBlast(3, { nameIncludes: DELETOR }),
+        ab.moveChosenCost(ab.units('you', ['RC']), 'soul'),
+      ],
+      effect: [deleteOppVanguards, ab.power(ab.self(), 10000)],
+      text: '[ACT](VC):[Counter-Blast 3]-card with "Deletor" in its card name & Choose one of your rear-guards, and put it into your soul] Delete all of your opponent\'s vanguards, and this unit gets [Power] +10000 until end of turn. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner\'s turn)',
+    }),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.atStartOf('ride_phase', 'opponent'),
+      condition: oppVanguardDeleted,
+      effect: [
+        // the opponent's choice: discard a card, or no normal ride this ride phase
+        ab.asOpponent([
+          ab.choose('d', ab.cards('you', ['hand']), 1, {
+            upTo: true,
+            prompt: 'Discard a card (or you cannot normal ride this ride phase)',
+          }),
+          ab.moveTo(ab.bound('d'), 'drop'),
+          ab.if_(ab.count(ab.bound('d'), { max: 0 }), [ab.endNormalRide()]),
+        ]),
+      ],
+      text: "[AUTO](VC):At the beginning of your opponent's ride phase, if your opponent has a deleted vanguard, your opponent may choose a card from his or her hand, and discard it. If your opponent does not, your opponent cannot normal ride during that ride phase.",
+    }),
+  ],
+  // Energy Seeker, Maddan
+  'BT16-013EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attacksVanguard(),
+      condition: bbsOnVC,
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: [ab.power(ab.self(), 1000, 'end_of_battle', otherSeekers)],
+      text: '[AUTO](RC):[Counter-Blast 1] When this unit attacks a vanguard, if you have a card named "Blaster Blade Seeker" in your (VC), you may pay the cost. If you do, this unit gets [Power] +1000 for each of your other units with "Seeker" in its card name until end of that battle.',
+    }),
+  ],
+  // Seeker, Plume Wall Angel
+  'BT16-015EN': [
+    sentinelCallFive(
+      '[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC) at [Rest].',
+    ),
+  ],
+  // Regulation Liberator, Aglovale
+  'BT16-016EN': [
+    attackPower({
+      id: '1',
+      amount: 2000,
+      zones: ['RC'],
+      condition: ab.vanguardIs({ nameIncludes: BLUISH_FLAME }),
+      text: '[AUTO](RC):When this unit attacks, if you have a vanguard with "Bluish Flame" in its card name, this unit gets [Power] +2000 until end of that battle.',
+    }),
+    ab.auto({
+      id: '2',
+      zones: ['any'],
+      trigger: ab.placedOn('RC', 'self', 'deck'),
+      cost: [ab.soulBlast(1)],
+      optional: true,
+      effect: lookAndTake(5, { nameIncludes: BLUISH_FLAME }, 'hand'),
+      text: '[AUTO]:[Soul-Blast 1] When this unit is placed on (RC) from your deck, you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with "Bluish Flame" in its card name from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.',
+    }),
+  ],
+  // Brawler, Skybeat Dragon
+  'BT16-018EN': [
+    ...legionLeader(
+      'Brawler, Skyhowl Dragon',
+      [ab.choose('r', ab.units('opponent', ['front_RC'])), ab.retire(ab.bound('r'))],
+      '[ACT](VC):[Legion 20000]"Brawler, Skyhowl Dragon"(If your opponent\'s vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit [Legion], choose one rear-guard in your opponent\'s front row, and retire it.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
+    ),
+  ],
+  // Refusing Deletor, Evil
+  'BT16-022EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('GC'),
+      cost: [ab.discard(1)],
+      optional: true,
+      effect: [
+        ab.choose('t', ab.units('you', ['VC', 'RC'], { beingAttacked: true })),
+        ab.restrict(ab.bound('t'), 'cannot_be_hit', 'end_of_battle'),
+      ],
+      text: '[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.',
+    }),
+  ],
+  // Agreement Seeker, Menprius
+  'BT16-027EN': [
+    ab.auto({
+      id: '1',
+      zones: ['VC', 'RC'],
+      trigger: ab.attackHits('vanguard'),
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: lookAndTake(5, { grade: { min: 3 } }, 'hand'),
+      text: "[AUTO](VC/RC):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, look at up to five cards from the top of your deck, search for up to one grade 3 or greater card from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+    }),
+  ],
+  // Citation Liberator, Heli
+  'BT16-035EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attackHits('vanguard'),
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: lookThreeCallAny,
+      text: "[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When this unit's attack hits a vanguard, you may pay the cost. If you do, look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order.",
+    }),
+  ],
+  // Flaming Passion Liberator, Guido
+  'BT16-039EN': [
+    ab.forerunner(),
+    ab.act({
+      id: '2',
+      zones: ['RC'],
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      effect: [
+        ab.if_(vanguardInLegion(), [
+          ab.lookTop('l', 3),
+          ab.choose('c', ab.bound('l', { nameIncludes: LIBERATOR }), 1, { upTo: true }),
+          ab.superiorCall(ab.bound('c'), { open: true }),
+          ab.shuffle(),
+        ]),
+      ],
+      text: '[AUTO]RC:[Put this unit into your soul] If your vanguard is [Legion], look at three cards from the top of your deck, search for up to one card with "Liberator" in its card name from among them, call it to an open (RC), and shuffle your deck.',
+    }),
+  ],
+  // Brawler, Skyhowl Dragon
+  'BT16-040EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: ab.vanguardIs({ nameIncludes: BRAWLER }),
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: [ab.choose('r', ab.units('opponent', ['front_RC'])), ab.retire(ab.bound('r'))],
+      text: '[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), if you have a vanguard with "Brawler" in its card name, you may pay the cost. If you do, choose a rear-guard in your opponent\'s front row, and retire it.',
+    }),
+  ],
+  // Brawler, Wildfist Dragon
+  'BT16-042EN': [
+    nameVanguardAttack(
+      BRAWLER,
+      '[AUTO](RC):When this unit attacks, if you have a vanguard with "Brawler" in its card name, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Juxtapose Deletor, Gaele
+  'BT16-046EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: oppVanguardDeleted,
+      effect: lockOppFront,
+      text: "[AUTO]:When this unit is placed on (RC), if your opponent's vanguard is deleted, choose one of your opponent's rear-guards in the front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+    }),
+  ],
+  // Pursuing Deletor, Egotte
+  'BT16-047EN': [
+    nameVanguardAttack(
+      DELETOR,
+      '[AUTO](RC):When this unit attacks, if you have a vanguard with "Deletor" in its card name, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Idolizing Deletor, Guim
+  'BT16-048EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.boostedAttackHits(undefined, 'self', 'vanguard'),
+      condition: oppVanguardDeleted,
+      effect: lockOppFront,
+      text: "[AUTO](RC):When an attack hits a vanguard during the battle this unit boosted ([Boost]), if your opponent has a deleted vanguard, choose one of your opponent's rear-guards in the front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+    }),
+  ],
+  // Looting Deletor, Gunec
+  'BT16-049EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      cost: [ab.soulBlast(2)],
+      optional: true,
+      effect: [ab.draw(1)],
+      text: '[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, draw a card.',
+    }),
+  ],
+  // Acquire Deletor, Igor
+  'BT16-050EN': [
+    ab.forerunner(),
+    ab.auto({
+      id: '2',
+      zones: ['RC'],
+      trigger: ab.deleted({ owner: 'opponent', filter: { isVanguard: true } }),
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: [ab.draw(1), ...ab.counterCharge(1)],
+      text: "[AUTO](RC):[Put this unit into your soul] When your opponent's vanguard is deleted, you may pay the cost. If you do, draw a card, choose a card from your damage zone, and turn it face up.",
+    }),
+  ],
+  // Rousing Seeker, Aremil
+  'BT16-063EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: bbsOnVC,
+      cost: [ab.soulBlast(2)],
+      optional: true,
+      effect: [ab.power(ab.self(), 1000, 'end_of_turn', otherSeekers)],
+      text: '[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a card named "Blaster Blade Seeker" in your (VC), you may pay the cost. If you do, this unit gets [Power] +1000 for each of your other units with "Seeker" in its card name until end of turn.',
+    }),
+  ],
+  // Liberator, Gigantech Anger
+  'BT16-072EN': [
+    paidAttackPump(
+      [ab.counterBlast(1), ab.soulBlast(1)],
+      5000,
+      '[AUTO](VC/RC):[Counter-Blast 1 & Soul-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.',
+    ),
+  ],
+  // Mertgal Liberator
+  'BT16-076EN': [
+    legionPump10000(
+      '[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +10000 until end of turn.',
+    ),
+  ],
+  // Invitation Liberator, Rud
+  'BT16-077EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.boostedAttackHits(undefined, 'self', 'vanguard'),
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: lookThreeCallAny,
+      text: '[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When an attack hits a vanguard during the battle this unit boosted ([Boost]), you may pay the cost. If you do, look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order.',
+    }),
+  ],
+  // Chikgal Liberator
+  'BT16-081EN': [
+    attackVanguardSB1Pump3000(
+      '[AUTO](VC/RC):[Soul-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Liberator, Dulcet Archer
+  'BT16-082EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      oncePerTurn: true,
+      trigger: ab.placedOn(
+        'RC',
+        { owner: 'you', filter: { nameIncludes: LIBERATOR, excludeSelf: true } },
+        'deck',
+      ),
+      cost: [ab.discard(1)],
+      optional: true,
+      effect: [ab.draw(1)],
+      text: '[AUTO](RC):[Choose a card from your hand, and discard it] When your other unit with "Liberator" in its card name is placed on (RC) from your deck, you may pay the cost. If you do, draw a card. This ability cannot be used for the rest of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)',
+    }),
+  ],
+  // Armed Brawler, Kohiko
+  'BT16-086EN': [
+    attackCB1Pump3000(
+      '[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Brawler, Lightningrod Dragon
+  'BT16-088EN': [
+    ...legionAttacker(
+      'Jaillock Brawler, Kotenka',
+      '[ACT](VC):[Legion 20000]"Jaillock Brawler, Kotenka"(If your opponent\'s vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit attacks a vanguard, if this unit is [Legion], this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
+    ),
+  ],
+  'BT16-089EN': [], // Jaillock Brawler, Kotenka
+  // Brawler, Oldhand Dragon
+  'BT16-093EN': [
+    interceptShieldAny(
+      '[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.',
+    ),
+  ],
+  // Brawler, Lightning Rider
+  'BT16-094EN': [
+    legionAttack4000(
+      '[AUTO](RC):When this unit attacks, if your vanguard is [Legion], this unit gets [Power] +4000 until end of that battle.',
+    ),
+  ],
+  // Baton Brawler, Sogo
+  'BT16-097EN': [
+    {
+      ...cb1Plus1000,
+      text: '[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.',
+    },
+  ],
+  // Wandering Brawler, Teirin
+  'BT16-098EN': [
+    attackPower({
+      amount: 2000,
+      zones: ['RC'],
+      vanguardOnly: true,
+      text: '[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
+    }),
+  ],
+  // Brawler, Wildclock Dragon
+  'BT16-099EN': [
+    nameVanguardAttack(
+      BRAWLER,
+      '[AUTO](RC):When this unit attacks, if you have a vanguard with "Brawler" in its card name, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Brawler, Starring Dracokid
+  'BT16-101EN': [
+    legionBoost4000(
+      '[AUTO](RC):When this unit boosts ([Boost]) a vanguard, if your vanguard is [Legion], the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.',
+    ),
+  ],
+  'BT16-103EN': [], // Brawler, Sky Dracokid
+  'BT16-107EN': [], // Brawler, Plasmakick Dragon
+  'BT16-108EN': [], // Brawler, Tokohson
+  'BT16-110EN': [], // Naga Brawler, Sagara
+  'BT16-111EN': [], // Brawler, Green Gem Carbuncle
+  // Squirm Deletor, Lourelou
+  'BT16-113EN': [
+    ab.auto({
+      id: '1',
+      zones: ['VC'],
+      trigger: ab.driveCheckReveals({ grade: { min: 3, max: 3 } }),
+      effect: [
+        ab.grant(
+          ab.self(),
+          ab.auto({
+            id: 'squirm',
+            zones: ['VC'],
+            trigger: ab.atStartOf('close_step'),
+            triggerIf: ab.is(ab.self(), { attacking: true }),
+            cost: [
+              ab.retireCost(
+                ab.units('you', ['RC'], { grade: { min: 3, max: 3 }, nameIncludes: DELETOR }),
+              ),
+            ],
+            optional: true,
+            effect: [deleteOppVanguards],
+            text: '[AUTO](VC):[Choose one of your grade 3 rear-guards with "Deletor" in its card name, and retire it] At the end of the battle that this unit attacked, you may pay the cost. If you do, delete all of your opponent\'s vanguards.',
+          }),
+          'end_of_battle',
+        ),
+      ],
+      text: '[AUTO](VC):When this unit\'s drive check reveals a grade 3 card, until end of that battle this unit gets "[AUTO](VC):[Choose one of your grade 3 rear-guards with "Deletor" in its card name, and retire it] At the end of the battle that this unit attacked, you may pay the cost. If you do, delete all of your opponent\'s vanguards.". (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner\'s turn)',
+    }),
+    attackPower({
+      id: '2',
+      amount: 3000,
+      zones: ['VC'],
+      vanguardOnly: true,
+      text: '[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.',
+    }),
+  ],
+  // Diverging Deletor, Newark
+  'BT16-114EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attackHits('vanguard'),
+      effect: pumpAnother(3000),
+      text: "[AUTO](RC):When this unit's attack hits a vanguard, choose another of your units, and that unit gets [Power] +3000 until end of turn.",
+    }),
+  ],
+  // Howling Deletor, Fruet
+  'BT16-115EN': [
+    attackCB1Pump3000(
+      '[AUTO](VC/RC):[Counter-Blast 1]When this unit attacks, you may pay the cost. If you do, this unit gets [Power] *3000 until end of that battle.',
+    ),
+  ],
+  // Penetrate Deletor, Iggy
+  'BT16-116EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attackHits('vanguard'),
+      condition: oppVanguardDeleted,
+      effect: lockOppFront,
+      text: "[AUTO](RC):When this unit's attack hits a vanguard, if your opponent has a deleted vanguard, choose a rear-guard in your opponent's front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+    }),
+  ],
+  // Mashing Deletor, Gaon
+  'BT16-117EN': [
+    ab.auto({
+      id: '1',
+      zones: ['VC'],
+      trigger: ab.attacksVanguard(),
+      condition: { cond: 'power', of: ab.attackedUnit(), range: { min: 12000 } },
+      effect: [ab.power(ab.self(), 10000, 'end_of_battle')],
+      text: "[AUTO](VC):When this unit attacks a vanguard, if the battle opponent's [Power]  is 12000 or greater, this unit gets [Power] +10000 until end of that battle.",
+    }),
+    attackPower({
+      id: '2',
+      amount: 2000,
+      zones: ['RC'],
+      vanguardOnly: true,
+      text: '[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
+    }),
+  ],
+  'BT16-118EN': [], // Bloating Deletor, Gio
+  // Greedy Deletor, Jail
+  'BT16-119EN': [
+    ab.auto({
+      id: '1',
+      zones: ['VC', 'RC'],
+      trigger: ab.attackHits('vanguard'),
+      effect: ab.counterCharge(1),
+      text: "[AUTO](VC/RC):When this unit's attack hits a vanguard, choose a card from your damage zone, and turn it face up.",
+    }),
+  ],
+  // Peeling Deletor, Progue
+  'BT16-120EN': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.deleted({ owner: 'opponent', filter: { isVanguard: true } }),
+      effect: [ab.power(ab.self(), 2000)],
+      text: "[AUTO](RC):When your opponent's vanguard is deleted, this unit gets [Power] +2000 until end of turn.",
+    }),
+  ],
+  // Rotting Deletor, Izret
+  'BT16-121EN': [
+    ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      effect: pumpAnother(2000),
+      text: '[AUTO]:When this unit is placed on (RC), choose another of your units, and that unit gets [Power] +2000 until end of turn.',
+    }),
+  ],
+  'BT16-122EN': [], // Poisonous Deletor, Edda
+  // Breaking Deletor, Gatario
+  'BT16-123EN': [
+    nameVanguardAttack(
+      DELETOR,
+      '[AUTO](RC):When this unit attacks, if you have a vanguard with "Deletor" in its card name, this unit gets [Power] +3000 until end of that battle.',
+    ),
+  ],
+  // Chewing Deletor, Boroh
+  'BT16-124EN': [
+    boostPower(
+      5000,
+      oppVanguardDeleted,
+      '[AUTO](RC):When this unit boosts ([Boost]) a unit named "Daunting Deletor, Oksizz", if your opponent has a deleted vanguard, the boosted ([Boost]) unit gets [Power] +5000 until end of that battle.',
+      { name: 'Daunting Deletor, Oksizz' },
+    ),
+  ],
+  // Resenting Deletor, Vuera
+  'BT16-125EN': [
+    ab.act({
+      id: '1',
+      zones: ['RC'],
+      cost: [ab.restCost()],
+      effect: pumpAnother(2000),
+      text: '[ACT](RC):[Rest] this unit] Choose another of your units, and that unit gets [Power] +2000 until end of turn.',
+    }),
+  ],
+  // Natatorial Deletor, Nie
+  'BT16-126EN': [
+    ab.forerunner(),
+    ab.act({
+      id: '2',
+      zones: ['RC'],
+      cost: [ab.counterBlast(1), ab.moveCost(ab.self(), 'soul')],
+      effect: lookAndTake(5, { grade: { min: 3 } }, 'hand'),
+      text: '[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 or greater card from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.',
+    }),
+  ],
+  'BT16-127EN': [], // Override Deletor, Olg
+  'BT16-128EN': [], // Marching Deletor, Maze
+  'BT16-129EN': [], // Exulting Deletor, Maestol
+  'BT16-130EN': [], // Squeezing Deletor, Id
+  'BT16-131EN': [], // Polypod Deletor, Oloron
+  'BT16-132EN': [], // Taunting Deletor, Gotho
 };

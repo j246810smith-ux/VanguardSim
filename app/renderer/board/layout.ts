@@ -6,7 +6,9 @@ export const STAGE_W = 1920;
 export const STAGE_H = 1080;
 
 const COL = { left: 700, centre: 960, right: 1220 } as const;
-const ROW = { oppBack: 168, oppFront: 362, meFront: 650, meBack: 838 } as const;
+// my back row sits a little higher than the opponent's so the fanned hand (and a hovered hand
+// card) does not cover the back-centre circle
+const ROW = { oppBack: 168, oppFront: 362, meFront: 646, meBack: 818 } as const;
 
 export interface Point {
   readonly x: number;

@@ -1,6 +1,6 @@
 {
   "set": "BT16",
-  "importedAt": "2026-10-10T11:34:56.090Z",
+  "importedAt": "2026-10-28T07:59:25.483Z",
   "importerVersion": 2,
   "cards": [
     {
@@ -4694,19 +4694,2074 @@
         "jpEnStatsMatch": true,
         "mismatches": []
       }
+    },
+    {
+      "id": "BT16-001EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/001EN",
+        "name": "Light Source Seeker, Alfred Exiv",
+        "text": "[ACT](VC):[Legion 20000]\"Blaster Blade\" or \"Blaster Blade Seeker\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[CONT](VC):During your turn, if this card is [Legion], this card gets [Power] +1000 for each of your other units with \"Seeker\" in its card name. Then, if the number of rear-guards you have is five or greater, this unit gets [Critical] +1.\n[ACT](VC):[Counter-Blast 2]-card with \"Seeker\" in its card name] Search your deck for up to one card with \"Seeker\" in its card name, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT16/001EN", "BT16/L01EN", "BT16/S01EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/001EN",
+          "fetchedAt": "2026-10-09T07:19:18.038Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-003EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/003EN",
+        "name": "Bluish Flame Liberator, Prominence Glare",
+        "text": "[ACT](VC):[Legion 20000]\"Regulation Liberator, Aglovale\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Counter-Blast 1 & Choose a card with \"Bluish Flame\" in its card name from your hand, and discard it] When your unit is placed on (RC) from your deck, if this unit is [Legion], you may pay the cost. If you do, until end of turn, this unit gets [Critical] +1 and \"[CONT](VC):During the battle that this unit attacks, your opponent cannot call grade 1 or greater units from hand to (GC).\".\n[ACT](VC):[Counter-Blast 1 & Choose one of your rear-guards, and retire it] Look at four cards from the top of your deck, search for up to one card with \"Liberator\" in its card name from among them, call it to (RC), and put the rest on the bottom of your deck in any order. This ability cannot be used for the rest of that turn.",
+        "clan": "Gold Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT16/003EN", "BT16/S04EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/003EN",
+          "fetchedAt": "2026-10-09T07:19:26.898Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-008EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/008EN",
+        "name": "Juxtapose Deletor, Zaele",
+        "text": "[ACT](VC):[Legion 20000]\"Juxtapose Deletor, Gaele\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Counter-Blast 2 & Choose a card from your hand, and discard it] When this unit [Legion], you may pay the cost. If you do, delete all of your opponent's vanguards. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT16/008EN", "BT16/S10EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/008EN",
+          "fetchedAt": "2026-10-09T07:19:32.481Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-009EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/009EN",
+        "name": "Daunting Deletor, Oksizz",
+        "text": "[ACT](VC):[Counter-Blast 3]-card with \"Deletor\" in its card name & Choose one of your rear-guards, and put it into your soul] Delete all of your opponent's vanguards, and this unit gets [Power] +10000 until end of turn. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)\n[AUTO](VC):At the beginning of your opponent's ride phase, if your opponent has a deleted vanguard, your opponent may choose a card from his or her hand, and discard it. If your opponent does not, your opponent cannot normal ride during that ride phase.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["BT16/009EN", "BT16/S11EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/009EN",
+          "fetchedAt": "2026-10-09T07:19:33.378Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-013EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/013EN",
+        "name": "Energy Seeker, Maddan",
+        "text": "[AUTO](RC):[Counter-Blast 1] When this unit attacks a vanguard, if you have a card named \"Blaster Blade Seeker\" in your (VC), you may pay the cost. If you do, this unit gets [Power] +1000 for each of your other units with \"Seeker\" in its card name until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT16/013EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/013EN",
+          "fetchedAt": "2026-10-09T07:19:37.806Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-015EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/015EN",
+        "name": "Seeker, Plume Wall Angel",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC) at [Rest].",
+        "clan": "Royal Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT16/015EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/015EN",
+          "fetchedAt": "2026-10-09T07:19:40.083Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-016EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/016EN",
+        "name": "Regulation Liberator, Aglovale",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Bluish Flame\" in its card name, this unit gets [Power] +2000 until end of that battle.\n[AUTO]:[Soul-Blast 1] When this unit is placed on (RC) from your deck, you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with \"Bluish Flame\" in its card name from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT16/016EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/016EN",
+          "fetchedAt": "2026-10-09T07:19:41.119Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-018EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/018EN",
+        "name": "Brawler, Skybeat Dragon",
+        "text": "[ACT](VC):[Legion 20000]\"Brawler, Skyhowl Dragon\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit [Legion], choose one rear-guard in your opponent's front row, and retire it.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["BT16/018EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/018EN",
+          "fetchedAt": "2026-10-09T07:19:43.044Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-022EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/022EN",
+        "name": "Refusing Deletor, Evil",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["BT16/022EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/022EN",
+          "fetchedAt": "2026-10-09T07:19:47.553Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-027EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/027EN",
+        "name": "Agreement Seeker, Menprius",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, look at up to five cards from the top of your deck, search for up to one grade 3 or greater card from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/027EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/027EN",
+          "fetchedAt": "2026-10-09T07:19:54.662Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-035EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/035EN",
+        "name": "Citation Liberator, Heli",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When this unit's attack hits a vanguard, you may pay the cost. If you do, look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_035EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/035EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/035EN",
+          "fetchedAt": "2026-10-09T07:20:06.502Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-039EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/039EN",
+        "name": "Flaming Passion Liberator, Guido",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO]RC:[Put this unit into your soul] If your vanguard is [Legion], look at three cards from the top of your deck, search for up to one card with \"Liberator\" in its card name from among them, call it to an open (RC), and shuffle your deck.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_039EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/039EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/039EN",
+          "fetchedAt": "2026-10-09T07:20:10.934Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-040EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/040EN",
+        "name": "Brawler, Skyhowl Dragon",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Brawler\" in its card name, you may pay the cost. If you do, choose a rear-guard in your opponent's front row, and retire it.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_040EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/040EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/040EN",
+          "fetchedAt": "2026-10-09T07:20:11.958Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-042EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/042EN",
+        "name": "Brawler, Wildfist Dragon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Brawler\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_042EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/042EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/042EN",
+          "fetchedAt": "2026-10-09T07:20:14.344Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-046EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/046EN",
+        "name": "Juxtapose Deletor, Gaele",
+        "text": "[AUTO]:When this unit is placed on (RC), if your opponent's vanguard is deleted, choose one of your opponent's rear-guards in the front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_046EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/046EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/046EN",
+          "fetchedAt": "2026-10-09T07:20:18.836Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-047EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/047EN",
+        "name": "Pursuing Deletor, Egotte",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Deletor\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_047EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/047EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/047EN",
+          "fetchedAt": "2026-10-09T07:20:20.071Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-048EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/048EN",
+        "name": "Idolizing Deletor, Guim",
+        "text": "[AUTO](RC):When an attack hits a vanguard during the battle this unit boosted ([Boost]), if your opponent has a deleted vanguard, choose one of your opponent's rear-guards in the front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_048EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/048EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/048EN",
+          "fetchedAt": "2026-10-09T07:20:21.281Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-049EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/049EN",
+        "name": "Looting Deletor, Gunec",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_049EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/049EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/049EN",
+          "fetchedAt": "2026-10-09T07:20:22.263Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-050EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/050EN",
+        "name": "Acquire Deletor, Igor",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Put this unit into your soul] When your opponent's vanguard is deleted, you may pay the cost. If you do, draw a card, choose a card from your damage zone, and turn it face up.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_050EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["BT16/050EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/050EN",
+          "fetchedAt": "2026-10-09T07:20:23.427Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-063EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/063EN",
+        "name": "Rousing Seeker, Aremil",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), if you have a card named \"Blaster Blade Seeker\" in your (VC), you may pay the cost. If you do, this unit gets [Power] +1000 for each of your other units with \"Seeker\" in its card name until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_063EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/063EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/063EN",
+          "fetchedAt": "2026-10-09T07:20:37.852Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-072EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/072EN",
+        "name": "Liberator, Gigantech Anger",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1 & Soul-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_072EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/072EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/072EN",
+          "fetchedAt": "2026-10-09T07:20:47.897Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-076EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/076EN",
+        "name": "Mertgal Liberator",
+        "text": "[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +10000 until end of turn.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_076EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/076EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/076EN",
+          "fetchedAt": "2026-10-09T07:20:52.148Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-077EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/077EN",
+        "name": "Invitation Liberator, Rud",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When an attack hits a vanguard during the battle this unit boosted ([Boost]), you may pay the cost. If you do, look at three cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest on the bottom of your deck in any order.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_077EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/077EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/077EN",
+          "fetchedAt": "2026-10-09T07:20:53.373Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-081EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/081EN",
+        "name": "Chikgal Liberator",
+        "text": "[AUTO](VC/RC):[Soul-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_081EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/081EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/081EN",
+          "fetchedAt": "2026-10-09T07:20:57.590Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-082EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/082EN",
+        "name": "Liberator, Dulcet Archer",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When your other unit with \"Liberator\" in its card name is placed on (RC) from your deck, you may pay the cost. If you do, draw a card. This ability cannot be used for the rest of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)",
+        "clan": "Gold Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_082EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/082EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/082EN",
+          "fetchedAt": "2026-10-09T07:20:58.493Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-086EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/086EN",
+        "name": "Armed Brawler, Kohiko",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_086EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/086EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/086EN",
+          "fetchedAt": "2026-10-09T07:21:02.970Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-088EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/088EN",
+        "name": "Brawler, Lightningrod Dragon",
+        "text": "[ACT](VC):[Legion 20000]\"Jaillock Brawler, Kotenka\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit attacks a vanguard, if this unit is [Legion], this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_088EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/088EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/088EN",
+          "fetchedAt": "2026-10-09T07:21:05.477Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-089EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/089EN",
+        "name": "Jaillock Brawler, Kotenka",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_089EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/089EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/089EN",
+          "fetchedAt": "2026-10-09T07:21:06.433Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-093EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/093EN",
+        "name": "Brawler, Oldhand Dragon",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_093EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/093EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/093EN",
+          "fetchedAt": "2026-10-09T07:21:10.422Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-094EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/094EN",
+        "name": "Brawler, Lightning Rider",
+        "text": "[AUTO](RC):When this unit attacks, if your vanguard is [Legion], this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_094EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/094EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/094EN",
+          "fetchedAt": "2026-10-09T07:21:11.602Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-097EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/097EN",
+        "name": "Baton Brawler, Sogo",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_097EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/097EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/097EN",
+          "fetchedAt": "2026-10-09T07:21:14.742Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-098EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/098EN",
+        "name": "Wandering Brawler, Teirin",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_098EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/098EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/098EN",
+          "fetchedAt": "2026-10-09T07:21:15.932Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-099EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/099EN",
+        "name": "Brawler, Wildclock Dragon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Brawler\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_099EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/099EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/099EN",
+          "fetchedAt": "2026-10-09T07:21:16.985Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-101EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/101EN",
+        "name": "Brawler, Starring Dracokid",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a vanguard, if your vanguard is [Legion], the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_101EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/101EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/101EN",
+          "fetchedAt": "2026-10-09T07:21:19.067Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-103EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/103EN",
+        "name": "Brawler, Sky Dracokid",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_103EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/103EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/103EN",
+          "fetchedAt": "2026-10-09T07:21:20.909Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-107EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/107EN",
+        "name": "Brawler, Plasmakick Dragon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_107EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/107EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/107EN",
+          "fetchedAt": "2026-10-09T07:21:25.533Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-108EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/108EN",
+        "name": "Brawler, Tokohson",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_108EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/108EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/108EN",
+          "fetchedAt": "2026-10-09T07:21:27.875Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-110EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/110EN",
+        "name": "Naga Brawler, Sagara",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_110EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/110EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/110EN",
+          "fetchedAt": "2026-10-09T07:21:30.083Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-111EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/111EN",
+        "name": "Brawler, Green Gem Carbuncle",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Narukami",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_111EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/111EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/111EN",
+          "fetchedAt": "2026-10-09T07:21:31.167Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-113EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/113EN",
+        "name": "Squirm Deletor, Lourelou",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 card, until end of that battle this unit gets \"[AUTO](VC):[Choose one of your grade 3 rear-guards with \"Deletor\" in its card name, and retire it] At the end of the battle that this unit attacked, you may pay the cost. If you do, delete all of your opponent's vanguards.\". (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_113EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/113EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/113EN",
+          "fetchedAt": "2026-10-09T07:21:33.276Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-114EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/114EN",
+        "name": "Diverging Deletor, Newark",
+        "text": "[AUTO](RC):When this unit's attack hits a vanguard, choose another of your units, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_114EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/114EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/114EN",
+          "fetchedAt": "2026-10-09T07:21:34.545Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-115EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/115EN",
+        "name": "Howling Deletor, Fruet",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1]When this unit attacks, you may pay the cost. If you do, this unit gets [Power] *3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_115EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/115EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/115EN",
+          "fetchedAt": "2026-10-09T07:21:35.507Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-116EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/116EN",
+        "name": "Penetrate Deletor, Iggy",
+        "text": "[AUTO](RC):When this unit's attack hits a vanguard, if your opponent has a deleted vanguard, choose a rear-guard in your opponent's front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_116EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/116EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/116EN",
+          "fetchedAt": "2026-10-09T07:21:36.734Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-117EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/117EN",
+        "name": "Mashing Deletor, Gaon",
+        "text": "[AUTO](VC):When this unit attacks a vanguard, if the battle opponent's [Power]  is 12000 or greater, this unit gets [Power] +10000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_117EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/117EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/117EN",
+          "fetchedAt": "2026-10-09T07:21:37.674Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-118EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/118EN",
+        "name": "Bloating Deletor, Gio",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_118EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/118EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/118EN",
+          "fetchedAt": "2026-10-09T07:21:38.894Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-119EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/119EN",
+        "name": "Greedy Deletor, Jail",
+        "text": "[AUTO](VC/RC):When this unit's attack hits a vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_119EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/119EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/119EN",
+          "fetchedAt": "2026-10-09T15:16:04.576Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-120EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/120EN",
+        "name": "Peeling Deletor, Progue",
+        "text": "[AUTO](RC):When your opponent's vanguard is deleted, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_120EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/120EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/120EN",
+          "fetchedAt": "2026-10-09T15:16:07.047Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-121EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/121EN",
+        "name": "Rotting Deletor, Izret",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your units, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_121EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/121EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/121EN",
+          "fetchedAt": "2026-10-09T15:16:07.958Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-122EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/122EN",
+        "name": "Poisonous Deletor, Edda",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_122EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/122EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/122EN",
+          "fetchedAt": "2026-10-09T15:16:09.135Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-123EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/123EN",
+        "name": "Breaking Deletor, Gatario",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Deletor\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_123EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/123EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/123EN",
+          "fetchedAt": "2026-10-09T15:16:10.093Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-124EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/124EN",
+        "name": "Chewing Deletor, Boroh",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a unit named \"Daunting Deletor, Oksizz\", if your opponent has a deleted vanguard, the boosted ([Boost]) unit gets [Power] +5000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_124EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/124EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/124EN",
+          "fetchedAt": "2026-10-09T15:16:11.278Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-125EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/125EN",
+        "name": "Resenting Deletor, Vuera",
+        "text": "[ACT](RC):[Rest] this unit] Choose another of your units, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_125EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/125EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/125EN",
+          "fetchedAt": "2026-10-09T15:16:12.473Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-126EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/126EN",
+        "name": "Natatorial Deletor, Nie",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 or greater card from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_126EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/126EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/126EN",
+          "fetchedAt": "2026-10-09T15:16:13.681Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-127EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/127EN",
+        "name": "Override Deletor, Olg",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_127EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/127EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/127EN",
+          "fetchedAt": "2026-10-09T15:16:14.664Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-128EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/128EN",
+        "name": "Marching Deletor, Maze",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_128EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/128EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/128EN",
+          "fetchedAt": "2026-10-09T15:16:15.928Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-129EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/129EN",
+        "name": "Exulting Deletor, Maestol",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_129EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/129EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/129EN",
+          "fetchedAt": "2026-10-09T15:16:16.867Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-130EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/130EN",
+        "name": "Squeezing Deletor, Id",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_130EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/130EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/130EN",
+          "fetchedAt": "2026-10-09T15:16:18.126Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-131EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/131EN",
+        "name": "Polypod Deletor, Oloron",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_131EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/131EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/131EN",
+          "fetchedAt": "2026-10-09T15:16:19.393Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
+    },
+    {
+      "id": "BT16-132EN",
+      "set": "BT16",
+      "jp": null,
+      "en": {
+        "number": "BT16/132EN",
+        "name": "Taunting Deletor, Gotho",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/bt16/BT16_132EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["BT16/132EN"],
+      "sources": {
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT16/132EN",
+          "fetchedAt": "2026-10-09T15:16:20.499Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishOnly": "Printed only in the English ver.E set; added by the user (D-031)."
+      }
     }
   ],
   "enOnly": [
-    {
-      "number": "BT16/001EN",
-      "name": "Light Source Seeker, Alfred Exiv",
-      "printings": ["BT16/001EN", "BT16/L01EN", "BT16/S01EN"]
-    },
-    {
-      "number": "BT16/003EN",
-      "name": "Bluish Flame Liberator, Prominence Glare",
-      "printings": ["BT16/003EN", "BT16/S04EN"]
-    },
     {
       "number": "BT16/004EN",
       "name": "Bluish Flame Liberator, Prominence Core",
@@ -4716,16 +6771,6 @@
       "number": "BT16/006EN",
       "name": "Brawler, Big Bang Knuckle Buster",
       "printings": ["BT16/006EN", "BT16/S08EN"]
-    },
-    {
-      "number": "BT16/008EN",
-      "name": "Juxtapose Deletor, Zaele",
-      "printings": ["BT16/008EN", "BT16/S10EN"]
-    },
-    {
-      "number": "BT16/009EN",
-      "name": "Daunting Deletor, Oksizz",
-      "printings": ["BT16/009EN", "BT16/S11EN"]
     },
     {
       "number": "BT16/010EN",
@@ -4738,29 +6783,9 @@
       "printings": ["BT16/011EN", "BT16/S03EN"]
     },
     {
-      "number": "BT16/013EN",
-      "name": "Energy Seeker, Maddan",
-      "printings": ["BT16/013EN"]
-    },
-    {
-      "number": "BT16/015EN",
-      "name": "Seeker, Plume Wall Angel",
-      "printings": ["BT16/015EN"]
-    },
-    {
-      "number": "BT16/016EN",
-      "name": "Regulation Liberator, Aglovale",
-      "printings": ["BT16/016EN"]
-    },
-    {
       "number": "BT16/017EN",
       "name": "Light Formation Liberator, Erdre",
       "printings": ["BT16/017EN"]
-    },
-    {
-      "number": "BT16/018EN",
-      "name": "Brawler, Skybeat Dragon",
-      "printings": ["BT16/018EN"]
     },
     {
       "number": "BT16/020EN",
@@ -4768,19 +6793,9 @@
       "printings": ["BT16/020EN"]
     },
     {
-      "number": "BT16/022EN",
-      "name": "Refusing Deletor, Evil",
-      "printings": ["BT16/022EN"]
-    },
-    {
       "number": "BT16/026EN",
       "name": "Blue Storm Battle Princess, Electra",
       "printings": ["BT16/026EN"]
-    },
-    {
-      "number": "BT16/027EN",
-      "name": "Agreement Seeker, Menprius",
-      "printings": ["BT16/027EN"]
     },
     {
       "number": "BT16/029EN",
@@ -4798,11 +6813,6 @@
       "printings": ["BT16/034EN", "BT16/S06EN"]
     },
     {
-      "number": "BT16/035EN",
-      "name": "Citation Liberator, Heli",
-      "printings": ["BT16/035EN"]
-    },
-    {
       "number": "BT16/036EN",
       "name": "Shower Liberator, Trahern",
       "printings": ["BT16/036EN"]
@@ -4816,46 +6826,6 @@
       "number": "BT16/038EN",
       "name": "Koronagal Liberator",
       "printings": ["BT16/038EN"]
-    },
-    {
-      "number": "BT16/039EN",
-      "name": "Flaming Passion Liberator, Guido",
-      "printings": ["BT16/039EN"]
-    },
-    {
-      "number": "BT16/040EN",
-      "name": "Brawler, Skyhowl Dragon",
-      "printings": ["BT16/040EN"]
-    },
-    {
-      "number": "BT16/042EN",
-      "name": "Brawler, Wildfist Dragon",
-      "printings": ["BT16/042EN"]
-    },
-    {
-      "number": "BT16/046EN",
-      "name": "Juxtapose Deletor, Gaele",
-      "printings": ["BT16/046EN"]
-    },
-    {
-      "number": "BT16/047EN",
-      "name": "Pursuing Deletor, Egotte",
-      "printings": ["BT16/047EN"]
-    },
-    {
-      "number": "BT16/048EN",
-      "name": "Idolizing Deletor, Guim",
-      "printings": ["BT16/048EN"]
-    },
-    {
-      "number": "BT16/049EN",
-      "name": "Looting Deletor, Gunec",
-      "printings": ["BT16/049EN"]
-    },
-    {
-      "number": "BT16/050EN",
-      "name": "Acquire Deletor, Igor",
-      "printings": ["BT16/050EN"]
     },
     {
       "number": "BT16/054EN",
@@ -4883,11 +6853,6 @@
       "printings": ["BT16/061EN"]
     },
     {
-      "number": "BT16/063EN",
-      "name": "Rousing Seeker, Aremil",
-      "printings": ["BT16/063EN"]
-    },
-    {
       "number": "BT16/064EN",
       "name": "Lake Maiden, Lien",
       "printings": ["BT16/064EN"]
@@ -4908,11 +6873,6 @@
       "printings": ["BT16/071EN"]
     },
     {
-      "number": "BT16/072EN",
-      "name": "Liberator, Gigantech Anger",
-      "printings": ["BT16/072EN"]
-    },
-    {
       "number": "BT16/073EN",
       "name": "Liberator, Feather Lion",
       "printings": ["BT16/073EN"]
@@ -4926,16 +6886,6 @@
       "number": "BT16/075EN",
       "name": "Nalegal Liberator",
       "printings": ["BT16/075EN"]
-    },
-    {
-      "number": "BT16/076EN",
-      "name": "Mertgal Liberator",
-      "printings": ["BT16/076EN"]
-    },
-    {
-      "number": "BT16/077EN",
-      "name": "Invitation Liberator, Rud",
-      "printings": ["BT16/077EN"]
     },
     {
       "number": "BT16/078EN",
@@ -4953,16 +6903,6 @@
       "printings": ["BT16/080EN"]
     },
     {
-      "number": "BT16/081EN",
-      "name": "Chikgal Liberator",
-      "printings": ["BT16/081EN"]
-    },
-    {
-      "number": "BT16/082EN",
-      "name": "Liberator, Dulcet Archer",
-      "printings": ["BT16/082EN"]
-    },
-    {
       "number": "BT16/083EN",
       "name": "Liberator, Blessing Arrow Angel",
       "printings": ["BT16/083EN"]
@@ -4978,34 +6918,9 @@
       "printings": ["BT16/085EN"]
     },
     {
-      "number": "BT16/086EN",
-      "name": "Armed Brawler, Kohiko",
-      "printings": ["BT16/086EN"]
-    },
-    {
-      "number": "BT16/088EN",
-      "name": "Brawler, Lightningrod Dragon",
-      "printings": ["BT16/088EN"]
-    },
-    {
-      "number": "BT16/089EN",
-      "name": "Jaillock Brawler, Kotenka",
-      "printings": ["BT16/089EN"]
-    },
-    {
       "number": "BT16/090EN",
       "name": "Spirited Brawler, Kohkin",
       "printings": ["BT16/090EN"]
-    },
-    {
-      "number": "BT16/093EN",
-      "name": "Brawler, Oldhand Dragon",
-      "printings": ["BT16/093EN"]
-    },
-    {
-      "number": "BT16/094EN",
-      "name": "Brawler, Lightning Rider",
-      "printings": ["BT16/094EN"]
     },
     {
       "number": "BT16/095EN",
@@ -5018,159 +6933,14 @@
       "printings": ["BT16/096EN"]
     },
     {
-      "number": "BT16/097EN",
-      "name": "Baton Brawler, Sogo",
-      "printings": ["BT16/097EN"]
-    },
-    {
-      "number": "BT16/098EN",
-      "name": "Wandering Brawler, Teirin",
-      "printings": ["BT16/098EN"]
-    },
-    {
-      "number": "BT16/099EN",
-      "name": "Brawler, Wildclock Dragon",
-      "printings": ["BT16/099EN"]
-    },
-    {
-      "number": "BT16/101EN",
-      "name": "Brawler, Starring Dracokid",
-      "printings": ["BT16/101EN"]
-    },
-    {
-      "number": "BT16/103EN",
-      "name": "Brawler, Sky Dracokid",
-      "printings": ["BT16/103EN"]
-    },
-    {
       "number": "BT16/104EN",
       "name": "Brawler, Volt Knuckle Dracokid",
       "printings": ["BT16/104EN"]
     },
     {
-      "number": "BT16/107EN",
-      "name": "Brawler, Plasmakick Dragon",
-      "printings": ["BT16/107EN"]
-    },
-    {
-      "number": "BT16/108EN",
-      "name": "Brawler, Tokohson",
-      "printings": ["BT16/108EN"]
-    },
-    {
       "number": "BT16/109EN",
       "name": "Brawler, Heavy Trailer Dragon",
       "printings": ["BT16/109EN"]
-    },
-    {
-      "number": "BT16/110EN",
-      "name": "Naga Brawler, Sagara",
-      "printings": ["BT16/110EN"]
-    },
-    {
-      "number": "BT16/111EN",
-      "name": "Brawler, Green Gem Carbuncle",
-      "printings": ["BT16/111EN"]
-    },
-    {
-      "number": "BT16/113EN",
-      "name": "Squirm Deletor, Lourelou",
-      "printings": ["BT16/113EN"]
-    },
-    {
-      "number": "BT16/114EN",
-      "name": "Diverging Deletor, Newark",
-      "printings": ["BT16/114EN"]
-    },
-    {
-      "number": "BT16/115EN",
-      "name": "Howling Deletor, Fruet",
-      "printings": ["BT16/115EN"]
-    },
-    {
-      "number": "BT16/116EN",
-      "name": "Penetrate Deletor, Iggy",
-      "printings": ["BT16/116EN"]
-    },
-    {
-      "number": "BT16/117EN",
-      "name": "Mashing Deletor, Gaon",
-      "printings": ["BT16/117EN"]
-    },
-    {
-      "number": "BT16/118EN",
-      "name": "Bloating Deletor, Gio",
-      "printings": ["BT16/118EN"]
-    },
-    {
-      "number": "BT16/119EN",
-      "name": "Greedy Deletor, Jail",
-      "printings": ["BT16/119EN"]
-    },
-    {
-      "number": "BT16/120EN",
-      "name": "Peeling Deletor, Progue",
-      "printings": ["BT16/120EN"]
-    },
-    {
-      "number": "BT16/121EN",
-      "name": "Rotting Deletor, Izret",
-      "printings": ["BT16/121EN"]
-    },
-    {
-      "number": "BT16/122EN",
-      "name": "Poisonous Deletor, Edda",
-      "printings": ["BT16/122EN"]
-    },
-    {
-      "number": "BT16/123EN",
-      "name": "Breaking Deletor, Gatario",
-      "printings": ["BT16/123EN"]
-    },
-    {
-      "number": "BT16/124EN",
-      "name": "Chewing Deletor, Boroh",
-      "printings": ["BT16/124EN"]
-    },
-    {
-      "number": "BT16/125EN",
-      "name": "Resenting Deletor, Vuera",
-      "printings": ["BT16/125EN"]
-    },
-    {
-      "number": "BT16/126EN",
-      "name": "Natatorial Deletor, Nie",
-      "printings": ["BT16/126EN"]
-    },
-    {
-      "number": "BT16/127EN",
-      "name": "Override Deletor, Olg",
-      "printings": ["BT16/127EN"]
-    },
-    {
-      "number": "BT16/128EN",
-      "name": "Marching Deletor, Maze",
-      "printings": ["BT16/128EN"]
-    },
-    {
-      "number": "BT16/129EN",
-      "name": "Exulting Deletor, Maestol",
-      "printings": ["BT16/129EN"]
-    },
-    {
-      "number": "BT16/130EN",
-      "name": "Squeezing Deletor, Id",
-      "printings": ["BT16/130EN"]
-    },
-    {
-      "number": "BT16/131EN",
-      "name": "Polypod Deletor, Oloron",
-      "printings": ["BT16/131EN"]
-    },
-    {
-      "number": "BT16/132EN",
-      "name": "Taunting Deletor, Gotho",
-      "printings": ["BT16/132EN"]
     },
     {
       "number": "BT16/141EN",

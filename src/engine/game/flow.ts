@@ -19,7 +19,7 @@ import { attackOptions, guardableCards, interceptors } from './combat';
 import { emit, type Draft } from './context';
 import { currentCritical, currentPower } from './stats';
 import { locate } from './locate';
-import { drawCard, moveCard, unlockCard } from './zones';
+import { drawCard, moveCard, undeleteCard, unlockCard } from './zones';
 
 /** Tasks that end the turn and start the opponent's (CR 6.8). */
 export const endOfTurnTasks = (current: PlayerId): Task[] => [
@@ -131,6 +131,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       // CR 6.8.1.1: the turn player's locked cards return to normal
       for (const id of circleCards(s.players[s.activePlayer])) {
         if (s.cards[id]!.locked && !isRestricted(s, d.ctx, id, 'cannot_unlock')) unlockCard(d, id);
+        // CR 6.8.1.1.2: and its deleted units, at the same time
+        if (s.cards[id]!.deleted) undeleteCard(d, id);
       }
       // effects lasting "until your next end phase" end now for this player's cards
       s.restrictions = s.restrictions.filter(

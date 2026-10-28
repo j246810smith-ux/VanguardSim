@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.24.0-alpha — 2026-10-28
+
+- **EB09 "Dragonic Overlord The Re-birth"**: all 35 cards implemented and tested (21 reprints),
+  with a Kagero "Dragonic Nouvelle Vague" deck. New: the first **grade 4** card (rides onto a
+  grade 3; the deck builder lists grade 4), a continuous "your opponent's trigger effects are
+  nullified", and the condition "if this unit's [Critical] is two or more".
+- **EB08 "Galaxy Fighters"**: all 35 cards implemented and tested (16 are reprints), with a Nova
+  Grappler "Galaxy Blaukluger" deck.
+- **English-only BT16/BT17 cards (D-031)**: the 85 cards that English "ver.E" BT16/BT17 printed
+  but Japanese BT16/BT17 did not are now in the pool, with their English number as id
+  (`BT16-001EN`): the Deletors, Brawlers, Seekers, Liberators, Perdition Dragons and Star-vaders,
+  including Light Source Seeker, Alfred Exiv and Dragonic Overlord the Great. Brawler, Wild Rush
+  Dragon can now Legion with Brawler, Wildfist Dragon. New starter deck: Link Joker "Juxtapose
+  Deletor, Zaele".
+- **Delete** (CR 1.36 10.1.25): a deleted vanguard has power 0 and no text until its owner's end
+  phase; shown face down with a DELETE band, explained in card details and the battle log.
+- BT03: Spiral Master, Herbivorous Dragon Brutosaurus and Victory Maker are **draw** triggers
+  again, as in Japan (user's choice; they were English critical triggers since D-020).
+- Card tools: `tools/cardgen/similar.py` finds the most similar already-scripted card for each new
+  card; the importer, validator and status report handle English-only cards; art files named
+  `BT16_001EN` go to the English-only card.
+- **Foil effect by rarity**: R cards get a passing sheen, RR a faint rainbow as well, RRR moving
+  holo bands and a gold edge, and the ЯЯЯ card a red/violet holo; C and TD cards stay plain.
+  Stronger on a hovered hand card and in the large previews. Settings → "Foil effect on rare
+  cards" turns it off; it nearly stops under Reduced motion.
+- Battle screen: your back row sits a little higher and the hand a little lower, so a hovered
+  hand card no longer covers the back-centre rear-guard circle.
+- Battle screen: nothing pops up over the back-centre rear-guard circle any more. The hint line
+  and the yes/no, circle and "choose" prompts sit in the right column just above your trigger
+  check zone, and drive/damage check pop-ups appear compact over the checking player's trigger
+  check zone.
+
 ## 0.23.0-alpha — 2026-10-24
 
 - **Delayed Legion (custom rule, D-030)**: a new toggle on Game Setup, off by default. With it

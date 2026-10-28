@@ -34,6 +34,11 @@ describe('deck text format', () => {
 
   it('normalizes card IDs', () => {
     expect(normalizeId('BT03/052EN')).toBe('BT03-052');
+    // English-only cards (D-031) keep the English number
+    const has = (id: string) => id === 'BT16-001EN';
+    expect(normalizeId('BT16/001EN', has)).toBe('BT16-001EN');
+    expect(normalizeId('BT16-001EN', has)).toBe('BT16-001EN');
+    expect(normalizeId('BT16/002EN', has)).toBe('BT16-002');
     expect(normalizeId('bt01-1')).toBe('BT01-001');
     expect(normalizeId('BT01/S01')).toBe('BT01-S01');
     expect(normalizeId('hello')).toBeNull();

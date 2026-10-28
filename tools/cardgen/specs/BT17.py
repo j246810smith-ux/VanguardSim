@@ -783,3 +783,252 @@ CARDS = {
     'BT17-044': 'lbAlways({t})',
     'BT17-046': "ab.forerunner(), boostPower(3000, threeFrontSeekers, {t1}, {}, '2')",
 }
+
+# ---- English-only cards of English BT17 (DECISIONS D-031): ids carry the English number
+PRELUDE += r"""
+/** "[AUTO](RC):When your vanguard [Legion], this unit gets [Power] +10000 until end of turn." */
+const legionPump10000 = (text: string) =>
+  ab.auto({ id: '1', zones: ['RC'], trigger: ab.legions({ owner: 'you' }), effect: [ab.power(ab.self(), 10000)], text });
+/** "[AUTO](VC/RC):[Counter-Blast 1 & Soul-Blast 1] When this unit attacks, you may pay the cost. If you do so, this unit gets [Power] +5000 until end of that battle." */
+const cbSbAttack5000 = (text: string) =>
+  ab.auto({
+    id: '1',
+    zones: ['VC', 'RC'],
+    trigger: ab.attacks(),
+    cost: [ab.counterBlast(1), ab.soulBlast(1)],
+    optional: true,
+    effect: [ab.power(ab.self(), 5000, 'end_of_battle')],
+    text,
+  });
+/** "if your opponent does not have any rear-guards in the same column as this unit" */
+const noOppInColumn = ab.not(ab.exists(ab.units('opponent', ['RC'], { sameColumnAsSource: true })));
+/** "[AUTO]:[Soul-Blast 1] When this unit is placed on (VC) or (RC), if your opponent does not have any rear-guards in the same column as this unit, … choose another of your units, and that unit gets [Power] +4000 until end of turn." */
+const embodiment = (text: string) =>
+  ab.auto({
+    id: '1',
+    zones: ['any'],
+    trigger: ab.placedOn(['VC', 'RC']),
+    condition: noOppInColumn,
+    cost: [ab.soulBlast(1)],
+    optional: true,
+    effect: [ab.choose('t', ab.units('you', ['VC', 'RC'], { excludeSelf: true })), ab.power(ab.bound('t'), 4000)],
+    text,
+  });
+/** "if your opponent has a locked card" */
+const oppHasLockedCard = ab.exists(ab.cards('opponent', ['locked']));
+const retireOne: Step[] = [ab.choose('r', ab.units('opponent', ['RC'])), ab.retire(ab.bound('r'))];
+/** "[AUTO](VC):When this unit's attack hits, choose one of your opponent's rear-guards, and retire it." */
+const hitRetire = (text: string) => ab.auto({ id: 'hit_retire', zones: ['VC'], trigger: ab.attackHits(), effect: retireOne, text });"""
+
+CARDS.update({
+    # Perdition Emperor Dragon, Dragonic Overlord the Great
+    'BT17-001EN': r"""seek('Perdition Dragon, Dragonic Neoflame', {t0}),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      oncePerTurn: true,
+      trigger: ab.atStartOf('close_step'),
+      triggerIf: ab.all(ab.is(ab.self(), { attacking: true }), { cond: 'battle_target', vanguard: false }),
+      condition: ab.inLegion(),
+      cost: [ab.counterBlast(1), ab.discard(2)],
+      optional: true,
+      effect: [ab.stand(ab.units('you', ['VC']))],
+      text: {t1},
+    }),
+    ab.auto({
+      id: '3',
+      zones: ['VC'],
+      trigger: ab.attackHits(),
+      cost: [ab.retireCost(ab.units('you', ['RC'], { sameNameAsVanguard: true }))],
+      optional: true,
+      effect: retireOne,
+      text: {t2},
+    })""",
+    # Star-vader, Venom Dancer
+    'BT17-007EN': r"""seek('Star-vader, Sword Viper', {t0}),
+    ab.auto({
+      id: '2',
+      zones: ['VC'],
+      trigger: ab.atStartOf('close_step'),
+      triggerIf: ab.all(ab.is(ab.self(), { attacking: true }), { cond: 'battle_target', vanguard: true }),
+      condition: ab.inLegion(),
+      cost: [ab.counterBlast(1)],
+      optional: true,
+      effect: [
+        ab.choose('s', ab.units('you', ['RC']), 1, { upTo: true, countOf: ab.cards('opponent', ['locked']) }),
+        ab.stand(ab.bound('s')),
+      ],
+      text: {t1},
+    }),
+    ab.act({
+      id: '3',
+      zones: ['VC'],
+      cost: [ab.counterBlast(1, { nameIncludes: STAR_VADER })],
+      effect: [
+        ab.if_(ab.exists(ab.units('you', ['RC'], { sameColumnAsSource: true })), [
+          ab.choose('l', ab.units('opponent', ['back_RC'])),
+          ab.lock(ab.bound('l')),
+        ]),
+      ],
+      text: {t2},
+    })""",
+    # Star-vader, Blaster Joker
+    'BT17-009EN': r"""seek('Companion Star Star-vader, Photon', {t0}),
+    ab.act({
+      id: '2',
+      zones: ['VC'],
+      cost: [ab.counterBlast(2), ab.soulBlast(2), ab.lockCost(ab.units('you', ['RC'], { nameIncludes: STAR_VADER }))],
+      effect: [
+        ab.if_(ab.inLegion(), [
+          ab.lock(ab.units('opponent', ['RC'])),
+          ab.choose('m', ab.units('opponent', ['VC'], { legionMate: true })),
+          ab.retire(ab.bound('m')),
+        ]),
+      ],
+      text: {t1},
+    }),
+    ab.auto({
+      id: '3',
+      zones: ['VC'],
+      trigger: ab.attacksVanguard(),
+      cost: [ab.moveChosenCost(ab.cards('you', ['hand'], { sameNameAsVanguard: true }), 'soul')],
+      optional: true,
+      effect: [ab.critical(ab.self(), 1, 'end_of_battle')],
+      text: {t2},
+    })""",
+    # Perdition Dragon, Dragonic Neoflame
+    'BT17-011EN': r"""ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      effect: [
+        ab.grant(
+          ab.self(),
+          ab.auto({
+            id: 'neoflame',
+            zones: ['RC'],
+            trigger: sameColumnDropped,
+            cost: [ab.counterBlast(1)],
+            optional: true,
+            effect: [ab.choose('r', ab.units('opponent', ['RC'], { sameColumnAsSource: true })), ab.retire(ab.bound('r'))],
+            text: "[AUTO](RC):[Counter-Blast 1] When your opponent's rear-guard in the same column as this unit is put into the drop zone, you may pay the cost. If you do, choose one of your opponent's rear-guards in the same column as this unit, and retire it.",
+          }),
+        ),
+      ],
+      text: {t},
+    })""",
+    'BT17-013EN': 'sentinelCallFive({t1})',
+    # Infinitesimal Star-vader, Mayoron
+    'BT17-021EN': r"""ab.act({
+      id: '1',
+      zones: ['RC'],
+      cost: [ab.restCost()],
+      effect: [
+        ab.if_(vanguardInLegion(), [
+          ab.choose('v', ab.units('you', ['VC'], { name: 'Star-vader, Blaster Joker' })),
+          ab.power(ab.bound('v'), 10000),
+        ]),
+      ],
+      text: {t},
+    })""",
+    # Perdition Dragon, Break Down Dragon
+    'BT17-027EN': r"""seek('Perdition Dragon Knight, Tarayev', {t0}),
+    ab.act({
+      id: '2',
+      zones: ['VC'],
+      cost: [ab.counterBlast(3)],
+      effect: [
+        ab.if_(ab.inLegion(), [
+          ab.choose('t', ab.units('opponent', ['RC'])),
+          ab.retire(ab.units('opponent', ['RC'], { sameColumnAsBound: 't' })),
+          ab.if_(ab.count(ab.units('opponent', ['RC']), { max: 2 }), ab.counterCharge(1)),
+        ]),
+      ],
+      text: {t1},
+    }),
+    middleColumnPump3000({t2}, '3')""",
+    # Perdition Dragon Knight, Ilham
+    'BT17-028EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.legions({ owner: 'you' }),
+      effect: [ab.choose('r', ab.units('opponent', ['RC'], { sameColumnAsSource: true })), ab.retire(ab.bound('r'))],
+      text: {t},
+    })""",
+    # Perdition Dragon Knight, Tarayev
+    'BT17-029EN': "ab.auto({ id: '1', zones: ['RC'], trigger: sameColumnDropped, condition: vanguardInLegion(), effect: [ab.power(ab.self(), 5000)], text: {t} })",
+    # Perdition Dragon, Petal Flare Dracokid
+    'BT17-032EN': r"""ab.forerunner(),
+    ab.auto({
+      id: '2',
+      zones: ['RC'],
+      trigger: ab.legions({ owner: 'you' }),
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: [
+        ab.choose('v', ab.units('you', ['VC'])),
+        ab.grant(ab.bound('v'), hitRetire("[AUTO](VC):When this unit's attack hits, choose one of your opponent's rear-guards, and retire it.")),
+      ],
+      text: {t1},
+    })""",
+    # Star-vader, Sword Viper
+    'BT17-045EN': r"""ab.auto({
+      id: '1',
+      zones: ['RC'],
+      trigger: ab.attackHits('vanguard'),
+      condition: ab.all(vanguardInLegion(), oppHasLockedCard),
+      effect: [ab.choose('l', ab.units('opponent', ['RC'])), ab.lock(ab.bound('l'))],
+      text: {t},
+    })""",
+    # Star-vader of Silence, Dilaton
+    'BT17-047EN': r"""ab.auto({
+      id: '1',
+      zones: ['any'],
+      trigger: ab.placedOn('RC'),
+      condition: ab.all(vanguardInLegion(), twoLocked),
+      effect: [
+        ab.search('s', { name: 'Star-vader, Blaster Joker' }),
+        ab.reveal(ab.bound('s')),
+        ab.moveTo(ab.bound('s'), 'hand'),
+        ab.shuffle(),
+      ],
+      text: {t},
+    })""",
+    # Star-vader, Bravefang
+    'BT17-049EN': r"""ab.forerunner(),
+    ab.auto({
+      id: '2',
+      zones: ['RC'],
+      trigger: ab.boostedAttackHits(undefined, 'self', 'vanguard'),
+      condition: vanguardInLegion(),
+      cost: [ab.moveCost(ab.self(), 'soul')],
+      optional: true,
+      effect: [
+        ab.choose('l', ab.cards('opponent', ['locked']), 2, { upTo: true }),
+        ab.restrict(ab.bound('l'), 'cannot_unlock', 'next_end_phase'),
+      ],
+      text: {t1},
+    })""",
+    'BT17-058EN': 'cbSbAttack5000({t})',
+    'BT17-062EN': 'embodiment({t})',
+    'BT17-064EN': 'legionPump10000({t})',
+    'BT17-069EN': 'embodiment({t})',
+    # Perdition Wyvern, Zekar
+    'BT17-072EN': 'boostPower(3000, noOppInColumn, {t}, {})',
+    'BT17-117EN': 'cbSbAttack5000({t})',
+    'BT17-119EN': 'legionPump10000({t})',
+    'BT17-123EN': 'attackVanguardSB1Pump3000({t})',
+    # Star-vader, Turndown Dragon
+    'BT17-124EN': "ab.auto({ id: '1', zones: ['any'], trigger: ab.placedOn('GC'), condition: twoLocked, effect: [ab.shield(ab.self(), 10000, 'end_of_battle')], text: {t} })",
+    # Star-vader, Archfox
+    'BT17-126EN': r"""ab.forerunner(),
+    ab.auto({
+      id: '2',
+      zones: ['RC'],
+      trigger: ab.boosts({ isVanguard: true }),
+      cost: [ab.soulBlast(1)],
+      optional: true,
+      effect: [ab.power(ab.boostedUnit(), 3000, 'end_of_battle')],
+      text: {t1},
+    })""",
+})

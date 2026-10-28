@@ -26,6 +26,25 @@ export function currentCritical(state: GameState, ctx: EngineContext, id: Instan
   return definition(state, ctx, id).critical + modified(state, ctx, id, 'critical');
 }
 
+/**
+ * Critical from the printed value and effects only, without continuous abilities: what a
+ * continuous ability may read ("if this unit's [Critical] is two or more", Blast Bulk Dragon)
+ * without depending on itself (CR 8.7.2 dependency is not modelled).
+ */
+export function criticalWithoutContinuous(
+  state: GameState,
+  ctx: EngineContext,
+  id: InstanceId,
+): number {
+  return (
+    definition(state, ctx, id).critical +
+    state.modifiers.reduce(
+      (sum, m) => (m.target === id && m.stat === 'critical' ? sum + m.amount : sum),
+      0,
+    )
+  );
+}
+
 /** Units without a printed shield have shield 0 (CR 3.11.1.1). */
 export function currentShield(state: GameState, ctx: EngineContext, id: InstanceId): number {
   return definition(state, ctx, id).shield + modified(state, ctx, id, 'shield');
@@ -33,7 +52,9 @@ export function currentShield(state: GameState, ctx: EngineContext, id: Instance
 
 /** Power without battle relationships (boost, guardians). */
 export function basePower(state: GameState, ctx: EngineContext, id: InstanceId): number {
-  return definition(state, ctx, id).power + modified(state, ctx, id, 'power');
+  // CR 10.1.25.3: a deleted unit's original power is 0 (effects on it still apply, 10.1.25.8)
+  const printed = state.cards[id]?.deleted ? 0 : definition(state, ctx, id).power;
+  return printed + modified(state, ctx, id, 'power');
 }
 
 /**

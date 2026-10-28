@@ -201,6 +201,8 @@ export const retired = (who: Subject = 'self'): TriggerCondition => ({ on: 'reti
 export const putIntoSoul = (who: Subject): TriggerCondition => ({ on: 'put_into_soul', who });
 export const intercepts = (who: Subject = 'self'): TriggerCondition => ({ on: 'intercepts', who });
 export const unlocked = (who: Subject = 'self'): TriggerCondition => ({ on: 'unlocked', who });
+/** "When your opponent's vanguard is deleted". */
+export const deleted = (who: Subject): TriggerCondition => ({ on: 'deleted', who });
 /** "When your opponent's rear-guard is locked due to an effect from one of your cards" */
 export const lockedByYou = (who: Subject = { owner: 'opponent' }): TriggerCondition => ({
   on: 'locked',
@@ -359,6 +361,8 @@ export const grant = (
 });
 export const lock = (target: Selector): Step => ({ op: 'lock', target });
 export const unlock = (target: Selector): Step => ({ op: 'unlock', target });
+/** CR 10.1.25: "delete all of your opponent's vanguards" (`del`: `delete` is reserved). */
+export const del = (target: Selector): Step => ({ op: 'delete', target });
 export const legion = (mate: Selector, withVanguard = false): Step =>
   withVanguard ? { op: 'legion', target: mate, withVanguard } : { op: 'legion', target: mate };
 /** "During the turn when your vanguard [Legion]" / "the turn this unit [Legion]" (with `of`). */
@@ -529,6 +533,11 @@ export const allow = (target: Selector, permission: Permission): ContinuousEffec
   ce: 'allow',
   target,
   permission,
+});
+/** "All of your opponent's trigger effects are nullified". */
+export const nullifyTriggers = (player: 'you' | 'opponent' = 'opponent'): ContinuousEffect => ({
+  ce: 'nullify_triggers',
+  player,
 });
 export const forbidGuard = (player: 'you' | 'opponent', filter: CardFilter): ContinuousEffect => ({
   ce: 'forbid_guard',

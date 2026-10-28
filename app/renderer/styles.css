@@ -94,7 +94,7 @@ button {
 }
 .field-frame.me {
   top: 528px;
-  height: 400px;
+  height: 386px;
   border: 1px solid rgba(51, 209, 255, 0.35);
   box-shadow:
     inset 0 0 60px rgba(40, 140, 255, 0.14),
@@ -314,6 +314,134 @@ button {
   border-radius: 6px;
   box-shadow: 0 0 12px rgba(80, 160, 255, 0.6);
 }
+/* Foil by rarity (ui/CardView.tsx foilOf): R a passing sheen, RR plus a faint rainbow, RRR
+   moving holo bands and a gold edge, ЯЯЯ a red/violet holo. Only transforms animate (the layer
+   is oversized and slides), so many foils on the board stay cheap. */
+.foil-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.foil-layer::before,
+.foil-layer::after {
+  content: '';
+  position: absolute;
+  inset: -60% -150%;
+}
+/* the sheen: a bright band sweeping across the card every few seconds */
+.foil-layer::after {
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.75) 49%,
+    rgba(255, 255, 255, 0.15) 53%,
+    transparent 58%
+  );
+  mix-blend-mode: overlay;
+  animation: foil-sheen calc(5s / max(var(--anim), 0.01)) ease-in-out infinite;
+  animation-delay: var(--foil-delay, 0s);
+}
+/* the holo: rainbow bands drifting back and forth */
+.foil-layer::before {
+  opacity: 0;
+  background: repeating-linear-gradient(
+    120deg,
+    #ff3d6e 0%,
+    #ffd23d 8%,
+    #4dff9a 16%,
+    #3dd8ff 24%,
+    #a46bff 32%,
+    #ff3d6e 40%
+  );
+  mix-blend-mode: color-dodge;
+  animation: foil-drift calc(7s / max(var(--anim), 0.01)) ease-in-out infinite alternate;
+  animation-delay: var(--foil-delay, 0s);
+}
+.foil-rr .foil-layer::before {
+  opacity: 0.14;
+}
+.foil-rr .foil-layer::after {
+  animation-duration: calc(4s / max(var(--anim), 0.01));
+}
+.foil-rrr .foil-layer::before {
+  opacity: 0.26;
+  animation-duration: calc(5s / max(var(--anim), 0.01));
+}
+.foil-rrr .foil-layer::after {
+  animation-duration: calc(3s / max(var(--anim), 0.01));
+}
+.foil-rev .foil-layer::before {
+  opacity: 0.3;
+  background: repeating-linear-gradient(120deg, #ff2a3d 0%, #7a1cff 12%, #1a0018 20%, #ff2a3d 32%);
+  animation-duration: calc(5s / max(var(--anim), 0.01));
+}
+.foil-rev .foil-layer::after {
+  animation-duration: calc(3s / max(var(--anim), 0.01));
+}
+.card.foil-rrr {
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 210, 110, 0.55),
+    0 0 10px rgba(255, 200, 90, 0.25);
+  animation:
+    card-in calc(0.32s * var(--anim)) ease-out,
+    foil-glow calc(3s / max(var(--anim), 0.01)) ease-in-out infinite;
+}
+.card.foil-rev {
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 60, 90, 0.6),
+    0 0 10px rgba(160, 40, 255, 0.3);
+}
+/* hand cards keep their playable/selected glow instead of the pulsing gold edge */
+.hand-card .card.foil-rrr {
+  animation: card-in calc(0.32s * var(--anim)) ease-out;
+}
+/* livelier when looked at closely: a hovered hand card, the large preview, card details */
+:is(.hand-card:hover, .details, .hover-preview) .foil .foil-layer::after {
+  animation-duration: calc(2.2s / max(var(--anim), 0.01));
+}
+:is(.hand-card:hover, .details, .hover-preview) .foil .foil-layer::before {
+  animation-duration: calc(3.5s / max(var(--anim), 0.01));
+}
+:is(.hand-card:hover, .details, .hover-preview) .foil-r .foil-layer::before {
+  opacity: 0.08;
+}
+:is(.hand-card:hover, .details, .hover-preview) .foil-rr .foil-layer::before {
+  opacity: 0.22;
+}
+:is(.hand-card:hover, .details, .hover-preview) .foil-rrr .foil-layer::before {
+  opacity: 0.38;
+}
+@keyframes foil-sheen {
+  0%,
+  45% {
+    transform: translateX(-40%);
+  }
+  80%,
+  100% {
+    transform: translateX(40%);
+  }
+}
+@keyframes foil-drift {
+  from {
+    transform: translate(-30%, -10%);
+  }
+  to {
+    transform: translate(30%, 10%);
+  }
+}
+@keyframes foil-glow {
+  50% {
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 220, 130, 0.8),
+      0 0 16px rgba(255, 200, 90, 0.45);
+  }
+}
 .card.locked {
   outline: 3px solid var(--gold);
   box-shadow: 0 0 18px var(--gold-glow);
@@ -333,6 +461,13 @@ button {
   letter-spacing: 0.1em;
   box-shadow: 0 0 12px var(--gold-glow);
   z-index: 3;
+}
+.delete-band {
+  background: repeating-linear-gradient(-45deg, #b03cff 0 10px, #12001c 10px 20px);
+  box-shadow: 0 0 12px rgba(176, 60, 255, 0.6);
+}
+.delete-band span {
+  background: #c77dff;
 }
 .lock-band span {
   background: var(--gold);
@@ -684,7 +819,7 @@ button {
    the box has no transition: motion.ts slides the cards when the hand re-fans. */
 .hand-card {
   position: absolute;
-  bottom: -40px;
+  bottom: -62px;
   width: 124px;
   height: 180px;
   transform-origin: 50% 120%;
@@ -700,7 +835,7 @@ button {
 }
 .hand-card:hover .card,
 .hand-card.selected .card {
-  transform: translateY(-70px) scale(1.35);
+  transform: translateY(-34px) scale(1.3);
   box-shadow:
     0 0 24px var(--me-glow),
     0 10px 30px rgba(0, 0, 0, 0.8);
@@ -735,7 +870,7 @@ button {
 }
 .hand-card:hover .shield-tag,
 .hand-card.selected .shield-tag {
-  transform: translate(-50%, -70px);
+  transform: translate(-50%, -34px);
 }
 
 /* ---- action bar ----------------------------------------------------------------------------- */
@@ -889,9 +1024,31 @@ button {
   text-align: center;
 }
 .prompt.docked {
+  /* in the right column just above your trigger check zone (it covered the back-centre circle);
+     grows upwards. The status line, which shares this spot, is hidden while a choice is open. */
   top: auto;
-  bottom: 220px;
-  transform: translateX(-50%);
+  bottom: 566px;
+  left: 1596px;
+  width: 300px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  transform: none;
+}
+.prompt.docked h3 {
+  font-size: 17px;
+}
+.prompt.docked .hint {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.prompt.docked .buttons {
+  gap: 6px;
+  margin-top: 8px;
+}
+.prompt.docked .btn {
+  padding: 6px 14px;
+  font-size: 15px;
 }
 .prompt h3 {
   margin: 0 0 4px;
@@ -1006,19 +1163,22 @@ button {
   z-index: 90;
   font-size: 16px;
 }
+/* In the right column, just above your trigger check zone (top 520), below the attack panel: in
+   the middle of the stage it covered the back-centre rear-guard circle. Grows upwards. */
 .status-line {
   position: absolute;
-  left: 50%;
-  bottom: 196px;
-  transform: translateX(-50%);
-  font: 600 18px var(--font-body);
+  left: 1596px;
+  bottom: 566px;
+  width: 300px;
+  box-sizing: border-box;
+  font: 600 15px/1.25 var(--font-body);
   color: var(--text);
-  background: rgba(6, 12, 24, 0.8);
-  padding: 4px 16px;
+  background: rgba(6, 12, 24, 0.85);
+  border: 1px solid rgba(51, 209, 255, 0.35);
+  padding: 5px 10px;
   border-radius: 6px;
   z-index: 40;
   pointer-events: none;
-  white-space: nowrap;
 }
 .status-line.waiting {
   color: var(--opp-strong);
@@ -1186,35 +1346,47 @@ button {
   display: grid;
   place-items: center;
 }
+/* Drive/damage checks show over the checking player's trigger check zone in the right column, not
+   over the field (it covered the back-centre rear-guard circle). */
 .fx-check {
+  position: absolute;
+  left: 1596px;
+  width: 300px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 30px;
-  padding: 26px 40px;
-  background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.96), rgba(5, 10, 22, 0.85));
-  border-radius: 18px;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #050a16;
+  border-radius: 12px;
   animation: fx-pop calc(0.25s * var(--anim)) ease-out;
 }
 .fx-check.me {
+  top: 512px;
   border: 2px solid var(--me);
   box-shadow: 0 0 40px var(--me-glow);
 }
 .fx-check.opp {
+  top: 196px;
   border: 2px solid var(--opp);
   box-shadow: 0 0 40px var(--opp-glow);
 }
 .fx-check .card {
-  width: 220px;
-  height: 320px;
+  flex: none;
+  width: 110px;
+  height: 160px;
+}
+.fx-check > div:last-child {
+  min-width: 0;
 }
 .fx-check .kind {
-  font: 700 22px var(--font-display);
-  letter-spacing: 0.2em;
+  font: 700 13px var(--font-display);
+  letter-spacing: 0.15em;
   color: var(--text-dim);
 }
 .fx-check .trig {
-  font: 900 64px/1 var(--font-display);
-  margin: 8px 0;
+  font: 900 21px/1.1 var(--font-display);
+  margin: 6px 0;
 }
 .trig.critical {
   color: #ffd34d;
@@ -1233,11 +1405,11 @@ button {
   text-shadow: 0 0 24px rgba(93, 255, 154, 0.8);
 }
 .trig.none {
-  font-size: 40px;
   color: var(--text-dim);
 }
 .fx-check .effect {
-  font-size: 22px;
+  font-size: 14px;
+  line-height: 1.25;
 }
 .fx-banner {
   font: 900 96px var(--font-display);

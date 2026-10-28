@@ -69,9 +69,14 @@ export function setsOf(manifest: ArtworkManifest): string[] {
  * official spellings, ignoring case: "BT01-001", "BT01_001", "bt01_001EN", "BT01 001en". Special
  * printings ("BT01_S01") are not separate cards in the game and are not matched.
  */
-export function cardIdFromFileName(fileName: string): string | null {
+export function cardIdFromFileName(
+  fileName: string,
+  known: ReadonlySet<string> = new Set(),
+): string | null {
   const stem = fileName.replace(/\.[^.]+$/, '');
   const m = /^(BT|TD|EB|FC|DG|MBT|MTD)(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
   if (!m) return null;
-  return `${m[1]!.toUpperCase()}${m[2]}-${m[3]}`;
+  const id = `${m[1]!.toUpperCase()}${m[2]}-${m[3]}`;
+  // English-only cards (D-031) keep the English number in their id: "BT16_001EN" is BT16-001EN
+  return m[4] && known.has(`${id}EN`) ? `${id}EN` : id;
 }

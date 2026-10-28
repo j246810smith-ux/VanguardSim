@@ -234,7 +234,7 @@ export async function importFolder(
       }
       continue;
     }
-    const id = cardIdFromFileName(name);
+    const id = cardIdFromFileName(name, known);
     if (!id || !known.has(id)) {
       problems.push({
         kind: 'unmatched',

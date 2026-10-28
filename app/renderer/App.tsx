@@ -297,7 +297,7 @@ function SettingsScreen({
       </span>
     </div>
   );
-  const toggle = (label: string, key: 'reducedMotion' | 'showArt' | 'muted') => (
+  const toggle = (label: string, key: 'reducedMotion' | 'showArt' | 'foil' | 'muted') => (
     <div className="row">
       <span style={{ width: 300 }}>{label}</span>
       <span className="seg">
@@ -334,6 +334,7 @@ function SettingsScreen({
       </div>
       {toggle('Reduced motion', 'reducedMotion')}
       {toggle('Show card art', 'showArt')}
+      {toggle('Foil effect on rare cards', 'foil')}
       {volume('Music volume', 'musicVolume')}
       {volume('Sound effects volume', 'sfxVolume')}
       {toggle('Mute all sound', 'muted')}

@@ -14,22 +14,27 @@ const SKILL_FOR_GRADE: Record<number, string> = {
   1: 'boost',
   2: 'intercept',
   3: 'twin_drive',
+  // grade 4 (Dragonic Nouvelle Vague, EB09): normal ride onto a grade 3 like any next grade
+  4: 'twin_drive',
 };
 
 function checkRecord(r: CardRecord, set: string): void {
   const e = (m: string) => errors.push(`${r.id}: ${m}`);
   const w = (m: string) => warnings.push(`${r.id}: ${m}`);
-  if (!/^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}-\d{3}$/.test(r.id)) e('bad id format');
+  const englishOnly = r.checks.englishOnly !== undefined; // D-031: 'BT16-001EN', no JP record
+  if (!/^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}-\d{3}$/.test(r.id.replace(/EN$/, ''))) e('bad id format');
+  if (englishOnly !== r.id.endsWith('EN')) e('English-only id and record disagree');
   if (r.set !== set) e(`set ${r.set} in file ${set}`);
-  if (!r.jp) e('missing Japanese record (canonical source)');
+  if (!r.jp && !englishOnly) e('missing Japanese record (canonical source)');
   if (!r.en) w('missing English record');
   // a reviewed Japanese-only card (BT11-055) has no English source
-  if (!r.sources.jp || (!r.sources.en && !r.checks.reviewed)) e('missing source URL for a site');
+  if ((!r.sources.jp && !englishOnly) || (!r.sources.en && !r.checks.reviewed))
+    e('missing source URL for a site');
   if (!r.checks.jpEnStatsMatch) {
     if (r.checks.reviewed) w(`JP/EN difference (reviewed): ${r.checks.mismatches.join('; ')}`);
     else e(`JP/EN mismatch: ${r.checks.mismatches.join('; ')}`);
   }
-  if (!Number.isInteger(r.grade) || r.grade < 0 || r.grade > 3) e(`grade ${r.grade} outside 0-3`);
+  if (!Number.isInteger(r.grade) || r.grade < 0 || r.grade > 4) e(`grade ${r.grade} outside 0-4`);
   if (r.power <= 0 || r.power % 1000 !== 0) e(`power ${r.power}`);
   if (r.shield % 5000 !== 0) e(`shield ${r.shield}`);
   if (r.critical < 1) e(`critical ${r.critical}`);

@@ -833,9 +833,11 @@ button {
 .hand-card.selected {
   z-index: 20;
 }
+/* A lifted card's top edge stays just below your back-centre rear-guard circle (stage y ~897):
+   it covered the circle you were calling to (user's report). The big hover preview shows the card. */
 .hand-card:hover .card,
 .hand-card.selected .card {
-  transform: translateY(-34px) scale(1.3);
+  transform: translateY(-12px) scale(1.2);
   box-shadow:
     0 0 24px var(--me-glow),
     0 10px 30px rgba(0, 0, 0, 0.8);
@@ -1098,6 +1100,68 @@ button {
   opacity: 0.4;
   cursor: default;
 }
+/* putting cards on the top/bottom of the deck in order: the stack so far */
+.deck-order {
+  margin: 4px 0 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.deck-order-title {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.deck-order-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+.deck-order-end {
+  align-self: center;
+  font-size: 13px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.deck-order-slot {
+  width: 70px;
+  text-align: center;
+}
+.deck-order-slot .card {
+  width: 64px;
+  height: 93px;
+  margin: 0 auto;
+}
+.deck-order-empty {
+  width: 64px;
+  height: 93px;
+  margin: 0 auto;
+  border: 2px dashed var(--panel-edge);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.deck-order-slot.next .deck-order-empty {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+.deck-order-slot .cap {
+  font-size: 12px;
+  margin-top: 3px;
+  line-height: 1.1;
+}
+.deck-order-slot .cap.name {
+  color: var(--text-dim);
+  height: 26px;
+  overflow: hidden;
+}
 .pick-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1150,6 +1214,22 @@ button {
   border: 1px solid var(--me);
   border-radius: 10px;
   box-shadow: 0 0 20px var(--me-glow);
+}
+/* The selected card's menu: in the right column above your trigger check zone, like the docked
+   prompts (in the middle of the stage it covered the back-centre rear-guard circle while you were
+   calling a card). Grows upwards. */
+.popover.card-menu {
+  left: 1596px;
+  bottom: 566px;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+}
+.popover.card-menu b {
+  font-size: 17px !important;
+}
+.popover.card-menu .hint {
+  font-size: 13px;
 }
 .toast {
   position: absolute;
@@ -1514,6 +1594,46 @@ button {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   width: 1500px;
+}
+/* Play Online (D-032) */
+.online-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 20px;
+}
+.online-panel h2 {
+  margin: 14px 0 0;
+}
+.online-panel .row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.online-panel input.text {
+  width: 320px;
+}
+.online-addresses {
+  padding: 10px 14px;
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  line-height: 1.5;
+}
+.online-addresses b {
+  font-size: 24px;
+  color: var(--gold);
+  user-select: all;
+}
+.online-addresses .dim,
+.online-panel .dim {
+  color: var(--text-dim);
+  font-size: 16px;
+}
+.online-status {
+  padding: 10px 14px;
+  border-left: 3px solid var(--me);
+  background: rgba(51, 209, 255, 0.08);
 }
 .setup h2 {
   font: 700 24px var(--font-display);

@@ -181,7 +181,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
         const icon = lostIcon(s, b.attacker, 'twin_drive') ? null : printed;
         next.push(
           { kind: 'step_start', step: 'drive' },
-          { kind: 'drive_step', remaining: icon === 'twin_drive' ? 2 : 1 }, // CR 10.2.1
+          // CR 10.2.1; plus "drive check+1" effects
+          { kind: 'drive_step', remaining: (icon === 'twin_drive' ? 2 : 1) + (b.driveBonus ?? 0) },
         );
       }
       next.push(

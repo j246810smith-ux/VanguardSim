@@ -100,6 +100,8 @@ export interface TurnFlags {
   droppedFromRC?: InstanceId[];
   /** Legion Leaders that entered a legion this turn ("during the turn your vanguard [Legion]"). */
   legioned?: InstanceId[];
+  /** Players whose deck was shuffled by an effect of their own card this turn. */
+  shuffledByEffect?: PlayerId[];
 }
 
 /** `end_of_game`: never ends (it is still lost when the card changes zone, CR 4.1.4). */
@@ -196,9 +198,20 @@ export interface BattleState {
   hit: boolean | null;
   /** Set in the damage step: the attacked units the attack hit. */
   hits: InstanceId[];
+  /** "This unit gets drive check+1 until end of that battle": extra drive checks of the attacker. */
+  driveBonus?: number;
 }
 
 /** A decision the engine is waiting for. Answered with a CHOOSE command. */
+/** Putting cards on the top or bottom of the deck one at a time, in a chosen order. */
+export interface DeckOrder {
+  readonly to: 'top' | 'bottom';
+  /** The cards already placed, in the order chosen. */
+  readonly placed: readonly string[];
+  /** How many cards go there in all. */
+  readonly total: number;
+}
+
 export interface PendingChoice {
   readonly id: number;
   readonly player: PlayerId;
@@ -228,6 +241,8 @@ export interface PendingChoice {
   readonly min: number;
   readonly max: number;
   readonly prompt: string;
+  /** Set while cards are put on the top or bottom of the deck in a chosen order. */
+  readonly order?: DeckOrder;
 }
 
 /** Optional house rules, chosen when the game is created. Every rule is off unless set. */

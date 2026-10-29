@@ -1,12 +1,10 @@
-import { useEffect, useLayoutEffect, useState, type CSSProperties, type ReactNode } from 'react';
-import { STARTER_DECKS } from '../../src/decks/starters';
-import { TRIAL_DECKS } from '../../src/decks/trialDecks';
-import { clanColor, ctx } from './engine';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import type { AiLevel, SessionConfig } from './game/session';
-import { BattleScreen } from './screens/BattleScreen';
+import { BattleScreen, type OnlineInfo } from './screens/BattleScreen';
+import { OnlineScreen } from './screens/OnlineScreen';
+import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
-import { loadDecks } from './decks/storage';
-import { validateDeck, type DeckList as Deck } from '../../src/engine';
+import { deckEntries, DeckList } from './screens/deckChoice';
 import { loadSettings, saveSettings, SettingsContext, type Settings, type Speed } from './settings';
 import './artwork/api'; // window.vanguardDesktop types
 import { audio } from './audio/audio';
@@ -35,7 +33,9 @@ type Screen =
   | { name: 'setup' }
   | { name: 'settings' }
   | { name: 'decks' }
-  | { name: 'battle'; config: SessionConfig; key: number };
+  | { name: 'battle'; config: SessionConfig; key: number }
+  | { name: 'online'; notice: string | null }
+  | { name: 'online-battle'; info: OnlineInfo; key: number };
 
 const AI_LABEL: Record<AiLevel, string> = { random: 'Easy', basic: 'Normal', smart: 'Hard' };
 
@@ -44,10 +44,16 @@ const randomSeed = () => Math.floor(Math.random() * 2 ** 31);
 export function App() {
   const [settings, setSettings] = useState<Settings>(loadSettings);
   const [screen, setScreen] = useState<Screen>({ name: 'menu' });
+  /** The live online connection (D-032), from the lobby until the player leaves. */
+  const online = useRef<OnlineController | null>(null);
+  const leaveOnline = () => {
+    online.current?.stop();
+    online.current = null;
+  };
   useEffect(() => saveSettings(settings), [settings]);
   useEffect(() => audio.configure(settings), [settings]);
   // menu music everywhere but in a battle; a new battle (or rematch) starts the battle music
-  const battleKey = screen.name === 'battle' ? screen.key : null;
+  const battleKey = screen.name === 'battle' || screen.name === 'online-battle' ? screen.key : null;
   useEffect(() => audio.setMusic(battleKey === null ? 'menu' : 'battle'), [battleKey]);
 
   return (
@@ -61,6 +67,34 @@ export function App() {
           />
         )}
         {screen.name === 'decks' && <DeckBuilder onBack={() => setScreen({ name: 'menu' })} />}
+        {screen.name === 'online' && (
+          <OnlineScreen
+            notice={screen.notice}
+            onBack={() => {
+              leaveOnline();
+              setScreen({ name: 'menu' });
+            }}
+            onConnected={(c) => (online.current = c)}
+            callbacks={{
+              started: (info) => setScreen({ name: 'online-battle', info, key: Date.now() }),
+              closed: (reason) => {
+                online.current = null;
+                setScreen({ name: 'online', notice: reason });
+              },
+            }}
+          />
+        )}
+        {screen.name === 'online-battle' && (
+          <BattleScreen
+            key={screen.key}
+            online={screen.info}
+            onRematch={() => online.current?.rematch()}
+            onExit={() => {
+              leaveOnline();
+              setScreen({ name: 'menu' });
+            }}
+          />
+        )}
         {screen.name === 'settings' && (
           <SettingsScreen
             settings={settings}
@@ -87,6 +121,12 @@ export function App() {
   );
 }
 
+/**
+ * Play Online (D-032) is built but switched off until it is ready for players (user's request,
+ * 2026-10-29). Set to true to use it, e.g. for `npm run online:probe`.
+ */
+const ONLINE_READY = false;
+
 function MainMenu({ go }: { go: (s: Screen) => void }) {
   return (
     <div className="menu">
@@ -94,6 +134,16 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
       <div className="subtitle">VG-BT01 — BT17 · CLASSIC RULES</div>
       <button className="menu-btn" onClick={() => go({ name: 'setup' })} data-testid="new-game">
         NEW GAME
+      </button>
+      <button
+        className="menu-btn"
+        onClick={() => go({ name: 'online', notice: null })}
+        disabled={!ONLINE_READY}
+        title={ONLINE_READY ? undefined : 'Online play is not ready yet'}
+        data-testid="play-online"
+      >
+        PLAY ONLINE
+        {!ONLINE_READY && <small>Coming soon</small>}
       </button>
       <button className="menu-btn" onClick={() => go({ name: 'decks' })} data-testid="deck-builder">
         DECK BUILDER
@@ -107,74 +157,6 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
       <div className="hint" style={{ marginTop: 24, opacity: 0.6, fontSize: 14 }}>
         Unofficial fan project, not affiliated with Bushiroad. Cardfight!! Vanguard © Bushiroad.
       </div>
-    </div>
-  );
-}
-
-interface DeckEntry {
-  readonly name: string;
-  readonly description: string;
-  readonly deck: Deck;
-  readonly legal: boolean;
-  readonly section: 'starter' | 'trial' | 'mine';
-}
-
-const SECTION_TITLE = {
-  starter: 'STARTER DECKS',
-  trial: 'TRIAL DECKS',
-  mine: 'YOUR DECKS',
-} as const;
-
-/** The starter decks, the Trial Decks (D-023), then the player's saved decks (D-022: usable by both sides). */
-function deckEntries(): DeckEntry[] {
-  return [
-    ...STARTER_DECKS.map((d) => ({ ...d, legal: true, section: 'starter' as const })),
-    ...TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'trial' as const })),
-    ...loadDecks().map((d) => {
-      const issues = validateDeck(d.deck, ctx.registry, ctx.format);
-      return {
-        name: d.name,
-        description: issues.length ? `Not legal: ${issues[0]!.message}` : 'Your deck',
-        deck: d.deck,
-        legal: issues.length === 0,
-        section: 'mine' as const,
-      };
-    }),
-  ];
-}
-
-function DeckList({
-  entries,
-  selected,
-  onSelect,
-}: {
-  entries: readonly DeckEntry[];
-  selected: number;
-  onSelect: (i: number) => void;
-}) {
-  return (
-    <div className="deck-list">
-      {entries.map((d, i) => {
-        const clan = ctx.registry.has(d.deck.firstVanguard)
-          ? ctx.registry.get(d.deck.firstVanguard).clan
-          : undefined;
-        return (
-          <div key={`${d.section}-${d.name}-${i}`}>
-            {d.section !== entries[i - 1]?.section && (
-              <div className="deck-section">{SECTION_TITLE[d.section]}</div>
-            )}
-            <button
-              className={`deck-option ${i === selected ? 'selected' : ''}`}
-              style={{ '--clan': clanColor(clan) } as CSSProperties}
-              disabled={!d.legal}
-              onClick={() => onSelect(i)}
-            >
-              <b>{d.name}</b>
-              <div style={{ color: 'var(--text-dim)' }}>{d.description}</div>
-            </button>
-          </div>
-        );
-      })}
     </div>
   );
 }

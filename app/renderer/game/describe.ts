@@ -1,5 +1,11 @@
 /** Engine events → one readable log line each (presentation only; hidden information is not shown). */
-import type { GameEvent, GameState, InstanceId, PlayerId } from '../../../src/engine';
+import {
+  HIDDEN,
+  type GameEvent,
+  type GameState,
+  type InstanceId,
+  type PlayerId,
+} from '../../../src/engine';
 import { ctx, ME } from '../engine';
 
 export type LogTone = 'me' | 'opp' | 'neutral' | 'trigger' | 'hit' | 'turn';
@@ -22,7 +28,10 @@ export const circleName = (c: string) => CIRCLE_NAMES[c] ?? c;
 export function describe(s: GameState, e: GameEvent): { text: string; tone: LogTone } | null {
   const n = (id: InstanceId) => {
     const card = s.cards[id];
-    return card ? ctx.registry.get(card.definitionId).name : '?';
+    // an online guest's view has cards it cannot see (D-032)
+    return card && card.definitionId !== HIDDEN
+      ? ctx.registry.get(card.definitionId).name
+      : 'a card';
   };
   const who = (p: PlayerId) => (p === ME ? 'You' : 'Opponent');
   const tone = (p: PlayerId): LogTone => (p === ME ? 'me' : 'opp');
@@ -88,6 +97,17 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
         return { text: `${who(e.to.player)} healed ${n(e.instanceId)}`, tone: 'trigger' };
       if (e.reason === 'draw' && e.to.player === ME)
         return { text: `You drew ${n(e.instanceId)}`, tone: 'me' };
+      if (e.to.zone === 'deck' && (e.reason === 'effect' || e.reason === 'cost')) {
+        // the opponent's cards from a hidden zone (their hand or deck) stay unnamed
+        const hidden = e.to.player !== ME && (e.from.zone === 'hand' || e.from.zone === 'deck');
+        const card = hidden ? 'a card' : n(e.instanceId);
+        const deck = e.to.player === ME ? 'your deck' : 'their deck';
+        const where = e.position ? `on the ${e.position} of ${deck}` : `into ${deck}`;
+        return {
+          text: `${who(e.to.player)} put ${card} ${where}`,
+          tone: tone(e.to.player),
+        };
+      }
       return null;
     case 'NAME_DECLARED':
       return { text: `${who(e.player)} declared "${e.name}"`, tone: tone(e.player) };

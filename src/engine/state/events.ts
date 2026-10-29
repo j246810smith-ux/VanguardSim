@@ -44,6 +44,8 @@ export type GameEvent =
       readonly from: ZoneRef;
       readonly to: ZoneRef;
       readonly reason: MoveReason;
+      /** Moves into a deck to a stated place ("on top", "to the bottom"); absent for moves into the deck that is shuffled after. */
+      readonly position?: 'top' | 'bottom';
       /** Moves by an ability's effect or cost: that ability's master. */
       readonly by?: PlayerId;
       /** …and the card whose ability it was. */

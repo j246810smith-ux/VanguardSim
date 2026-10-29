@@ -25,7 +25,7 @@ import {
   type Selection,
 } from '../game/interaction';
 import { attackPreview } from '../game/attackPreview';
-import { GameSession, type SessionConfig } from '../game/session';
+import { GameSession, type SessionBase, type SessionConfig } from '../game/session';
 import { CardDetails, ZoneViewer } from '../prompts/CardDetails';
 import {
   ActionBar,
@@ -39,8 +39,21 @@ import { paced, useSettings } from '../settings';
 import { CardView } from '../ui/CardView';
 import { CentreEmblem, Icon } from '../ui/svg';
 
+/** An online match (D-032): the session comes from the host or guest link. */
+export interface OnlineInfo {
+  readonly session: SessionBase;
+  readonly opponentName: string;
+  /** The opponent's clan when known (the host knows the guest's deck); else read from the board. */
+  readonly opponentClan: string | null;
+  readonly myDeck: SessionConfig['myDeck'];
+  readonly myDeckName: string;
+  readonly opponentDeckName: string;
+}
+
 interface Props {
-  readonly config: SessionConfig;
+  /** A game against the AI (unused when `online` is set). */
+  readonly config?: SessionConfig;
+  readonly online?: OnlineInfo;
   readonly onRematch: () => void;
   readonly onExit: () => void;
 }
@@ -68,14 +81,32 @@ const systemReducedMotion = () =>
   globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
 const clanOf = (deck: SessionConfig['myDeck']) => ctx.registry.get(deck.firstVanguard).clan;
+/** The clan of `player`'s vanguard once it is face up (online, the opponent's deck is unknown). */
+const opponentVanguardClan = (view: SessionBase['view'], player: PlayerId): string | null => {
+  const vg = view.players[player].circles.vanguard[0];
+  const card = vg ? view.cards[vg] : undefined;
+  return card && card.definitionId !== HIDDEN && card.faceUp
+    ? ctx.registry.get(card.definitionId).clan
+    : null;
+};
 
-export function BattleScreen({ config, onRematch, onExit }: Props) {
+export function BattleScreen({ config, online, onRematch, onExit }: Props) {
   const settings = useSettings();
-  const sessionRef = useRef<GameSession | null>(null);
-  if (!sessionRef.current) sessionRef.current = new GameSession(config);
+  const sessionRef = useRef<SessionBase | null>(null);
+  if (!sessionRef.current) sessionRef.current = online?.session ?? new GameSession(config!);
   const session = sessionRef.current;
   const [, setTick] = useState(0);
   const rerender = useCallback(() => setTick((t) => t + 1), []);
+  // online: the other player's moves arrive from the network
+  useEffect(() => {
+    session.onChange = rerender;
+    return () => {
+      session.onChange = null;
+    };
+  }, [session, rerender]);
+  const myDeck = online?.myDeck ?? config!.myDeck;
+  const myDeckName = online?.myDeckName ?? config!.myDeckName;
+  const opponentDeckName = online?.opponentDeckName ?? config!.aiDeckName;
 
   const [selection, setSelection] = useState<Selection>(null);
   const [picked, setPicked] = useState<string[]>([]);
@@ -96,7 +127,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
 
   // the AI acts after a short, speed-dependent pause, once the current effect has played
   useEffect(() => {
-    if (view.status === 'finished' || session.acting !== AI) return;
+    if (online || view.status === 'finished' || session.acting !== AI) return;
     if (session.fx.length > 0 && settings.speed !== 'instant') return;
     const t = setTimeout(
       () => {
@@ -364,8 +395,16 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
       {/* opponent (top) */}
       <PlayerPlate
         side="opp"
-        name={`CPU (${{ random: 'Easy', basic: 'Normal', smart: 'Hard' }[config.aiLevel]})`}
-        clan={clanOf(config.aiDeck)}
+        name={
+          online
+            ? online.opponentName
+            : `CPU (${{ random: 'Easy', basic: 'Normal', smart: 'Hard' }[config!.aiLevel]})`
+        }
+        clan={
+          online
+            ? (online.opponentClan ?? opponentVanguardClan(view, AI) ?? 'Opponent')
+            : clanOf(config!.aiDeck)
+        }
       />
       <div className="opp-hand" data-zone={`${AI}-hand`}>
         {opp.hand.map((id) => (
@@ -454,7 +493,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
       <HoverPreview view={view} id={hovered} />
 
       {/* me (bottom) */}
-      <PlayerPlate side="me" name="You" clan={clanOf(config.myDeck)} />
+      <PlayerPlate side="me" name="You" clan={clanOf(myDeck)} />
       <TriggerZone
         view={view}
         player={ME}
@@ -617,10 +656,12 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
               {opp.damage.length}/6
             </div>
             <div>
-              {config.myDeckName} <span className="vs">vs</span> {config.aiDeckName}
+              {myDeckName} <span className="vs">vs</span> {opponentDeckName}
             </div>
             <div className="dim">
-              Seed {config.seed} · {session.commands.length} actions
+              {online
+                ? `Online vs ${online.opponentName}`
+                : `Seed ${config!.seed} · ${session.commands.length} actions`}
             </div>
           </div>
           <div className="buttons" style={{ display: 'flex', gap: 14 }}>
@@ -628,7 +669,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
               REMATCH
             </button>
             <button className="menu-btn" style={{ width: 300 }} onClick={onExit}>
-              MAIN MENU
+              {online ? 'LEAVE' : 'MAIN MENU'}
             </button>
           </div>
         </div>
@@ -637,7 +678,7 @@ export function BattleScreen({ config, onRematch, onExit }: Props) {
   );
 }
 
-export function Log({ lines, onClose }: { lines: GameSession['log']; onClose: () => void }) {
+export function Log({ lines, onClose }: { lines: SessionBase['log']; onClose: () => void }) {
   const end = useRef<HTMLDivElement>(null);
   // block body: newer Chromium returns a Promise from scrollIntoView, which React would call as cleanup
   useEffect(() => {

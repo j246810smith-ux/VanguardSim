@@ -1,5 +1,7 @@
-// Electron main process: one window showing the built renderer. Version 1 is offline only
-// (D-004), so every http(s) request is blocked except the Vite dev server during development.
+// Electron main process: one window showing the built renderer. The game window is offline
+// (D-004): every http(s)/ws request it makes is blocked except the Vite dev server during
+// development. Online play (D-032) is a TCP connection opened here, in the main process, only when
+// the player hosts or joins from Play Online (app/main/online.cjs).
 //
 // Card art is optional and never shipped (D-018, D-025). The renderer loads it from the
 // `vgart:` scheme, served read-only from one folder:
@@ -15,6 +17,7 @@ const { app, BrowserWindow, dialog, ipcMain, net, protocol, session, shell } = r
 const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
+const { createOnline } = require('./online.cjs');
 
 const devUrl = process.env.VANGUARD_DEV_URL;
 /** Set by the release smoke test (docs/RELEASING.md): load, report, quit. */
@@ -22,6 +25,10 @@ const smokeTest = process.env.VANGUARD_SMOKE_TEST === '1';
 // the jitter probe (runJitterProbe) runs with default settings in a throwaway profile
 if (process.env.VANGUARD_JITTER)
   app.setPath('userData', path.join(app.getPath('temp'), 'vanguard-sim-jitter-probe'));
+// the online probe (runOnlineProbe) runs a host and a guest side by side, each in its own profile
+const onlineProbe = process.env.VANGUARD_ONLINE_PROBE; // 'host' | 'join'
+if (onlineProbe)
+  app.setPath('userData', path.join(app.getPath('temp'), `vanguard-sim-online-${onlineProbe}`));
 
 // the menu music (synthesised in the renderer, roadmap phase 2) may start before the first click
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
@@ -151,6 +158,26 @@ function registerArtworkIpc() {
   });
 }
 
+/** Play Online (D-032): the game window hosts or joins through these; one connection at a time. */
+function registerOnlineIpc(win) {
+  const online = createOnline((kind, data) => {
+    if (!win.isDestroyed()) win.webContents.send('online:event', { kind, data });
+  });
+  const port = (p) => (Number.isInteger(p) && p > 0 && p < 65536 ? p : null);
+  ipcMain.handle('online:host', (_e, p) =>
+    port(p) ? online.host(p) : { ok: false, error: 'Invalid port.' },
+  );
+  ipcMain.handle('online:join', (_e, address, p) =>
+    typeof address === 'string' && address.length <= 255 && port(p)
+      ? online.join(address.trim(), p)
+      : { ok: false, error: 'Invalid address or port.' },
+  );
+  ipcMain.handle('online:send', (_e, line) => online.send(line));
+  ipcMain.handle('online:drop', () => online.drop());
+  ipcMain.handle('online:stop', () => online.stop());
+  win.on('closed', () => online.stop());
+}
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1600,
@@ -168,11 +195,13 @@ function createWindow() {
       preload: path.join(__dirname, 'preload-game.cjs'),
     },
   });
+  registerOnlineIpc(win);
   if (devUrl) win.loadURL(devUrl);
   else win.loadFile(path.join(__dirname, '../../dist/renderer/index.html'));
   if (smokeTest) runSmokeTest(win);
   else if (shotsDir) runShots(win);
   else if (jitterOut) runJitterProbe(win);
+  else if (onlineProbe) runOnlineProbe(win, onlineProbe);
 }
 
 /**
@@ -196,6 +225,7 @@ const shotsStep = `(() => {
       click(q('[data-testid=choice] button')) ||
       click(q('[data-testid=action-pass]')) ||
       (myRide && hand && vc && !window.__rode && (window.__rode = true) && (hand.click(), vc.click(), 'ride?')) ||
+      (end && /to battle/i.test(end.textContent || '') && q('.hand-card.usable') && !window.__menu && (window.__menu = true) && (q('.hand-card.usable').click(), 'card-menu')) ||
       click(q('[data-testid=action-cancel]')) ||
       click(q('[data-testid=action-end]')) ||
       'wait'
@@ -266,6 +296,71 @@ function runShots(win) {
  * card, sweeps across the hand, and while the game goes on. Writes JSON to VANGUARD_JITTER.
  */
 const jitterOut = process.env.VANGUARD_JITTER;
+/**
+ * Development aid (`npm run online:probe`, D-032): one app hosts, another joins 127.0.0.1; both go
+ * through Play Online into the battle, keep their opening hands, and write what they saw to
+ * VANGUARD_ONLINE_OUT. Never active in normal use.
+ */
+function runOnlineProbe(win, role) {
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const js = (code) => win.webContents.executeJavaScript(code);
+  const click = (testId) =>
+    js(`document.querySelector('[data-testid="${testId}"]')?.click() ?? null`);
+  const type = (testId, value) =>
+    js(`(() => {
+      const el = document.querySelector('[data-testid="${testId}"]');
+      const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+      set.call(el, ${JSON.stringify(value)});
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    })()`);
+  const until = async (code, ms = 30000) => {
+    for (let t = 0; t < ms; t += 250) {
+      if (await js(code)) return true;
+      await wait(250);
+    }
+    return false;
+  };
+  const report = {};
+  win.webContents.once('did-finish-load', async () => {
+    try {
+      await wait(800);
+      await click('play-online');
+      await wait(400);
+      await type('online-name', role === 'host' ? 'Probe Host' : 'Probe Guest');
+      if (role === 'host') {
+        await click('online-host');
+        report.addresses = await until(
+          `!!document.querySelector('[data-testid="online-addresses"]')`,
+          5000,
+        );
+      } else {
+        await wait(2500);
+        await type('online-address', '127.0.0.1');
+        await click('online-join');
+      }
+      report.battle = await until(`!!document.querySelector('.plate.opp')`);
+      report.opponent = await js(`document.querySelector('.plate.opp .who')?.textContent ?? null`);
+      // keep the opening hand when asked; then wait for turn 1 to start
+      report.keptHand = await until(`(() => {
+        const b = document.querySelector('[data-testid="mulligan"] button');
+        if (b) { b.click(); return true; }
+        return false;
+      })()`);
+      report.turnStarted = await until(
+        `document.body.textContent.includes('YOUR TURN') || document.body.textContent.includes("OPPONENT'S TURN") || !!document.querySelector('.phase-rail .on, .phase-rail .active')`,
+      );
+      report.status = await js(
+        `document.querySelector('[data-testid="online-status"]')?.textContent ?? null`,
+      );
+    } catch (err) {
+      report.error = String(err);
+    }
+    fs.writeFileSync(process.env.VANGUARD_ONLINE_OUT, JSON.stringify(report, null, 2));
+    await wait(1500);
+    app.exit(0);
+  });
+}
+
 function runJitterProbe(win) {
   const instrument = `(() => {
     const handIds = () => [...document.querySelectorAll('.hand [data-iid]')].map((e) => e.dataset.iid).join();

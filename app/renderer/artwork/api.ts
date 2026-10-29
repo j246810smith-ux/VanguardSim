@@ -25,6 +25,8 @@ export interface ArtworkManagerApi {
 export interface VanguardDesktopApi {
   artworkStatus(): Promise<{ installed: number; expected: number; folder: string }>;
   openArtworkManager(): Promise<void>;
+  /** Play Online (D-032). */
+  online?: import('../online/controller').OnlineBridge;
 }
 
 declare global {

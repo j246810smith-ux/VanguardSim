@@ -27,8 +27,12 @@ function checkRecord(r: CardRecord, set: string): void {
   if (r.set !== set) e(`set ${r.set} in file ${set}`);
   if (!r.jp && !englishOnly) e('missing Japanese record (canonical source)');
   if (!r.en) w('missing English record');
-  // a reviewed Japanese-only card (BT11-055) has no English source
-  if ((!r.sources.jp && !englishOnly) || (!r.sources.en && !r.checks.reviewed))
+  // a reviewed Japanese-only card (BT11-055) has no English source, nor has a card of a
+  // product with no English release whose English record comes from an earlier card (FC01)
+  if (
+    (!r.sources.jp && !englishOnly) ||
+    (!r.sources.en && !r.checks.reviewed && !r.checks.englishFrom)
+  )
     e('missing source URL for a site');
   if (!r.checks.jpEnStatsMatch) {
     if (r.checks.reviewed) w(`JP/EN difference (reviewed): ${r.checks.mismatches.join('; ')}`);

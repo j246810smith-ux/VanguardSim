@@ -65,6 +65,8 @@ export const count = (of: Selector, range: Range): Condition => ({ cond: 'count'
 export const exists = (of: Selector): Condition => count(of, { min: 1 });
 export const is = (of: Selector, filter: CardFilter): Condition => ({ cond: 'is', of, filter });
 export const yourTurn = (): Condition => ({ cond: 'turn', of: 'you' });
+/** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
+export const deckShuffledThisTurn = (): Condition => ({ cond: 'deck_shuffled_this_turn' });
 export const opponentsTurn = (): Condition => ({ cond: 'turn', of: 'opponent' });
 export const inBattle = (): Condition => ({ cond: 'in_battle' });
 /** "During your main phase" */
@@ -133,6 +135,11 @@ export const placedOn = (
   who: Subject = 'self',
   from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage',
 ): TriggerCondition => (from ? { on: 'placed', who, circle, from } : { on: 'placed', who, circle });
+/** "When … is placed on (RC) due to an effect from one of your cards" */
+export const placedByYourEffect = (
+  circle: 'VC' | 'RC' | 'GC',
+  who: Subject = 'self',
+): TriggerCondition => ({ on: 'placed', who, circle, byYourEffect: true });
 /** "During your end phase" */
 export const duringYourEndPhase = (): Condition => all(yourTurn(), { cond: 'phase', phase: 'end' });
 /** "When this unit's drive check reveals …" */
@@ -388,6 +395,8 @@ export const topTo = (
 ): Step => (faceDown ? { op: 'top_to', n, to, faceDown } : { op: 'top_to', n, to });
 /** "Perform an additional drive check" */
 export const extraDriveCheck = (): Step => ({ op: 'extra_drive_check' });
+/** "This unit gets drive check+n until end of that battle" */
+export const drivePlus = (n = 1): Step => ({ op: 'drive_plus', n });
 /** Steps your opponent performs ("your opponent looks at …, searches …, calls …"). */
 export const asOpponent = (steps: Step[]): Step => ({ op: 'as_opponent', steps });
 /** "If <unit> has not become [Stand] during that turn" (stood by an effect). */

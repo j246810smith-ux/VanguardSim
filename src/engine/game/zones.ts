@@ -87,6 +87,7 @@ export function moveCard(
     from,
     to,
     reason,
+    ...(to.zone === 'deck' && options.position ? { position: options.position } : {}),
     ...(options.by !== undefined ? { by: options.by } : {}),
     ...(options.cause !== undefined ? { cause: options.cause } : {}),
   });

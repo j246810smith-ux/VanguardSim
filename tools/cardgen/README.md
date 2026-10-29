@@ -22,6 +22,7 @@ CARDS = {
 }
 # optional: REPRINTS = {'X': 'Y'}, NOT_REPRINTS = ['X'], IMPORTS = [...]
 # QUOTE_SPLIT = ['BT08-001']: split {t0},{t1}… also at ' "[' (texts that join abilities with quotes)
+# BREAK_SPLIT = True: the whole set's text has no line breaks (English FC02): split before [AUTO]/[ACT]/[CONT]
 ```
 
 Imports of `ab`, engine types (`Step`, `CardFilter`, `Cost`, `Condition`) and shapes from

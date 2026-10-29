@@ -1,4 +1,4 @@
-import type { PendingChoice, PlayerId } from '../state/types';
+import type { DeckOrder, PendingChoice, PlayerId } from '../state/types';
 import { emit, type Draft } from './context';
 
 export interface ChoiceSpec {
@@ -8,6 +8,7 @@ export interface ChoiceSpec {
   readonly min: number;
   readonly max: number;
   readonly prompt: string;
+  readonly order?: DeckOrder;
 }
 
 /**

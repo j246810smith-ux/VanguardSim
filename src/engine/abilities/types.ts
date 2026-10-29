@@ -64,7 +64,7 @@ export interface CardFilter {
   readonly excludeSelf?: boolean;
   /** Same card name as the ability's source (e.g. Persona Blast). */
   readonly sameNameAsSource?: boolean;
-  /** Same card name as a card bound earlier ("with the same name as that card"). */
+  /** Same card name as a card bound earlier ("with the same name as that card"); '__event': the event card. */
   readonly sameNameAsBound?: string;
   /** The card is (still) in this zone, e.g. looked-at cards that were not taken from the deck. */
   readonly zone?: 'deck' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind';
@@ -178,6 +178,8 @@ export type Condition =
       readonly filter: CardFilter;
       readonly range: Range;
     }
+  /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
+  | { readonly cond: 'deck_shuffled_this_turn' }
   | { readonly cond: 'not'; readonly c: Condition }
   | { readonly cond: 'all'; readonly cs: readonly Condition[] }
   | { readonly cond: 'any'; readonly cs: readonly Condition[] };
@@ -212,7 +214,10 @@ export type Permission =
   /** "When this unit would choose a unit to attack, choose four of your opponent's units instead" */
   | 'attack_four_units'
   /** "If this unit would attack, it may instead attack an opponent's unit in the back row" */
-  | 'attack_back_row';
+  | 'attack_back_row'
+  /** "… get "Boost"([Boost])" / "… get "Intercept"([Intercept])": the skill without the icon. */
+  | 'boost'
+  | 'intercept';
 /** What a "loses …" effect removes: an ability (by id) or a skill icon. */
 export type Losable = { readonly ability: string } | { readonly icon: 'twin_drive' };
 export type Destination = 'hand' | 'soul' | 'drop' | 'deck_top' | 'deck_bottom' | 'damage' | 'bind';
@@ -357,6 +362,8 @@ export type Step =
   | { readonly op: 'lose_chosen'; readonly target: Selector; readonly duration: Duration }
   /** "Perform an additional drive check" (after the ability finishes resolving). */
   | { readonly op: 'extra_drive_check' }
+  /** "This unit gets drive check+n until end of that battle" (only while this unit is the attacker). */
+  | { readonly op: 'drive_plus'; readonly n: number }
   /**
    * "Your opponent looks at …, searches …, calls …": the steps run with the opponent as their
    * master (selectors' "you" = the opponent; choices are theirs). Bindings are shared in.
@@ -488,6 +495,8 @@ export type TriggerCondition =
       readonly circle: 'VC' | 'RC' | 'GC' | readonly ('VC' | 'RC' | 'GC')[];
       /** Only when placed from this zone ("placed on (RC) from the drop zone"). */
       readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage';
+      /** "placed on (RC) due to an effect from one of your cards" (a superior call by you). */
+      readonly byYourEffect?: boolean;
     }
   /**
    * A unit rides `who` (who goes to the soul). `by` filters the new vanguard; `bySelf`: the new

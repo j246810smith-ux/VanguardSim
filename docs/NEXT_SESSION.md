@@ -15,6 +15,44 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (session 2026-10-29)
+
+The user reported art "crossing over" (BT17 folder: BT17-001 Prominence Core and BT17-001EN
+Overlord). The installed art was right (`BT17-001` = Japanese BT17 001, whose English printing is
+BT16/004EN; `BT17-001EN` = English-only Dragonic Overlord the Great), but the Artwork Manager's
+**Import a folder** read English names by the Japanese number: fixed (`englishNumbers` and
+`ManifestEntry.enNumber` in `src/artwork/manifest.ts`; 422 cards in BT03–BT06, BT16, BT17, EB03,
+FC01 have different English numbers). **DG01 done** (17 cards; Japanese-only, its 7 new cards are
+English MT01/001–013EN under the same numbers, `EN_PRINTED_ELSEWHERE`; tests
+`tests/cards/DG01.test.ts`, Sanctuary Guard Dragon deck). Then (user's report) the card menu moved to the right column and hand cards lift less, so the
+back-centre circle stays clear while calling. **FC02 done** (29 cards, `tests/cards/FC02.test.ts`;
+new: `drivePlus`, permissions `boost`/`intercept`, `placedByYourEffect`, `EVENT_CARD`; gen_set
+`BREAK_SPLIT`). Still not published (the user's hold).
+**Next:** EB11, EB12, MBT01, MTD01, PR cards; sleeves/playmats to scope.
+
+## ▶ Pick up here (session 2026-10-28, latest)
+
+The user chose: FC01 with the recommended option (done: English where an English printing
+exists, else Japanese, like BT11-055; also fixed Japanese clan names on Japanese-only cards) and
+**online play, host-and-join** (D-032, built: `docs/ONLINE_PLAY.md` "Stage 1 as built";
+`npm run online:probe` checks two real app copies into turn 1). The user also mentioned **card
+sleeves and playmats**: not scoped yet; propose options (built-in designs and/or own images,
+per-deck sleeve, whether the opponent sees your sleeve online) and ask. **Next:** DG01, FC02,
+EB11, EB12, MBT01, MTD01, PR cards; online polish (reconnect, timer) when the user has played.
+
+## ▶ Pick up here (session 2026-10-28, later)
+
+The user asked to carry on with the side sets and to look into online play. **EB10 done** (35
+cards, Bermuda Triangle "Duo Flower Girl, Lily" deck; tests `tests/cards/EB10.test.ts`). Importer:
+EB10 has black/white twin printings (`EB10/001B`/`001W`, English `EB10/001EN-B`/`-W`;
+`TWIN_PRINT_SETS` and `baseRe` in `scripts/cards/import.ts`), and `&hearts;` is decoded. Online
+play research: `docs/ONLINE_PLAY.md`. The user then asked to check Limit Break, show the order of
+cards put on the top/bottom of the deck, and Break Ride outside the ride phase: done (see
+CHANGELOG "Unreleased"; LB and Break Ride were already correct, now tested). FC01 problem: it
+has no English release; 18 of its 26 cards are reprints, 8 are new and their English printings
+are scattered over EB12 and PR cards (some may have none), so FC01 needs either Japanese-only
+cards (like BT11-055) or English text taken from those later printings. **Next:** FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, PR cards.
+
 ## ▶ Pick up here (session 2026-10-28)
 
 The user's answers this session: **add the English-only BT16/BT17 cards** (done, D-031: 85 cards,
@@ -30,8 +68,10 @@ new card. **EB08 done** (35 cards, Galaxy Blaukluger deck). **EB09 done** (35 ca
 grade 4 supported, `ce: 'nullify_triggers'`, condition `critical`). The user also asked to move
 everything that popped up over the back-centre circle: the hint line, docked prompts and check
 pop-ups now live in the right column (done). The user asked to wrap up and commit after EB09.
-**Next:** EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, then PR cards; publish the batch
-(v0.24.0-alpha, `docs/RELEASING.md`) when the user asks.
+**v0.24.0-alpha published** (2026-10-28; public commit ab1e1d8, pre-release with exe/zip).
+**Next:** EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, then PR cards. Release workflow note:
+tag pushes start `release.yml` before a manually created release exists, so it leaves a duplicate
+**draft** (the v0.23.0/v0.24.0 ones were deleted at the user's request); create the release first or let the workflow build it.
 
 ## ▶ Pick up here (session 2026-10-24)
 

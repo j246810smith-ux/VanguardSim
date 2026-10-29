@@ -51,6 +51,11 @@ export interface CardRecord {
     readonly statsFrom?: 'jp' | 'en';
     /** Why a card printed only in English is in the pool (DECISIONS D-031); id 'BT16-001EN'. */
     readonly englishOnly?: string;
+    /**
+     * A product with no English release (FC01): the English record is that of this earlier card
+     * (a reprint with the same Japanese name).
+     */
+    readonly englishFrom?: string;
   };
 }
 

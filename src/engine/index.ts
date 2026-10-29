@@ -31,7 +31,7 @@ export * from './errors';
 export { seedRng, nextInt, type RngState } from './rng';
 export type * from './abilities/types';
 export * as ab from './abilities/builders';
-export { evaluate, matches, select, type EvalContext } from './abilities/evaluate';
+export { EVENT_CARD, evaluate, matches, select, type EvalContext } from './abilities/evaluate';
 export { validateAbilities } from './abilities/validate';
 export { HIDDEN, viewFor } from './view';
 export type { ActOption } from './abilities/runtime';

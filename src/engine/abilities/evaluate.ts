@@ -24,6 +24,9 @@ import {
 import type { Area, BattleRole, CardFilter, Condition, Owner, Selector } from './types';
 
 /** What an ability "knows" while it is being evaluated or resolved. */
+/** `sameNameAsBound: EVENT_CARD`: the same name as the card the trigger event was about. */
+export const EVENT_CARD = '__event';
+
 export interface EvalContext {
   readonly state: GameState;
   readonly ctx: EngineContext;
@@ -202,9 +205,14 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     return false;
   }
   if (filter.sameNameAsBound !== undefined) {
-    const names = (ec.bindings[filter.sameNameAsBound] ?? []).map((b) =>
-      currentName(state, ctx, b),
-    );
+    // '__event': the card the trigger event was about ("the same card name as that unit")
+    const of =
+      filter.sameNameAsBound === EVENT_CARD
+        ? ec.eventCard === null
+          ? []
+          : [ec.eventCard]
+        : (ec.bindings[filter.sameNameAsBound] ?? []);
+    const names = of.map((b) => currentName(state, ctx, b));
     if (!names.includes(currentName(state, ctx, id))) return false;
   }
   if (filter.sameNameAsAnotherUnit) {
@@ -421,6 +429,8 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       const stood = ec.state.turnFlags.stood ?? [];
       return select(ec, condition.of).some((id) => stood.includes(id));
     }
+    case 'deck_shuffled_this_turn':
+      return (ec.state.turnFlags.shuffledByEffect ?? []).includes(ec.master);
     case 'dropped_from_rc_this_turn': {
       const dropped = (ec.state.turnFlags.droppedFromRC ?? []).filter(
         (id) => ec.state.cards[id]!.owner === ec.master && matches(ec, id, condition.filter),

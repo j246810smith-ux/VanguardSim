@@ -17,9 +17,17 @@ export const ctx: EngineContext = {
   format: EARLY_BT01_BT17_FORMAT,
 };
 
-/** The human always plays seat 0 and is drawn at the bottom; the AI is seat 1, on top. */
-export const ME: PlayerId = 0;
-export const AI: PlayerId = 1;
+/**
+ * The local player's seat (drawn at the bottom) and the opponent's (on top). Seat 0 against the
+ * AI and when hosting; an online guest plays seat 1 (D-032). ES module bindings are live, so
+ * every importer sees a change made by `setLocalSeat` before the battle screen opens.
+ */
+export let ME: PlayerId = 0;
+export let AI: PlayerId = 1;
+export function setLocalSeat(seat: PlayerId): void {
+  ME = seat;
+  AI = seat === 0 ? 1 : 0;
+}
 
 export interface CardMeta {
   readonly number: string;

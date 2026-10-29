@@ -1,5 +1,71 @@
 # Changelog
 
+## 0.25.0-alpha — 2026-10-29
+
+- **FC02 "Fighter's Collection 2014"**: all 29 cards (27 grade 3 vanguards, one per clan, and the
+  two Legion mates Locrinus and Lisei) implemented and tested, with art. New engine pieces: "drive
+  check+1" (Great Daikaiser), units gaining Boost/Intercept (Halcion), "placed on (RC) due to an
+  effect from one of your cards" (Elvira; superior calls now record who called), searching for
+  "the same card name as that unit" (Kasumi Rogue). The card generator splits the English FC02
+  text, which has no line breaks between abilities. No starter deck: the cards span every clan.
+- **Back-centre circle kept clear when calling** (user's report): the selected card's menu (name,
+  "Drag to a glowing circle", Ride, Activate, Card details) opened over the back-centre rear-guard
+  circle; it now sits in the right column above your trigger check zone, like the other prompts.
+  A selected or hovered hand card lifts less (its top edge stays below the circle; the large hover
+  preview still shows the card). `npm run ui:shots` now also captures the menu.
+- **DG01 "DAIGO Special Set"** (Japanese-only product): all 17 cards, with a Royal Paladin
+  "Sanctuary Guard Dragon" deck. 10 are reprints; the 7 new cards (Sanctuary Guard Dragon,
+  Constance, Olwen, Urien, Rendgal, Rainbow-calling Bard, Ambrosius) use the official English text
+  of English Mega Trial Deck MT01, which printed them under the same numbers.
+- Fix (user's report): the Artwork Manager's **Import a folder** read English file names by the
+  Japanese number. English BT03–BT06, BT16, BT17 and EB03 number 422 cards differently, so
+  `BT16_004EN.jpg` (Prominence Core) went onto Japanese BT16-004 (Wild Rush Dragon). Names ending
+  in "EN" are now looked up by their English printing; an English-only card the game does not have
+  (`BT03_026EN`, Bloody Calf) is reported instead of guessed. Downloaded art was never affected.
+  (`BT17-001` and `BT17-001EN` are two different cards: Japanese BT17 001 and the English-only
+  Dragonic Overlord the Great.)
+- **Play Online (stage 1, D-032), built but switched off in this release**: the main menu shows
+  PLAY ONLINE greyed out ("Coming soon") until it is ready for players (`ONLINE_READY` in
+  `app/renderer/App.tsx`). What is built: play a friend over the network. One player hosts from the
+  main menu's Play Online screen and reads out an address; the other joins with it. Works on the
+  same home network, with port forwarding, or over Tailscale/ZeroTier. Both players need the same
+  game version. The host's game runs the rules; the guest is sent only what they may see (card
+  ids are random per game, deck order is hidden, the opponent's choices are not sent). Rematch and
+  Leave on the result screen. The game window itself stays offline; the connection is opened by
+  the desktop app only when you host or join. Not yet: reconnecting, a turn timer, chat.
+- **FC01 "Fighter's Collection 2013"** (Japanese-only product): all 26 cards. 18 are reprints
+  and show the English text of the original card; Wisdom Keeper Metis, Pretty Celeb Charlotte,
+  Dandelion Musketeer Mirkka and Water General Benedict use the official English text of their
+  later English printings (EB12, PR cards); Bleoberis, Electric Shaper Dragon, Story Teller and
+  Ponga were never printed in English and keep their Japanese name and text (user's choice of the
+  recommended option, like Hazard Bob). No starter deck: the new cards are spread over eight clans.
+  New engine condition "if your deck had been shuffled by your card's effect this turn".
+- Fix: cards printed only in Japanese (Hazard Bob, BT11-055) had their clan and race in Japanese,
+  so "Genesis" filters and Lord did not recognise them. They now use the English clan and race.
+- **Deck order shown** (user's request): when you put cards on the top or bottom of your deck in
+  any order, the prompt shows a numbered strip of the cards placed so far, which card you are
+  choosing next, and which end is the top or bottom card. The battle log now has a line for every
+  card put on the top or bottom of a deck ("You put … on the bottom of your deck"); the
+  opponent's cards from their hand or deck stay unnamed. Engine: `CARD_MOVED.position` and
+  `PendingChoice.order`.
+- **Limit Break checked** (user's request): a new test checks every card's scripted Limit Break /
+  Ultimate Break against its text (no mismatches), and rules tests cover [CONT] (switches on and
+  off as damage changes, face-down damage counts), [ACT] (LB5 needs five), [AUTO] (does not
+  trigger at three; once triggered it resolves even if the damage drops, CR 10.2.5.3.2.1), and
+  an effect that puts a deck card into the damage zone at three damage enabling Limit Break at
+  once.
+- **Break Ride outside the ride phase** (user's request): confirmed that a ride by an effect in
+  the main phase (Cruel Dragon onto Dauntless Drive Dragon) triggers Break Ride; regression test
+  added.
+- **EB10 "Divas Duet"**: all 35 cards implemented and tested, with a Bermuda Triangle "Duo
+  Flower Girl, Lily" deck. The "Duo" cards return to the hand and come back: Lily calls a fresh
+  copy of a returned unit from the deck, Iori fetches two, Reit stands again after discarding two
+  "Duo" cards of the same name, and Thames, Peace, Cikola and Tangariro turn damage face up when
+  you reveal three of their name.
+- Card importer: EB10 prints every card twice (black "B" and white "W" art, `EB10/001B`,
+  `EB10/001EN-W`); the B printing is the base and the W one an alternate printing. English names
+  written with "&hearts;" (PR♥ISM-Duo) are decoded.
+
 ## 0.24.0-alpha — 2026-10-28
 
 - **EB09 "Dragonic Overlord The Re-birth"**: all 35 cards implemented and tested (21 reprints),

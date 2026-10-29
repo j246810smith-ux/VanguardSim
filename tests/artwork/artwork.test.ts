@@ -23,6 +23,7 @@ import { checkImage } from '../../src/artwork/image';
 import {
   buildManifest,
   cardIdFromFileName,
+  englishNumbers,
   setsOf,
   type ArtworkManifest,
 } from '../../src/artwork/manifest';
@@ -156,9 +157,43 @@ describe('manifest', () => {
     expect(cardIdFromFileName('td03-016.jpg')).toBe('TD03-016');
     expect(cardIdFromFileName('EB01_001EN.png')).toBe('EB01-001');
     expect(cardIdFromFileName('mbt01-005.png')).toBe('MBT01-005');
+    expect(cardIdFromFileName('MTD01_005.png')).toBe('MTD01-005');
     expect(cardIdFromFileName('BT01_S01.png')).toBeNull();
     expect(cardIdFromFileName('Blaster Blade.png')).toBeNull();
     expect(cardIdFromFileName('BT1-1.png')).toBeNull();
+  });
+
+  it('reads English file names by their English number, not as the Japanese card of that number', () => {
+    const manifest = buildManifest(
+      SETS.map((s) => ({ set: s.file.set, cards: s.file.cards })),
+      'test',
+    );
+    const known = new Set(manifest.entries.map((e) => e.id));
+    const english = englishNumbers(manifest);
+    const id = (name: string) => cardIdFromFileName(name, known, english);
+    // English BT16/004EN is Prominence Core, the game's BT17-001 (not Japanese BT16-004)
+    expect(id('BT16_004EN.jpg')).toBe('BT17-001');
+    expect(id('BT16_007EN.jpg')).toBe('BT16-004');
+    // English-only cards keep their English number
+    expect(id('BT17_001EN.jpg')).toBe('BT17-001EN');
+    // English BT03 is shifted by one after its English-only 026
+    expect(id('BT03_031EN.png')).toBe('BT03-030');
+    expect(id('BT03_026EN.png')).toBeNull();
+    // a card printed in English under its own number keeps it, even if a later set reprinted it
+    expect(id('BT01_021EN.png')).toBe('BT01-021');
+    expect(id('BT01-021.png')).toBe('BT01-021');
+    // DG01's new cards were printed in English in Mega Trial Deck MT01
+    expect(id('MT01_001EN.jpg')).toBe('DG01-001');
+    // every English file name finds a card of that English printing (reprints share one)
+    const enOf = (cardId: string | null) => {
+      const e = manifest.entries.find((x) => x.id === cardId);
+      return e && (e.enNumber ?? `${e.id.replace('-', '/').replace(/EN$/, '')}EN`);
+    };
+    for (const e of manifest.entries) {
+      const file = e.images.en?.split('/').pop();
+      if (!file || !e.enNumber || !/^[A-Z]+\d\d_\d{3}EN\./i.test(file)) continue;
+      expect([file, enOf(id(file))]).toEqual([file, e.enNumber]);
+    }
   });
 });
 

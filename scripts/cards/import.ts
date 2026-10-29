@@ -238,6 +238,23 @@ const EN_SHARED_SETS: Readonly<Record<string, readonly string[]>> = {
  * ('BT16-001EN') and the English record as their only source.
  */
 const EN_ONLY_IN_POOL = new Set(['BT16', 'BT17']);
+/**
+ * Japanese products with no English release (Fighter's Collection 2013, DAIGO Special Set). Their reprints take the
+ * English record of the same card from an earlier set; their new cards take it from the English
+ * printing listed in EN_PRINTED_ELSEWHERE, and stay Japanese-only otherwise (like BT11-055).
+ */
+const NO_ENGLISH_SET = new Set(['FC01', 'DG01']);
+/** JP base number → English card number of a later English printing (checked by name and stats). */
+const EN_PRINTED_ELSEWHERE: Readonly<Record<string, Readonly<Record<string, string>>>> = {
+  // 英知の守り手 メーティス Wisdom Keeper, Metis; プリティセレブ シャルロット Pretty Celeb, Charlotte;
+  // タンポポの銃士 ミルッカ Dandelion Musketeer, Mirkka; 波状螺旋の水将 ベネディクト Water General of
+  // Wave-like Spirals, Benedict
+  FC01: { '002': 'EB12/009EN', '005': 'PR/0048EN', '006': 'PR/0150EN', '025': 'PR/0052EN' },
+  // DAIGO Special Set: English printed its new cards in Mega Trial Deck MT01 under the same numbers
+  DG01: Object.fromEntries(
+    ['001', '006', '007', '010', '011', '012', '013'].map((n) => [n, `MT01/${n}EN`]),
+  ),
+};
 const HOSTS = { en: 'https://en.cf-vanguard.com', jp: 'https://cf-vanguard.com' } as const;
 const DELAY_MS = 400; // be polite to the official site
 const USER_AGENT = 'VanguardSim card importer (personal offline simulator)';
@@ -292,7 +309,9 @@ async function page(
   return { html, fetchedAt };
 }
 
-const firstNumber = (site: Site, s: string) => (site === 'en' ? `${s}/001EN` : `${s}/001`);
+const TWIN_PRINT_SETS: ReadonlySet<string> = new Set(['EB10']);
+const firstNumber = (site: Site, s: string) =>
+  site === 'en' ? `${s}/001EN${TWIN_PRINT_SETS.has(s) ? '-B' : ''}` : `${s}/001`;
 const cardPath = (no: string) => `/cardlist/?cardno=${no}`;
 
 /** Find the set's expansion ID on a site: the product listed on card 001 whose list contains it. */
@@ -408,7 +427,10 @@ async function fetchSite(site: Site, s: string = set!): Promise<Fetched[]> {
   return out;
 }
 
-const baseRe = (site: Site, s: string) => new RegExp(`^${s}/(\\d{3})${site === 'en' ? 'EN' : ''}$`);
+// EB10 prints every card twice ('EB10/001B' / 'EB10/001EN-B' black, '…W' white art): the B
+// printing is the base, the W one an alternate printing found by name
+const baseRe = (site: Site, s: string) =>
+  new RegExp(`^${s}/(\\d{3})${site === 'en' ? 'EN(?:-B)?' : 'B?'}$`);
 
 /** Base printings by 3-digit number, and every printing grouped under its base by card name. */
 function group(site: Site, fetched: Fetched[], s: string = set!) {
@@ -518,10 +540,35 @@ function knownNames(): NameDictionary {
   return names;
 }
 
+/** Japanese name → the first imported card with that name and an English record. */
+function englishByJapaneseName(): Map<string, { id: string; en: Localized }> {
+  const out = new Map<string, { id: string; en: Localized }>();
+  const dir = join('data', 'cards');
+  for (const f of readdirSync(dir)
+    .filter((n) => /^[A-Z]+\d{2}\.json$/.test(n))
+    .sort()) {
+    if (f === `${set}.json`) continue;
+    for (const c of (JSON.parse(readFileSync(join(dir, f), 'utf8')) as SetFile).cards) {
+      if (c.jp && c.en && !out.has(c.jp.name)) out.set(c.jp.name, { id: c.id, en: c.en });
+    }
+  }
+  return out;
+}
+
 async function main(): Promise<void> {
   const jp = group('jp', await fetchSite('jp'));
-  const en = group('en', await fetchSite('en'));
+  const en = NO_ENGLISH_SET.has(set!) ? group('en', []) : group('en', await fetchSite('en'));
   useSpecials(en, PAIRING_OVERRIDES[set!] ?? {});
+  const elsewhere = EN_PRINTED_ELSEWHERE[set!] ?? {};
+  for (const enNo of Object.values(elsewhere)) {
+    const { html, fetchedAt } = await page('en', cardPath(enNo), enNo);
+    const c = parseCardPage(html, 'en');
+    en.bases.set(enNo, {
+      card: c,
+      source: { url: HOSTS.en + cardPath(enNo), fetchedAt, regulation: c.regulation },
+    });
+    en.printings.set(enNo, [c.number]);
+  }
   // English printings of this set's Japanese cards that the English release put in another set
   // (keys 'BT17/011'); only those that pair are used, the rest belong to that set
   const shared = new Set<string>();
@@ -541,7 +588,7 @@ async function main(): Promise<void> {
     card(jp.bases),
     card(en.bases),
     knownNames(),
-    PAIRING_OVERRIDES[set!],
+    { ...PAIRING_OVERRIDES[set!], ...elsewhere },
     // the English ver.E sets reshuffled the Japanese ones: equal numbers mean nothing there
     !EN_SHARED_SETS[set!],
   );
@@ -556,22 +603,33 @@ async function main(): Promise<void> {
     if (j !== e) console.log(`  paired JP ${j} with EN ${e} (${en.bases.get(e)!.card.name})`);
   }
   const numbers = [...jp.bases.keys()].sort();
+  const englishOf = NO_ENGLISH_SET.has(set!) ? englishByJapaneseName() : new Map();
   const cards: CardRecord[] = [];
   for (const no of numbers) {
     const j = jp.bases.get(no);
     const enNo = pairing.pairs.get(no);
     const e = enNo === undefined ? undefined : en.bases.get(enNo);
+    // no English printing: a reprint takes the English record of the same card in an earlier set
+    const enFrom = !e && j && NO_ENGLISH_SET.has(set!) ? englishOf.get(j.card.name) : undefined;
     const reviewed =
-      crossCheck(j?.card, e?.card).length > 0 ? REVIEWED_DIFFERENCES[`${set}-${no}`] : undefined;
+      crossCheck(j?.card, e?.card).length > 0
+        ? (REVIEWED_DIFFERENCES[`${set}-${no}`] ??
+          (NO_ENGLISH_SET.has(set!) && !enFrom
+            ? {
+                reason: `${set} had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).`,
+                use: 'jp' as const,
+              }
+            : undefined))
+        : undefined;
     // CARD_DATA policy §1/§7: Japanese-original data is canonical, unless the user chose the English printing
     const canonical = (reviewed?.use === 'en' && e ? e : (j ?? e))!.card;
-    const mismatches = crossCheck(j?.card, e?.card);
+    const mismatches = enFrom ? [] : crossCheck(j?.card, e?.card);
     const id = `${set}-${no}`;
     cards.push({
       id,
       set: set!,
       jp: j ? localized(j.card) : null,
-      en: e ? localized(e.card) : null,
+      en: e ? localized(e.card) : (enFrom?.en ?? null),
       cardType: canonical.type,
       grade: canonical.grade,
       power: canonical.power,
@@ -588,6 +646,7 @@ async function main(): Promise<void> {
         jpEnStatsMatch: mismatches.length === 0,
         mismatches,
         ...(reviewed ? { reviewed: reviewed.reason, statsFrom: reviewed.use } : {}),
+        ...(enFrom ? { englishFrom: enFrom.id } : {}),
       },
     });
     // Japanese-only cards (BT11-055) use the Japanese art

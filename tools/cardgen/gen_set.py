@@ -44,8 +44,8 @@ if imports is None:
     shapes = open('src/cards/shapes.ts', encoding='utf8').read()
     exported = re.findall(r'^export const (\w+)', shapes, re.M)
     names = sorted(n for n in exported if re.search(r'(?<!ab\.)(?<!\w)' + n + r'(?!\w)', used))
-    types = [t for t in ('CardFilter', 'Condition', 'Cost', 'Step') if re.search(r'\b' + t + r'\b', used)]
-    engine = (['ab'] if 'ab.' in used else []) + [f'type {t}' for t in types]
+    types = [t for t in ('CardFilter', 'Condition', 'Cost', 'Step', 'TriggerCondition') if re.search(r'\b' + t + r'\b', used)]
+    engine = (['ab'] if 'ab.' in used else []) + (['EVENT_CARD'] if 'EVENT_CARD' in used else []) + [f'type {t}' for t in types]
     imports = ([f"import {{ {', '.join(engine)} }} from '../engine';"] if engine else []) + [
         "import type { SetAbilities } from './load';"]
     if names:
@@ -66,6 +66,11 @@ for c in data['cards']:
     # QUOTE_SPLIT: cards whose official text joins abilities with '. "[' or '."[' instead of line
     # breaks (a quote after "and"/"gets" opens a granted ability and is not split)
     parts = re.split(r'\n|(?<=\.) ?"(?=\[)', text) if cid in spec.get('QUOTE_SPLIT', []) else text.split(NL)
+    # BREAK_SPLIT (a whole set, e.g. English FC02): the official text has no line breaks at all;
+    # split before an [AUTO]/[ACT]/[CONT] that follows "." or ")" (a granted ability opens with a
+    # quote, so it stays in one piece)
+    if spec.get('BREAK_SPLIT'):
+        parts = [q for p in parts for q in re.split(r'(?<=[.)])(?=\[(?:AUTO|ACT|CONT)\])', p)]
     fields = {'t': lit(text), 'T': lit(text), 'name': lit(name)}
     fields.update({f't{i}': lit(p) for i, p in enumerate(parts)})
     body = spec['CARDS'][cid]

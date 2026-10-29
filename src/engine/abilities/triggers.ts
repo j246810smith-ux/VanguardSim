@@ -76,6 +76,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       const circle = fieldZone(e.to);
       if (Array.isArray(t.circle) ? !t.circle.includes(circle) : circle !== t.circle) return null;
       if (t.from && e.from.zone !== t.from) return null;
+      if (t.byYourEffect && e.by !== ec.master) return null;
       return subjectIs(ec, t.who, e.instanceId, e.to.player) ? { eventCard: e.instanceId } : null;
     }
     case 'ridden': {

@@ -10,6 +10,7 @@ import { checkImage, MAX_IMAGE_BYTES } from './image';
 import type { ArtworkReport, CardStatus, ImportResult, Problem } from './types';
 import {
   cardIdFromFileName,
+  englishNumbers,
   IMAGE_EXTENSIONS,
   imagePath,
   type ArtworkManifest,
@@ -214,6 +215,7 @@ export async function importFolder(
   opts: { replace?: boolean; onProgress?: (done: number, total: number) => void } = {},
 ): Promise<ImportResult> {
   const known = new Set(manifest.entries.map((e) => e.id));
+  const english = englishNumbers(manifest);
   const files = (await listFiles(source)).filter(
     (f) => !path.resolve(f).startsWith(path.resolve(root) + path.sep),
   );
@@ -234,7 +236,7 @@ export async function importFolder(
       }
       continue;
     }
-    const id = cardIdFromFileName(name, known);
+    const id = cardIdFromFileName(name, known, english);
     if (!id || !known.has(id)) {
       problems.push({
         kind: 'unmatched',

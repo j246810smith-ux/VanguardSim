@@ -99,6 +99,7 @@ export function validateAbilities(
           case 'place_top_locked':
             break;
           case 'deal_damage':
+          case 'drive_plus':
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             break;
           case 'as_opponent':

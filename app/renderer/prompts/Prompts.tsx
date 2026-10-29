@@ -26,6 +26,50 @@ function abilityText(s: GameState, source: InstanceId, abilityId: string): strin
 }
 
 /**
+ * Putting cards on the top or bottom of the deck one at a time: the cards placed so far, numbered
+ * in the order they will sit, with an empty slot for the next one.
+ */
+function DeckOrderStrip({ view, order }: { view: GameState; order: NonNullable<Choose['order']> }) {
+  const slots = Array.from({ length: order.total }, (_, i) => order.placed[i] ?? null);
+  const label = (i: number) =>
+    order.to === 'top'
+      ? i === 0
+        ? '1 · top card'
+        : `${i + 1}`
+      : i === order.total - 1
+        ? `${i + 1} · bottom card`
+        : `${i + 1}`;
+  return (
+    <div className="deck-order" data-testid="deck-order">
+      <div className="deck-order-title">
+        {order.to === 'top'
+          ? 'Top of your deck — the first card you choose is the top card'
+          : 'Bottom of your deck — each card goes under the ones before it'}
+      </div>
+      <div className="deck-order-row">
+        {order.to === 'bottom' && <div className="deck-order-end">rest of deck ▸</div>}
+        {slots.map((id, i) => {
+          const d = id ? defOf(view, id) : undefined;
+          const next = i === order.placed.length;
+          return (
+            <div key={i} className={`deck-order-slot ${id ? 'filled' : ''} ${next ? 'next' : ''}`}>
+              {id ? (
+                <CardView definitionId={view.cards[id]!.definitionId} width={64} height={93} />
+              ) : (
+                <div className="deck-order-empty">{next ? 'next' : ''}</div>
+              )}
+              <div className="cap">{label(i)}</div>
+              {d && <div className="cap name">{d.name}</div>}
+            </div>
+          );
+        })}
+        {order.to === 'top' && <div className="deck-order-end">◂ rest of deck</div>}
+      </div>
+    </div>
+  );
+}
+
+/**
  * Every engine choice kind. Cards on the board/hand are picked in place (they glow); others
  * (deck search, drop, soul, damage) appear as a grid here.
  */
@@ -141,6 +185,7 @@ export function ChoicePrompt({
       return (
         <div className={`prompt ${offBoard.length ? '' : 'docked'}`} data-testid="choice">
           <h3>{choose.prompt}</h3>
+          {choose.order && <DeckOrderStrip view={view} order={choose.order} />}
           <div className="hint">
             {range}
             {offBoard.length < choose.options.length
@@ -224,7 +269,7 @@ export function CardMenu({
   const acts = legal.act.filter((o) => o.source === id);
   const inHand = view.players[ME].hand.includes(id);
   return (
-    <div className="popover" style={{ left: 730, bottom: 238 }} data-testid="card-menu">
+    <div className="popover card-menu" data-testid="card-menu">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <b style={{ fontSize: 20 }}>{def?.name}</b>
         <button className="btn" style={{ padding: '2px 10px' }} onClick={onClose}>

@@ -15,6 +15,7 @@ import {
   vanguardOf,
   type GameState,
   type InstanceId,
+  type DeckOrder,
   type PendingChoice,
   type Phase,
   type PlayerId,
@@ -60,6 +61,8 @@ export type LegalAction =
       readonly min: number;
       readonly max: number;
       readonly prompt: string;
+      /** Cards already put on the top/bottom of the deck while choosing an order. */
+      readonly order?: DeckOrder;
     }
   /** Play any one of these activated abilities (main phase). */
   | { readonly type: 'ACTIVATE'; readonly options: readonly ActOption[] }
@@ -110,6 +113,7 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         min: choice.min,
         max: choice.max,
         prompt: choice.prompt,
+        ...(choice.order ? { order: choice.order } : {}),
       },
     ];
   }

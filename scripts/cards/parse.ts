@@ -33,6 +33,7 @@ const ENTITIES: Record<string, string> = {
   quot: '"',
   '#39': "'",
   nbsp: ' ',
+  hearts: '♥', // EB10 "PR&hearts;ISM"
 };
 /** HTML entities; also the legacy `&lt` / `&gt` / `&amp` / `&quot` and numeric `&#9829` without a
  * semicolon, which browsers decode and the official English site uses in some card text and names
@@ -193,7 +194,7 @@ export function parseListPage(
   html: string,
   site: 'en' | 'jp',
 ): { numbers: string[]; maxPage: number } {
-  const re = site === 'en' ? /cardno=([A-Z0-9/-]+EN)[&"]/g : /cardno=([A-Z0-9/-]+?)[&"]/g;
+  const re = site === 'en' ? /cardno=([A-Z0-9/-]+EN(?:-[BW])?)[&"]/g : /cardno=([A-Z0-9/-]+?)[&"]/g;
   const numbers = [...new Set([...html.matchAll(re)].map((x) => x[1]!))];
   const maxPage = Number(/var max_page = (\d+)/.exec(html)?.[1] ?? 1);
   return { numbers, maxPage };

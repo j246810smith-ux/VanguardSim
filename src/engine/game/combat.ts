@@ -94,7 +94,7 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
     const canBoost =
       back !== undefined &&
       state.cards[back]!.orientation === 'stand' &&
-      def(state, ctx, back).skillIcon === 'boost' &&
+      (def(state, ctx, back).skillIcon === 'boost' || hasPermission(state, ctx, back, 'boost')) &&
       !isRestricted(state, ctx, back, 'cannot_boost') &&
       !boostForbidden(state, ctx, back, attacker) &&
       !isRestricted(state, ctx, attacker, 'cannot_be_boosted');
@@ -150,6 +150,9 @@ export function interceptors(state: GameState, ctx: EngineContext, player: Playe
     const id = unitOn(state, p, circle);
     if (id === null || id === b?.target || b?.extraTargets.some((t) => t.id === id)) return [];
     if (isRestricted(state, ctx, id, 'cannot_intercept')) return [];
-    return def(state, ctx, id).skillIcon === 'intercept' ? [id] : [];
+    return def(state, ctx, id).skillIcon === 'intercept' ||
+      hasPermission(state, ctx, id, 'intercept')
+      ? [id]
+      : [];
   });
 }

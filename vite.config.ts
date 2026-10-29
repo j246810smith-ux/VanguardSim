@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -8,8 +9,14 @@ import react from '@vitejs/plugin-react';
  * (`vite build --mode release`, used by `npm run dist:win`) never include it (D-025); the desktop
  * app loads optional art from a folder next to the executable instead (app/main/main.cjs).
  */
+const pkg = JSON.parse(readFileSync(resolve(import.meta.dirname, 'package.json'), 'utf8')) as {
+  version: string;
+};
+
 export default defineConfig(({ mode }) => ({
   root: 'app/renderer',
+  // online play checks that both players run the same version (D-032)
+  define: { __APP_VERSION__: JSON.stringify(pkg.version) },
   base: './',
   publicDir: mode === 'release' ? false : '../../assets',
   plugins: [react()],

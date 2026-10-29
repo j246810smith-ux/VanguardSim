@@ -1,0 +1,1342 @@
+{
+  "set": "FC02",
+  "importedAt": "2026-10-29T20:03:05.542Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "FC02-001",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/001",
+        "name": "両断の探索者 ブルータス",
+        "text": "【起】【(V)】：【双闘20000】「合力の探索者 ロクリヌス」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[【カウンターブラスト】(1)-カード名に「探索者」を含むカード]このユニットがヴァンガードにアタックした時、このユニットが【双闘】しているなら、コストを払ってよい。払ったら、あなたの前列のカード名に「探索者」を含むユニットを４枚まで選び、そのターン中、パワー＋3000。\n【自】：[【カウンターブラスト】(1)-カード名に「探索者」を含むカード]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札から「合力の探索者 ロクリヌス」を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_001.png"
+      },
+      "en": {
+        "number": "FC02/001EN",
+        "name": "Splitting Seeker, Brutus",
+        "text": "[ACT](VC):[Legion 20000]\"Combined Strength Seeker, Locrinus\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)[AUTO](VC):[Counter-Blast 1-card with \"Seeker\" in its card name] When this unit attacks a vanguard, if this unit is [Legion], you may pay the cost. If you do, choose up to four units in your front row with \"Seeker\" in its card name, and those units get [Power] +3000 until end of turn.[AUTO]:[Counter-Blast 1-card with \"Seeker\" in its card name] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one card named \"Combined Strength Seeker, Locrinus\", call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/001", "FC02/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F001",
+          "fetchedAt": "2026-10-29T19:22:35.988Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/001EN",
+          "fetchedAt": "2026-10-29T19:23:53.149Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-002",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/002",
+        "name": "喧嘩屋 ショットガンブロー・ドラゴン",
+        "text": "【起】【(V)】：【双闘20000】「武断の喧嘩屋 リセイ」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[【カウンターブラスト】(2)]このユニットが【双闘】した時、コストを払ってよい。払ったら、相手は自分のリアガードを２枚選び、退却させ、あなたのユニットが相手のユニットより多いなら、そのターン中、このユニットのクリティカル＋１。\n【自】【(V)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_002.png"
+      },
+      "en": {
+        "number": "FC02/002EN",
+        "name": "Brawler, Shotgun Blow Dragon",
+        "text": "[ACT](VC):[Legion 20000]\"Military Brawler, Lisei\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)[AUTO](VC):[Counter-Blast 2] When this unit [Legion], you may pay the cost. If you do, your opponent chooses two of his or her rear-guards, retire them, and if the number of units you have is more than your opponent's, this unit gets [Critical] +1 until end of turn.[AUTO](VC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/002", "FC02/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F002",
+          "fetchedAt": "2026-10-29T19:22:37.155Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/002EN",
+          "fetchedAt": "2026-10-29T19:23:57.425Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-003",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/003",
+        "name": "究極次元ロボ グレートダイカイザー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)-カード名に「次元ロボ」を含むカード]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、ドライブチェックを＋１する。そのターン中、この能力は使えなくなる。（コストを払わなくても、この能力は使えなくなる）\n【永】【(V)】：あなたのソウルに「超次元ロボ ダイカイザー」があるなら、このユニットのパワー＋2000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_003.png"
+      },
+      "en": {
+        "number": "FC02/003EN",
+        "name": "Ultimate Dimensional Robo, Great Daikaiser",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2-card with \"Dimensional Robo\" in its card name] When this unit attacks, you may pay the cost. If you do, this unit gets drive check+1 until end of that battle. This ability cannot be used for the rest of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)[CONT](VC):If you have a card named \"Super Dimensional Robo, Daikaiser\" in your soul, this unit gets [Power] +2000.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/003", "FC02/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F003",
+          "fetchedAt": "2026-10-29T19:22:45.824Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/003EN",
+          "fetchedAt": "2026-10-29T19:23:58.560Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-004",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/004",
+        "name": "芽生えの宝石騎士 カミーユ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]あなたのメインフェイズ開始時、あなたのリアガードが３枚以下なら、コストを払ってよい。払ったら、あなたの山札からカード名に「宝石騎士」を含むカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_004.png"
+      },
+      "en": {
+        "number": "FC02/004EN",
+        "name": "Sprout Jewel Knight, Camille",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] At the beginning of your main phase, if the number of rear-guards you have is three or less, you may pay the cost. If you do, search your deck for up to one card with \"Jewel Knight\" in its card name, call it to (RC), and shuffle your deck.[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/004", "FC02/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F004",
+          "fetchedAt": "2026-10-29T19:22:46.585Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/004EN",
+          "fetchedAt": "2026-10-29T19:23:59.897Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-005",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/005",
+        "name": "フローラル・メイガス",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]カード名を１つ宣言し、あなたの山札の上を公開する。そのカードが宣言したカードなら、そのカードを手札に加え、そのターン中、このユニットのパワー＋5000。\n【永】【(V)】：あなたのターン中、あなたの手札が４枚以上なら、このユニットのパワー＋2000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_005.png"
+      },
+      "en": {
+        "number": "FC02/005EN",
+        "name": "Floral Magus",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] Declare a card name, and reveal the top card of your deck. If the revealed card is the card you declared, put that card into your hand, and this unit gets [Power] +5000 until end of turn.[CONT](VC):During your turn, if the number of cards in your hand is four or more, this unit gets [Power] +2000.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/005", "FC02/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F005",
+          "fetchedAt": "2026-10-29T19:22:47.339Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/005EN",
+          "fetchedAt": "2026-10-29T19:24:01.052Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-006",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/006",
+        "name": "斧槍の撃退者 ペレドゥール",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたのカード名に「撃退者」を含むリアガードを２枚選び、退却させる]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、パワー＋10000/クリティカル＋１。\n【自】：[【カウンターブラスト】(1)-カード名に「撃退者」を含むカード]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード１以下のカードを１枚まで探し、このユニットと同じ縦列の(R)にコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_006.png"
+      },
+      "en": {
+        "number": "FC02/006EN",
+        "name": "Halberd Revenger, Peredur",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose two of your rear-guards with \"Revenger\" in its card name, and retire them] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +10000/[Critical] +1 until end of that battle.[AUTO]:[Counter-Blast 1-card with \"Revenger\" in its card name] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one grade 1 or less card, call it to (RC) in the same column as this unit, and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/006", "FC02/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F006",
+          "fetchedAt": "2026-10-29T19:22:48.522Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/006EN",
+          "fetchedAt": "2026-10-29T19:24:02.476Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-007",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/007",
+        "name": "双剣の解放者 マルゴー",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)-カード名に「解放者」を含むカード，あなたのカード名に「解放者」を含むリアガードを１枚選び、山札の下に置く]あなたの山札の上から２枚見て、２枚まで探し、ユニットのいない別々の(R)にコールし、そのターン中、そのユニットのパワー＋5000し、残りのカードを山札の下に好きな順番で置く。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_007.png"
+      },
+      "en": {
+        "number": "FC02/007EN",
+        "name": "Twin Blade Liberator, Margaux",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2-card with \"Liberator\" in its card name & Choose one of your rear-guards with \"Liberator\" in its card name, and put it on the bottom of your deck] Look at two cards from the top of your deck, search for up to two cards from among them, call them to separate open (RC), this unit gets [Power] +5000 until end of turn, and put the rest on the bottom of your deck in any order.[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/007", "FC02/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F007",
+          "fetchedAt": "2026-10-29T19:22:49.691Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/007EN",
+          "fetchedAt": "2026-10-29T19:24:04.091Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-008",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/008",
+        "name": "螺旋の守護天使 ヘルエム",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたの手札から１枚選び、ダメージゾーンに置く]あなたのダメージゾーンから表のカードを１枚選び、手札に加え、そのターン中、このユニットのパワー＋5000し、あなたのダメージゾーンに表の「螺旋の守護天使 ヘルエム」があるなら、そのターン中、このユニットのクリティカル＋１。そのターン中、この能力は使えなくなる。\n【起】【(V)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋2000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_008.png"
+      },
+      "en": {
+        "number": "FC02/008EN",
+        "name": "Spiral Celestial, Hellm",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose a card from your hand, and put it into your damage zone] Choose a face up card from your damage zone, put it into your hand, this unit gets [Power] +5000 until end of turn, and if you have a face up card named \"Spiral Celestial, Hellm\" in your damage zone, this unit gets [Critical] +1 until end of turn. This ability cannot be used for the rest of that turn.[ACT](VC):[Counter-Blast 1] This unit gets [Power] +2000 until end of turn.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/008", "FC02/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F008",
+          "fetchedAt": "2026-10-29T19:22:51.029Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/008EN",
+          "fetchedAt": "2026-10-29T19:24:05.344Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-009",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/009",
+        "name": "四季の女神 ペルセフォネ",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【ソウルブラスト】(6)]あなたの山札の上から３枚見て、山札の上に好きな順番で置き、１枚引き、【ソウルチャージ】(1)する。\n【自】：このユニットが(V)に登場した時、あなたのリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを３枚まで探し、ソウルに置き、その山札をシャッフルする。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_009.png"
+      },
+      "en": {
+        "number": "FC02/009EN",
+        "name": "Goddess of Four Seasons, Persephone",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Soul-Blast 6] Look at three cards from the top of your deck, put them on the top of your deck in any order, draw a card, and [Soul-Charge 1].[AUTO]:When this unit is placed on (VC), choose one of your rear-guards, search your deck for up to three cards with the same card name as that unit, put them into your soul, and shuffle your deck.",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/009", "FC02/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F009",
+          "fetchedAt": "2026-10-29T19:22:51.766Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/009EN",
+          "fetchedAt": "2026-10-29T19:24:06.348Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-010",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/010",
+        "name": "炎獄封竜 ウェザークロス",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《かげろう》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、相手のリアガードを２枚まで選び、退却させ、相手は自分の山札の上から４枚見て、グレード２のカードを２枚まで探し、別々の(R)にコールし、その山札をシャッフルする。\n【自】【(V)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_010.png"
+      },
+      "en": {
+        "number": "FC02/010EN",
+        "name": "Hellfire Seal Dragon, Weathercloth",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Kagero> rides this unit, choose your vanguard, and until end of turn, that unit gets [Power] +10000, choose up to two of your opponent's rear-guards, retire them, and your opponent looks at four cards from the top of his or her deck, searches for up to two grade 2 units from among them, call them to separate (RC), and shuffles his or her deck.[AUTO](VC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/010", "FC02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F010",
+          "fetchedAt": "2026-10-29T19:22:52.934Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/010EN",
+          "fetchedAt": "2026-10-29T19:24:07.496Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-011",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/011",
+        "name": "古代竜 ヴォルカトプス",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたのカード名に「古代竜」を含むリアガードを１枚選び、退却させる]あなたのカード名に「古代竜」を含むリアガードを２枚まで選び、そのターン中、パワー＋5000。そのターン中、この能力は使えなくなる。\n【自】【(V)】：[あなたのリアガードを１枚選び、退却させる]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_011.png"
+      },
+      "en": {
+        "number": "FC02/011EN",
+        "name": "Ancient Dragon, Volcatops",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose one of your rear-guards with \"Ancient Dragon\" in its card name, and retire it] Choose up to two of your rear-guards with \"Ancient Dragon\" in its card name, and those units get [Power] +5000 until end of turn. This ability cannot be used for the rest of that turn.[AUTO](VC):[Choose one of your rear-guards, and retire it] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/011", "FC02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F011",
+          "fetchedAt": "2026-10-29T19:22:54.487Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/011EN",
+          "fetchedAt": "2026-10-29T19:24:08.378Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-012",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/012",
+        "name": "修羅忍竜 ヨザクラコンゴウ",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたの手札から２枚選び、捨てる]そのターン中、このユニットのパワー＋10000し、相手の手札が４枚以上なら、相手の手札からランダムに２枚選び、裏でバインドし、そのターンの終了時、相手はこの効果でバインドしたカードを手札に加える。そのターン中、この能力は使えなくなる。\n【自】【(V)】：このユニットがアタックした時、あなたの手札が相手の手札より多いなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_012.png"
+      },
+      "en": {
+        "number": "FC02/012EN",
+        "name": "Shura Stealth Dragon, Yozakuracongo",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose two cards from your hand, and discard them] This unit gets [Power] +10000 until end of turn, if the number of cards in your opponent's hand is four or more, choose two cards at random from your opponent's hand, bind them face down, and at the end of that turn, your opponent puts those card bound by this effect into his or her hand. This ability cannot be used for the rest of that turn.[AUTO](VC):When this unit attacks, if the number of cards in your hand is more than your opponent's, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/012", "FC02/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F012",
+          "fetchedAt": "2026-10-29T19:22:55.662Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/012EN",
+          "fetchedAt": "2026-10-29T19:24:09.752Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-013",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/013",
+        "name": "隠密魔竜 カスミローグ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]あなたのユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたの山札からそのユニットと同名のカードを１枚まで探し、(G)に【レスト】でコールし、その山札をシャッフルする。\n【起】【(V)】：[【カウンターブラスト】(1)]あなたのグレード２以上のリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターンの終了時、この効果でコールされたユニットを山札の下に置く。",
+        "clan": "むらくも",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_013.png"
+      },
+      "en": {
+        "number": "FC02/013EN",
+        "name": "Covert Demonic Dragon, Kasumi Rogue",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When a unit is placed on (GC) from your hand, you may pay the cost. If you do, search your deck for up to one card with the same card name as that unit, call it to (GC) as [Rest], and shuffle your deck.[ACT](VC):[Counter-Blast 1] Choose one of your grade 2 or greater rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), shuffle your deck, and at the end of that turn, put the unit called with this effect on the bottom of your deck.",
+        "clan": "Murakumo",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/013", "FC02/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F013",
+          "fetchedAt": "2026-10-29T19:22:56.430Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/013EN",
+          "fetchedAt": "2026-10-29T19:24:11.033Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-014",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/014",
+        "name": "抹消者 ツインサンダー・ドラゴン",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)，あなたの手札からカード名に「抹消者」を含むカードを３枚選び、捨てる]すべてのファイターのすべてのリアガードを退却させ、この効果で３枚以上退却させたなら、そのターン中、このユニットのクリティカル＋２。\n【自】【(V)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_014.png"
+      },
+      "en": {
+        "number": "FC02/014EN",
+        "name": "Eradicator, Twin Thunder Dragon",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2 & Choose three cards with \"Eradicator\" in its card name from your hand, and discard them] Retire all rear-guards of all fighters, if the number of cards retired by this effect is three or more, this unit gets [Critical] +2 until end of turn.[AUTO](VC):During your main phase, when your opponent's rear-guard is put into the drop zone, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/014", "FC02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F014",
+          "fetchedAt": "2026-10-29T19:22:57.451Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/014EN",
+          "fetchedAt": "2026-10-29T19:24:12.305Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-015",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/015",
+        "name": "メルクーア・ブラウクリューガー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)-カード名に「ブラウ」を含むカード]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、あなたの前列のカード名に「ブラウ」を含むリアガードをすべて【スタンド】する。\n【自】【(V)】：あなたのバトルフェイズ中、あなたのユニットが【スタンド】した時、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_015.png"
+      },
+      "en": {
+        "number": "FC02/015EN",
+        "name": "Merkur Blaukluger",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2-card with \"Blau\" in its card name] When this unit attacks a vanguard, you may pay the cost. If you do, [Stand] all of your rear-guards in your front row with \"Blau\" in its card name.[AUTO](VC):During your battle phase, when your unit becomes [Stand], this unit gets [Power] +2000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/015", "FC02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F015",
+          "fetchedAt": "2026-10-29T19:22:59.382Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/015EN",
+          "fetchedAt": "2026-10-29T19:24:13.220Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-016",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/016",
+        "name": "超次元ロボ シャドウカイザー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの(V)に「超次元ロボ ダイカイザー」がいるなら、あなたの山札から「究極次元ロボ グレートダイカイザー」を１枚まで探し、【スタンド】でライドし、その山札をシャッフルする。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_016.png"
+      },
+      "en": {
+        "number": "FC02/016EN",
+        "name": "Super Dimensional Robo, Shadowkaiser",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a card named \"Super Dimensional Robo, Daikaiser\" in your (VC), search your deck for up to one card named \"Ultimate Dimensional Robo, Great Daikaiser\", ride it as [Stand], and shuffle your deck.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/016", "FC02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F016",
+          "fetchedAt": "2026-10-29T19:23:00.800Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/016EN",
+          "fetchedAt": "2026-10-29T19:24:14.395Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-017",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/017",
+        "name": "超次元ロボ ダイヤード",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[あなたのカード名に「次元ロボ」を含むリアガードを１枚選び、ソウルに置く]あなたの山札からカード名に「次元ロボ」を含むグレード３のカードを１枚まで探し、【スタンド】でライドし、その山札をシャッフルし、そのターン中、そのユニットのパワー＋4000。\n【自】【(V)】：あなたのアタックステップ開始時、このユニットのパワーが15000以上なら、そのバトル中、このユニットのクリティカル＋１。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_017.png"
+      },
+      "en": {
+        "number": "FC02/017EN",
+        "name": "Super Dimensional Robo, Diard",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Choose one of your rear-guards with \"Dimensional Robo\" in its card name, and put it into your soul] Search your deck for up to one grade 3 card with \"Dimensional Robo\" in its card name, ride it as [Stand], shuffle your deck, and that unit gets [Power] +4000 until end of turn.[AUTO](VC):At the beginning of your attack step, if this unit's [Power] is 15000 or greater, this unit gets [Critical] +1 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/017", "FC02/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F017",
+          "fetchedAt": "2026-10-29T19:23:02.676Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/017EN",
+          "fetchedAt": "2026-10-29T19:24:16.090Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-018",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/018",
+        "name": "勅令の星輝兵 ハルシウム",
+        "text": "【永】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：あなたのカード名に「Я」を含むユニットすべてに『【インターセプト】』『【ブースト】』『【自】：このユニットが、(G)に登場した時か【インターセプト】した時、そのバトル中、このユニットのシールドを5000にする。』を与える。\n【永】【(V)】：あなたのカード名に「Я」を含むユニットは《リンクジョーカー》にも属する。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_018.png"
+      },
+      "en": {
+        "number": "FC02/018EN",
+        "name": "Edict Star-vader, Halcion",
+        "text": "[CONT](VC)[Limit-Break 4](This ability is active if you have four or more damage):All your units with \"Я\" in its card name get \"Intercept\"([Intercept]), \"Boost\"([Boost]), and \"[AUTO]:When this unit is placed on (GC) or intercepts([Intercept]), this unit becomes 5000 [Shield] until end of that battle.\".[CONT](VC):All of your units with \"Я\" in its card name is also a <Link Joker>.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/018", "FC02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F018",
+          "fetchedAt": "2026-10-29T19:23:03.865Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/018EN",
+          "fetchedAt": "2026-10-29T19:24:16.996Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-019",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/019",
+        "name": "エコー・オブ・ネメシス",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがアタックした時、あなたのソウルが10枚以上あるなら、そのバトル中、このユニットのパワー＋10000し、相手はグレード１以上のユニットを手札から(G)にコールできない。\n【起】【(V)】：[【ソウルブラスト】(1)-グレード０のカード]【ソウルチャージ】(2)。そのターン中、この能力は使えなくなる。",
+        "clan": "ダークイレギュラーズ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_019.png"
+      },
+      "en": {
+        "number": "FC02/019EN",
+        "name": "Echo of Nemesis",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks, if the number of cards in your soul is ten or more, until end of that battle, this unit gets [Power] +10000, and your opponent cannot call grade 1 or greater units from hand to (GC).[ACT](VC):[Soul-Blast 1-grade 0 card] [Soul-Charge 2]. This ability cannot be used for the rest of that turn.",
+        "clan": "Dark Irregulars",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/019", "FC02/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F019",
+          "fetchedAt": "2026-10-29T19:23:04.616Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/019EN",
+          "fetchedAt": "2026-10-29T19:24:18.143Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-020",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/020",
+        "name": "魔王 ダッドリー・ルシファー",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[あなたのリアガードを１枚選び、ソウルに置く]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、あなたの手札から１枚まで選び、(R)にコールし、そのユニットがカード名に「ダッドリー」を含むユニットなら、そのターン中、そのユニットのパワー＋10000。\n【起】【(V)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋2000。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_020.png"
+      },
+      "en": {
+        "number": "FC02/020EN",
+        "name": "Demonic Lord, Dudley Lucifer",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Choose one of your rear-guards, and put it into your soul] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose up to one card from your hand, call it to (RC), and if that unit is a unit with \"Dudley\" in its card name, that unit gets [Power] +10000 until end of turn.[ACT](VC):[Counter-Blast 1] This unit gets [Power] +2000 until end of turn.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/020", "FC02/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F020",
+          "fetchedAt": "2026-10-29T19:23:05.369Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/020EN",
+          "fetchedAt": "2026-10-29T19:24:19.334Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-021",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/021",
+        "name": "バニークイーン・ビーストテイマー",
+        "text": "【起】【(V)】【リミットブレイク】(4)：[【カウンターブラスト】(2)]あなたのカード名に、「ビーストテイマー」か「獣使い」を含むユニット１枚につき、あなたのソウルから１枚まで選び、別々の(R)にコールする。そのターン中、この能力は使えなくなる。\n【自】：このユニットが(V)に登場した時、あなたの山札から１枚探し、ソウルに置き、その山札をシャッフルする。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_021.png"
+      },
+      "en": {
+        "number": "FC02/021EN",
+        "name": "Bunny Queen Beast Tamer",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2] For each of your units with \"Beast Tamer\" in its card name, choose up to one card from your soul, and call them to separate (RC). This ability cannot be used for the rest of that turn.[AUTO]:When this unit is placed on (VC), search your deck for a card, put it into your soul, and shuffle your deck.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/021", "FC02/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F021",
+          "fetchedAt": "2026-10-29T19:23:06.121Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/021EN",
+          "fetchedAt": "2026-10-29T19:24:20.596Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-022",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/022",
+        "name": "流氷の剣士 ナイトスノウ",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)，あなたのリアガードを１枚選び、退却させる]あなたのドロップゾーンから１枚選び、(R)にコールし、そのターン中、そのユニットのパワー＋5000。そのターン中、この能力は使えなくなる。\n【起】【ドロップゾーン】：[【カウンターブラスト】(2)，【ソウルブラスト】(2)]あなたのグレード３のヴァンガードがいるなら、このカードを【スタンド】でライドする。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_022.png"
+      },
+      "en": {
+        "number": "FC02/022EN",
+        "name": "Ice Floe Swordsman, Nightsnow",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1 & Choose one of your rear-guards, and retire it] Choose a card from your drop zone, call it to (RC), and that unit gets [Power] +5000 until end of turn. This ability cannot be used for the rest of that turn.[ACT]{Drop zone}:[Counter-Blast 2 & Soul-Blast 2] If you have a grade 3 vanguard, ride this card as [Stand].",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/022", "FC02/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F022",
+          "fetchedAt": "2026-10-29T19:23:07.289Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/022EN",
+          "fetchedAt": "2026-10-29T19:24:21.496Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-023",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/023B",
+        "name": "Duo デリシャスガール チャオ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]あなたのメインフェイズ開始時、コストを払ってよい。払ったら、あなたのカード名に「Duo」を含むリアガードを１枚選び、手札に戻し、そのユニットと同名のあなたのリアガードを１枚選び、手札に戻す。\n【自】【(V)】：あなたのユニットが(R)から手札に戻された時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_023_2.png"
+      },
+      "en": {
+        "number": "FC02/023EN-B",
+        "name": "Duo Delicious Girl, Ciao",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] At the beginning of your main phase, you may pay the cost. If you do, choose one of your rear-guards with \"Duo\" in its card name, return it to your hand, choose one of your rear-guards with the same card name as that unit, and return it to hand.[AUTO](VC):When your unit is returned to your hand from (RC), this unit gets [Power] +3000 until end of turn.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_023EN-B.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/023B", "FC02/023W", "FC02/023EN-B", "FC02/023EN-W"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F023B",
+          "fetchedAt": "2026-10-29T19:23:08.466Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/023EN-B",
+          "fetchedAt": "2026-10-29T19:24:22.382Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-024",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/024",
+        "name": "蒼嵐水将  ディミトリウス",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《アクアフォース》がこのユニットにライドした時、コストを払ってよい。払ったら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、『【自】【(V)】：このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、２枚引き、相手のリアガードを１枚選び、退却させる。』を与える。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_025.png"
+      },
+      "en": {
+        "number": "FC02/024EN",
+        "name": "Blue Storm Marine General, Demetrius",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When an <Aqua Force> rides this unit, you may pay the cost. If you do, choose your vanguard, and until end of turn, that unit gets [Power] +10000 and \"[AUTO](VC):When this unit attacks a vanguard, if it is the fourth battle of that turn or more, draw two cards, choose one of your opponent's rear-guards, and retire it.\".[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/024", "FC02/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F024",
+          "fetchedAt": "2026-10-29T19:23:09.952Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/024EN",
+          "fetchedAt": "2026-10-29T19:24:24.586Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-025",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/025",
+        "name": "マシニング・ウォーシックル",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)]このユニットがヴァンガードにアタックしたバトルの終了時、そのバトル中、アタックがヒットしていなかったら、コストを払ってよい。払ったら、相手のヴァンガードを１枚選び、そのユニットは、次の相手のスタンドフェイズ中、【スタンド】できない。\n【自】：[【カウンターブラスト】(1)-カード名に「マシニング」を含むカード]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたのソウルからカード名に「マシニング」を含むカードを１枚選び、(R)に【レスト】でコールする。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_026.png"
+      },
+      "en": {
+        "number": "FC02/025EN",
+        "name": "Machining Warsickle",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2] At the end of the battle that this unit attacked a vanguard, if the attack did not hit during that battle, you may pay the cost. If you do, choose one of your opponent's vanguard, and that unit cannot [Stand] during your opponent's next stand phase.[AUTO]:[Counter-Blast 1-card with \"Machining\" in its card name] When this unit is placed on (VC), you may pay the cost. If you do, choose a card from your soul with \"Machining\" in its card name, and call it to (RC) as [Rest].",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/025", "FC02/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F025",
+          "fetchedAt": "2026-10-29T19:23:10.721Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/025EN",
+          "fetchedAt": "2026-10-29T19:24:26.014Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-026",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/026",
+        "name": "賢者の卵 ミネット",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)]あなたのリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンの終了時、1枚引き、そのユニットを退却させる。\n【自】【(V)】：あなたのエンドフェイズ中、あなたのリアガードがドロップゾーンに置かれた時、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_027.png"
+      },
+      "en": {
+        "number": "FC02/026EN",
+        "name": "Trainee Sage, Minette",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2] Choose one of your rear-guards, that unit gets [Power] +4000 until end of turn, at the end of that turn, draw a card, and retire that unit.[AUTO](VC)During your end phase, when your rear-guard is put into your drop zone, choose a card from your damage zone, and turn it face up.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/026", "FC02/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F026",
+          "fetchedAt": "2026-10-29T19:23:23.377Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/026EN",
+          "fetchedAt": "2026-10-29T19:24:26.924Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-027",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/027",
+        "name": "柊の銃士 エルヴィーラ",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]あなたのカードの効果で、あなたのカード名に「銃士」を含むカードが(R)に登場した時、コストを払ってよい。払ったら、そのターン中、このユニットのクリティカル＋１。\n【起】【(V)】：[【ソウルブラスト】(1)，あなたのカード名に「銃士」を含むリアガードを１枚選び、退却させる]あなたの山札の上から５枚見て、カード名に「銃士」を含むカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_028.png"
+      },
+      "en": {
+        "number": "FC02/027EN",
+        "name": "Holly Musketeer, Elvira",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When your card with \"Musketeer\" in its card name is placed on (RC) due to an effect from one of your cards, you may pay the cost. If you do, this unit gets [Critical] +1 until end of turn.[ACT](VC):[Soul-Blast 1 & Choose one of your rear-guards with \"Musketeer\" in its card name, and retire it] Look at five cards from the top of your deck, search for up to one card with \"Musketeer\" in its card name from among them, call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/027", "FC02/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F027",
+          "fetchedAt": "2026-10-29T19:23:24.161Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/027EN",
+          "fetchedAt": "2026-10-29T19:24:27.984Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-028",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/028",
+        "name": "合力の探索者 ロクリヌス",
+        "text": "【自】【(R)】：あなたのヴァンガードが【双闘】したターン中、このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_029.png"
+      },
+      "en": {
+        "number": "FC02/028EN",
+        "name": "Combined Strength Seeker, Locrinus",
+        "text": "[AUTO](RC):During the turn when your vanguard [Legion], when this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/028", "FC02/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F028",
+          "fetchedAt": "2026-10-29T19:23:24.907Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/028EN",
+          "fetchedAt": "2026-10-29T19:24:29.112Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC02-029",
+      "set": "FC02",
+      "jp": {
+        "number": "FC02/029",
+        "name": "武断の喧嘩屋 リセイ",
+        "text": "【自】【(R)】：あなたのターン中、相手のリアガードがドロップゾーンに置かれた時、あなたのヴァンガードが【双闘】しているなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC02/fc02_030.png"
+      },
+      "en": {
+        "number": "FC02/029EN",
+        "name": "Military Brawler, Lisei",
+        "text": "[AUTO](RC):During your turn, when your opponent's rear-guard is put into the drop zone, and your vanguard is [Legion], this unit gets [Power] +3000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/fc02/FC02_029EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC02/029", "FC02/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC02%2F029",
+          "fetchedAt": "2026-10-29T19:23:26.270Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=FC02/029EN",
+          "fetchedAt": "2026-10-29T19:24:29.989Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

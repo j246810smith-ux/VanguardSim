@@ -15,7 +15,9 @@ export const HIDDEN = 'HIDDEN';
 export function viewFor(state: GameState, viewer: PlayerId): GameState {
   const view = cloneState(state);
   const visibleChoice = new Set<InstanceId>(
-    state.pendingChoice?.player === viewer ? state.pendingChoice.options : [],
+    state.pendingChoice?.player === viewer
+      ? [...state.pendingChoice.options, ...(state.pendingChoice.order?.placed ?? [])]
+      : [],
   );
   const hidden = new Set<InstanceId>([
     ...state.players[0].deck,

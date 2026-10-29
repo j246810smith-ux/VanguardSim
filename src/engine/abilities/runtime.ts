@@ -532,6 +532,12 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       moveCard(d, second, { player: frame.master, zone: 'circle', circle: a.circle }, 'swap');
       return true;
     }
+    case 'drive_plus': {
+      // CR 10.2.1: read when the drive step starts; this battle only, and only for this unit
+      if (s.battle && s.battle.attacker === frame.source)
+        s.battle.driveBonus = (s.battle.driveBonus ?? 0) + step.n;
+      return true;
+    }
     case 'extra_drive_check': {
       // after this ability has finished resolving (behind its end_frame task)
       const end = s.tasks.findIndex((t) => t.kind === 'end_frame' && t.frame === frame.id);
@@ -756,8 +762,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
               min: 1,
               max: 1,
               prompt: step.top
-                ? 'Put the rest on the top of your deck in any order: choose the next card from the top'
-                : 'Put the rest on the bottom of your deck in any order: choose the next card',
+                ? `Top of your deck in any order: choose card ${done.length + 1} of ${targets.length} (the first card you choose ends up on top)`
+                : `Bottom of your deck in any order: choose card ${done.length + 1} of ${targets.length} (each card goes under the ones before it)`,
+              order: { to: step.top ? 'top' : 'bottom', placed: done, total: targets.length },
             });
       if (picked === null) return false;
       if (!step.top) moveTo(d, picked[0]!, 'deck_bottom', 'effect');
@@ -876,9 +883,13 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           moveCard(d, top, { player: frame.master, zone: 'soul' }, 'soul_charge');
       }
       return true;
-    case 'shuffle':
+    case 'shuffle': {
       shuffleDeck(d, frame.master);
+      const f = s.turnFlags;
+      if (!(f.shuffledByEffect ?? []).includes(frame.master))
+        f.shuffledByEffect = [...(f.shuffledByEffect ?? []), frame.master];
       return true;
+    }
     case 'if': {
       const branch = evaluate(ec, step.cond) ? step.then : (step.else ?? []);
       s.tasks.unshift(...stepTasks(frame.id, branch));
@@ -987,7 +998,12 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
     task.card,
     { player: frame.master, zone: 'circle', circle },
     'call',
-    task.rested ? { orientation: 'rest' } : {},
+    // a superior call is "due to an effect" of the ability's card (Holly Musketeer, Elvira)
+    {
+      by: frame.master,
+      cause: frame.source,
+      ...(task.rested ? { orientation: 'rest' as const } : {}),
+    },
   );
   recordCall(d, task.card);
   emit(d, {

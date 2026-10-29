@@ -1,0 +1,750 @@
+{
+  "set": "DG01",
+  "importedAt": "2026-10-29T19:13:52.649Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "DG01-001",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/001",
+        "name": "サンクチュアリガード・ドラゴン",
+        "text": "【永】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：あなたのターン中、あなたのグレード１以下の《ロイヤルパラディン》のリアガード１枚につき、このユニットのパワー＋3000。\n【自】：[あなたの手札から《ロイヤルパラディン》を１枚選び、捨てる]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード１以下の《ロイヤルパラディン》を１枚まで探し、(R)にコールし、その山札をシャッフルする。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_001.png"
+      },
+      "en": {
+        "number": "MT01/001EN",
+        "name": "Sanctuary Guard Dragon",
+        "text": "[CONT](VC)[Limit-Break 4](This ability is active if you have four or more damage):During your turn, this unit gets [Power] ＋3000 for each of your grade 1 or less <Royal Paladin> rear-guards.\n[AUTO]:[Choose a <Royal Paladin> from your hand, and discard it] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one grade 1 or less <Royal Paladin>, call it to (RC), and shuffle your deck.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/001", "MT01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F001",
+          "fetchedAt": "2026-10-29T19:07:56.439Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/001EN",
+          "fetchedAt": "2026-10-29T19:09:37.609Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-002",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/002",
+        "name": "ディグニファイド・シルバー・ドラゴン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】このユニットがヴァンガードにアタックした時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_002.png"
+      },
+      "en": {
+        "number": "BT10/021EN",
+        "name": "Dignified Silver Dragon",
+        "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, if you have a <Royal Paladin> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/002"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F002",
+          "fetchedAt": "2026-10-29T19:07:57.587Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-021"
+      }
+    },
+    {
+      "id": "DG01-003",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/003",
+        "name": "断罪の騎士 ボールス",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_003.png"
+      },
+      "en": {
+        "number": "TD01/002EN",
+        "name": "Knight of Conviction, Bors",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_002EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/003"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F003",
+          "fetchedAt": "2026-10-29T19:07:58.753Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD01-002"
+      }
+    },
+    {
+      "id": "DG01-004",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/004",
+        "name": "決意の騎士 ラモラック",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_004.png"
+      },
+      "en": {
+        "number": "EB03/037EN",
+        "name": "Knight of Determination, Lamorak",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_037EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/004"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F004",
+          "fetchedAt": "2026-10-29T19:07:59.918Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "EB03-033"
+      }
+    },
+    {
+      "id": "DG01-005",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/005",
+        "name": "沈黙の騎士 ギャラティン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_005.png"
+      },
+      "en": {
+        "number": "BT01/021EN",
+        "name": "Knight of Silence, Gallatin",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_021EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/005"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F005",
+          "fetchedAt": "2026-10-29T19:08:00.674Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-021"
+      }
+    },
+    {
+      "id": "DG01-006",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/006",
+        "name": "軍旗の騎士 コンスタンス",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヴァンガードにヒットした時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札からグレード１以下の《ロイヤルパラディン》を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_006.png"
+      },
+      "en": {
+        "number": "MT01/006EN",
+        "name": "Battle Flag Knight, Constance",
+        "text": "[AUTO](VC/RC):[Counter-Blast 2] When this unit's attack hits a vanguard, if you have a <Royal Paladin> vanguard, you may pay the cost. If you do, search your deck for up to one grade 1 or less <Royal Paladin>, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/006", "MT01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F006",
+          "fetchedAt": "2026-10-29T19:08:01.442Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/006EN",
+          "fetchedAt": "2026-10-29T19:09:44.142Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-007",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/007",
+        "name": "悲愴の宝石騎士 オウェイン",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_007.png"
+      },
+      "en": {
+        "number": "MT01/007EN",
+        "name": "Pathetic Jewel Knight, Olwen",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] ＋3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/007", "MT01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F007",
+          "fetchedAt": "2026-10-29T19:08:02.669Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/007EN",
+          "fetchedAt": "2026-10-29T19:09:45.039Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-008",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/008",
+        "name": "真理の騎士 ゴードン",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_008.png"
+      },
+      "en": {
+        "number": "BT02/056EN",
+        "name": "Knight of Truth, Gordon",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Royal Paladin> vanguard, this unit gets [Shield]+5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt02/BT02_056EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/008"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F008",
+          "fetchedAt": "2026-10-29T19:08:03.415Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT02-056"
+      }
+    },
+    {
+      "id": "DG01-009",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/009",
+        "name": "小さな賢者 マロン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_009.png"
+      },
+      "en": {
+        "number": "BT01/042EN",
+        "name": "Little Sage, Marron",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_042EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/009"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F009",
+          "fetchedAt": "2026-10-29T19:08:04.173Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-042"
+      }
+    },
+    {
+      "id": "DG01-010",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/010",
+        "name": "哀悼の宝石騎士 ウリエン",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_010.png"
+      },
+      "en": {
+        "number": "MT01/010EN",
+        "name": "Regret Jewel Knight, Urien",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/010", "MT01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F010",
+          "fetchedAt": "2026-10-29T19:08:05.359Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/010EN",
+          "fetchedAt": "2026-10-29T19:09:45.950Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-011",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/011",
+        "name": "れんどがる",
+        "text": "【自】：このユニットが山札から(R)に登場した時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_011.png"
+      },
+      "en": {
+        "number": "MT01/011EN",
+        "name": "Rendgal",
+        "text": "[AUTO]:When this unit is placed on (RC) from your deck, if you have a <Royal Paladin> vanguard, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/011", "MT01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F011",
+          "fetchedAt": "2026-10-29T19:08:06.111Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/011EN",
+          "fetchedAt": "2026-10-29T19:09:47.003Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-012",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/012",
+        "name": "虹を呼ぶ吟遊詩人",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]このユニットが「サンクチュアリガード・ドラゴン」を【ブースト】した時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されたユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_012.png"
+      },
+      "en": {
+        "number": "MT01/012EN",
+        "name": "Rainbow-calling Bard",
+        "text": "[AUTO](RC):［Soul-Blast 1］ When this unit boosts ([Boost]) a unit named \"Sanctuary Guard Dragon\", you may pay the cost. If you do, the boosted ([Boost]) unit gets [Power] ＋5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/012", "MT01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F012",
+          "fetchedAt": "2026-10-29T19:08:07.276Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/012EN",
+          "fetchedAt": "2026-10-29T19:09:48.378Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-013",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/013",
+        "name": "始まりの伝説 アンブロシウス",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く，あなたの手札から１枚選び、捨てる]あなたの《ロイヤルパラディン》のヴァンガードがいるなら、１枚引く。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_013.png"
+      },
+      "en": {
+        "number": "MT01/013EN",
+        "name": "Starting Legend, Ambrosius",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul & Choose a card from your hand, and discard it] If you have a <Royal Paladin> vanguard, draw a card.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/mt01/MT01_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/013", "MT01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F013",
+          "fetchedAt": "2026-10-29T19:08:08.427Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=MT01/013EN",
+          "fetchedAt": "2026-10-29T19:09:49.229Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "DG01-014",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/014",
+        "name": "幸運の運び手 エポナ",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_014.png"
+      },
+      "en": {
+        "number": "TD01/013EN",
+        "name": "Bringer of Good Luck, Epona",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/td01/TD01_013EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/014"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F014",
+          "fetchedAt": "2026-10-29T19:08:09.185Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD01-013"
+      }
+    },
+    {
+      "id": "DG01-015",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/015",
+        "name": "武器商人 ゴヴァノン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ノーム",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_015.png"
+      },
+      "en": {
+        "number": "BT01/045EN",
+        "name": "Weapons Dealer, Govannon",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Gnome",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_045EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/015"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F015",
+          "fetchedAt": "2026-10-29T19:08:10.391Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-045"
+      }
+    },
+    {
+      "id": "DG01-016",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/016",
+        "name": "ふろうがる",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_016.png"
+      },
+      "en": {
+        "number": "BT01/046EN",
+        "name": "Flogal",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_046EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/016"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F016",
+          "fetchedAt": "2026-10-29T19:08:11.188Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-046"
+      }
+    },
+    {
+      "id": "DG01-017",
+      "set": "DG01",
+      "jp": {
+        "number": "DG01/017",
+        "name": "世界樹の巫女 エレイン",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/DG01/dg01_017.png"
+      },
+      "en": {
+        "number": "BT01/047EN",
+        "name": "Yggdrasil Maiden, Elaine",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_047EN.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["DG01/017"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=DG01%2F017",
+          "fetchedAt": "2026-10-29T19:08:12.366Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-047"
+      }
+    }
+  ],
+  "enOnly": []
+}

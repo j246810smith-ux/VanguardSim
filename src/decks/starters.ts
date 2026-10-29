@@ -1742,4 +1742,60 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- EB10 ---------------------------------------------------------------------------------------
+  {
+    name: 'Bermuda Triangle — Duo Flower Girl, Lily',
+    description:
+      'Bounce and rebuild: Lily returns a "Duo" rear-guard at Limit Break and calls a fresh copy of it from the deck, Iori fetches two more of a returned unit\'s name, and Thames, Peace and Cikola draw or pump when they return and turn damage face up when you reveal three of their name.',
+    deck: {
+      firstVanguard: 'EB10-027',
+      cards: [
+        ...n(1, 'EB10-027'),
+        ...n(4, 'EB10-029'), // Duo Pride Crown, Madeira (critical)
+        ...n(4, 'EB10-030'), // Duo Grampus Turn, Shannon (critical)
+        ...n(4, 'EB10-031'), // Duo Morning Charm, Liffey (draw)
+        ...n(4, 'EB10-034'), // Duo Tropical Healer, Medjerda (heal)
+        ...n(4, 'EB10-008'), // PR♥ISM-Duo, Aria (G1 sentinel)
+        ...n(3, 'EB10-014'), // Duo Petit Etoile, Peace
+        ...n(3, 'EB10-022'), // Duo Shiny Tone, Cikola
+        ...n(2, 'EB10-021'), // Duo Afternoon Tea, Parana
+        ...n(2, 'EB10-026'), // Duo Clear Parasol, Kura
+        ...n(3, 'EB10-013'), // Duo Blue Marine Chateau, Thames (G2)
+        ...n(3, 'EB10-010'), // Duo Kelpie Jockey, Syr Darya
+        ...n(2, 'EB10-005'), // Duo Mini Heart, Rhone
+        ...n(2, 'EB10-019'), // Duo White Crystal, Ricca
+        ...n(1, 'EB10-012'), // Duo Magical Mic, Shalwien
+        ...n(4, 'EB10-004'), // Duo Flower Girl, Lily (G3)
+        ...n(2, 'EB10-001'), // Duo Stage Storm, Iori (G3)
+        ...n(2, 'EB10-009'), // Duo Sweet Rhythm, Vilaine (G3)
+      ],
+    },
+  },
+  // ---- DG01 ---------------------------------------------------------------------------------------
+  {
+    name: 'Royal Paladin — Sanctuary Guard Dragon',
+    description:
+      'Swarm of small knights: Sanctuary Guard Dragon calls a grade 1 from the deck when it arrives and gains +3000 for each grade 1 or less Royal Paladin rear-guard at Limit Break, Constance calls more when she hits, Rendgal powers up when called from the deck, and Rainbow-calling Bard boosts the dragon by +5000.',
+    deck: {
+      firstVanguard: 'DG01-013',
+      cards: [
+        ...n(1, 'DG01-013'),
+        ...n(4, 'DG01-014'), // Bringer of Good Luck, Epona (critical)
+        ...n(4, 'DG01-015'), // Weapons Dealer, Govannon (draw)
+        ...n(4, 'DG01-016'), // Flogal (stand)
+        ...n(4, 'DG01-017'), // Yggdrasil Maiden, Elaine (heal)
+        ...n(4, 'DG01-011'), // Rendgal
+        ...n(4, 'DG01-012'), // Rainbow-calling Bard
+        ...n(3, 'DG01-010'), // Regret Jewel Knight, Urien
+        ...n(3, 'DG01-009'), // Little Sage, Marron
+        ...n(4, 'DG01-006'), // Battle Flag Knight, Constance (G2)
+        ...n(3, 'DG01-007'), // Pathetic Jewel Knight, Olwen (G2)
+        ...n(2, 'DG01-004'), // Knight of Determination, Lamorak (G2)
+        ...n(2, 'DG01-005'), // Knight of Silence, Gallatin (G2)
+        ...n(4, 'DG01-001'), // Sanctuary Guard Dragon (G3)
+        ...n(2, 'DG01-002'), // Dignified Silver Dragon (G3)
+        ...n(2, 'DG01-003'), // Knight of Conviction, Bors (G3)
+      ],
+    },
+  },
 ];

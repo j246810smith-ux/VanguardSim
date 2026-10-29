@@ -1,0 +1,1092 @@
+{
+  "set": "FC01",
+  "importedAt": "2026-10-28T14:18:33.274Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "FC01-001",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/001",
+        "name": "剛槍の解放者 ブレオベリス",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《ゴールドパラディン》がこのユニットにライドした時、コストを払ってよい。払ったら、あなたの山札の上から２枚まで見て、《ゴールドパラディン》を２枚まで探し、ユニットのいない別々の(R)にコールし、残りのカードを山札の下に好きな順番で置き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_001.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/001"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F001",
+          "fetchedAt": "2026-10-28T13:46:09.098Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "FC01 had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "FC01-002",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/002",
+        "name": "英知の守り手 メーティス",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《ジェネシス》がこのユニットにライドした時、コストを払ってよい。払ったら、１枚引き、【ソウルチャージ】(3)し、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、【ソウルチャージ】(1)し、そのバトル中、このユニットのパワー＋1000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_002.png"
+      },
+      "en": {
+        "number": "EB12/009EN",
+        "name": "Wisdom Keeper, Metis",
+        "text": "[AUTO][Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When a <Genesis> rides this unit, you may pay the cost. If you do, draw a card, [Soul-Charge 3], choose one of your vanguards, and that unit gets [Power] +10000 until end of turn.\n[AUTO](VC):When this unit attacks a vanguard, [Soul-Charge 1], this unit gets [Power] +1000 until end of that battle.\n[CONT](VC/RC):Lord (If you have a unit without a same clan as this unit, this unit cannot attack)",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/eb12/EB12_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/002", "EB12/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F002",
+          "fetchedAt": "2026-10-28T13:46:10.270Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB12/009EN",
+          "fetchedAt": "2026-10-28T14:13:56.824Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC01-003",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/003",
+        "name": "抹消者 エレクトリックシェイパー・ドラゴン",
+        "text": "【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《なるかみ》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、『【自】【(V)】：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、そのカードがあった(R)と同じ縦列の後列にいる相手のリアガードを１枚選び、退却させる。』を与える。\n【自】【(V)】：このユニットがアタックした時、相手のダメージゾーンが３枚以上なら、そのバトル中、このユニットのパワー＋2000。\n【永】【(V)/(R)】：盟主（共通するクランがないあなたのユニットがいるとアタックできない）",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_003.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/003"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F003",
+          "fetchedAt": "2026-10-28T13:46:11.454Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "FC01 had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "FC01-004",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/004",
+        "name": "ストーリー・テラー",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《ダークイレギュラーズ》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ダークイレギュラーズ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_004.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/004"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F004",
+          "fetchedAt": "2026-10-28T13:46:12.190Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "FC01 had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "FC01-005",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/005",
+        "name": "プリティセレブ シャルロット",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたの《バミューダ△》のヴァンガードがいるなら、コストを払ってよい。払ったら、このユニットを手札に戻し、あなたの手札から「プリティセレブ シャルロット」以外の《バミューダ△》を１枚まで選び、ユニットのいない(R)にコールする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_005.png"
+      },
+      "en": {
+        "number": "PR/0048EN",
+        "name": "Pretty Celeb, Charlotte",
+        "text": "[AUTO](RC):[Counter-Blast 1] When this unit's attack hits a vanguard, if you have a <Bermuda Triangle> vanguard, you may pay the cost. If you do, return this unit to your hand, choose up to one <Bermuda Triangle> not named \"Pretty Celeb, Charlotte\" from your hand, and call it to an open (RC).",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0048.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/005", "PR/0048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F005",
+          "fetchedAt": "2026-10-28T13:46:13.371Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0048EN",
+          "fetchedAt": "2026-10-28T14:13:58.211Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC01-006",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/006",
+        "name": "タンポポの銃士 ミルッカ",
+        "text": "【自】【(R)】：このユニットが《ネオネクタール》を【ブースト】した時、あなたの《ネオネクタール》のヴァンガードがいて、そのターン中、あなたのカードの効果で、あなたの山札がシャッフルされていたなら、そのバトル中、【ブースト】されたユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_006.png"
+      },
+      "en": {
+        "number": "PR/0150EN",
+        "name": "Dandelion Musketeer, Mirkka",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) a <Neo Nectar>, if you have a <Neo Nectar> vanguard, if your deck had been shuffled due to an effect from one of your cards during this turn, the boosted ([Boost]) unit gets [Power] +3000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0150.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/006", "PR/0150EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F006",
+          "fetchedAt": "2026-10-28T13:46:14.111Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0150EN",
+          "fetchedAt": "2026-10-28T14:13:59.406Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC01-007",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/007",
+        "name": "無双祐筆 ポンガ",
+        "text": "【自】【(V)】：このユニットがヴァンガードにアタックした時、バトル相手のパワーが12000以上なら、そのバトル中、このユニットのパワー＋10000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《グレートネイチャー》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_007.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/007"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F007",
+          "fetchedAt": "2026-10-28T13:46:14.853Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "FC01 had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "FC01-008",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/008",
+        "name": "沈黙の騎士 ギャラティン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_008.png"
+      },
+      "en": {
+        "number": "BT01/021EN",
+        "name": "Knight of Silence, Gallatin",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_021EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/008"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F008",
+          "fetchedAt": "2026-10-28T13:46:15.607Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-021"
+      }
+    },
+    {
+      "id": "FC01-009",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/009",
+        "name": "友愛の宝石騎士 トレーシー",
+        "text": "【自】【(R)】：このユニットがアタックした時、他のあなたのカード名に「宝石騎士」を含むリアガードが３枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_009.png"
+      },
+      "en": {
+        "number": "BT10/022EN",
+        "name": "Fellowship Jewel Knight, Tracie",
+        "text": "[AUTO](RC):When this unit attacks, if the number of other rear-guards you have with \"Jewel Knight\" in its card name is three or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/009"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F009",
+          "fetchedAt": "2026-10-28T13:46:16.354Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-022"
+      }
+    },
+    {
+      "id": "FC01-010",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/010",
+        "name": "小さな賢者 マロン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_010.png"
+      },
+      "en": {
+        "number": "BT01/042EN",
+        "name": "Little Sage, Marron",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt01/BT01_042EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/010"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F010",
+          "fetchedAt": "2026-10-28T13:46:17.089Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT01-042"
+      }
+    },
+    {
+      "id": "FC01-011",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/011",
+        "name": "必中の宝石騎士 シェリー",
+        "text": "【自】【(R)】：このユニットがアタックした時、他のあなたのカード名に「宝石騎士」を含むリアガードが３枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_011.png"
+      },
+      "en": {
+        "number": "BT10/046EN",
+        "name": "Stinging Jewel Knight, Shellie",
+        "text": "[AUTO](RC):When this unit attacks, if the number of other rear-guards you have with \"Jewel Knight\" in its card name is three or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_046EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/011"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F011",
+          "fetchedAt": "2026-10-28T13:46:17.835Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-046"
+      }
+    },
+    {
+      "id": "FC01-012",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/012",
+        "name": "黒の賢者 カロン",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_012.png"
+      },
+      "en": {
+        "number": "BT04/045EN",
+        "name": "Black Sage, Charon",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/bt04/BT04_045EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/012"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F012",
+          "fetchedAt": "2026-10-28T13:46:18.564Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT04-043"
+      }
+    },
+    {
+      "id": "FC01-013",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/013",
+        "name": "沈黙の解放者 ギャラティン",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_013.png"
+      },
+      "en": {
+        "number": "TD08/004EN",
+        "name": "Liberator of Silence, Gallatin",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/013"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F013",
+          "fetchedAt": "2026-10-28T13:46:19.732Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD08-004"
+      }
+    },
+    {
+      "id": "FC01-014",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/014",
+        "name": "美技の騎士 ガレス",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_014.png"
+      },
+      "en": {
+        "number": "BT06/083EN",
+        "name": "Knight of Elegant Skills, Gareth",
+        "text": "",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt06/BT06_083EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/014"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F014",
+          "fetchedAt": "2026-10-28T13:46:20.896Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT06-082"
+      }
+    },
+    {
+      "id": "FC01-015",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/015",
+        "name": "小さな解放者 マロン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「解放者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_015.png"
+      },
+      "en": {
+        "number": "TD08/010EN",
+        "name": "Little Liberator, Marron",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Liberator\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/td08/TD08_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/015"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F015",
+          "fetchedAt": "2026-10-28T13:46:22.058Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD08-010"
+      }
+    },
+    {
+      "id": "FC01-016",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/016",
+        "name": "戦巫女 イヅナヒメ",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_016.png"
+      },
+      "en": {
+        "number": "BT10/028EN",
+        "name": "Battle Maiden, Izunahime",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/016"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F016",
+          "fetchedAt": "2026-10-28T13:46:23.267Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-028"
+      }
+    },
+    {
+      "id": "FC01-017",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/017",
+        "name": "戦巫女 サホヒメ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたの《ジェネシス》のヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(3)。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_017.png"
+      },
+      "en": {
+        "number": "BT10/029EN",
+        "name": "Battle Maiden, Sahohime",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit's attack hits a vanguard, if you have a <Genesis> vanguard, you may pay the cost. If you do, [Soul-Charge 3].",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_029EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/017"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F017",
+          "fetchedAt": "2026-10-28T13:46:24.490Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-029"
+      }
+    },
+    {
+      "id": "FC01-018",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/018",
+        "name": "戦巫女 ミヒカリヒメ",
+        "text": "",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_018.png"
+      },
+      "en": {
+        "number": "BT10/066EN",
+        "name": "Battle Maiden, Mihikarihime",
+        "text": "",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/bt10/BT10_066EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/018"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F018",
+          "fetchedAt": "2026-10-28T13:46:25.225Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT10-066"
+      }
+    },
+    {
+      "id": "FC01-019",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/019",
+        "name": "バーサーク・ドラゴン",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、あなたの《かげろう》のヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_019.png"
+      },
+      "en": {
+        "number": "EB09/011EN",
+        "name": "Berserk Dragon",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a <Kagero> vanguard, you may pay the cost. If you do, choose an opponent's grade 2 or less rear-guard, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb09/EB09_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/019"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F019",
+          "fetchedAt": "2026-10-28T13:46:25.972Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "EB09-011"
+      }
+    },
+    {
+      "id": "FC01-020",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/020",
+        "name": "ベリコウスティドラゴン",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたの《かげろう》のヴァンガードがいるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_020.png"
+      },
+      "en": {
+        "number": "EB01/012EN",
+        "name": "Bellicosity Dragon",
+        "text": "[AUTO](VC/RC):When this unit's attack hits a vanguard, if you have a <Kagero> vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb01/EB01_012EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/020"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F020",
+          "fetchedAt": "2026-10-28T13:46:27.136Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "EB01-012"
+      }
+    },
+    {
+      "id": "FC01-021",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/021",
+        "name": "抹消者 サンダーブーム・ドラゴン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_021.png"
+      },
+      "en": {
+        "number": "TD09/004EN",
+        "name": "Eradicator, Thunder Boom Dragon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td09/TD09_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/021"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F021",
+          "fetchedAt": "2026-10-28T13:46:27.886Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD09-004"
+      }
+    },
+    {
+      "id": "FC01-022",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/022",
+        "name": "レッドリバー・ドラグーン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_022.png"
+      },
+      "en": {
+        "number": "BT06/095EN",
+        "name": "Red River Dragoon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt06/BT06_095EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/022"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F022",
+          "fetchedAt": "2026-10-28T13:46:29.046Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT06-091"
+      }
+    },
+    {
+      "id": "FC01-023",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/023",
+        "name": "抹消者 デモリッション・ドラゴン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「抹消者」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_023.png"
+      },
+      "en": {
+        "number": "TD09/010EN",
+        "name": "Eradicator, Demolition Dragon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Eradicator\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/td09/TD09_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/023"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F023",
+          "fetchedAt": "2026-10-28T13:46:29.875Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "TD09-010"
+      }
+    },
+    {
+      "id": "FC01-024",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/024",
+        "name": "ベルベットボイス レインディア",
+        "text": "【自】【(V)】：[あなたの《バミューダ△》のリアガードを１枚選び、手札に戻す]このユニットのドライブチェックでグレード３の《バミューダ△》がでた時、コストを払ってよい。払ったら、あなたの手札から《バミューダ△》を１枚まで選び、ユニットのいない(R)にコールする。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_024.png"
+      },
+      "en": {
+        "number": "EB02/016EN",
+        "name": "Velvet Voice, Raindear",
+        "text": "[AUTO](VC):[Choose one of your <Bermuda Triangle> rear-guards, and return it to your hand] When this unit's drive check reveals a grade 3 <Bermuda Triangle>, you may pay the cost. If you do, choose up to one <Bermuda Triangle> from your hand, and call it to an open (RC).",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/eb02/EB02_016EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/024"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F024",
+          "fetchedAt": "2026-10-28T13:46:30.822Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "EB02-016"
+      }
+    },
+    {
+      "id": "FC01-025",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/025",
+        "name": "波状螺旋の水将 ベネディクト",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、あなたの《アクアフォース》のヴァンガードがいるなら、このユニットを【スタンド】し、そのターン中、このユニットのパワー－5000。そのターン中、この能力は使えなくなる。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_025.png"
+      },
+      "en": {
+        "number": "PR/0052EN",
+        "name": "Water General of Wave-like Spirals, Benedict",
+        "text": "[AUTO](RC)：At the end of the battle that this unit attacked a vanguard, if you have an <Aqua Force> vanguard, [Stand] this unit, and this unit gets [Power] -5000 until end of turn. This ability cannot be used for the rest of that turn.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0052.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/025", "PR/0052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F025",
+          "fetchedAt": "2026-10-28T13:46:31.598Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0052EN",
+          "fetchedAt": "2026-10-28T14:14:00.756Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "FC01-026",
+      "set": "FC01",
+      "jp": {
+        "number": "FC01/026",
+        "name": "ティアーナイト テオ",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/FC01/fc01_026.png"
+      },
+      "en": {
+        "number": "BT08/090EN",
+        "name": "Tear Knight, Theo",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt08/BT08_090EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["FC01/026"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=FC01%2F026",
+          "fetchedAt": "2026-10-28T13:46:32.784Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFrom": "BT08-090"
+      }
+    }
+  ],
+  "enOnly": []
+}

@@ -57,9 +57,11 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 
 ## Current state (2026-10-28)
 
-Unreleased since v0.23.0-alpha: the 85 English-only BT16/BT17 cards and **Delete** (D-031), BT03's
+**v0.24.0-alpha published**: the 85 English-only BT16/BT17 cards and **Delete** (D-031), BT03's
 regional triggers back to the Japanese draw triggers, foil effect by rarity, hand/back-row spacing,
-EB08, EB09 (first grade 4 card), battle UI pop-ups moved to the right column. Next: EB10 — see `docs/NEXT_SESSION.md` "Pick up here (session 2026-10-28)".
+EB08, EB09 (first grade 4 card), battle UI pop-ups moved to the right column. Since then: EB10
+and FC01 (unreleased), **Play Online stage 1** (D-032, `docs/ONLINE_PLAY.md`; code in `src/net/`,
+`app/main/online.cjs`, `app/renderer/online/`). Then (2026-10-29) the Artwork Manager import fix for English numbers, **DG01**, the back-centre circle kept clear when calling, and **FC02**. Next: EB11 — see `docs/NEXT_SESSION.md` "Pick up here (session 2026-10-29)".
 
 ## State at v0.23.0-alpha (2026-10-24)
 

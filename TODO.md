@@ -16,6 +16,12 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] Custom rules: Delayed Legion (D-030), Game Setup toggle
 - [x] English-only BT16/BT17 cards and Delete (D-031)
 - [x] Foil effect by rarity
-- [x] Side sets EB08, EB09
-- [ ] Side sets: EB10, FC01, DG01, FC02, EB11, EB12, MBT01, MTD01, PR cards 2011–2014
+- [x] Side sets EB08, EB09, EB10, FC01
+- [x] Online play stage 1: host-and-join (D-032)
+- [ ] Online play: reconnect, turn timer, emotes; stage 2 (match server with room codes) if wanted
+- [ ] Card sleeves and playmats (user mentioned 2026-10-28; scope to be agreed)
+- [x] Side set DG01
+- [x] Artwork import: English file names matched by English number
+- [x] Side set FC02
+- [ ] Side sets: EB11, EB12, MBT01, MTD01, PR cards 2011–2014
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

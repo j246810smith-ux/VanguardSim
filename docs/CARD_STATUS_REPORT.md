@@ -375,3 +375,69 @@ All cards complete.
 | 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
 
 All cards complete.
+
+## EB10
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 35                  | 0               | 0            | 35            | 35  | 35       |
+
+All cards complete.
+
+## FC01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 26    | 4                   | 26                  | 0               | 0            | 26            | 26  | 4        |
+
+### Incomplete
+
+- FC01-001 剛槍の解放者 ブレオベリス — data
+- FC01-003 抹消者 エレクトリックシェイパー・ドラゴン — data
+- FC01-004 ストーリー・テラー — data
+- FC01-007 無双祐筆 ポンガ — data
+- FC01-008 Knight of Silence, Gallatin — data
+- FC01-009 Fellowship Jewel Knight, Tracie — data
+- FC01-010 Little Sage, Marron — data
+- FC01-011 Stinging Jewel Knight, Shellie — data
+- FC01-012 Black Sage, Charon — data
+- FC01-013 Liberator of Silence, Gallatin — data
+- FC01-014 Knight of Elegant Skills, Gareth — data
+- FC01-015 Little Liberator, Marron — data
+- FC01-016 Battle Maiden, Izunahime — data
+- FC01-017 Battle Maiden, Sahohime — data
+- FC01-018 Battle Maiden, Mihikarihime — data
+- FC01-019 Berserk Dragon — data
+- FC01-020 Bellicosity Dragon — data
+- FC01-021 Eradicator, Thunder Boom Dragon — data
+- FC01-022 Red River Dragoon — data
+- FC01-023 Eradicator, Demolition Dragon — data
+- FC01-024 Velvet Voice, Raindear — data
+- FC01-026 Tear Knight, Theo — data
+
+## FC02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 29    | 29                  | 29                  | 0               | 0            | 29            | 29  | 29       |
+
+All cards complete.
+
+## DG01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 17    | 7                   | 17                  | 0               | 0            | 17            | 17  | 7        |
+
+### Incomplete
+
+- DG01-002 Dignified Silver Dragon — data
+- DG01-003 Knight of Conviction, Bors — data
+- DG01-004 Knight of Determination, Lamorak — data
+- DG01-005 Knight of Silence, Gallatin — data
+- DG01-008 Knight of Truth, Gordon — data
+- DG01-009 Little Sage, Marron — data
+- DG01-014 Bringer of Good Luck, Epona — data
+- DG01-015 Weapons Dealer, Govannon — data
+- DG01-016 Flogal — data
+- DG01-017 Yggdrasil Maiden, Elaine — data

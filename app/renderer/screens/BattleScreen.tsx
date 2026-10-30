@@ -15,6 +15,9 @@ import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
 import { DamageZone, Pile, PhaseRail, PlayerPlate, TriggerZone } from '../board/Panels';
 import { AttackLines, AttackPreviewPanel, BattleHud, FxLayer } from '../combat/Combat';
+import { AbilityCallout } from '../board/AbilityCallout';
+import { BattleCosmetics } from '../board/Cosmetics';
+import { DEFAULT_SLEEVE } from '../cosmetics';
 import { AI, ctx, ME } from '../engine';
 import {
   circleState,
@@ -38,6 +41,7 @@ import {
 import { paced, useSettings } from '../settings';
 import { CardView } from '../ui/CardView';
 import { CentreEmblem, Icon } from '../ui/svg';
+import { ConnectionBanner, type ConnectionWatch } from '../online/ConnectionBanner';
 
 /** An online match (D-032): the session comes from the host or guest link. */
 export interface OnlineInfo {
@@ -48,6 +52,12 @@ export interface OnlineInfo {
   readonly myDeck: SessionConfig['myDeck'];
   readonly myDeckName: string;
   readonly opponentDeckName: string;
+  /** Sleeves and playmat (D-033); the opponent's is a built-in sleeve id when sent. */
+  readonly mySleeve?: string;
+  readonly opponentSleeve?: string;
+  readonly playmat?: string;
+  /** The connection state, for the reconnect banner. */
+  readonly connection?: ConnectionWatch;
 }
 
 interface Props {
@@ -360,6 +370,11 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
 
   return (
     <>
+      <BattleCosmetics
+        mySleeve={online?.mySleeve ?? config?.mySleeve ?? settings.defaultSleeve}
+        opponentSleeve={online?.opponentSleeve ?? config?.aiSleeve ?? DEFAULT_SLEEVE}
+        playmat={online?.playmat ?? config?.playmat ?? settings.playmat}
+      />
       <div className="field-frame opp" />
       <div className="field-frame me" />
       <div className="divider" />
@@ -390,6 +405,11 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         booster={lineBooster}
       />
       <BattleHud view={view} />
+      <AbilityCallout
+        view={view}
+        fx={session.fx[0]?.kind === 'ability' ? session.fx[0] : undefined}
+        choose={legal.choose}
+      />
       {preview && <AttackPreviewPanel preview={preview} />}
 
       {/* opponent (top) */}
@@ -447,20 +467,21 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         title="DECK"
         ids={opp.deck}
         face={false}
-        style={{ left: 24, top: 84, width: 145, height: 110 }}
+        big
+        style={{ left: 24, top: 84, width: 145, height: 128 }}
       />
       <Pile
         view={view}
         player={AI}
         title="DROP"
         ids={opp.drop}
-        style={{ left: 179, top: 84, width: 145, height: 110 }}
+        style={{ left: 179, top: 84, width: 145, height: 128 }}
         onOpen={() => openZone("Opponent's drop zone", opp.drop)}
       />
       <DamageZone
         view={view}
         player={AI}
-        style={{ left: 24, top: 204, width: 300, height: 125 }}
+        style={{ left: 24, top: 222, width: 300, height: 125 }}
         onOpen={() => openZone("Opponent's damage zone", opp.damage)}
       />
       {opp.bind.length > 0 && (
@@ -469,7 +490,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
           player={AI}
           title="BIND"
           ids={opp.bind}
-          style={{ left: 24, top: 339, width: 145, height: 100 }}
+          style={{ left: 24, top: 357, width: 145, height: 100 }}
           onOpen={() => openZone("Opponent's bind zone", opp.bind)}
         />
       )}
@@ -510,7 +531,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         player={ME}
         title="SOUL"
         ids={me.soul}
-        style={{ left: 1596, top: 775, width: 96, height: 110 }}
+        style={{ left: 1596, top: 775, width: 96, height: 128 }}
         onOpen={() => openZone('Your soul', me.soul)}
       />
       <Pile
@@ -518,7 +539,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         player={ME}
         title="DROP"
         ids={me.drop}
-        style={{ left: 1698, top: 775, width: 96, height: 110 }}
+        style={{ left: 1698, top: 775, width: 96, height: 128 }}
         onOpen={() => openZone('Your drop zone', me.drop)}
       />
       <Pile
@@ -527,7 +548,8 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         title="DECK"
         ids={me.deck}
         face={false}
-        style={{ left: 1800, top: 775, width: 96, height: 110 }}
+        big
+        style={{ left: 1800, top: 775, width: 96, height: 128 }}
       />
       {me.bind.length > 0 && (
         <Pile
@@ -535,7 +557,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
           player={ME}
           title="BIND"
           ids={me.bind}
-          style={{ left: 1596, top: 893, width: 145, height: 70 }}
+          style={{ left: 1596, top: 909, width: 145, height: 60 }}
           onOpen={() => openZone('Your bind zone', me.bind)}
         />
       )}
@@ -632,6 +654,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
 
       <FxLayer fx={session.fx[0]} onDone={dismissFx} />
 
+      {online?.connection && <ConnectionBanner watch={online.connection} />}
       {toast && <div className="toast">Not allowed: {toast}</div>}
       {details && <CardDetails view={view} id={details} onClose={() => setDetails(null)} />}
       {zone && (

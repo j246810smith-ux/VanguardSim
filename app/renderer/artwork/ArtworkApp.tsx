@@ -6,7 +6,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Problem, ArtworkReport } from '../../../src/artwork/types';
 import type { ArtworkInfo } from '../../../src/artwork/types';
-import type { Progress } from './api';
+import type { OwnCosmetics, Progress } from './api';
 
 type Busy = null | 'scan' | 'import' | 'download' | 'export' | 'report';
 
@@ -21,6 +21,16 @@ export function ArtworkApp() {
   const [message, setMessage] = useState('');
   const [replace, setReplace] = useState(false);
   const [sourceId, setSourceId] = useState('');
+  const [own, setOwn] = useState<OwnCosmetics>({ sleeves: [], playmats: [] });
+  const [link, setLink] = useState({
+    kind: 'sleeves' as 'sleeves' | 'playmats',
+    address: '',
+    name: '',
+  });
+  const [linkBusy, setLinkBusy] = useState(false);
+  useEffect(() => {
+    void window.artworkManager?.cosmetics().then(setOwn);
+  }, []);
 
   const run = async <T,>(kind: Busy, job: () => Promise<T>): Promise<T | null> => {
     setBusy(kind);
@@ -78,6 +88,31 @@ export function ArtworkApp() {
         '.',
     );
     await rescan();
+  };
+  /** "Download from a link" (D-033): one sleeve or playmat image from an address the player pasted. */
+  const downloadLink = async () => {
+    setLinkBusy(true);
+    try {
+      const r = await api.downloadCosmetic(link.kind, link.address, link.name);
+      if (r.ok) {
+        setMessage(`Downloaded ${r.file}. Restart the game to see it.`);
+        setLink({ ...link, address: '', name: '' });
+        setOwn(await api.cosmetics());
+      } else setMessage(`Not downloaded: ${r.error}`);
+    } finally {
+      setLinkBusy(false);
+    }
+  };
+  /** Sleeves and playmats (D-033): copy picked image files into the folder next to the game. */
+  const importCosmetics = async (kind: 'sleeves' | 'playmats') => {
+    const r = await api.importCosmetics(kind);
+    if (!r) return;
+    setMessage(
+      `Added ${r.added.length} ${kind === 'sleeves' ? 'sleeve' : 'playmat'} image(s)` +
+        (r.skipped.length ? `; not used (not an image up to 10 MB): ${r.skipped.join(', ')}` : '') +
+        '. Restart the game to see them.',
+    );
+    setOwn(await api.cosmetics());
   };
   const download = async () => {
     const r = await run('download', () => api.download([...selected], sourceId));
@@ -244,6 +279,67 @@ export function ArtworkApp() {
           <button className="btn" disabled={busy !== null} onClick={() => void saveReport()}>
             Save report…
           </button>
+        </div>
+        <div data-testid="cosmetics-panel">
+          <h2>Sleeves &amp; playmats</h2>
+          <p className="art-dim">
+            Add your own pictures of sleeves and playmats (PNG, JPG or WebP, up to 10 MB). They are
+            kept in the <code>sleeves</code> and <code>playmats</code> folders next to the game, for
+            your personal use, and are never sent to an online opponent. Choose them per deck in the
+            Deck Builder (Sleeve &amp; mat…) or as defaults in Settings.
+          </p>
+          <p className="art-dim">
+            {own.sleeves.length} sleeve{own.sleeves.length === 1 ? '' : 's'} · {own.playmats.length}{' '}
+            playmat{own.playmats.length === 1 ? '' : 's'}
+          </p>
+          {(['sleeves', 'playmats'] as const).map((kind) => (
+            <span key={kind}>
+              <button
+                className="btn primary"
+                disabled={busy !== null}
+                onClick={() => void importCosmetics(kind)}
+              >
+                Import {kind}…
+              </button>{' '}
+              <button className="btn" onClick={() => void api.openCosmeticsFolder(kind)}>
+                Open folder
+              </button>{' '}
+            </span>
+          ))}
+          <h3 style={{ marginTop: 14 }}>Download from a link</h3>
+          <p className="art-dim">
+            Paste the address of a sleeve or playmat picture (for example from the official product
+            page: right-click the picture → Copy image address). It is downloaded for your personal
+            use on this PC; please don&apos;t share or upload it.
+          </p>
+          <div className="cosmetic-link" data-testid="cosmetic-link">
+            <select
+              value={link.kind}
+              onChange={(e) => setLink({ ...link, kind: e.target.value as 'sleeves' | 'playmats' })}
+            >
+              <option value="sleeves">Sleeve</option>
+              <option value="playmats">Playmat</option>
+            </select>
+            <input
+              className="text"
+              placeholder="https://… image address"
+              value={link.address}
+              onChange={(e) => setLink({ ...link, address: e.target.value })}
+            />
+            <input
+              className="text"
+              placeholder="Name (optional)"
+              value={link.name}
+              onChange={(e) => setLink({ ...link, name: e.target.value })}
+            />
+            <button
+              className="btn primary"
+              disabled={linkBusy || !link.address.trim().startsWith('https://')}
+              onClick={() => void downloadLink()}
+            >
+              {linkBusy ? 'Downloading…' : 'Download'}
+            </button>
+          </div>
         </div>
       </section>
 

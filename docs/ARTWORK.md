@@ -78,6 +78,25 @@ data folder" button opens it). Only add a site whose terms allow you to download
 - `delayMs` is the pause after each request per download slot (minimum 250 ms).
 - Invalid entries are shown in the manager and never used.
 
+## Sleeves and playmats (D-033)
+
+Next to `cards\` the game also looks for your own **sleeve** and **playmat** pictures:
+
+```
+sleeves\My sleeve.png
+playmats\My playmat.jpg
+```
+
+Any file name (letters, digits, spaces and simple punctuation), `.png`, `.jpg` or `.webp`, up to
+10 MB. In the Artwork Manager, **Sleeves & playmats → Import sleeves… / Import playmats…** copies
+the pictures you choose into those folders (unusual characters in names become `_`); **Open
+folder** shows them. **Download from a link** fetches one picture from an image address you paste
+(for example from an official product page: right-click the picture → Copy image address), only
+`https://`, up to 10 MB, checked to really be a PNG, JPEG or WebP image; it is saved under the name
+you give it, for your personal use. Restart the game afterwards. Pick them per deck in the Deck Builder
+(**Sleeve & mat…**) or as defaults in Settings, next to the built-in designs. Your pictures stay
+on your PC: an online opponent only sees built-in sleeves (otherwise the default back).
+
 ## For developers
 
 | Part                                                                      | File                                                                                                                                                              |

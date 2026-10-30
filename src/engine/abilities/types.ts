@@ -245,6 +245,8 @@ export type Step =
       readonly as: string;
       readonly filter: CardFilter;
       readonly upTo: number;
+      /** "cards with different card names": only the first card of each name counts. */
+      readonly distinctNames?: boolean;
     }
   | { readonly op: 'retire'; readonly target: Selector }
   | { readonly op: 'move'; readonly target: Selector; readonly to: Destination }
@@ -265,6 +267,11 @@ export type Step =
       readonly rested?: boolean;
       /** "Call … to (GC) at [Rest]": the cards become guardians of the current battle. */
       readonly guardian?: boolean;
+      /**
+       * "calls it to that (RC)": only to the circles of the cards bound as this name (e.g. the
+       * opponent's rear-guards you chose, EB11 witches). With `separate`, one card per circle.
+       */
+      readonly circlesOf?: string;
     }
   /** "Choose one of your open (RC), and move this unit to that circle" (its state does not change). */
   | { readonly op: 'move_to_circle'; readonly target: Selector }

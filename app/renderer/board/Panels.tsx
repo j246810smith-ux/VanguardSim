@@ -15,10 +15,13 @@ interface PileProps {
   readonly onOpen?: () => void;
   /** Show the top card face (drop, soul, trigger) or a card back (deck, hand). */
   readonly face?: boolean;
+  /** A larger card with the count over it (the decks, closer to the size of the units). */
+  readonly big?: boolean;
 }
 
 /** A compact zone tile: label, top card preview and count. */
-export function Pile({ view, player, title, ids, style, onOpen, face = true }: PileProps) {
+export function Pile({ view, player, title, ids, style, onOpen, face = true, big }: PileProps) {
+  const [w, h] = big ? [64, 93] : [52, 75];
   const top = ids.at(face ? -1 : 0);
   const def = top && face ? view.cards[top]!.definitionId : null;
   const visible = def && def !== 'HIDDEN' ? def : null;
@@ -30,11 +33,11 @@ export function Pile({ view, player, title, ids, style, onOpen, face = true }: P
       data-zone={`${player}-${title.toLowerCase()}`}
     >
       <div className="panel-title">{title}</div>
-      <div className="panel-body">
+      <div className={`panel-body ${big ? 'big' : ''}`}>
         {top ? (
-          <CardView definitionId={visible} width={52} height={75} className="mini" />
+          <CardView definitionId={visible} width={w} height={h} className="mini" />
         ) : (
-          <div className="mini" />
+          <div className="mini" style={{ width: w, height: h }} />
         )}
         <div className="panel-count">{ids.length}</div>
       </div>

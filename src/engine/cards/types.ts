@@ -28,6 +28,8 @@ export interface CardDefinition {
   readonly sentinel: boolean;
   /** Printed text, preserved verbatim. */
   readonly text: string;
+  /** Name and text are an unofficial English translation (never printed in English). */
+  readonly unofficialTranslation?: boolean;
   /** The text's abilities as engine data (empty for vanilla units). */
   readonly abilities: readonly AbilityDefinition[];
 }

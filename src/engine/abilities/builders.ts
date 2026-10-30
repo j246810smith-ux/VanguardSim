@@ -243,11 +243,17 @@ export const choose = (
     append?: boolean;
   } = {},
 ): Step => ({ op: 'choose', as, from, count: n, ...opts });
-export const search = (as: string, filter: CardFilter, upTo = 1): Step => ({
+export const search = (
+  as: string,
+  filter: CardFilter,
+  upTo = 1,
+  opts: { distinctNames?: boolean } = {},
+): Step => ({
   op: 'search',
   as,
   filter,
   upTo,
+  ...opts,
 });
 export const retire = (target: Selector): Step => ({ op: 'retire', target });
 export const moveTo = (target: Selector, to: Destination): Step => ({ op: 'move', target, to });
@@ -260,6 +266,7 @@ export const superiorCall = (
     sameColumn?: boolean;
     sameColumnAsEvent?: boolean;
     rested?: boolean;
+    circlesOf?: string;
   } = {},
 ): Step => ({ op: 'call', target, ...opts });
 /** "Declare a <filter> card name, and reveal the top card of your deck": `as` = the top card if it has that name. */

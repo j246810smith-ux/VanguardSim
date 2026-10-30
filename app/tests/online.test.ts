@@ -17,12 +17,17 @@ function connect(guestPlayer: Player = guest, guestVersion = version) {
   let hostSession: GameSession | null = null;
   let guestSession: GuestSession | null = null;
   const refused: string[] = [];
+  const events: string[] = [];
   let n = 0;
   const h = new HostLink(
     (l) => toGuest.push(l),
     host,
     { delayedLegion: false },
-    (e) => (e.kind === 'started' ? (hostSession = e.session) : refused.push(e.reason)),
+    (e) => {
+      if (e.kind === 'started') hostSession = e.session;
+      else if (e.kind === 'refused') refused.push(e.reason);
+      else events.push(`host:${e.kind}`);
+    },
     version,
     () => (n = (n * 1103515245 + 12345) >>> 0),
     () => 42,
@@ -30,7 +35,11 @@ function connect(guestPlayer: Player = guest, guestVersion = version) {
   const g = new GuestLink(
     (l) => toHost.push(l),
     guestPlayer,
-    (e) => (e.kind === 'started' ? (guestSession = e.session) : refused.push(e.reason)),
+    (e) => {
+      if (e.kind === 'started') guestSession = e.session;
+      else if (e.kind === 'refused') refused.push(e.reason);
+      else events.push(`guest:${e.kind}`);
+    },
     guestVersion,
     () => {},
   );
@@ -47,6 +56,8 @@ function connect(guestPlayer: Player = guest, guestVersion = version) {
     g,
     pump,
     refused,
+    events,
+    toHost,
     toGuest,
     host: () => hostSession,
     guest: () => guestSession,
@@ -108,5 +119,75 @@ describe('online match', () => {
       .map((l) => JSON.parse(l) as { t: string })
       .filter((m) => m.t === 'error');
     expect(errors).toHaveLength(2);
+  });
+
+  it('a dropped guest reconnects with its token and the game carries on', () => {
+    const c = connect();
+    const hostAi = new BasicController(ctx);
+    const guestAi = new BasicController(ctx);
+    const step = () => {
+      const hs = c.host()!;
+      const gs = c.guest()!;
+      if (hs.myTurnToAct) hs.send(hostAi.chooseCommand(hs.view, 0, hs.actions));
+      else if (gs.myTurnToAct)
+        gs.send(guestAi.chooseCommand(gs.view, 1, gs.actions as LegalAction[]));
+      c.pump();
+    };
+    for (let i = 0; i < 40 || !c.host()!.myTurnToAct; i++) step();
+    // the connection drops: whatever the host sends meanwhile is lost
+    const guestBefore = c.guest();
+    let lost = 0;
+    for (let i = 0; i < 200 && c.host()!.myTurnToAct; i++) {
+      const hs = c.host()!;
+      hs.send(hostAi.chooseCommand(hs.view, 0, hs.actions));
+      lost += c.toGuest.length;
+      c.toGuest.length = 0;
+    }
+    expect(lost).toBeGreaterThan(0);
+    // reconnect: the same GuestLink says hello again, with the token
+    c.g.hello();
+    c.pump();
+    expect(c.refused).toEqual([]);
+    expect(c.events).toEqual(['host:resumed', 'guest:resumed']);
+    expect(c.guest()).toBe(guestBefore);
+    expect(c.guest()!.view.turnNumber).toBe(c.host()!.view.turnNumber);
+    // and the game can be played to the end
+    for (let i = 0; i < 5000 && c.host()!.view.status !== 'finished'; i++) step();
+    expect(c.guest()!.ending?.winner).toBe(c.host()!.ending?.winner);
+  });
+
+  it('a stranger or a wrong token cannot take over a running game', () => {
+    const c = connect();
+    c.h.receive(JSON.stringify({ t: 'hello', version, ...guest, resume: 'not-the-token' }));
+    c.h.receive(JSON.stringify({ t: 'hello', version, ...guest }));
+    expect(c.refused).toEqual([
+      'This game is already in progress.',
+      'This game is already in progress.',
+    ]);
+    // a token for a game this host is not running
+    const other = connect();
+    other.h.receive(JSON.stringify({ t: 'hello', version, ...guest, resume: 'abc' }));
+    expect(other.refused).toEqual(['This game is already in progress.']);
+    const fresh = new HostLink(
+      () => {},
+      host,
+      { delayedLegion: false },
+      (e) => (e.kind === 'refused' ? other.refused.push(e.reason) : undefined),
+      version,
+    );
+    fresh.receive(JSON.stringify({ t: 'hello', version, ...guest, resume: 'abc' }));
+    expect(other.refused.at(-1)).toMatch(/no longer running/);
+  });
+
+  it('leaving tells the host; giving up on a dropped guest wins the game', () => {
+    const c = connect();
+    c.g.leave();
+    c.pump();
+    expect(c.events).toEqual(['host:left']);
+    c.h.forfeitGuest();
+    c.pump();
+    expect(c.host()!.view.status).toBe('finished');
+    expect(c.host()!.ending?.winner).toBe(0);
+    expect(c.guest()!.ending?.winner).toBe(0);
   });
 });

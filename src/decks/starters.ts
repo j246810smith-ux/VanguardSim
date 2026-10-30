@@ -1798,4 +1798,59 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- EB11 ---------------------------------------------------------------------------------------
+  {
+    name: 'Shadow Paladin — Mesmerizing Witch, Fianna',
+    description:
+      'Give and take: Deirdre, Dana and Rias make your opponent call weak grade 0 units over their rear-guards, then Fianna, Eriu, Emel, Securna and Medb turn two or more opposing grade 0s into cards, power and counter charge. Fianna legions with Femme, Rias with Deirdre, Manisa with Serva.',
+    deck: {
+      firstVanguard: 'EB11-016',
+      cards: [
+        ...n(1, 'EB11-016'),
+        ...n(4, 'EB11-030'), // Black Crow Witch, Eine (critical)
+        ...n(4, 'EB11-035'), // Witch of Goats, Medb (stand)
+        ...n(4, 'EB11-031'), // Lizard Witch, Eine (draw)
+        ...n(4, 'EB11-034'), // Witch of Black Cats, Milcra (heal)
+        ...n(4, 'EB11-008'), // Barrier Witch, Grainne (G1 sentinel)
+        ...n(3, 'EB11-014'), // Witch of Precious Stones, Dana
+        ...n(3, 'EB11-015'), // Witch of Choices, Eriu
+        ...n(2, 'EB11-026'), // Witch of Quests, Securna
+        ...n(2, 'EB11-023'), // Witch of Ruination, Scathach
+        ...n(4, 'EB11-011'), // Witch of Reality, Femme (G2)
+        ...n(3, 'EB11-006'), // Inspection Witch, Deirdre
+        ...n(2, 'EB11-020'), // Witch of Godly-speed, Emel
+        ...n(2, 'EB11-019'), // Comet Witch, Serva
+        ...n(4, 'EB11-001'), // Mesmerizing Witch, Fianna (G3)
+        ...n(2, 'EB11-004'), // Cultus Witch, Rias (G3)
+        ...n(2, 'EB11-017'), // Witch of Comets, Manisa (G3)
+      ],
+    },
+  },
+  // ---- EB12 ---------------------------------------------------------------------------------------
+  {
+    name: 'Genesis — Cosmic Regalia, CEO Yggdrasil',
+    description:
+      'Fill the soul, then spend it: Hemera and Shiny Angel return Regalia from the drop zone to the soul, Pray Angel and Freyja Soul Charge 3, and Yggdrasil legions with Norn to pay [Soul-Blast 6] for Critical +1 against no grade 1 guardians. Norn and Achlis pump a Regalia vanguard when they leave the soul; Nyx and Cypris are the second legion leaders.',
+    deck: {
+      firstVanguard: 'EB12-016',
+      cards: [
+        ...n(1, 'EB12-016'),
+        ...n(4, 'EB12-029'), // Regalia of Far-sight, Clear Angel (critical)
+        ...n(4, 'EB12-034'), // Regalia of Foredoom, Lot Angel (draw)
+        ...n(4, 'EB12-035'), // Mirror Regalia, Achlis (stand)
+        ...n(4, 'EB12-032'), // Regalia of Compassion, Eir (heal)
+        ...n(4, 'EB12-008'), // Cold Blast Regalia, Svalinn (G1 sentinel)
+        ...n(4, 'EB12-022'), // Purification Regalia, Pure Angel
+        ...n(3, 'EB12-023'), // Exorcism Regalia, Shiny Angel
+        ...n(3, 'EB12-026'), // Regalia of Well-wishes, Preach Angel
+        ...n(4, 'EB12-012'), // Regalia of Fate, Norn (G2)
+        ...n(3, 'EB12-006'), // Midday Regalia, Hemera
+        ...n(2, 'EB12-018'), // Regalia of Beauty, Venus
+        ...n(2, 'EB12-015'), // Regalia of Fertility, Freyja
+        ...n(4, 'EB12-001'), // Cosmic Regalia, CEO Yggdrasil (G3)
+        ...n(2, 'EB12-005'), // Midnight Regalia, Nyx (G3)
+        ...n(2, 'EB12-017'), // Regalia of Love, Cypris (G3)
+      ],
+    },
+  },
 ];

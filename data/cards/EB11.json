@@ -1,0 +1,1618 @@
+{
+  "set": "EB11",
+  "importedAt": "2026-10-30T13:40:35.786Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "EB11-001",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/001",
+        "name": "幻惑の魔女 フィアナ",
+        "text": "【起】【(V)】：【双闘20000】「現の魔女 ファム」\n【起】【(V)】：【双闘】しているなら、【コスト】[【カウンターブラスト】(2)]することで、相手のリアガードがいる(R)を２つまで選ぶ。相手は自分の山札の上から10枚公開し、その中からグレード０を、選ばれた(R)と同じ枚数選び、選ばれた(R)に別々にコールし、山札をシャッフルする。\n【起】【(V)】：【コスト】[あなたの(V)にいるユニットと同名のあなたのリアガードを１枚選び、退却させる]グレード０の相手のリアガードが２枚以上なら、２枚引く。そのターン中、この能力は使えなくなる。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_003_2.png"
+      },
+      "en": {
+        "number": "EB11/001EN",
+        "name": "Mesmerizing Witch, Fianna",
+        "text": "[ACT](VC):[Legion 20000]\"Witch of Reality, Femme\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[ACT](VC):[Counter-Blast 2] If this unit is [Legion], choose up to two of your opponent's (RC) with a rear-guard, your opponent reveals ten cards from the top of his or her deck, chooses grade 0 cards equal to the number of (RC) chosen from among them, calls those cards to those separate (RC), and shuffles his or her deck.\n[ACT](VC):[Choose a rear-guard with the same card name as a unit on your (VC), and retire it] If the number of grade 0 rear-guards your opponent has is two or more, draw two cards. This ability cannot be used for the rest of that turn.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_001EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB11/001", "EB11/S01", "EB11/001EN", "EB11/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F001",
+          "fetchedAt": "2026-10-30T13:38:16.756Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/001EN",
+          "fetchedAt": "2026-10-30T13:38:59.080Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-002",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/002",
+        "name": "撃退者 ファントム・ブラスター “Abyss”",
+        "text": "【起】【(V)】：【双闘20000】「ブラスター・ダーク・撃退者 “Abyss” 」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[【カウンターブラスト】(2)，あなたのカード名に「撃退者」を含むリアガードを３枚選び、退却させる]このユニットが【双闘】したターン中、このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、あなたのヴァンガードをすべて【スタンド】する。そのターン中、この能力は使えなくなる。（コストを払わなくても、この能力は使えなくなる）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_004.png"
+      },
+      "en": {
+        "number": "EB11/002EN",
+        "name": "Revenger, Phantom Blaster \"Abyss\"",
+        "text": "[ACT](VC):[Legion 20000]\"Blaster Dark Revenger \"Abyss\"\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Counter-Blast 2 & Choose three of your rear-guards with \"Revenger\" in its card name, and retire them] During the turn that this unit [Legion], at the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, [Stand] all of your vanguards. This ability cannot be used for the rest of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)\n[AUTO](VC):When this unit attacks a vanguard; this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB11/002", "EB11/L01", "EB11/S02", "EB11/002EN", "EB11/L01EN", "EB11/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F002",
+          "fetchedAt": "2026-10-30T13:38:17.913Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/002EN",
+          "fetchedAt": "2026-10-30T13:39:03.048Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-003",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/003",
+        "name": "ブラスター・ダーク・撃退者 “Abyss”",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「撃退者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード１以下のリアガードを１枚選び、退却させる。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_005.png"
+      },
+      "en": {
+        "number": "EB11/003EN",
+        "name": "Blaster Dark Revenger \"Abyss\"",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Revenger\" in its card name, you may pay the cost. If you do, choose one of your opponent's grade 1 or less rear-guards, and retire it.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["EB11/003", "EB11/L02", "EB11/S03", "EB11/003EN", "EB11/L02EN", "EB11/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F003",
+          "fetchedAt": "2026-10-30T13:38:19.101Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/003EN",
+          "fetchedAt": "2026-10-30T13:39:05.249Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-004",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/004",
+        "name": "祭儀の魔女 リアス",
+        "text": "【起】【(V)】：【双闘20000】「査察の魔女 ディアドリー」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[あなたのカード名に「魔女」を含むリアガードを１枚選び、退却させる]このユニットが【双闘】した時、コストを払ってよい。払ったら、相手のヴァンガードを１枚選び、そのターン中、相手のグレード０のリアガード１枚につき、パワー－5000。\n【起】【(V)】：[【カウンターブラスト】(2)]相手のリアガードがいる(R)を１つ選び、相手は自分の山札の上から５枚公開し、その中からグレード０のカードを１枚選び、その(R)にコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_006.png"
+      },
+      "en": {
+        "number": "EB11/004EN",
+        "name": "Cultus Witch, Rias",
+        "text": "[ACT](VC):[Legion 20000]\"Inspection Witch, Deirdre\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Choose one of your rear-guards with \"Witch\" in its card name, and retire it] When this unit [Legion], you may pay the cost. If you do, choose one of your opponent's vanguards, and that unit gets [Power] -5000 for each of your opponent's grade 0 rear-guards until end of turn..\n[ACT](VC):[Counter-Blast 2] Choose one of your opponent's (RC) with a rear-guard, your opponent reveals five cards from the top of his or her deck, chooses a grade 0 card from them, calls it to that (RC), and shuffles his or her deck.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB11/004", "EB11/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F004",
+          "fetchedAt": "2026-10-30T13:38:19.834Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/004EN",
+          "fetchedAt": "2026-10-30T13:39:06.903Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-005",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/005",
+        "name": "覇気の撃退者 コーマック",
+        "text": "【起】【(V)】：【双闘20000】「闘気の撃退者 マックアート」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[あなたのリアガードを１枚選び、退却させる]このユニットがヴァンガードにアタックした時、このユニットが【双闘】しているなら、コストを払ってよい。払ったら、そのバトル中、このユニットのクリティカル＋１。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、中央列に他のあなたのユニットがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_007.png"
+      },
+      "en": {
+        "number": "EB11/005EN",
+        "name": "Ambitious Spirit Revenger, Cormack",
+        "text": "[ACT](VC):[Legion 20000]\"Fighting Spirit Revenger, Macart\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Choose one of your rear-guards, and retire it] When this unit attacks a vanguard, if this unit is [Legion], you may pay the cost. If you do, this unit gets [Critical] +1 until end of that battle.\n[AUTO](VC):When this unit attacks a vanguard, if you have another unit in your middle column, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB11/005", "EB11/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F005",
+          "fetchedAt": "2026-10-30T13:38:20.577Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/005EN",
+          "fetchedAt": "2026-10-30T13:39:07.967Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-006",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/006",
+        "name": "査察の魔女 ディアドリー",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「魔女」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手のリアガードがいる(R)を１つ選び、相手は自分のドロップゾーンからグレード０のカードを１枚選び、その(R)にコールする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_008.png"
+      },
+      "en": {
+        "number": "EB11/006EN",
+        "name": "Inspection Witch, Deirdre",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Witch\" in its card name, you may pay the cost. If you do, choose one of your opponent's (RC) with a rear-guard, your opponent chooses a grade 0 card from his or her drop zone, and calls it to that (RC).",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB11/006", "EB11/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F006",
+          "fetchedAt": "2026-10-30T13:38:21.737Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/006EN",
+          "fetchedAt": "2026-10-30T13:39:09.137Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-007",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/007",
+        "name": "闘気の撃退者 マックアート",
+        "text": "【自】【(R)】：あなたのヴァンガードが【双闘】した時、あなたの山札からカード名に「撃退者」を含むグレード１以下のカードを１枚まで探し、(R)に【レスト】でコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_009.png"
+      },
+      "en": {
+        "number": "EB11/007EN",
+        "name": "Fighting Spirit Revenger, Macart",
+        "text": "[AUTO](RC):When your vanguard [Legion], search your deck for up to one grade 1 or less card with \"Revenger\" in its card name, call it to (RC) as [Rest], and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["EB11/007", "EB11/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F007",
+          "fetchedAt": "2026-10-30T13:38:22.938Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/007EN",
+          "fetchedAt": "2026-10-30T13:39:10.370Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-008",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/008",
+        "name": "結界の魔女 グラーニャ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[【カウンターブラスト】(1)]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたの山札の上から５枚を(G)に【レスト】でコールする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_010.png"
+      },
+      "en": {
+        "number": "EB11/008EN",
+        "name": "Barrier Witch, Grainne",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC) at [Rest].",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["EB11/008", "EB11/S04", "EB11/008EN", "EB11/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F008",
+          "fetchedAt": "2026-10-30T13:38:24.103Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/008EN",
+          "fetchedAt": "2026-10-30T13:39:12.678Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-009",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/009",
+        "name": "呪札の魔女 エーディン",
+        "text": "【自】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)，あなたの《シャドウパラディン》のリアガードを２枚選び、退却させる]このユニットがアタックされたバトルのガードステップ開始時、コストを払ってよい。払ったら、アタックか【ブースト】しているユニット以外の相手のリアガードを１枚選び、退却させる。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_011.png"
+      },
+      "en": {
+        "number": "EB11/009EN",
+        "name": "Witch of Cursed Talisman, Etain",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2 & Choose two of your <Shadow Paladin> rear-guards, and retire them] At the beginning of the guard step of the battle that this unit was attacked, you may pay the cost. If you do, choose an opponent's rear-guard not attacking or boosting ([Boost]), and retire it.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] *3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/009", "EB11/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F009",
+          "fetchedAt": "2026-10-30T13:38:25.270Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/009EN",
+          "fetchedAt": "2026-10-30T13:39:13.832Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-010",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/010",
+        "name": "魔界城 トートツィーゲル",
+        "text": "【起】【(V)】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(2)，あなたのカード名に「魔界城」を含むリアガードを２枚選び、退却させる]あなたの山札からグレード２以下のカードを３枚まで探し、別々の(R)にコールし、その山札をシャッフルする。そのターン中、この能力は使えなくなる。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_012.png"
+      },
+      "en": {
+        "number": "EB11/010EN",
+        "name": "Demon World Castle, ToteZiegel",
+        "text": "[ACT](VC)[Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 2 & Choose two of your rear-guards with \"Demon World Castle\" in its card name, and retire them] Search for up to three grade 2 or less cards from your deck, call them to separate (RC), and shuffle your deck. This ability cannot be used for the rest of that turn.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Golem",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/010", "EB11/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F010",
+          "fetchedAt": "2026-10-30T13:38:26.465Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/010EN",
+          "fetchedAt": "2026-10-30T13:39:15.028Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-011",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/011",
+        "name": "現の魔女 ファム",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「魔女」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_013.png"
+      },
+      "en": {
+        "number": "EB11/011EN",
+        "name": "Witch of Reality, Femme",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Witch\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/011", "EB11/S05", "EB11/011EN", "EB11/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F011",
+          "fetchedAt": "2026-10-30T13:38:27.615Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/011EN",
+          "fetchedAt": "2026-10-30T13:39:16.151Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-012",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/012",
+        "name": "月光の魔女 ヴァハ",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《シャドウパラディン》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_014.png"
+      },
+      "en": {
+        "number": "EB11/012EN",
+        "name": "Moonlight Witch, Vaha",
+        "text": "[AUTO](VC/RC):[Counter-Blast 2] When this unit's attack hits, if you have a <Shadow Paladin> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/012", "EB11/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F012",
+          "fetchedAt": "2026-10-30T13:38:28.354Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/012EN",
+          "fetchedAt": "2026-10-30T13:39:17.066Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-013",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/013",
+        "name": "髑髏の魔女 ネヴァン",
+        "text": "【自】：[【カウンターブラスト】(1)，あなたの手札から《シャドウパラディン》を１枚選び、捨てる]このユニットが(R)に登場した時、あなたの《シャドウパラディン》のヴァンガードがいるなら、コストを払ってよい。払ったら、２枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_015.png"
+      },
+      "en": {
+        "number": "EB11/013EN",
+        "name": "Skull Witch, Nemain",
+        "text": "[AUTO]:[Counter-Blast 1 & Choose a <Shadow Paladin> card from your hand, and discard it] When this unit is placed on (RC), if you have a <Shadow Paladin> vanguard, you may pay the cost. If you do, draw two cards.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 3000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/013", "EB11/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F013",
+          "fetchedAt": "2026-10-30T13:38:29.504Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/013EN",
+          "fetchedAt": "2026-10-30T13:39:17.927Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-014",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/014",
+        "name": "貴石の魔女 ダーナ",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「魔女」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手のリアガードがいる(R)を１つ選び、相手は自分のドロップゾーンからグレード０のカードを１枚選び、その(R)にコールする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_016.png"
+      },
+      "en": {
+        "number": "EB11/014EN",
+        "name": "Witch of Precious Stones, Dana",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Witch\" in its card name, you may pay the cost. If you do, choose one of your opponent's (RC) with a rear-guard, your opponent chooses a grade 0 card from his or her drop zone, and calls it to that (RC).",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/014", "EB11/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F014",
+          "fetchedAt": "2026-10-30T13:38:30.239Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/014EN",
+          "fetchedAt": "2026-10-30T13:39:19.141Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-015",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/015",
+        "name": "選択の魔女 エリウ",
+        "text": "【自】：[あなたの手札から１枚選び、捨てる]このユニットが(R)に登場した時、相手のグレード０のリアガードが２枚以上なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_017.png"
+      },
+      "en": {
+        "number": "EB11/015EN",
+        "name": "Witch of Choices, Eriu",
+        "text": "[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (RC), if the number of grade 0 rear-guards your opponent has is two or more, you may pay the cost. If you do, draw a card.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/015", "EB11/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F015",
+          "fetchedAt": "2026-10-30T13:38:31.401Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/015EN",
+          "fetchedAt": "2026-10-30T13:39:20.122Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-016",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/016",
+        "name": "夜宴の魔女 リル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】：[このユニットをソウルに置く]このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、あなたのヴァンガードが【双闘】しているなら、コストを払ってよい。払ったら、あなたの山札からグレード０のカードを２枚まで探し、別々の(R)に【レスト】でコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_018.png"
+      },
+      "en": {
+        "number": "EB11/016EN",
+        "name": "Witch of Banquets, Lir",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Put this unit into your soul] When an attack hits a vanguard during the battle this unit boosted ([Boost]), if your vanguard is [Legion], you may pay the cost. If you do, search your deck for up to two grade 0 cards, call them to separate (RC) at [Rest], and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_016EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["EB11/016", "EB11/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F016",
+          "fetchedAt": "2026-10-30T13:38:32.609Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/016EN",
+          "fetchedAt": "2026-10-30T13:39:21.046Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-017",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/017",
+        "name": "箒星の魔女 マニサ",
+        "text": "【起】【(V)】：【双闘20000】「彗星の魔女 サーバ」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、このユニットが【双闘】しているなら、そのバトル中、このユニットのパワー＋5000。\n【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_019.png"
+      },
+      "en": {
+        "number": "EB11/017EN",
+        "name": "Witch of Comets, Manisa",
+        "text": "[ACT](VC):[Legion 20000]\"Comet Witch, Serva\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When this unit attacks a vanguard, if this unit is [Legion], this unit gets [Power] +5000 until end of that battle.\n[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/017", "EB11/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F017",
+          "fetchedAt": "2026-10-30T13:38:33.346Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/017EN",
+          "fetchedAt": "2026-10-30T13:39:21.928Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-018",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/018",
+        "name": "暗黒魔道士 バイヴ･カー",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上を公開する。そのカードが《シャドウパラディン》なら、そのカードを(R)にコールし、違うなら、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_020.png"
+      },
+      "en": {
+        "number": "EB11/018EN",
+        "name": "Dark Mage, Badhabh Caar",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), reveal the top card of your deck. If the revealed card is a <Shadow Paladin>, call it to (RC), and if it is not, shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/018", "EB11/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F018",
+          "fetchedAt": "2026-10-30T13:38:34.515Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/018EN",
+          "fetchedAt": "2026-10-30T13:39:22.784Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-019",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/019",
+        "name": "彗星の魔女 サーバ",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_021.png"
+      },
+      "en": {
+        "number": "EB11/019EN",
+        "name": "Comet Witch, Serva",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/019", "EB11/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F019",
+          "fetchedAt": "2026-10-30T13:38:35.682Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/019EN",
+          "fetchedAt": "2026-10-30T13:39:23.665Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-020",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/020",
+        "name": "神速の魔女 エメル",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、相手のグレード０のリアガードが２枚以上なら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_022.png"
+      },
+      "en": {
+        "number": "EB11/020EN",
+        "name": "Witch of Godly-speed, Emel",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of grade 0 rear-guards your opponent has is two or more, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/020", "EB11/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F020",
+          "fetchedAt": "2026-10-30T13:38:36.418Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/020EN",
+          "fetchedAt": "2026-10-30T13:39:24.505Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-021",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/021",
+        "name": "魔界城 ファタリテート",
+        "text": "【自】：このユニットがインターセプトした時、あなたの《シャドウパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "シャドウパラディン",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_023.png"
+      },
+      "en": {
+        "number": "EB11/021EN",
+        "name": "Demon World Castle, Fatalita",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if you have a <Shadow Paladin> vanguard, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Golem",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/021", "EB11/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F021",
+          "fetchedAt": "2026-10-30T13:38:37.555Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/021EN",
+          "fetchedAt": "2026-10-30T13:39:25.747Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-022",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/022",
+        "name": "レッドミュー・撃退者",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(2)]そのターン中、このユニットのパワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_024.png"
+      },
+      "en": {
+        "number": "EB11/022EN",
+        "name": "Redmyu Revenger",
+        "text": "[ACT](VC/RC):[Counter-Blast 2] This unit gets [Power] +4000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/022", "EB11/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F022",
+          "fetchedAt": "2026-10-30T13:38:38.717Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/022EN",
+          "fetchedAt": "2026-10-30T13:39:26.894Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-023",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/023",
+        "name": "荒廃の魔女 スカーハ",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「魔女」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_025.png"
+      },
+      "en": {
+        "number": "EB11/023EN",
+        "name": "Witch of Ruination, Scathach",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Witch\" in its card name, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_023EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/023", "EB11/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F023",
+          "fetchedAt": "2026-10-30T13:38:39.461Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/023EN",
+          "fetchedAt": "2026-10-30T13:39:27.726Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-024",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/024",
+        "name": "戦意の撃退者 ライフチェア",
+        "text": "【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、あなたのユニットが相手のユニットより少ないなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_026.png"
+      },
+      "en": {
+        "number": "EB11/024EN",
+        "name": "Battle Instinct Revenger, Lifecher",
+        "text": "[AUTO](VC/RC):When this unit attacks a vanguard, if the number of units you have is less than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/024", "EB11/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F024",
+          "fetchedAt": "2026-10-30T13:38:40.211Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/024EN",
+          "fetchedAt": "2026-10-30T13:39:28.631Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-025",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/025",
+        "name": "秘薬の魔女 アリアンロッド",
+        "text": "【起】【(V)/(R)】：[このユニットを【レスト】する，あなたの手札から１枚選び、捨てる]１枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_027.png"
+      },
+      "en": {
+        "number": "EB11/025EN",
+        "name": "Witch of Nostrum, Arianrhod",
+        "text": "[ACT](VC/RC):[Rest] this unit & Choose a card from your hand, and discard it] Draw a card.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/025", "EB11/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F025",
+          "fetchedAt": "2026-10-30T13:38:41.471Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/025EN",
+          "fetchedAt": "2026-10-30T13:39:29.514Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-026",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/026",
+        "name": "探求の魔女 セキュアナ",
+        "text": "【自】：[他のあなたのカード名に「魔女」を含むリアガードを１枚選び、退却させる]このユニットが(R)に登場した時、あなたのカード名に「魔女」を含むヴァンガードが【双闘】していて、相手のグレード０のリアガードが２枚以上なら、コストを払ってよい。払ったら、相手のヴァンガードを１枚選び、そのターン中、パワー－5000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_028.png"
+      },
+      "en": {
+        "number": "EB11/026EN",
+        "name": "Witch of Quests, Securna",
+        "text": "[AUTO]:[Choose another of your rear-guards with \"Witch\" in its card name, and retire it] When this unit is placed on (RC), if your vanguard with \"Witch\" in its card name is [Legion], and the number of grade 0 rear-guards your opponent has is two or more, you may pay the cost. If you do, choose one of your opponent's vanguards, and that unit gets [Power] -5000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/026", "EB11/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F026",
+          "fetchedAt": "2026-10-30T13:38:42.218Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/026EN",
+          "fetchedAt": "2026-10-30T13:39:30.730Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-027",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/027",
+        "name": "ハールバウ・撃退者",
+        "text": "【自】【(R)】：このユニットが【ブースト】した時、このユニットと同じ縦列にあなたの「ブラスター・ダーク・撃退者 “Abyss” 」がいるなら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_029.png"
+      },
+      "en": {
+        "number": "EB11/027EN",
+        "name": "Haarbau Revenger",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]), if you have a unit named \"Blaster Dark Revenger \"Abyss\"\" in the same column as this unit, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/027", "EB11/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F027",
+          "fetchedAt": "2026-10-30T13:38:42.961Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/027EN",
+          "fetchedAt": "2026-10-30T13:39:32.046Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-028",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/028",
+        "name": "クリーピングダーク・ゴート",
+        "text": "【自】：他の《シャドウパラディン》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から５枚まで見て、グレード３以上の《シャドウパラディン》を１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_030.png"
+      },
+      "en": {
+        "number": "EB11/028EN",
+        "name": "Creeping Dark Goat",
+        "text": "[AUTO]:When another <Shadow Paladin> rides this unit, you may call this unit to (RC).\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 or greater <Shadow Paladin> from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/028", "EB11/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F028",
+          "fetchedAt": "2026-10-30T13:38:43.702Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/028EN",
+          "fetchedAt": "2026-10-30T13:39:33.532Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-029",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/029",
+        "name": "撃退者 エアレイド・ドラゴン",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_031.png"
+      },
+      "en": {
+        "number": "EB11/029EN",
+        "name": "Revenger, Air Raid Dragon",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_029EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/029", "EB11/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F029",
+          "fetchedAt": "2026-10-30T13:38:44.925Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/029EN",
+          "fetchedAt": "2026-10-30T13:39:34.549Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-030",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/030",
+        "name": "黒烏の魔女 エイネー",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_032.png"
+      },
+      "en": {
+        "number": "EB11/030EN",
+        "name": "Black Crow Witch, Eine",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_030EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/030", "EB11/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F030",
+          "fetchedAt": "2026-10-30T13:38:45.677Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/030EN",
+          "fetchedAt": "2026-10-30T13:39:35.655Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-031",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/031",
+        "name": "蜥蜴の魔女 アイフェ",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_033.png"
+      },
+      "en": {
+        "number": "EB11/031EN",
+        "name": "Lizard Witch, Eine",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_031EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/031", "EB11/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F031",
+          "fetchedAt": "2026-10-30T13:38:46.846Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/031EN",
+          "fetchedAt": "2026-10-30T13:39:36.770Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-032",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/032",
+        "name": "氷結の撃退者",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_034.png"
+      },
+      "en": {
+        "number": "EB11/032EN",
+        "name": "Freezing Revenger",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_032EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/032", "EB11/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F032",
+          "fetchedAt": "2026-10-30T13:38:47.589Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/032EN",
+          "fetchedAt": "2026-10-30T13:39:37.686Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-033",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/033",
+        "name": "撃退者 ウェイキング・エンジェル",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_035.png"
+      },
+      "en": {
+        "number": "EB11/033EN",
+        "name": "Revenger, Waking Angel",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_033EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/033", "EB11/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F033",
+          "fetchedAt": "2026-10-30T13:38:48.753Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/033EN",
+          "fetchedAt": "2026-10-30T13:39:38.793Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-034",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/034",
+        "name": "黒猫の魔女 ミルクラ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_036.png"
+      },
+      "en": {
+        "number": "EB11/034EN",
+        "name": "Witch of Black Cats, Milcra",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_034EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/034", "EB11/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F034",
+          "fetchedAt": "2026-10-30T13:38:49.503Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/034EN",
+          "fetchedAt": "2026-10-30T13:39:40.168Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "EB11-035",
+      "set": "EB11",
+      "jp": {
+        "number": "EB11/035",
+        "name": "山羊の魔女 メイヴ",
+        "text": "【自】：このユニットが(R)に登場した時、あなたのカード名に「魔女」を含むヴァンガードがいて、相手のグレード０のリアガードが２枚以上なら、【ソウルチャージ】(1)し、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/EB11/eb11_037.png"
+      },
+      "en": {
+        "number": "EB11/035EN",
+        "name": "Witch of Goats, Medb",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a vanguard with \"Witch\" in its card name, and the number of grade 0 rear-guards your opponent has is two or more, [Soul-Charge 1], choose a card from your damage zone, and turn it face up.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/eb11/EB11_035EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["EB11/035", "EB11/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=EB11%2F035",
+          "fetchedAt": "2026-10-30T13:38:50.671Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB11/035EN",
+          "fetchedAt": "2026-10-30T13:39:41.290Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

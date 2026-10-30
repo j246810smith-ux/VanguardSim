@@ -6,12 +6,15 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('vanguardDesktop', {
   artworkStatus: () => ipcRenderer.invoke('art:quick'),
   openArtworkManager: () => ipcRenderer.invoke('art:open'),
+  /** The player's own sleeve and playmat image file names (D-033). */
+  cosmetics: () => ipcRenderer.invoke('cosmetics:list'),
   online: {
     host: (port) => ipcRenderer.invoke('online:host', port),
     join: (address, port) => ipcRenderer.invoke('online:join', address, port),
     send: (line) => ipcRenderer.invoke('online:send', line),
     drop: () => ipcRenderer.invoke('online:drop'),
     stop: () => ipcRenderer.invoke('online:stop'),
+    allowRoomCodes: (on) => ipcRenderer.invoke('online:room-codes', on === true),
     /** Returns a function that stops listening. */
     onEvent: (callback) => {
       const listener = (_event, e) => callback(e);

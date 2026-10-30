@@ -1,7 +1,9 @@
 // Electron main process: one window showing the built renderer. The game window is offline
 // (D-004): every http(s)/ws request it makes is blocked except the Vite dev server during
 // development. Online play (D-032) is a TCP connection opened here, in the main process, only when
-// the player hosts or joins from Play Online (app/main/online.cjs).
+// the player hosts or joins from Play Online (app/main/online.cjs), or, by room code, a WebRTC
+// connection from the game window: then (and only then) requests to the PeerJS service are let
+// through (ROOM_CODE_SERVICE).
 //
 // Card art is optional and never shipped (D-018, D-025). The renderer loads it from the
 // `vgart:` scheme, served read-only from one folder:
@@ -14,6 +16,8 @@
 // only if the user has set up a download source in `artwork-sources.json` (in the app's data
 // folder), downloads images from the main process when asked. The game window stays offline.
 const { app, BrowserWindow, dialog, ipcMain, net, protocol, session, shell } = require('electron');
+const { isArtPath, isCosmeticPath } = require('./artPath.cjs');
+const { createCosmetics } = require('./cosmetics.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
@@ -43,15 +47,22 @@ function artDir() {
   return path.join(base, 'cards');
 }
 
+/** Sleeves and playmats (D-033) live next to `cards\`. */
+const cosmetics = () => createCosmetics(path.dirname(artDir()));
+
 function serveArt() {
   const root = path.resolve(artDir());
+  const base = path.dirname(root);
   protocol.handle('vgart', (request) => {
-    // vgart://cards/<SET>/<ID>.<ext> → <root>/<SET>/<ID>.<ext>, never outside root
+    // vgart://cards/<SET>/<ID>.<ext> → <root>/<SET>/<ID>.<ext>, never outside root;
+    // vgart://cosmetics/<sleeves|playmats>/<file> → the player's own sleeve or playmat image
     const url = new URL(request.url);
     const rel = decodeURIComponent(url.pathname).replace(/^\/+/, '');
-    const file = path.resolve(root, rel);
-    const valid = /^[A-Z]{2}\d{2}\/[A-Z]{2}\d{2}-\d{3}\.(png|jpg)$/.test(rel);
-    if (!valid || !file.startsWith(root + path.sep) || !fs.existsSync(file)) {
+    const own = url.hostname === 'cosmetics';
+    const top = own ? base : root;
+    const file = path.resolve(top, rel);
+    const valid = own ? isCosmeticPath(rel) : isArtPath(rel);
+    if (!valid || !file.startsWith(top + path.sep) || !fs.existsSync(file)) {
       return new Response('not found', { status: 404 });
     }
     return net.fetch(pathToFileURL(file).toString());
@@ -147,6 +158,32 @@ function registerArtworkIpc() {
     fs.writeFileSync(r.filePath, await artworkService().reportText());
     return r.filePath;
   });
+  // sleeves and playmats from the player's own images (D-033)
+  ipcMain.handle('cosmetics:list', () => ({
+    sleeves: cosmetics().list('sleeves'),
+    playmats: cosmetics().list('playmats'),
+  }));
+  ipcMain.handle('cosmetics:import', async (event, kind) => {
+    const c = cosmetics();
+    if (!c.KINDS.includes(kind)) return null;
+    const win = BrowserWindow.fromWebContents(event.sender);
+    const r = await dialog.showOpenDialog(win, {
+      title: kind === 'sleeves' ? 'Choose sleeve images' : 'Choose playmat images',
+      properties: ['openFile', 'multiSelections'],
+      filters: [{ name: 'Images', extensions: ['png', 'jpg', 'jpeg', 'webp'] }],
+    });
+    return r.canceled ? null : c.importFiles(kind, r.filePaths);
+  });
+  // "Download from a link": an image address the player pasted, for their personal use
+  ipcMain.handle('cosmetics:download', (_event, kind, address, name) =>
+    cosmetics().download(kind, address, name, (url, init) => net.fetch(url, init)),
+  );
+  ipcMain.handle('cosmetics:reveal', (_event, kind) => {
+    const c = cosmetics();
+    if (!c.KINDS.includes(kind)) return '';
+    fs.mkdirSync(c.dir(kind), { recursive: true });
+    return shell.openPath(c.dir(kind));
+  });
   ipcMain.handle('art:reveal', (_event, which) => {
     const service = artworkService();
     if (which === 'sources') {
@@ -175,7 +212,13 @@ function registerOnlineIpc(win) {
   ipcMain.handle('online:send', (_e, line) => online.send(line));
   ipcMain.handle('online:drop', () => online.drop());
   ipcMain.handle('online:stop', () => online.stop());
-  win.on('closed', () => online.stop());
+  ipcMain.handle('online:room-codes', (_e, on) => {
+    roomCodesOpen = on === true;
+  });
+  win.on('closed', () => {
+    online.stop();
+    roomCodesOpen = false;
+  });
 }
 
 function createWindow() {
@@ -247,6 +290,12 @@ function runShots(win) {
       await wait(120);
       const mid = await win.webContents.capturePage();
       fs.writeFileSync(path.join(shotsDir, `${String(i).padStart(3, '0')}-mid.png`), mid.toPNG());
+      // an ability callout beside the G circle, if one is up
+      if (await win.webContents.executeJavaScript('!!document.querySelector(".ability-callout")'))
+        fs.writeFileSync(
+          path.join(shotsDir, `${String(i).padStart(3, '0')}-ability.png`),
+          mid.toPNG(),
+        );
       await wait(330);
       const image = await win.webContents.capturePage();
       fs.writeFileSync(
@@ -297,7 +346,8 @@ function runShots(win) {
  */
 const jitterOut = process.env.VANGUARD_JITTER;
 /**
- * Development aid (`npm run online:probe`, D-032): one app hosts, another joins 127.0.0.1; both go
+ * Development aid (`npm run online:probe`, D-032): one app hosts, another joins 127.0.0.1 (or the
+ * same room code with `-- --code`); both go
  * through Play Online into the battle, keep their opening hands, and write what they saw to
  * VANGUARD_ONLINE_OUT. Never active in normal use.
  */
@@ -327,16 +377,34 @@ function runOnlineProbe(win, role) {
       await click('play-online');
       await wait(400);
       await type('online-name', role === 'host' ? 'Probe Host' : 'Probe Guest');
-      if (role === 'host') {
-        await click('online-host');
-        report.addresses = await until(
-          `!!document.querySelector('[data-testid="online-addresses"]')`,
-          5000,
-        );
+      const code = process.env.VANGUARD_ONLINE_CODE;
+      if (code) {
+        // by room code, through the PeerJS service (needs the internet)
+        await type('online-code', code);
+        if (role === 'host') {
+          await click('online-host-code');
+          report.hosting = await until(
+            `!!document.querySelector('[data-testid="online-hosting-code"]')`,
+            20000,
+          );
+        } else {
+          await wait(6000);
+          await click('online-join-code');
+        }
       } else {
-        await wait(2500);
-        await type('online-address', '127.0.0.1');
-        await click('online-join');
+        await click('online-by-address');
+        await wait(200);
+        if (role === 'host') {
+          await click('online-host');
+          report.addresses = await until(
+            `!!document.querySelector('[data-testid="online-addresses"]')`,
+            5000,
+          );
+        } else {
+          await wait(2500);
+          await type('online-address', '127.0.0.1');
+          await click('online-join');
+        }
       }
       report.battle = await until(`!!document.querySelector('.plate.opp')`);
       report.opponent = await js(`document.querySelector('.plate.opp .who')?.textContent ?? null`);
@@ -542,10 +610,17 @@ function runSmokeTest(win) {
   });
 }
 
+/** Play Online by room code (D-032): the public PeerJS service that introduces the two games. */
+const ROOM_CODE_SERVICE = /^(https|wss):\/\/0\.peerjs\.com\//;
+let roomCodesOpen = false;
+
 app.whenReady().then(() => {
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
     const remote = /^(https?|wss?):/.test(details.url);
-    callback({ cancel: remote && !(devUrl && details.url.startsWith(devUrl)) });
+    const allowed =
+      (devUrl && details.url.startsWith(devUrl)) ||
+      (roomCodesOpen && ROOM_CODE_SERVICE.test(details.url));
+    callback({ cancel: remote && !allowed });
   });
   serveArt();
   registerArtworkIpc();

@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.25.0-alpha",
+  "version": "0.26.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -45,6 +45,7 @@
     "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
     "jsdom": "^30.1.2",
+    "peerjs": "1.5.5",
     "prettier": "^3.9.9",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",

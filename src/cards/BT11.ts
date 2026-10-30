@@ -750,11 +750,11 @@ export const BT11: SetAbilities = {
   'BT11-052': [], // Celestial, Landing Pegasus
   'BT11-053': [], // Encourage Celestial, Tamiel
   'BT11-054': [], // Recovery Celestial, Ramuel
-  // ハザード・ボブ
+  // Hazard Bob
   'BT11-055': [
     damageThenReturn(
       GEN,
-      '【自】：[【カウンターブラスト】(1)]このユニットが(V)か(R)に登場した時、あなたの《ジェネシス》のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札の上から１枚をダメージゾーンに置き、そのターンの終了時、あなたのダメージゾーンから１枚選び、山札に戻し、その山札をシャッフルする。',
+      '[AUTO]:[Counter-Blast 1] When this unit is placed on (VC) or (RC), if you have a <Genesis> vanguard, you may pay the cost. If you do, put the top card of your deck into your damage zone, and at the end of that turn, choose a card from your damage zone, return it to your deck, and shuffle your deck.',
     ),
   ],
   // Pineapple Law

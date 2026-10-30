@@ -17,7 +17,7 @@ const onBoard = (s: GameState, id: string) =>
       (pl.id === ME && pl.hand.includes(id)),
   );
 
-function abilityText(s: GameState, source: InstanceId, abilityId: string): string {
+export function abilityText(s: GameState, source: InstanceId, abilityId: string): string {
   const def = defOf(s, source);
   const ab = def?.abilities.find((a) => a.id === abilityId);
   // granted abilities are known by `g<grant id>` (abilities/catalog.ts grantAbilityId)

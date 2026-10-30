@@ -1,10 +1,11 @@
 # Vanguard Sim
 
-An **unofficial, offline** Windows simulator for the original _Cardfight!! Vanguard_ trading card
-game, covering the historical **VG-BT01 to VG-BT17** era and its side sets (Japanese-original set
-structure, classic pre-G rules, Comprehensive Rules ver. 1.29 as the target). Play against an AI on your own PC; no
-account or server is needed and the game itself never goes online (the optional Artwork Manager
-downloads card art only when you ask it to).
+An **unofficial** Windows simulator for the original _Cardfight!! Vanguard_ trading card game,
+covering the historical **VG-BT01 to VG-BT17** era and its side sets (Japanese-original set
+structure, classic pre-G rules, Comprehensive Rules ver. 1.29 as the target). Play against an AI on
+your own PC, or a friend online (**in testing**). No account or server of ours is needed: the game
+only goes online when you choose Play Online, and the optional Artwork Manager downloads images
+only when you ask it to.
 
 > **Fan project.** Not produced, endorsed or supported by Bushiroad, and not affiliated with them.
 > Cardfight!! Vanguard, its card names, text, data and artwork belong to Bushiroad. See
@@ -13,13 +14,14 @@ downloads card art only when you ask it to).
 
 ## Status: alpha
 
-| Area         | State                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                                                                                            |
-| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15) **Extra Boosters EB01–EB09, and the English-only cards of English BT16/BT17** (Deletors and more): 2294 cards, every effect implemented and tested. Coming next: EB10–EB12, Fighter's Collections, PR cards, the movie booster (D-029). Progress: `docs/CARD_STATUS_REPORT.md` |
-| Game         | Desktop app with music, sound effects and card animations: main menu, 70 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI, foil effects on rare cards, an optional **Delayed Legion** house rule, Artwork Manager for optional card art                                                                                      |
-| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                                                                                     |
-| Not included | Online play, G-era and later mechanics; card artwork is not in the download (optional, via the Artwork Manager)                                                                                                                                                                                                                                                             |
+| Area         | State                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rules engine | Turn structure, ride/call, battle, triggers, Limit Break, Break Ride, Lock, Legion and the effect system, checked against the official rules (`docs/DECISIONS.md`, `docs/UNRESOLVED_RULINGS.md`)                                                                                                                                                                                                                                                                                                                  |
+| Cards        | **Playable: every booster BT01–BT17, Trial Decks TD01–TD17** (except the Japanese-only TD15), **Extra Boosters EB01–EB12, Fighter's Collections FC01 and FC02, the DAIGO set DG01, and the English-only cards of English BT16/BT17** (Deletors and more): 2471 cards, every effect implemented and tested. The five Japanese-only cards carry an unofficial English translation (marked in Card details). Not yet: the movie booster MBT01 and trial deck MTD01, PR cards. Progress: `docs/CARD_STATUS_REPORT.md` |
+| Game         | Desktop app with music, sound effects and card animations: main menu, 74 ready-made starter decks plus the 16 trial decks, deck builder, a full battle UI against the AI (an ability box beside the G circle shows which card's ability is resolving and what to do), foil effects on rare cards, card **sleeves and playmats** per deck, an optional **Delayed Legion** house rule, Artwork Manager for optional card art, sleeves and playmats                                                                  |
+| AI           | Easy, Normal and Hard. **Experimental**: the Hard AI is being improved (`docs/ai/AI_AUDIT_AND_PLAN.md`)                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Online       | **In testing:** Play Online against a friend by room code or by address ([docs/PLAYING_ONLINE.md](docs/PLAYING_ONLINE.md)). Tested on one PC and through the room-code service; not yet tested widely between different homes and networks                                                                                                                                                                                                                                                                        |
+| Not included | G-era and later mechanics; card artwork, sleeve and playmat images are not in the download (optional, via the Artwork Manager)                                                                                                                                                                                                                                                                                                                                                                                    |
 
 Known gaps and simplifications are listed in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) and
 `docs/UNRESOLVED_RULINGS.md`.
@@ -34,14 +36,32 @@ All are off by default; standard games follow the official rules.
   the beginning of your next stand phase you put the Legion Mate into your soul or your drop zone,
   and the legion ends. That vanguard cannot Legion again while it stays on the vanguard circle.
 
+## Play online (in testing)
+
+Main menu → **Play Online**. One player hosts and the other joins, either with a shared **room
+code** (easiest) or by **address** (same home network, port forwarding or Tailscale/ZeroTier). Both
+players need the same version of the game. The host's PC runs the game; the guest only receives
+what they may see. If the connection drops, the guest reconnects by itself for up to two minutes.
+Online play is **still being tested**: please report anything that goes wrong. Full guide:
+[docs/PLAYING_ONLINE.md](docs/PLAYING_ONLINE.md).
+
+## Sleeves and playmats
+
+Each deck can have its own **sleeve** (card backs) and **playmat** (battle background): Deck
+Builder → **Sleeve & mat…**; Settings holds the defaults. Choose from the built-in designs, or add
+your own pictures (for example of official sleeves and mats you own) in the Artwork Manager →
+**Sleeves & playmats**, by importing files or downloading from an image link. Like card art, they
+are for your personal use, never included in the download and never sent online (your opponent
+sees your sleeve only if it is a built-in design). Details: [docs/ARTWORK.md](docs/ARTWORK.md).
+
 ## Download and play (Windows)
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.24.0-alpha** — direct downloads:
-[portable .exe (101 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.24.0-alpha/VanguardSim-0.24.0-alpha-portable.exe)
+**Latest version: v0.26.0-alpha** — direct downloads:
+[portable .exe](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.26.0-alpha/VanguardSim-0.26.0-alpha-portable.exe)
 ·
-[zip (154 MB)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.24.0-alpha/VanguardSim-0.24.0-alpha-win-x64.zip)
+[zip](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.26.0-alpha/VanguardSim-0.26.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

@@ -79,7 +79,7 @@ CARDS = {
               ab.choose('r', ab.units('opponent', ['back_RC'], { sameColumnAsEvent: true })),
               ab.retire(ab.bound('r')),
             ],
-            text: '【自】【(V)】：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、そのカードがあった(R)と同じ縦列の後列にいる相手のリアガードを１枚選び、退却させる。',
+            text: "[AUTO](VC):When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards, choose one of your opponent's rear-guards in the back row of the same column as the (RC) that card was on, and retire it.",
           }),
         ),
       ],

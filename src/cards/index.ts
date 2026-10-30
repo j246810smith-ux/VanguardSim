@@ -42,6 +42,8 @@ import eb07Data from '../../data/cards/EB07.json';
 import eb08Data from '../../data/cards/EB08.json';
 import eb09Data from '../../data/cards/EB09.json';
 import eb10Data from '../../data/cards/EB10.json';
+import eb11Data from '../../data/cards/EB11.json';
+import eb12Data from '../../data/cards/EB12.json';
 import fc01Data from '../../data/cards/FC01.json';
 import fc02Data from '../../data/cards/FC02.json';
 import dg01Data from '../../data/cards/DG01.json';
@@ -88,6 +90,8 @@ import { EB07 } from './EB07';
 import { EB08 } from './EB08';
 import { EB09 } from './EB09';
 import { EB10 } from './EB10';
+import { EB11 } from './EB11';
+import { EB12 } from './EB12';
 import { FC01 } from './FC01';
 import { FC02 } from './FC02';
 import { DG01 } from './DG01';
@@ -138,12 +142,14 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: eb08Data as SetFile, abilities: EB08 },
   { file: eb09Data as SetFile, abilities: EB09 },
   { file: eb10Data as SetFile, abilities: EB10 },
+  { file: eb11Data as SetFile, abilities: EB11 },
+  { file: eb12Data as SetFile, abilities: EB12 },
   { file: fc01Data as SetFile, abilities: FC01 },
   { file: fc02Data as SetFile, abilities: FC02 },
   { file: dg01Data as SetFile, abilities: DG01 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'fc02-1.0.0';
+export const CARD_DATA_VERSION = 'eb12-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

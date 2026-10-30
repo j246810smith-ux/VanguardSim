@@ -9,6 +9,9 @@ import { maxCopiesOf, validateDeck, type CardDefinition, type DeckList } from '.
 import { deleteDeck, loadDecks, newDeckId, saveDeck, type SavedDeck } from '../decks/storage';
 import { clanColor, ctx, metaOf } from '../engine';
 import { CardView } from '../ui/CardView';
+import { playmatOf, sleeveLook } from '../cosmetics';
+import { useSettings } from '../settings';
+import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
 
 const ALL: readonly CardDefinition[] = ctx.registry
   .all()
@@ -69,11 +72,16 @@ type Modal =
   | { kind: 'load' }
   | { kind: 'import'; text: string; problems: readonly string[] }
   | { kind: 'export'; text: string }
-  | { kind: 'hand'; order: string[]; drawn: number };
+  | { kind: 'hand'; order: string[]; drawn: number }
+  | { kind: 'sleeve' };
 
 export function DeckBuilder({ onBack }: { onBack: () => void }) {
+  const settings = useSettings();
   const [deckId, setDeckId] = useState<string | null>(null);
   const [name, setName] = useState('New deck');
+  /** This deck's sleeve and playmat (D-033); null: the defaults from Settings. */
+  const [sleeve, setSleeve] = useState<string | null>(null);
+  const [playmat, setPlaymat] = useState<string | null>(null);
   const [cards, setCards] = useState<string[]>([]);
   const [first, setFirst] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
@@ -121,6 +129,8 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   const loadInto = (d: SavedDeck | null) => {
     setDeckId(d?.id ?? null);
     setName(d?.name ?? 'New deck');
+    setSleeve(d?.sleeve ?? null);
+    setPlaymat(d?.playmat ?? null);
     setCards(d ? [...d.deck.cards] : []);
     setFirst(d?.deck.firstVanguard ?? null);
     setDirty(false);
@@ -132,6 +142,8 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
       id,
       name: name.trim() || 'Untitled deck',
       deck,
+      ...(sleeve ? { sleeve } : {}),
+      ...(playmat ? { playmat } : {}),
       updated: Date.now(),
     };
     if (!saveDeck(entry)) return flash('Could not save (storage unavailable)');
@@ -344,6 +356,16 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           <button className="btn" onClick={() => setModal({ kind: 'load' })}>
             Load…
           </button>
+          <button
+            className="btn"
+            onClick={() => setModal({ kind: 'sleeve' })}
+            data-testid="deck-sleeve"
+            title={`Sleeve: ${sleeve ? sleeveLook(sleeve).name : 'default'} · Playmat: ${
+              playmat ? playmatOf(playmat).name : 'default'
+            }`}
+          >
+            Sleeve &amp; mat…
+          </button>
           <button className="btn" onClick={() => confirmDiscard() && loadInto(null)}>
             New
           </button>
@@ -371,6 +393,57 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
 
       {modal?.kind === 'details' && (
         <DefinitionDetails id={modal.id} onClose={() => setModal(null)} />
+      )}
+      {modal?.kind === 'sleeve' && (
+        <div className="modal-backdrop" onClick={() => setModal(null)}>
+          <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
+            <h2>Sleeve</h2>
+            <div className="hint" style={{ marginBottom: 8 }}>
+              Your card backs when you play this deck. Built-in sleeves are shown to an online
+              opponent; your own images stay on this PC.
+            </div>
+            <button
+              className={`btn ${sleeve === null ? 'primary' : ''}`}
+              style={{ marginBottom: 8 }}
+              onClick={() => {
+                setSleeve(null);
+                setDirty(true);
+              }}
+            >
+              Use the default ({sleeveLook(settings.defaultSleeve).name})
+            </button>
+            <SleevePicker
+              value={sleeve ?? ''}
+              onChange={(id) => {
+                setSleeve(id);
+                setDirty(true);
+              }}
+            />
+            <h2 style={{ marginTop: 16 }}>Playmat</h2>
+            <button
+              className={`btn ${playmat === null ? 'primary' : ''}`}
+              style={{ marginBottom: 8 }}
+              onClick={() => {
+                setPlaymat(null);
+                setDirty(true);
+              }}
+            >
+              Use the default ({playmatOf(settings.playmat).name})
+            </button>
+            <PlaymatPicker
+              value={playmat ?? ''}
+              onChange={(id) => {
+                setPlaymat(id);
+                setDirty(true);
+              }}
+            />
+            <div className="buttons" style={{ marginTop: 12 }}>
+              <button className="btn gold" onClick={() => setModal(null)}>
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
       )}
       {modal?.kind === 'load' && (
         <div className="modal-backdrop" onClick={() => setModal(null)}>

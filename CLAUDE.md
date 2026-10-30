@@ -55,7 +55,18 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Current state (2026-10-28)
+## Current state (2026-10-30, v0.26.0-alpha)
+
+**v0.26.0-alpha published**: EB11, EB12, sleeves/playmats (D-033), Play Online on **in testing**
+(room codes, reconnect; `docs/PLAYING_ONLINE.md`). MTD01 and PR cards left out for now; MBT01 has
+G units (ask first). Details below and in `docs/NEXT_SESSION.md`.
+
+Since v0.25.0-alpha: ability callout beside the G circle, clearer cost prompts, art fix for the
+English-only BT16/BT17 cards, **EB11** (`call` step `circlesOf`), unofficial English for the four
+Japanese-only FC01 cards and BT11-055 (`data/translations/unofficial.json`), **EB12**. Next:
+MTD01/MBT01 (MBT01 has G units: ask), PR cards — see `docs/NEXT_SESSION.md`.
+
+## State at v0.25.0-alpha (2026-10-29)
 
 **v0.24.0-alpha published**: the 85 English-only BT16/BT17 cards and **Delete** (D-031), BT03's
 regional triggers back to the Japanese draw triggers, foil effect by rarity, hand/back-row spacing,

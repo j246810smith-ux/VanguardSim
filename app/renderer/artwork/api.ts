@@ -20,13 +20,31 @@ export interface ArtworkManagerApi {
   saveReport(): Promise<string | null>;
   openFolder(which: 'cards' | 'sources'): Promise<string>;
   onProgress(callback: (p: Progress) => void): () => void;
+  cosmetics(): Promise<OwnCosmetics>;
+  importCosmetics(
+    kind: 'sleeves' | 'playmats',
+  ): Promise<{ added: string[]; skipped: string[] } | null>;
+  openCosmeticsFolder(kind: 'sleeves' | 'playmats'): Promise<string>;
+  /** "Download from a link" (D-033): one image from an https address the player pasted. */
+  downloadCosmetic(
+    kind: 'sleeves' | 'playmats',
+    address: string,
+    name: string,
+  ): Promise<{ ok: true; file: string } | { ok: false; error: string }>;
+}
+
+/** The player's own sleeve and playmat image file names (D-033). */
+export interface OwnCosmetics {
+  readonly sleeves: readonly string[];
+  readonly playmats: readonly string[];
 }
 
 export interface VanguardDesktopApi {
   artworkStatus(): Promise<{ installed: number; expected: number; folder: string }>;
   openArtworkManager(): Promise<void>;
+  cosmetics?(): Promise<OwnCosmetics>;
   /** Play Online (D-032). */
-  online?: import('../online/controller').OnlineBridge;
+  online?: import('../online/controller').DesktopOnline;
 }
 
 declare global {

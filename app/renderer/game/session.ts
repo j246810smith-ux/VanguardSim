@@ -41,6 +41,10 @@ export interface SessionConfig {
   readonly opponent?: 'ai' | 'remote';
   /** The Delayed Legion house rule (off by default). */
   readonly delayedLegion?: boolean;
+  /** Sleeves and playmat (D-033, presentation only): ids from app/renderer/cosmetics.ts. */
+  readonly mySleeve?: string;
+  readonly aiSleeve?: string;
+  readonly playmat?: string;
 }
 
 /** Short-lived presentation moments derived from events (never affect the game). */
@@ -66,6 +70,15 @@ export type Fx =
       readonly kind: 'banner';
       readonly text: string;
       readonly tone: 'me' | 'opp' | 'gold';
+    }
+  | {
+      /** An ability starts resolving: shown beside the G circle (board/AbilityCallout). */
+      readonly id: number;
+      readonly kind: 'ability';
+      readonly master: 0 | 1;
+      readonly source: string;
+      readonly abilityId: string;
+      readonly abilityKind: 'AUTO' | 'ACT';
     };
 
 /**
@@ -178,6 +191,15 @@ export abstract class SessionBase {
         return { id, kind: 'banner', text: 'RIDE!', tone: e.player === ME ? 'me' : 'opp' };
       case 'LEGION':
         return { id, kind: 'banner', text: 'LEGION!', tone: 'gold' };
+      case 'ABILITY_RESOLVING':
+        return {
+          id,
+          kind: 'ability',
+          master: e.master,
+          source: e.source,
+          abilityId: e.abilityId,
+          abilityKind: e.kind,
+        };
       case 'GAME_ENDED':
         return null;
       default:
@@ -243,6 +265,12 @@ export class GameSession extends SessionBase {
     if (this.acting !== AI) return 'it is not your turn to act';
     const errors: string[] = [];
     return this.apply(command, errors) ? null : (errors[0] ?? 'rejected');
+  }
+
+  /** Hosting: the guest's connection is gone for good, so the guest concedes (D-032). */
+  forfeitRemote(): void {
+    if (this.config.opponent === 'remote' && this.state.status !== 'finished')
+      this.apply({ type: 'CONCEDE', player: AI }, []);
   }
 
   /** Let the AI make one decision (call only while it is the AI's turn to act). */

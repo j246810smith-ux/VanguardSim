@@ -197,3 +197,24 @@ describe('FC01 cards with English printings', () => {
     expect(r.state.cards[unit]!.orientation).toBe('rest');
   });
 });
+
+// The user's request (2026-10-30): the four FC01 cards (and BT11-055) never printed in English get an unofficial
+// English name and text (data/translations/unofficial.json), marked as such.
+describe('FC01 unofficial translations', () => {
+  it.each([
+    ['FC01-001', 'Mighty Spear Liberator, Bleoberis'],
+    ['FC01-003', 'Eradicator, Electric Shaper Dragon'],
+    ['FC01-004', 'Story Teller'],
+    ['FC01-007', 'Peerless Scribe, Ponga'],
+    ['BT11-055', 'Hazard Bob'],
+  ])('%s is shown as %s, marked unofficial', (id, name) => {
+    const def = ctx.registry.get(id);
+    expect(def.name).toBe(name);
+    expect(def.text).not.toMatch(/[【】]/);
+    expect(def.unofficialTranslation).toBe(true);
+  });
+
+  it('cards with an official English printing are not marked', () => {
+    expect(ctx.registry.get('FC01-002').unofficialTranslation).toBeUndefined();
+  });
+});

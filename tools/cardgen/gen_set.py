@@ -13,6 +13,8 @@ import json, os, re, subprocess, sys
 NL = chr(10)
 BS = chr(92)
 repo, spec_path = sys.argv[1], sys.argv[2]
+# unofficial English for cards never printed in English (src/cards/load.ts UNOFFICIAL)
+UNOFFICIAL = json.load(open(os.path.join(repo, 'data/translations/unofficial.json'), encoding='utf8'))['cards']
 os.chdir(repo)
 spec: dict = {}
 exec(open(spec_path, encoding='utf8').read(), spec)
@@ -52,8 +54,10 @@ if imports is None:
         imports.append('import { ' + ', '.join(names) + " } from './shapes';")
 lines += imports + ['', spec.get('PRELUDE', '').strip(), '', f'export const {SET}: SetAbilities = {{']
 for c in data['cards']:
-    loc = c['en'] or c['jp']  # Japanese-only cards (BT11-055) have no English record
-    cid, name = c['id'], loc['name']
+    # Japanese-only cards (BT11-055) have no English record; some have an unofficial translation
+    cid = c['id']
+    loc = c['en'] or ({**c['jp'], **UNOFFICIAL[cid]} if cid in UNOFFICIAL else c['jp'])
+    name = loc['name']
     text = (loc.get('text') or '').strip()
     if cid in reprint and cid not in spec['CARDS']:
         lines.append(f"  '{cid}': {{ sameAs: '{reprint[cid]}' }}, // {name}")

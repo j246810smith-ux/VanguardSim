@@ -298,21 +298,25 @@ button {
   font-weight: 700;
   text-transform: uppercase;
 }
+/* Card backs take the owner's sleeve (cosmetics.ts sleeveVars, set on the zone or circle); the
+   fallback is the classic "Vanguard Blue" sleeve. */
 .card.back {
-  background:
+  background: var(
+    --sl-bg,
     radial-gradient(circle at 50% 50%, rgba(80, 140, 255, 0.35), transparent 55%),
     repeating-linear-gradient(45deg, rgba(90, 150, 255, 0.08) 0 2px, transparent 2px 9px),
-    linear-gradient(160deg, #0d1b3a, #060c1c);
-  border: 2px solid rgba(90, 150, 255, 0.45);
+    linear-gradient(160deg, #0d1b3a, #060c1c)
+  );
+  border: 2px solid var(--sl-border, rgba(90, 150, 255, 0.45));
 }
 .card.back::after {
   content: '';
   position: absolute;
   inset: 22% 18%;
-  border: 2px solid rgba(120, 180, 255, 0.55);
-  transform: rotate(45deg) scale(0.7);
-  border-radius: 6px;
-  box-shadow: 0 0 12px rgba(80, 160, 255, 0.6);
+  border: 2px solid var(--sl-emblem, rgba(120, 180, 255, 0.55));
+  transform: rotate(var(--sl-rotate, 45deg)) scale(0.7);
+  border-radius: var(--sl-radius, 6px);
+  box-shadow: 0 0 12px var(--sl-emblem, rgba(80, 160, 255, 0.6));
 }
 /* Foil by rarity (ui/CardView.tsx foilOf): R a passing sheen, RR plus a faint rainbow, RRR
    moving holo bands and a gold edge, ЯЯЯ a red/violet holo. Only transforms animate (the layer
@@ -2202,4 +2206,148 @@ input.text {
   font: 600 13px var(--font-body);
   color: var(--text);
   min-height: 18px;
+}
+
+/* ---- ability callout (beside the G circle on the centre line) -------------------------------- */
+.ability-callout {
+  position: absolute;
+  top: 505px;
+  right: calc(1920px - 900px);
+  width: 380px;
+  min-height: 105px;
+  box-sizing: border-box;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 10px 6px 6px;
+  background: rgba(5, 10, 22, 0.94);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 0 24px var(--gold-glow);
+  z-index: 40;
+  pointer-events: none;
+  animation: fx-pop calc(0.25s * var(--anim)) ease-out;
+}
+.ability-callout.opp {
+  border-color: var(--opp);
+  box-shadow: 0 0 24px var(--opp-glow);
+}
+.ability-callout .card {
+  flex: none;
+}
+.ability-callout .ac-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ability-callout .ac-tag {
+  font: 700 11px var(--font-display);
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+}
+.ability-callout .ac-name {
+  font: 700 16px var(--font-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ability-callout .ac-goal {
+  font: 700 14px var(--font-body);
+  color: var(--gold);
+}
+.ability-callout.live .ac-goal {
+  animation: pulse calc(1.6s * var(--anim)) ease-in-out infinite;
+}
+.ability-callout .ac-text {
+  font: 12px/1.3 var(--font-body);
+  color: var(--text-dim);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@keyframes ability-source {
+  0%,
+  100% {
+    box-shadow: 0 0 6px 2px var(--gold-glow);
+  }
+  50% {
+    box-shadow: 0 0 22px 8px var(--gold);
+  }
+}
+
+/* ---- playmat (cosmetics.ts PLAYMATS): the battle stage background ---------------------------- */
+.playmat {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---- sleeve / playmat pickers (Settings, Deck Builder) ---------------------------------------- */
+.cosmetic-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 900px;
+}
+.cosmetic-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: var(--text-dim);
+  font: 600 12px var(--font-body);
+  cursor: pointer;
+}
+.cosmetic-option.on {
+  border-color: var(--gold);
+  color: var(--text);
+}
+.cosmetic-option .mat-preview {
+  width: 96px;
+  height: 54px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.cosmetic-option .cosmetic-name {
+  max-width: 96px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cosmetic-section {
+  width: 100%;
+  font: 700 11px var(--font-display);
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.cosmetic-link {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cosmetic-link input.text {
+  min-width: 220px;
+  flex: 1;
+}
+/* the decks: a larger card back with the count laid over its lower corner */
+.panel-body.big {
+  position: relative;
+}
+.panel-body.big .panel-count {
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  font-size: 30px;
+  text-shadow:
+    0 0 6px #000,
+    0 0 3px #000;
 }

@@ -7,7 +7,7 @@
 import type { Command, DeckList, GameEvent, GameState, LegalAction, PlayerId } from '../engine';
 
 /** Bump when a message changes shape; both sides must match. */
-export const PROTOCOL_VERSION = 1;
+export const PROTOCOL_VERSION = 2;
 /** Larger messages are dropped (a deck list and a command are a few kB). */
 export const MAX_GUEST_MESSAGE_BYTES = 64 * 1024;
 /** The default TCP port the host listens on. */
@@ -27,9 +27,15 @@ export type GuestMessage =
       readonly name: string;
       readonly deckName: string;
       readonly deck: DeckList;
+      /** A built-in sleeve id (D-033), shown to the host. */
+      readonly sleeve?: string;
+      /** Rejoining a game after a dropped connection: the token from `welcome`. */
+      readonly resume?: string;
     }
   | { readonly t: 'command'; readonly command: Command }
-  | { readonly t: 'rematch' };
+  | { readonly t: 'rematch' }
+  /** The guest leaves on purpose (the host stops waiting for a reconnect). */
+  | { readonly t: 'leave' };
 
 export interface MatchRules {
   readonly delayedLegion: boolean;
@@ -42,6 +48,12 @@ export type HostMessage =
       readonly hostName: string;
       readonly hostDeckName: string;
       readonly rules: MatchRules;
+      /** The host's built-in sleeve id (D-033). */
+      readonly hostSleeve?: string;
+      /** Proves the guest's identity when it reconnects (`hello.resume`). */
+      readonly token: string;
+      /** True when this welcome answers a reconnect: the current game carries on. */
+      readonly resumed: boolean;
     }
   | { readonly t: 'reject'; readonly reason: string }
   /**
@@ -95,7 +107,9 @@ export function parseGuestMessage(raw: string): GuestMessage | null {
         !isString(ver.cardData, 40) ||
         !isString(v.name, 40) ||
         !isString(v.deckName, 80) ||
-        !isDeck(v.deck)
+        !isDeck(v.deck) ||
+        (v.sleeve !== undefined && !isString(v.sleeve, 40)) ||
+        (v.resume !== undefined && !isString(v.resume, 64))
       )
         return null;
       return v as unknown as GuestMessage;
@@ -106,6 +120,8 @@ export function parseGuestMessage(raw: string): GuestMessage | null {
         : null;
     case 'rematch':
       return { t: 'rematch' };
+    case 'leave':
+      return { t: 'leave' };
     default:
       return null;
   }

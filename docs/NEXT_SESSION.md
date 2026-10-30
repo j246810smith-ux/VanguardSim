@@ -15,7 +15,46 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (session 2026-10-30, end)
+
+**v0.26.0-alpha published** (2026-10-30, pre-release with exe/zip): EB11, EB12, unofficial
+translations of the five Japanese-only cards, the ability box beside the G circle and clearer cost
+prompts, sleeves and playmats (D-033; own images like card art, link download), bigger decks,
+the art fix for the English-only BT16/BT17 cards, and **Play Online switched on, in testing**
+(room codes via PeerJS, reconnecting; another session built it; player guide
+`docs/PLAYING_ONLINE.md`; "In testing" on the menu button and online screen). **Next:** feedback
+from real two-machine online games; MBT01 only if the user wants it (G units: ask); MTD01 and PR
+cards are left out for now (user).
+
+## ▶ Pick up here (session 2026-10-30)
+
+The user plays the **installed copy** (`%LOCALAPPDATA%\Programs\Vanguard Sim`, art in its
+`cards\`); `release\win-unpacked` has no art. Updated it in place to the current build
+(robocopy from `release\win-unpacked`, excluding `cards`). Done this session: EB07 art
+downloaded; **ability callout** beside the G circle and clearer cost prompts (user's request);
+fix: art of the English-only BT16/BT17 cards (`…EN` ids) was not served by the desktop app;
+**EB11 done** (35 cards, Fianna witch deck, `circlesOf` calls). Not published (no push/release).
+Then the four Japanese-only FC01 cards got **unofficial English translations** (user's request;
+`data/translations/unofficial.json`, `CardDefinition.unofficialTranslation`). BT11-055 Hazard Bob
+too (user, same day). MBT01 contains G units (Stride, 「Gユニット」; the importer stops on them) and
+MTD01's import fails on a card page: both need a look, and MBT01's G units a decision by the user.
+**EB12 done** (35 cards, Yggdrasil Regalia deck; `search` `distinctNames`). The user then chose to
+**leave out MTD01 and the PR cards for now** and do **sleeves/playmats** (D-033, built: built-in
+CSS designs + the player's own images handled like card art, `app/renderer/cosmetics.ts`,
+`app/main/cosmetics.cjs`, Deck Builder "Sleeve & mat…", Settings defaults, Artwork Manager
+"Sleeves & playmats"; not reproducing official designs, the user adds pictures they own). Another
+session was working on Play Online (reconnect) at the same time; BattleScreen.tsx and session.ts
+hold both sessions' edits. **Next:** MBT01 only if the user wants it (it has G units: ask). **Next:** EB12, MBT01, MTD01, PR cards;
+sleeves/playmats to scope.
+
 ## ▶ Pick up here (session 2026-10-29)
+
+**v0.25.0-alpha published** (2026-10-29; public commit 67495c5, pre-release with exe/zip): EB10,
+FC01, DG01, FC02, the artwork import and back-centre fixes. The user asked to **switch Play Online
+off** until it is ready: the menu button is disabled ("Coming soon", `ONLINE_READY` in
+`app/renderer/App.tsx`); set it to true to work on online play or run `npm run online:probe`.
+**Next:** EB11, EB12, MBT01, MTD01, PR cards; sleeves/playmats to scope; online play when the user
+wants it back.
 
 The user reported art "crossing over" (BT17 folder: BT17-001 Prominence Core and BT17-001EN
 Overlord). The installed art was right (`BT17-001` = Japanese BT17 001, whose English printing is

@@ -1,9 +1,10 @@
 # Online play: options and plan (2026-10-28)
 
 **Status:** the user approved stage 1, host-and-join (D-032), and it is built: see "Stage 1 as
-built" at the end. **Switched off in v0.25.0-alpha** at the user's request (not ready for players):
-the menu button is disabled by `ONLINE_READY` in `app/renderer/App.tsx`; set it to true to use it or
-to run `npm run online:probe`. The research and options below are kept for stage 2.
+built" at the end. Switched off in v0.25.0-alpha (not ready for players), **switched on again on
+2026-10-30** at the user's request, after reconnecting and room codes were added (`ONLINE_READY` in
+`app/renderer/App.tsx`), **in testing** from v0.26.0-alpha. Player guide:
+[PLAYING_ONLINE.md](PLAYING_ONLINE.md). The research and options below are kept for stage 2.
 
 The user asked how to get online play going. This is the research and the proposed plan. Going online reverses D-004 ("Version 1 is offline only") and the
 blueprint's stage order (local → browser → browser + private online matches), so the user has to
@@ -112,5 +113,52 @@ id, RNG or hidden card ever sent), `tests/net/transport.test.ts` (real sockets o
 out-of-turn and wrong-seat commands). `npm run online:probe` runs two copies of the real app,
 host and guest, into turn 1.
 
-**Not in stage 1:** reconnecting (a dropped connection ends the game), a turn timer, chat or
-emotes, spectators. The host's machine runs the game, so a host could cheat; the guest cannot.
+**Not in stage 1:** a turn timer, chat or emotes, spectators. The host's machine runs the game,
+so a host could cheat; the guest cannot.
+
+## Reconnecting and leaving (2026-10-30, protocol 2)
+
+- **Dropped connection:** the game is kept. The guest's app reconnects by itself (first try after
+  0.5 s, then every 3 s, for up to 2 minutes) and shows a "Connection to the host lost" banner
+  with **Stop and leave**. The host sees "Your opponent's connection dropped", keeps playing its
+  own moves, and after 60 s may **End the game as a win** (the guest concedes; if it comes back
+  later it sees the result). Code: `ConnectionBanner.tsx`, `OnlineController.reconnect/giveUp`.
+- **Rejoining is by token:** `welcome` carries a random `token`; a reconnecting guest sends it as
+  `hello.resume`, and the host answers `welcome` with `resumed: true` and a full view (same card
+  aliases, so the guest's screen carries on). Anyone else is refused while a game is running, and
+  a token for a game the host is not running is refused too.
+- **Leaving on purpose** is no longer mistaken for a drop: the guest sends `leave`, the host sends
+  `closed` ("The host left the game."); the transport now ends sockets gracefully so that last
+  message is delivered.
+- **Sleeves (D-033):** `hello.sleeve` / `welcome.hostSleeve` carry a built-in sleeve id
+  (`shareableSleeve`: your own image shows as the classic sleeve to the other player).
+- Tests: `app/tests/online.test.ts` (resume after lost messages and play to the end, strangers and
+  wrong tokens refused, leave, give-up win), `app/tests/onlineReconnect.test.ts` (real sockets:
+  drop and automatic reconnect, leave and host-leave messages).
+
+## Room codes (2026-10-30, user's choice: "room code, no server")
+
+The user asked to connect with a password instead of addresses. Options offered: room code via the
+public PeerJS service (no server of our own), room code via our own server, or a password on top
+of host-and-join; the user chose the first.
+
+- **How:** both players type the same code (Play Online → ROOM CODE; **New code** makes one like
+  `STORM-4821-RAVEN`, 9 million possibilities). The host's game registers with the PeerJS cloud
+  service (`0.peerjs.com`) under `vgsim-` + SHA-256 of the normalised code (`roomCode.ts`); the
+  guest's game asks for that id and the two connect by WebRTC data channel
+  (`app/renderer/online/peerBridge.ts`). PeerJS's default ICE servers include Google STUN and
+  PeerJS's own TURN relay, so strict networks usually still work (through the relay).
+- **Same protocol:** `peerBridge` gives the controller the same events as the TCP connection
+  (`tcpBridge`), so versions, decks, aliases, reconnecting and leaving work identically. Text
+  messages only, size-limited (64 kB from the guest, 8 MB from the host).
+- **Network block (D-004):** `main.cjs` lets `https://` and `wss://` requests to `0.peerjs.com`
+  through only while `online:room-codes` is on (from Host/Join by code until the connection
+  stops). STUN/TURN and the data channel itself are not web requests.
+- **Who can join:** whoever knows the code. Codes are case- and punctuation-insensitive, at least
+  6 letters/digits. A second host with the same code gets "Someone is already hosting with that
+  code"; a joiner with no host gets "No game is being hosted with that code".
+- **Risks:** depends on a free third-party service with no guarantee; if it goes down, room codes
+  stop working (connect-by-address still works). Stage 2 could replace it with our own server.
+
+Switched on 2026-10-30 (both probes passed: `npm run online:probe` and `-- --code`). Next: the
+user's first two-machine games; later a turn timer (optional) and preset emotes.

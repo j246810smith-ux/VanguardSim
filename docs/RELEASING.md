@@ -7,6 +7,7 @@ Releases are tagged `v<version>`:
 
 - `v0.14.0-alpha` … `v0.19.0-alpha` — alpha: playable, incomplete (BT16–BT17 still missing).
 - `v0.21.0-alpha` — BT01–BT17 complete; `v0.22.0-alpha` on — the side sets (D-029) are being added.
+- `v0.26.0-alpha` — EB11, EB12, sleeves and playmats, Play Online switched on (in testing).
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

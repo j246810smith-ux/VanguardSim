@@ -78,12 +78,12 @@ export function BattleHud({ view }: { view: GameState }) {
   // the attack hits when defence ≤ attack, so shields come in steps of 5000 above the gap
   return (
     <>
-      <div className="battle-hud atk" style={{ left: myAttack ? 520 : 1400 }}>
+      <div className="battle-hud atk" style={{ left: myAttack ? 390 : 1400 }}>
         <span className="lbl">ATTACK</span>
         <span className="val">{atk}</span>
         {boost > 0 && <span className="sub">boost +{boost}</span>}
       </div>
-      <div className="battle-hud" style={{ left: myAttack ? 1400 : 520 }}>
+      <div className="battle-hud" style={{ left: myAttack ? 1400 : 390 }}>
         <span className="lbl">DEFENCE</span>
         <span className="val" style={{ color: def > atk ? 'var(--good)' : 'var(--text)' }}>
           {def}
@@ -166,11 +166,12 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
   const settings = useSettings();
   useEffect(() => {
     if (!fx) return;
-    const ms = paced(settings, fx.kind === 'check' ? 1300 : 900);
+    const ms = paced(settings, fx.kind === 'check' ? 1300 : fx.kind === 'ability' ? 1500 : 900);
     const t = setTimeout(() => onDone(fx.id), ms);
     return () => clearTimeout(t);
   }, [fx, settings, onDone]);
-  if (!fx || settings.speed === 'instant') return null;
+  // abilities are drawn beside the G circle (board/AbilityCallout); only their timing is here
+  if (!fx || fx.kind === 'ability' || settings.speed === 'instant') return null;
   return (
     <div className="fx" key={fx.id}>
       {fx.kind === 'check' && (

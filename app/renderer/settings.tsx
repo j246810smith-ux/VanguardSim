@@ -14,6 +14,10 @@ export interface Settings {
   /** Sound-effect volume, 0–100. */
   readonly sfxVolume: number;
   readonly muted: boolean;
+  /** Sleeve for decks without their own (cosmetics.ts SLEEVES, D-033). */
+  readonly defaultSleeve: string;
+  /** Battle playmat (cosmetics.ts PLAYMATS). */
+  readonly playmat: string;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -24,6 +28,8 @@ export const DEFAULT_SETTINGS: Settings = {
   musicVolume: 50,
   sfxVolume: 70,
   muted: false,
+  defaultSleeve: 'classic',
+  playmat: 'classic',
 };
 
 const KEY = 'vanguard-sim.settings.v1';

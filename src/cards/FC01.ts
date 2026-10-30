@@ -25,7 +25,7 @@ const attackVanguardPump = (amount: number, text: string, id = '2') =>
   });
 
 export const FC01: SetAbilities = {
-  // 剛槍の解放者 ブレオベリス
+  // Mighty Spear Liberator, Bleoberis
   'FC01-001': [
     ab.breakRide({
       id: 'br',
@@ -38,11 +38,11 @@ export const FC01: SetAbilities = {
         ab.bottomInOrder(ab.bound('l', { zone: 'deck' })),
         vanguardPlus10000(),
       ],
-      text: '【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：[【カウンターブラスト】(1)]《ゴールドパラディン》がこのユニットにライドした時、コストを払ってよい。払ったら、あなたの山札の上から２枚まで見て、《ゴールドパラディン》を２枚まで探し、ユニットのいない別々の(R)にコールし、残りのカードを山札の下に好きな順番で置き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000。',
+      text: '[AUTO][Limit-Break 4](This ability is active if you have four or more damage):[Counter-Blast 1] When a <Gold Paladin> rides this unit, you may pay the cost. If you do, look at up to two cards from the top of your deck, search for up to two <Gold Paladin> from among them, call them to separate open (RC), put the rest on the bottom of your deck in any order, choose one of your vanguards, and that unit gets [Power] +10000 until end of turn.',
     }),
     attackVanguardPump(
       2000,
-      '【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。',
+      '[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.',
     ),
     ab.lord(),
   ],
@@ -64,7 +64,7 @@ export const FC01: SetAbilities = {
     }),
     ab.lord(),
   ],
-  // 抹消者 エレクトリックシェイパー・ドラゴン
+  // Eradicator, Electric Shaper Dragon
   'FC01-003': [
     ab.breakRide({
       id: 'br',
@@ -81,11 +81,11 @@ export const FC01: SetAbilities = {
               ab.choose('r', ab.units('opponent', ['back_RC'], { sameColumnAsEvent: true })),
               ab.retire(ab.bound('r')),
             ],
-            text: '【自】【(V)】：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、そのカードがあった(R)と同じ縦列の後列にいる相手のリアガードを１枚選び、退却させる。',
+            text: "[AUTO](VC):When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards, choose one of your opponent's rear-guards in the back row of the same column as the (RC) that card was on, and retire it.",
           }),
         ),
       ],
-      text: '【自】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：《なるかみ》がこのユニットにライドした時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋10000し、『【自】【(V)】：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、そのカードがあった(R)と同じ縦列の後列にいる相手のリアガードを１枚選び、退却させる。』を与える。',
+      text: '[AUTO][Limit-Break 4](This ability is active if you have four or more damage):When a <Narukami> rides this unit, choose one of your vanguards, and until end of turn, that unit gets [Power] +10000 and "[AUTO](VC):When your opponent\'s rear-guard is put into the drop zone due to an effect from one of your cards, choose one of your opponent\'s rear-guards in the back row of the same column as the (RC) that card was on, and retire it.".',
     }),
     ab.auto({
       id: '2',
@@ -93,15 +93,15 @@ export const FC01: SetAbilities = {
       trigger: ab.attacks(),
       condition: ab.count(ab.cards('opponent', ['damage']), { min: 3 }),
       effect: [ab.power(ab.self(), 2000, 'end_of_battle')],
-      text: '【自】【(V)】：このユニットがアタックした時、相手のダメージゾーンが３枚以上なら、そのバトル中、このユニットのパワー＋2000。',
+      text: '[AUTO](VC):When this unit attacks, if your opponent has three or more cards in his or her damage zone, this unit gets [Power] +2000 until end of that battle.',
     }),
     ab.lord(),
   ],
-  // ストーリー・テラー
+  // Story Teller
   'FC01-004': [
     hitDrawCB2(
       DI,
-      '【自】【(V)/(R)】：[【カウンターブラスト】(2)]このユニットのアタックがヒットした時、あなたの《ダークイレギュラーズ》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。',
+      "[AUTO](VC/RC):[Counter-Blast 2] When this unit's attack hits, if you have a <Dark Irregulars> vanguard, you may pay the cost. If you do, draw a card.",
     ),
   ],
   // Pretty Celeb, Charlotte
@@ -137,7 +137,7 @@ export const FC01: SetAbilities = {
       text: '[AUTO](RC):When this unit boosts ([Boost]) a <Neo Nectar>, if you have a <Neo Nectar> vanguard, if your deck had been shuffled due to an effect from one of your cards during this turn, the boosted ([Boost]) unit gets [Power] +3000 until end of that battle.',
     }),
   ],
-  // 無双祐筆 ポンガ
+  // Peerless Scribe, Ponga
   'FC01-007': [
     ab.auto({
       id: '1',
@@ -145,7 +145,7 @@ export const FC01: SetAbilities = {
       trigger: ab.attacksVanguard(),
       condition: { cond: 'power', of: ab.attackedUnit(), range: { min: 12000 } },
       effect: [ab.power(ab.self(), 10000, 'end_of_battle')],
-      text: '【自】【(V)】：このユニットがヴァンガードにアタックした時、バトル相手のパワーが12000以上なら、そのバトル中、このユニットのパワー＋10000。',
+      text: '[AUTO](VC):When this unit attacks a vanguard, if the [Power] of the unit it is battling is 12000 or greater, this unit gets [Power] +10000 until end of that battle.',
     }),
     ab.auto({
       id: '2',
@@ -153,7 +153,7 @@ export const FC01: SetAbilities = {
       trigger: ab.attacksVanguard(),
       condition: ab.vanguardIs({ clan: GN }),
       effect: [ab.power(ab.self(), 2000, 'end_of_battle')],
-      text: '【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの《グレートネイチャー》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。',
+      text: '[AUTO](RC):When this unit attacks a vanguard, if you have a <Great Nature> vanguard, this unit gets [Power] +2000 until end of that battle.',
     }),
   ],
   'FC01-008': { sameAs: 'BT01-021' }, // Knight of Silence, Gallatin

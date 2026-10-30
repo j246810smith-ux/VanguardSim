@@ -18,10 +18,13 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] Foil effect by rarity
 - [x] Side sets EB08, EB09, EB10, FC01
 - [x] Online play stage 1: host-and-join (D-032)
-- [ ] Online play: reconnect, turn timer, emotes; stage 2 (match server with room codes) if wanted
-- [ ] Card sleeves and playmats (user mentioned 2026-10-28; scope to be agreed)
+- [x] Online play: reconnecting, room codes (PeerJS), switched on in testing (v0.26.0-alpha)
+- [ ] Online play: two-machine testing with players; turn timer, emotes; own match server if wanted
+- [x] Card sleeves and playmats (D-033)
 - [x] Side set DG01
 - [x] Artwork import: English file names matched by English number
 - [x] Side set FC02
-- [ ] Side sets: EB11, EB12, MBT01, MTD01, PR cards 2011–2014
+- [x] Side set EB11
+- [x] Side set EB12
+- [ ] Side sets: MBT01 (has G units: decide); MTD01 and PR cards left out for now (user, 2026-10-30)
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

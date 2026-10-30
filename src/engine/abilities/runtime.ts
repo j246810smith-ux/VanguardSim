@@ -34,6 +34,7 @@ import {
 import { abilitiesOf, holders } from './catalog';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
 import { columnOf, evaluate, select, type EvalContext } from './evaluate';
+import { currentName } from '../game/characteristics';
 import type {
   AbilityDefinition,
   ActAbility,
@@ -116,13 +117,64 @@ export function checkTiming(d: Draft): CheckTimingResult {
   return 'idle';
 }
 
+/** A cost as printed, e.g. "Counter Blast 1" (for prompts). */
+export function costLabel(cost: Cost): string {
+  switch (cost.cost) {
+    case 'counter_blast':
+      return `Counter Blast ${cost.n}`;
+    case 'soul_blast':
+      return `Soul Blast ${cost.n}`;
+    case 'discard':
+      return `Discard ${cost.n}`;
+    case 'retire':
+      return `Retire ${cost.n}`;
+    case 'rest':
+    case 'rest_chosen':
+      return 'Rest';
+    case 'lock':
+      return `Lock ${cost.n}`;
+    case 'reveal':
+      return 'Reveal';
+    case 'face_down':
+      return 'Face down';
+    case 'top_to':
+      return `Top ${cost.n} of your deck to your ${cost.to}`;
+    case 'move':
+    case 'move_chosen':
+      return 'Move';
+  }
+}
+
+const cards = (n: number, what: string) => `${n} ${what}${n === 1 ? '' : 's'}`;
+
+/** What the player does to pay a cost that needs a choice. */
+export function costInstruction(cost: Cost, n: number): string {
+  switch (cost.cost) {
+    case 'counter_blast':
+      return `Counter Blast ${n}: choose ${cards(n, 'face-up damage card')} to turn face down`;
+    case 'soul_blast':
+      return `Soul Blast ${n}: choose ${cards(n, 'card')} from your soul to put into your drop zone`;
+    case 'discard':
+      return `Discard ${n}: choose ${cards(n, 'card')} from your hand to discard`;
+    case 'retire':
+      return `Retire ${n}: choose ${cards(n, 'unit')} to retire`;
+    case 'lock':
+      return `Lock: choose ${cost.orMore ? `${n} or more` : n} ${n === 1 && !cost.orMore ? 'unit' : 'units'} to lock`;
+    case 'rest_chosen':
+      return `Rest: choose ${cards(n, 'standing unit')} to rest`;
+    default:
+      return `Pay the cost: choose ${cards(n, 'card')}`;
+  }
+}
+
 /** Turns an automatic ability's text structure into steps: "if …, you may pay the cost. If you do, …". */
 function autoProgram(a: AutoAbility): Step[] {
   let body: Step[] = [...a.effect];
   if (a.cost?.length) {
     const pay: Step = { op: 'pay', costs: a.cost };
+    const prompt = `Pay the cost (${a.cost.map(costLabel).join(', ')}) to use this ability?`;
     body = a.optional
-      ? [{ op: 'may', prompt: 'Pay the cost?', payable: a.cost, then: [pay, ...body] }]
+      ? [{ op: 'may', prompt, payable: a.cost, then: [pay, ...body] }]
       : [pay, ...body];
   }
   if (a.condition) body = [{ op: 'if', cond: a.condition, then: body }];
@@ -425,7 +477,7 @@ function pay(
       options,
       min: choice.n,
       max: cost.cost === 'lock' && cost.orMore ? options.length : choice.n,
-      prompt: `Pay ${cost.cost.replace('_', ' ')} ${choice.n}: choose ${choice.n}`,
+      prompt: costInstruction(cost, choice.n),
     });
     if (picked === null) {
       task.picks = picks;
@@ -497,10 +549,21 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         options,
         min: 0,
         max: step.upTo,
-        prompt: `Search your deck for up to ${step.upTo}`,
+        prompt: step.distinctNames
+          ? `Search your deck for up to ${step.upTo} cards with different names`
+          : `Search your deck for up to ${step.upTo}`,
       });
       if (picked === null) return false;
-      frame.bindings[step.as] = picked;
+      // "with different card names": a second card of a name already chosen is not taken
+      const names = new Set<string>();
+      frame.bindings[step.as] = step.distinctNames
+        ? picked.filter((id) => {
+            const name = currentName(s, d.ctx, id);
+            if (names.has(name)) return false;
+            names.add(name);
+            return true;
+          })
+        : picked;
       return true;
     }
     case 'retire':
@@ -599,6 +662,15 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       frame.bindings['__called_circles'] = [];
       const eventColumn =
         step.sameColumnAsEvent && frame.eventCard ? columnOf(s, frame.eventCard) : null;
+      // "to that (RC)": the circles where the bound cards are now, on the master's field
+      const circles = step.circlesOf
+        ? (frame.bindings[step.circlesOf] ?? []).flatMap((id) => {
+            const at = locate(s, id);
+            return at.zone === 'circle' && at.player === frame.master && at.circle !== 'vanguard'
+              ? [at.circle]
+              : [];
+          })
+        : null;
       s.tasks.unshift(
         ...targets.map((card): Task => ({
           kind: 'call_one',
@@ -610,6 +682,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(step.sameColumn ? { sameColumn: true as const } : {}),
           ...(step.rested ? { rested: true as const } : {}),
           ...(eventColumn ? { column: eventColumn } : {}),
+          ...(circles ? { circles } : {}),
         })),
       );
       return true;
@@ -976,6 +1049,7 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
       if (task.open && here.length > 0) return false;
       if (task.sameColumn && CIRCLE_COLUMN[c] !== columnOf(d.state, frame.source)) return false;
       if (task.column && CIRCLE_COLUMN[c] !== task.column) return false;
+      if (task.circles && !task.circles.includes(c)) return false;
       return !(task.separate && (frame.bindings['__called_circles'] ?? []).includes(c));
     }),
     min: 1,

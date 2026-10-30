@@ -5,10 +5,19 @@ import { OnlineScreen } from './screens/OnlineScreen';
 import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
 import { deckEntries, DeckList } from './screens/deckChoice';
-import { loadSettings, saveSettings, SettingsContext, type Settings, type Speed } from './settings';
+import {
+  loadSettings,
+  saveSettings,
+  SettingsContext,
+  useSettings,
+  type Settings,
+  type Speed,
+} from './settings';
 import './artwork/api'; // window.vanguardDesktop types
 import { audio } from './audio/audio';
 import { STAGE_H, STAGE_W } from './board/layout';
+import { PlaymatPicker, SleevePicker } from './ui/CosmeticPickers';
+import { DEFAULT_SLEEVE } from './cosmetics';
 
 /** D-019: a fixed 1920×1080 stage, scaled to fit the window. */
 function Stage({ children, reducedMotion }: { children: ReactNode; reducedMotion: boolean }) {
@@ -122,10 +131,10 @@ export function App() {
 }
 
 /**
- * Play Online (D-032) is built but switched off until it is ready for players (user's request,
- * 2026-10-29). Set to true to use it, e.g. for `npm run online:probe`.
+ * Play Online (D-032): switched off in v0.25.0-alpha, switched on again 2026-10-30 (user's
+ * request). Set to false to show "Coming soon" instead.
  */
-const ONLINE_READY = false;
+const ONLINE_READY = true;
 
 function MainMenu({ go }: { go: (s: Screen) => void }) {
   return (
@@ -143,7 +152,7 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
         data-testid="play-online"
       >
         PLAY ONLINE
-        {!ONLINE_READY && <small>Coming soon</small>}
+        <small>{ONLINE_READY ? 'In testing' : 'Coming soon'}</small>
       </button>
       <button className="menu-btn" onClick={() => go({ name: 'decks' })} data-testid="deck-builder">
         DECK BUILDER
@@ -162,6 +171,7 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
 }
 
 function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionConfig) => void }) {
+  const settings = useSettings();
   const [entries] = useState(deckEntries);
   const [mine, setMine] = useState(0);
   const [theirs, setTheirs] = useState(1);
@@ -180,6 +190,10 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       aiDeckName: their.name,
       aiLevel: ai,
       delayedLegion,
+      // D-033: a deck's own sleeve and playmat, else the defaults from Settings
+      mySleeve: my.sleeve ?? settings.defaultSleeve,
+      aiSleeve: their.sleeve ?? DEFAULT_SLEEVE,
+      playmat: my.playmat ?? settings.playmat,
     });
   };
   return (
@@ -320,6 +334,23 @@ function SettingsScreen({
       {volume('Music volume', 'musicVolume')}
       {volume('Sound effects volume', 'sfxVolume')}
       {toggle('Mute all sound', 'muted')}
+      <div className="row" style={{ alignItems: 'flex-start' }}>
+        <span style={{ width: 300 }}>
+          Card sleeve
+          <div className="hint">For decks without their own sleeve</div>
+        </span>
+        <SleevePicker
+          value={settings.defaultSleeve}
+          onChange={(id) => onChange({ ...settings, defaultSleeve: id })}
+        />
+      </div>
+      <div className="row" style={{ alignItems: 'flex-start' }}>
+        <span style={{ width: 300 }}>Playmat</span>
+        <PlaymatPicker
+          value={settings.playmat}
+          onChange={(id) => onChange({ ...settings, playmat: id })}
+        />
+      </div>
       <ArtworkStatus />
       <button className="menu-btn" style={{ width: 300, marginTop: 30 }} onClick={onBack}>
         BACK

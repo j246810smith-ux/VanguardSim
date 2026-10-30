@@ -1,5 +1,5 @@
 import type { Step } from '../abilities/types';
-import type { InstanceId, Phase, PlayerId } from './types';
+import type { InstanceId, Phase, PlayerId, RearGuardCircle } from './types';
 
 export type CheckKind = 'drive' | 'damage';
 
@@ -111,6 +111,8 @@ export type TaskBody =
       readonly move?: true;
       /** Only circles in this column. */
       readonly column?: 'left' | 'centre' | 'right';
+      /** Only these circles (`call` with `circlesOf`). */
+      readonly circles?: readonly RearGuardCircle[];
       selection?: string[];
     }
   | { readonly kind: 'end_frame'; readonly frame: number };

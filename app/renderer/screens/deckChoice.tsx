@@ -12,6 +12,9 @@ export interface DeckEntry {
   readonly deck: Deck;
   readonly legal: boolean;
   readonly section: 'starter' | 'trial' | 'mine';
+  /** A saved deck's own sleeve (D-033). */
+  readonly sleeve?: string;
+  readonly playmat?: string;
 }
 
 const SECTION_TITLE = {
@@ -33,6 +36,8 @@ export function deckEntries(): DeckEntry[] {
         deck: d.deck,
         legal: issues.length === 0,
         section: 'mine' as const,
+        ...(d.sleeve ? { sleeve: d.sleeve } : {}),
+        ...(d.playmat ? { playmat: d.playmat } : {}),
       };
     }),
   ];

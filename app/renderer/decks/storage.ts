@@ -8,6 +8,10 @@ export interface SavedDeck {
   readonly id: string;
   readonly name: string;
   readonly deck: DeckList;
+  /** Sleeve id (app/renderer/cosmetics.ts, D-033); absent: the default sleeve from Settings. */
+  readonly sleeve?: string;
+  /** Playmat id (D-033); absent: the default playmat from Settings. */
+  readonly playmat?: string;
   /** When it was last saved (ms since 1970). */
   readonly updated: number;
 }

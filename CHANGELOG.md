@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.26.0-alpha — 2026-10-30
+
+**Play Online is back, in testing.** It now has room codes and reconnecting, and has been tested
+on one PC and through the room-code service, but not yet widely between different homes and
+networks: please report problems. How it works: [docs/PLAYING_ONLINE.md](docs/PLAYING_ONLINE.md).
+Players on v0.25.0 cannot play players on this version.
+
+- **Bigger decks on the battle board** (user's request): both decks show a larger card back
+  (64×93, closer to the units) with the card count over its corner; the tiles beside them and the
+  zones below moved a little to make room.
+- **Card sleeves and playmats** (D-033, user's request): each deck can have its own sleeve
+  (card backs) and playmat (battle background), chosen in the Deck Builder (**Sleeve & mat…**);
+  Settings holds the defaults. Choose from 10 built-in sleeves and 7 playmats, or add your own
+  pictures (for example of official sleeves and mats you own) like card art: Artwork Manager →
+  **Sleeves & playmats**, kept in `sleeves\` / `playmats\` next to the game, never shipped or
+  sent online. Every card back on the board shows its owner's sleeve. **Download from a link**
+  saves a sleeve or mat picture from an image address you paste (e.g. an official product page).
+- **Play Online is switched on (in testing)** in the main menu (user's request, 2026-10-30),
+  with room codes and reconnecting below. Player guide: `docs/PLAYING_ONLINE.md`.
+- **Play Online: room codes** (D-032, user's request): both
+  players type the same code (or press **New code**, e.g. STORM-4821-RAVEN) and press Host or
+  Join: no addresses, port forwarding or Tailscale needed. The free PeerJS service introduces the
+  two games (it only ever sees a hash of the code), then they talk directly (WebRTC), falling back
+  to PeerJS's relay when a network blocks direct connections. The game's network block lets the
+  PeerJS service through only while hosting or joining by code. Connecting by address is still
+  there (**Connect by address instead**). `npm run online:probe -- --code` tests it.
+- **Play Online: reconnecting** (D-032): a dropped connection no
+  longer ends the game. The guest reconnects by itself for up to 2 minutes (banner with **Stop
+  and leave**); the host keeps the game, sees a banner, and after 60 s may **End the game as a
+  win**. Rejoining needs the token the host gave at the start, so nobody else can take the seat.
+  Leaving on purpose tells the other player straight away. Each player's built-in sleeve is shown
+  to the other. Online protocol 2 (both players need this version). `docs/ONLINE_PLAY.md`.
+- **EB12 "Waltz of the Goddess"**: all 35 cards (Genesis Regalia, Witches and Myth Guards)
+  implemented and tested, with art, and a "Cosmic Regalia, CEO Yggdrasil" starter deck. New:
+  searches for "cards with different card names" (Myth Guard, Procyon).
+- **Unofficial English for the Japanese-only cards** (user's request): FC01's Mighty Spear
+  Liberator, Bleoberis; Eradicator, Electric Shaper Dragon; Story Teller; Peerless Scribe, Ponga;
+  and BT11-055 Hazard Bob.
+  Name and text follow the official English templates; Card details marks them "Unofficial
+  translation". Kept apart from the official data (`data/translations/unofficial.json`), used only
+  when a card has no English record (also by the card generator).
+- **EB11 "Requiem at Dusk"**: all 35 cards (Shadow Paladin witches and revengers) implemented and
+  tested, with art, and a "Mesmerizing Witch, Fianna" starter deck. New: the witches' "your
+  opponent calls a grade 0 to the (RC) you chose" (a superior call limited to chosen circles,
+  `circlesOf`), counting your opponent's grade 0 rear-guards. The ability callout names the card's
+  owner while the opponent makes a choice for your ability.
+- **Ability callout beside the G circle** (user's request): whenever an ability is used — yours
+  or the opponent's, in the battle phase or when a unit is called or ridden — a box on the centre
+  line next to the G circle shows a small picture of the card, its name, what you have to do now
+  (the goal) and the ability's text, and the card itself glows gold on the field or in the hand.
+  It stays up while the ability waits for a choice (e.g. paying a cost) and shows briefly for
+  abilities that need none. The left attack/defence number moved out a little to make room.
+- **Clearer cost prompts**: "Pay counter blast 1: choose 1" now reads "Counter Blast 1: choose 1
+  face-up damage card to turn face down" (likewise Soul Blast, discard, retire, rest, lock), and
+  "Pay the cost?" names the cost: "Pay the cost (Counter Blast 1, Soul Blast 1) to use this
+  ability?".
+- Fix (user's report): the installed game showed placeholder art for the 85 English-only
+  BT16/BT17 cards (Dragonic Overlord the Great, the Deletors, …). Their art files
+  (`BT17-001EN.jpg`) were installed, but the desktop app only served file names without the "EN";
+  it now serves them (`app/main/artPath.cjs`, test `tests/artwork/artPath.test.ts`).
+
 ## 0.25.0-alpha — 2026-10-29
 
 - **FC02 "Fighter's Collection 2014"**: all 29 cards (27 grade 3 vanguards, one per clan, and the

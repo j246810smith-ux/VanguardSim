@@ -25,6 +25,7 @@ import {
 } from '../../../src/net/protocol';
 import { CARD_DATA_VERSION } from '../../../src/cards';
 import { ctx, setLocalSeat } from '../engine';
+import { shareableSleeve } from '../cosmetics';
 import { GameSession, GuestSession, type SessionConfig } from '../game/session';
 
 /** Set by vite.config.ts from package.json (absent in unit tests). */
@@ -41,6 +42,9 @@ export interface Player {
   readonly name: string;
   readonly deckName: string;
   readonly deck: DeckList;
+  /** Sleeve and playmat (D-033), this player's own choice; only a built-in sleeve id is sent. */
+  readonly sleeve?: string;
+  readonly playmat?: string;
 }
 
 export const GUEST_SEAT: PlayerId = 1;
@@ -50,12 +54,18 @@ const randomSeed = () => cryptoRandom() >>> 1;
 
 export type HostEvent =
   | { readonly kind: 'started'; readonly session: GameSession; readonly guest: Player }
-  | { readonly kind: 'refused'; readonly reason: string };
+  | { readonly kind: 'refused'; readonly reason: string }
+  /** The guest came back after a dropped connection; the game carries on. */
+  | { readonly kind: 'resumed' }
+  /** The guest left on purpose. */
+  | { readonly kind: 'left' };
 
 export class HostLink {
   session: GameSession | null = null;
   guest: Player | null = null;
   private aliases!: Aliases;
+  /** Given to the guest in `welcome`; a reconnecting guest must send it back. */
+  private token = '';
 
   constructor(
     private readonly sendLine: (line: string) => void,
@@ -93,28 +103,58 @@ export class HostLink {
         return this.command(m.command);
       case 'rematch':
         return this.rematch();
+      case 'leave':
+        return this.onEvent({ kind: 'left' });
     }
   }
 
-  private hello(m: Extract<GuestMessage, { t: 'hello' }>) {
-    if (this.guest) return this.send({ t: 'error', message: 'already joined' });
-    const refuse = (reason: string) => {
-      this.send({ t: 'reject', reason });
-      this.onEvent({ kind: 'refused', reason });
-    };
-    const mismatch = versionMismatch(this.version, m.version);
-    if (mismatch) return refuse(`Cannot play: ${mismatch}.`);
-    const issues = validateDeck(m.deck, ctx.registry, ctx.format);
-    if (issues.length > 0) return refuse(`Your deck is not legal: ${issues[0]!.message}`);
-    const guest: Player = { name: m.name.trim() || 'Guest', deckName: m.deckName, deck: m.deck };
-    this.guest = guest;
+  /** The guest's connection is gone and it is not coming back: it concedes the current game. */
+  forfeitGuest(): void {
+    if (this.session && this.session.view.status !== 'finished') this.session.forfeitRemote();
+  }
+
+  private welcome(resumed: boolean) {
     this.send({
       t: 'welcome',
       seat: GUEST_SEAT,
       hostName: this.me.name,
       hostDeckName: this.me.deckName,
       rules: this.rules,
+      hostSleeve: shareableSleeve(this.me.sleeve),
+      token: this.token,
+      resumed,
     });
+  }
+
+  private hello(m: Extract<GuestMessage, { t: 'hello' }>) {
+    const refuse = (reason: string) => {
+      this.send({ t: 'reject', reason });
+      this.onEvent({ kind: 'refused', reason });
+    };
+    if (this.guest) {
+      // only the same guest may come back, with the token it was given
+      if (!this.session || m.resume !== this.token)
+        return refuse('This game is already in progress.');
+      this.welcome(true);
+      this.update(this.session, []);
+      return this.onEvent({ kind: 'resumed' });
+    }
+    if (m.resume) return refuse('That game is no longer running.');
+    const mismatch = versionMismatch(this.version, m.version);
+    if (mismatch) return refuse(`Cannot play: ${mismatch}.`);
+    const issues = validateDeck(m.deck, ctx.registry, ctx.format);
+    if (issues.length > 0) return refuse(`Your deck is not legal: ${issues[0]!.message}`);
+    const guest: Player = {
+      name: m.name.trim() || 'Guest',
+      deckName: m.deckName,
+      deck: m.deck,
+      ...(m.sleeve ? { sleeve: m.sleeve } : {}),
+    };
+    this.guest = guest;
+    this.token = Array.from({ length: 4 }, () => this.random().toString(16).padStart(8, '0')).join(
+      '',
+    );
+    this.welcome(false);
     this.start(guest);
   }
 
@@ -170,8 +210,11 @@ export type GuestEvent =
       readonly hostName: string;
       readonly hostDeckName: string;
       readonly rules: MatchRules;
+      readonly hostSleeve: string | null;
     }
-  | { readonly kind: 'refused'; readonly reason: string };
+  | { readonly kind: 'refused'; readonly reason: string }
+  /** Back in the game after a dropped connection. */
+  | { readonly kind: 'resumed' };
 
 export class GuestLink {
   session: GuestSession | null = null;
@@ -190,8 +233,23 @@ export class GuestLink {
     this.sendLine(JSON.stringify(m));
   }
 
+  /** Introduce ourselves; after a dropped connection, with the token to rejoin the game. */
   hello(): void {
-    this.send({ t: 'hello', version: this.version, ...this.me });
+    const { name, deckName, deck, sleeve } = this.me;
+    this.send({
+      t: 'hello',
+      version: this.version,
+      name,
+      deckName,
+      deck,
+      sleeve: shareableSleeve(sleeve),
+      ...(this.welcome ? { resume: this.welcome.token } : {}),
+    });
+  }
+
+  /** Leaving on purpose, so the host stops waiting for us. */
+  leave(): void {
+    this.send({ t: 'leave' });
   }
 
   rematch(): void {
@@ -210,6 +268,7 @@ export class GuestLink {
       case 'welcome':
         this.welcome = m;
         this.setSeat(m.seat);
+        if (m.resumed && this.session) this.onEvent({ kind: 'resumed' });
         return;
       case 'reject':
         return this.onEvent({ kind: 'refused', reason: m.reason });
@@ -229,6 +288,10 @@ export class GuestLink {
             hostName: this.welcome.hostName,
             hostDeckName: this.welcome.hostDeckName,
             rules: this.welcome.rules,
+            hostSleeve:
+              typeof this.welcome.hostSleeve === 'string' && this.welcome.hostSleeve.length <= 40
+                ? this.welcome.hostSleeve
+                : null,
           });
         } else {
           this.session?.update(m.view, m.events, m.actions);

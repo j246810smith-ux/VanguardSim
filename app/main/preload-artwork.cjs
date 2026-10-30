@@ -11,6 +11,12 @@ contextBridge.exposeInMainWorld('artworkManager', {
   exportFolder: () => ipcRenderer.invoke('art:export'),
   saveReport: () => ipcRenderer.invoke('art:report'),
   openFolder: (which) => ipcRenderer.invoke('art:reveal', which),
+  /** Sleeves and playmats (D-033): list, import image files, open the folder. */
+  cosmetics: () => ipcRenderer.invoke('cosmetics:list'),
+  importCosmetics: (kind) => ipcRenderer.invoke('cosmetics:import', kind),
+  downloadCosmetic: (kind, address, name) =>
+    ipcRenderer.invoke('cosmetics:download', kind, String(address), String(name)),
+  openCosmeticsFolder: (kind) => ipcRenderer.invoke('cosmetics:reveal', kind),
   onProgress: (callback) => {
     const listener = (_event, progress) => callback(progress);
     ipcRenderer.on('art:progress', listener);

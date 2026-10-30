@@ -48,8 +48,12 @@ function createOnline(emit) {
 
   const closeSocket = () => {
     if (socket) {
-      socket.removeAllListeners();
-      socket.destroy();
+      const s = socket;
+      s.removeAllListeners();
+      s.on('error', () => {});
+      // end() sends what is still queued (e.g. a goodbye message) before closing
+      s.end();
+      setTimeout(() => s.destroy(), 1000).unref?.();
       socket = null;
     }
   };

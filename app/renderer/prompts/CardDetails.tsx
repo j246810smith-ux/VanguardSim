@@ -129,6 +129,11 @@ export function CardDetails({
             </div>
           </dl>
           <div className="skill-text">{def.text || 'No abilities.'}</div>
+          {def.unofficialTranslation && (
+            <div className="hint" data-testid="unofficial-translation">
+              Unofficial translation: this card was never printed in English.
+            </div>
+          )}
           {mods.length > 0 && (
             <ul className="mods">
               {mods.map((m, i) => (

@@ -6,6 +6,15 @@ import type { AbilityDefinition } from '../engine/abilities/types';
 import { CardRegistry } from '../engine/cards/registry';
 import type { CardDefinition } from '../engine/cards/types';
 import type { CardRecord, SetFile } from './record';
+import translationFile from '../../data/translations/unofficial.json';
+
+/**
+ * Unofficial English name and text for cards never printed in English (FC01, user's request
+ * 2026-10-30): used only when a card has no official English record.
+ */
+export const UNOFFICIAL: Readonly<
+  Record<string, { readonly name: string; readonly text: string }>
+> = translationFile.cards;
 
 /**
  * A set's ability scripts, by card ID:
@@ -53,10 +62,12 @@ export function toDefinition(
   if (!loc) throw new Error(`${r.id}: no localized data`);
   // a Japanese-only card (BT11-055, FC01) keeps its Japanese name and text, but its clan and
   // race are the English ones, so clan/race filters and Lord treat it like any other card
+  const translated = r.en ? undefined : UNOFFICIAL[r.id];
   const en = r.en
     ? loc
     : {
         ...loc,
+        ...(translated ? { name: translated.name, text: translated.text } : {}),
         clan: names.clan.get(loc.clan) ?? loc.clan,
         race: names.race.get(loc.race) ?? loc.race,
       };
@@ -75,6 +86,7 @@ export function toDefinition(
     skillIcon: r.skillIcon,
     sentinel: r.sentinel,
     text: en.text,
+    ...(translated ? { unofficialTranslation: true } : {}),
     abilities,
   };
 }

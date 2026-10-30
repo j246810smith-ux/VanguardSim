@@ -1,15 +1,28 @@
 // Regenerates THIRD_PARTY_NOTICES.md: `node scripts/third-party-notices.mjs`.
 // Lists the Bushiroad notice and the licences of every package bundled into the app's renderer
 // (the Electron/Chromium licences are added to release builds by electron-builder itself).
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const BUNDLED = ['react', 'react-dom', 'scheduler', '@fontsource/orbitron', '@fontsource/rajdhani'];
+const BUNDLED = [
+  'react',
+  'react-dom',
+  'scheduler',
+  '@fontsource/orbitron',
+  '@fontsource/rajdhani',
+  // Play Online by room code (D-032)
+  'peerjs',
+  'peerjs-js-binarypack',
+  'eventemitter3',
+  'webrtc-adapter',
+  'sdp',
+];
 
 const read = (pkg, file) => readFileSync(join('node_modules', pkg, file), 'utf8');
 const sections = BUNDLED.map((pkg) => {
   const meta = JSON.parse(read(pkg, 'package.json'));
-  const licence = read(pkg, 'LICENSE').trim();
+  const file = ['LICENSE', 'LICENSE.md'].find((f) => existsSync(join('node_modules', pkg, f)));
+  const licence = read(pkg, file ?? 'LICENSE').trim();
   return `## ${pkg} ${meta.version}\n\nLicence: ${meta.license}\n\n\`\`\`text\n${licence}\n\`\`\`\n`;
 });
 

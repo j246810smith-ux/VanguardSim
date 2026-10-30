@@ -15,16 +15,60 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
-## ▶ Pick up here (session 2026-10-30, end)
+## ▶ Pick up here (session 2026-10-30, end) — handover from both sessions
 
-**v0.26.0-alpha published** (2026-10-30, pre-release with exe/zip): EB11, EB12, unofficial
-translations of the five Japanese-only cards, the ability box beside the G circle and clearer cost
-prompts, sleeves and playmats (D-033; own images like card art, link download), bigger decks,
-the art fix for the English-only BT16/BT17 cards, and **Play Online switched on, in testing**
-(room codes via PeerJS, reconnecting; another session built it; player guide
-`docs/PLAYING_ONLINE.md`; "In testing" on the menu button and online screen). **Next:** feedback
-from real two-machine online games; MBT01 only if the user wants it (G units: ask); MTD01 and PR
-cards are left out for now (user).
+Two Claude sessions worked in this repository on 2026-10-30: one on cards, UI and sleeves (A), one
+on Play Online (B). Everything is committed (dev `8042169`), pushed to the public repository
+(`7278833`) and published as the **v0.26.0-alpha** pre-release (exe + zip, `dist:smoke` passed,
+2223 tests). The user's installed game (`%LOCALAPPDATA%\Programs\Vanguard Sim`) is on 0.26.0; its
+`cards\`, `sleeves\` and `playmats\` folders are the user's own and are never overwritten (robocopy
+`/XD cards sleeves playmats`).
+
+**Session A (cards, UI, sleeves):**
+
+- EB07 art downloaded locally; art for the English-only BT16/BT17 cards (`…EN` ids) was not served
+  by the desktop app: fixed (`app/main/artPath.cjs`).
+- Ability box beside the G circle (`app/renderer/board/AbilityCallout.tsx`) and plain-English cost
+  prompts (`costInstruction` / `costLabel` in `src/engine/abilities/runtime.ts`).
+- EB11 (`call` step `circlesOf`) and EB12 (`search` `distinctNames`), each with a starter deck.
+- Unofficial English for the five Japanese-only cards (`data/translations/unofficial.json`, used by
+  the loader and the card generator; marked in Card details).
+- Sleeves and playmats (D-033): built-in CSS designs + the player's own images handled like card art
+  (`app/main/cosmetics.cjs`, `app/renderer/cosmetics.ts`, Artwork Manager "Sleeves & playmats" with
+  import and **download from a link**); per deck (Deck Builder "Sleeve & mat…"), defaults in
+  Settings. The game does not reproduce official Bushiroad designs; the user adds pictures they own.
+- Bigger decks on the battle board (`Pile` `big`). Docs for the release, incl. the player guide
+  `docs/PLAYING_ONLINE.md` and "In testing" on the menu button and online screen.
+- Not verified on screen: a non-default sleeve/playmat and an own image (the screenshot game uses
+  the defaults); the link download against a real official image (this PC's requests to the
+  official site are blocked; tested with a stand-in).
+
+**Session B (Play Online, now "in testing"):**
+
+- Reconnect (protocol 2): `welcome.token` + `hello.resume`, `welcome.resumed`; guest `leave`, host
+  `closed`; graceful socket end in `app/main/online.cjs`; `GameSession.forfeitRemote` /
+  `HostLink.forfeitGuest`; `ConnectionBanner.tsx` (guest retries after 0.5 s then every 3 s for
+  2 min, "Stop and leave"; host may "End the game as a win" after 60 s). Sleeves are sent
+  (`hello.sleeve` / `welcome.hostSleeve`, built-in ids only via `shareableSleeve`).
+- Room codes (user's choice "room code, no server"): `app/renderer/online/roomCode.ts` (normalise,
+  ≥ 6 characters, New code `WORD-1234-WORD`, peer id `vgsim-` + SHA-256 of the code) and
+  `peerBridge.ts` (PeerJS 1.5.5 WebRTC data channel, text only, 64 kB / 8 MB limits, newest
+  connection wins on the host); `controller.ts` has a transport-agnostic `OnlineBridge` (peer or TCP);
+  `main.cjs` lets `https`/`wss` to `0.peerjs.com` through only while `online:room-codes` is on;
+  OnlineScreen shows ROOM CODE first, "Connect by address instead" below; `ONLINE_READY = true`.
+- Tests: `app/tests/online.test.ts`, `app/tests/onlineReconnect.test.ts` (real sockets),
+  `app/tests/roomCode.test.ts`. Probes: `npm run online:probe` (address, 127.0.0.1) and
+  `npm run online:probe -- --code` (through the real PeerJS service, needs internet): both reached
+  turn 1 on this PC.
+- Not verified: a game between two machines or homes; reconnecting over WebRTC after a real network
+  drop (tested over TCP only); strict NAT through the PeerJS TURN relay; PeerJS cloud being down.
+- Risks: the free PeerJS service has no guarantee (fallback: connect by address); the host's PC runs
+  the game, so a host could cheat; protocol 2 cannot play v0.25.
+
+**Next:** the user's first two-machine online game (collect any lobby/banner errors); then, if
+wanted, a turn timer and preset emotes, or our own small match server if PeerJS proves unreliable.
+Cards: MBT01 only after the user decides about its G units; MTD01 and PR cards left out for now
+(user). Then the AI plan (`docs/ai/AI_AUDIT_AND_PLAN.md`).
 
 ## ▶ Pick up here (session 2026-10-30)
 

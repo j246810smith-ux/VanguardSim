@@ -55,12 +55,16 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Current state (2026-11-02): G era part 1 (D-034)
+## Current state (2026-11-02 end): Dear Days battle screen (D-035) + G era in testing (D-034)
 
-A selectable **G format** (CR 1.48.1) next to unchanged Classic: engine, G-TD01, G-TD02 and the AIs
-are done; the app's UI does not offer it yet. G-era code lives in `src/engine/game/generation.ts`
-and `src/engine/rules/formats.ts`; rules cite "CR 1.48.1 <section>". Details and next steps in
-`docs/NEXT_SESSION.md` "Pick up here (session 2026-11-02, G era)".
+All committed and pushed to the public repository (no release yet; still 0.26.0-alpha). Battle
+screen: tilted 3D table (`board/layout.ts` `TABLE`/`toScreen`), cut-ins (Settings: Full / Short /
+Off), VS display, brighter theme. G era (CR 1.48.1): engine, G-TD01, G-TD02, AIs, and in Game
+Setup as **G era (IN TESTING)** (`engine.ts` `setPlayFormat`, `prompts/GPrompts.tsx`). G-era code:
+`src/engine/game/generation.ts`, `src/engine/rules/formats.ts`; rules cite "CR 1.48.1 <section>".
+**Next: controller support, G-era card art**, then the rest of the G UI, MBT01, G-BT01: see
+`docs/NEXT_SESSION.md` "Pick up here (2026-11-02, end)". **Never push the dev repo** (personal
+e-mail in its history): publish through `..\VanguardSim-public` as described there.
 
 ## State at v0.26.0-alpha (2026-10-30)
 

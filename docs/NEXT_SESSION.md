@@ -15,7 +15,59 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-02, end) — Dear Days battle screen + G era in testing, all pushed
+
+**State:** everything is committed on `master` (dev `40a6f81` + this handover) and pushed to the
+public repository (`..\VanguardSim-public`, `594e310` + this handover; GitHub CI green). **No
+release yet** (still v0.26.0-alpha in `package.json`; the user's installed copy is 0.26.0). The
+user played and said "the game worked fine, keep things as they are".
+
+**Done today (two sessions, one tree):**
+
+- **Dear Days–style battle screen (D-035):** tilted 3D table (`board/layout.ts` `TABLE`,
+  `tableCss`, `toScreen` for flat overlays), zone tiles like a real mat (`pileBox`), moving cards
+  fly as flat ghosts over the stage (`board/motion.ts`), cut-ins for ride / legion / attack /
+  checks / hit (`combat/Combat.tsx` `FxLayer`, `HOLD` per mode; Settings → **Battle cut-ins: Full
+  / Short / Off**, independent of Reduced motion), ATTACK vs DEFENCE display on the centre line,
+  standing power plates, fighter banners with damage pips, brighter theme and the new default
+  playmat **Daybreak Arena**. Tests: `app/tests/cutins.test.tsx`, `app/tests/motion.test.tsx`.
+- **G era (D-034):** engine, G-TD01/G-TD02, AIs (see the section below), and now **in the app,
+  marked IN TESTING**: Game Setup → Format → G era (G Trial Decks first, Classic decks legal too);
+  `engine.ts` `setPlayFormat` switches the shared `ctx` per game (GameSession sets it; menus and
+  online reset to Classic); G zone tiles; STRIDE on the phase rail; **Stride** and **G Guardian**
+  prompts (`prompts/GPrompts.tsx`). Tests: `app/tests/gPrompts.test.tsx`. 2281 tests pass.
+
+**Next (user's notes for the next session):**
+
+1. **Controller support** (user's request): play with a gamepad (e.g. Xbox / PlayStation via the
+   browser Gamepad API in the renderer). Needs a focus model for the board (circles, hand, zone
+   tiles, action bar, prompts), D-pad/stick to move, A = select/confirm, B = cancel/back,
+   shoulder buttons for hand / card details, and button hints on screen. Propose the button map
+   and scope to the user first (design decision).
+2. **Card art for the G era** (user's request): G-TD01/G-TD02 show text placeholders because no G
+   art is downloaded. The Artwork Manager already understands G file names (`cardIdFromFileName`:
+   `G-TD01_001EN`) and folders (`app/main/artPath.cjs`: `G-TD01/G-TD01-001.png`) and sorts G sets
+   last (`src/artwork/manifest.ts`), but downloading G sets from the official source has **not
+   been tried**: check that the manifest has image URLs for the G cards, download G-TD01/02, and
+   look at them in a game.
+3. G-era UI still missing: G decks in the Deck Builder, hearts drawn under a strided G unit, a
+   clearer G Assist prompt if the generic choice is confusing, online G games (protocol bump).
+   Then MBT01, then G-BT01 (D-034 order).
+4. When the user asks for a release: v0.27.0-alpha per `docs/RELEASING.md`.
+
+**Publishing (important):** the dev repository's `origin` points at the public GitHub repository,
+but its history contains a personal e-mail address (D-025): **never push from the dev repo.**
+Publish by mirroring the committed tree into `..\VanguardSim-public` (`git rm -rq .`, then
+`git -C ..\VanguardSim archive --format=tar HEAD | tar -x`, `git add -A`), commit there (its
+identity is the no-reply address), push with
+`git -c credential.helper= -c "credential.helper=!gh auth git-credential" push origin main`.
+Screenshots of a fresh profile: `VANGUARD_SHOTS=bench-results/ui-shots VANGUARD_SHOTS_STEPS=30
+node_modules/electron/dist/electron.exe . --user-data-dir=<temp dir>` (add
+`VANGUARD_SHOTS_FORMAT=g` for a G-era game). The user's own profile has Reduced motion on.
+
 ## ▶ Pick up here (session 2026-11-02, G era) — G era part 1 done, UI next
+
+_Superseded by the section above: the G-era UI it describes as uncommitted is now committed._
 
 **Status at wrap-up (2026-11-02, ~22:45):** G era part 1 is committed as `fee454b` on `master`
 (committed at the user's request, **not pushed or published**). The **other session** (the Dear

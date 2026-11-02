@@ -8,7 +8,7 @@ export const HIDDEN = 'HIDDEN';
  * What `viewer` is allowed to know (CR 4.1.3: public vs hidden zones). Controllers — AI, UI,
  * network later — receive this, never the full state.
  *
- * Hidden: both decks (identity and order), the opponent's hand, and the RNG state (which would
+ * Hidden: both decks (identity and order), the opponent's hand and face-down G zone cards, and the RNG state (which would
  * let a player predict shuffles). Cards offered to the viewer in a pending choice (e.g. a search
  * of their own deck) are visible to them.
  */
@@ -25,6 +25,8 @@ export function viewFor(state: GameState, viewer: PlayerId): GameState {
     ...state.players[other(viewer)].hand,
     // cards bound face down (e.g. by Nubatama) are hidden from the other player (CR 4.9)
     ...state.players[other(viewer)].bind.filter((id) => !state.cards[id]!.faceUp),
+    // the face-down cards of the opponent's G zone (CR 1.48.1 4.11.2)
+    ...state.players[other(viewer)].gzone.filter((id) => !state.cards[id]!.faceUp),
   ]);
   for (const id of hidden) {
     if (visibleChoice.has(id)) continue;

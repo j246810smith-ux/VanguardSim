@@ -1,0 +1,968 @@
+{
+  "set": "G-TD01",
+  "importedAt": "2026-11-02T21:55:13.074Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD01-001",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/001",
+        "name": "時空竜 ミステリーフレア・ドラゴン",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように1枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n【自】【(V)】：[【カウンターブラスト】(4)]このユニットのアタックがヴァンガードにヒットした時、あなたの山札の上から４枚公開してよい。公開したカードのグレードが４種類以上なら、コストを払ってよい。払ったら、あなたは追加の１ターンを得る。公開したら、あなたの山札をシャッフルする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_001.png"
+      },
+      "en": {
+        "number": "G-TD01/001EN",
+        "name": "Interdimensional Dragon, Mystery-flare Dragon",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[AUTO](VC):[Counter-Blast 4] When this unit's attack hits a vanguard, you may reveal four cards from the top of your deck. If the revealed cards have four or more different grades, you may pay the cost. If you do, you get an additional turn. If you had revealed cards, shuffle your deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/001", "G-TD01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F001",
+          "fetchedAt": "2026-11-02T21:53:54.377Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/001EN",
+          "fetchedAt": "2026-11-02T21:54:14.867Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-002",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/002",
+        "name": "クロノジェット・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000し、相手はグレード１以上のカードを手札から(G)にコールできない。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、相手はそのユニットを山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_002.png"
+      },
+      "en": {
+        "number": "G-TD01/002EN",
+        "name": "Chronojet Dragon",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, until end of that battle, this unit gets [Power] +5000, and your opponent cannot call grade 1 or greater units from hand to (GC).\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose one of your opponent's rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/002", "G-TD01/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F002",
+          "fetchedAt": "2026-11-02T21:53:55.586Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/002EN",
+          "fetchedAt": "2026-11-02T21:54:17.572Z",
+          "regulation": "Standard"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-003",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/003",
+        "name": "剛腕粉砕の時空巨兵",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアコロッサス",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_003.png"
+      },
+      "en": {
+        "number": "G-TD01/003EN",
+        "name": "Smithereen Colossus",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Colossus",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/003", "G-TD01/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F003",
+          "fetchedAt": "2026-11-02T21:53:56.431Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/003EN",
+          "fetchedAt": "2026-11-02T21:54:18.712Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-004",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/004",
+        "name": "スチームナイト ウバル・トゥトゥ",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、相手はそのユニットを山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_004.png"
+      },
+      "en": {
+        "number": "G-TD01/004EN",
+        "name": "Steam Knight, Ubara-tutu",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +6000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/004", "G-TD01/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F004",
+          "fetchedAt": "2026-11-02T21:53:57.604Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/004EN",
+          "fetchedAt": "2026-11-02T21:54:19.876Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-005",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/005",
+        "name": "スモークギア・ドラゴン",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_005.png"
+      },
+      "en": {
+        "number": "G-TD01/005EN",
+        "name": "Smokegear Dragon",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/005", "G-TD01/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F005",
+          "fetchedAt": "2026-11-02T21:53:58.369Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/005EN",
+          "fetchedAt": "2026-11-02T21:54:20.894Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-006",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/006",
+        "name": "スチームファイター アンバー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、相手はそのユニットを山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_006.png"
+      },
+      "en": {
+        "number": "G-TD01/006EN",
+        "name": "Steam Fighter, Amber",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/006", "G-TD01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F006",
+          "fetchedAt": "2026-11-02T21:53:59.838Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/006EN",
+          "fetchedAt": "2026-11-02T21:54:22.327Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-007",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/007",
+        "name": "ツインメーザー・ドラゴン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_007.png"
+      },
+      "en": {
+        "number": "G-TD01/007EN",
+        "name": "Twinmaser Dragon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/007", "G-TD01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F007",
+          "fetchedAt": "2026-11-02T21:54:01.223Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/007EN",
+          "fetchedAt": "2026-11-02T21:54:23.324Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-008",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/008",
+        "name": "山盛り甲羅のギアタートル",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_008.png"
+      },
+      "en": {
+        "number": "G-TD01/008EN",
+        "name": "Great Carapace, Gear Turtle",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/008", "G-TD01/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F008",
+          "fetchedAt": "2026-11-02T21:54:02.379Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/008EN",
+          "fetchedAt": "2026-11-02T21:54:24.501Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-009",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/009",
+        "name": "メーザーギア・ドラゴン",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_009.png"
+      },
+      "en": {
+        "number": "G-TD01/009EN",
+        "name": "Masergear Dragon",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/009", "G-TD01/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F009",
+          "fetchedAt": "2026-11-02T21:54:03.120Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/009EN",
+          "fetchedAt": "2026-11-02T21:54:25.453Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-010",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/010",
+        "name": "ブラスウイング・ドラゴン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_010.png"
+      },
+      "en": {
+        "number": "G-TD01/010EN",
+        "name": "Brasswing Dragon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/010", "G-TD01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F010",
+          "fetchedAt": "2026-11-02T21:54:04.299Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/010EN",
+          "fetchedAt": "2026-11-02T21:54:26.656Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-011",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/011",
+        "name": "スチームソルジャー トーゲ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックされた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_011.png"
+      },
+      "en": {
+        "number": "G-TD01/011EN",
+        "name": "Steam Soldier, Tauge",
+        "text": "[AUTO](VC/RC):When this unit is attacked, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/011", "G-TD01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F011",
+          "fetchedAt": "2026-11-02T21:54:05.034Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/011EN",
+          "fetchedAt": "2026-11-02T21:54:27.794Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-012",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/012",
+        "name": "スチームライダー バーナム",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードを【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_012.png"
+      },
+      "en": {
+        "number": "G-TD01/012EN",
+        "name": "Steam Rider, Burnham",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]) a vanguard, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/012", "G-TD01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F012",
+          "fetchedAt": "2026-11-02T21:54:06.419Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/012EN",
+          "fetchedAt": "2026-11-02T21:54:28.977Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-013",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/013",
+        "name": "引っ込み思案のギアレイヴン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_013.png"
+      },
+      "en": {
+        "number": "G-TD01/013EN",
+        "name": "Withdrawn Gear Raven",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD01/013", "G-TD01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F013",
+          "fetchedAt": "2026-11-02T21:54:07.163Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/013EN",
+          "fetchedAt": "2026-11-02T21:54:29.994Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-014",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/014",
+        "name": "ガンナーギア・ドラコキッド",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札からグレード３のカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_014.png"
+      },
+      "en": {
+        "number": "G-TD01/014EN",
+        "name": "Gunnergear Dracokid",
+        "text": "[AUTO]:Forerunner(When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Search your deck for up to one grade 3 card, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/014", "G-TD01/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F014",
+          "fetchedAt": "2026-11-02T21:54:08.015Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/014EN",
+          "fetchedAt": "2026-11-02T21:54:31.094Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-015",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/015",
+        "name": "スチームバトラー ダダシグ",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_015.png"
+      },
+      "en": {
+        "number": "G-TD01/015EN",
+        "name": "Steam Battler, Dadasig",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/015", "G-TD01/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F015",
+          "fetchedAt": "2026-11-02T21:54:08.816Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/015EN",
+          "fetchedAt": "2026-11-02T21:54:32.249Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-016",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/016",
+        "name": "スチームナイト シュ・シン",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_016.png"
+      },
+      "en": {
+        "number": "G-TD01/016EN",
+        "name": "Steam Knight, Shu Sin",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/016", "G-TD01/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F016",
+          "fetchedAt": "2026-11-02T21:54:10.128Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/016EN",
+          "fetchedAt": "2026-11-02T21:54:33.185Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-017",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/017",
+        "name": "腹時計付きのギアラビット",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_017.png"
+      },
+      "en": {
+        "number": "G-TD01/017EN",
+        "name": "Stomach Clock Gear Rabbit",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/017", "G-TD01/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F017",
+          "fetchedAt": "2026-11-02T21:54:11.271Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/017EN",
+          "fetchedAt": "2026-11-02T21:54:34.359Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-018",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/018",
+        "name": "スチームメイデン ウルル",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_018.png"
+      },
+      "en": {
+        "number": "G-TD01/018EN",
+        "name": "Steam Maiden, Uluru",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/018", "G-TD01/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F018",
+          "fetchedAt": "2026-11-02T21:54:12.425Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/018EN",
+          "fetchedAt": "2026-11-02T21:54:36.159Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD01-019",
+      "set": "G-TD01",
+      "jp": {
+        "number": "G-TD01/019",
+        "name": "ラッキーポット・ドラコキッド",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ギアクロニクル》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD01/gtd01_019.png"
+      },
+      "en": {
+        "number": "G-TD01/019EN",
+        "name": "Luckypot Dracokid",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Gear Chronicle>, and it gets [Power] +3000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd01/GTD01_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD01/019", "G-TD01/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD01%2F019",
+          "fetchedAt": "2026-11-02T21:54:13.655Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD01/019EN",
+          "fetchedAt": "2026-11-02T21:54:38.096Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 1: Awakening of the Interdimensional Dragon",
+    "cards": [
+      {
+        "id": "G-TD01-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-003",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD01-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD01-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-016",
+        "count": 2
+      },
+      {
+        "id": "G-TD01-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD01-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/gtd01/",
+      "fetchedAt": "2026-11-02T21:55:13.070Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

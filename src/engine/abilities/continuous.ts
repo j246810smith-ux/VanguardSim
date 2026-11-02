@@ -5,14 +5,27 @@
  */
 import type { EngineContext } from '../game/context';
 import { locate } from '../game/locate';
-import type { GameState, InstanceId, PlayerId, ZoneRef } from '../state/types';
+import {
+  isHeart,
+  type GameState,
+  type InstanceId,
+  type PlayerId,
+  type ZoneRef,
+} from '../state/types';
+import { generationBreakMet } from '../game/generation';
 import { abilitiesOf, holders } from './catalog';
 import { evaluate, matches, select, type EvalContext } from './evaluate';
 import type { ActiveZone, ContAbility, Permission, Restriction, Stat } from './types';
 
-/** The ability zone (CR 3.1.1.3) a card is in, or null for zones where no ability is active. */
-export function activeZoneOf(ref: ZoneRef): ActiveZone | null {
+/**
+ * The ability zone (CR 3.1.1.3) a card is in, or null for zones where no ability is active.
+ * A heart (CR 1.48.1 10.27.3) has only a name and power: none of its abilities are active.
+ */
+export function activeZoneOf(ref: ZoneRef, heart = false): ActiveZone | null {
+  if (heart) return null;
   switch (ref.zone) {
+    case 'gzone':
+      return 'GZ';
     case 'circle':
       return ref.circle === 'vanguard' ? 'VC' : 'RC';
     case 'guardian':
@@ -80,7 +93,7 @@ function activeContinuous(
     for (const id of holders(state, 'CONT')) {
       const abilities = abilitiesOf(state, ctx, id);
       const where = locate(state, id);
-      const zone = activeZoneOf(where);
+      const zone = activeZoneOf(where, isHeart(state, id));
       if (zone === null) continue;
       const ec: EvalContext = {
         state,
@@ -93,6 +106,7 @@ function activeContinuous(
       for (const a of abilities) {
         if (a.kind !== 'CONT' || !zoneAllows(a.zones, zone)) continue;
         if (!limitBreakMet(state, ctx, where.player, a.limitBreak, id)) continue;
+        if (!generationBreakMet(state, ctx, where.player, a.generationBreak)) continue;
         if (a.condition && !evaluate(ec, a.condition)) continue;
         out.push({ ec, a });
       }

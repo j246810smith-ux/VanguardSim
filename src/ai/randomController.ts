@@ -66,6 +66,17 @@ export class RandomController implements PlayerController {
         return { type: 'GUARD', player, cardId: this.pick(action.cardIds) };
       case 'INTERCEPT':
         return { type: 'INTERCEPT', player, unitId: this.pick(action.unitIds) };
+      case 'STRIDE': {
+        const cardId = this.pick(action.cardIds);
+        return { type: 'STRIDE', player, cardId, discard: action.suggestedDiscard };
+      }
+      case 'G_GUARD':
+        return {
+          type: 'G_GUARD',
+          player,
+          cardId: this.pick(action.cardIds),
+          discard: this.pick(action.costCards),
+        };
       case 'PASS_GUARD':
         return { type: 'PASS_GUARD', player };
       case 'CHOOSE': {

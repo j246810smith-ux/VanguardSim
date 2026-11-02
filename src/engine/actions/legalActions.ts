@@ -9,6 +9,13 @@ import {
 import type { EngineContext } from '../game/context';
 import { currentGrade } from '../game/characteristics';
 import {
+  cheapestStrideDiscard,
+  gGuardianCostOptions,
+  gGuardianOptions,
+  strideCostPayable,
+  strideOptions,
+} from '../game/generation';
+import {
   other,
   REAR_GUARD_CIRCLES,
   SWAPPABLE_COLUMNS,
@@ -49,6 +56,24 @@ export type LegalAction =
   | {
       readonly type: 'INTERCEPT';
       readonly unitIds: readonly InstanceId[];
+      readonly guardable: readonly InstanceId[];
+    }
+  /**
+   * Stride one of `cardIds` (CR 1.48.1 6.5.1.2), discarding cards from `discardable` whose grades
+   * total 3 or greater.
+   */
+  | {
+      readonly type: 'STRIDE';
+      readonly cardIds: readonly InstanceId[];
+      readonly discardable: readonly InstanceId[];
+      /** A cheapest legal discard (fewest cards, lowest grades), for defaults and the AI. */
+      readonly suggestedDiscard: readonly InstanceId[];
+    }
+  /** Call one of `cardIds` as a G guardian, discarding one of `costCards` (heal triggers). */
+  | {
+      readonly type: 'G_GUARD';
+      readonly cardIds: readonly InstanceId[];
+      readonly costCards: readonly InstanceId[];
       readonly guardable: readonly InstanceId[];
     }
   | { readonly type: 'PASS_GUARD' }
@@ -125,6 +150,11 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     if (cardIds.length > 0) actions.push({ type: 'GUARD', cardIds, guardable });
     const unitIds = interceptors(state, ctx, player);
     if (unitIds.length > 0) actions.push({ type: 'INTERCEPT', unitIds, guardable });
+    const gGuardians = gGuardianOptions(state, ctx, player);
+    if (gGuardians.length > 0) {
+      const costCards = gGuardianCostOptions(state, ctx, player);
+      actions.push({ type: 'G_GUARD', cardIds: gGuardians, costCards, guardable });
+    }
     actions.push({ type: 'PASS_GUARD' });
     return actions;
   }
@@ -133,6 +163,14 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
   if (state.phase === 'ride' && !state.turnFlags.normalRideUsed) {
     const cardIds = rideableCards(state, ctx, player);
     if (cardIds.length > 0) actions.push({ type: 'RIDE', cardIds });
+  }
+  if (state.phase === 'stride') {
+    const cardIds = strideOptions(state, ctx, player);
+    const hand = state.players[player].hand;
+    const suggestedDiscard = cheapestStrideDiscard(state, ctx, hand);
+    if (cardIds.length > 0 && suggestedDiscard) {
+      actions.push({ type: 'STRIDE', cardIds, discardable: [...hand], suggestedDiscard });
+    }
   }
   if (state.phase === 'main') {
     const cardIds = callableCards(state, ctx, player);
@@ -156,7 +194,7 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const options = attackOptions(state, ctx);
     if (options.length > 0) actions.push({ type: 'ATTACK', options });
   }
-  if (['ride', 'main', 'battle'].includes(state.phase) && state.battle === null) {
+  if (['ride', 'stride', 'main', 'battle'].includes(state.phase) && state.battle === null) {
     actions.push({ type: 'END_PHASE', phase: state.phase });
   }
   return actions;
@@ -254,6 +292,26 @@ export function whyIllegal(state: GameState, command: Command, ctx: EngineContex
       return action.unitIds.includes(command.unitId)
         ? null
         : `${command.unitId} cannot intercept (Intercept icon, front rear-guard, not attacked)`;
+    }
+    case 'STRIDE': {
+      const action = find('STRIDE');
+      if (!action) return `${who} cannot stride now`;
+      if (!action.cardIds.includes(command.cardId))
+        return `${command.cardId} cannot stride (a face-down G unit in your G zone)`;
+      return strideCostPayable(state, ctx, command.player, command.discard)
+        ? null
+        : 'Stride cost: discard one or more cards from your hand with grades totalling 3 or greater';
+    }
+    case 'G_GUARD': {
+      const action = find('G_GUARD');
+      if (!action) return `${who} cannot call a G guardian now`;
+      if (command.guarding !== undefined && !action.guardable.includes(command.guarding))
+        return `${command.guarding} is not being attacked`;
+      if (!action.costCards.includes(command.discard))
+        return `${command.discard} cannot pay the G guardian cost (a heal trigger in your hand)`;
+      return action.cardIds.includes(command.cardId)
+        ? null
+        : `${command.cardId} cannot be called as a G guardian`;
     }
     case 'PASS_GUARD':
       return find('PASS_GUARD') ? null : `${who} is not in a guard step`;

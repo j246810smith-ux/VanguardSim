@@ -266,9 +266,10 @@ const set = args.find((a) => !a.startsWith('--'));
 const refresh = args.includes('--refresh');
 const images = args.includes('--images');
 // boosters, trial decks and the side sets of DECISIONS D-029
-if (!set || !/^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}$/.test(set)) {
+// …and the G era's products (DECISIONS D-034): G-BT01, G-TD01, G-EB01, G-CB01, G-CHB01, G-FC01, …
+if (!set || !/^((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2})$/.test(set)) {
   console.error(
-    'usage: npm run cards:import -- BT01|TD01|EB01|FC01|MBT01|… [--refresh] [--images]',
+    'usage: npm run cards:import -- BT01|TD01|EB01|FC01|MBT01|G-TD01|G-BT01|… [--refresh] [--images]',
   );
   process.exit(2);
 }
@@ -491,6 +492,59 @@ function useSpecials(g: ReturnType<typeof group>, overrides: Readonly<Record<str
   }
 }
 
+/**
+ * DECISIONS D-034: the G format plays G-era cards with the text they had in the G era. Cards the
+ * official database marks "Updated: Text" were rewritten after the G era (2019 onward, e.g. the
+ * Imaginary Gift updates); their G-era text comes from the newest Internet Archive copy of the
+ * English card page from before 2020 that does not carry the update. Cached in data/raw/archive.
+ */
+const ARCHIVE_BEFORE = '20200101';
+const isUpdated = (text: string) => /^(Updated:|アップデート：)/.test(text);
+
+async function archivedText(enNumber: string): Promise<{ text: string; source: SourceRef } | null> {
+  const url = HOSTS.en + cardPath(enNumber);
+  const file = join('data', 'raw', 'archive', set!, `${enNumber.replace(/[/\\?&=]/g, '_')}.html`);
+  let html: string;
+  let stamp: string;
+  if (!refresh && existsSync(file) && existsSync(`${file}.meta`)) {
+    html = readFileSync(file, 'utf8');
+    stamp = readFileSync(`${file}.meta`, 'utf8').trim();
+  } else {
+    const cdx = await (
+      await fetchRaw(
+        `https://web.archive.org/cdx/search/cdx?url=${encodeURIComponent(url.replace(/^https:\/\//, ''))}&to=${ARCHIVE_BEFORE}&filter=statuscode:200&fl=timestamp&output=txt`,
+      )
+    ).text();
+    const stamps = cdx
+      .split('\n')
+      .filter((l) => /^\d{14}$/.test(l))
+      .reverse();
+    let found: { html: string; stamp: string } | null = null;
+    for (const t of stamps) {
+      const h = await (await fetchRaw(`https://web.archive.org/web/${t}id_/${url}`)).text();
+      if (/cardlist_detail/.test(h) && !isUpdated(parseCardPage(h, 'en').text)) {
+        found = { html: h, stamp: t };
+        break;
+      }
+    }
+    if (!found) return null;
+    ({ html, stamp } = found);
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, html);
+    writeFileSync(`${file}.meta`, stamp);
+  }
+  const c = parseCardPage(html, 'en');
+  const at = `${stamp.slice(0, 4)}-${stamp.slice(4, 6)}-${stamp.slice(6, 8)}T${stamp.slice(8, 10)}:${stamp.slice(10, 12)}:${stamp.slice(12, 14)}Z`;
+  return {
+    text: c.text,
+    source: {
+      url: `https://web.archive.org/web/${stamp}/${url}`,
+      fetchedAt: at,
+      regulation: c.regulation,
+    },
+  };
+}
+
 const localized = (c: ParsedCard): Localized => ({
   number: c.number,
   name: c.name,
@@ -625,11 +679,20 @@ async function main(): Promise<void> {
     const canonical = (reviewed?.use === 'en' && e ? e : (j ?? e))!.card;
     const mismatches = enFrom ? [] : crossCheck(j?.card, e?.card);
     const id = `${set}-${no}`;
+    // D-034: a G-era card rewritten after the G era plays with its archived G-era text
+    let original: Awaited<ReturnType<typeof archivedText>> = null;
+    if (e && isUpdated(e.card.text)) {
+      original = await archivedText(e.card.number);
+      if (!original) throw new Error(`${id}: "Updated" text and no pre-2020 archived page`);
+      console.log(`  ${id}: updated text; G-era text from ${original.source.url}`);
+    }
     cards.push({
       id,
       set: set!,
       jp: j ? localized(j.card) : null,
-      en: e ? localized(e.card) : (enFrom?.en ?? null),
+      en: e
+        ? { ...localized(e.card), ...(original ? { text: original.text } : {}) }
+        : (enFrom?.en ?? null),
       cardType: canonical.type,
       grade: canonical.grade,
       power: canonical.power,
@@ -641,10 +704,15 @@ async function main(): Promise<void> {
       sentinel: /:Sentinel/.test(e?.card.text ?? '') || /守護者（守護者は/.test(j?.card.text ?? ''),
       rarity: canonical.rarity,
       printings: [...(jp.printings.get(no) ?? []), ...(enNo ? (en.printings.get(enNo) ?? []) : [])],
-      sources: { ...(j ? { jp: j.source } : {}), ...(e ? { en: e.source } : {}) },
+      sources: {
+        ...(j ? { jp: j.source } : {}),
+        ...(e ? { en: e.source } : {}),
+        ...(original ? { enArchive: original.source } : {}),
+      },
       checks: {
         jpEnStatsMatch: mismatches.length === 0,
         mismatches,
+        ...(original ? { updatedText: e!.card.text } : {}),
         ...(reviewed ? { reviewed: reviewed.reason, statsFrom: reviewed.use } : {}),
         ...(enFrom ? { englishFrom: enFrom.id } : {}),
       },
@@ -694,7 +762,7 @@ async function main(): Promise<void> {
       await downloadImage(id, e.card, 'en');
     }
   }
-  const product = set!.startsWith('TD') ? await productDeck(pairing.pairs) : undefined;
+  const product = /^(G-)?TD\d{2}$/.test(set!) ? await productDeck(pairing.pairs) : undefined;
   const file: SetFile = {
     set: set!,
     importedAt: new Date().toISOString(),
@@ -723,18 +791,22 @@ async function main(): Promise<void> {
   }
 }
 
-/** "4pc TD01/001EN Crimson Butterfly, Brigitte" lines of the English product page. */
+/**
+ * "4pc TD01/001EN Crimson Butterfly, Brigitte" lines of the English product page. A G-era Trial
+ * Deck also lists its G units (DECISIONS D-034): they form the G deck.
+ */
 async function productDeck(
   pairs: ReadonlyMap<string, string>,
 ): Promise<NonNullable<SetFile['product']>> {
-  const path = `/products/${set!.toLowerCase()}/`;
+  // G-TD01 → /products/gtd01/
+  const path = `/products/${set!.toLowerCase().replace('-', '')}/`;
   const { html, fetchedAt } = await page('en', path, 'product');
   const name =
     /<h1 class="title">(?:[^<]*<br\s*\/?>)?\s*([^<]+)<\/h1>/.exec(html)?.[1]?.trim() ?? set!;
   const enToJp = new Map([...pairs].map(([jp, en]) => [en, jp]));
   const cards: { id: string; count: number }[] = [];
   // "0?": the TD11 page prints "TD11/0002EN"
-  for (const m of html.matchAll(/(\d+)pc\s+([A-Z]{2}\d{2})\/0?(\d{3})EN\*?\s/g)) {
+  for (const m of html.matchAll(/(\d+)pc\s+((?:G-)?[A-Z]{2}\d{2})\/0?(\d{3})EN\*?\s/g)) {
     const [, count, code, enNo] = m;
     if (code !== set) throw new Error(`${set} product page lists ${code}/${enNo}EN`);
     const jpNo = enToJp.get(enNo!);

@@ -53,6 +53,24 @@ export type Command =
       readonly unitId: InstanceId;
       readonly guarding?: InstanceId;
     }
+  /**
+   * G era, stride step (CR 1.48.1 6.5.1.2): stride `cardId` from the G zone, discarding `discard`
+   * from hand (grades totalling 3 or greater).
+   */
+  | {
+      readonly type: 'STRIDE';
+      readonly player: PlayerId;
+      readonly cardId: InstanceId;
+      readonly discard: readonly InstanceId[];
+    }
+  /** G era, guard step (CR 1.48.1 7.5.1.2.3): call a G guardian, discarding a heal trigger. */
+  | {
+      readonly type: 'G_GUARD';
+      readonly player: PlayerId;
+      readonly cardId: InstanceId;
+      readonly discard: InstanceId;
+      readonly guarding?: InstanceId;
+    }
   /** Guard step (defender): stop guarding. */
   | { readonly type: 'PASS_GUARD'; readonly player: PlayerId }
   /** Answer the pending choice. */

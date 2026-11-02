@@ -29,7 +29,7 @@ export interface CardRecord {
   readonly set: string;
   readonly jp: Localized | null;
   readonly en: Localized | null;
-  readonly cardType: 'normal_unit' | 'trigger_unit';
+  readonly cardType: 'normal_unit' | 'trigger_unit' | 'g_unit';
   readonly grade: number;
   readonly power: number;
   readonly shield: number;
@@ -40,7 +40,12 @@ export interface CardRecord {
   readonly rarity: string;
   /** Every printing of this card in the set (base number first, then e.g. S/SP printings). */
   readonly printings: readonly string[];
-  readonly sources: { readonly jp?: SourceRef; readonly en?: SourceRef };
+  readonly sources: {
+    readonly jp?: SourceRef;
+    readonly en?: SourceRef;
+    /** D-034: the archived English page the G-era text comes from (the card was later updated). */
+    readonly enArchive?: SourceRef;
+  };
   /** Automated cross-checks between the two official sources. */
   readonly checks: {
     readonly jpEnStatsMatch: boolean;
@@ -56,6 +61,11 @@ export interface CardRecord {
      * (a reprint with the same Japanese name).
      */
     readonly englishFrom?: string;
+    /**
+     * D-034: the official database's current, post-G-era text ("Updated: Text"), kept for
+     * reference; `en.text` holds the G-era text from `sources.enArchive`.
+     */
+    readonly updatedText?: string;
   };
 }
 

@@ -8,6 +8,7 @@ import { normalCall, normalRide, swapRearGuards } from './game/play';
 import { advancePhase } from './game/flow';
 import { endGame } from './game/ruleActions';
 import { mulligan } from './game/setup';
+import { callGGuardian, stride } from './game/generation';
 import { runTasks } from './game/tasks';
 import { cloneState } from './state/clone';
 import type { GameState } from './state/types';
@@ -49,6 +50,12 @@ export function applyCommand(
       break;
     case 'INTERCEPT':
       intercept(d, command.unitId, command.guarding);
+      break;
+    case 'STRIDE':
+      stride(d, command.player, command.cardId, command.discard, true);
+      break;
+    case 'G_GUARD':
+      callGGuardian(d, command.cardId, command.discard, command.guarding);
       break;
     case 'PASS_GUARD':
       passGuard(d);

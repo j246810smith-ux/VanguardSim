@@ -70,6 +70,10 @@ export function determinize(
       : null;
   const myFiller = standIn(ctx, clanOf(myVg));
   const oppFiller = standIn(ctx, clanOf(oppVg));
+  // the opponent's face-down G zone holds G units (G era, D-034): any G unit of their clan
+  const oppGZone = new Set(s.players[opp].gzone);
+  const gUnits = ctx.registry.all().filter((d) => d.cardType === 'g_unit');
+  const oppGFiller = (gUnits.find((d) => d.clan === clanOf(oppVg)) ?? gUnits[0])?.id ?? oppFiller;
 
   for (const id of Object.keys(s.cards)) {
     const card = s.cards[id]!;
@@ -77,6 +81,7 @@ export function determinize(
     let def: string;
     if (card.owner === me && pool.length > 0) def = pool.splice(nextInt(rng, pool.length), 1)[0]!;
     else if (card.owner === me) def = myFiller;
+    else if (oppGZone.has(id)) def = oppGFiller;
     else def = oppSample[oppHidden.indexOf(id)] ?? oppFiller;
     s.cards[id] = { ...card, definitionId: def };
   }

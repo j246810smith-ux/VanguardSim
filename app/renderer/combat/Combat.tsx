@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import {
+  HIDDEN,
+  currentCritical,
   currentPower,
   currentShield,
   type GameState,
   type InstanceId,
   type PlayerId,
 } from '../../../src/engine';
-import { circlePos, type Point } from '../board/layout';
+import { circlePos, toScreen, type Point } from '../board/layout';
 import { ctx, ME } from '../engine';
 import type { AttackPreview } from '../game/attackPreview';
 import type { Fx } from '../game/session';
@@ -62,7 +64,13 @@ export function AttackLines({
   );
 }
 
-/** Attack vs. defence power, boost contribution and guardians, on the centre line. */
+/** The centre line between the fields, on screen (the table is tilted, D-035). */
+const CENTRE_Y = Math.round(toScreen({ x: 960, y: 504 }).y);
+
+/**
+ * Attack vs. defence on the centre line (D-035): your plate on the left, the opponent's on the
+ * right, VS between them, with the boost, shields and how much shield still stops the hit.
+ */
 export function BattleHud({ view }: { view: GameState }) {
   const b = view.battle;
   if (!b) return null;
@@ -72,27 +80,40 @@ export function BattleHud({ view }: { view: GameState }) {
   const def = isOn(view, defenderSide, b.target) ? currentPower(view, ctx, b.target) : 0;
   const boost =
     b.booster && isOn(view, attackerSide, b.booster) ? currentPower(view, ctx, b.booster) : 0;
+  const crit = isOn(view, attackerSide, b.attacker) ? currentCritical(view, ctx, b.attacker) : 1;
   const guardians = view.players[defenderSide].guardian;
   const shield = guardians.reduce((sum, id) => sum + currentShield(view, ctx, id), 0);
   const myAttack = attackerSide === ME;
+  const guarded = def > atk;
   // the attack hits when defence ≤ attack, so shields come in steps of 5000 above the gap
+  const needs = Math.floor((atk - def) / 5000) * 5000 + 5000;
+  const attack = (
+    <div className={`vs-plate atk ${myAttack ? 'me' : 'opp'}`} key="atk">
+      <span className="lbl">ATTACK</span>
+      <span className="val">{atk}</span>
+      <span className="sub">
+        {boost > 0 ? `boost +${boost} · ` : ''}★{crit}
+      </span>
+    </div>
+  );
+  const defence = (
+    <div
+      className={`vs-plate def ${myAttack ? 'opp' : 'me'} ${guarded ? 'guarded' : ''}`}
+      key="def"
+    >
+      <span className="lbl">DEFENCE</span>
+      <span className="val">{def}</span>
+      <span className="sub">
+        {shield > 0 ? `shield +${shield} · ` : ''}
+        {guarded ? 'GUARDED' : `needs ${needs}`}
+      </span>
+    </div>
+  );
   return (
-    <>
-      <div className="battle-hud atk" style={{ left: myAttack ? 390 : 1400 }}>
-        <span className="lbl">ATTACK</span>
-        <span className="val">{atk}</span>
-        {boost > 0 && <span className="sub">boost +{boost}</span>}
-      </div>
-      <div className="battle-hud" style={{ left: myAttack ? 1400 : 390 }}>
-        <span className="lbl">DEFENCE</span>
-        <span className="val" style={{ color: def > atk ? 'var(--good)' : 'var(--text)' }}>
-          {def}
-        </span>
-        {shield > 0 && <span className="sub">shield +{shield}</span>}
-        <span className="sub" style={{ color: def > atk ? 'var(--good)' : 'var(--hit)' }}>
-          {def > atk ? 'GUARDED' : `needs ${Math.floor((atk - def) / 5000) * 5000 + 5000} shield`}
-        </span>
-      </div>
+    <div className="battle-vs" style={{ top: CENTRE_Y }} data-testid="battle-hud">
+      {myAttack ? attack : defence}
+      <div className="vs-mark">VS</div>
+      {myAttack ? defence : attack}
       {guardians.length > 0 && (
         <div className="guardian-row">
           {guardians.map((id) => (
@@ -103,7 +124,7 @@ export function BattleHud({ view }: { view: GameState }) {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -161,37 +182,153 @@ const TRIGGER_EFFECT: Record<string, string> = {
   heal: 'Heal 1 damage · Power +5000',
 };
 
-/** Checks, hit results and banners take the stage briefly (skippable; instant speed skips them). */
+type Mode = 'full' | 'short' | 'off';
+
+/** How long each moment holds the stage, per cut-in mode (ms at normal speed; 0 = not shown). */
+const HOLD: Record<Mode, Record<Fx['kind'], number>> = {
+  full: {
+    ride: 1500,
+    legion: 1700,
+    attack: 750,
+    check: 1400,
+    result: 900,
+    banner: 900,
+    ability: 1500,
+  },
+  short: {
+    ride: 750,
+    legion: 850,
+    attack: 0,
+    check: 1000,
+    result: 700,
+    banner: 700,
+    ability: 1500,
+  },
+  off: { ride: 900, legion: 900, attack: 0, check: 1300, result: 900, banner: 900, ability: 1500 },
+};
+
+const nameOf = (definitionId: string) =>
+  definitionId === HIDDEN ? '' : ctx.registry.get(definitionId).name;
+
+/**
+ * Checks, hit results, banners and (D-035) cut-ins take the stage briefly; the rules never wait
+ * for them. "Full" plays Dear Days–style cut-ins (ride, legion, attack, a large check in the
+ * middle), "Short" quick ones, "Off" only the small banners. Instant speed skips them all.
+ */
 export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: number) => void }) {
   const settings = useSettings();
+  // its own setting, not tied to Reduced motion (which stops cards sliding): the user chose it
+  const mode: Mode = settings.cutIns ?? 'full';
+  const hold = fx ? HOLD[mode][fx.kind] : 0;
   useEffect(() => {
     if (!fx) return;
-    const ms = paced(settings, fx.kind === 'check' ? 1300 : fx.kind === 'ability' ? 1500 : 900);
-    const t = setTimeout(() => onDone(fx.id), ms);
+    const t = setTimeout(() => onDone(fx.id), paced(settings, hold));
     return () => clearTimeout(t);
-  }, [fx, settings, onDone]);
+  }, [fx, settings, onDone, hold]);
   // abilities are drawn beside the G circle (board/AbilityCallout); only their timing is here
-  if (!fx || fx.kind === 'ability' || settings.speed === 'instant') return null;
+  if (!fx || fx.kind === 'ability' || settings.speed === 'instant' || hold === 0) return null;
+  const ms = `${paced(settings, hold)}ms`;
+  const side = (p: PlayerId) => (p === ME ? 'me' : 'opp');
   return (
-    <div className="fx" key={fx.id}>
-      {fx.kind === 'check' && (
-        <div className={`fx-check ${fx.player === ME ? 'me' : 'opp'}`}>
-          <CardView definitionId={fx.definitionId} width={110} height={160} />
-          <div>
+    <div className={`fx fx-${mode}`} key={fx.id} style={{ ['--hold' as string]: ms }}>
+      {fx.kind === 'ride' &&
+        (mode === 'off' ? (
+          <div className={`fx-banner ${side(fx.player)}`}>
+            {fx.superior ? 'SUPERIOR RIDE!' : 'RIDE!'}
+          </div>
+        ) : (
+          <div className={`cutin ride ${side(fx.player)} ${mode}`} data-testid="cutin-ride">
+            <div className="band">
+              <div className="band-art">
+                <CardView definitionId={fx.definitionId} width={300} height={437} />
+              </div>
+            </div>
+            <div className="hero">
+              <CardView definitionId={fx.definitionId} width={260} height={379} />
+            </div>
+            <div className="words">
+              <div className="call">{fx.superior ? 'SUPERIOR RIDE!' : 'RIDE!'}</div>
+              <div className="name">{nameOf(fx.definitionId)}</div>
+            </div>
+          </div>
+        ))}
+      {fx.kind === 'legion' &&
+        (mode === 'off' ? (
+          <div className="fx-banner gold">LEGION!</div>
+        ) : (
+          <div className={`cutin legion ${side(fx.player)} ${mode}`} data-testid="cutin-legion">
+            <div className="band gold" />
+            <div className="pair">
+              <div className="l">
+                <CardView definitionId={fx.leader} width={220} height={320} />
+              </div>
+              <div className="r">
+                <CardView definitionId={fx.mate} width={220} height={320} />
+              </div>
+            </div>
+            <div className="words">
+              <div className="call">LEGION!</div>
+              <div className="name">
+                {nameOf(fx.leader)} + {nameOf(fx.mate)}
+              </div>
+            </div>
+          </div>
+        ))}
+      {fx.kind === 'attack' && (
+        <div className={`cutin attack ${side(fx.player)}`} data-testid="cutin-attack">
+          <div className="slash" />
+          <div className="mini">
+            <CardView definitionId={fx.attacker} width={110} height={160} />
+          </div>
+          <div className="words">
+            <div className="call">ATTACK!</div>
+            <div className="name">
+              {nameOf(fx.attacker)}
+              {fx.boosted ? ' (boosted)' : ''} → {nameOf(fx.target)}
+            </div>
+          </div>
+        </div>
+      )}
+      {fx.kind === 'check' &&
+        (mode === 'full' ? (
+          <div
+            className={`cutin check ${side(fx.player)} ${fx.trigger && fx.active ? `t-${fx.trigger}` : 'none'}`}
+            data-testid="cutin-check"
+          >
             <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
+            <div className="flip">
+              {fx.trigger && fx.active && <div className="burst" />}
+              <CardView definitionId={fx.definitionId} width={230} height={335} />
+            </div>
             {fx.trigger && fx.active ? (
               <>
-                <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER</div>
+                <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER!</div>
                 <div className="effect">{TRIGGER_EFFECT[fx.trigger]}</div>
               </>
             ) : (
               <div className="trig none">{fx.trigger ? 'NO EFFECT' : 'NO TRIGGER'}</div>
             )}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className={`fx-check ${side(fx.player)}`}>
+            <CardView definitionId={fx.definitionId} width={110} height={160} />
+            <div>
+              <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
+              {fx.trigger && fx.active ? (
+                <>
+                  <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER</div>
+                  <div className="effect">{TRIGGER_EFFECT[fx.trigger]}</div>
+                </>
+              ) : (
+                <div className="trig none">{fx.trigger ? 'NO EFFECT' : 'NO TRIGGER'}</div>
+              )}
+            </div>
+          </div>
+        ))}
       {fx.kind === 'result' && (
-        <div className={`fx-banner ${fx.hit ? 'hit' : 'nohit'}`}>{fx.hit ? 'HIT!' : 'NO HIT'}</div>
+        <div className={`fx-banner ${fx.hit ? 'hit' : 'nohit'} ${mode}`}>
+          {fx.hit ? 'HIT!' : 'NO HIT'}
+        </div>
       )}
       {fx.kind === 'banner' && <div className={`fx-banner ${fx.tone}`}>{fx.text}</div>}
     </div>

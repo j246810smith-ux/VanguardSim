@@ -1,4 +1,6 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import type { FormatKey } from '../../src/engine';
+import { setPlayFormat } from './engine';
 import type { AiLevel, SessionConfig } from './game/session';
 import { BattleScreen, type OnlineInfo } from './screens/BattleScreen';
 import { OnlineScreen } from './screens/OnlineScreen';
@@ -60,6 +62,10 @@ export function App() {
     online.current = null;
   };
   useEffect(() => saveSettings(settings), [settings]);
+  // menus and the Deck Builder use the Classic rules; a G-era game sets its own (D-034)
+  useEffect(() => {
+    if (screen.name !== 'battle') setPlayFormat('classic');
+  }, [screen.name]);
   useEffect(() => audio.configure(settings), [settings]);
   // menu music everywhere but in a battle; a new battle (or rematch) starts the battle music
   const battleKey = screen.name === 'battle' || screen.name === 'online-battle' ? screen.key : null;
@@ -172,9 +178,15 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
 
 function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionConfig) => void }) {
   const settings = useSettings();
-  const [entries] = useState(deckEntries);
+  const [format, setFormat] = useState<FormatKey>('classic');
+  const entries = useMemo(() => deckEntries(format), [format]);
   const [mine, setMine] = useState(0);
   const [theirs, setTheirs] = useState(1);
+  const pickFormat = (f: FormatKey) => {
+    setFormat(f);
+    setMine(0);
+    setTheirs(1);
+  };
   const [ai, setAi] = useState<AiLevel>('smart');
   const [seed, setSeed] = useState('');
   const [delayedLegion, setDelayedLegion] = useState(false);
@@ -190,6 +202,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       aiDeckName: their.name,
       aiLevel: ai,
       delayedLegion,
+      format,
       // D-033: a deck's own sleeve and playmat, else the defaults from Settings
       mySleeve: my.sleeve ?? settings.defaultSleeve,
       aiSleeve: their.sleeve ?? DEFAULT_SLEEVE,
@@ -201,6 +214,26 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       <h1 className="title" style={{ fontSize: 52 }}>
         GAME SETUP
       </h1>
+      <div className="row">
+        Format
+        <span className="seg">
+          <button
+            className={format === 'classic' ? 'on' : ''}
+            onClick={() => pickFormat('classic')}
+            data-testid="format-classic"
+          >
+            Classic (BT01–BT17)
+          </button>
+          <button
+            className={format === 'g' ? 'on' : ''}
+            onClick={() => pickFormat('g')}
+            data-testid="format-g"
+            title="The G era rules (Stride, G zone, G guardians, Generation Break) with the G Trial Decks. In testing: please report problems."
+          >
+            G era <span className="testing-tag">IN TESTING</span>
+          </button>
+        </span>
+      </div>
       <div className="setup">
         <div>
           <h2 style={{ color: 'var(--me)' }}>YOUR DECK</h2>
@@ -322,6 +355,30 @@ function SettingsScreen({
               key={v}
               className={settings.speed === v ? 'on' : ''}
               onClick={() => onChange({ ...settings, speed: v })}
+            >
+              {label}
+            </button>
+          ))}
+        </span>
+      </div>
+      <div className="row">
+        <span style={{ width: 300 }}>
+          Battle cut-ins
+          <div className="hint">Ride, attack and trigger moments</div>
+        </span>
+        <span className="seg">
+          {(
+            [
+              ['full', 'Full'],
+              ['short', 'Short'],
+              ['off', 'Off'],
+            ] as const
+          ).map(([v, label]) => (
+            <button
+              key={v}
+              className={settings.cutIns === v ? 'on' : ''}
+              onClick={() => onChange({ ...settings, cutIns: v })}
+              data-testid={`cutins-${v}`}
             >
               {label}
             </button>

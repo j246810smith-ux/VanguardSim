@@ -149,6 +149,9 @@ describe('manifest', () => {
 
   it('matches file names to card IDs without guessing', () => {
     expect(cardIdFromFileName('BT01-001.png')).toBe('BT01-001');
+    // G era (D-034)
+    expect(cardIdFromFileName('G-TD01_001EN.png')).toBe('G-TD01-001');
+    expect(cardIdFromFileName('gtd02-019.jpg')).toBe('G-TD02-019');
     expect(cardIdFromFileName('bt01_001EN.png')).toBe('BT01-001');
     expect(cardIdFromFileName('BT09 012en.JPG')).toBe('BT09-012');
     // English-only cards (D-031) keep the English number when the game has such a card

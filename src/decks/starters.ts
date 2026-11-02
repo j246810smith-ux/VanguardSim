@@ -2,12 +2,14 @@
  * Starter decks built from the implemented sets (legal 50-card decks: 16 triggers, max 4 heals
  * and 4 sentinels, grade 0 first vanguard). For playtesting until the deck builder exists.
  */
-import type { DeckList } from '../engine';
+import type { DeckList, FormatKey } from '../engine';
 
 export interface StarterDeck {
   readonly name: string;
   readonly description: string;
   readonly deck: DeckList;
+  /** The format the deck is for (DECISIONS D-034); absent = Classic. */
+  readonly format?: FormatKey;
 }
 
 const n = (count: number, id: string): string[] => Array.from({ length: count }, () => id);

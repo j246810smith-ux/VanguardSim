@@ -20,10 +20,13 @@ import { emit, type Draft } from './context';
 import { currentCritical, currentPower } from './stats';
 import { locate } from './locate';
 import { drawCard, moveCard, undeleteCard, unlockCard } from './zones';
+import { gGuardianOptions } from './generation';
 
 /** Tasks that end the turn and start the opponent's (CR 6.8). */
 export const endOfTurnTasks = (current: PlayerId): Task[] => [
   { kind: 'enter_phase', phase: 'end' },
+  // CR 1.48.1 6.8.1.1.1, before locked and deleted cards return to normal (6.8.1.1.2)
+  { kind: 'return_g_units', atomic: true },
   { kind: 'unlock_all' },
   { kind: 'end_turn_cleanup' },
   { kind: 'begin_turn', player: other(current) },
@@ -45,7 +48,11 @@ function expire(d: Draft, until: EffectDuration): void {
 /** The turn player says they are done with the current phase (or, at the start step, won't attack). */
 export function advancePhase(d: Draft): void {
   const s = d.state;
-  if (s.phase === 'ride') s.tasks.push({ kind: 'enter_phase', phase: 'main' });
+  // CR 1.48.1 6.5.1.1.4: in the G format the ride step is followed by the stride step
+  if (s.phase === 'ride' && d.ctx.ruleset.generationRules.value)
+    s.tasks.push({ kind: 'enter_phase', phase: 'stride' });
+  else if (s.phase === 'ride' || s.phase === 'stride')
+    s.tasks.push({ kind: 'enter_phase', phase: 'main' });
   else if (s.phase === 'main')
     s.tasks.push({ kind: 'enter_phase', phase: 'battle' }, { kind: 'start_step' });
   else s.tasks.push(...endOfTurnTasks(s.activePlayer)); // CR 7.2.1.2.1: chose not to attack
@@ -76,24 +83,30 @@ type FlowTask = Extract<
 export function runFlowTask(d: Draft, task: FlowTask): void {
   const s = d.state;
   switch (task.kind) {
-    case 'begin_turn':
+    case 'begin_turn': {
+      // "you get an additional turn" (G-TD01 Mystery-flare Dragon)
+      const player = s.extraTurn ?? task.player;
+      delete s.extraTurn;
       s.turnNumber += 1;
-      s.activePlayer = task.player;
+      s.activePlayer = player;
       s.turnFlags = { normalRideUsed: false };
       s.usedThisTurn = [];
-      emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player: task.player });
+      emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });
       s.tasks.unshift(
         { kind: 'enter_phase', phase: 'stand' },
         // Delayed Legion (custom rule): "at the beginning of your next stand phase"
-        ...(s.delayedLegions?.some((x) => x.player === task.player)
-          ? [{ kind: 'delayed_legion_end' as const, player: task.player }]
+        ...(s.delayedLegions?.some((x) => x.player === player)
+          ? [{ kind: 'delayed_legion_end' as const, player }]
           : []),
         { kind: 'stand_units' },
         { kind: 'enter_phase', phase: 'draw' },
         { kind: 'turn_draw' },
+        // CR 1.48.1 6.4.1.2: the G Assist step (G format only)
+        ...(d.ctx.ruleset.generationRules.value ? [{ kind: 'g_assist' as const }] : []),
         { kind: 'enter_phase', phase: 'ride' },
       );
       return;
+    }
 
     case 'enter_phase':
       s.phase = task.phase;
@@ -164,7 +177,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       const defender = other(s.activePlayer);
       const canAct =
         guardableCards(s, d.ctx, defender).length > 0 ||
-        interceptors(s, d.ctx, defender).length > 0;
+        interceptors(s, d.ctx, defender).length > 0 ||
+        gGuardianOptions(s, d.ctx, defender).length > 0;
       if (canAct) s.battle!.step = 'guard';
       else s.tasks.unshift({ kind: 'guard_step_end' });
       return;
@@ -179,10 +193,11 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       if (b.attackerCircle === 'vanguard' && isOnCircle(s, b.attacker, 'vanguard')) {
         const printed = d.ctx.registry.get(s.cards[b.attacker]!.definitionId).skillIcon;
         const icon = lostIcon(s, b.attacker, 'twin_drive') ? null : printed;
+        // CR 10.2.1 Twin Drive!!, CR 1.48.1 11.2.4 Triple Drive!!! (+2); plus "drive check+1"
+        const drive = icon === 'triple_drive' ? 3 : icon === 'twin_drive' ? 2 : 1;
         next.push(
           { kind: 'step_start', step: 'drive' },
-          // CR 10.2.1; plus "drive check+1" effects
-          { kind: 'drive_step', remaining: (icon === 'twin_drive' ? 2 : 1) + (b.driveBonus ?? 0) },
+          { kind: 'drive_step', remaining: drive + (b.driveBonus ?? 0) },
         );
       }
       next.push(

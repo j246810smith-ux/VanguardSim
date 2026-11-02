@@ -22,7 +22,8 @@ function checkRecord(r: CardRecord, set: string): void {
   const e = (m: string) => errors.push(`${r.id}: ${m}`);
   const w = (m: string) => warnings.push(`${r.id}: ${m}`);
   const englishOnly = r.checks.englishOnly !== undefined; // D-031: 'BT16-001EN', no JP record
-  if (!/^(BT|TD|EB|FC|DG|MBT|MTD)\d{2}-\d{3}$/.test(r.id.replace(/EN$/, ''))) e('bad id format');
+  if (!/^((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2})-\d{3}$/.test(r.id.replace(/EN$/, '')))
+    e('bad id format');
   if (englishOnly !== r.id.endsWith('EN')) e('English-only id and record disagree');
   if (r.set !== set) e(`set ${r.set} in file ${set}`);
   if (!r.jp && !englishOnly) e('missing Japanese record (canonical source)');
@@ -45,8 +46,11 @@ function checkRecord(r: CardRecord, set: string): void {
   if ((r.cardType === 'trigger_unit') !== (r.trigger !== null))
     e('trigger icon does not match card type');
   if (r.trigger !== null && r.grade !== 0) e('trigger unit not grade 0');
-  if (r.skillIcon !== SKILL_FOR_GRADE[r.grade])
+  // G units (D-034): grade 4 with Triple Drive!!! (or no icon for G guardians)
+  const expected = r.cardType === 'g_unit' ? 'triple_drive' : SKILL_FOR_GRADE[r.grade];
+  if (r.skillIcon !== expected && !(r.cardType === 'g_unit' && r.skillIcon === null))
     w(`skill ${r.skillIcon} unusual for grade ${r.grade}`);
+  if (r.cardType === 'g_unit' && r.grade !== 4) w(`G unit of grade ${r.grade}`);
   if (r.printings.length === 0) e('no printings');
   const text = r.en?.text ?? '';
   // the official text sometimes has encoding slips (e.g. "&gt" without ";"): shown verbatim, flagged

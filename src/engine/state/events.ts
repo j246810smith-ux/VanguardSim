@@ -32,7 +32,12 @@ export type MoveReason =
   | 'soul_charge'
   | 'rule_action'
   | 'legion'
-  | 'effect';
+  | 'effect'
+  /** G era: a G unit put on (VC) by stride, or a G unit returned to the G zone (CR 1.48.1 6.8.1.1.1). */
+  | 'stride'
+  | 'g_zone'
+  /** CR 1.48.1 6.4.1.2.5: removed from the game by G Assist. */
+  | 'g_assist';
 
 /** Everything that happens is an event. The event stream is the record of truth for UI, logs and replays. */
 export type GameEvent =
@@ -177,6 +182,27 @@ export type GameEvent =
       readonly cause?: InstanceId;
     }
   | { readonly type: 'CARD_UNDELETED'; readonly player: PlayerId; readonly instanceId: InstanceId }
+  | {
+      /** CR 1.48.1 10.28: a G unit strode onto (VC); `hearts` are the cards now under it. */
+      readonly type: 'STRIDE';
+      readonly player: PlayerId;
+      readonly gUnit: InstanceId;
+      readonly hearts: readonly InstanceId[];
+      /** The cards discarded for the stride cost. */
+      readonly discarded: readonly InstanceId[];
+    }
+  /** CR 1.48.1 10.28.4: the strided G unit left (VC); its hearts are a vanguard again. */
+  | { readonly type: 'HEARTS_RELEASED'; readonly player: PlayerId; readonly gUnit: InstanceId }
+  /** CR 1.48.1 6.4.1.2: the turn player used G Assist (`found`: the card put into the hand). */
+  | { readonly type: 'G_ASSIST'; readonly player: PlayerId; readonly found: InstanceId | null }
+  /** CR 1.48.1 7.5.1.2.3: a G guardian was called from the G zone. */
+  | {
+      readonly type: 'G_GUARDIAN_CALLED';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+    }
+  /** "You get an additional turn": `player` takes the next turn as well. */
+  | { readonly type: 'EXTRA_TURN'; readonly player: PlayerId }
   | {
       readonly type: 'LEGION';
       readonly player: PlayerId;

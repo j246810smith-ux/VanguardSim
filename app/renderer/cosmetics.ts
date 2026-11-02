@@ -210,6 +210,19 @@ export interface Playmat {
 
 export const PLAYMATS: readonly Playmat[] = [
   {
+    // the bright default (D-035): a sunlit arena mat; the circles sit in darker printed wells
+    id: 'daybreak',
+    name: 'Daybreak Arena',
+    background: [
+      'radial-gradient(ellipse 38% 30% at 50% 50%, rgba(255, 250, 225, 0.55), transparent 72%)',
+      'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 120, 150, 0.35), transparent 70%)',
+      'radial-gradient(ellipse 70% 55% at 50% 100%, rgba(90, 220, 255, 0.4), transparent 70%)',
+      'repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 34px)',
+      'repeating-linear-gradient(-60deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 34px)',
+      'linear-gradient(180deg, #5a4fc4 0%, #4a7fe0 48%, #3fa3e6 100%)',
+    ].join(', '),
+  },
+  {
     id: 'classic',
     name: 'Vanguard Night',
     background: [
@@ -278,7 +291,7 @@ export const PLAYMATS: readonly Playmat[] = [
   },
 ];
 
-export const DEFAULT_PLAYMAT = 'classic';
+export const DEFAULT_PLAYMAT = 'daybreak';
 
 export const playmatOf = (id: string | null | undefined): Playmat =>
   isOwnImage(id)

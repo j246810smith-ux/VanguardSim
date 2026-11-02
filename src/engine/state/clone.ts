@@ -10,6 +10,9 @@ const clonePlayer = (p: PlayerState): PlayerState => ({
   guardian: [...p.guardian],
   trigger: [...p.trigger],
   bind: [...p.bind],
+  gzone: [...p.gzone],
+  removed: [...p.removed],
+  hearts: [...p.hearts],
   circles: {
     vanguard: [...p.circles.vanguard],
     front_left: [...p.circles.front_left],
@@ -36,6 +39,7 @@ export function cloneState(s: GameState): GameState {
       ...(s.turnFlags.called ? { called: [...s.turnFlags.called] } : {}),
       ...(s.turnFlags.droppedFromRC ? { droppedFromRC: [...s.turnFlags.droppedFromRC] } : {}),
       ...(s.turnFlags.stood ? { stood: [...s.turnFlags.stood] } : {}),
+      ...(s.turnFlags.strode ? { strode: [...s.turnFlags.strode] } : {}),
     },
     battle:
       s.battle === null

@@ -2,10 +2,13 @@
 import { createContext, useContext } from 'react';
 
 export type Speed = 'normal' | 'fast' | 'instant';
+/** Battle cut-ins (D-035): full-screen moments, quick ones, or only the small banners. */
+export type CutIns = 'full' | 'short' | 'off';
 
 export interface Settings {
   readonly speed: Speed;
   readonly reducedMotion: boolean;
+  readonly cutIns: CutIns;
   readonly showArt: boolean;
   /** Holographic foil on R/RR/RRR cards (ui/CardView.tsx `foilOf`). */
   readonly foil: boolean;
@@ -23,13 +26,14 @@ export interface Settings {
 export const DEFAULT_SETTINGS: Settings = {
   speed: 'normal',
   reducedMotion: false,
+  cutIns: 'full',
   showArt: true,
   foil: true,
   musicVolume: 50,
   sfxVolume: 70,
   muted: false,
   defaultSleeve: 'classic',
-  playmat: 'classic',
+  playmat: 'daybreak',
 };
 
 const KEY = 'vanguard-sim.settings.v1';

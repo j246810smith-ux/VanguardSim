@@ -82,6 +82,15 @@ export class BasicController implements PlayerController {
       }
     }
 
+    // G era: always stride when possible, into the strongest G unit
+    const stride = find('STRIDE');
+    if (stride) {
+      const best = [...stride.cardIds].sort(
+        (a, b) => (this.def(s, b)?.power ?? 0) - (this.def(s, a)?.power ?? 0),
+      )[0]!;
+      return { type: 'STRIDE', player, cardId: best, discard: stride.suggestedDiscard };
+    }
+
     const call = find('CALL');
     if (call && s.players[player].hand.length > 3) {
       const circles = s.players[player].circles;
@@ -145,6 +154,17 @@ export class BasicController implements PlayerController {
         (a): a is Extract<LegalAction, { type: 'INTERCEPT' }> => a.type === 'INTERCEPT',
       );
       if (intercept) return { type: 'INTERCEPT', player, unitId: intercept.unitIds[0]! };
+      // G era: a G guardian for a big hit at high damage
+      const gGuard = actions.find(
+        (a): a is Extract<LegalAction, { type: 'G_GUARD' }> => a.type === 'G_GUARD',
+      );
+      if (gGuard && damage >= 4 && attackPower - defense + 1 > 10000)
+        return {
+          type: 'G_GUARD',
+          player,
+          cardId: gGuard.cardIds[0]!,
+          discard: gGuard.costCards[0]!,
+        };
       if (guard) {
         const sentinel = payableSentinel(s, this.ctx, player, guard.cardIds);
         const needed = attackPower - defense + 1;
@@ -219,7 +239,14 @@ export class BasicController implements PlayerController {
     const damage = s.players[player].damage.length;
     const attackerDef = this.def(s, b.attacker);
     const vanguardAttack = b.attackerCircle === 'vanguard';
-    const checks = vanguardAttack ? (attackerDef?.skillIcon === 'twin_drive' ? 2 : 1) : 0;
+    const icon = attackerDef?.skillIcon;
+    const checks = vanguardAttack
+      ? icon === 'triple_drive'
+        ? 3
+        : icon === 'twin_drive'
+          ? 2
+          : 1
+      : 0;
     const crit = 1;
     const lethal = damage + crit >= 6;
     if (damage < 4 && !lethal) return null;

@@ -13,12 +13,14 @@ import {
 } from '../../../src/engine';
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
-import { DamageZone, Pile, PhaseRail, PlayerPlate, TriggerZone } from '../board/Panels';
+import { PhaseRail, PlayerPlate, TablePiles } from '../board/Panels';
+import { tableCss } from '../board/layout';
 import { AttackLines, AttackPreviewPanel, BattleHud, FxLayer } from '../combat/Combat';
 import { AbilityCallout } from '../board/AbilityCallout';
 import { BattleCosmetics } from '../board/Cosmetics';
 import { DEFAULT_SLEEVE } from '../cosmetics';
-import { AI, ctx, ME } from '../engine';
+import { AI, ctx, ME, playFormat } from '../engine';
+import { GGuardPrompt, StridePrompt } from '../prompts/GPrompts';
 import {
   circleState,
   clickCircle,
@@ -124,7 +126,9 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
   const [zone, setZone] = useState<{ title: string; ids: readonly InstanceId[] } | null>(null);
   const [inspect, setInspect] = useState(false);
   const [logOpen, setLogOpen] = useState(false);
-  const [menu, setMenu] = useState<'skills' | 'swap' | 'game' | null>(null);
+  const [menu, setMenu] = useState<'skills' | 'swap' | 'game' | 'stride' | 'gguard' | null>(null);
+  // G era (D-034, in testing): set by the session from this game's format
+  const gEra = playFormat === 'g';
   const [toast, setToast] = useState<string | null>(null);
 
   const view = session.view;
@@ -276,6 +280,21 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
       icon: 'swap',
       onClick: () => setMenu(menu === 'swap' ? null : 'swap'),
     });
+  if (legal.stride)
+    bar.push({
+      key: 'stride',
+      label: 'Stride',
+      icon: 'skill',
+      tone: 'primary',
+      onClick: () => setMenu(menu === 'stride' ? null : 'stride'),
+    });
+  if (legal.gGuard)
+    bar.push({
+      key: 'gguard',
+      label: 'G Guardian',
+      icon: 'guard',
+      onClick: () => setMenu(menu === 'gguard' ? null : 'gguard'),
+    });
   if (legal.passGuard) {
     bar.push({
       key: 'pass',
@@ -287,7 +306,13 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
   }
   if (legal.endPhase) {
     const label =
-      view.phase === 'ride' ? 'End Ride' : view.phase === 'main' ? 'To Battle' : 'End Turn';
+      view.phase === 'ride'
+        ? 'End Ride'
+        : view.phase === 'stride'
+          ? 'No Stride'
+          : view.phase === 'main'
+            ? 'To Battle'
+            : 'End Turn';
     const noMoreMoves =
       legal.attack.length === 0 &&
       legal.ride.size === 0 &&
@@ -340,6 +365,13 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         text: 'Ride phase: click a card in your hand, then your vanguard circle.',
         waiting: false,
       };
+    if (view.phase === 'stride')
+      return {
+        text: legal.stride
+          ? 'Stride step: press Stride to stride a G unit, or No Stride.'
+          : 'Stride step: no stride possible now.',
+        waiting: false,
+      };
     if (view.phase === 'main')
       return { text: 'Main phase: call units, use skills, then go to battle.', waiting: false };
     if (view.phase === 'battle' && legal.attack.length)
@@ -370,40 +402,46 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
 
   return (
     <>
-      <BattleCosmetics
-        mySleeve={online?.mySleeve ?? config?.mySleeve ?? settings.defaultSleeve}
-        opponentSleeve={online?.opponentSleeve ?? config?.aiSleeve ?? DEFAULT_SLEEVE}
-        playmat={online?.playmat ?? config?.playmat ?? settings.playmat}
-      />
-      <div className="field-frame opp" />
-      <div className="field-frame me" />
-      <div className="divider" />
-      {!battle && <CentreEmblem />}
+      {/* the table (D-035): field, piles and playmat on a tilted plane; the HUD stays flat */}
+      <div className="table-wrap" style={tableCss.wrap}>
+        <div className="table" style={tableCss.plane}>
+          <BattleCosmetics
+            mySleeve={online?.mySleeve ?? config?.mySleeve ?? settings.defaultSleeve}
+            opponentSleeve={online?.opponentSleeve ?? config?.aiSleeve ?? DEFAULT_SLEEVE}
+            playmat={online?.playmat ?? config?.playmat ?? settings.playmat}
+          />
+          <div className="field-frame opp" />
+          <div className="field-frame me" />
+          <div className="divider" />
+          {!battle && <CentreEmblem />}
+          <TablePiles view={view} onOpen={openZone} gEra={gEra} />
 
-      <Field
-        view={view}
-        player={AI}
-        stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
-        onCircle={onCircle}
-        onDetails={setDetails}
-        onDropCard={onDropCard}
-        battleAttacker={battle?.attacker ?? null}
-      />
-      <Field
-        view={view}
-        player={ME}
-        stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
-        onCircle={onCircle}
-        onDetails={setDetails}
-        onDropCard={onDropCard}
-        battleAttacker={battle?.attacker ?? null}
-      />
-      <AttackLines
-        view={view}
-        attacker={lineAttacker}
-        target={battle?.target ?? null}
-        booster={lineBooster}
-      />
+          <Field
+            view={view}
+            player={AI}
+            stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
+            onCircle={onCircle}
+            onDetails={setDetails}
+            onDropCard={onDropCard}
+            battleAttacker={battle?.attacker ?? null}
+          />
+          <Field
+            view={view}
+            player={ME}
+            stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
+            onCircle={onCircle}
+            onDetails={setDetails}
+            onDropCard={onDropCard}
+            battleAttacker={battle?.attacker ?? null}
+          />
+          <AttackLines
+            view={view}
+            attacker={lineAttacker}
+            target={battle?.target ?? null}
+            booster={lineBooster}
+          />
+        </div>
+      </div>
       <BattleHud view={view} />
       <AbilityCallout
         view={view}
@@ -425,6 +463,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
             ? (online.opponentClan ?? opponentVanguardClan(view, AI) ?? 'Opponent')
             : clanOf(config!.aiDeck)
         }
+        damage={opp.damage.length}
       />
       <div className="opp-hand" data-zone={`${AI}-hand`}>
         {opp.hand.map((id) => (
@@ -461,106 +500,13 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
           <Icon name="gear" />
         </button>
       </div>
-      <Pile
-        view={view}
-        player={AI}
-        title="DECK"
-        ids={opp.deck}
-        face={false}
-        big
-        style={{ left: 24, top: 84, width: 145, height: 128 }}
-      />
-      <Pile
-        view={view}
-        player={AI}
-        title="DROP"
-        ids={opp.drop}
-        style={{ left: 179, top: 84, width: 145, height: 128 }}
-        onOpen={() => openZone("Opponent's drop zone", opp.drop)}
-      />
-      <DamageZone
-        view={view}
-        player={AI}
-        style={{ left: 24, top: 222, width: 300, height: 125 }}
-        onOpen={() => openZone("Opponent's damage zone", opp.damage)}
-      />
-      {opp.bind.length > 0 && (
-        <Pile
-          view={view}
-          player={AI}
-          title="BIND"
-          ids={opp.bind}
-          style={{ left: 24, top: 357, width: 145, height: 100 }}
-          onOpen={() => openZone("Opponent's bind zone", opp.bind)}
-        />
-      )}
-      <Pile
-        view={view}
-        player={AI}
-        title="SOUL"
-        ids={opp.soul}
-        style={{ left: 1596, top: 84, width: 145, height: 110 }}
-        onOpen={() => openZone("Opponent's soul", opp.soul)}
-      />
-      <TriggerZone
-        view={view}
-        player={AI}
-        style={{ left: 1596, top: 204, width: 300, height: 110 }}
-      />
-
       {/* turn & phase */}
-      <PhaseRail view={view} step={session.battleStep} />
+      <PhaseRail view={view} step={session.battleStep} gEra={gEra} />
       <RecentEvents lines={session.log} onOpen={() => setLogOpen(true)} />
       <HoverPreview view={view} id={hovered} />
 
       {/* me (bottom) */}
-      <PlayerPlate side="me" name="You" clan={clanOf(myDeck)} />
-      <TriggerZone
-        view={view}
-        player={ME}
-        style={{ left: 1596, top: 520, width: 300, height: 110 }}
-      />
-      <DamageZone
-        view={view}
-        player={ME}
-        style={{ left: 1596, top: 640, width: 300, height: 125 }}
-        onOpen={() => openZone('Your damage zone', me.damage)}
-      />
-      <Pile
-        view={view}
-        player={ME}
-        title="SOUL"
-        ids={me.soul}
-        style={{ left: 1596, top: 775, width: 96, height: 128 }}
-        onOpen={() => openZone('Your soul', me.soul)}
-      />
-      <Pile
-        view={view}
-        player={ME}
-        title="DROP"
-        ids={me.drop}
-        style={{ left: 1698, top: 775, width: 96, height: 128 }}
-        onOpen={() => openZone('Your drop zone', me.drop)}
-      />
-      <Pile
-        view={view}
-        player={ME}
-        title="DECK"
-        ids={me.deck}
-        face={false}
-        big
-        style={{ left: 1800, top: 775, width: 96, height: 128 }}
-      />
-      {me.bind.length > 0 && (
-        <Pile
-          view={view}
-          player={ME}
-          title="BIND"
-          ids={me.bind}
-          style={{ left: 1596, top: 909, width: 145, height: 60 }}
-          onOpen={() => openZone('Your bind zone', me.bind)}
-        />
-      )}
+      <PlayerPlate side="me" name="You" clan={clanOf(myDeck)} damage={me.damage.length} />
 
       <Hand
         view={view}
@@ -614,6 +560,22 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
           onActivate={(o) =>
             send({ type: 'ACTIVATE', player: ME, source: o.source, abilityId: o.abilityId })
           }
+          onClose={() => setMenu(null)}
+        />
+      )}
+      {menu === 'stride' && legal.stride && !legal.choose && (
+        <StridePrompt
+          view={view}
+          stride={legal.stride}
+          onSend={send}
+          onClose={() => setMenu(null)}
+        />
+      )}
+      {menu === 'gguard' && legal.gGuard && !legal.choose && (
+        <GGuardPrompt
+          view={view}
+          gGuard={legal.gGuard}
+          onSend={send}
           onClose={() => setMenu(null)}
         />
       )}

@@ -25,6 +25,17 @@ export type TaskBody =
   /** CR 6.8.1.4: "until end of turn" effects cease. */
   | { readonly kind: 'end_turn_cleanup' }
 
+  // G era (CR 1.48.1, DECISIONS D-034) -------------------------------------------------------------
+  /** CR 1.48.1 6.4.1.2: the G Assist step (offered only when its conditions are met). */
+  | { readonly kind: 'g_assist'; selection?: string[] }
+  /** G Assist: choose up to one card of `grade` from the top five of the deck. */
+  | { readonly kind: 'g_assist_search'; readonly grade: number; selection?: string[] }
+  /** G Assist: remove two cards from the hand / the G zone from the game. */
+  | { readonly kind: 'g_assist_remove'; readonly from: 'hand' | 'gzone'; selection?: string[] }
+  | { readonly kind: 'g_assist_shuffle' }
+  /** CR 1.48.1 6.8.1.1.1: the turn player's G units return to the G zone face up. */
+  | { readonly kind: 'return_g_units' }
+
   // Battle (CR 7) --------------------------------------------------------------------------------
   /** CR 7.2: start step begins (abilities "at the beginning of start step"). */
   | { readonly kind: 'start_step' }
@@ -131,6 +142,9 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'call_one',
   'choose_attack_targets',
   'delayed_legion_end',
+  'g_assist',
+  'g_assist_search',
+  'g_assist_remove',
 ]);
 
 export const isChoiceTask = (task: Task): task is ChoiceTask => CHOICE_TASKS.has(task.kind);

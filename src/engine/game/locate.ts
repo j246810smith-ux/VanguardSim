@@ -17,6 +17,8 @@ export const PILE_ZONES: readonly PileZone[] = [
   'soul',
   'bind',
   'drop',
+  'gzone',
+  'removed',
   'deck',
 ];
 

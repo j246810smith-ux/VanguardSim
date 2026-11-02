@@ -1,6 +1,6 @@
 import { other, type GameState, type InstanceId, type Modifier } from '../state/types';
 import { continuousStat } from '../abilities/continuous';
-import { definitionOf as definition, isOnCircle } from './characteristics';
+import { chosenHeartOf, definitionOf as definition, isOnCircle } from './characteristics';
 import type { EngineContext } from './context';
 
 export { currentClan, currentGrade, isOnCircle } from './characteristics';
@@ -54,7 +54,10 @@ export function currentShield(state: GameState, ctx: EngineContext, id: Instance
 export function basePower(state: GameState, ctx: EngineContext, id: InstanceId): number {
   // CR 10.1.25.3: a deleted unit's original power is 0 (effects on it still apply, 10.1.25.8)
   const printed = state.cards[id]?.deleted ? 0 : definition(state, ctx, id).power;
-  return printed + modified(state, ctx, id, 'power');
+  // CR 1.48.1 10.28.3.3: a strided G unit adds the power written on its chosen heart
+  const heart = chosenHeartOf(state, id);
+  const fromHeart = heart === null ? 0 : definition(state, ctx, heart).power;
+  return printed + fromHeart + modified(state, ctx, id, 'power');
 }
 
 /**

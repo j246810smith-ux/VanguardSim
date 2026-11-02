@@ -13,6 +13,8 @@ export interface FormatDefinition {
   /** null = no limit. */
   readonly maxSentinels: RuleValue<number | null>;
   readonly firstVanguardGrade: RuleValue<number>;
+  /** Most cards in the G deck (CR 1.48.1 5.3.2); 0 = the format has no G deck. */
+  readonly maxGDeckSize: RuleValue<number>;
 }
 
 const BT_SETS = Array.from({ length: 17 }, (_, i) => `BT${String(i + 1).padStart(2, '0')}`);
@@ -37,4 +39,27 @@ export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
   maxHealTriggers: verified(4, 'CR 5.1.2.4'),
   maxSentinels: verified(4, 'CR 5.1.2.5, 10.2.8.1'),
   firstVanguardGrade: verified(0, 'CR 5.2.2'),
+  maxGDeckSize: verified(0, 'CR 1.29 has no G deck'),
+};
+
+/**
+ * The G era's products (DECISIONS D-034), in Japanese release order. A set joins the pool when it
+ * is imported and scripted; listing it here makes it legal in the G format.
+ */
+export const G_SETS: readonly string[] = ['G-TD01', 'G-TD02'];
+
+/**
+ * The G format (DECISIONS D-034): every Classic set plus the G era's cards, deck rules of
+ * CR 1.48.1 (2 April 2018).
+ */
+export const G_ERA_FORMAT: FormatDefinition = {
+  id: 'G_ERA',
+  legalSets: [...EARLY_BT01_BT17_FORMAT.legalSets, ...G_SETS],
+  deckSize: verified(50, 'CR 1.48.1 5.2.2.1'),
+  maxCopiesPerName: verified(4, 'CR 1.48.1 5.2.2.2, 5.3.2.1 (main deck and G deck each)'),
+  triggerCount: verified(16, 'CR 1.48.1 5.2.2.3'),
+  maxHealTriggers: verified(4, 'CR 1.48.1 5.2.2.4'),
+  maxSentinels: verified(4, 'CR 1.48.1 5.2.2.5'),
+  firstVanguardGrade: verified(0, 'CR 1.48.1 5.4.3'),
+  maxGDeckSize: verified(16, 'CR 1.48.1 5.3.2'),
 };

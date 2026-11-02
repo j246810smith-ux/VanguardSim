@@ -17,6 +17,8 @@ export function checkZoneInvariant(state: GameState): string[] {
       ...p.guardian,
       ...p.trigger,
       ...p.bind,
+      ...p.gzone,
+      ...p.removed,
       ...circleCards(p),
     ];
     for (const id of ids) seen.set(id, (seen.get(id) ?? 0) + 1);
@@ -25,7 +27,13 @@ export function checkZoneInvariant(state: GameState): string[] {
   // Between commands every circle holds at most one unit (CR 9.3), except a legion on VC (10.1.24).
   for (const p of state.players) {
     for (const c of CIRCLES) {
-      const allowed = c === 'vanguard' && p.legion ? 2 : 1;
+      // a strided G unit sits on its hearts (CR 1.48.1 10.28.3.2)
+      const allowed =
+        c === 'vanguard' && p.hearts.length > 0
+          ? p.hearts.length + 1
+          : c === 'vanguard' && p.legion
+            ? 2
+            : 1;
       if (p.circles[c].length > allowed) {
         problems.push(`player ${p.id} ${c} holds ${p.circles[c].length} units`);
       }

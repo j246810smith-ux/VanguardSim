@@ -1,21 +1,36 @@
 /** The renderer's single connection to the rules engine and card database. */
 import { cardRegistry, SETS } from '../../src/cards';
 import {
-  EARLY_BT01_BT17_FORMAT,
-  EARLY_VANGUARD_RULES,
   HIDDEN,
+  PLAY_FORMATS,
   type CardDefinition,
   type EngineContext,
+  type FormatKey,
   type GameState,
   type InstanceId,
   type PlayerId,
 } from '../../src/engine';
 
+type Mutable<T> = { -readonly [K in keyof T]: T[K] };
+
+/**
+ * The rules context of the current game. One shared object, so every importer sees a change made
+ * by `setPlayFormat` (D-034: Classic or the G era, chosen in Game Setup) before a battle starts.
+ */
 export const ctx: EngineContext = {
   registry: cardRegistry(),
-  ruleset: EARLY_VANGUARD_RULES,
-  format: EARLY_BT01_BT17_FORMAT,
+  ruleset: PLAY_FORMATS.classic.ruleset,
+  format: PLAY_FORMATS.classic.format,
 };
+
+/** The play format of the current (or next) game. */
+export let playFormat: FormatKey = 'classic';
+export function setPlayFormat(key: FormatKey): void {
+  playFormat = key;
+  const c = ctx as Mutable<EngineContext>;
+  c.ruleset = PLAY_FORMATS[key].ruleset;
+  c.format = PLAY_FORMATS[key].format;
+}
 
 /**
  * The local player's seat (drawn at the bottom) and the opponent's (on top). Seat 0 against the
@@ -49,7 +64,9 @@ export function defOf(s: GameState, id: InstanceId): CardDefinition | null {
 
 /** Local art path (assets/cards, personal use only: D-018). */
 export const artUrl = (definitionId: string, ext = 'png') => {
-  const path = `${definitionId.slice(0, 4)}/${definitionId}.${ext}`;
+  // the set folder: "BT01" for BT01-001, "MBT01" for MBT01-001, "G-TD01" for G-TD01-001
+  const set = definitionId.replace(/-\d{3}(EN)?$/, '');
+  const path = `${set}/${definitionId}.${ext}`;
   // the desktop app serves optional art from a folder outside the build (app/main/main.cjs);
   // the Vite dev server and tests serve it from assets/ as `cards/…`
   return globalThis.location?.protocol === 'file:' ? `vgart://cards/${path}` : `cards/${path}`;

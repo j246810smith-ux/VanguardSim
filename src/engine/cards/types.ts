@@ -4,9 +4,10 @@ import type { AbilityDefinition } from '../abilities/types';
 export type TriggerType = 'critical' | 'draw' | 'stand' | 'heal';
 
 /** The printed skill icon of early-era units. */
-export type SkillIcon = 'boost' | 'intercept' | 'twin_drive';
+export type SkillIcon = 'boost' | 'intercept' | 'twin_drive' | 'triple_drive';
 
-export type CardType = 'normal_unit' | 'trigger_unit';
+/** `g_unit`: G era (CR 1.48.1 2.9.2), kept in the G deck, never in the main deck. */
+export type CardType = 'normal_unit' | 'trigger_unit' | 'g_unit';
 
 export interface CardDefinition {
   /** Canonical ID, e.g. "BT01-001". */
@@ -26,6 +27,8 @@ export interface CardDefinition {
   readonly skillIcon: SkillIcon | null;
   /** Has the "Sentinel" ability (CR 10.2.8); limited to four per deck. */
   readonly sentinel: boolean;
+  /** G unit with "G Guardian" (CR 1.48.1 11.14): may be called from the G zone to guard. */
+  readonly gGuardian?: boolean;
   /** Printed text, preserved verbatim. */
   readonly text: string;
   /** Name and text are an unofficial English translation (never printed in English). */

@@ -1,12 +1,12 @@
 /* Vanguard Simulator: battle UI. Original styling; the reference image is a mood target only. */
 :root {
-  --bg-0: #03050a;
-  --bg-1: #070c17;
-  --bg-2: #0b1426;
-  --panel: rgba(10, 18, 34, 0.82);
-  --panel-edge: rgba(120, 160, 220, 0.22);
+  --bg-0: #0d1636;
+  --bg-1: #131f48;
+  --bg-2: #1a2a5c;
+  --panel: rgba(30, 46, 102, 0.86);
+  --panel-edge: rgba(170, 200, 255, 0.4);
   --text: #e6eefb;
-  --text-dim: #8a9bb8;
+  --text-dim: #aebee0;
   --me: #33d1ff;
   --me-strong: #2a7dff;
   --me-glow: rgba(51, 209, 255, 0.55);
@@ -665,7 +665,7 @@ button {
   left: 0;
   top: 0;
   width: 360px;
-  height: 66px;
+  height: 84px;
   border-bottom: 2px solid var(--opp);
 }
 .plate.me {
@@ -1251,9 +1251,10 @@ button {
    the middle of the stage it covered the back-centre rear-guard circle. Grows upwards. */
 .status-line {
   position: absolute;
-  left: 1596px;
-  bottom: 566px;
-  width: 300px;
+  /* above the action bar, clear of the battle VS display on the centre line (D-035) */
+  left: 1556px;
+  bottom: 128px;
+  width: 340px;
   box-sizing: border-box;
   font: 600 15px/1.25 var(--font-body);
   color: var(--text);
@@ -2089,7 +2090,8 @@ input.text {
   position: absolute;
   left: 24px;
   top: 806px;
-  width: 400px;
+  width: 300px;
+  overflow: hidden;
   padding: 6px 10px;
   font-size: 16px;
   line-height: 1.35;
@@ -2139,7 +2141,7 @@ input.text {
 /* ---- attack preview (D-028) ------------------------------------------------------------------ */
 .attack-preview {
   left: 1596px;
-  top: 326px;
+  top: 96px;
   width: 300px;
   padding: 8px 12px 8px;
   font-family: var(--font-body);
@@ -2211,7 +2213,8 @@ input.text {
 /* ---- ability callout (beside the G circle on the centre line) -------------------------------- */
 .ability-callout {
   position: absolute;
-  top: 505px;
+  /* the centre line on screen (board/layout.ts toScreen) */
+  top: 446px;
   right: calc(1920px - 900px);
   width: 380px;
   min-height: 105px;
@@ -2350,4 +2353,784 @@ input.text {
   text-shadow:
     0 0 6px #000,
     0 0 3px #000;
+}
+
+/* ---- the tilted table (D-035) ------------------------------------------------------------------
+   .table-wrap holds the perspective, .table is the tilted plane (both set from board/layout.ts
+   TABLE). Everything on the table keeps its flat table coordinates; the HUD stays flat on top. */
+.table-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.table {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.table > * {
+  pointer-events: auto;
+}
+.table .field-frame,
+.table .divider,
+.table .emblem,
+.table .playmat,
+.table .attack-lines {
+  pointer-events: none;
+}
+/* the mat lies on the table; the room around it is the stage background */
+.table .playmat {
+  inset: auto;
+  left: 150px;
+  top: 50px;
+  width: 1620px;
+  height: 890px;
+  border-radius: 30px;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.08),
+    0 40px 90px rgba(0, 0, 0, 0.75),
+    inset 0 0 120px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.table .field-frame {
+  left: 590px;
+  width: 740px;
+  border-radius: 22px;
+  clip-path: none;
+}
+.table .field-frame.opp {
+  top: 62px;
+  height: 410px;
+}
+.table .field-frame.me {
+  top: 535px;
+  height: 390px;
+}
+.table .divider {
+  left: 300px;
+  right: 300px;
+}
+.table-piles {
+  display: contents;
+}
+/* zone tiles on the mat: a card-sized well with the title above and the count on the card */
+.table .panel {
+  backdrop-filter: none;
+  background: rgba(4, 8, 18, 0.55);
+  clip-path: none;
+  border-radius: 14px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.table .panel .panel-title {
+  font-size: 12px;
+  align-self: stretch;
+  text-align: center;
+}
+.table .panel-body {
+  position: relative;
+  margin-top: 6px;
+}
+.table .panel-body .mini {
+  width: 80px;
+  height: 116px;
+  border-radius: 6px;
+}
+.table .panel-body > .mini:not(.card) {
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+}
+.table .panel-count {
+  position: absolute;
+  right: -10px;
+  bottom: -8px;
+  margin: 0;
+  min-width: 40px;
+  padding: 0 6px;
+  text-align: center;
+  font: 800 26px/1.2 var(--font-display);
+  background: rgba(5, 10, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+}
+.table .panel .damage-row {
+  justify-content: center;
+  margin-top: 8px;
+}
+.table .panel .damage-row .mini {
+  width: 80px;
+  height: 116px;
+}
+/* damage: a column of sideways cards */
+.table .damage-col {
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+.table .damage-col .dmg-card,
+.table .damage-col .slot {
+  width: 75px;
+  height: 50px;
+  border-radius: 4px;
+}
+.table .damage-col .dmg-card {
+  position: relative;
+}
+.table .damage-col .dmg-card .mini {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 75px;
+  margin: -37.5px 0 0 -25px;
+  transform: none;
+  rotate: 90deg;
+}
+
+/* ---- battle VS display (D-035): attack vs defence on the centre line --------------------------- */
+.battle-vs {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  height: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+.vs-plate {
+  position: absolute;
+  top: 0;
+  width: 330px;
+  transform: translateY(-50%) skewX(-12deg);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  align-items: baseline;
+  padding: 6px 22px 8px;
+  background: linear-gradient(100deg, rgba(8, 14, 28, 0.94), rgba(8, 14, 28, 0.78));
+  border: 2px solid currentColor;
+  box-shadow: 0 0 28px color-mix(in srgb, currentColor 45%, transparent);
+  animation: vs-in calc(0.28s * var(--anim)) cubic-bezier(0.2, 0.9, 0.2, 1.2);
+}
+.vs-plate > * {
+  transform: skewX(12deg);
+}
+.battle-vs > .vs-plate:first-child {
+  left: 290px;
+}
+.battle-vs > .vs-plate:nth-child(3) {
+  left: 1300px;
+}
+.vs-plate.me {
+  color: var(--me);
+}
+.vs-plate.opp {
+  color: var(--opp);
+}
+.vs-plate .lbl {
+  grid-row: 1 / 3;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  font: 800 13px var(--font-display);
+  letter-spacing: 0.2em;
+}
+.vs-plate .val {
+  font: 900 54px/1 var(--font-display);
+  color: #fff;
+  text-shadow:
+    0 0 18px currentColor,
+    0 3px 0 rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+}
+.vs-plate.atk .val {
+  color: var(--gold);
+}
+.vs-plate .sub {
+  font: 700 16px var(--font-body);
+  color: var(--text);
+}
+.vs-plate.def:not(.guarded) .sub {
+  color: #ff8c9c;
+}
+.vs-plate.guarded .sub {
+  color: var(--good);
+}
+.vs-plate.guarded .val {
+  color: var(--good);
+}
+.vs-mark {
+  position: absolute;
+  left: 960px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font: 900 44px var(--font-display);
+  font-style: italic;
+  color: #fff;
+  text-shadow:
+    0 0 16px var(--gold-glow),
+    0 0 4px #000;
+}
+.battle-vs:has(.guardian-row) .vs-mark {
+  display: none;
+}
+.battle-vs .guardian-row {
+  top: 0;
+}
+@keyframes vs-in {
+  from {
+    opacity: 0;
+    translate: 0 -24px;
+  }
+}
+
+/* ---- power on the table (D-035): bold plates that stand up from the tilted cards --------------- */
+.table .circle,
+.table .unit {
+  transform-style: preserve-3d;
+}
+.table .power-plate {
+  transform: translateX(-50%) translateZ(2px) rotateX(calc(-1deg * var(--tilt, 30)));
+  transform-origin: 50% 100%;
+  bottom: -14px;
+  font: 900 32px/1.15 var(--font-display);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.7);
+}
+.table .vc .power-plate {
+  font-size: 40px;
+}
+.table .crit-badge {
+  transform: translateZ(2px) rotateX(calc(-1deg * var(--tilt, 30)));
+  transform-origin: 50% 100%;
+}
+
+/* ---- fighter banners (D-035) -------------------------------------------------------------------- */
+.plate .damage-pips {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+.plate .damage-pips i {
+  width: 14px;
+  height: 8px;
+  transform: skewX(-20deg);
+  background: rgba(255, 255, 255, 0.14);
+}
+.plate .damage-pips i.on {
+  background: var(--hit);
+  box-shadow: 0 0 8px rgba(255, 51, 85, 0.7);
+}
+
+/* ---- cut-ins (D-035) ------------------------------------------------------------------------------
+   Each runs for the moment's whole hold (--hold, set by FxLayer), so speed settings scale them. */
+.cutin {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.cutin.me {
+  --c: var(--me);
+  --c2: var(--me-strong);
+}
+.cutin.opp {
+  --c: var(--opp);
+  --c2: var(--opp-strong);
+}
+/* ride: a slanted band in the player colour, the card art blown up behind it, the card itself
+   sliding in, and the call */
+.cutin.ride .band,
+.cutin.legion .band {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 50%;
+  height: 340px;
+  margin-top: -170px;
+  overflow: hidden;
+  transform: skewY(-6deg);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--c2) 85%, #000),
+    var(--c) 50%,
+    color-mix(in srgb, var(--c2) 85%, #000)
+  );
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.85),
+    0 0 80px var(--c);
+  animation: band var(--hold) cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+.cutin .band.gold {
+  --c: var(--gold);
+  --c2: #ff9f1a;
+}
+.cutin .band-art {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0.35;
+  mix-blend-mode: luminosity;
+}
+.cutin .band-art .card {
+  transform: scale(3.2) skewY(6deg);
+  filter: blur(2px);
+}
+.cutin.ride .hero {
+  position: absolute;
+  top: 50%;
+  margin-top: -190px;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.7));
+  animation: hero-in var(--hold) cubic-bezier(0.15, 0.9, 0.2, 1) forwards;
+}
+.cutin.ride.me .hero {
+  left: 18%;
+  --from: -900px;
+}
+.cutin.ride.opp .hero {
+  right: 18%;
+  --from: 900px;
+}
+.cutin .words {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: words-in var(--hold) ease-out forwards;
+}
+.cutin.ride.me .words {
+  left: 40%;
+}
+.cutin.ride.opp .words {
+  right: 40%;
+  text-align: right;
+}
+.cutin .call {
+  font: 900 120px/1 var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #fff;
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    0 0 30px var(--c),
+    0 6px 0 rgba(0, 0, 0, 0.45);
+}
+.cutin .name {
+  margin-top: 10px;
+  font: 800 34px var(--font-body);
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+.cutin.short .call {
+  font-size: 84px;
+}
+.cutin.short .band {
+  height: 240px;
+  margin-top: -120px;
+}
+.cutin.short .hero .card {
+  scale: 0.75;
+}
+@keyframes band {
+  0% {
+    clip-path: inset(48% 0 48% 0);
+    opacity: 0;
+  }
+  12% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  85% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(50% 0 50% 0);
+    opacity: 0;
+  }
+}
+@keyframes hero-in {
+  0% {
+    translate: var(--from) 0;
+    rotate: -8deg;
+  }
+  18% {
+    translate: 0 0;
+    rotate: -4deg;
+  }
+  80% {
+    translate: 30px 0;
+    rotate: -3deg;
+    opacity: 1;
+  }
+  100% {
+    translate: 60px 0;
+    opacity: 0;
+  }
+}
+@keyframes words-in {
+  0%,
+  10% {
+    opacity: 0;
+    scale: 1.6;
+  }
+  22% {
+    opacity: 1;
+    scale: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* legion: leader and mate meet in the middle */
+.cutin.legion .pair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  gap: 24px;
+  transform: translate(-50%, -50%);
+}
+.cutin.legion .pair .l {
+  animation: meet-l var(--hold) cubic-bezier(0.15, 0.9, 0.2, 1) forwards;
+}
+.cutin.legion .pair .r {
+  animation: meet-r var(--hold) cubic-bezier(0.15, 0.9, 0.2, 1) forwards;
+}
+.cutin.legion .words {
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 120px;
+  transform: none;
+  text-align: center;
+  --c: var(--gold);
+}
+@keyframes meet-l {
+  0% {
+    translate: -800px 0;
+  }
+  25%,
+  85% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes meet-r {
+  0% {
+    translate: 800px 0;
+  }
+  25%,
+  85% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* attack: a quick slash across the screen with the attacker */
+.cutin.attack .slash {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 50%;
+  height: 150px;
+  margin-top: -75px;
+  transform: skewY(-4deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--c) 70%, #000) 20%,
+    color-mix(in srgb, var(--c) 70%, #000) 80%,
+    transparent
+  );
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  animation: slash var(--hold) ease-out forwards;
+}
+.cutin.attack .mini {
+  position: absolute;
+  top: 50%;
+  margin-top: -80px;
+  left: 30%;
+  animation: lunge var(--hold) cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+.cutin.attack.opp .mini {
+  left: auto;
+  right: 30%;
+  --dir: -1;
+}
+.cutin.attack .words {
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.cutin.attack .call {
+  font-size: 78px;
+}
+.cutin.attack .name {
+  font-size: 24px;
+  margin-top: 2px;
+}
+@keyframes slash {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  25%,
+  80% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0;
+  }
+}
+@keyframes lunge {
+  0% {
+    translate: calc(var(--dir, 1) * -300px) 0;
+    opacity: 0;
+  }
+  30% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  80% {
+    translate: calc(var(--dir, 1) * 40px) 0;
+    opacity: 1;
+  }
+  100% {
+    translate: calc(var(--dir, 1) * 120px) 0;
+    opacity: 0;
+  }
+}
+/* check (Full): the card flips large in the middle; a trigger bursts in its colour */
+.cutin.check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55), transparent 65%);
+  animation: fade-hold var(--hold) ease-out forwards;
+}
+.cutin.check .kind {
+  font: 800 22px var(--font-display);
+  letter-spacing: 0.3em;
+  color: var(--c);
+  text-shadow: 0 0 12px var(--c);
+}
+.cutin.check .flip {
+  position: relative;
+  margin: 14px 0 10px;
+  animation: flip calc(var(--hold) * 0.3) cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.8));
+}
+.cutin.check .burst {
+  position: absolute;
+  inset: -90px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, var(--tc) 0 6deg, transparent 6deg 18deg),
+    radial-gradient(circle, var(--tc) 0, transparent 60%);
+  mask-image: radial-gradient(circle, #000 30%, transparent 70%);
+  opacity: 0.75;
+  animation: burst var(--hold) linear forwards;
+}
+.cutin.check .trig {
+  font: 900 64px/1 var(--font-display);
+  font-style: italic;
+  margin: 0;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.4);
+  animation: words-in var(--hold) ease-out forwards;
+}
+.cutin.check .trig.none {
+  font-size: 34px;
+  color: var(--text);
+}
+.cutin.check .effect {
+  margin-top: 6px;
+  font: 700 26px var(--font-body);
+  color: #fff;
+  text-shadow: 0 2px 6px #000;
+}
+.cutin.check.t-critical {
+  --tc: #ffd34d;
+}
+.cutin.check.t-draw {
+  --tc: #4dc3ff;
+}
+.cutin.check.t-stand {
+  --tc: #5dff9a;
+}
+.cutin.check.t-heal {
+  --tc: #ff7ad1;
+}
+@keyframes flip {
+  from {
+    transform: perspective(900px) rotateY(100deg) scale(0.6);
+  }
+  to {
+    transform: perspective(900px) rotateY(0) scale(1);
+  }
+}
+@keyframes burst {
+  from {
+    rotate: 0deg;
+    scale: 0.4;
+  }
+  20% {
+    scale: 1.1;
+  }
+  to {
+    rotate: 60deg;
+    scale: 1;
+  }
+}
+@keyframes fade-hold {
+  0% {
+    opacity: 0;
+  }
+  8%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* a hit shakes the table (Full only) */
+.stage:has(.fx-banner.hit.full) .table-wrap {
+  animation: shake calc(0.45s * var(--anim)) ease-out;
+}
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  20% {
+    translate: -14px 6px;
+  }
+  40% {
+    translate: 12px -6px;
+  }
+  60% {
+    translate: -8px 4px;
+  }
+  80% {
+    translate: 4px -2px;
+  }
+}
+
+/* ---- brighter look (D-035) -------------------------------------------------------------------
+   A lit arena around the table instead of a black void, glossy lighter panels, printed wells for
+   the circles so they read on a bright mat. Colours come from the :root tokens above. */
+.stage {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255, 140, 190, 0.28), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(80, 210, 255, 0.3), transparent 70%),
+    radial-gradient(ellipse 45% 60% at 0% 50%, rgba(140, 110, 255, 0.25), transparent 70%),
+    radial-gradient(ellipse 45% 60% at 100% 50%, rgba(140, 110, 255, 0.25), transparent 70%),
+    linear-gradient(180deg, #1c2160 0%, #18265e 50%, #142a62 100%);
+}
+.stage::before {
+  background-image:
+    linear-gradient(rgba(190, 210, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 210, 255, 0.07) 1px, transparent 1px);
+}
+/* the field areas are printed darker wells on the mat */
+.table .field-frame.opp {
+  background: linear-gradient(180deg, rgba(40, 8, 20, 0.42), rgba(30, 10, 30, 0.5));
+  border: 2px solid rgba(255, 120, 110, 0.7);
+}
+.table .field-frame.me {
+  background: linear-gradient(180deg, rgba(6, 20, 50, 0.5), rgba(6, 24, 60, 0.42));
+  border: 2px solid rgba(120, 220, 255, 0.75);
+}
+.table .circle .ring svg {
+  opacity: 0.8;
+}
+.table .panel {
+  background: rgba(8, 16, 44, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+.table .panel.me {
+  border-color: rgba(120, 220, 255, 0.7);
+}
+.table .panel.opp {
+  border-color: rgba(255, 130, 120, 0.7);
+}
+.table .panel .panel-title {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.table .circle-label {
+  color: #fff;
+  opacity: 0.85;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+/* glossy HUD: lighter glass with a bright top edge */
+.plate {
+  background: linear-gradient(90deg, rgba(36, 54, 120, 0.95), rgba(36, 54, 120, 0.55));
+}
+.plate.me {
+  border-top: 3px solid var(--me);
+}
+.plate.opp {
+  border-bottom: 3px solid var(--opp);
+}
+.counter {
+  background: linear-gradient(180deg, rgba(50, 70, 140, 0.95), rgba(28, 42, 96, 0.95));
+}
+.action {
+  background: linear-gradient(180deg, rgba(56, 80, 160, 0.96), rgba(30, 46, 108, 0.96));
+  border-color: rgba(190, 215, 255, 0.55);
+}
+.phase {
+  background: linear-gradient(90deg, rgba(40, 58, 128, 0.9), rgba(40, 58, 128, 0.25));
+}
+.recent-events {
+  background: rgba(20, 32, 76, 0.75);
+  color: #c9d6f2;
+}
+.status-line {
+  background: rgba(24, 38, 90, 0.92);
+}
+.phase {
+  color: rgba(225, 235, 255, 0.62);
+}
+
+/* G era (D-034): "in testing" tag and the stride / G guardian prompts */
+.testing-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  font: 800 11px var(--font-display);
+  letter-spacing: 0.12em;
+  color: #1a1000;
+  background: var(--gold);
+  border-radius: 4px;
+  vertical-align: middle;
+  text-shadow: none;
+}
+.turn-label .testing-tag {
+  position: absolute;
+  left: 0;
+  top: -20px;
+  margin: 0;
+  white-space: nowrap;
+}
+.g-prompt {
+  max-width: 900px;
+  z-index: 80;
+}
+.g-prompt .pick-grid {
+  max-height: 300px;
+  overflow-y: auto;
 }

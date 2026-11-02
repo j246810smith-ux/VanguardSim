@@ -15,6 +15,40 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (session 2026-11-02, G era) — G era part 1 done, UI next
+
+**Status at wrap-up (2026-11-02, ~22:45):** G era part 1 is committed as `fee454b` on `master`
+(committed at the user's request, **not pushed or published**). The **other session** (the Dear
+Days battle screen, D-035) has **started the G-era UI itself** and had it uncommitted at wrap-up:
+`app/renderer/prompts/GPrompts.tsx` (stride and G guardian pickers), `app/tests/gPrompts.test.tsx`,
+and changes to `App.tsx`, `deckChoice.tsx`, `game/session.ts`, `game/interaction.ts`,
+`BattleScreen.tsx`, `board/Panels.tsx`, `board/layout.ts`, `styles.css`, `app/main/main.cjs`,
+`engine.ts`, `CHANGELOG.md`. **Before any UI work: run `git status` / `git log` and read what that
+session committed or left; do not duplicate or overwrite it.** Both sessions share one working tree
+on `master`: never `git add -A` another session's files, never switch branches.
+
+The user asked for the **G era as an option** (D-034, all recommended choices): a selectable
+**G format** (CR 1.48.1, 2 April 2018, in `docs/research/sources/`) next to unchanged Classic.
+Order: engine + G-TD01/02 (**done**) → UI and AI (AI done) → MBT01 → G-BT01 → rest in release
+order, checking in with the user after each milestone.
+
+Done: `src/engine/game/generation.ts` (stride, hearts, G Assist, Generation Break, G guardian,
+G units back to the G zone), `rules/formats.ts` (`PLAY_FORMATS`, `playFormatOf`), commands
+`STRIDE` / `G_GUARD`, trigger `ab.strides()`, step `ab.extraTurn()`, condition `distinct_grades`,
+`ActiveZone` `GZ`, `generationBreak` on abilities. Importer: `G-XX00` codes, G units, G trial deck
+product pages (`/products/gtd01/`), "Updated: Text" cards take the archived pre-2020 English text.
+G-TD01 and G-TD02 scripted and tested (`tests/cards/G-TD0*.test.ts`, fixtures `gEra.ts`,
+`gShapes.ts`); `G_TRIAL_DECKS` (separate from `TRIAL_DECKS`, so the Classic menus do not show
+them). AIs stride/G-guard/G Assist (`tests/sim/gEraGames.test.ts`). `npm run check`: 2278 tests.
+
+**Next (UI, ask the user before touching the battle screen, which the Dear Days session (D-035)
+is reworking):** format picker in Game Setup (Classic / G era) and context per game
+(`app/renderer/engine.ts` uses a fixed Classic context), G deck in the Deck Builder, G zone pile
+on the board (face-down count + face-up cards), stride step button with a discard picker
+(default `suggestedDiscard`), G guardian button in the guard step, G Assist prompts, hearts drawn
+under the G unit, online protocol bump (G games need both players on the G format). Then MBT01
+(its G units in the G format only), then G-BT01.
+
 ## ▶ Pick up here (session 2026-10-30, end) — handover from both sessions
 
 Two Claude sessions worked in this repository on 2026-10-30: one on cards, UI and sleeves (A), one

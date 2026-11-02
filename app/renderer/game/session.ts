@@ -15,13 +15,14 @@ import {
   viewFor,
   type Command,
   type DeckList,
+  type FormatKey,
   type GameEvent,
   type GameState,
   type LegalAction,
   type PlayerId,
   type TriggerType,
 } from '../../../src/engine';
-import { AI, ctx, ME } from '../engine';
+import { AI, ctx, ME, setPlayFormat } from '../engine';
 import type { BattleStep } from '../board/Panels';
 import { cuesFor, type Cue } from '../audio/cues';
 import { movesOf, type Move } from '../board/motion';
@@ -41,6 +42,8 @@ export interface SessionConfig {
   readonly opponent?: 'ai' | 'remote';
   /** The Delayed Legion house rule (off by default). */
   readonly delayedLegion?: boolean;
+  /** Classic (default) or the G era (D-034, in testing; local games only). */
+  readonly format?: FormatKey;
   /** Sleeves and playmat (D-033, presentation only): ids from app/renderer/cosmetics.ts. */
   readonly mySleeve?: string;
   readonly aiSleeve?: string;
@@ -70,6 +73,30 @@ export type Fx =
       readonly kind: 'banner';
       readonly text: string;
       readonly tone: 'me' | 'opp' | 'gold';
+    }
+  | {
+      /** A ride (or superior ride): the new vanguard's cut-in (D-035). */
+      readonly id: number;
+      readonly kind: 'ride';
+      readonly player: 0 | 1;
+      readonly definitionId: string;
+      readonly superior: boolean;
+    }
+  | {
+      readonly id: number;
+      readonly kind: 'legion';
+      readonly player: 0 | 1;
+      readonly leader: string;
+      readonly mate: string;
+    }
+  | {
+      /** An attack is declared: attacker against target (D-035). */
+      readonly id: number;
+      readonly kind: 'attack';
+      readonly player: 0 | 1;
+      readonly attacker: string;
+      readonly target: string;
+      readonly boosted: boolean;
     }
   | {
       /** An ability starts resolving: shown beside the G circle (board/AbilityCallout). */
@@ -188,9 +215,30 @@ export abstract class SessionBase {
           tone: e.player === ME ? 'me' : 'opp',
         };
       case 'UNIT_RIDDEN':
-        return { id, kind: 'banner', text: 'RIDE!', tone: e.player === ME ? 'me' : 'opp' };
+        return {
+          id,
+          kind: 'ride',
+          player: e.player,
+          definitionId: names.cards[e.instanceId]!.definitionId,
+          superior: e.superior,
+        };
       case 'LEGION':
-        return { id, kind: 'banner', text: 'LEGION!', tone: 'gold' };
+        return {
+          id,
+          kind: 'legion',
+          player: e.player,
+          leader: names.cards[e.leader]!.definitionId,
+          mate: names.cards[e.mate]!.definitionId,
+        };
+      case 'ATTACK_DECLARED':
+        return {
+          id,
+          kind: 'attack',
+          player: e.player,
+          attacker: names.cards[e.attacker]!.definitionId,
+          target: names.cards[e.target]!.definitionId,
+          boosted: e.booster !== null,
+        };
       case 'ABILITY_RESOLVING':
         return {
           id,
@@ -221,6 +269,8 @@ export class GameSession extends SessionBase {
 
   constructor(readonly config: SessionConfig) {
     super();
+    // the rules of this game's format (online games are always Classic for now)
+    setPlayFormat(config.format ?? 'classic');
     const { state, events } = createGame(
       {
         seed: config.seed,
@@ -324,6 +374,7 @@ export class GuestSession extends SessionBase {
     private readonly sendCommand: (command: Command) => void,
   ) {
     super();
+    setPlayFormat('classic'); // online play is Classic only for now (G era: in testing, local)
     this.view = view;
   }
 

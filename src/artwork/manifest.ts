@@ -64,10 +64,14 @@ export function buildManifest(sets: readonly SetData[], cardData: string): Artwo
 
 /** The file of a card's image inside the artwork folder (forward slashes). */
 export const imagePath = (id: string, ext: ImageExtension): string =>
-  `${id.slice(0, id.indexOf('-'))}/${id}.${ext}`;
+  `${id.replace(/-\d{3}(EN)?$/, '')}/${id}.${ext}`;
 
 const SET_KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD'];
-const kindOf = (set: string) => SET_KINDS.indexOf(set.replace(/\d+$/, ''));
+/** Classic kinds in order, then the G era's products (G-BT, G-TD, …, DECISIONS D-034). */
+const kindOf = (set: string) => {
+  const kind = set.replace(/\d+$/, '');
+  return kind.startsWith('G-') ? SET_KINDS.length + 1 : SET_KINDS.indexOf(kind);
+};
 
 /** Sets in the manifest: boosters, trial decks, then the side sets, each in number order. */
 export function setsOf(manifest: ArtworkManifest): string[] {
@@ -112,6 +116,9 @@ export function cardIdFromFileName(
   english: ReadonlyMap<string, string> = new Map(),
 ): string | null {
   const stem = fileName.replace(/\.[^.]+$/, '');
+  // G-era numbers: "G-TD01_001EN", "GTD01-001" (D-034)
+  const g = /^G[-_ ]?([A-Z]{2,4})(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
+  if (g) return `G-${g[1]!.toUpperCase()}${g[2]}-${g[3]}`;
   const m = /^(BT|TD|EB|FC|DG|MBT|MTD|MT)(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
   if (!m) return null;
   const id = `${m[1]!.toUpperCase()}${m[2]}-${m[3]}`;

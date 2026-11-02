@@ -30,10 +30,22 @@ export const SWAPPABLE_COLUMNS = {
 } as const satisfies Record<string, readonly [RearGuardCircle, RearGuardCircle]>;
 export type SwappableColumn = keyof typeof SWAPPABLE_COLUMNS;
 
-/** Pile zones. `trigger` holds cards being drive/damage checked (CR 4.10). */
-/** `bind`: CR 4.9. */
+/**
+ * Pile zones. `trigger` holds cards being drive/damage checked (CR 4.10); `bind`: CR 4.9.
+ * G era (CR 1.48.1, DECISIONS D-034): `gzone` holds the G deck (CR 4.11; a card's `faceUp` is
+ * its face-up/face-down state there) and `removed` the cards removed from the game (CR 4.12).
+ */
 export type PileZone =
-  'deck' | 'hand' | 'soul' | 'drop' | 'damage' | 'guardian' | 'trigger' | 'bind';
+  | 'deck'
+  | 'hand'
+  | 'soul'
+  | 'drop'
+  | 'damage'
+  | 'guardian'
+  | 'trigger'
+  | 'bind'
+  | 'gzone'
+  | 'removed';
 
 /** Where a card is. Every card instance is in exactly one location at all times. */
 export type ZoneRef =
@@ -69,6 +81,18 @@ export interface PlayerState {
   guardian: InstanceId[];
   trigger: InstanceId[];
   bind: InstanceId[];
+  /** CR 4.11: the G zone (face-down cards are hidden from the opponent). Empty in Classic. */
+  gzone: InstanceId[];
+  /** CR 4.12: cards removed from the game (G Assist, CR 6.4.1.2.5). */
+  removed: InstanceId[];
+  /**
+   * CR 10.27/10.28.3.2: the cards on the vanguard circle in the heart state, under a strided G
+   * unit (the last card on the circle). Not units: only their name and power count. Empty
+   * when not strided.
+   */
+  hearts: InstanceId[];
+  /** CR 10.28.3.3: the heart whose name and power the G unit gained. */
+  heartChosen: InstanceId | null;
   /**
    * Units on each circle, last element = most recently placed. More than one unit on a circle
    * only exists between a placement and the next rule-action check (CR 9.3), or for Legion.
@@ -81,7 +105,11 @@ export interface PlayerState {
   legion: { readonly leader: InstanceId; readonly mate: InstanceId } | null;
 }
 
-export type Phase = 'setup' | 'stand' | 'draw' | 'ride' | 'main' | 'battle' | 'end';
+/**
+ * `stride`: the stride step of the ride phase (CR 1.48.1 6.5.1.2), kept as its own value so
+ * players and the AI see when a stride may be made. Only in the G format.
+ */
+export type Phase = 'setup' | 'stand' | 'draw' | 'ride' | 'stride' | 'main' | 'battle' | 'end';
 export type GameStatus = 'mulligan' | 'playing' | 'finished';
 /** `effect`: the opponent won by a card's effect ("you win the game"). */
 export type LossReason = 'damage' | 'deck_out' | 'concede' | 'effect';
@@ -90,6 +118,10 @@ export type LossReason = 'damage' | 'deck_out' | 'concede' | 'effect';
 export interface TurnFlags {
   /** A normal ride is allowed once per turn (CR 6.5.1.2). */
   normalRideUsed: boolean;
+  /** A normal stride is allowed once per turn (CR 1.48.1 6.5.1.2.2). */
+  normalStrideUsed?: boolean;
+  /** G units that strode this turn ("the turn your G unit strode"). */
+  strode?: InstanceId[];
   /** Cards the turn player called to (RC) this turn (normal and superior calls). */
   called?: InstanceId[];
   /** Battles (attacks) begun this turn, the current one included ("the third battle of that turn"). */
@@ -312,13 +344,25 @@ export interface GameState {
   readonly abilityHolders: Readonly<Record<'AUTO' | 'ACT' | 'CONT', readonly InstanceId[]>>;
   winner: PlayerId | null;
   losses: Partial<Record<PlayerId, LossReason>>;
+  /** "You get an additional turn" (G-TD01 Mystery-flare Dragon): who takes the next turn. */
+  extraTurn?: PlayerId;
 }
 
 export const other = (p: PlayerId): PlayerId => (p === 0 ? 1 : 0);
 
-/** The player's vanguard (most recently placed unit on the vanguard circle), or null. */
+/**
+ * The player's vanguard, or null: a strided G unit (above its hearts), else the Legion Leader,
+ * else the most recently placed unit on the vanguard circle.
+ */
 export const vanguardOf = (p: PlayerState): InstanceId | null =>
-  p.legion?.leader ?? p.circles.vanguard.at(-1) ?? null;
+  (p.hearts.length > 0 ? p.circles.vanguard.at(-1) : undefined) ??
+  p.legion?.leader ??
+  p.circles.vanguard.at(-1) ??
+  null;
+
+/** CR 10.27.3: is this card a heart (under a strided G unit)? Hearts are not units. */
+export const isHeart = (state: GameState, id: InstanceId): boolean =>
+  state.players[0].hearts.includes(id) || state.players[1].hearts.includes(id);
 
 /** The rear-guard on a circle, or null. */
 export const rearGuardAt = (p: PlayerState, circle: RearGuardCircle): InstanceId | null =>
@@ -327,6 +371,8 @@ export const rearGuardAt = (p: PlayerState, circle: RearGuardCircle): InstanceId
 /** Every card on the player's vanguard and rear-guard circles, including locked cards. */
 export const circleCards = (p: PlayerState): InstanceId[] => CIRCLES.flatMap((c) => p.circles[c]);
 
-/** The player's units on VC and RC (locked cards are not units, CR 3.8.1). */
+/** The player's units on VC and RC (locked cards and hearts are not units, CR 3.8.1, 10.27.3). */
 export const unitsOf = (state: GameState, player: PlayerId): InstanceId[] =>
-  circleCards(state.players[player]).filter((id) => !state.cards[id]!.locked);
+  circleCards(state.players[player]).filter(
+    (id) => !state.cards[id]!.locked && !state.players[player].hearts.includes(id),
+  );

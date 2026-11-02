@@ -5,7 +5,9 @@ import {
   currentName,
   definitionOf,
   isOnCircle,
+  namesOf,
   shareClan,
+  shareName,
 } from '../game/characteristics';
 import type { EngineContext } from '../game/context';
 import { locate } from '../game/locate';
@@ -57,8 +59,11 @@ const playersFor = (ec: EvalContext, owner: Owner): PlayerId[] =>
 function cardsIn(state: GameState, player: PlayerId, area: Area): readonly InstanceId[] {
   const p = state.players[player];
   const circles = AREA_CIRCLES[area];
-  // circle areas hold units; locked cards are not units (CR 3.8.1)
-  if (circles) return circles.flatMap((c) => p.circles[c]).filter((id) => !state.cards[id]!.locked);
+  // circle areas hold units; locked cards and hearts are not units (CR 3.8.1, 1.48.1 10.27.3)
+  if (circles)
+    return circles
+      .flatMap((c) => p.circles[c])
+      .filter((id) => !state.cards[id]!.locked && !p.hearts.includes(id));
   switch (area) {
     case 'locked':
       return REAR_GUARD_CIRCLES.flatMap((c) => p.circles[c]).filter(
@@ -198,12 +203,9 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   // a locked card has no characteristics (CR 10.1.21.3), so it matches no characteristic filter
   // a locked card has no characteristics; a hidden card (in a player's view) has unknown ones
   if (card.locked || card.definitionId === HIDDEN) return !hasCharacteristicFilter(filter);
-  if (
-    filter.sameNameAsSource &&
-    currentName(state, ctx, id) !== currentName(state, ctx, ec.source)
-  ) {
-    return false;
-  }
+  const names = namesOf(state, ctx, id);
+  const hasName = (n: string) => names.includes(n);
+  if (filter.sameNameAsSource && !shareName(state, ctx, id, ec.source)) return false;
   if (filter.sameNameAsBound !== undefined) {
     // '__event': the card the trigger event was about ("the same card name as that unit")
     const of =
@@ -212,21 +214,18 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
           ? []
           : [ec.eventCard]
         : (ec.bindings[filter.sameNameAsBound] ?? []);
-    const names = of.map((b) => currentName(state, ctx, b));
-    if (!names.includes(currentName(state, ctx, id))) return false;
+    if (!of.some((b) => shareName(state, ctx, b, id))) return false;
   }
   if (filter.sameNameAsAnotherUnit) {
     const where = locate(state, id);
-    const name = currentName(state, ctx, id);
     const others = ['VC', 'RC'] as const;
     const twin = others
       .flatMap((area) => cardsIn(state, where.player, area))
-      .some((u) => u !== id && !state.cards[u]!.locked && currentName(state, ctx, u) === name);
+      .some((u) => u !== id && !state.cards[u]!.locked && shareName(state, ctx, u, id));
     if (!twin) return false;
   }
   if (filter.sameNameAsVanguard) {
-    const names = cardsIn(state, ec.master, 'VC').map((v) => currentName(state, ctx, v));
-    if (!names.includes(currentName(state, ctx, id))) return false;
+    if (!cardsIn(state, ec.master, 'VC').some((v) => shareName(state, ctx, v, id))) return false;
   }
   if (filter.sameGradeAsVanguard) {
     const vc = vanguardOf(state.players[ec.master]);
@@ -234,23 +233,22 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   }
   if (filter.canLegionWithVanguard) {
     const mates = seekMateNames(state, ctx, id);
-    const vanguards = cardsIn(state, ec.master, 'VC').map((v) => currentName(state, ctx, v));
+    const vanguards = cardsIn(state, ec.master, 'VC').flatMap((v) => namesOf(state, ctx, v));
     if (!vanguards.some((n) => mates.includes(n))) return false;
   }
   if (filter.vanguardCanLegionWith) {
     const vc = vanguardOf(state.players[ec.master]);
     const mates = vc === null ? [] : seekMateNames(state, ctx, vc);
-    if (!mates.includes(currentName(state, ctx, id))) return false;
+    if (!names.some((n) => mates.includes(n))) return false;
   }
-  if (filter.name !== undefined && currentName(state, ctx, id) !== filter.name) return false;
-  if (filter.nameIn !== undefined && !filter.nameIn.includes(currentName(state, ctx, id)))
-    return false;
-  if (filter.notName !== undefined && currentName(state, ctx, id) === filter.notName) return false;
+  if (filter.name !== undefined && !hasName(filter.name)) return false;
+  if (filter.nameIn !== undefined && !filter.nameIn.some(hasName)) return false;
+  if (filter.notName !== undefined && hasName(filter.notName)) return false;
   // case-insensitive: English names write the Japanese part ライザー both as "Raizer" and as
   // "…raizer" (Cannonraizer); the text "with "Raizer" in its card name" means both
   if (
     filter.nameIncludes !== undefined &&
-    !currentName(state, ctx, id).toLowerCase().includes(filter.nameIncludes.toLowerCase())
+    !names.some((n) => n.toLowerCase().includes(filter.nameIncludes!.toLowerCase()))
   )
     return false;
   if (filter.clan !== undefined && !clansOf(state, ctx, id).includes(filter.clan)) return false;
@@ -443,6 +441,11 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
         matches(ec, id, condition.filter),
       );
       return inRange(called.length, condition.range);
+    }
+    case 'distinct_grades': {
+      const ids = select(ec, condition.of).filter((id) => !ec.state.cards[id]!.locked);
+      const grades = new Set(ids.map((id) => currentGrade(ec.state, ec.ctx, id)));
+      return inRange(grades.size, condition.range);
     }
     case 'distinct_names': {
       const ids = select(ec, condition.of).filter((id) => !ec.state.cards[id]!.locked);

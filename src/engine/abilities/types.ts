@@ -161,6 +161,8 @@ export type Condition =
   | { readonly cond: 'critical'; readonly of: Selector; readonly range: Range }
   /** How many different card names the selected (unlocked) cards have ("rear-guards with different card names"). */
   | { readonly cond: 'distinct_names'; readonly of: Selector; readonly range: Range }
+  /** "If the revealed cards have four or more different grades" (G-TD01 Mystery-flare Dragon). */
+  | { readonly cond: 'distinct_grades'; readonly of: Selector; readonly range: Range }
   /** How many cards matching `filter` the master called to (RC) this turn. */
   | { readonly cond: 'called_this_turn'; readonly filter: CardFilter; readonly range: Range }
   /** "If it is the nth battle of that turn or more" (TurnFlags.battles). */
@@ -393,6 +395,8 @@ export type Step =
   /** CR 10.1.17: top n cards of your deck into your soul. */
   | { readonly op: 'soul_charge'; readonly n: number }
   | { readonly op: 'shuffle' }
+  /** "You get an additional turn" (G era): the master takes the next turn as well. */
+  | { readonly op: 'extra_turn' }
   | {
       readonly op: 'if';
       readonly cond: Condition;
@@ -484,6 +488,8 @@ export type StepName =
   | 'stand_phase'
   | 'draw_phase'
   | 'ride_phase'
+  /** G era: the stride step (CR 1.48.1 6.5.1.2). */
+  | 'stride_step'
   | 'main_phase'
   | 'battle_phase'
   | 'end_phase'
@@ -580,6 +586,8 @@ export type TriggerCondition =
   | { readonly on: 'unlocked'; readonly who: Subject }
   /** CR 10.1.24.13: "when this unit legions". */
   | { readonly on: 'legion'; readonly who: Subject }
+  /** CR 1.48.1 10.28: "when your G unit [Stride]s" / "when this unit [Stride]s" (who: the G unit). */
+  | { readonly on: 'stride'; readonly who: Subject }
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */
   | { readonly on: 'drawn'; readonly who: Subject }
   /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
@@ -589,7 +597,9 @@ export type TriggerCondition =
 // Abilities
 
 /** CR 3.1.1.3: where the card must be for the ability to be active. 'any' = no zone given. */
-export type ActiveZone = 'VC' | 'RC' | 'GC' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind' | 'any';
+/** `GZ`: the G zone (G era, CR 1.48.1 4.11), e.g. "[ACT](G zone)". */
+export type ActiveZone =
+  'VC' | 'RC' | 'GC' | 'GZ' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind' | 'any';
 
 interface AbilityBase {
   /** Unique within the card, e.g. "1". The full key is `${cardId}/${id}`. */
@@ -597,6 +607,11 @@ interface AbilityBase {
   readonly zones: readonly ActiveZone[];
   /** CR 10.2.5: active only with at least this many cards in the master's damage zone. */
   readonly limitBreak?: number;
+  /**
+   * CR 1.48.1 11.12: [Generation Break n], active only with at least n face-up G units on the
+   * master's (VC) and in their G zone.
+   */
+  readonly generationBreak?: number;
   /** The exact text this definition implements, for audits. */
   readonly text: string;
 }

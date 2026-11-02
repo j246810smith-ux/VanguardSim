@@ -8,6 +8,8 @@ export interface DeckList {
   readonly firstVanguard: string;
   /** Every card in the deck, including the first vanguard. */
   readonly cards: readonly string[];
+  /** G era (CR 1.48.1 5.3, DECISIONS D-034): the G deck, G units only. Absent = none. */
+  readonly gDeck?: readonly string[];
 }
 
 export interface DeckIssue {
@@ -20,7 +22,13 @@ export interface DeckIssue {
     | 'TOO_MANY_HEALS'
     | 'TOO_MANY_SENTINELS'
     | 'FIRST_VANGUARD_MISSING'
-    | 'FIRST_VANGUARD_GRADE';
+    | 'FIRST_VANGUARD_GRADE'
+    /** CR 1.48.1 5.2.2.6: a G unit in the main deck. */
+    | 'G_UNIT_IN_MAIN_DECK'
+    /** CR 1.48.1 5.3.3: a card other than a G unit in the G deck. */
+    | 'NOT_A_G_UNIT'
+    /** CR 1.48.1 5.3.2: more G units than the format allows (none in Classic). */
+    | 'G_DECK_SIZE';
   readonly message: string;
 }
 
@@ -111,5 +119,59 @@ export function validateDeck(
     }
   }
 
+  issues.push(...validateGDeck(deck, registry, format, defs));
+  return issues;
+}
+
+/** CR 1.48.1 5.2.2.6 and 5.3: G units only in the G deck, 0–16 of them, four per name. */
+function validateGDeck(
+  deck: DeckList,
+  registry: CardRegistry,
+  format: FormatDefinition,
+  mainDefs: readonly CardDefinition[],
+): DeckIssue[] {
+  const issues: DeckIssue[] = [];
+  for (const name of new Set(mainDefs.filter((d) => d.cardType === 'g_unit').map((d) => d.name))) {
+    issues.push({
+      code: 'G_UNIT_IN_MAIN_DECK',
+      message: `"${name}" is a G unit: it goes in the G deck, not the main deck`,
+    });
+  }
+  const gDeck = deck.gDeck ?? [];
+  const max = format.maxGDeckSize.value;
+  if (gDeck.length > max) {
+    issues.push({
+      code: 'G_DECK_SIZE',
+      message:
+        max === 0
+          ? `${format.id} has no G deck (${gDeck.length} G units)`
+          : `G deck has ${gDeck.length} cards; max ${max}`,
+    });
+  }
+  const unknown = [...new Set(gDeck.filter((id) => !registry.has(id)))];
+  for (const id of unknown) issues.push({ code: 'UNKNOWN_CARD', message: `Unknown card ${id}` });
+  const defs = gDeck.filter((id) => registry.has(id)).map((id) => registry.get(id));
+  for (const set of new Set(defs.map((d) => d.set))) {
+    if (!format.legalSets.includes(set)) {
+      issues.push({ code: 'ILLEGAL_SET', message: `Set ${set} is not legal in ${format.id}` });
+    }
+  }
+  for (const name of new Set(defs.filter((d) => d.cardType !== 'g_unit').map((d) => d.name))) {
+    issues.push({ code: 'NOT_A_G_UNIT', message: `"${name}" is not a G unit (G deck)` });
+  }
+  const copies = new Map<string, number>();
+  for (const d of defs) copies.set(d.name, (copies.get(d.name) ?? 0) + 1);
+  for (const [name, count] of copies) {
+    const limit = maxCopiesOf(
+      defs.find((d) => d.name === name)!,
+      format,
+    );
+    if (count > limit) {
+      issues.push({
+        code: 'TOO_MANY_COPIES',
+        message: `${count} copies of "${name}" in the G deck; max ${limit}`,
+      });
+    }
+  }
   return issues;
 }

@@ -6,6 +6,8 @@ import {
   CardRegistry,
   EARLY_BT01_BT17_FORMAT,
   EARLY_VANGUARD_RULES,
+  G_ERA_FORMAT,
+  G_ERA_RULES,
   type CardDefinition,
   type DeckList,
   type EngineContext,
@@ -14,6 +16,7 @@ import {
 } from '../../src/engine';
 import { ABILITY_CARDS } from './abilityCards';
 import { PHASE5_CARDS } from './phase5Cards';
+import { G_CARDS } from './gCards';
 
 const unit = (
   n: number,
@@ -68,7 +71,7 @@ export const SYNTHETIC_CARDS: CardDefinition[] = [
 ];
 
 export const testRegistry = new CardRegistry(
-  [...SYNTHETIC_CARDS, ...ABILITY_CARDS, ...PHASE5_CARDS],
+  [...SYNTHETIC_CARDS, ...ABILITY_CARDS, ...PHASE5_CARDS, ...G_CARDS],
   'test-1',
 );
 
@@ -82,6 +85,19 @@ export const testContext: EngineContext = {
   registry: testRegistry,
   ruleset: EARLY_VANGUARD_RULES,
   format: TEST_FORMAT,
+};
+
+/** The G format (D-034) with the test cards: G rules, G deck of up to 16. */
+export const G_TEST_FORMAT: FormatDefinition = {
+  ...G_ERA_FORMAT,
+  id: 'G_TEST_FORMAT',
+  legalSets: ['TEST'],
+};
+
+export const gTestContext: EngineContext = {
+  registry: testRegistry,
+  ruleset: G_ERA_RULES,
+  format: G_TEST_FORMAT,
 };
 
 const copies = (id: number, count: number): string[] =>

@@ -5,6 +5,7 @@ import { runCheckTask } from './checks';
 import { endDelayedLegion } from './delayedLegion';
 import type { Draft } from './context';
 import { runFlowTask } from './flow';
+import { gAssistShuffle, returnGUnits, runGAssistTask } from './generation';
 
 /**
  * Runs queued tasks front-first until the queue is empty, the game ends, or a player must make a
@@ -43,6 +44,16 @@ function handle(d: Draft, task: Task): boolean {
       return endDelayedLegion(d, task);
     case 'end_frame':
       endFrame(d, task.frame);
+      return true;
+    case 'g_assist':
+    case 'g_assist_search':
+    case 'g_assist_remove':
+      return runGAssistTask(d, task);
+    case 'g_assist_shuffle':
+      gAssistShuffle(d);
+      return true;
+    case 'return_g_units':
+      returnGUnits(d);
       return true;
     case 'drive_step':
     case 'damage_check':

@@ -23,10 +23,13 @@ export function endGame(d: Draft, losses: Losses): void {
 function resolveOverloadedCircles(d: Draft): void {
   for (const p of d.state.players) {
     for (const circle of CIRCLES) {
+      // CR 1.48.1 9.3.1: hearts are not units, so a strided G unit and its hearts stay together
       const keep =
-        circle === 'vanguard' && p.legion
-          ? [p.legion.leader, p.legion.mate]
-          : p.circles[circle].slice(-1);
+        circle === 'vanguard' && p.hearts.length > 0
+          ? [...p.hearts, ...p.circles.vanguard.slice(-1)]
+          : circle === 'vanguard' && p.legion
+            ? [p.legion.leader, p.legion.mate]
+            : p.circles[circle].slice(-1);
       const extras = p.circles[circle].filter((id) => !keep.includes(id));
       if (extras.length === 0) continue;
       const zone = circle === 'vanguard' ? 'soul' : 'drop';

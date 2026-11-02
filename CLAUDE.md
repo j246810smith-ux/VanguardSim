@@ -55,7 +55,14 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Current state (2026-10-30, v0.26.0-alpha)
+## Current state (2026-11-02): G era part 1 (D-034)
+
+A selectable **G format** (CR 1.48.1) next to unchanged Classic: engine, G-TD01, G-TD02 and the AIs
+are done; the app's UI does not offer it yet. G-era code lives in `src/engine/game/generation.ts`
+and `src/engine/rules/formats.ts`; rules cite "CR 1.48.1 <section>". Details and next steps in
+`docs/NEXT_SESSION.md` "Pick up here (session 2026-11-02, G era)".
+
+## State at v0.26.0-alpha (2026-10-30)
 
 **v0.26.0-alpha published**: EB11, EB12, sleeves/playmats (D-033), Play Online on **in testing**
 (room codes, reconnect; `docs/PLAYING_ONLINE.md`). MTD01 and PR cards left out for now; MBT01 has

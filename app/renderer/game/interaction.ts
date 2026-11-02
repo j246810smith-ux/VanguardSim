@@ -34,6 +34,9 @@ export interface Legal {
   readonly mulligan: boolean;
   readonly endPhase: boolean;
   readonly passGuard: boolean;
+  /** G era (D-034): the stride step's options, and G guardians in the guard step. */
+  readonly stride: Extract<LegalAction, { type: 'STRIDE' }> | null;
+  readonly gGuard: Extract<LegalAction, { type: 'G_GUARD' }> | null;
 }
 
 export function legalOf(actions: readonly LegalAction[]): Legal {
@@ -53,6 +56,8 @@ export function legalOf(actions: readonly LegalAction[]): Legal {
     mulligan: !!find('MULLIGAN'),
     endPhase: !!find('END_PHASE'),
     passGuard: !!find('PASS_GUARD'),
+    stride: find('STRIDE') ?? null,
+    gGuard: find('G_GUARD') ?? null,
   };
 }
 

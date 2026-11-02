@@ -8,7 +8,7 @@ export interface ParsedCard {
   readonly site: 'en' | 'jp';
   readonly number: string;
   readonly name: string;
-  readonly type: 'normal_unit' | 'trigger_unit';
+  readonly type: 'normal_unit' | 'trigger_unit' | 'g_unit';
   readonly clan: string;
   readonly race: string;
   readonly grade: number;
@@ -79,6 +79,7 @@ const number = (s: string, what: string): number => {
 };
 
 function skill(s: string): SkillIcon | null {
+  if (/Triple Drive|トリプルドライブ/.test(s)) return 'triple_drive';
   if (/Twin Drive|ツインドライブ/.test(s)) return 'twin_drive';
   if (/Intercept|インターセプト/.test(s)) return 'intercept';
   if (/Boost|ブースト/.test(s)) return 'boost';
@@ -95,15 +96,20 @@ function trigger(gift: string): TriggerType | null {
   throw new Error(`card page: unknown trigger "${gift}"`);
 }
 
+/** Card type from the "type" field: normal unit, trigger unit or (G era, D-034) G unit. */
+function unitType(text: string): ParsedCard['type'] {
+  if (/Trigger|トリガー/.test(text)) return 'trigger_unit';
+  if (/G Unit|Ｇユニット|Gユニット/i.test(text)) return 'g_unit';
+  if (/Normal|ノーマル/.test(text)) return 'normal_unit';
+  throw new Error(`card page: unsupported card type "${text}"`);
+}
+
 export function parseCardPage(html: string, site: 'en' | 'jp'): ParsedCard {
   const m = /<div class="cardlist_detail">([\s\S]*?)<div class="btns">/.exec(html);
   if (!m) throw new Error('card page: no card detail block (card not found?)');
   const block = m[1]!;
   const typeText = field(block, 'type');
-  const type = /Trigger|トリガー/.test(typeText) ? 'trigger_unit' : 'normal_unit';
-  if (type === 'normal_unit' && !/Normal|ノーマル/.test(typeText)) {
-    throw new Error(`card page: unsupported card type "${typeText}"`);
-  }
+  const type = unitType(typeText);
   const text = field(quoteBreaks(block), 'effect');
   const shield = field(block, 'shield');
   const image = /<div class="main"><img src="([^"]+)"/.exec(block)?.[1] ?? null;
@@ -162,11 +168,7 @@ export const JP_IMAGE_BASE = '/wordpress/wp-content/images/cardlist/';
  * its card pages from it since its 2026-10 redesign; the English site still serves pages).
  */
 export function parseApiCard(c: ApiCard, expansions: readonly { id: string }[]): ParsedCard {
-  const kind = c.card_kind_name;
-  const type = /トリガー/.test(kind) ? 'trigger_unit' : 'normal_unit';
-  if (type === 'normal_unit' && !/ノーマル/.test(kind)) {
-    throw new Error(`card API: unsupported card type "${kind}"`);
-  }
+  const type = unitType(c.card_kind_name);
   const text = clean(c.text_html ?? c.text);
   return {
     site: 'jp',

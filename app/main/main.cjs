@@ -263,7 +263,11 @@ const shotsStep = `(() => {
     q('[data-testid=card-details]')?.click(); // close a details window opened by a stray click
     return (
       click(q('[data-testid=new-game]')) ||
+      (${JSON.stringify(process.env.VANGUARD_SHOTS_FORMAT === 'g')} && !window.__fmt && q('[data-testid=format-g]') && ((window.__fmt = 1), click(q('[data-testid=format-g]')))) ||
       click(q('[data-testid=start]')) ||
+      click(q('[data-testid=stride-go]')) ||
+      click(q('[data-testid=g-guard-go]')) ||
+      click(q('[data-testid=action-stride]')) ||
       click(q('[data-testid=mulligan] button')) ||
       click(q('[data-testid=choice] button')) ||
       click(q('[data-testid=action-pass]')) ||
@@ -296,6 +300,17 @@ function runShots(win) {
           path.join(shotsDir, `${String(i).padStart(3, '0')}-ability.png`),
           mid.toPNG(),
         );
+      // the battle VS display and cut-ins (D-035), if one is up
+      for (const [sel, tag] of [
+        ['.battle-vs', 'battle'],
+        ['.cutin', 'cutin'],
+      ])
+        if (await win.webContents.executeJavaScript(`!!document.querySelector("${sel}")`)) {
+          fs.writeFileSync(
+            path.join(shotsDir, `${String(i).padStart(3, '0')}-${tag}.png`),
+            (await win.webContents.capturePage()).toPNG(),
+          );
+        }
       await wait(330);
       const image = await win.webContents.capturePage();
       fs.writeFileSync(

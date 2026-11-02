@@ -347,6 +347,13 @@ export const draw = (n = 1, player?: 'opponent'): Step =>
   player ? { op: 'draw', n, player } : { op: 'draw', n };
 export const soulCharge = (n = 1): Step => ({ op: 'soul_charge', n });
 export const shuffle = (): Step => ({ op: 'shuffle' });
+/** "You get an additional turn." */
+export const extraTurn = (): Step => ({ op: 'extra_turn' });
+/** "When your G unit [Stride]s" (default) or "when this unit [Stride]s" ('self'). */
+export const strides = (who: Subject = { owner: 'you' }): TriggerCondition => ({
+  on: 'stride',
+  who,
+});
 export const if_ = (cond: Condition, then: Step[], otherwise?: Step[]): Step =>
   otherwise ? { op: 'if', cond, then, else: otherwise } : { op: 'if', cond, then };
 export const may = (prompt: string, then: Step[], player?: 'opponent'): Step =>

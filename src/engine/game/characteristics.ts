@@ -16,6 +16,30 @@ export function definitionOf(state: GameState, ctx: EngineContext, id: InstanceI
 export const currentName = (state: GameState, ctx: EngineContext, id: InstanceId): string =>
   definitionOf(state, ctx, id).name;
 
+/** The heart whose name and power a strided G unit gained (CR 1.48.1 10.28.3.3), or null. */
+export function chosenHeartOf(state: GameState, id: InstanceId): InstanceId | null {
+  for (const p of state.players) {
+    if (p.hearts.length > 0 && p.circles.vanguard.at(-1) === id) return p.heartChosen;
+  }
+  return null;
+}
+
+/**
+ * Every card name the card has: its own, plus (CR 1.48.1 10.28.3.3) the name a strided G unit
+ * gained from its heart. Name conditions match if any of them matches.
+ */
+export function namesOf(state: GameState, ctx: EngineContext, id: InstanceId): readonly string[] {
+  const own = definitionOf(state, ctx, id).name;
+  const heart = chosenHeartOf(state, id);
+  if (heart === null) return [own];
+  const gained = definitionOf(state, ctx, heart).name;
+  return gained === own ? [own] : [own, gained];
+}
+
+/** Do two cards have a card name in common? */
+export const shareName = (state: GameState, ctx: EngineContext, a: InstanceId, b: InstanceId) =>
+  namesOf(state, ctx, a).some((n) => namesOf(state, ctx, b).includes(n));
+
 export const currentGrade = (state: GameState, ctx: EngineContext, id: InstanceId): number =>
   definitionOf(state, ctx, id).grade;
 

@@ -7,6 +7,7 @@ import type { Draft } from '../game/context';
 import { locate } from '../game/locate';
 import type { GameEvent } from '../state/events';
 import {
+  isHeart,
   vanguardOf,
   type InstanceId,
   type Phase,
@@ -15,6 +16,7 @@ import {
 } from '../state/types';
 import { abilitiesOf, grantAbilityId, holders } from './catalog';
 import { activeZoneOf, limitBreakMet, zoneAllows } from './continuous';
+import { generationBreakMet } from '../game/generation';
 import { COLUMN_OF, evaluate, matches, type EvalContext } from './evaluate';
 import type { AutoAbility, StepName, Subject, TriggerCondition } from './types';
 
@@ -22,6 +24,7 @@ const PHASE_STEP: Partial<Record<Phase, StepName>> = {
   stand: 'stand_phase',
   draw: 'draw_phase',
   ride: 'ride_phase',
+  stride: 'stride_step',
   main: 'main_phase',
   battle: 'battle_phase',
   end: 'end_phase',
@@ -235,6 +238,9 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (e.type !== 'LEGION') return null;
       if (subjectIs(ec, t.who, e.leader, e.player)) return { eventCard: e.mate };
       return subjectIs(ec, t.who, e.mate, e.player) ? { eventCard: e.leader } : null;
+    case 'stride':
+      if (e.type !== 'STRIDE') return null;
+      return subjectIs(ec, t.who, e.gUnit, e.player) ? { eventCard: e.gUnit } : null;
     case 'step_start': {
       let step: StepName | undefined;
       if (e.type === 'PHASE_CHANGED') step = PHASE_STEP[e.phase];
@@ -263,6 +269,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'CHECK_REVEALED',
   'INTERCEPTED',
   'LEGION',
+  'STRIDE',
 ]);
 
 export function detectTriggers(d: Draft, event: GameEvent): void {
@@ -284,7 +291,13 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
       if (a.kind !== 'AUTO') continue;
       const m = matchTrigger(ec, a.trigger, event);
       if (!m) continue;
-      if (!zoneAllows(a.zones, activeZoneOf(m.sourceZone ?? where))) continue;
+      const zone = m.sourceZone ?? where;
+      // the cards a stride turns into hearts still see that stride from (VC): "[AUTO](VC):When
+      // your G unit [Stride]s" (Chronojet Dragon) is written for the vanguard being stridden
+      // over (look-back, UNRESOLVED_RULINGS "G era")
+      const heart =
+        !m.sourceZone && isHeart(s, id) && !(event.type === 'STRIDE' && event.hearts.includes(id));
+      if (!zoneAllows(a.zones, activeZoneOf(zone, heart))) continue;
       if (!isUsable(d, id, a, where.player)) continue;
       if (a.triggerIf && !evaluate({ ...ec, eventCard: m.eventCard }, a.triggerIf)) continue;
       const standby = {
@@ -316,5 +329,7 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
 /** Limit Break (checked when the ability triggers, CR 10.2.5.3.2.1) and once-per-turn use. */
 function isUsable(d: Draft, source: InstanceId, a: AutoAbility, master: PlayerId): boolean {
   if (!limitBreakMet(d.state, d.ctx, master, a.limitBreak, source)) return false;
+  // CR 1.48.1 11.12.3.2.1: Generation Break is checked when the ability would trigger
+  if (!generationBreakMet(d.state, d.ctx, master, a.generationBreak)) return false;
   return !(a.oncePerTurn && d.state.usedThisTurn.includes(`${source}/${a.id}`));
 }

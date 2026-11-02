@@ -34,6 +34,10 @@ const emptyPlayer = (id: PlayerId): PlayerState => ({
   guardian: [],
   trigger: [],
   bind: [],
+  gzone: [],
+  removed: [],
+  hearts: [],
+  heartChosen: null,
   circles: {
     vanguard: [],
     front_left: [],
@@ -79,6 +83,19 @@ export function createGame(
         locked: false,
       };
       players[owner].deck.push(instanceId);
+    });
+    // CR 1.48.1 4.11.4, 5.4.3.1: the G deck goes face down into the G zone
+    (deck.gDeck ?? []).forEach((definitionId, n) => {
+      const instanceId = `p${owner}-g${String(n + 1).padStart(2, '0')}`;
+      cards[instanceId] = {
+        instanceId,
+        definitionId,
+        owner,
+        faceUp: false,
+        orientation: 'stand',
+        locked: false,
+      };
+      players[owner].gzone.push(instanceId);
     });
   });
 

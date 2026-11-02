@@ -43,7 +43,7 @@ export interface MoveOptions {
 export function moveCard(
   d: Draft,
   id: InstanceId,
-  to: ZoneRef,
+  destination: ZoneRef,
   reason: MoveReason,
   options: MoveOptions = {},
 ): void {
@@ -51,6 +51,15 @@ export function moveCard(
   const card = s.cards[id];
   if (!card) throw new InvalidZoneError(`Unknown card instance ${id}`, { id });
   const from = locate(s, id);
+  // CR 1.48.1 4.6.9, 11.14.3: a G unit leaving the field for anywhere but a circle goes back to
+  // its owner's G zone face up instead (retired, bounced, ridden over, …)
+  const gUnit = d.ctx.registry.get(card.definitionId).cardType === 'g_unit';
+  const to: ZoneRef =
+    gUnit && isCircle(from) && !isCircle(destination) && destination.zone !== 'gzone'
+      ? { player: card.owner, zone: 'gzone' }
+      : destination;
+  if (to !== destination) options = { ...options, faceUp: true };
+  leaveHeartState(d, id, from, to);
 
   const source = pileOf(s, from);
   source.splice(source.indexOf(id), 1);
@@ -94,6 +103,35 @@ export function moveCard(
   // granted abilities are lost only after the move's triggers are checked: "when this unit is put
   // into the drop zone" abilities look back at the unit as it was (CR 8.6.7)
   if (newCard) s.grants = s.grants.filter((g) => g.target !== id);
+}
+
+/**
+ * CR 1.48.1 10.27.5.2, 10.28.4: when the strided G unit leaves the vanguard circle its hearts
+ * stop being hearts (taking the G unit's orientation; a legion stays a legion, 10.27.4); when a
+ * heart leaves, the G unit loses that heart's name and power and gains another heart's.
+ */
+function leaveHeartState(d: Draft, id: InstanceId, from: ZoneRef, to: ZoneRef): void {
+  if (from.zone !== 'circle' || from.circle !== 'vanguard') return;
+  if (to.zone === 'circle' && to.circle === 'vanguard') return;
+  const p = d.state.players[from.player];
+  if (p.hearts.length === 0) return;
+  const gUnit = p.circles.vanguard.at(-1);
+  if (id === gUnit) {
+    const orientation = d.state.cards[id]!.orientation;
+    for (const h of p.hearts) d.state.cards[h]!.orientation = orientation;
+    p.hearts = [];
+    p.heartChosen = null;
+    emit(d, { type: 'HEARTS_RELEASED', player: from.player, gUnit: id });
+    return;
+  }
+  if (!p.hearts.includes(id)) return;
+  p.hearts = p.hearts.filter((h) => h !== id);
+  if (p.heartChosen === id) {
+    p.heartChosen =
+      p.hearts.find(
+        (h) => d.ctx.registry.get(d.state.cards[h]!.definitionId).cardType !== 'g_unit',
+      ) ?? null;
+  }
 }
 
 /** Legion partner of `id`, if it is a Legion Leader or Mate. */

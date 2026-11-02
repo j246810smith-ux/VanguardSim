@@ -1,0 +1,974 @@
+{
+  "set": "G-TD02",
+  "importedAt": "2026-11-02T21:58:13.306Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD02-001",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/001",
+        "name": "朧の聖騎士 ガブレード",
+        "text": "アップデート：テキスト\n【超越】-ストライドステップ-【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：あなたのヴァンガードがグレード３の「青天の騎士 アルトマイル」で、このファイトであなたがイマジナリーギフトを得ていないなら、【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。さらに【コスト】[Ｇゾーンからこのユニットと同名を１枚表にする]ことで、イマジナリーギフト・フォースを２つ得る。\n【永】【(V)】：あなたは、このユニットの『ヒットした時』の効果を、ヒットしていなくても発動する。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、あなたの山札からグレード２以上を１枚まで探し、(R)にコールし、山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gtd02_001up.png"
+      },
+      "en": {
+        "number": "G-TD02/001EN",
+        "name": "Shrouded Divine Knight, Gablade",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[AUTO](VC):When this unit's attack hits a vanguard, search your deck for up to one grade 2 or greater card, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/001", "G-TD02/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F001",
+          "fetchedAt": "2026-11-02T21:55:17.119Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/001EN",
+          "fetchedAt": "2026-11-02T21:55:36.788Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191214020552/https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/001EN",
+          "fetchedAt": "2019-12-14T02:05:52Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Text\n[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[ACT]G Zone:If your vanguard is a grade 3 \"Blue Sky Knight, Altmile\", and you did not get an Imaginary Gift this fight, [COST][choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down. Then, [COST][turn a card from G zone with the same card name as this unit face up], and you get two Imaginary Gift:Force.\n[CONT](VC):This unit's \"when attack hits\" effects activate even if the attack did not hit.\n[AUTO](VC):When this unit's attack hits a vanguard, search your deck for up to one grade 2 or greater card, call it to (RC), and shuffle your deck."
+      }
+    },
+    {
+      "id": "G-TD02-002",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/002",
+        "name": "青天の騎士 アルトマイル",
+        "text": "【永】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：あなたのターン中、あなたの前列のユニットすべてのパワー＋5000。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの手札から２枚まで選び、別々の(R)にコールし、あなたのユニットを２枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_002.png"
+      },
+      "en": {
+        "number": "G-TD02/002EN",
+        "name": "Blue Sky Knight, Altmile",
+        "text": "[CONT](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):During your turn, all of the units in your front row get [Power] +5000.\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose up to two cards from your hand, call them to separate (RC), choose up to two of your units, and those units get [Power] +5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/002", "G-TD02/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F002",
+          "fetchedAt": "2026-11-02T21:55:18.308Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/002EN",
+          "fetchedAt": "2026-11-02T21:55:39.147Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-003",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/003",
+        "name": "オーラシューター・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード２以上のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_003.png"
+      },
+      "en": {
+        "number": "G-TD02/003EN",
+        "name": "Aurashooter Dragon",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone)::When this unit attacks a vanguard, this unit gets [Power] +6000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one grade 2 or greater card, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/003", "G-TD02/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F003",
+          "fetchedAt": "2026-11-02T21:55:19.045Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/003EN",
+          "fetchedAt": "2026-11-02T21:55:40.349Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-004",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/004",
+        "name": "碩学の賢者 クンロン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_004.png"
+      },
+      "en": {
+        "number": "G-TD02/004EN",
+        "name": "Profound Sage, Kunron",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/004", "G-TD02/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F004",
+          "fetchedAt": "2026-11-02T21:55:20.200Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/004EN",
+          "fetchedAt": "2026-11-02T21:55:41.524Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-005",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/005",
+        "name": "絶剣の騎士 リヴァーロ",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_005.png"
+      },
+      "en": {
+        "number": "G-TD02/005EN",
+        "name": "Absolute Blade Knight, Livarot",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/005", "G-TD02/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F005",
+          "fetchedAt": "2026-11-02T21:55:21.382Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/005EN",
+          "fetchedAt": "2026-11-02T21:55:42.423Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-006",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/006",
+        "name": "ナイト・オブ・ツインソード",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、あなたの山札から「ナイト・オブ・ツインソード」以外のグレード２のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_006.png"
+      },
+      "en": {
+        "number": "G-TD02/006EN",
+        "name": "Knight of Twin Sword",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, search your deck for up to one grade 2 card not named \"Knight of Twin Sword\", call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/006", "G-TD02/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F006",
+          "fetchedAt": "2026-11-02T21:55:22.545Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/006EN",
+          "fetchedAt": "2026-11-02T21:55:45.488Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-007",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/007",
+        "name": "流転の騎士 ブレードゥ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_007.png"
+      },
+      "en": {
+        "number": "G-TD02/007EN",
+        "name": "Transmigration Knight, Brede",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/007", "G-TD02/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F007",
+          "fetchedAt": "2026-11-02T21:55:23.708Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/007EN",
+          "fetchedAt": "2026-11-02T21:55:46.647Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-008",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/008",
+        "name": "ミスリルガード・ライオン",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_008.png"
+      },
+      "en": {
+        "number": "G-TD02/008EN",
+        "name": "Mithrilguard Lion",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/008", "G-TD02/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F008",
+          "fetchedAt": "2026-11-02T21:55:24.988Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/008EN",
+          "fetchedAt": "2026-11-02T21:55:47.548Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-009",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/009",
+        "name": "繊月の騎士 フェレックス",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_009.png"
+      },
+      "en": {
+        "number": "G-TD02/009EN",
+        "name": "Lunar Crescent Knight, Felax",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/009", "G-TD02/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F009",
+          "fetchedAt": "2026-11-02T21:55:26.294Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/009EN",
+          "fetchedAt": "2026-11-02T21:55:48.760Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-010",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/010",
+        "name": "天駆ける塔のアーチャー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_010.png"
+      },
+      "en": {
+        "number": "G-TD02/010EN",
+        "name": "Archer of Heaven's Tower",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone)::When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/010", "G-TD02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F010",
+          "fetchedAt": "2026-11-02T21:55:27.034Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/010EN",
+          "fetchedAt": "2026-11-02T21:55:49.930Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-011",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/011",
+        "name": "ナイト・オブ・スチールウイング",
+        "text": "【自】【(V)/(R)】：このユニットがアタックされた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_011.png"
+      },
+      "en": {
+        "number": "G-TD02/011EN",
+        "name": "Knight of Steel Wing",
+        "text": "[AUTO](VC/RC):When this unit is attacked, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/011", "G-TD02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F011",
+          "fetchedAt": "2026-11-02T21:55:27.759Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/011EN",
+          "fetchedAt": "2026-11-02T21:55:50.860Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-012",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/012",
+        "name": "ミルキーウェイ・ユニコーン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードを【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_012.png"
+      },
+      "en": {
+        "number": "G-TD02/012EN",
+        "name": "Milky Way Unicorn",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]) a vanguard, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/012", "G-TD02/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F012",
+          "fetchedAt": "2026-11-02T21:55:28.502Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/012EN",
+          "fetchedAt": "2026-11-02T21:55:52.034Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-013",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/013",
+        "name": "レインボー・ガーディアン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_013.png"
+      },
+      "en": {
+        "number": "G-TD02/013EN",
+        "name": "Rainbow Guardian",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD02/013", "G-TD02/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F013",
+          "fetchedAt": "2026-11-02T21:55:29.663Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/013EN",
+          "fetchedAt": "2026-11-02T21:55:53.006Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-014",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/014",
+        "name": "閃きの騎士 ミーリウス",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札からグレード２のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_014.png"
+      },
+      "en": {
+        "number": "G-TD02/014EN",
+        "name": "Shining Knight, Millius",
+        "text": "[AUTO]:Forerunner(When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Search your deck for up to one grade 2 card, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/014", "G-TD02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F014",
+          "fetchedAt": "2026-11-02T21:55:30.409Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/014EN",
+          "fetchedAt": "2026-11-02T21:55:54.338Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-015",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/015",
+        "name": "バーニングメイン・ライオン",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_015.png"
+      },
+      "en": {
+        "number": "G-TD02/015EN",
+        "name": "Burning Mane Lion",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/015", "G-TD02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F015",
+          "fetchedAt": "2026-11-02T21:55:31.151Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/015EN",
+          "fetchedAt": "2026-11-02T21:55:55.443Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-016",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/016",
+        "name": "小妖精の突撃隊長",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_016.png"
+      },
+      "en": {
+        "number": "G-TD02/016EN",
+        "name": "Pixy Assault Captain",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/016", "G-TD02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F016",
+          "fetchedAt": "2026-11-02T21:55:31.948Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/016EN",
+          "fetchedAt": "2026-11-02T21:55:56.656Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-017",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/017",
+        "name": "ナイト・オブ・フェスティバル",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_017.png"
+      },
+      "en": {
+        "number": "G-TD02/017EN",
+        "name": "Knight of Festival",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/017", "G-TD02/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F017",
+          "fetchedAt": "2026-11-02T21:55:32.698Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/017EN",
+          "fetchedAt": "2026-11-02T21:55:57.589Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-018",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/018",
+        "name": "ヒーリング・ペガサス",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_018.png"
+      },
+      "en": {
+        "number": "G-TD02/018EN",
+        "name": "Healing Pegasus",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/018", "G-TD02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F018",
+          "fetchedAt": "2026-11-02T21:55:33.439Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/018EN",
+          "fetchedAt": "2026-11-02T21:55:58.913Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD02-019",
+      "set": "G-TD02",
+      "jp": {
+        "number": "G-TD02/019",
+        "name": "まぁるがる",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ロイヤルパラディン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD02/gtd02_019.png"
+      },
+      "en": {
+        "number": "G-TD02/019EN",
+        "name": "Margal",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Royal Paladin>, and it gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd02/GTD02_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD02/019", "G-TD02/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD02%2F019",
+          "fetchedAt": "2026-11-02T21:55:34.650Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD02/019EN",
+          "fetchedAt": "2026-11-02T21:56:00.893Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 2: Divine Swordsman of the Shiny Star",
+    "cards": [
+      {
+        "id": "G-TD02-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-004",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD02-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD02-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-016",
+        "count": 2
+      },
+      {
+        "id": "G-TD02-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD02-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/gtd02/",
+      "fetchedAt": "2026-11-02T21:56:01.892Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -21,6 +21,7 @@ import {
 } from '../game/zones';
 import type { Task } from '../state/tasks';
 import {
+  isHeart,
   other,
   REAR_GUARD_CIRCLES,
   vanguardOf,
@@ -33,6 +34,7 @@ import {
 } from '../state/types';
 import { abilitiesOf, holders } from './catalog';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
+import { generationBreakMet } from '../game/generation';
 import { columnOf, evaluate, select, type EvalContext } from './evaluate';
 import { currentName } from '../game/characteristics';
 import type {
@@ -259,10 +261,11 @@ export function actOptions(state: GameState, ctx: EngineContext, player: PlayerI
     const abilities = abilitiesOf(state, ctx, id);
     const where = locate(state, id);
     if (where.player !== player) continue;
-    const zone = activeZoneOf(where);
+    const zone = activeZoneOf(where, isHeart(state, id));
     for (const a of abilities) {
       if (a.kind !== 'ACT' || !zoneAllows(a.zones, zone)) continue;
       if (!limitBreakMet(state, ctx, player, a.limitBreak, id)) continue; // CR 10.2.5.3.3
+      if (!generationBreakMet(state, ctx, player, a.generationBreak)) continue; // CR 1.48.1 11.12.3.3
       if (a.oncePerTurn && state.usedThisTurn.includes(useKey(id, a.id))) continue;
       if (a.oncePerGame && state.usedThisGame.includes(useKey(id, a.id))) continue;
       const ec: EvalContext = {
@@ -955,6 +958,10 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         if (top !== undefined)
           moveCard(d, top, { player: frame.master, zone: 'soul' }, 'soul_charge');
       }
+      return true;
+    case 'extra_turn':
+      s.extraTurn = frame.master;
+      emit(d, { type: 'EXTRA_TURN', player: frame.master });
       return true;
     case 'shuffle': {
       shuffleDeck(d, frame.master);

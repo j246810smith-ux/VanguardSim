@@ -10,12 +10,18 @@ const rect = (x: number, y: number) =>
 
 let animate: ReturnType<typeof vi.fn>;
 let cancels: number;
+/** Flights started: each moving card is drawn by a flat copy over the stage (board/motion.ts). */
+const flights = () =>
+  animate.mock.contexts.filter((el) => (el as HTMLElement).classList.contains('motion-ghost'))
+    .length;
 
 beforeEach(() => {
   boxes.clear();
   cancels = 0;
   vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function (this: Element) {
-    const b = boxes.get((this as HTMLElement).dataset?.iid ?? '');
+    // a flying copy (D-035 ghost) is drawn where its card is
+    const d = (this as HTMLElement).dataset;
+    const b = boxes.get(d?.iid ?? d?.ghostOf ?? '');
     return b ? rect(b.x, b.y) : rect(0, 0);
   });
   animate = vi.fn(() => {
@@ -62,9 +68,9 @@ describe('card movement animation', () => {
     boxes.set('c1', { x: 300, y: 0 });
     const next = {};
     rerender(<Board view={next} />);
-    expect(animate).toHaveBeenCalledTimes(1);
+    expect(flights()).toBe(1);
     rerender(<Board view={next} hovered />);
-    expect(animate).toHaveBeenCalledTimes(1);
+    expect(flights()).toBe(1);
   });
 
   it('cancels a slide still running before measuring the next view', () => {
@@ -72,9 +78,11 @@ describe('card movement animation', () => {
     const { rerender } = render(<Board view={{}} />);
     boxes.set('c1', { x: 300, y: 0 });
     rerender(<Board view={{}} />);
-    expect(animate).toHaveBeenCalledTimes(1);
-    rerender(<Board view={{}} />); // nothing moved: the running slide is cancelled, none restarted
-    expect(cancels).toBe(1);
-    expect(animate).toHaveBeenCalledTimes(1);
+    expect(flights()).toBe(1);
+    const runs = animate.mock.calls.length; // the copy's flight and the real card's fade-in
+    rerender(<Board view={{}} />); // nothing moved: the running flight is cancelled, none restarted
+    expect(cancels).toBe(runs);
+    expect(flights()).toBe(1);
+    expect(document.querySelector('.motion-ghost')).toBeNull();
   });
 });

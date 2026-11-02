@@ -1,5 +1,47 @@
 # Changelog
 
+## Unreleased
+
+**The G era, part 1: rules engine and the first two G Trial Decks** (D-034, user's request). The
+G era is a second format next to Classic; Classic games are unchanged.
+
+- **G era is in testing**: Game Setup → **Format: G era (IN TESTING)** against the AI, with the G
+  Trial Decks (or Classic decks, which are legal there too). The board shows each **G zone**, a
+  **STRIDE** step on the phase rail and a "G ERA · IN TESTING" tag; **Stride** (choose the G unit
+  and the hand cards to discard, the cheapest discard picked for you) and **G Guardian** (choose
+  the G guardian and the heal trigger to discard) are buttons in the action bar. Not yet: G decks
+  in the Deck Builder, hearts drawn under the G unit, online G games (online stays Classic).
+
+- **G format** (Comprehensive Rules ver. 1.48.1, April 2018): every Classic card plus G cards, a
+  G deck of up to 16 G units, the G zone, **G Assist**, the **stride step** (discard grades totalling
+  3 or more to stride a G unit over your grade 3; it gains the heart's name and power and has
+  Triple Drive), **Generation Break**, **G guardians**, G units back to the G zone at end of turn,
+  and "you get an additional turn".
+- **G-TD01** (Gear Chronicle, Chronojet Dragon / Mystery-flare Dragon) and **G-TD02** (Royal
+  Paladin, Blue Sky Knight, Altmile / Shrouded Divine Knight, Gablade): 38 cards, all scripted and
+  tested; both decks as sold (50 cards + 2 G units).
+- Cards later rewritten by Bushiroad ("Updated: Text") play with their G-era text, taken from the
+  archived official card pages.
+- The basic and smart AIs stride, G-guard and use G Assist.
+
+**A Dear Days–style battle screen** (D-035, user's request). Presentation only: rules, cards and
+the AI are unchanged.
+
+- **Tilted 3D table**: the field, zones and playmat lie on a table seen at an angle, your side
+  near and large, the opponent's far. Zones sit like on a real mat: damage in a column of sideways
+  cards on each player's left; trigger, soul, drop and deck on their right. Moving cards fly over
+  the table.
+- **Cut-ins**: ride and superior ride (a band in your colour with the card sliding in), legion,
+  attack (a slash with attacker → target), drive and damage checks large in the middle with a
+  trigger burst, a table shake on a hit. **Settings → Battle cut-ins: Full / Short / Off** (Short:
+  quick ride/legion cut-ins and the side check panel; Off: only the small banners).
+- **Power**: bold power plates that stand up from the cards; an **ATTACK vs DEFENCE** display on
+  the centre line during battles (boost, shields, how much shield still stops the hit).
+- **Fighter banners** with six damage pips; the hint line moved above the buttons and the attack
+  power panel to the top right.
+- **Brighter look**: a lit arena instead of a black background, lighter panels, and a new bright
+  default playmat **Daybreak Arena** (the old dark one is still there as Vanguard Night).
+
 ## 0.26.0-alpha — 2026-10-30
 
 **Play Online is back, in testing.** It now has room codes and reconnecting, and has been tested

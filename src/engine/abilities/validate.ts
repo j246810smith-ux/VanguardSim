@@ -91,6 +91,7 @@ export function validateAbilities(
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             break;
           case 'shuffle':
+          case 'extra_turn':
           case 'delay_legion_end':
           case 'look_top_place':
           case 'end_normal_ride':

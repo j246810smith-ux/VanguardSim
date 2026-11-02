@@ -1,8 +1,13 @@
 /** Choosing a deck: the starter decks, the Trial Decks and the player's saved decks. */
 import type { CSSProperties } from 'react';
 import { STARTER_DECKS } from '../../../src/decks/starters';
-import { TRIAL_DECKS } from '../../../src/decks/trialDecks';
-import { validateDeck, type DeckList as Deck } from '../../../src/engine';
+import { G_TRIAL_DECKS, TRIAL_DECKS } from '../../../src/decks/trialDecks';
+import {
+  PLAY_FORMATS,
+  validateDeck,
+  type DeckList as Deck,
+  type FormatKey,
+} from '../../../src/engine';
 import { loadDecks } from '../decks/storage';
 import { clanColor, ctx } from '../engine';
 
@@ -11,25 +16,33 @@ export interface DeckEntry {
   readonly description: string;
   readonly deck: Deck;
   readonly legal: boolean;
-  readonly section: 'starter' | 'trial' | 'mine';
+  readonly section: 'gtrial' | 'starter' | 'trial' | 'mine';
   /** A saved deck's own sleeve (D-033). */
   readonly sleeve?: string;
   readonly playmat?: string;
 }
 
 const SECTION_TITLE = {
+  gtrial: 'G TRIAL DECKS',
   starter: 'STARTER DECKS',
   trial: 'TRIAL DECKS',
   mine: 'YOUR DECKS',
 } as const;
 
-/** The starter decks, the Trial Decks (D-023), then the player's saved decks (D-022: usable by both sides). */
-export function deckEntries(): DeckEntry[] {
+/**
+ * The starter decks, the Trial Decks (D-023), then the player's saved decks (D-022: usable by both
+ * sides). In the G era (D-034) the G Trial Decks come first; Classic decks are legal there too.
+ */
+export function deckEntries(format: FormatKey = 'classic'): DeckEntry[] {
+  const rules = PLAY_FORMATS[format].format;
   return [
+    ...(format === 'g'
+      ? G_TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'gtrial' as const }))
+      : []),
     ...STARTER_DECKS.map((d) => ({ ...d, legal: true, section: 'starter' as const })),
     ...TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'trial' as const })),
     ...loadDecks().map((d) => {
-      const issues = validateDeck(d.deck, ctx.registry, ctx.format);
+      const issues = validateDeck(d.deck, ctx.registry, rules);
       return {
         name: d.name,
         description: issues.length ? `Not legal: ${issues[0]!.message}` : 'Your deck',

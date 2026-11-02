@@ -146,6 +146,12 @@ export class SmartController implements PlayerController {
     if (choose) return this.choose(base, me, choose);
     if (find(actions, 'PASS_GUARD')) return this.guard(base, me, actions);
     if (find(actions, 'ATTACK')) return this.attack(base, me, actions);
+    // G era: striding is nearly always right (more power, Triple Drive, Generation Break);
+    // the lookahead only picks which G unit
+    if (find(actions, 'STRIDE')) {
+      const strides = this.freeCandidates(base, me, actions).filter((c) => c.type === 'STRIDE');
+      return this.bestOf(base, me, strides);
+    }
     return this.bestOf(base, me, this.freeCandidates(base, me, actions));
   }
 
@@ -169,6 +175,17 @@ export class SmartController implements PlayerController {
         case 'RIDE':
           for (const cardId of a.cardIds) out.push({ type: 'RIDE', player: me, cardId });
           break;
+        case 'STRIDE': {
+          // one candidate per G unit name, each with the cheapest discard
+          const seen = new Set<string>();
+          for (const cardId of a.cardIds) {
+            const name = this.def(s, cardId)?.name ?? cardId;
+            if (seen.has(name)) continue;
+            seen.add(name);
+            out.push({ type: 'STRIDE', player: me, cardId, discard: a.suggestedDiscard });
+          }
+          break;
+        }
         case 'CALL':
           for (const cardId of a.cardIds) {
             // calling a trigger or sentinel is almost never right: they are guards
@@ -293,7 +310,8 @@ export class SmartController implements PlayerController {
   }
 
   private driveChecks(s: GameState, attacker: InstanceId): number {
-    return this.def(s, attacker)?.skillIcon === 'twin_drive' ? 2 : 1;
+    const icon = this.def(s, attacker)?.skillIcon;
+    return icon === 'triple_drive' ? 3 : icon === 'twin_drive' ? 2 : 1;
   }
 
   /**
@@ -339,6 +357,22 @@ export class SmartController implements PlayerController {
           command: { type: 'GUARD', player: me, cardId: id, ...guarding },
           shield: currentShield(s, this.ctx, id),
           cost: 500 + d.shield / 10 + (d.grade >= 2 ? 300 : 0),
+        });
+      }
+      // a G guardian (G era): one per guard step in a plan, paid with a heal trigger
+      const gGuard = find(actions, 'G_GUARD');
+      if (gGuard && gGuard.costCards.length > 0) {
+        const id = gGuard.cardIds[0]!;
+        pieces.unshift({
+          command: {
+            type: 'G_GUARD',
+            player: me,
+            cardId: id,
+            discard: gGuard.costCards[0]!,
+            ...guarding,
+          },
+          shield: this.def(s, id)?.shield ?? 15000,
+          cost: 900,
         });
       }
       // the cheapest combinations reaching the deficit, and the deficit plus the margin

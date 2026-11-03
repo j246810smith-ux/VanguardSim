@@ -57,7 +57,7 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 
 ## Current state (2026-11-02 end): Dear Days battle screen (D-035) + G era in testing (D-034)
 
-All committed and pushed to the public repository (no release yet; still 0.26.0-alpha). Battle
+All committed, pushed and **published as v0.27.0-alpha (2026-11-03)**; installed copy on 0.27.0. Battle
 screen: tilted 3D table (`board/layout.ts` `TABLE`/`toScreen`), cut-ins (Settings: Full / Short /
 Off), VS display, brighter theme. G era (CR 1.48.1): engine, G-TD01, G-TD02, AIs, and in Game
 Setup as **G era (IN TESTING)** (`engine.ts` `setPlayFormat`, `prompts/GPrompts.tsx`). G-era code:

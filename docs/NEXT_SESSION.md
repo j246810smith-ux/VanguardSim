@@ -15,6 +15,13 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Update 2026-11-03 — v0.27.0-alpha published
+
+At the user's request the work below (Dear Days battle screen + G era in testing) was released as
+the **v0.27.0-alpha** pre-release (exe + zip, `dist:smoke` passed, 2281 tests) and the user's
+installed copy was updated to 0.27.0. Online is unchanged (protocol 2, Classic only), so 0.26.0
+and 0.27.0 players can still play each other. Next steps are unchanged: see the list below.
+
 ## ▶ Pick up here (2026-11-02, end) — Dear Days battle screen + G era in testing, all pushed
 
 **State:** everything is committed on `master` (dev `40a6f81` + this handover) and pushed to the

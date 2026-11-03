@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.27.0-alpha — 2026-11-03
 
 **The G era, part 1: rules engine and the first two G Trial Decks** (D-034, user's request). The
 G era is a second format next to Classic; Classic games are unchanged.

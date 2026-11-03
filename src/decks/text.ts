@@ -9,7 +9,8 @@
  *
  * Card IDs may also be written the way they are printed ("BT01/012", "BT01/012EN"); names after
  * the ID are only for people and are ignored. The starting vanguard is counted in the 50 cards and
- * listed among them.
+ * listed among them. G-era decks (D-034) list their G units after a "G deck:" line; G units are
+ * read into the G deck wherever they appear.
  */
 import type { CardRegistry, DeckList } from '../engine';
 
@@ -25,7 +26,7 @@ export interface ParsedDeck {
  * English number of an English-only card keeps its "EN" ("BT16/001EN" → "BT16-001EN", D-031).
  */
 export function normalizeId(raw: string, has?: (id: string) => boolean): string | null {
-  const m = /^([A-Za-z]{2,3}\d{2})[-/](S?P?\d{1,3})(EN)?$/i.exec(raw.trim());
+  const m = /^((?:G-)?[A-Za-z]{2,3}\d{2})[-/](S?P?\d{1,3})(EN)?$/i.exec(raw.trim());
   if (!m) return null;
   const num = /^\d+$/.test(m[2]!) ? m[2]!.padStart(3, '0') : m[2]!.toUpperCase();
   const id = `${m[1]!.toUpperCase()}-${num}`;
@@ -38,10 +39,15 @@ export function exportDeck(name: string, deck: DeckList, registry: CardRegistry)
   for (const id of deck.cards) counts.set(id, (counts.get(id) ?? 0) + 1);
   const grade = (id: string) => (registry.has(id) ? registry.get(id).grade : 9);
   const ids = [...counts.keys()].sort((a, b) => grade(a) - grade(b) || a.localeCompare(b));
+  const g = new Map<string, number>();
+  for (const id of deck.gDeck ?? []) g.set(id, (g.get(id) ?? 0) + 1);
   return [
     `# Vanguard Sim deck: ${name}`,
     `Starting vanguard: ${deck.firstVanguard} ${label(deck.firstVanguard)}`,
     ...ids.map((id) => `${counts.get(id)}x ${id} ${label(id)}`),
+    ...(g.size > 0
+      ? ['G deck:', ...[...g.keys()].sort().map((id) => `${g.get(id)}x ${id} ${label(id)}`)]
+      : []),
     '',
   ].join('\n');
 }
@@ -50,6 +56,7 @@ export function parseDeck(text: string, registry: CardRegistry): ParsedDeck {
   let name: string | null = null;
   let first: string | null = null;
   const cards: string[] = [];
+  const gDeck: string[] = [];
   const problems: string[] = [];
   for (const raw of text.split(/\r?\n/)) {
     const line = raw.trim();
@@ -59,6 +66,7 @@ export function parseDeck(text: string, registry: CardRegistry): ParsedDeck {
       if (title[1]) name = title[1].trim();
       continue;
     }
+    if (/^g\s*deck\s*:?$/i.test(line)) continue;
     const start = /^(?:starting|first)\s+vanguard\s*:\s*(\S+)/i.exec(line);
     if (start) {
       const id = normalizeId(start[1]!, (x) => registry.has(x));
@@ -76,9 +84,14 @@ export function parseDeck(text: string, registry: CardRegistry): ParsedDeck {
       problems.push(`Unknown card ${id}`);
       continue;
     }
-    for (let i = 0; i < Number(entry[1]); i++) cards.push(id);
+    const into = registry.get(id).cardType === 'g_unit' ? gDeck : cards;
+    for (let i = 0; i < Number(entry[1]); i++) into.push(id);
   }
   // no starting vanguard given: the first grade 0 card in the list
   first ??= cards.find((id) => registry.get(id).grade === 0) ?? cards[0] ?? '';
-  return { name, deck: { firstVanguard: first, cards }, problems };
+  return {
+    name,
+    deck: { firstVanguard: first, cards, ...(gDeck.length > 0 ? { gDeck } : {}) },
+    problems,
+  };
 }

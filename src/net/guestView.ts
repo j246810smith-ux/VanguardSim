@@ -72,7 +72,10 @@ export function guestView(state: GameState, seat: PlayerId, aliases: Aliases): G
   };
 }
 
-/** The guest's events: the opponent's choices dropped, the rest aliased. */
+/**
+ * The guest's events: the opponent's choices dropped, the rest aliased. GAME_CREATED is dropped
+ * too: its seed would let the guest work out every shuffle (the host's deck order).
+ */
 export function guestEvents(
   events: readonly GameEvent[],
   seat: PlayerId,
@@ -81,6 +84,7 @@ export function guestEvents(
   return aliases.out(
     events.filter(
       (e) =>
+        e.type !== 'GAME_CREATED' &&
         !(e.type === 'CHOICE_REQUESTED' && e.choice.player !== seat) &&
         !(e.type === 'CHOICE_MADE' && e.player !== seat),
     ),

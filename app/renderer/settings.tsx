@@ -4,11 +4,16 @@ import { createContext, useContext } from 'react';
 export type Speed = 'normal' | 'fast' | 'instant';
 /** Battle cut-ins (D-035): full-screen moments, quick ones, or only the small banners. */
 export type CutIns = 'full' | 'short' | 'off';
+/** Battle view: the tilted table (D-035) or straight from above (user's request, 2026-11-03). */
+export type TableView = 'tilted' | 'overhead';
 
 export interface Settings {
   readonly speed: Speed;
   readonly reducedMotion: boolean;
   readonly cutIns: CutIns;
+  readonly tableView: TableView;
+  /** The table shakes when an attack hits (Full cut-ins). Off by default (v0.28 feedback). */
+  readonly screenShake: boolean;
   readonly showArt: boolean;
   /** Holographic foil on R/RR/RRR cards (ui/CardView.tsx `foilOf`). */
   readonly foil: boolean;
@@ -27,6 +32,8 @@ export const DEFAULT_SETTINGS: Settings = {
   speed: 'normal',
   reducedMotion: false,
   cutIns: 'full',
+  tableView: 'overhead',
+  screenShake: false,
   showArt: true,
   foil: true,
   musicVolume: 50,

@@ -147,7 +147,13 @@ export function legionPartner(d: Draft, id: InstanceId): InstanceId | null {
  * Stand or rest a unit; a Legion Leader and Mate always change together (CR 10.1.24.11).
  * Emits UNIT_STOOD / UNIT_RESTED for each unit that actually changes (CR 3.17.2).
  */
-export function setOrientation(d: Draft, id: InstanceId, orientation: 'stand' | 'rest'): void {
+export function setOrientation(
+  d: Draft,
+  id: InstanceId,
+  orientation: 'stand' | 'rest',
+  /** The player whose card's effect does it ("due to an effect from one of your cards"). */
+  by?: PlayerId,
+): void {
   const partner = legionPartner(d, id);
   for (const unit of partner ? [id, partner] : [id]) {
     const card = d.state.cards[unit]!;
@@ -161,7 +167,7 @@ export function setOrientation(d: Draft, id: InstanceId, orientation: 'stand' | 
     emit(
       d,
       orientation === 'stand'
-        ? { type: 'UNIT_STOOD', player, instanceId: unit }
+        ? { type: 'UNIT_STOOD', player, instanceId: unit, ...(by === undefined ? {} : { by }) }
         : { type: 'UNIT_RESTED', player, instanceId: unit },
     );
   }

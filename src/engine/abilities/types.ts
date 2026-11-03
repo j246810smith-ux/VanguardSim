@@ -23,7 +23,9 @@ export type Area =
   | 'drop'
   | 'damage'
   | 'bind'
-  | 'locked';
+  | 'locked'
+  /** G era: the G zone (CR 1.48.1 4.11); face-down cards match `faceUp: false`. */
+  | 'gzone';
 
 export interface Range {
   readonly min?: number;
@@ -97,6 +99,10 @@ export interface CardFilter {
   readonly canLegionWithVanguard?: boolean;
   /** "a unit … that can [Legion] with your vanguard": your vanguard's Seek Mate names it. */
   readonly vanguardCanLegionWith?: boolean;
+  /** Is a G unit (G era): "if you have a G unit on your (VC)". */
+  readonly gUnit?: boolean;
+  /** "with [Power] less than or equal to that unit's [Power]": the first card bound as this name. */
+  readonly powerAtMostOf?: string;
 }
 
 export type BattleRole = 'attacker' | 'attacked' | 'booster' | 'boosted';
@@ -469,6 +475,8 @@ export type Cost =
   | { readonly cost: 'rest_chosen'; readonly n: number; readonly from: Selector }
   /** "Turn this card from face up to face down" (damage zone abilities). */
   | { readonly cost: 'face_down'; readonly target: Selector }
+  /** G era: "choose n face down cards (named X) from your G zone, and turn them face up". */
+  | { readonly cost: 'g_face_up'; readonly n: number; readonly filter?: CardFilter }
   /** Lock n of the selected units (e.g. Яeverse units). */
   /** `orMore`: "choose one or more … and lock them" (at least n). */
   | {
@@ -556,7 +564,20 @@ export type TriggerCondition =
       readonly target?: 'vanguard' | 'rear-guard';
     }
   /** "When this unit becomes [Stand]" */
-  | { readonly on: 'stands'; readonly who: Subject }
+  | {
+      readonly on: 'stands';
+      readonly who: Subject;
+      /** "[Stand] due to an effect from one of your cards" (abilities and trigger effects). */
+      readonly byYourEffect?: boolean;
+    }
+  /** "When your opponent's rear-guard is put into his or her deck due to an effect from one of your (other) cards" */
+  | {
+      readonly on: 'put_into_deck';
+      readonly who: Subject;
+      readonly byYourEffect?: boolean;
+      /** "… from one of your other cards": not this card's own effect. */
+      readonly otherCause?: boolean;
+    }
   /** "When … becomes [Rest]" */
   | { readonly on: 'rests'; readonly who: Subject }
   /** "When a card is put into your damage zone" */
@@ -571,6 +592,8 @@ export type TriggerCondition =
       readonly byYourEffect?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
       readonly causeFilter?: CardFilter;
+      /** "… from one of your other cards": not this card's own effect. */
+      readonly otherCause?: boolean;
     }
   /** "When your opponent's rear-guard is locked (due to an effect from one of your cards)" */
   | { readonly on: 'locked'; readonly who: Subject; readonly byYourEffect?: boolean }
@@ -678,6 +701,12 @@ export type ContinuousEffect =
   | { readonly ce: 'deck_limit'; readonly copies: number }
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
   | { readonly ce: 'limit_break_always' }
+  /** "[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +n" (G era). */
+  | { readonly ce: 'stride_grade'; readonly amount: number }
+  /** "[CONT]:This card is from all clans and nations." (Cray Elemental, G era) */
+  | { readonly ce: 'all_clans' }
+  /** "This unit gets drive -1" (Meteokaiser, Victoplasma): added to its drive checks. */
+  | { readonly ce: 'drive'; readonly target: Selector; readonly amount: number }
   /** "All of your opponent's trigger effects are nullified" (the trigger icons of their checks do nothing). */
   | { readonly ce: 'nullify_triggers'; readonly player: 'you' | 'opponent' };
 

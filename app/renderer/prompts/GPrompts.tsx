@@ -53,7 +53,10 @@ export function StridePrompt({
 }) {
   const [unit, setUnit] = useState<InstanceId>(stride.cardIds[0]!);
   const [discard, setDiscard] = useState<readonly InstanceId[]>(stride.suggestedDiscard);
-  const grades = discard.reduce((sum, id) => sum + (defOf(view, id)?.grade ?? 0), 0);
+  const grades = discard.reduce(
+    (sum, id) => sum + (stride.discardGrades?.[id] ?? defOf(view, id)?.grade ?? 0),
+    0,
+  );
   const toggle = (id: InstanceId) =>
     setDiscard((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
   return (

@@ -49,6 +49,7 @@ import fc02Data from '../../data/cards/FC02.json';
 import dg01Data from '../../data/cards/DG01.json';
 import gtd01Data from '../../data/cards/G-TD01.json';
 import gtd02Data from '../../data/cards/G-TD02.json';
+import gbt01Data from '../../data/cards/G-BT01.json';
 import { BT01 } from './BT01';
 import { BT02 } from './BT02';
 import { BT03 } from './BT03';
@@ -99,6 +100,7 @@ import { FC02 } from './FC02';
 import { DG01 } from './DG01';
 import { G_TD01 } from './G-TD01';
 import { G_TD02 } from './G-TD02';
+import { G_BT01 } from './G-BT01';
 import { registryFor, type SetAbilities } from './load';
 import type { SetFile } from './record';
 
@@ -154,9 +156,10 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   // the G era (DECISIONS D-034): legal in the G format only
   { file: gtd01Data as SetFile, abilities: G_TD01 },
   { file: gtd02Data as SetFile, abilities: G_TD02 },
+  { file: gbt01Data as SetFile, abilities: G_BT01 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'gtd02-1.0.0';
+export const CARD_DATA_VERSION = 'gbt01-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

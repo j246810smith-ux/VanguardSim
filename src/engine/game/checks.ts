@@ -168,7 +168,8 @@ export function runCheckTask(d: Draft, task: CheckTask): boolean {
       for (const id of picked) {
         const card = s.cards[id]!;
         if (card.orientation === 'rest') card.orientation = 'stand'; // CR 3.17.2
-        emit(d, { type: 'UNIT_STOOD', player: task.player, instanceId: id });
+        // a stand trigger's effect counts as an effect of that player's card (UNRESOLVED_RULINGS "G era")
+        emit(d, { type: 'UNIT_STOOD', player: task.player, instanceId: id, by: task.player });
       }
       return true;
     }

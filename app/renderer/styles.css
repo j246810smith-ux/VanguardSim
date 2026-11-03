@@ -738,7 +738,7 @@ button {
 .turn-label {
   position: absolute;
   left: 24px;
-  top: 452px;
+  top: 104px;
   font: 800 30px var(--font-display);
   letter-spacing: 0.04em;
 }
@@ -756,9 +756,11 @@ button {
   color: #fff;
 }
 .phase-rail {
+  /* the left column (v0.28): turn and phases at the top, the action guide beside the current
+     phase, the event feed below, the hover preview lower down */
   position: absolute;
   left: 0;
-  top: 512px;
+  top: 164px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1957,6 +1959,154 @@ input.text {
 .deck-buttons a.btn {
   text-decoration: none;
 }
+/* Dear Days–style deck edit (user's request, 2026-11-03): deck on the left, card pool right */
+.builder.dd .builder-head {
+  gap: 18px;
+}
+.builder.dd .builder-head h1 {
+  font-size: 30px;
+}
+.builder.dd .builder-head input.deck-name {
+  width: 420px;
+  font-size: 20px;
+}
+.format-switch {
+  display: flex;
+  gap: 4px;
+}
+.dd-deck {
+  position: absolute;
+  left: 24px;
+  top: 88px;
+  width: 960px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: linear-gradient(160deg, rgba(40, 70, 150, 0.9), rgba(20, 34, 84, 0.92));
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+.dd-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  font-size: 15px;
+}
+.dd-label b {
+  font: 800 17px var(--font-display);
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.dd-main {
+  height: 672px;
+  display: grid;
+  grid-template-columns: repeat(10, 86px);
+  grid-auto-rows: 128px;
+  gap: 4px 5px;
+  overflow-x: hidden;
+  align-content: start;
+  overflow-y: auto;
+  padding: 6px;
+  background: rgba(5, 12, 34, 0.45);
+  border-radius: 8px;
+}
+.dd-main.tall {
+  height: 790px;
+}
+.dd-tile {
+  position: relative;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.08s;
+}
+.dd-tile:hover {
+  transform: translateY(-3px);
+}
+.dd-tile:hover .card {
+  outline: 2px solid var(--hit);
+}
+.dd-tile.first .card {
+  outline: 3px solid var(--gold);
+}
+.dd-tile .star {
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+}
+.dd-empty {
+  grid-column: 1 / -1;
+  align-self: center;
+  padding: 40px;
+  text-align: center;
+}
+.dd-g {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(40, 10, 60, 0.45);
+  border: 1px solid rgba(255, 200, 120, 0.35);
+  border-radius: 8px;
+}
+.dd-slot {
+  width: 54px;
+  height: 79px;
+  border: 1px dashed rgba(255, 220, 160, 0.35);
+  border-radius: 5px;
+}
+.builder.dd .deck-issues {
+  flex: 1;
+  min-height: 24px;
+  max-height: none;
+}
+.dd-pool {
+  position: absolute;
+  left: 1004px;
+  top: 88px;
+  right: 24px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dd-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dd-search input.text {
+  flex: 1;
+  height: 46px;
+  font-size: 20px;
+  border: 2px solid var(--me);
+  box-shadow: 0 0 12px rgba(51, 209, 255, 0.3);
+}
+.builder.dd .builder-filters {
+  position: static;
+  width: auto;
+}
+.builder.dd .builder-pool {
+  position: static;
+  width: auto;
+  flex: 1;
+  grid-template-columns: repeat(auto-fill, 120px);
+  gap: 10px 6px;
+}
+.builder.dd .pool-card {
+  width: 116px;
+}
+.builder-pool .btn.more {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin: 10px 0;
+}
 .deck-modal {
   width: 760px;
 }
@@ -2089,7 +2239,7 @@ input.text {
 .recent-events {
   position: absolute;
   left: 24px;
-  top: 806px;
+  top: 650px;
   width: 300px;
   overflow: hidden;
   padding: 6px 10px;
@@ -2129,9 +2279,11 @@ input.text {
   }
 }
 .hover-preview {
+  /* lower left, clear of the opponent's piles and the phase rail (v0.28 feedback); it covers
+     only the event feed while a card is hovered */
   position: absolute;
   left: 24px;
-  top: 96px;
+  top: 610px;
   z-index: 45;
   pointer-events: none;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8));
@@ -3005,8 +3157,8 @@ input.text {
     opacity: 0;
   }
 }
-/* a hit shakes the table (Full only) */
-.stage:has(.fx-banner.hit.full) .table-wrap {
+/* a hit shakes the table (Full cut-ins, and only with Settings → Screen shake on) */
+.shake-on .stage:has(.fx-banner.hit.full) .table-wrap {
   animation: shake calc(0.45s * var(--anim)) ease-out;
 }
 @keyframes shake {
@@ -3157,4 +3309,209 @@ input.text {
 .crash-guard .crash-actions {
   display: flex;
   gap: 12px;
+}
+
+/* Settings: the list scrolls; the title and BACK stay in view (user's request, 2026-11-03) */
+.menu.settings-screen {
+  justify-content: flex-start;
+  padding: 40px 0 36px;
+  box-sizing: border-box;
+}
+.settings-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 4px 32px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--panel-edge) transparent;
+}
+
+/* the phase action guide: what you can do now, under the current phase (v0.28) */
+.phase-guide {
+  width: 236px;
+  box-sizing: border-box;
+  margin: 4px 0 2px 24px;
+  padding: 6px 10px;
+  font: 600 15px/1.3 var(--font-body);
+  color: var(--text);
+  background: rgba(6, 12, 24, 0.7);
+  border-left: 3px solid var(--me);
+  border-radius: 0 6px 6px 0;
+}
+
+/* "Opponent is thinking" over the opponent's hand (v0.28): subtle, gone when the AI has acted */
+.thinking {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  z-index: 30;
+  padding: 4px 14px;
+  font: 600 15px var(--font-body);
+  color: var(--opp-strong);
+  background: rgba(6, 12, 24, 0.55);
+  border: 1px solid rgba(255, 120, 100, 0.35);
+  border-radius: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.thinking .dots {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 6px;
+}
+.thinking .dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: think-dot calc(1.2s * var(--anim)) ease-in-out infinite;
+}
+.thinking .dots i:nth-child(2) {
+  animation-delay: calc(0.2s * var(--anim));
+}
+.thinking .dots i:nth-child(3) {
+  animation-delay: calc(0.4s * var(--anim));
+}
+@keyframes think-dot {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* the call map in the card menu: your circles as on the board (v0.28) */
+.call-map {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 8px;
+}
+.call-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.call-spot {
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 50% / 40%;
+  font: 600 13px/1.1 var(--font-body);
+  color: var(--text);
+  background: rgba(51, 209, 255, 0.12);
+  border: 2px solid rgba(51, 209, 255, 0.7);
+  cursor: pointer;
+}
+.call-spot .where {
+  font: 700 10px var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+.call-spot .who {
+  max-width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.call-spot.open:not(:disabled):hover {
+  background: rgba(51, 209, 255, 0.3);
+}
+.call-spot.occupied {
+  border-color: var(--gold);
+  background: rgba(255, 200, 80, 0.12);
+}
+.call-spot.occupied:not(:disabled):hover {
+  background: rgba(255, 200, 80, 0.28);
+}
+.call-spot:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.call-spot.vc {
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  background: none;
+  color: var(--text-dim);
+  font: 700 13px var(--font-display);
+}
+
+/* Game Setup: the seed explanation (v0.28) */
+.btn.info {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  margin-left: 6px;
+  border-radius: 50%;
+  font-weight: 700;
+}
+.seed-help {
+  max-width: 900px;
+  padding: 10px 16px;
+  font: 500 16px/1.4 var(--font-body);
+  color: var(--text);
+  background: rgba(6, 12, 24, 0.75);
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+}
+.fmt-sub {
+  margin-left: 6px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+.turn-label .testing-tag.era-tag {
+  color: var(--text-dim);
+  border-color: var(--panel-edge);
+  background: rgba(6, 12, 24, 0.6);
+}
+
+/* CPU demonstration (v0.28) */
+.thinking.me {
+  top: auto;
+  bottom: 160px;
+  color: var(--me);
+  border-color: rgba(51, 209, 255, 0.4);
+}
+.demo-summary .game-summary {
+  max-width: 980px;
+}
+.demo-stats {
+  margin: 10px auto;
+  border-collapse: collapse;
+  font: 600 17px var(--font-body);
+}
+.demo-stats th,
+.demo-stats td {
+  padding: 4px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--panel-edge);
+}
+.demo-stats td:first-child {
+  text-align: left;
+}
+.demo-stats tr.won td {
+  color: var(--gold);
+}
+.demo-moments {
+  max-height: 210px;
+  overflow-y: auto;
+  margin: 8px auto;
+  text-align: left;
+  font-size: 15px;
+}
+.demo-moments .l-trigger {
+  color: var(--gold);
+}
+.demo-moments .l-hit {
+  color: var(--hit);
 }

@@ -426,54 +426,22 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 19    | 19                  | 19                  | 0               | 0            | 19            | 0   | 0        |
+| 19    | 19                  | 19                  | 0               | 0            | 19            | 19  | 19       |
 
-### Incomplete
-
-- G-TD01-001 Interdimensional Dragon, Mystery-flare Dragon — no art
-- G-TD01-002 Chronojet Dragon — no art
-- G-TD01-003 Smithereen Colossus — no art
-- G-TD01-004 Steam Knight, Ubara-tutu — no art
-- G-TD01-005 Smokegear Dragon — no art
-- G-TD01-006 Steam Fighter, Amber — no art
-- G-TD01-007 Twinmaser Dragon — no art
-- G-TD01-008 Great Carapace, Gear Turtle — no art
-- G-TD01-009 Masergear Dragon — no art
-- G-TD01-010 Brasswing Dragon — no art
-- G-TD01-011 Steam Soldier, Tauge — no art
-- G-TD01-012 Steam Rider, Burnham — no art
-- G-TD01-013 Withdrawn Gear Raven — no art
-- G-TD01-014 Gunnergear Dracokid — no art
-- G-TD01-015 Steam Battler, Dadasig — no art
-- G-TD01-016 Steam Knight, Shu Sin — no art
-- G-TD01-017 Stomach Clock Gear Rabbit — no art
-- G-TD01-018 Steam Maiden, Uluru — no art
-- G-TD01-019 Luckypot Dracokid — no art
+All cards complete.
 
 ## G-TD02
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 19    | 19                  | 19                  | 0               | 0            | 19            | 0   | 0        |
+| 19    | 19                  | 19                  | 0               | 0            | 19            | 19  | 19       |
 
-### Incomplete
+All cards complete.
 
-- G-TD02-001 Shrouded Divine Knight, Gablade — no art
-- G-TD02-002 Blue Sky Knight, Altmile — no art
-- G-TD02-003 Aurashooter Dragon — no art
-- G-TD02-004 Profound Sage, Kunron — no art
-- G-TD02-005 Absolute Blade Knight, Livarot — no art
-- G-TD02-006 Knight of Twin Sword — no art
-- G-TD02-007 Transmigration Knight, Brede — no art
-- G-TD02-008 Mithrilguard Lion — no art
-- G-TD02-009 Lunar Crescent Knight, Felax — no art
-- G-TD02-010 Archer of Heaven's Tower — no art
-- G-TD02-011 Knight of Steel Wing — no art
-- G-TD02-012 Milky Way Unicorn — no art
-- G-TD02-013 Rainbow Guardian — no art
-- G-TD02-014 Shining Knight, Millius — no art
-- G-TD02-015 Burning Mane Lion — no art
-- G-TD02-016 Pixy Assault Captain — no art
-- G-TD02-017 Knight of Festival — no art
-- G-TD02-018 Healing Pegasus — no art
-- G-TD02-019 Margal — no art
+## G-BT01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 103   | 103                 | 103                 | 0               | 0            | 103           | 103 | 103      |
+
+All cards complete.

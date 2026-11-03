@@ -153,9 +153,18 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return { eventCard: e.attacker };
     }
     case 'stands':
-      return e.type === 'UNIT_STOOD' && subjectIs(ec, t.who, e.instanceId, e.player)
-        ? { eventCard: e.instanceId }
-        : null;
+      if (e.type !== 'UNIT_STOOD' || !subjectIs(ec, t.who, e.instanceId, e.player)) return null;
+      if (t.byYourEffect && e.by !== ec.master) return null;
+      return { eventCard: e.instanceId };
+    case 'put_into_deck': {
+      // a unit moved from (RC) to its owner's deck by an effect
+      if (e.type !== 'CARD_MOVED' || e.to.zone !== 'deck' || e.from.zone !== 'circle') return null;
+      if (e.from.circle === 'vanguard') return null;
+      if (t.byYourEffect && !(e.reason === 'effect' && e.by === ec.master)) return null;
+      if (t.otherCause && e.cause === ec.source) return null;
+      const at = { ...ec, eventCard: e.instanceId, eventColumn: COLUMN_OF[e.from.circle] };
+      return subjectIs(at, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
+    }
     case 'put_into_damage':
       return e.type === 'CARD_MOVED' &&
         e.to.zone === 'damage' &&
@@ -180,6 +189,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (t.byYourEffect && !(e.reason === 'effect' && e.by === ec.master)) return null;
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
+      if (t.otherCause && e.cause === ec.source) return null;
       // the card is already in the drop zone: column filters use the circle it left
       const at =
         e.from.zone === 'circle'

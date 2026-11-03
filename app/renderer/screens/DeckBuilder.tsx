@@ -1,28 +1,64 @@
 /**
- * Deck builder (blueprint DECK_BUILDER_SPEC, DECISIONS D-022): search and filter the card pool,
- * build a 50-card deck, see the engine's legality check, save / load / rename / delete decks,
- * import and export them as text, and test opening hands.
+ * Deck builder (blueprint DECK_BUILDER_SPEC, DECISIONS D-022), laid out like Dear Days 2's deck
+ * edit (user's request, 2026-11-03): the whole deck as cards on the left (main deck sorted by
+ * grade, and the G deck for the G era, D-034), the card pool on the right with a search that
+ * narrows as you type (Enter adds the top card, Esc clears). Save / load / import / export /
+ * sleeve & mat / test hand as before.
  */
-import { useMemo, useState, type CSSProperties, type MouseEvent } from 'react';
+import {
+  useDeferredValue,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type MouseEvent,
+} from 'react';
 import { exportDeck, parseDeck } from '../../../src/decks/text';
-import { maxCopiesOf, validateDeck, type CardDefinition, type DeckList } from '../../../src/engine';
-import { deleteDeck, loadDecks, newDeckId, saveDeck, type SavedDeck } from '../decks/storage';
+import {
+  maxCopiesOf,
+  PLAY_FORMATS,
+  validateDeck,
+  type CardDefinition,
+  type DeckList,
+  type FormatKey,
+} from '../../../src/engine';
+import {
+  deleteDeck,
+  formatOfSaved,
+  loadDecks,
+  newDeckId,
+  saveDeck,
+  type SavedDeck,
+} from '../decks/storage';
+import { buildIndex, search, type SearchEntry } from '../decks/search';
 import { clanColor, ctx, metaOf } from '../engine';
 import { CardView } from '../ui/CardView';
 import { playmatOf, sleeveLook } from '../cosmetics';
 import { useSettings } from '../settings';
 import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
 
-const ALL: readonly CardDefinition[] = ctx.registry
-  .all()
-  .filter((d) => ctx.format.legalSets.includes(d.set))
-  .sort((a, b) => a.id.localeCompare(b.id));
-const SETS = [...new Set(ALL.map((d) => d.set))];
-const CLANS = [...new Set(ALL.map((d) => d.clan))].sort();
-const RARITIES = [...new Set(ALL.map((d) => metaOf(d.id)?.rarity ?? '').filter(Boolean))].sort();
+type Pool = { defs: CardDefinition[]; index: SearchEntry[] };
+/** The card pool of each format (Classic: BT01–BT17 and side sets; G era: those plus G sets). */
+const POOLS = Object.fromEntries(
+  (Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => {
+    const legal = PLAY_FORMATS[key].format.legalSets;
+    const defs = ctx.registry
+      .all()
+      .filter((d) => legal.includes(d.set))
+      .sort((a, b) => a.id.localeCompare(b.id));
+    return [key, { defs, index: buildIndex(defs) }];
+  }),
+) as Record<FormatKey, Pool>;
+const ALL_DEFS = POOLS.g.defs;
+const SETS = [...new Set(ALL_DEFS.map((d) => d.set))];
+const CLANS = [...new Set(ALL_DEFS.map((d) => d.clan))].filter((c) => c && c !== '-').sort();
+const RARITIES = [
+  ...new Set(ALL_DEFS.map((d) => metaOf(d.id)?.rarity ?? '').filter(Boolean)),
+].sort();
+/** How many pool cards are drawn at once (more on "Show more"), so typing stays instant. */
+export const PAGE = 140;
 
 interface Filters {
-  q: string;
   set: string;
   clan: string;
   grade: string;
@@ -32,7 +68,6 @@ interface Filters {
   rarity: string;
 }
 const NO_FILTERS: Filters = {
-  q: '',
   set: '',
   clan: '',
   grade: '',
@@ -43,8 +78,6 @@ const NO_FILTERS: Filters = {
 };
 
 function matches(d: CardDefinition, f: Filters): boolean {
-  const q = f.q.trim().toLowerCase();
-  if (q && !`${d.name} ${d.id} ${d.text}`.toLowerCase().includes(q)) return false;
   if (f.set && d.set !== f.set) return false;
   if (f.clan && d.clan !== f.clan) return false;
   if (f.grade && d.grade !== Number(f.grade)) return false;
@@ -52,6 +85,7 @@ function matches(d: CardDefinition, f: Filters): boolean {
   if (f.trigger && f.trigger !== 'none' && d.trigger !== f.trigger) return false;
   if (f.type === 'normal' && d.cardType !== 'normal_unit') return false;
   if (f.type === 'trigger' && d.cardType !== 'trigger_unit') return false;
+  if (f.type === 'g_unit' && d.cardType !== 'g_unit') return false;
   if (f.type === 'sentinel' && !d.sentinel) return false;
   if (f.power && d.power < Number(f.power)) return false;
   if (f.rarity && metaOf(d.id)?.rarity !== f.rarity) return false;
@@ -67,6 +101,13 @@ const shuffle = <T,>(items: readonly T[]): T[] => {
   return a;
 };
 
+/** Deck order on screen: grade 4 → 0, triggers after the other grade 0 cards, then by number. */
+const deckOrder = (a: string, b: string) => {
+  const x = ctx.registry.get(a);
+  const y = ctx.registry.get(b);
+  return y.grade - x.grade || Number(!!x.trigger) - Number(!!y.trigger) || a.localeCompare(b);
+};
+
 type Modal =
   | { kind: 'details'; id: string }
   | { kind: 'load' }
@@ -79,59 +120,111 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   const settings = useSettings();
   const [deckId, setDeckId] = useState<string | null>(null);
   const [name, setName] = useState('New deck');
+  const [format, setFormat] = useState<FormatKey>('classic');
   /** This deck's sleeve and playmat (D-033); null: the defaults from Settings. */
   const [sleeve, setSleeve] = useState<string | null>(null);
   const [playmat, setPlaymat] = useState<string | null>(null);
   const [cards, setCards] = useState<string[]>([]);
+  const [gDeck, setGDeck] = useState<string[]>([]);
   const [first, setFirst] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
+  const [query, setQuery] = useState('');
   const [filters, setFilters] = useState<Filters>(NO_FILTERS);
+  const [limit, setLimit] = useState(PAGE);
   const [modal, setModal] = useState<Modal | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [saved, setSaved] = useState<SavedDeck[]>(loadDecks);
+  const searchBox = useRef<HTMLInputElement>(null);
 
-  const shown = useMemo(() => ALL.filter((d) => matches(d, filters)), [filters]);
+  const rules = PLAY_FORMATS[format].format;
+  const gEra = rules.maxGDeckSize.value > 0;
+  const q = useDeferredValue(query);
+  const shown = useMemo(
+    () => search(POOLS[format].index, q).filter((e) => matches(e.def, filters)),
+    [format, q, filters],
+  );
   const counts = useMemo(() => {
     const m = new Map<string, number>();
-    for (const id of cards) m.set(id, (m.get(id) ?? 0) + 1);
+    for (const id of [...cards, ...gDeck]) m.set(id, (m.get(id) ?? 0) + 1);
     return m;
-  }, [cards]);
-  const byName = (n: string) => cards.filter((id) => ctx.registry.get(id).name === n).length;
+  }, [cards, gDeck]);
   const startingVanguard =
     first && cards.includes(first)
       ? first
       : (cards.find((id) => ctx.registry.get(id).grade === 0) ?? null);
-  const deck: DeckList = { firstVanguard: startingVanguard ?? '', cards };
-  const issues = validateDeck(deck, ctx.registry, ctx.format);
+  const deck: DeckList = {
+    firstVanguard: startingVanguard ?? '',
+    cards,
+    ...(gDeck.length > 0 ? { gDeck } : {}),
+  };
+  const issues = validateDeck(deck, ctx.registry, rules);
   const defs = cards.map((id) => ctx.registry.get(id));
   const triggers = (t: string) => defs.filter((d) => d.trigger === t).length;
+  const ofGrade = (g: number) => defs.filter((d) => d.grade === g).length;
+  const triggerTotal = defs.filter((d) => d.trigger).length;
+  const sortedMain = useMemo(() => [...cards].sort(deckOrder), [cards]);
+  const sortedG = useMemo(() => [...gDeck].sort(), [gDeck]);
 
   const flash = (message: string) => {
     setToast(message);
     setTimeout(() => setToast(null), 2200);
   };
-  const edit = (next: string[]) => {
-    setCards(next);
+  const sameName = (list: readonly string[], n: string) =>
+    list.filter((x) => ctx.registry.get(x).name === n).length;
+  // the latest lists, so several quick clicks before a re-render all count
+  const latest = useRef({ cards, gDeck });
+  latest.current = { cards, gDeck };
+  const put = (next: { cards?: string[]; gDeck?: string[] }) => {
+    latest.current = { ...latest.current, ...next };
+    if (next.cards) setCards(next.cards);
+    if (next.gDeck) setGDeck(next.gDeck);
     setDirty(true);
   };
   const add = (id: string) => {
-    const max = maxCopiesOf(ctx.registry.get(id), ctx.format);
-    if (byName(ctx.registry.get(id).name) >= max)
-      return flash(`At most ${max} copies of this card name`);
-    if (cards.length >= ctx.format.deckSize.value)
-      return flash(`A deck has ${ctx.format.deckSize.value} cards`);
-    edit([...cards, id]);
+    const d = ctx.registry.get(id);
+    const max = maxCopiesOf(d, rules);
+    const now = latest.current;
+    if (d.cardType === 'g_unit') {
+      if (!gEra) return flash('G units go in a G era deck');
+      if (sameName(now.gDeck, d.name) >= max)
+        return flash(`At most ${max} copies of this card name`);
+      if (now.gDeck.length >= rules.maxGDeckSize.value)
+        return flash(`A G deck has at most ${rules.maxGDeckSize.value} cards`);
+      put({ gDeck: [...now.gDeck, id] });
+    } else {
+      if (sameName(now.cards, d.name) >= max)
+        return flash(`At most ${max} copies of this card name`);
+      if (now.cards.length >= rules.deckSize.value)
+        return flash(`A deck has ${rules.deckSize.value} cards`);
+      put({ cards: [...now.cards, id] });
+    }
   };
   const remove = (id: string) => {
-    const i = cards.lastIndexOf(id);
-    if (i >= 0) edit(cards.filter((_, k) => k !== i));
+    const g = ctx.registry.get(id).cardType === 'g_unit';
+    const list = g ? latest.current.gDeck : latest.current.cards;
+    const i = list.lastIndexOf(id);
+    if (i < 0) return;
+    const next = list.filter((_, k) => k !== i);
+    put(g ? { gDeck: next } : { cards: next });
+  };
+  const changeFormat = (next: FormatKey) => {
+    if (next === format) return;
+    if (PLAY_FORMATS[next].format.maxGDeckSize.value === 0 && gDeck.length > 0) {
+      if (!window.confirm('Original Era decks have no G deck. Remove the G deck?')) return;
+      setGDeck([]);
+    }
+    setFormat(next);
+    setLimit(PAGE);
+    if (cards.length > 0 || gDeck.length > 0) setDirty(true);
   };
   const loadInto = (d: SavedDeck | null) => {
     setDeckId(d?.id ?? null);
     setName(d?.name ?? 'New deck');
+    if (d) setFormat(formatOfSaved(d));
     setSleeve(d?.sleeve ?? null);
     setPlaymat(d?.playmat ?? null);
     setCards(d ? [...d.deck.cards] : []);
+    setGDeck(d ? [...(d.deck.gDeck ?? [])] : []);
     setFirst(d?.deck.firstVanguard ?? null);
     setDirty(false);
     setModal(null);
@@ -142,6 +235,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
       id,
       name: name.trim() || 'Untitled deck',
       deck,
+      format,
       ...(sleeve ? { sleeve } : {}),
       ...(playmat ? { playmat } : {}),
       updated: Date.now(),
@@ -153,111 +247,34 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
     flash(issues.length ? 'Saved (not legal yet)' : 'Saved');
   };
   const confirmDiscard = () => !dirty || window.confirm('Discard unsaved changes?');
-
-  const grouped = [0, 1, 2, 3, 4].map((g) => ({
-    grade: g,
-    ids: [...counts.keys()]
-      .filter((id) => ctx.registry.get(id).grade === g)
-      .sort((a, b) => a.localeCompare(b)),
-  }));
-
-  const set = (k: keyof Filters) => (e: { target: { value: string } }) =>
+  const details = (id: string) => (e: MouseEvent) => {
+    e.preventDefault();
+    setModal({ kind: 'details', id });
+  };
+  const set = (k: keyof Filters) => (e: { target: { value: string } }) => {
     setFilters({ ...filters, [k]: e.target.value });
+    setLimit(PAGE);
+  };
 
   return (
-    <div className="builder">
+    <div className="builder dd">
       <div className="builder-head">
         <button className="btn" onClick={() => confirmDiscard() && onBack()}>
           ← Menu
         </button>
-        <h1>DECK BUILDER</h1>
-        <span className="hint">
-          Click a card to add it · right-click for details · in the deck, − and + change counts
-        </span>
-      </div>
-
-      <div className="builder-filters">
-        <input
-          className="text"
-          placeholder="Search name, number or text"
-          value={filters.q}
-          onChange={set('q')}
-        />
-        <select value={filters.set} onChange={set('set')}>
-          <option value="">All sets</option>
-          {SETS.map((s) => (
-            <option key={s}>{s}</option>
+        <h1>DECK EDIT</h1>
+        <div className="format-switch" data-testid="deck-format">
+          {(Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => (
+            <button
+              key={key}
+              className={`btn ${format === key ? 'primary' : ''}`}
+              onClick={() => changeFormat(key)}
+              data-testid={`deck-format-${key}`}
+            >
+              {PLAY_FORMATS[key].label}
+            </button>
           ))}
-        </select>
-        <select value={filters.clan} onChange={set('clan')}>
-          <option value="">All clans</option>
-          {CLANS.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <select value={filters.grade} onChange={set('grade')}>
-          <option value="">Any grade</option>
-          {[0, 1, 2, 3, 4].map((g) => (
-            <option key={g} value={g}>
-              Grade {g}
-            </option>
-          ))}
-        </select>
-        <select value={filters.trigger} onChange={set('trigger')}>
-          <option value="">Any trigger</option>
-          <option value="none">No trigger</option>
-          {['critical', 'draw', 'stand', 'heal'].map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-        <select value={filters.type} onChange={set('type')}>
-          <option value="">Any type</option>
-          <option value="normal">Normal unit</option>
-          <option value="trigger">Trigger unit</option>
-          <option value="sentinel">Sentinel</option>
-        </select>
-        <select value={filters.power} onChange={set('power')}>
-          <option value="">Any power</option>
-          {[5000, 6000, 7000, 8000, 9000, 10000, 11000].map((p) => (
-            <option key={p} value={p}>
-              {p}+
-            </option>
-          ))}
-        </select>
-        <select value={filters.rarity} onChange={set('rarity')}>
-          <option value="">Any rarity</option>
-          {RARITIES.map((r) => (
-            <option key={r}>{r}</option>
-          ))}
-        </select>
-        <button className="btn" onClick={() => setFilters(NO_FILTERS)}>
-          Clear
-        </button>
-        <span className="hint">{shown.length} cards</span>
-      </div>
-
-      <div className="builder-pool" data-testid="card-pool">
-        {shown.map((d) => (
-          <div
-            key={d.id}
-            className="pool-card"
-            onClick={() => add(d.id)}
-            onContextMenu={(e: MouseEvent) => {
-              e.preventDefault();
-              setModal({ kind: 'details', id: d.id });
-            }}
-            data-testid={`pool-${d.id}`}
-          >
-            <CardView definitionId={d.id} width={118} height={172} />
-            {counts.has(d.id) && <span className="count-badge">{counts.get(d.id)}</span>}
-            <div className="pool-name">{d.name}</div>
-          </div>
-        ))}
-      </div>
-
-      <div className="builder-deck">
+        </div>
         <input
           className="text deck-name"
           value={name}
@@ -267,79 +284,94 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           }}
           data-testid="deck-name"
         />
-        <div className="deck-stats">
-          <span className={cards.length === ctx.format.deckSize.value ? 'ok' : 'bad'}>
-            {cards.length}/{ctx.format.deckSize.value} cards
+        <span className="hint">Click a card to add or remove it · right-click for details</span>
+      </div>
+
+      <section className="dd-deck">
+        <div className="dd-label">
+          <b>MAIN DECK</b>
+          <span className={cards.length === rules.deckSize.value ? 'ok' : 'bad'}>
+            {cards.length}/{rules.deckSize.value}
           </span>
-          <span
-            className={
-              defs.filter((d) => d.trigger).length === ctx.format.triggerCount.value ? 'ok' : 'bad'
-            }
-          >
-            {defs.filter((d) => d.trigger).length}/{ctx.format.triggerCount.value} triggers
+          <span className={triggerTotal === rules.triggerCount.value ? 'ok' : 'bad'}>
+            {triggerTotal}/{rules.triggerCount.value} triggers
           </span>
           <span>
             ★{triggers('critical')} · draw {triggers('draw')} · stand {triggers('stand')} · heal{' '}
             {triggers('heal')}
           </span>
           <span>sentinels {defs.filter((d) => d.sentinel).length}</span>
+          <span>
+            G3 {ofGrade(3)} · G2 {ofGrade(2)} · G1 {ofGrade(1)} · G0 {ofGrade(0)}
+          </span>
         </div>
-        <div className="builder-list" data-testid="deck-list">
-          {grouped.map(({ grade, ids }) =>
-            ids.length === 0 ? null : (
-              <div key={grade}>
-                <div className="deck-grade">
-                  Grade {grade} · {ids.reduce((n, id) => n + counts.get(id)!, 0)}
-                </div>
-                {ids.map((id) => {
-                  const d = ctx.registry.get(id);
-                  const isFirst = id === startingVanguard;
-                  return (
-                    <div
-                      key={id}
-                      className="deck-row"
-                      style={{ '--clan': clanColor(d.clan) } as CSSProperties}
-                      onContextMenu={(e) => {
-                        e.preventDefault();
-                        setModal({ kind: 'details', id });
-                      }}
-                    >
-                      <button className="mini-btn" onClick={() => remove(id)}>
-                        −
-                      </button>
-                      <b>{counts.get(id)}</b>
-                      <button className="mini-btn" onClick={() => add(id)}>
-                        +
-                      </button>
-                      <span className="row-name">
-                        {d.name}
-                        {d.trigger ? <em> {d.trigger}</em> : null}
-                        {d.sentinel ? <em> sentinel</em> : null}
-                      </span>
-                      {grade === 0 && (
-                        <button
-                          className={`star ${isFirst ? 'on' : ''}`}
-                          title="Starting vanguard"
-                          onClick={() => {
-                            setFirst(id);
-                            setDirty(true);
-                          }}
-                        >
-                          ★
-                        </button>
-                      )}
-                    </div>
-                  );
-                })}
+        <div className={`dd-main ${gEra ? '' : 'tall'}`} data-testid="deck-list">
+          {sortedMain.map((id, i) => {
+            const d = ctx.registry.get(id);
+            const isFirst = id === startingVanguard && sortedMain.indexOf(id) === i;
+            return (
+              <div
+                key={`${id}-${i}`}
+                className={`dd-tile ${isFirst ? 'first' : ''}`}
+                style={{ '--clan': clanColor(d.clan) } as CSSProperties}
+                onClick={() => remove(id)}
+                onContextMenu={details(id)}
+                title={`${d.name} (click to remove)`}
+                data-testid={`deck-card-${id}`}
+              >
+                <CardView definitionId={id} width={84} height={122} />
+                {d.grade === 0 && !d.trigger && (
+                  <button
+                    className={`star ${isFirst ? 'on' : ''}`}
+                    title="Starting vanguard"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFirst(id);
+                      setDirty(true);
+                    }}
+                  >
+                    ★
+                  </button>
+                )}
               </div>
-            ),
+            );
+          })}
+          {cards.length === 0 && (
+            <div className="hint dd-empty">Click cards on the right to add them to your deck.</div>
           )}
-          {cards.length === 0 && <div className="hint">Click cards on the left to add them.</div>}
         </div>
+        {gEra && (
+          <>
+            <div className="dd-label">
+              <b>G DECK</b>
+              <span>
+                {gDeck.length}/{rules.maxGDeckSize.value}
+              </span>
+              <span className="hint">G units you click in the pool go here</span>
+            </div>
+            <div className="dd-g" data-testid="g-deck">
+              {sortedG.map((id, i) => (
+                <div
+                  key={`${id}-${i}`}
+                  className="dd-tile g"
+                  onClick={() => remove(id)}
+                  onContextMenu={details(id)}
+                  title={`${ctx.registry.get(id).name} (click to remove)`}
+                  data-testid={`g-card-${id}`}
+                >
+                  <CardView definitionId={id} width={54} height={79} />
+                </div>
+              ))}
+              {Array.from({ length: rules.maxGDeckSize.value - gDeck.length }, (_, i) => (
+                <div key={`empty-${i}`} className="dd-slot" />
+              ))}
+            </div>
+          </>
+        )}
         <div className="deck-issues" data-testid="deck-issues">
           {issues.length === 0 ? (
             <span className="ok">
-              ✓ Legal deck · starting vanguard{' '}
+              ✓ Legal {PLAY_FORMATS[gEra ? 'g' : 'classic'].label} deck · starting vanguard{' '}
               {startingVanguard && ctx.registry.get(startingVanguard).name}
             </span>
           ) : (
@@ -389,7 +421,125 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
             Test hand
           </button>
         </div>
-      </div>
+      </section>
+
+      <section className="dd-pool">
+        <div className="dd-search">
+          <input
+            ref={searchBox}
+            className="text"
+            autoFocus
+            placeholder="Search: name, number (BT01/001), clan, race or text…"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setLimit(PAGE);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setQuery('');
+              if (e.key === 'Enter' && shown[0]) add(shown[0].def.id);
+            }}
+            data-testid="card-search"
+          />
+          {query && (
+            <button
+              className="mini-btn"
+              title="Clear the search"
+              onClick={() => {
+                setQuery('');
+                searchBox.current?.focus();
+              }}
+            >
+              ×
+            </button>
+          )}
+          <span className="hint" data-testid="pool-count">
+            {shown.length} cards
+          </span>
+        </div>
+        <div className="builder-filters">
+          <select value={filters.set} onChange={set('set')}>
+            <option value="">All sets</option>
+            {SETS.filter((x) => POOLS[format].defs.some((d) => d.set === x)).map((x) => (
+              <option key={x}>{x}</option>
+            ))}
+          </select>
+          <select value={filters.clan} onChange={set('clan')}>
+            <option value="">All clans</option>
+            {CLANS.map((c) => (
+              <option key={c}>{c}</option>
+            ))}
+          </select>
+          <select value={filters.grade} onChange={set('grade')}>
+            <option value="">Any grade</option>
+            {[0, 1, 2, 3, 4].map((g) => (
+              <option key={g} value={g}>
+                Grade {g}
+              </option>
+            ))}
+          </select>
+          <select value={filters.trigger} onChange={set('trigger')}>
+            <option value="">Any trigger</option>
+            <option value="none">No trigger</option>
+            {['critical', 'draw', 'stand', 'heal'].map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+          <select value={filters.type} onChange={set('type')}>
+            <option value="">Any type</option>
+            <option value="normal">Normal unit</option>
+            <option value="trigger">Trigger unit</option>
+            <option value="sentinel">Sentinel</option>
+            {gEra && <option value="g_unit">G unit</option>}
+          </select>
+          <select value={filters.power} onChange={set('power')}>
+            <option value="">Any power</option>
+            {[5000, 6000, 7000, 8000, 9000, 10000, 11000].map((p) => (
+              <option key={p} value={p}>
+                {p}+
+              </option>
+            ))}
+          </select>
+          <select value={filters.rarity} onChange={set('rarity')}>
+            <option value="">Any rarity</option>
+            {RARITIES.map((r) => (
+              <option key={r}>{r}</option>
+            ))}
+          </select>
+          <button
+            className="btn"
+            onClick={() => {
+              setFilters(NO_FILTERS);
+              setQuery('');
+            }}
+          >
+            Clear
+          </button>
+        </div>
+        <div className="builder-pool" data-testid="card-pool">
+          {shown.slice(0, limit).map(({ def: d }) => (
+            <div
+              key={d.id}
+              className="pool-card"
+              onClick={() => add(d.id)}
+              onContextMenu={details(d.id)}
+              data-testid={`pool-${d.id}`}
+            >
+              <CardView definitionId={d.id} width={112} height={163} />
+              {counts.has(d.id) && <span className="count-badge">{counts.get(d.id)}</span>}
+              <div className="pool-name">{d.name}</div>
+            </div>
+          ))}
+          {shown.length === 0 && <div className="hint">No cards match.</div>}
+          {shown.length > limit && (
+            <button className="btn more" onClick={() => setLimit(limit + PAGE)}>
+              Show more ({shown.length - limit} left)
+            </button>
+          )}
+        </div>
+      </section>
 
       {modal?.kind === 'details' && (
         <DefinitionDetails id={modal.id} onClose={() => setModal(null)} />
@@ -451,10 +601,12 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
             <h2>Your decks</h2>
             {saved.length === 0 && <div className="hint">No saved decks yet.</div>}
             {saved.map((d) => {
-              const legal = validateDeck(d.deck, ctx.registry, ctx.format).length === 0;
+              const f = formatOfSaved(d);
+              const legal = validateDeck(d.deck, ctx.registry, PLAY_FORMATS[f].format).length === 0;
               return (
                 <div key={d.id} className="saved-row">
                   <b>{d.name}</b>
+                  <span className="hint">{PLAY_FORMATS[f].label}</span>
                   <span className={legal ? 'ok' : 'bad'}>{legal ? 'legal' : 'not legal'}</span>
                   <button className="btn" onClick={() => confirmDiscard() && loadInto(d)}>
                     Load
@@ -513,6 +665,8 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
                   setDeckId(null);
                   setName(parsed.name ?? 'Imported deck');
                   setCards([...parsed.deck.cards]);
+                  setGDeck([...(parsed.deck.gDeck ?? [])]);
+                  if ((parsed.deck.gDeck?.length ?? 0) > 0) setFormat('g');
                   setFirst(parsed.deck.firstVanguard || null);
                   setDirty(true);
                   setModal(parsed.problems.length ? { ...modal, problems: parsed.problems } : null);

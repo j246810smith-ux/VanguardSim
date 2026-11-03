@@ -55,6 +55,19 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
+## Latest (2026-11-03, end): v0.28.0-alpha published
+
+The user's v0.28 spec (feedback on 0.27) is built and released with G-BT01/G art: see
+`docs/design/V028_AUDIT.md`. **Next: PR cards** (four yearly batches,
+`docs/design/ORIGINAL_ERA_ROADMAP.md`), then the "Blaster Blade Burst" deck once the user names
+it. Details: `docs/NEXT_SESSION.md` "Pick up here (2026-11-03, end)".
+
+## Earlier (2026-11-03): G-era card art + G-BT01
+
+G-BT01 imported, scripted and tested (103/103); the Artwork Manager downloads G art; MBT01 needs
+nothing new. Then the Dear Days–style Deck Builder with G decks (D-036). Next: G-BT02. See `docs/NEXT_SESSION.md` "Pick up
+here (2026-11-03)".
+
 ## Current state (2026-11-02 end): Dear Days battle screen (D-035) + G era in testing (D-034)
 
 All committed, pushed and **published as v0.27.0-alpha (2026-11-03)**; installed copy on 0.27.0. Battle

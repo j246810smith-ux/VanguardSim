@@ -214,7 +214,13 @@ export type GameEvent =
       readonly leader: InstanceId;
       readonly mate: InstanceId;
     }
-  | { readonly type: 'UNIT_STOOD'; readonly player: PlayerId; readonly instanceId: InstanceId }
+  | {
+      readonly type: 'UNIT_STOOD';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+      /** Stood by an effect (an ability or a stand trigger) of this player's card. */
+      readonly by?: PlayerId;
+    }
   | {
       readonly type: 'ATTACK_RESOLVED';
       /** The attacked unit this comparison is for (one event per attacked unit). */

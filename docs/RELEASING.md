@@ -10,6 +10,7 @@ Releases are tagged `v<version>`:
 - `v0.26.0-alpha` — EB11, EB12, sleeves and playmats, Play Online switched on (in testing).
 - `v0.27.0-alpha` — Dear Days-style battle screen, the G era in testing (G-TD01, G-TD02).
 - `v0.27.1-alpha` — fix: the joining player's screen went blank online; crash guard.
+- `v0.28.0-alpha` — v0.28 player feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help; G-BT01 and G art.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

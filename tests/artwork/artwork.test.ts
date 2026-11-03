@@ -24,6 +24,7 @@ import {
   buildManifest,
   cardIdFromFileName,
   englishNumbers,
+  imagePath,
   setsOf,
   type ArtworkManifest,
 } from '../../src/artwork/manifest';
@@ -145,6 +146,24 @@ describe('manifest', () => {
     expect(sets.map(kind)).toEqual([...sets.map(kind)].sort((a, b) => a - b));
     const noImage = manifest.entries.filter((e) => !e.images.en && !e.images.jp);
     expect(noImage).toEqual([]);
+  });
+
+  it('lists the G-era sets last, with official image paths and G- folders (D-034)', () => {
+    const manifest = buildManifest(
+      SETS.map((s) => ({ set: s.file.set, cards: s.file.cards })),
+      'test',
+    );
+    const sets = setsOf(manifest);
+    const firstG = sets.findIndex((s) => s.startsWith('G-'));
+    expect(firstG).toBeGreaterThan(0);
+    expect(sets.slice(firstG).every((s) => s.startsWith('G-'))).toBe(true);
+    const g = manifest.entries.filter((e) => e.set.startsWith('G-'));
+    expect(g.length).toBeGreaterThan(0);
+    for (const e of g) {
+      expect(e.images.en ?? e.images.jp).toBeTruthy();
+      expect(imagePath(e.id, 'jpg')).toBe(`${e.set}/${e.id}.jpg`);
+      expect(imageUrl(DEFAULT_SOURCES[0]!, e).length).toBeGreaterThan(0);
+    }
   });
 
   it('matches file names to card IDs without guessing', () => {

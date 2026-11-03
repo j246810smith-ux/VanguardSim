@@ -46,7 +46,7 @@ export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
  * The G era's products (DECISIONS D-034), in Japanese release order. A set joins the pool when it
  * is imported and scripted; listing it here makes it legal in the G format.
  */
-export const G_SETS: readonly string[] = ['G-TD01', 'G-TD02'];
+export const G_SETS: readonly string[] = ['G-TD01', 'G-TD02', 'G-BT01'];
 
 /**
  * The G format (DECISIONS D-034): every Classic set plus the G era's cards, deck rules of

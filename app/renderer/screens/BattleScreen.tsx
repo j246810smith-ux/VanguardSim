@@ -30,7 +30,8 @@ import {
   type Selection,
 } from '../game/interaction';
 import { attackPreview } from '../game/attackPreview';
-import { GameSession, type SessionBase, type SessionConfig } from '../game/session';
+import { GameSession, type DemoSpeed, type SessionBase, type SessionConfig } from '../game/session';
+import { DemoSummary } from './DemoSummary';
 import { CardDetails, ZoneViewer } from '../prompts/CardDetails';
 import {
   ActionBar,
@@ -68,7 +69,18 @@ interface Props {
   readonly online?: OnlineInfo;
   readonly onRematch: () => void;
   readonly onExit: () => void;
+  /** CPU demonstration: watch the same game again (same seed). */
+  readonly onRestart?: () => void;
+  /** CPU demonstration: back to the deck selection. */
+  readonly onDemoSetup?: () => void;
 }
+
+const LEVEL_NAME = { random: 'Easy', basic: 'Normal', smart: 'Hard' } as const;
+const DEMO_SPEEDS: readonly (readonly [DemoSpeed, string])[] = [
+  ['normal', 'Normal'],
+  ['fast', 'Fast'],
+  ['veryfast', 'Very fast'],
+];
 
 /** One line on how the game ended, from the loser's loss reason. */
 function endingText(reason: string | null, winner: number | null): string {
@@ -102,7 +114,7 @@ const opponentVanguardClan = (view: SessionBase['view'], player: PlayerId): stri
     : null;
 };
 
-export function BattleScreen({ config, online, onRematch, onExit }: Props) {
+export function BattleScreen({ config, online, onRematch, onExit, onRestart, onDemoSetup }: Props) {
   const settings = useSettings();
   const sessionRef = useRef<SessionBase | null>(null);
   if (!sessionRef.current) sessionRef.current = online?.session ?? new GameSession(config!);
@@ -131,6 +143,13 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
   const gEra = playFormat === 'g';
   const [toast, setToast] = useState<string | null>(null);
 
+  // CPU demonstration (v0.28): both seats are AIs, the player watches
+  const demo = online ? null : (config?.demo ?? null);
+  const [demoSpeed, setDemoSpeed] = useState<DemoSpeed>(demo?.speed ?? 'normal');
+  const [paused, setPaused] = useState(false);
+  const game = session instanceof GameSession ? session : null;
+  if (game) game.paused = paused;
+
   const view = session.view;
   const hovered = useHoveredCard(view);
   const legal = useMemo(() => legalOf(session.actions), [session.actions]);
@@ -141,14 +160,18 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
 
   // the AI acts after a short, speed-dependent pause, once the current effect has played
   useEffect(() => {
-    if (online || view.status === 'finished' || session.acting !== AI) return;
+    if (online || view.status === 'finished' || !session.aiToAct) return;
+    const veryFast = demo !== null && demoSpeed === 'veryfast';
+    // Very fast skips the cut-ins: drop them instead of waiting for them
+    if (veryFast) session.fx = [];
     if (session.fx.length > 0 && settings.speed !== 'instant') return;
+    const pause = veryFast ? 40 : demo && demoSpeed === 'fast' ? 220 : 650;
     const t = setTimeout(
       () => {
         session.stepAi();
         rerender();
       },
-      paced(settings, 650),
+      veryFast ? pause : paced(settings, pause),
     );
     return () => clearTimeout(t);
   });
@@ -341,9 +364,41 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
     onClick: () => setInspect(!inspect),
   });
 
+  // CPU demonstration: the spectator's controls replace the player's actions
+  if (demo) {
+    bar.length = 0;
+    bar.push(
+      {
+        key: 'pause',
+        label: paused ? 'Resume' : 'Pause',
+        icon: paused ? 'end' : 'cancel',
+        ...(paused ? { tone: 'primary' as const } : {}),
+        onClick: () => setPaused((p) => !p),
+      },
+      {
+        key: 'speed',
+        label: DEMO_SPEEDS.find(([s]) => s === demoSpeed)![1],
+        icon: 'skill',
+        onClick: () =>
+          setDemoSpeed(DEMO_SPEEDS[(DEMO_SPEEDS.findIndex(([s]) => s === demoSpeed) + 1) % 3]![0]),
+      },
+      { key: 'restart', label: 'Restart', icon: 'swap', onClick: () => onRestart?.() },
+      { key: 'decks', label: 'Decks', icon: 'call', onClick: () => onDemoSetup?.() },
+      { key: 'log', label: 'History', icon: 'log', onClick: () => setLogOpen(true) },
+    );
+  }
+
   // ---- status line ----
   const status = (() => {
     if (view.status === 'finished') return null;
+    if (demo && session.acting !== null)
+      return paused
+        ? { text: 'Paused', waiting: false, seat: session.acting }
+        : {
+            text: `CPU ${session.acting === ME ? 1 : 2} is thinking…`,
+            waiting: true,
+            seat: session.acting,
+          };
     if (session.acting === AI) return { text: 'Opponent is thinking…', waiting: true };
     if (legal.choose || legal.mulligan) return null;
     if (selection?.kind === 'attacker')
@@ -399,12 +454,13 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
   const menuCard =
     selection && (selection.kind === 'hand' || selection.kind === 'unit') ? selection.id : null;
   const winner = view.winner;
+  const table = tableCss(settings.tableView);
 
   return (
     <>
-      {/* the table (D-035): field, piles and playmat on a tilted plane; the HUD stays flat */}
-      <div className="table-wrap" style={tableCss.wrap}>
-        <div className="table" style={tableCss.plane}>
+      {/* the table (D-035): field, piles and playmat on a tilted (or overhead) plane; the HUD stays flat */}
+      <div className="table-wrap" style={table.wrap}>
+        <div className="table" style={table.plane}>
           <BattleCosmetics
             mySleeve={online?.mySleeve ?? config?.mySleeve ?? settings.defaultSleeve}
             opponentSleeve={online?.opponentSleeve ?? config?.aiSleeve ?? DEFAULT_SLEEVE}
@@ -448,15 +504,14 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         fx={session.fx[0]?.kind === 'ability' ? session.fx[0] : undefined}
         choose={legal.choose}
       />
-      {preview && <AttackPreviewPanel preview={preview} />}
+      {preview && !demo && <AttackPreviewPanel preview={preview} />}
 
       {/* opponent (top) */}
       <PlayerPlate
         side="opp"
+        {...(demo ? { role: 'CPU 2' } : {})}
         name={
-          online
-            ? online.opponentName
-            : `CPU (${{ random: 'Easy', basic: 'Normal', smart: 'Hard' }[config!.aiLevel]})`
+          online ? online.opponentName : `CPU${demo ? ' 2' : ''} (${LEVEL_NAME[config!.aiLevel]})`
         }
         clan={
           online
@@ -501,12 +556,24 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         </button>
       </div>
       {/* turn & phase */}
-      <PhaseRail view={view} step={session.battleStep} gEra={gEra} />
+      <PhaseRail
+        view={view}
+        step={session.battleStep}
+        gEra={gEra}
+        guide={status && !status.waiting ? status.text : null}
+        seats={session.seats}
+      />
       <RecentEvents lines={session.log} onOpen={() => setLogOpen(true)} />
       <HoverPreview view={view} id={hovered} />
 
       {/* me (bottom) */}
-      <PlayerPlate side="me" name="You" clan={clanOf(myDeck)} damage={me.damage.length} />
+      <PlayerPlate
+        side="me"
+        name={demo ? `CPU 1 (${LEVEL_NAME[demo.p1Level]})` : 'You'}
+        {...(demo ? { role: 'CPU 1' } : {})}
+        clan={clanOf(myDeck)}
+        damage={me.damage.length}
+      />
 
       <Hand
         view={view}
@@ -518,8 +585,19 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
       />
       <ActionBar actions={view.status === 'finished' ? [] : bar} />
 
-      {status && (
-        <div className={`status-line ${status.waiting ? 'waiting' : ''}`}>{status.text}</div>
+      {/* the opponent "looks at their hand" while the AI decides (v0.28 feedback) */}
+      {status?.waiting && (
+        <div
+          className={`thinking ${'seat' in status && status.seat === ME ? 'me' : ''}`}
+          data-testid="opponent-thinking"
+        >
+          {status.text.replace('…', '')}
+          <span className="dots">
+            <i />
+            <i />
+            <i />
+          </span>
+        </div>
       )}
 
       {legal.choose && (
@@ -546,6 +624,7 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
           id={menuCard}
           legal={legal}
           onRide={() => send({ type: 'RIDE', player: ME, cardId: menuCard })}
+          onCall={(circle) => send({ type: 'CALL', player: ME, cardId: menuCard, circle })}
           onActivate={(o) =>
             send({ type: 'ACTIVATE', player: ME, source: o.source, abilityId: o.abilityId })
           }
@@ -629,7 +708,17 @@ export function BattleScreen({ config, online, onRematch, onExit }: Props) {
         />
       )}
 
-      {view.status === 'finished' && session.fx.length === 0 && (
+      {demo && view.status === 'finished' && session.fx.length === 0 && game && (
+        <DemoSummary
+          game={game}
+          names={[myDeckName, opponentDeckName]}
+          onRestart={() => onRestart?.()}
+          onNewSeed={onRematch}
+          onDecks={() => onDemoSetup?.()}
+          onLog={() => setLogOpen(true)}
+        />
+      )}
+      {!demo && view.status === 'finished' && session.fx.length === 0 && (
         <div className="game-over" data-testid="game-over">
           <h1 className={winner === ME ? 'win' : 'lose'}>
             {winner === ME ? 'VICTORY' : winner === null ? 'DRAW' : 'DEFEAT'}

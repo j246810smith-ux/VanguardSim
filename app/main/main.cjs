@@ -262,6 +262,9 @@ const shotsStep = `(() => {
     const myRide = end && /ride/i.test(end.textContent || '');
     q('[data-testid=card-details]')?.click(); // close a details window opened by a stray click
     return (
+      // VANGUARD_SHOTS_DEMO=1: start a CPU demonstration instead and just watch (v0.28)
+      (${JSON.stringify(!!process.env.VANGUARD_SHOTS_DEMO)} &&
+        (click(q('[data-testid=cpu-demo]')) || click(q('[data-testid=demo-start]')) || 'watch')) ||
       click(q('[data-testid=new-game]')) ||
       (${JSON.stringify(process.env.VANGUARD_SHOTS_FORMAT === 'g')} && !window.__fmt && q('[data-testid=format-g]') && ((window.__fmt = 1), click(q('[data-testid=format-g]')))) ||
       click(q('[data-testid=start]')) ||
@@ -278,13 +281,48 @@ const shotsStep = `(() => {
       'wait'
     );
   })()`;
+/** VANGUARD_SHOTS_SCREEN=decks: the Deck Builder instead (G era, a search, cards added). */
+const deckShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const n = (window.__n = (window.__n || 0) + 1);
+    const typeIn = (text) => {
+      const box = q('[data-testid=card-search]');
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(box, text);
+      box.dispatchEvent(new Event('input', { bubbles: true }));
+      return 'search ' + text;
+    };
+    const addAll = (times) => {
+      const cards = [...document.querySelectorAll('.pool-card')];
+      for (let t = 0; t < times; t++) for (const c of cards) c.click();
+      return 'added ' + cards.length;
+    };
+    if (n === 1) return (q('[data-testid=deck-builder]').click(), 'deck builder');
+    if (n === 2) return (q('[data-testid=deck-format-g]').click(), 'G era');
+    if (n === 3) return typeIn('gear chronicle');
+    if (n === 4) return addAll(4);
+    if (n === 5) return typeIn('chrono');
+    if (n === 6) return typeIn('');
+    return 'wait';
+  })()`;
 function runShots(win) {
-  const step = shotsStep;
+  const step = process.env.VANGUARD_SHOTS_SCREEN === 'decks' ? deckShotsStep : shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);
   });
   win.webContents.on('did-finish-load', async () => {
+    // VANGUARD_SHOTS_VIEW=overhead: the overhead battle view (Settings → Battle view)
+    const view = process.env.VANGUARD_SHOTS_VIEW;
+    if (view && !runShots.viewSet) {
+      runShots.viewSet = true;
+      await win.webContents.executeJavaScript(`(() => {
+        const k = 'vanguard-sim.settings.v1';
+        const s = JSON.parse(localStorage.getItem(k) || '{}');
+        localStorage.setItem(k, JSON.stringify({ ...s, tableView: ${JSON.stringify(view)} }));
+        location.reload();
+      })()`);
+      return;
+    }
     fs.mkdirSync(shotsDir, { recursive: true });
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     await wait(1500);
@@ -337,6 +375,25 @@ function runShots(win) {
       path.join(shotsDir, 'zz-hover.png'),
       (await win.webContents.capturePage()).toPNG(),
     );
+    // where the main board areas are, in stage px (1920×1080), for layout work
+    const rects = await win.webContents.executeJavaScript(`(() => {
+      const stage = document.querySelector('.stage').getBoundingClientRect();
+      const k = stage.width / 1920;
+      const box = (el) => {
+        const r = el.getBoundingClientRect();
+        return [r.left, r.top, r.right, r.bottom].map((v, i) =>
+          Math.round((v - (i % 2 ? stage.top : stage.left)) / k));
+      };
+      const out = {};
+      for (const sel of ['.phase-rail', '.hand', '.hover-preview', '.feed', '.action-bar',
+        '.attack-preview', '.plate', '.hint', '[data-testid^=circle-]', '.pile', '.pile-tile',
+        '[data-zone]', '.prompt'])
+        document.querySelectorAll(sel).forEach((el, i) => {
+          out[sel + '#' + i + ' ' + (el.dataset.testid || el.dataset.zone || el.className)] = box(el);
+        });
+      return out;
+    })()`);
+    fs.writeFileSync(path.join(shotsDir, 'rects.json'), JSON.stringify(rects, null, 1));
     // and concede through the game menu to show the result screen
     await win.webContents.executeJavaScript(`(() => {
       document.querySelector('button[title="Game menu"]')?.click();

@@ -1,5 +1,87 @@
 # Changelog
 
+## 0.28.0-alpha — 2026-11-03
+
+**v0.28: player feedback on v0.27** (user's spec, 2026-11-03; audit in
+`docs/design/V028_AUDIT.md`). Also in this release: **G-era card art, G-BT01 and the Dear
+Days–style Deck Builder** (below).
+
+**CPU Deck Demonstration** — main menu → **CPU DEMONSTRATION**:
+
+- Pick a deck for CPU 1 and CPU 2 (any starter, trial or saved deck legal in the format; the same
+  deck twice is fine; **Swap decks**), the format, each side's AI (Easy / Normal / Hard), a seed
+  and the speed, then watch the two CPUs play each other with the normal rules and AIs.
+- You only watch: both hands are shown, nothing you click is played. The action bar becomes
+  **Pause / Resume**, **speed** (Normal → Fast → Very fast, which skips the cut-ins), **Restart**
+  (the same game again), **Decks** (back to the selection) and **History** (the full log). The
+  log and banners say CPU 1 / CPU 2, and each CPU's "thinking" badge sits over its own hand.
+- At the end: a summary with the winner and loser deck, how it was won, turns, time, seed, both
+  sides' damage, cards left in the deck, hand and shield in hand, and the key moments (triggers
+  and hits), with **Watch again**, **New seed**, **History** and **Decks**. It says what one game
+  can't: which deck is stronger.
+- The same seed with the same decks and AIs plays the same game again (tested).
+
+**Formats: Original Era and Expanded Era** — the formats are now called **Original Era**
+(BT01–BT17 and the side sets: no G units, Stride or Generation Break) and **Expanded Era**
+(Original Era plus the G era, in testing) everywhere: Game Setup, the Deck Builder, the battle
+screen (the era is always named under the turn label) and the demonstration. Legality is
+enforced by the deck rules, not hidden in the menus. Game Setup remembers the last format.
+
+**The Seed explained** — a **?** next to Seed in Game Setup explains it: the seed decides who
+goes first and every shuffle (so also which cards come up in checks); both players share it;
+blank = a new random game; the same seed with the same decks and the same choices deals the same
+game. Any word now works as a seed (before, text was ignored), and each game's seed is the first
+line of its log. An online guest is never sent the seed (it would reveal every shuffle).
+
+**Original Era content roadmap** — `docs/design/ORIGINAL_ERA_ROADMAP.md`: 292 PR printings from
+2011–2014 checked against the game: 77 are reprints already in it, 215 new cards to add in four
+yearly batches. The "Blaster Blade Burst" deck could not be identified (no product of that name):
+waiting for the exact product or list.
+
+**Battle screen layout and settings:**
+
+- **Battle view: Overhead (90°) or Tilted (45°)** — Settings → **Battle view**. Overhead shows
+  the board flat from above, like before 0.27, and is now the default; Tilted is the Dear Days
+  table. Cut-ins, power plates and flying cards work in both.
+- **Screen shake** is its own setting (Settings → Screen shake when an attack hits), **off by
+  default**; the hit banner and flash still play.
+- **Settings scroll**: the list scrolls, BACK always stays visible, and Esc goes back.
+- **Decision panels go in the middle of the board** when that hides nothing that matters (cards,
+  glowing circles, the ability box beside the guardian circle, the battle display); otherwise
+  they dock on the right as before.
+- **Phase action guide** beside the current phase on the left rail (it used to sit bottom right),
+  and a tooltip on every phase saying what it is for.
+- **"Opponent is thinking"** now sits over the opponent's hand, with three pulsing dots, and
+  goes as soon as the AI has acted.
+- **Card preview** moved lower left (it was at the top left beside the opponent's piles); the
+  turn label and phases moved up into that space.
+- **Calling a rear-guard**: the card menu shows your circles laid out like the board (front
+  left, VC, front right / back left, centre, right); open circles, occupied ones (the unit there
+  is retired) and circles you can't use are told apart.
+- Empty rear-guard circles no longer say "REAR-GUARD".
+
+**G era: card art and G-BT01 "Generation Stride"** (user's request, 2026-11-03; D-034).
+
+- **Card art for the G era:** the Artwork Manager's built-in official source downloads G sets
+  (checked: all of G-TD01, G-TD02 and G-BT01, no failures); G sets are listed last.
+- **G-BT01** (103 cards: Gear Chronicle, Royal Paladin, Oracle Think Tank, Kagero, Nova
+  Grappler, Cray Elemental), legal in the G format, every card scripted and tested.
+- Engine additions for it: costs that turn a face-down G unit in the G zone face up, "face up
+  cards in your G zone" counts, stride fodder (grade +2 while paying a stride cost; the stride
+  prompt shows those grades), "[Stand] due to an effect" and "put into the deck" triggers, "from
+  one of your other cards", drive -1, "from all clans", "a G unit on your (VC)", "power less than
+  or equal to that unit's".
+- **MBT01** needs nothing new: its 50 cards are already in the game as the English-only BT16/BT17
+  cards. Its G unit insert (Harmonics Messiah) is left out (no verified G-era text).
+- **Deck Builder, Dear Days style** (user's request; D-036): the whole deck as cards on the left
+  (main deck sorted by grade, starting vanguard marked ★) with a **G deck** row for G-era decks,
+  the card pool on the right. **Original Era / Expanded Era** switch per deck (saved with it;
+  Expanded Era decks appear in Game Setup's Expanded Era). **Search narrows as you type**: every word must match (name,
+  number as printed e.g. `BT01/001`, clan, race, set or text), name matches first; **Enter** adds
+  the top card, **Esc** clears; the pool draws 140 cards at a time ("Show more"). Click a deck
+  card to remove it. All earlier options kept (filters, save, load, import/export now with the G
+  deck, sleeve & mat, test hand, details on right-click).
+
 ## 0.27.1-alpha — 2026-11-03
 
 **Fix: the joining player's screen went blank online** (user's report, 2026-11-03). When the

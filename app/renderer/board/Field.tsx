@@ -15,14 +15,8 @@ import { CardView } from '../ui/CardView';
 import { Ring } from '../ui/svg';
 import { CARD_RC, CARD_VC, circlePos } from './layout';
 
-const LABELS: Record<Circle, string> = {
-  vanguard: 'VANGUARD',
-  front_left: 'REAR-GUARD',
-  front_right: 'REAR-GUARD',
-  back_left: 'REAR-GUARD',
-  back_center: 'REAR-GUARD',
-  back_right: 'REAR-GUARD',
-};
+/** Empty rear-guard circles show only the circle art (v0.28 feedback: no "REAR-GUARD" text). */
+const LABELS: Partial<Record<Circle, string>> = { vanguard: 'VANGUARD' };
 
 interface FieldProps {
   readonly view: GameState;
@@ -166,7 +160,7 @@ function CircleSlot({
           </div>
         </>
       )}
-      {!top && <div className="circle-label">{LABELS[circle]}</div>}
+      {!top && LABELS[circle] && <div className="circle-label">{LABELS[circle]}</div>}
     </div>
   );
 }

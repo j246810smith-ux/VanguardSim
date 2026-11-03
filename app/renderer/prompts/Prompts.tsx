@@ -1,6 +1,7 @@
 import {
   splitAbilityOption,
   type ActOption,
+  type RearGuardCircle,
   type GameState,
   type InstanceId,
 } from '../../../src/engine';
@@ -9,6 +10,7 @@ import { circleName } from '../game/describe';
 import { choiceReady, type Choose, type Legal } from '../game/interaction';
 import { CardView } from '../ui/CardView';
 import { Icon } from '../ui/svg';
+import { DockedPrompt } from './DockedPrompt';
 
 const onBoard = (s: GameState, id: string) =>
   s.players.some(
@@ -100,20 +102,20 @@ export function ChoicePrompt({
   switch (choose.kind) {
     case 'yes_no':
       return (
-        <div className="prompt docked" data-testid="choice">
+        <DockedPrompt>
           <h3>{choose.prompt}</h3>
           {buttons([
             ['yes', 'Yes'],
             ['no', 'No'],
           ])}
-        </div>
+        </DockedPrompt>
       );
     case 'number':
       return (
-        <div className="prompt docked" data-testid="choice">
+        <DockedPrompt>
           <h3>{choose.prompt}</h3>
           {buttons(choose.options.map((o) => [o, o]))}
-        </div>
+        </DockedPrompt>
       );
     case 'name':
       return (
@@ -124,28 +126,28 @@ export function ChoicePrompt({
       );
     case 'top_or_bottom':
       return (
-        <div className="prompt docked" data-testid="choice">
+        <DockedPrompt>
           <h3>{choose.prompt}</h3>
           {buttons(choose.options.map((o) => [o, o === 'top' ? 'Top of deck' : 'Bottom of deck']))}
-        </div>
+        </DockedPrompt>
       );
     case 'soul_or_drop':
       return (
-        <div className="prompt docked" data-testid="choice">
+        <DockedPrompt>
           <h3>{choose.prompt}</h3>
           {buttons([
             ['soul', 'Soul'],
             ['drop', 'Drop Zone'],
           ])}
-        </div>
+        </DockedPrompt>
       );
     case 'circle':
       return (
-        <div className="prompt docked" data-testid="choice">
+        <DockedPrompt>
           <h3>{choose.prompt}</h3>
           <div className="hint">Click a glowing circle, or:</div>
           {buttons(choose.options.map((o) => [o, circleName(o)]))}
-        </div>
+        </DockedPrompt>
       );
     case 'order_abilities':
       return (
@@ -182,8 +184,8 @@ export function ChoicePrompt({
     default: {
       const offBoard = choose.options.filter((o) => !onBoard(view, o));
       const single = choose.min === 1 && choose.max === 1;
-      return (
-        <div className={`prompt ${offBoard.length ? '' : 'docked'}`} data-testid="choice">
+      const body = (
+        <>
           <h3>{choose.prompt}</h3>
           {choose.order && <DeckOrderStrip view={view} order={choose.order} />}
           <div className="hint">
@@ -225,7 +227,14 @@ export function ChoicePrompt({
               </button>
             </div>
           )}
+        </>
+      );
+      return offBoard.length ? (
+        <div className="prompt" data-testid="choice">
+          {body}
         </div>
+      ) : (
+        <DockedPrompt>{body}</DockedPrompt>
       );
     }
   }
@@ -233,7 +242,7 @@ export function ChoicePrompt({
 
 export function MulliganPrompt({ count, onSubmit }: { count: number; onSubmit: () => void }) {
   return (
-    <div className="prompt docked" data-testid="mulligan">
+    <DockedPrompt testId="mulligan">
       <h3>Mulligan</h3>
       <div className="hint">
         Click hand cards to return them to the deck, then redraw. You may keep your whole hand.
@@ -243,7 +252,7 @@ export function MulliganPrompt({ count, onSubmit }: { count: number; onSubmit: (
           {count === 0 ? 'Keep hand' : `Return ${count} and redraw`}
         </button>
       </div>
-    </div>
+    </DockedPrompt>
   );
 }
 
@@ -253,6 +262,7 @@ export function CardMenu({
   id,
   legal,
   onRide,
+  onCall,
   onActivate,
   onDetails,
   onClose,
@@ -261,6 +271,8 @@ export function CardMenu({
   id: InstanceId;
   legal: Legal;
   onRide: () => void;
+  /** Call the card to this rear-guard circle (the circle map below, v0.28). */
+  onCall?: (circle: RearGuardCircle) => void;
   onActivate: (o: ActOption) => void;
   onDetails: () => void;
   onClose: () => void;
@@ -277,9 +289,12 @@ export function CardMenu({
         </button>
       </div>
       {inHand && legal.call.has(id) && (
-        <div className="hint" style={{ margin: '6px 0' }}>
-          Drag to a glowing circle — or click one — to call.
-        </div>
+        <>
+          <div className="hint" style={{ margin: '6px 0' }}>
+            Call to a circle below, or drag / click a glowing circle on the board.
+          </div>
+          {onCall && <CallMap view={view} open={legal.callCircles} onCall={onCall} />}
+        </>
       )}
       {legal.ride.has(id) && (
         <button className="btn primary ability-option" onClick={onRide}>
@@ -294,6 +309,65 @@ export function CardMenu({
       <button className="btn ability-option" onClick={onDetails}>
         Card details
       </button>
+    </div>
+  );
+}
+
+/** Your circles as on the board: front row (left, VC, right) over the back row (v0.28). */
+const CALL_MAP: readonly (readonly (RearGuardCircle | 'vanguard')[])[] = [
+  ['front_left', 'vanguard', 'front_right'],
+  ['back_left', 'back_center', 'back_right'],
+];
+
+/**
+ * Where to call: a small map of your rear-guard circles laid out like the board, so the choice
+ * matches the circle you see. Circles you may call to are buttons; an occupied one says the unit
+ * there is retired; the vanguard circle and closed circles cannot be picked.
+ */
+export function CallMap({
+  view,
+  open,
+  onCall,
+}: {
+  view: GameState;
+  open: readonly RearGuardCircle[];
+  onCall: (circle: RearGuardCircle) => void;
+}) {
+  const circles = view.players[ME].circles;
+  return (
+    <div className="call-map" data-testid="call-map">
+      {CALL_MAP.map((row, r) => (
+        <div key={r} className="call-row">
+          {row.map((c) => {
+            if (c === 'vanguard')
+              return (
+                <div key={c} className="call-spot vc">
+                  VC
+                </div>
+              );
+            const unit = circles[c].at(-1);
+            const name = unit ? (defOf(view, unit)?.name ?? 'unit') : null;
+            const legalHere = open.includes(c);
+            return (
+              <button
+                key={c}
+                className={`call-spot ${unit ? 'occupied' : 'open'}`}
+                disabled={!legalHere}
+                title={
+                  unit
+                    ? `${circleName(c)}: ${name} is retired if you call here`
+                    : `${circleName(c)}: open`
+                }
+                onClick={() => onCall(c)}
+                data-testid={`call-${c}`}
+              >
+                <span className="where">{r === 0 ? 'FRONT' : 'BACK'}</span>
+                <span className="who">{name ?? 'open'}</span>
+              </button>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 }

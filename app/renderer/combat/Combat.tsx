@@ -8,7 +8,7 @@ import {
   type InstanceId,
   type PlayerId,
 } from '../../../src/engine';
-import { circlePos, toScreen, type Point } from '../board/layout';
+import { circlePos, toScreen, type Point, type TableView } from '../board/layout';
 import { ctx, ME } from '../engine';
 import type { AttackPreview } from '../game/attackPreview';
 import type { Fx } from '../game/session';
@@ -64,14 +64,15 @@ export function AttackLines({
   );
 }
 
-/** The centre line between the fields, on screen (the table is tilted, D-035). */
-const CENTRE_Y = Math.round(toScreen({ x: 960, y: 504 }).y);
+/** The centre line between the fields, on screen (the table may be tilted, D-035). */
+const centreY = (view: TableView) => Math.round(toScreen({ x: 960, y: 504 }, view).y);
 
 /**
  * Attack vs. defence on the centre line (D-035): your plate on the left, the opponent's on the
  * right, VS between them, with the boost, shields and how much shield still stops the hit.
  */
 export function BattleHud({ view }: { view: GameState }) {
+  const { tableView } = useSettings();
   const b = view.battle;
   if (!b) return null;
   const attackerSide = view.activePlayer;
@@ -110,7 +111,7 @@ export function BattleHud({ view }: { view: GameState }) {
     </div>
   );
   return (
-    <div className="battle-vs" style={{ top: CENTRE_Y }} data-testid="battle-hud">
+    <div className="battle-vs" style={{ top: centreY(tableView) }} data-testid="battle-hud">
       {myAttack ? attack : defence}
       <div className="vs-mark">VS</div>
       {myAttack ? defence : attack}

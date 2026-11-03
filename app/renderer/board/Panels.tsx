@@ -153,7 +153,10 @@ export function PlayerPlate({
   name,
   clan,
   damage,
+  role,
 }: {
+  /** The small label above the name (default PLAYER / OPPONENT). */
+  role?: string;
   side: 'me' | 'opp';
   name: string;
   clan: string;
@@ -163,7 +166,7 @@ export function PlayerPlate({
     <div className={`plate ${side}`} data-testid={`plate-${side}`}>
       <ClanBadge clan={clan} />
       <div>
-        <div className="role">{side === 'me' ? 'PLAYER' : 'OPPONENT'}</div>
+        <div className="role">{role ?? (side === 'me' ? 'PLAYER' : 'OPPONENT')}</div>
         <div className="who">{name}</div>
         <div className="clan">{clan}</div>
         <div className="damage-pips" title={`Damage ${damage}/6`}>
@@ -182,14 +185,31 @@ const G_PHASES = ['stand', 'draw', 'ride', 'stride', 'main', 'battle', 'end'] as
 const STEPS = ['start', 'attack', 'guard', 'drive', 'damage', 'close'] as const;
 export type BattleStep = (typeof STEPS)[number];
 
+/** What each phase is for, shown as a tooltip on the rail. */
+const PHASE_HELP: Record<string, string> = {
+  stand: 'Stand: your units stand up.',
+  draw: 'Draw: draw a card.',
+  ride: 'Ride: ride one card from your hand on your vanguard (same grade or one higher).',
+  stride: 'Stride: discard grades totalling 3 or more to stride a G unit (G era).',
+  main: 'Main: call units to rear-guard circles, move them, use ACT abilities.',
+  battle: 'Battle: attack with your standing front-row units, one at a time.',
+  end: 'End: end-of-turn abilities, then the turn passes.',
+};
+
 export function PhaseRail({
   view,
   step,
   gEra,
+  guide = null,
+  seats = null,
 }: {
   view: GameState;
   step: BattleStep | null;
   gEra: boolean;
+  /** What you can do right now, shown beside the current phase (v0.28: the phase action guide). */
+  guide?: string | null;
+  /** CPU demonstration: seat names for the turn label ("CPU 1 TURN"). */
+  seats?: readonly [string, string] | null;
 }) {
   const side = view.activePlayer === ME ? 'me' : 'opp';
   const phases: readonly string[] = gEra ? G_PHASES : PHASES;
@@ -197,15 +217,25 @@ export function PhaseRail({
   return (
     <>
       <div className={`turn-label ${side}`}>
-        {view.status === 'mulligan' ? 'MULLIGAN' : side === 'me' ? 'YOUR TURN' : 'OPP. TURN'}
+        {view.status === 'mulligan'
+          ? 'MULLIGAN'
+          : seats
+            ? `${seats[view.activePlayer].toUpperCase()} TURN`
+            : side === 'me'
+              ? 'YOUR TURN'
+              : 'OPP. TURN'}
         {view.status !== 'mulligan' && <b>{view.turnNumber}</b>}
-        {gEra && <div className="testing-tag">G ERA · IN TESTING</div>}
+        {/* the format is always named (v0.28: "clearly identify the selected format") */}
+        <div className={`testing-tag ${gEra ? '' : 'era-tag'}`} data-testid="era-tag">
+          {gEra ? 'EXPANDED ERA · IN TESTING' : 'ORIGINAL ERA'}
+        </div>
       </div>
       <div className="phase-rail">
         {phases.map((p, i) => (
           <div key={p}>
             <div
               className={`phase ${i === current ? `current ${side}` : i < current ? 'done' : ''}`}
+              title={PHASE_HELP[p]}
             >
               {p.toUpperCase()}
             </div>
@@ -216,6 +246,11 @@ export function PhaseRail({
                     {s.toUpperCase()}
                   </span>
                 ))}
+              </div>
+            )}
+            {i === current && guide && (
+              <div className="phase-guide" data-testid="phase-guide">
+                {guide}
               </div>
             )}
           </div>

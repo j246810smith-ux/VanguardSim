@@ -15,6 +15,7 @@ export {
   cheapestStrideDiscard,
   generationCount,
   gradeSum,
+  strideGrade,
 } from './game/generation';
 export {
   basePower,

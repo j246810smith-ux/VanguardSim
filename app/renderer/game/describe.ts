@@ -25,7 +25,15 @@ const CIRCLE_NAMES: Record<string, string> = {
 };
 export const circleName = (c: string) => CIRCLE_NAMES[c] ?? c;
 
-export function describe(s: GameState, e: GameEvent): { text: string; tone: LogTone } | null {
+/**
+ * `seats`: names for both seats instead of "You" / "Opponent" (a CPU demonstration, v0.28:
+ * "CPU 1" / "CPU 2").
+ */
+export function describe(
+  s: GameState,
+  e: GameEvent,
+  seats: readonly [string, string] | null = null,
+): { text: string; tone: LogTone } | null {
   const n = (id: InstanceId) => {
     const card = s.cards[id];
     // an online guest's view has cards it cannot see (D-032)
@@ -33,12 +41,15 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       ? ctx.registry.get(card.definitionId).name
       : 'a card';
   };
-  const who = (p: PlayerId) => (p === ME ? 'You' : 'Opponent');
+  const who = (p: PlayerId) => (seats ? seats[p] : p === ME ? 'You' : 'Opponent');
   const tone = (p: PlayerId): LogTone => (p === ME ? 'me' : 'opp');
   switch (e.type) {
+    case 'GAME_CREATED':
+      // v0.28: the seed is shown so a deal can be replayed (Game Setup → Seed)
+      return { text: `Game seed: ${e.seed}`, tone: 'neutral' };
     case 'TURN_STARTED':
       return {
-        text: `Turn ${e.turn} — ${e.player === ME ? 'your turn' : "opponent's turn"}`,
+        text: `Turn ${e.turn} — ${seats ? seats[e.player] : e.player === ME ? 'your turn' : "opponent's turn"}`,
         tone: 'turn',
       };
     case 'MULLIGAN':
@@ -100,7 +111,7 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       if (e.reason === 'heal')
         return { text: `${who(e.to.player)} healed ${n(e.instanceId)}`, tone: 'trigger' };
       if (e.reason === 'draw' && e.to.player === ME)
-        return { text: `You drew ${n(e.instanceId)}`, tone: 'me' };
+        return { text: `${seats ? seats[ME] : 'You'} drew ${n(e.instanceId)}`, tone: 'me' };
       if (e.to.zone === 'deck' && (e.reason === 'effect' || e.reason === 'cost')) {
         // the opponent's cards from a hidden zone (their hand or deck) stay unnamed
         const hidden = e.to.player !== ME && (e.from.zone === 'hand' || e.from.zone === 'deck');
@@ -134,7 +145,14 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       return { text: `${who(e.player)}: LEGION! ${n(e.leader)} + ${n(e.mate)}`, tone: 'trigger' };
     case 'GAME_ENDED':
       return {
-        text: e.winner === ME ? 'You win!' : e.winner === null ? 'Draw game' : 'You lose',
+        text:
+          e.winner === null
+            ? 'Draw game'
+            : seats
+              ? `${seats[e.winner]} wins!`
+              : e.winner === ME
+                ? 'You win!'
+                : 'You lose',
         tone: 'turn',
       };
     default:

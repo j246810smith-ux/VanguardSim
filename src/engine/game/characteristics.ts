@@ -49,8 +49,22 @@ export const currentClan = (state: GameState, ctx: EngineContext, id: InstanceId
 /** Every clan the card has: its printed clan plus "this card is also a <clan>" (BT09 Spirits). */
 const REAR_GUARD = ['front_left', 'back_left', 'back_center', 'front_right', 'back_right'] as const;
 
+/** Every clan of the card pool, for "this card is from all clans" (cached per registry). */
+const allClans = new WeakMap<object, readonly string[]>();
+function everyClan(ctx: EngineContext): readonly string[] {
+  let clans = allClans.get(ctx.registry);
+  if (!clans) {
+    clans = [...new Set(ctx.registry.all().map((d) => d.clan))].filter((c) => c && c !== '-');
+    allClans.set(ctx.registry, clans);
+  }
+  return clans;
+}
+
 export function clansOf(state: GameState, ctx: EngineContext, id: InstanceId): readonly string[] {
   const def = definitionOf(state, ctx, id);
+  // "[CONT]:This card is from all clans and nations." (G-BT01 Miracle Element, Atmos)
+  if (def.abilities.some((a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'all_clans')))
+    return [def.clan, ...everyClan(ctx).filter((c) => c !== def.clan)];
   const also = def.abilities.flatMap((a) =>
     a.kind === 'CONT'
       ? a.effects.flatMap((e) => (e.ce === 'also_clan' && !e.rearGuardsNamed ? [e.clan] : []))

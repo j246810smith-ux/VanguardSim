@@ -139,6 +139,8 @@ export function costLabel(cost: Cost): string {
       return 'Reveal';
     case 'face_down':
       return 'Face down';
+    case 'g_face_up':
+      return `G zone ${cost.n} face up`;
     case 'top_to':
       return `Top ${cost.n} of your deck to your ${cost.to}`;
     case 'move':
@@ -164,6 +166,8 @@ export function costInstruction(cost: Cost, n: number): string {
       return `Lock: choose ${cost.orMore ? `${n} or more` : n} ${n === 1 && !cost.orMore ? 'unit' : 'units'} to lock`;
     case 'rest_chosen':
       return `Rest: choose ${cards(n, 'standing unit')} to rest`;
+    case 'g_face_up':
+      return `Choose ${cards(n, 'face-down card')} in your G zone to turn face up`;
     default:
       return `Pay the cost: choose ${cards(n, 'card')}`;
   }
@@ -318,6 +322,16 @@ function costChoice(ec: EvalContext, cost: Cost): { options: InstanceId[]; n: nu
       };
     case 'move_chosen':
       return { options: select(ec, cost.from), n: cost.n };
+    case 'g_face_up':
+      return {
+        options: select(ec, {
+          sel: 'cards',
+          owner: 'you',
+          areas: ['gzone'],
+          filter: { ...cost.filter, faceUp: false },
+        }),
+        n: cost.n,
+      };
     case 'rest_chosen':
       return {
         options: select(ec, cost.from).filter(
@@ -434,6 +448,12 @@ function applyCost(
       }
       return ids;
     }
+    case 'g_face_up':
+      for (const id of picked) {
+        s.cards[id]!.faceUp = true;
+        emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: true });
+      }
+      return [...picked];
   }
 }
 
@@ -853,7 +873,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     case 'stand':
     case 'rest':
-      for (const id of targets.filter((t) => onField(s, t))) setOrientation(d, id, step.op);
+      for (const id of targets.filter((t) => onField(s, t)))
+        setOrientation(d, id, step.op, frame.master);
       return true;
     case 'reveal':
       emit(d, { type: 'CARDS_REVEALED', player: frame.master, instanceIds: targets });

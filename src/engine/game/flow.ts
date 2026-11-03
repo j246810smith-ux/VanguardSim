@@ -4,7 +4,7 @@
  * triggered by "at the beginning of …" and similar events resolve.
  */
 import { lostIcon } from '../abilities/catalog';
-import { isRestricted } from '../abilities/continuous';
+import { continuousDrive, isRestricted } from '../abilities/continuous';
 import type { Task } from '../state/tasks';
 import {
   type BattleState,
@@ -197,7 +197,13 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
         const drive = icon === 'triple_drive' ? 3 : icon === 'twin_drive' ? 2 : 1;
         next.push(
           { kind: 'step_start', step: 'drive' },
-          { kind: 'drive_step', remaining: drive + (b.driveBonus ?? 0) },
+          {
+            kind: 'drive_step',
+            remaining: Math.max(
+              0,
+              drive + (b.driveBonus ?? 0) + continuousDrive(s, d.ctx, b.attacker),
+            ),
+          },
         );
       }
       next.push(

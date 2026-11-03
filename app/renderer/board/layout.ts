@@ -2,6 +2,7 @@
 import type { Circle, PlayerId } from '../../../src/engine';
 import type { CSSProperties } from 'react';
 import { ME } from '../engine';
+import type { TableView } from '../settings';
 
 export const STAGE_W = 1920;
 export const STAGE_H = 1080;
@@ -48,39 +49,74 @@ export const CARD_VC = { w: 126, h: 183 } as const;
  * is the one source of the tilt: BattleScreen sets the CSS from it and `toScreen` projects table
  * points with the same maths, so flat overlays (battle numbers, ability box) line up.
  */
-export const TABLE = {
+/** How the battle table is seen (Settings → Battle view): tilted (D-035) or straight from above. */
+export type { TableView };
+
+interface TableParams {
   /** tilt away from the viewer, degrees */
+  readonly tilt: number;
+  readonly scale: number;
+  /** perspective distance and its vanishing point (stage px) */
+  readonly perspective: number;
+  readonly originY: number;
+  /** pivot of the tilt (table px) and the shift after it */
+  readonly pivotY: number;
+  readonly shiftY: number;
+}
+
+export const TABLE: TableParams = {
   tilt: 30,
   scale: 1.03,
-  /** perspective distance and its vanishing point (stage px) */
   perspective: 1500,
   originY: 250,
-  /** pivot of the tilt (table px) and the shift after it */
   pivotY: 500,
   shiftY: -58,
-} as const;
-
-/** CSS for the element that holds the perspective, and for the table plane inside it. */
-export const tableCss: { readonly wrap: CSSProperties; readonly plane: CSSProperties } = {
-  wrap: { perspective: `${TABLE.perspective}px`, perspectiveOrigin: `960px ${TABLE.originY}px` },
-  plane: {
-    transformOrigin: `960px ${TABLE.pivotY}px`,
-    transform: `translateY(${TABLE.shiftY}px) scale3d(${TABLE.scale}, ${TABLE.scale}, ${TABLE.scale}) rotateX(${TABLE.tilt}deg)`,
-    // power plates stand up by turning back by the same angle (styles.css)
-    ['--tilt' as string]: String(TABLE.tilt),
-  },
 };
 
+/** The overhead view (user's request, 2026-11-03): the same table, flat, seen from above. */
+export const OVERHEAD: TableParams = {
+  tilt: 0,
+  scale: 1,
+  perspective: 1500,
+  originY: 250,
+  pivotY: 500,
+  shiftY: 0,
+};
+
+export const tableOf = (view: TableView = 'tilted'): TableParams =>
+  view === 'overhead' ? OVERHEAD : TABLE;
+
+/** CSS for the element that holds the perspective, and for the table plane inside it. */
+export function tableCss(view: TableView = 'tilted'): {
+  readonly wrap: CSSProperties;
+  readonly plane: CSSProperties;
+} {
+  const t = tableOf(view);
+  return {
+    wrap:
+      t.tilt === 0
+        ? {}
+        : { perspective: `${t.perspective}px`, perspectiveOrigin: `960px ${t.originY}px` },
+    plane: {
+      transformOrigin: `960px ${t.pivotY}px`,
+      transform: `translateY(${t.shiftY}px) scale3d(${t.scale}, ${t.scale}, ${t.scale}) rotateX(${t.tilt}deg)`,
+      // power plates stand up by turning back by the same angle (styles.css)
+      ['--tilt' as string]: String(t.tilt),
+    },
+  };
+}
+
 /** Where a point on the table appears on the (flat) stage, and how much it is scaled there. */
-export function toScreen(p: Point): Point & { readonly k: number } {
-  const t = (TABLE.tilt * Math.PI) / 180;
+export function toScreen(p: Point, view: TableView = 'tilted'): Point & { readonly k: number } {
+  const T = tableOf(view);
+  const t = (T.tilt * Math.PI) / 180;
   const dx = p.x - 960;
-  const dy = p.y - TABLE.pivotY;
-  const x = 960 + TABLE.scale * dx;
-  const y = TABLE.pivotY + TABLE.shiftY + TABLE.scale * dy * Math.cos(t);
-  const z = TABLE.scale * dy * Math.sin(t);
-  const k = TABLE.perspective / (TABLE.perspective - z);
-  return { x: 960 + (x - 960) * k, y: TABLE.originY + (y - TABLE.originY) * k, k };
+  const dy = p.y - T.pivotY;
+  const x = 960 + T.scale * dx;
+  const y = T.pivotY + T.shiftY + T.scale * dy * Math.cos(t);
+  const z = T.scale * dy * Math.sin(t);
+  const k = T.perspective / (T.perspective - z);
+  return { x: 960 + (x - 960) * k, y: T.originY + (y - T.originY) * k, k };
 }
 
 /** The playmat on the table (table px). */

@@ -15,6 +15,62 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-03, end) — v0.28.0-alpha published
+
+The user's v0.28 spec (player feedback on v0.27) is done except content, and released as
+**v0.28.0-alpha** together with G-BT01, G art and the new Deck Builder. Audit and status:
+`docs/design/V028_AUDIT.md`. What was built: Overhead (90°) default view + Tilted, screen shake
+setting (off), scrolling Settings, decision panels centred when free (`prompts/placement.ts`,
+`DockedPrompt`), phase guide on the rail, thinking badge over the hand, hover preview lower left,
+call map in the card menu, no REAR-GUARD labels, Original Era / Expanded Era names, seed help
+(`game/seed.ts`), **CPU demonstration** (`screens/DemoSetup.tsx`, `DemoSummary.tsx`,
+`GameSession` `config.demo`).
+
+**Next (in this order):**
+
+1. **PR cards** in four yearly batches (2011: 40, 2012: 38, 2013: 58, 2014: 79 new cards):
+   extend the importer for the 【20xx年度】PRカード products first. Inventory and plan:
+   `docs/design/ORIGINAL_ERA_ROADMAP.md`.
+2. **"Blaster Blade Burst" deck**: ask the user which product/list they mean (none found by that
+   name); never guess the list or text.
+3. Custom rulings found while scripting PRs: propose to the user, then add as off-by-default
+   house rules (D-030 pattern).
+4. Earlier list: controller support, G decks UI polish, online G games, G-BT02.
+
+Dev aids added: `ui:shots` writes `rects.json` (board boxes in stage px) and accepts
+`VANGUARD_SHOTS_VIEW=overhead|tilted` and `VANGUARD_SHOTS_DEMO=1`; `online:probe` accepts
+`VANGUARD_ONLINE_SECONDS=200` (plays turns with attacks, watches for errors / a blank window).
+
+## ▶ Pick up here (2026-11-03) — G-era card art and G-BT01
+
+User asked for: G-era card art, "a first few sets", and the Artwork Manager getting the art; chose
+**MBT01 + G-BT01** (recommended). Done (committed, not pushed or released):
+
+- **Art:** the manager's real download path (`ArtworkService.downloadSets`, official source)
+  fetched all G-TD01/G-TD02 (38) and G-BT01 (103) images, 0 failures; checked on screen in a G
+  game. The user's installed copy got the G-TD01/02 art (2509/2509); it needs a release to know
+  G-BT01. Test: `tests/artwork/artwork.test.ts` "lists the G-era sets last …".
+- **MBT01:** nothing to add (its 50 cards = the English-only BT16/BT17 cards, D-031); Harmonics
+  Messiah left out (UNRESOLVED_RULINGS "G era notes").
+- **G-BT01:** `data/cards/G-BT01.json`, `src/cards/G-BT01.ts` (texts read from the data with
+  `text(id, line)`), `G_SETS` in `rules/format.ts`, tests `tests/cards/G-BT01.test.ts` (62 tests,
+  103/103 complete; `clanDeck`/`scene` build legal one-clan G decks). Engine additions: area
+  `gzone`, cost `g_face_up`, CONT `stride_grade` / `all_clans` / `drive`, triggers `stands
+{byYourEffect}` (UNIT_STOOD `by`), `put_into_deck`, `otherCause`, filters `gUnit`,
+  `powerAtMostOf`; STRIDE legal action has `discardGrades` (used by `GPrompts.tsx`).
+- `tests/sim/gEraGames.test.ts`: the smart-AI G game now checks seeds 5–7 (the smart AI samples
+  hidden cards from the pool, so adding a set changed seed 5's game).
+
+**Then (same day): Dear Days–style Deck Builder (D-036)**, user's design: deck as cards left
+(G deck row in the G era), pool right, instant search (`app/renderer/decks/search.ts`), Classic /
+G era switch saved per deck (`SavedDeck.format`, `formatOfSaved`), G deck in import/export.
+Tests `app/tests/deckBuilder.test.tsx`. Screenshots: `VANGUARD_SHOTS_SCREEN=decks` with
+`VANGUARD_SHOTS=<dir>`. G-BT01 decks can now be built and played in G-era games.
+
+**Next (old note, Deck Builder part done):** G decks in the Deck Builder (without it G-BT01 cannot be played from the app; ask the
+user how it should look), then G-BT02 (G guardian cost note in UNRESOLVED_RULINGS), G-TD03/04 in
+release order; controller support is still on the list. Release when the user asks.
+
 ## ▶ Update 2026-11-03 — v0.27.0-alpha published
 
 At the user's request the work below (Dear Days battle screen + G era in testing) was released as

@@ -83,6 +83,8 @@ function cardsIn(state: GameState, player: PlayerId, area: Area): readonly Insta
       return p.drop;
     case 'damage':
       return p.damage;
+    case 'gzone':
+      return p.gzone;
     default:
       return [];
   }
@@ -161,6 +163,16 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   }
   if (filter.zone !== undefined && locate(state, id).zone !== filter.zone) return false;
   if (filter.boundBySource && card.boundBy !== ec.source) return false;
+  if (
+    filter.gUnit !== undefined &&
+    (definitionOf(state, ctx, id).cardType === 'g_unit') !== filter.gUnit
+  )
+    return false;
+  if (filter.powerAtMostOf !== undefined) {
+    const ref = (ec.bindings[filter.powerAtMostOf] ?? [])[0];
+    if (ref === undefined || currentPower(state, ctx, id) > currentPower(state, ctx, ref))
+      return false;
+  }
   if (filter.power !== undefined && !inRange(currentPower(state, ctx, id), filter.power)) {
     return false;
   }

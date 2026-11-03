@@ -10,6 +10,7 @@ import type { EngineContext } from '../game/context';
 import { currentGrade } from '../game/characteristics';
 import {
   cheapestStrideDiscard,
+  strideGrade,
   gGuardianCostOptions,
   gGuardianOptions,
   strideCostPayable,
@@ -68,6 +69,8 @@ export type LegalAction =
       readonly discardable: readonly InstanceId[];
       /** A cheapest legal discard (fewest cards, lowest grades), for defaults and the AI. */
       readonly suggestedDiscard: readonly InstanceId[];
+      /** Each discardable card's grade for the stride cost (grade +2 for "stride fodder"). */
+      readonly discardGrades: Readonly<Record<InstanceId, number>>;
     }
   /** Call one of `cardIds` as a G guardian, discarding one of `costCards` (heal triggers). */
   | {
@@ -169,7 +172,14 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const hand = state.players[player].hand;
     const suggestedDiscard = cheapestStrideDiscard(state, ctx, hand);
     if (cardIds.length > 0 && suggestedDiscard) {
-      actions.push({ type: 'STRIDE', cardIds, discardable: [...hand], suggestedDiscard });
+      const discardGrades = Object.fromEntries(hand.map((id) => [id, strideGrade(state, ctx, id)]));
+      actions.push({
+        type: 'STRIDE',
+        cardIds,
+        discardable: [...hand],
+        suggestedDiscard,
+        discardGrades,
+      });
     }
   }
   if (state.phase === 'main') {

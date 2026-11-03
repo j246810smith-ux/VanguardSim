@@ -32,6 +32,9 @@ import { describe, type LogLine } from './describe';
 /** Easy (random), Basic (level 2) or Hard (deck-aware lookahead, D-021). */
 export type AiLevel = 'random' | 'basic' | 'smart';
 
+/** CPU demonstration speed (v0.28): Very fast skips the cut-ins and pauses. */
+export type DemoSpeed = 'normal' | 'fast' | 'veryfast';
+
 export interface SessionConfig {
   readonly seed: number;
   readonly myDeck: DeckList;
@@ -45,6 +48,11 @@ export interface SessionConfig {
   readonly delayedLegion?: boolean;
   /** Classic (default) or the G era (D-034, in testing; local games only). */
   readonly format?: FormatKey;
+  /**
+   * CPU demonstration (v0.28): an AI plays seat 0 too (`myDeck`, at `p1Level`) and the player
+   * only watches; nothing they click is sent.
+   */
+  readonly demo?: { readonly p1Level: AiLevel; readonly speed: DemoSpeed };
   /** Sleeves and playmat (D-033, presentation only): ids from app/renderer/cosmetics.ts. */
   readonly mySleeve?: string;
   readonly aiSleeve?: string;
@@ -133,9 +141,16 @@ export abstract class SessionBase {
   /** Called after a change the screen did not cause (an online opponent acted). */
   onChange: (() => void) | null = null;
   protected nextId = 1;
+  /** Seat names for the log and banners instead of You / Opponent (CPU demonstration). */
+  seats: readonly [string, string] | null = null;
 
   /** Who must act now (null when the game is over). */
   abstract get acting(): PlayerId | null;
+
+  /** An AI of this session should decide now (the screen calls `stepAi` after a pause). */
+  get aiToAct(): boolean {
+    return this.acting === AI;
+  }
 
   get myTurnToAct() {
     return this.acting === ME;
@@ -177,7 +192,7 @@ export abstract class SessionBase {
           reason: loser === null ? null : (e.losses[loser] ?? null),
         };
       }
-      const line = describe(names, e);
+      const line = describe(names, e, this.seats);
       if (line) this.log.push({ id: this.nextId++, ...line });
       const fx = this.toFx(e, names);
       if (fx) this.fx.push(fx);
@@ -215,7 +230,11 @@ export abstract class SessionBase {
         return {
           id,
           kind: 'banner',
-          text: e.player === ME ? 'YOUR TURN' : "OPPONENT'S TURN",
+          text: this.seats
+            ? `${this.seats[e.player].toUpperCase()}'S TURN`
+            : e.player === ME
+              ? 'YOUR TURN'
+              : "OPPONENT'S TURN",
           tone: e.player === ME ? 'me' : 'opp',
         };
       case 'UNIT_RIDDEN':
@@ -260,6 +279,14 @@ export abstract class SessionBase {
   }
 }
 
+function makeAi(level: AiLevel, deck: DeckList, seed: number): PlayerController {
+  return level === 'smart'
+    ? new SmartController(ctx, deck)
+    : level === 'basic'
+      ? new BasicController(ctx)
+      : new RandomController(seed ^ 0x5eed);
+}
+
 /**
  * A game run here: against the AI, or hosting an online guest (`opponent: 'remote'`, D-032), in
  * which case the guest's commands arrive through `receiveRemote` and `onUpdate` is told after
@@ -268,6 +295,12 @@ export abstract class SessionBase {
 export class GameSession extends SessionBase {
   state: GameState;
   private readonly ai: PlayerController | null;
+  /** CPU demonstration: the AI in seat 0. */
+  private readonly ai0: PlayerController | null;
+  /** CPU demonstration: paused by the spectator. */
+  paused = false;
+  /** When the game started (for the demonstration's summary). */
+  readonly startedAt = Date.now();
   /** Hosting: called with each batch of events after the state changed. */
   onUpdate: ((events: readonly GameEvent[]) => void) | null = null;
 
@@ -286,13 +319,9 @@ export class GameSession extends SessionBase {
     this.state = state;
     this.view = viewFor(state, ME);
     this.ai =
-      config.opponent === 'remote'
-        ? null
-        : config.aiLevel === 'smart'
-          ? new SmartController(ctx, config.aiDeck)
-          : config.aiLevel === 'basic'
-            ? new BasicController(ctx)
-            : new RandomController(config.seed ^ 0x5eed);
+      config.opponent === 'remote' ? null : makeAi(config.aiLevel, config.aiDeck, config.seed);
+    if (config.demo) this.seats = ['CPU 1', 'CPU 2'];
+    this.ai0 = config.demo ? makeAi(config.demo.p1Level, config.myDeck, config.seed ^ 0x1) : null;
     this.record(events, this.state);
     this.cues = []; // no sounds for dealing the opening hands
     this.moves.clear();
@@ -301,6 +330,16 @@ export class GameSession extends SessionBase {
 
   get acting() {
     return actingPlayer(this.state);
+  }
+
+  /** A demonstration has no player: nobody clicks for seat 0. */
+  override get myTurnToAct() {
+    return !this.config.demo && this.acting === ME;
+  }
+
+  override get aiToAct() {
+    if (this.paused || this.acting === null) return false;
+    return this.acting === AI ? this.ai !== null : this.ai0 !== null;
   }
 
   /** Apply the local player's command. Returns false (and sets `error`) if the engine rejects it. */
@@ -327,17 +366,21 @@ export class GameSession extends SessionBase {
       this.apply({ type: 'CONCEDE', player: AI }, []);
   }
 
-  /** Let the AI make one decision (call only while it is the AI's turn to act). */
+  /** Let the AI make one decision (in a demonstration: the AI of whichever seat acts). */
   override stepAi(): void {
-    if (!this.ai || this.acting !== AI) return;
-    const command = this.ai.chooseCommand(
-      viewFor(this.state, AI),
-      AI,
-      getLegalActions(this.state, AI, ctx),
+    const seat = this.acting;
+    if (seat === null || !this.aiToAct) return;
+    const ai = seat === AI ? this.ai : this.ai0;
+    if (!ai) return;
+    // each AI only sees what its player may know, as in any game
+    const command = ai.chooseCommand(
+      viewFor(this.state, seat),
+      seat,
+      getLegalActions(this.state, seat, ctx),
     );
     if (!this.apply(command, [])) {
       // never let a bad AI command stall the game
-      this.apply({ type: 'CONCEDE', player: AI }, []);
+      this.apply({ type: 'CONCEDE', player: seat }, []);
     }
   }
 
@@ -361,7 +404,8 @@ export class GameSession extends SessionBase {
   }
 
   private refresh(): void {
-    this.view = viewFor(this.state, ME);
+    // a spectator of a demonstration sees everything (both hands); a player only their side
+    this.view = this.config.demo ? this.state : viewFor(this.state, ME);
     this.actions = this.myTurnToAct ? getLegalActions(this.state, ME, ctx) : [];
   }
 }

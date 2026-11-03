@@ -69,9 +69,22 @@ export function strideOptions(
   });
 }
 
-/** Sum of the grades of the cards (the stride cost: "grades totalling 3 or greater"). */
+/**
+ * A hand card's grade while it is paid for a stride cost: its grade plus "[CONT]Hand:While you
+ * are paying the cost for [Stride], this card gets grade +2" (G-BT01's grade 1 "stride fodder").
+ */
+export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId): number {
+  let bonus = 0;
+  for (const a of definitionOf(state, ctx, id).abilities) {
+    if (a.kind !== 'CONT' || !a.zones.includes('hand')) continue;
+    for (const e of a.effects) if (e.ce === 'stride_grade') bonus += e.amount;
+  }
+  return currentGrade(state, ctx, id) + bonus;
+}
+
+/** Sum of the grades of the cards for the stride cost ("grades totalling 3 or greater"). */
 export const gradeSum = (state: GameState, ctx: EngineContext, ids: readonly InstanceId[]) =>
-  ids.reduce((sum, id) => sum + currentGrade(state, ctx, id), 0);
+  ids.reduce((sum, id) => sum + strideGrade(state, ctx, id), 0);
 
 /** CR 1.48.1 11.11.2: one or more cards from hand whose grades total 3 or greater. */
 export function strideCostPayable(
@@ -291,7 +304,7 @@ export function cheapestStrideDiscard(
   ctx: EngineContext,
   candidates: readonly InstanceId[],
 ): InstanceId[] | null {
-  const graded = candidates.map((id) => ({ id, grade: currentGrade(state, ctx, id) }));
+  const graded = candidates.map((id) => ({ id, grade: strideGrade(state, ctx, id) }));
   let best: { ids: InstanceId[]; total: number } | null = null;
   const consider = (ids: InstanceId[], total: number) => {
     if (total < 3) return;

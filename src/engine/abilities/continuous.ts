@@ -134,6 +134,15 @@ export function continuousStat(
   return total;
 }
 
+/** "This unit gets drive -1": the drive-check modifiers of continuous effects on `target`. */
+export function continuousDrive(state: GameState, ctx: EngineContext, target: InstanceId): number {
+  let total = 0;
+  for (const { ec, a } of activeContinuous(state, ctx))
+    for (const e of a.effects)
+      if (e.ce === 'drive' && select(ec, e.target).includes(target)) total += e.amount;
+  return total;
+}
+
 export function continuousRestricts(
   state: GameState,
   ctx: EngineContext,

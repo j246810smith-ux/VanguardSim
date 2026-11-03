@@ -24,11 +24,14 @@ window. The game window itself stays offline.
 cards\
 ├─ BT01\BT01-001.png
 ├─ BT09\BT09-012.jpg
-└─ TD03\TD03-016.jpg
+├─ TD03\TD03-016.jpg
+└─ G-TD01\G-TD01-001.jpg
 ```
 
 `.png` or `.jpg`; if both exist the game shows the `.png`. The card ID is the set code, a dash and
-the three-digit number (printed `BT01/001EN` → `BT01-001`). Restart the game after changes. A
+the three-digit number (printed `BT01/001EN` → `BT01-001`, `G-TD01/001EN` → `G-TD01-001`). G-era
+sets (D-034) work like the others: they are listed last in the manager and the built-in official
+source downloads them too. Restart the game after changes. A
 missing or damaged image is drawn as a text card; art never changes a card's rules.
 
 ## What it does

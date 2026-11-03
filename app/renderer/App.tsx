@@ -20,9 +20,19 @@ import { audio } from './audio/audio';
 import { STAGE_H, STAGE_W } from './board/layout';
 import { PlaymatPicker, SleevePicker } from './ui/CosmeticPickers';
 import { DEFAULT_SLEEVE } from './cosmetics';
+import { randomSeed, seedFrom } from './game/seed';
+import { DemoSetup, type DemoChoice } from './screens/DemoSetup';
 
 /** D-019: a fixed 1920×1080 stage, scaled to fit the window. */
-function Stage({ children, reducedMotion }: { children: ReactNode; reducedMotion: boolean }) {
+function Stage({
+  children,
+  reducedMotion,
+  screenShake,
+}: {
+  children: ReactNode;
+  reducedMotion: boolean;
+  screenShake: boolean;
+}) {
   const [scale, setScale] = useState(1);
   useLayoutEffect(() => {
     const fit = () => setScale(Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H));
@@ -31,7 +41,9 @@ function Stage({ children, reducedMotion }: { children: ReactNode; reducedMotion
     return () => window.removeEventListener('resize', fit);
   }, []);
   return (
-    <div className={`viewport ${reducedMotion ? 'reduce-motion' : ''}`}>
+    <div
+      className={`viewport ${reducedMotion ? 'reduce-motion' : ''} ${screenShake ? 'shake-on' : ''}`}
+    >
       <div className="stage" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
         {children}
       </div>
@@ -45,18 +57,35 @@ type Screen =
   | { name: 'settings' }
   | { name: 'decks' }
   | { name: 'battle'; config: SessionConfig; key: number }
+  | { name: 'demo-setup' }
   | { name: 'online'; notice: string | null }
   | { name: 'online-battle'; info: OnlineInfo; key: number };
 
 const AI_LABEL: Record<AiLevel, string> = { random: 'Easy', basic: 'Normal', smart: 'Hard' };
 
-const randomSeed = () => Math.floor(Math.random() * 2 ** 31);
+const SETUP_FORMAT_KEY = 'vanguard-sim.setup-format';
+const remember = (key: string, value: string) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // storage unavailable: not remembered
+  }
+};
+const recall = (key: string): string | null => {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+};
 
 export function App() {
   const [settings, setSettings] = useState<Settings>(loadSettings);
   const [screen, setScreen] = useState<Screen>({ name: 'menu' });
   /** The live online connection (D-032), from the lobby until the player leaves. */
   const online = useRef<OnlineController | null>(null);
+  // the last CPU demonstration's choices, kept while the app runs (v0.28)
+  const demoChoice = useRef<DemoChoice | null>(null);
   const leaveOnline = () => {
     online.current?.stop();
     online.current = null;
@@ -73,7 +102,7 @@ export function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <Stage reducedMotion={settings.reducedMotion}>
+      <Stage reducedMotion={settings.reducedMotion} screenShake={settings.screenShake}>
         {screen.name === 'menu' && <MainMenu go={setScreen} />}
         {screen.name === 'setup' && (
           <Setup
@@ -82,6 +111,16 @@ export function App() {
           />
         )}
         {screen.name === 'decks' && <DeckBuilder onBack={() => setScreen({ name: 'menu' })} />}
+        {screen.name === 'demo-setup' && (
+          <DemoSetup
+            initial={demoChoice.current}
+            onBack={() => setScreen({ name: 'menu' })}
+            onStart={(config, choice) => {
+              demoChoice.current = choice;
+              setScreen({ name: 'battle', config, key: Date.now() });
+            }}
+          />
+        )}
         {screen.name === 'online' && (
           <OnlineScreen
             notice={screen.notice}
@@ -129,6 +168,8 @@ export function App() {
               })
             }
             onExit={() => setScreen({ name: 'menu' })}
+            onRestart={() => setScreen({ ...screen, key: Date.now() })}
+            onDemoSetup={() => setScreen({ name: 'demo-setup' })}
           />
         )}
       </Stage>
@@ -160,10 +201,18 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
         PLAY ONLINE
         <small>{ONLINE_READY ? 'In testing' : 'Coming soon'}</small>
       </button>
+      <button
+        className="menu-btn"
+        onClick={() => go({ name: 'demo-setup' })}
+        data-testid="cpu-demo"
+      >
+        CPU DEMONSTRATION
+        <small>Watch two decks play</small>
+      </button>
       <button className="menu-btn" onClick={() => go({ name: 'decks' })} data-testid="deck-builder">
         DECK BUILDER
       </button>
-      <button className="menu-btn" onClick={() => go({ name: 'settings' })}>
+      <button className="menu-btn" onClick={() => go({ name: 'settings' })} data-testid="settings">
         SETTINGS
       </button>
       <button className="menu-btn" onClick={() => window.close()}>
@@ -178,7 +227,10 @@ function MainMenu({ go }: { go: (s: Screen) => void }) {
 
 function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionConfig) => void }) {
   const settings = useSettings();
-  const [format, setFormat] = useState<FormatKey>('classic');
+  // v0.28: Game Setup remembers the last format played
+  const [format, setFormat] = useState<FormatKey>(() =>
+    recall(SETUP_FORMAT_KEY) === 'g' ? 'g' : 'classic',
+  );
   const entries = useMemo(() => deckEntries(format), [format]);
   const [mine, setMine] = useState(0);
   const [theirs, setTheirs] = useState(1);
@@ -189,13 +241,14 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
   };
   const [ai, setAi] = useState<AiLevel>('smart');
   const [seed, setSeed] = useState('');
+  const [seedHelp, setSeedHelp] = useState(false);
   const [delayedLegion, setDelayedLegion] = useState(false);
   const start = () => {
     const my = entries[mine]!;
     const their = entries[theirs]!;
-    const n = Number(seed);
+    remember(SETUP_FORMAT_KEY, format);
     onStart({
-      seed: seed.trim() !== '' && Number.isInteger(n) ? n : randomSeed(),
+      seed: seedFrom(seed) ?? randomSeed(),
       myDeck: my.deck,
       myDeckName: my.name,
       aiDeck: their.deck,
@@ -222,15 +275,16 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
             onClick={() => pickFormat('classic')}
             data-testid="format-classic"
           >
-            Classic (BT01–BT17)
+            Original Era <small className="fmt-sub">BT01–BT17 · no G units</small>
           </button>
           <button
             className={format === 'g' ? 'on' : ''}
             onClick={() => pickFormat('g')}
             data-testid="format-g"
-            title="The G era rules (Stride, G zone, G guardians, Generation Break) with the G Trial Decks. In testing: please report problems."
+            title="Original Era cards plus the G era: G units, Stride, G guardians, Generation Break. In testing: please report problems."
           >
-            G era <span className="testing-tag">IN TESTING</span>
+            Expanded Era <small className="fmt-sub">+ G era</small>{' '}
+            <span className="testing-tag">IN TESTING</span>
           </button>
         </span>
       </div>
@@ -259,8 +313,31 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
           placeholder="random"
           value={seed}
           onChange={(e) => setSeed(e.target.value)}
+          data-testid="seed"
         />
+        <button
+          className={`btn info ${seedHelp ? 'on' : ''}`}
+          onClick={() => setSeedHelp((v) => !v)}
+          title="What is the seed?"
+          data-testid="seed-help-toggle"
+        >
+          ?
+        </button>
       </div>
+      {seedHelp && (
+        <div className="seed-help" data-testid="seed-help">
+          <b>The seed decides the luck of a game:</b> who goes first and every shuffle (the starting
+          decks, mulligans and &ldquo;shuffle your deck&rdquo; effects), so also which cards come up
+          in drive and damage checks. Both players share one seed.
+          <br />
+          <b>Leave it blank</b> for a new random game every time. <b>Type a number or any word</b>{' '}
+          to fix the luck: the same seed with the same two decks deals the same game again. It stays
+          the same as long as you make the same choices; once a choice differs, the game goes its
+          own way from there. The Basic and Smart AIs don&rsquo;t use the seed (they play the same
+          way in the same position); the Random AI does. Each game&rsquo;s seed is the first line of
+          its log.
+        </div>
+      )}
       <div className="row">
         Custom rules
         <span className="seg">
@@ -326,7 +403,10 @@ function SettingsScreen({
       </span>
     </div>
   );
-  const toggle = (label: string, key: 'reducedMotion' | 'showArt' | 'foil' | 'muted') => (
+  const toggle = (
+    label: string,
+    key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil' | 'muted',
+  ) => (
     <div className="row">
       <span style={{ width: 300 }}>{label}</span>
       <span className="seg">
@@ -342,74 +422,113 @@ function SettingsScreen({
       </span>
     </div>
   );
+  // Esc goes back too (the list scrolls, BACK stays visible below it)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onBack();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onBack]);
   return (
-    <div className="menu">
+    <div className="menu settings-screen">
       <h1 className="title" style={{ fontSize: 52 }}>
         SETTINGS
       </h1>
-      <div className="row">
-        <span style={{ width: 300 }}>Animation speed</span>
-        <span className="seg">
-          {speeds.map(([v, label]) => (
-            <button
-              key={v}
-              className={settings.speed === v ? 'on' : ''}
-              onClick={() => onChange({ ...settings, speed: v })}
-            >
-              {label}
-            </button>
-          ))}
-        </span>
+      <div className="settings-scroll" data-testid="settings-scroll">
+        <div className="row">
+          <span style={{ width: 300 }}>Animation speed</span>
+          <span className="seg">
+            {speeds.map(([v, label]) => (
+              <button
+                key={v}
+                className={settings.speed === v ? 'on' : ''}
+                onClick={() => onChange({ ...settings, speed: v })}
+              >
+                {label}
+              </button>
+            ))}
+          </span>
+        </div>
+        <div className="row">
+          <span style={{ width: 300 }}>
+            Battle cut-ins
+            <div className="hint">Ride, attack and trigger moments</div>
+          </span>
+          <span className="seg">
+            {(
+              [
+                ['full', 'Full'],
+                ['short', 'Short'],
+                ['off', 'Off'],
+              ] as const
+            ).map(([v, label]) => (
+              <button
+                key={v}
+                className={settings.cutIns === v ? 'on' : ''}
+                onClick={() => onChange({ ...settings, cutIns: v })}
+                data-testid={`cutins-${v}`}
+              >
+                {label}
+              </button>
+            ))}
+          </span>
+        </div>
+        <div className="row">
+          <span style={{ width: 300 }}>
+            Battle view
+            <div className="hint">Straight from above, or a tilted table</div>
+          </span>
+          <span className="seg">
+            {(
+              [
+                ['overhead', 'Overhead (90°)'],
+                ['tilted', 'Tilted (45°)'],
+              ] as const
+            ).map(([v, label]) => (
+              <button
+                key={v}
+                className={settings.tableView === v ? 'on' : ''}
+                onClick={() => onChange({ ...settings, tableView: v })}
+                data-testid={`view-${v}`}
+              >
+                {label}
+              </button>
+            ))}
+          </span>
+        </div>
+        {toggle('Screen shake when an attack hits', 'screenShake')}
+        {toggle('Reduced motion', 'reducedMotion')}
+        {toggle('Show card art', 'showArt')}
+        {toggle('Foil effect on rare cards', 'foil')}
+        {volume('Music volume', 'musicVolume')}
+        {volume('Sound effects volume', 'sfxVolume')}
+        {toggle('Mute all sound', 'muted')}
+        <div className="row" style={{ alignItems: 'flex-start' }}>
+          <span style={{ width: 300 }}>
+            Card sleeve
+            <div className="hint">For decks without their own sleeve</div>
+          </span>
+          <SleevePicker
+            value={settings.defaultSleeve}
+            onChange={(id) => onChange({ ...settings, defaultSleeve: id })}
+          />
+        </div>
+        <div className="row" style={{ alignItems: 'flex-start' }}>
+          <span style={{ width: 300 }}>Playmat</span>
+          <PlaymatPicker
+            value={settings.playmat}
+            onChange={(id) => onChange({ ...settings, playmat: id })}
+          />
+        </div>
+        <ArtworkStatus />
       </div>
-      <div className="row">
-        <span style={{ width: 300 }}>
-          Battle cut-ins
-          <div className="hint">Ride, attack and trigger moments</div>
-        </span>
-        <span className="seg">
-          {(
-            [
-              ['full', 'Full'],
-              ['short', 'Short'],
-              ['off', 'Off'],
-            ] as const
-          ).map(([v, label]) => (
-            <button
-              key={v}
-              className={settings.cutIns === v ? 'on' : ''}
-              onClick={() => onChange({ ...settings, cutIns: v })}
-              data-testid={`cutins-${v}`}
-            >
-              {label}
-            </button>
-          ))}
-        </span>
-      </div>
-      {toggle('Reduced motion', 'reducedMotion')}
-      {toggle('Show card art', 'showArt')}
-      {toggle('Foil effect on rare cards', 'foil')}
-      {volume('Music volume', 'musicVolume')}
-      {volume('Sound effects volume', 'sfxVolume')}
-      {toggle('Mute all sound', 'muted')}
-      <div className="row" style={{ alignItems: 'flex-start' }}>
-        <span style={{ width: 300 }}>
-          Card sleeve
-          <div className="hint">For decks without their own sleeve</div>
-        </span>
-        <SleevePicker
-          value={settings.defaultSleeve}
-          onChange={(id) => onChange({ ...settings, defaultSleeve: id })}
-        />
-      </div>
-      <div className="row" style={{ alignItems: 'flex-start' }}>
-        <span style={{ width: 300 }}>Playmat</span>
-        <PlaymatPicker
-          value={settings.playmat}
-          onChange={(id) => onChange({ ...settings, playmat: id })}
-        />
-      </div>
-      <ArtworkStatus />
-      <button className="menu-btn" style={{ width: 300, marginTop: 30 }} onClick={onBack}>
+      <button
+        className="menu-btn"
+        style={{ width: 300 }}
+        onClick={onBack}
+        data-testid="settings-back"
+      >
         BACK
       </button>
     </div>

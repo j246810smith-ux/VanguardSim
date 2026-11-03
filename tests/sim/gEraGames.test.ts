@@ -54,9 +54,18 @@ describe('G trial decks', () => {
 
   it('smart AI plays a G game to the end', () => {
     const [a, b] = G_TRIAL_DECKS as [(typeof G_TRIAL_DECKS)[0], (typeof G_TRIAL_DECKS)[0]];
-    const setup = { seed: 5, decks: [a.deck, b.deck] as const };
-    const r = runMatch(setup, gCtx, [new SmartController(gCtx, a.deck), new BasicController(gCtx)]);
-    expect(r.truncated).toBe(false);
-    expect(r.events.some((e) => e.type === 'STRIDE')).toBe(true);
+    // the smart AI samples hidden cards from the card pool, so single games shift when sets are
+    // added: check a few seeds
+    let strides = 0;
+    for (const seed of [5, 6, 7]) {
+      const setup = { seed, decks: [a.deck, b.deck] as const };
+      const r = runMatch(setup, gCtx, [
+        new SmartController(gCtx, a.deck),
+        new BasicController(gCtx),
+      ]);
+      expect(r.truncated).toBe(false);
+      strides += r.events.filter((e) => e.type === 'STRIDE').length;
+    }
+    expect(strides).toBeGreaterThan(0);
   }, 300_000);
 });

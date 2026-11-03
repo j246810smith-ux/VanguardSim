@@ -9,6 +9,7 @@ export type FormatKey = 'classic' | 'g';
 
 export interface PlayFormat {
   readonly key: FormatKey;
+  /** Player-facing name (v0.28: "Original Era" = classic, "Expanded Era" = classic + G era). */
   readonly label: string;
   readonly ruleset: Ruleset;
   readonly format: FormatDefinition;
@@ -17,11 +18,11 @@ export interface PlayFormat {
 export const PLAY_FORMATS: Readonly<Record<FormatKey, PlayFormat>> = {
   classic: {
     key: 'classic',
-    label: 'Classic (BT01–BT17)',
+    label: 'Original Era',
     ruleset: EARLY_VANGUARD_RULES,
     format: EARLY_BT01_BT17_FORMAT,
   },
-  g: { key: 'g', label: 'G era', ruleset: G_ERA_RULES, format: G_ERA_FORMAT },
+  g: { key: 'g', label: 'Expanded Era', ruleset: G_ERA_RULES, format: G_ERA_FORMAT },
 };
 
 /** The play format of a saved game or a format id ('EARLY_BT01_BT17' → classic). */

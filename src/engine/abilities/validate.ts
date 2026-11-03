@@ -158,7 +158,9 @@ export function validateAbilities(
             e.ce === 'also_clan' ||
             e.ce === 'deck_limit' ||
             e.ce === 'limit_break_always' ||
-            e.ce === 'nullify_triggers'
+            e.ce === 'nullify_triggers' ||
+            e.ce === 'stride_grade' ||
+            e.ce === 'all_clans'
           )
             continue;
           checkSelector(e.target, 'effect');

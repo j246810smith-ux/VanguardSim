@@ -29,7 +29,10 @@ const run = (role) =>
       },
       stdio: 'inherit',
     });
-    const timer = setTimeout(() => p.kill(), 120_000);
+    const timer = setTimeout(
+      () => p.kill(),
+      120_000 + Number(process.env.VANGUARD_ONLINE_SECONDS || 0) * 1000,
+    );
     p.on('exit', () => {
       clearTimeout(timer);
       try {

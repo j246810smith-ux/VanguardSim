@@ -20,14 +20,23 @@ function check(
   const card = s.players[player].deck[0];
   if (card === undefined) return; // an empty deck has already lost at check timing (CR 9.2.3)
   moveCard(d, card, { player, zone: 'trigger' }, 'check');
-  const trigger = d.ctx.registry.get(s.cards[card]!.definitionId).trigger;
+  const definitionId = s.cards[card]!.definitionId;
+  const trigger = d.ctx.registry.get(definitionId).trigger;
   // CR 7.5.1.2.2 / 7.6.1.6.2: the trigger resolves only if a unit on VC/RC shares its clan.
   const active =
     !nullifyTriggers &&
     trigger !== null &&
     !triggersNullified(s, d.ctx, player) &&
     unitsOf(s, player).some((u) => shareClan(s, d.ctx, u, card));
-  emit(d, { type: 'CHECK_REVEALED', check: kind, player, instanceId: card, trigger, active });
+  emit(d, {
+    type: 'CHECK_REVEALED',
+    check: kind,
+    player,
+    instanceId: card,
+    definitionId,
+    trigger,
+    active,
+  });
   const tasks: Task[] = [];
   // the icon resolves immediately (no check timing in between), then a check timing, then the
   // card leaves the trigger zone (CR 7.5.1.2.2–7.5.1.2.4)

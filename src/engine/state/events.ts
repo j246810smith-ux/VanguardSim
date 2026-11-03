@@ -105,6 +105,11 @@ export type GameEvent =
       readonly check: CheckKind;
       readonly player: PlayerId;
       readonly instanceId: InstanceId;
+      /**
+       * The revealed card (public: it is face up in the trigger zone). Carried in the event
+       * because an online guest's view may already hide it again (drive check → opponent's hand).
+       */
+      readonly definitionId: string;
       readonly trigger: TriggerType | null;
       readonly active: boolean;
     }

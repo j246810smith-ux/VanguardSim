@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.27.1-alpha — 2026-11-03
+
+**Fix: the joining player's screen went blank online** (user's report, 2026-11-03). When the
+host made a drive check, the checked card had already gone into the host's hand by the time the
+guest's game drew it, so the guest's game tried to draw a hidden card and the whole window went
+blank. The same bug was in 0.26.0.
+
+- The drive/damage check now carries the revealed card, so the guest sees the host's checks
+  properly (both players should update: a 0.27.1 guest playing a 0.27.0 or 0.26.0 host no longer
+  goes blank but shows those checks as a card back).
+- A hidden or unknown card is drawn as a card back instead of crashing the screen.
+- **Crash guard:** if the screen ever hits an error again, it shows a message with **Keep
+  playing** (draws the screen again; the game carries on) and **Main menu**, instead of going
+  blank.
+- `npm run online:probe` can now play whole turns with attacks (`VANGUARD_ONLINE_SECONDS=200`),
+  watching both windows for errors and a blank screen.
+
 ## 0.27.0-alpha — 2026-11-03
 
 **The G era, part 1: rules engine and the first two G Trial Decks** (D-034, user's request). The

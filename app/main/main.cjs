@@ -435,6 +435,57 @@ function runOnlineProbe(win, role) {
       report.status = await js(
         `document.querySelector('[data-testid="online-status"]')?.textContent ?? null`,
       );
+      // VANGUARD_ONLINE_SECONDS: keep playing (the ui:shots clicker) and watch for errors and a
+      // blank window, e.g. the guest's screen going blank mid-game (2026-11-03 report)
+      const seconds = Number(process.env.VANGUARD_ONLINE_SECONDS || 0);
+      if (seconds > 0) {
+        const errors = (report.errors = []);
+        win.webContents.on('console-message', (event) => {
+          if (event.level === 'error') errors.push(event.message.slice(0, 2000));
+        });
+        win.webContents.on('render-process-gone', (_e, d) =>
+          errors.push(`renderer gone: ${d.reason}`),
+        );
+        report.steps = 0;
+        for (let t = 0; t < seconds * 1000; t += 400) {
+          const blank = await js(
+            `(document.getElementById('root')?.children.length ?? 0) === 0 || !document.body.innerText.trim()`,
+          );
+          if (blank) {
+            report.blank = { afterSteps: report.steps, turn: report.lastTurn ?? null };
+            const img = await win.webContents.capturePage();
+            fs.writeFileSync(
+              process.env.VANGUARD_ONLINE_OUT.replace(/\.json$/, '-blank.png'),
+              img.toPNG(),
+            );
+            break;
+          }
+          if (await js(`!!document.querySelector('.game-over, [data-testid=game-over]')`)) {
+            report.gameOver = await js(`document.body.innerText.slice(0, 300)`);
+            break;
+          }
+          report.lastTurn = await js(
+            `(document.body.innerText.match(/TURN\\s*(\\d+)/i) || [])[1] ?? null`,
+          );
+          // each turn: ride again, then attack with the vanguard (drive/damage checks, guarding)
+          const attacked = await js(`(() => {
+            const q = (s) => document.querySelector(s);
+            const end = (q('[data-testid=action-end]')?.textContent || '').toLowerCase();
+            if (end.includes('end ride') && window.__atk) window.__atk = window.__rode = window.__menu = false;
+            if (!end.includes('end turn') || window.__atk || q('[data-testid=choice]')) return false;
+            const vc = q('[data-testid="circle-0-vanguard"]'), opp = q('[data-testid="circle-1-vanguard"]');
+            if (!vc || !opp) return false;
+            window.__atk = true;
+            vc.click();
+            setTimeout(() => opp.click(), 150);
+            return true;
+          })()`);
+          if (attacked) report.attacks = (report.attacks ?? 0) + 1;
+          else await js(shotsStep);
+          report.steps++;
+          await wait(400);
+        }
+      }
     } catch (err) {
       report.error = String(err);
     }

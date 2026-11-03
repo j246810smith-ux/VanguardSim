@@ -58,10 +58,10 @@ sees your sleeve only if it is a built-in design). Details: [docs/ARTWORK.md](do
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.27.0-alpha** — direct downloads:
-[portable .exe](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.27.0-alpha/VanguardSim-0.27.0-alpha-portable.exe)
+**Latest version: v0.27.1-alpha** — direct downloads:
+[portable .exe](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.27.1-alpha/VanguardSim-0.27.1-alpha-portable.exe)
 ·
-[zip](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.27.0-alpha/VanguardSim-0.27.0-alpha-win-x64.zip)
+[zip](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.27.1-alpha/VanguardSim-0.27.1-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either

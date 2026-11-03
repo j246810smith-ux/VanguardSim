@@ -3134,3 +3134,27 @@ input.text {
   max-height: 300px;
   overflow-y: auto;
 }
+
+/* display errors (ui/CrashGuard): a message instead of a blank window */
+.crash-guard {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: #101a3a;
+  color: var(--text);
+  text-align: center;
+}
+.crash-guard pre {
+  max-width: 640px;
+  white-space: pre-wrap;
+  color: var(--text-dim);
+}
+.crash-guard .crash-actions {
+  display: flex;
+  gap: 12px;
+}

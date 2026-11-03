@@ -69,6 +69,7 @@ describe('online match', () => {
     const c = connect();
     const hostAi = new BasicController(ctx);
     const guestAi = new BasicController(ctx);
+    const checks: [number, number] = [0, 0];
     for (let i = 0; i < 5000; i++) {
       const hs = c.host()!;
       if (hs.view.status === 'finished') break;
@@ -83,7 +84,17 @@ describe('online match', () => {
       }
       c.pump();
       expect(c.guest()!.error).toBeNull();
+      // Regression (2026-11-03): the host's drive checks reached the guest as HIDDEN (the card
+      // was already in the host's hand), which blanked the guest's screen
+      for (const fx of c.guest()!.fx) {
+        if (fx.kind === 'check') {
+          checks[fx.player]++;
+          expect(ctx.registry.has(fx.definitionId)).toBe(true);
+        }
+      }
+      c.guest()!.fx = [];
     }
+    expect(checks[0]).toBeGreaterThan(0); // the host's checks were seen by the guest
     expect(c.host()!.view.status).toBe('finished');
     expect(c.guest()!.view.status).toBe('finished');
     expect(c.guest()!.ending?.winner).toBe(c.host()!.ending?.winner);

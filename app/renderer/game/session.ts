@@ -12,6 +12,7 @@ import {
   applyCommand,
   createGame,
   getLegalActions,
+  HIDDEN,
   viewFor,
   type Command,
   type DeckList,
@@ -195,7 +196,10 @@ export abstract class SessionBase {
           kind: 'check',
           check: e.check === 'drive' ? 'drive' : 'damage',
           player: e.player,
-          definitionId: names.cards[e.instanceId]!.definitionId,
+          // from the event: a guest's view may already hide the card (a drive check went to the
+          // host's hand) — that blanked the guest's screen (2026-11-03). Hosts before 0.27.1
+          // don't send it.
+          definitionId: e.definitionId ?? names.cards[e.instanceId]?.definitionId ?? HIDDEN,
           trigger: e.trigger,
           active: e.active,
         };

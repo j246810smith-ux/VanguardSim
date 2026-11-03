@@ -28,6 +28,16 @@ describe('card art', () => {
     rerender(<CardView definitionId="BT01-001" width={100} height={146} />);
     expect(container.querySelector('img')?.getAttribute('src')).toBe('cards/BT01/BT01-001.png');
   });
+
+  // Regression (2026-11-03): an online guest got HIDDEN for the host's drive check; CardView
+  // threw "Unknown card ID HIDDEN" and the whole window went blank.
+  it('draws a card back for a hidden or unknown card instead of throwing', () => {
+    for (const id of ['HIDDEN', 'NOPE-999']) {
+      const { container } = render(<CardView definitionId={id} width={100} height={146} />);
+      expect(container.querySelector('.card.back')).not.toBeNull();
+      cleanup();
+    }
+  });
 });
 
 describe('foil by rarity', () => {

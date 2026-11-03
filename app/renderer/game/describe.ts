@@ -67,7 +67,11 @@ export function describe(s: GameState, e: GameEvent): { text: string; tone: LogT
       return { text: `${who(e.player)} intercepted with ${n(e.instanceId)}`, tone: tone(e.player) };
     case 'CHECK_REVEALED':
       return {
-        text: `${e.check === 'drive' ? 'Drive' : 'Damage'} check: ${n(e.instanceId)}${
+        text: `${e.check === 'drive' ? 'Drive' : 'Damage'} check: ${
+          e.definitionId && ctx.registry.has(e.definitionId)
+            ? ctx.registry.get(e.definitionId).name
+            : n(e.instanceId)
+        }${
           e.trigger
             ? e.active
               ? ` — ${e.trigger.toUpperCase()} TRIGGER!`

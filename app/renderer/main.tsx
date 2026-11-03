@@ -10,9 +10,12 @@ import '@fontsource/orbitron/800.css';
 import '@fontsource/orbitron/900.css';
 import './styles.css';
 import { App } from './App';
+import { CrashGuard } from './ui/CrashGuard';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <CrashGuard>
+      <App />
+    </CrashGuard>
   </StrictMode>,
 );

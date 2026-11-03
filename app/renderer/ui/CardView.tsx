@@ -1,4 +1,5 @@
 import { useState, type CSSProperties } from 'react';
+import { HIDDEN } from '../../../src/engine';
 import { ART_EXTENSIONS, artUrl, clanColor, ctx, metaOf } from '../engine';
 import { useSettings } from '../settings';
 
@@ -55,7 +56,9 @@ export function CardView({
   const { showArt, foil: foilOn } = useSettings();
   const style: CSSProperties = { width, height };
   const cls = ['card', rested ? 'rested' : '', locked ? 'locked' : '', className ?? ''];
-  if (!definitionId) {
+  // a card the viewer cannot see (online guest, D-032) or an id this version does not know:
+  // draw a card back instead of throwing (a throw here blanks the whole window)
+  if (!definitionId || definitionId === HIDDEN || !ctx.registry.has(definitionId)) {
     return (
       <div className={[...cls, 'back'].join(' ')} style={style}>
         {locked && (

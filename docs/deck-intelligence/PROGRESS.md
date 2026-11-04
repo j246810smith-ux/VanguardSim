@@ -36,6 +36,11 @@ built by Claude.
 | 11 All clans; menus switch; presets removed | Not started                        |
 | 12 Regression tests and documents           | Not started                        |
 
+## Player names
+
+The library holds event and placing only, no player names (user, 2026-11-04). A deck's source link is the
+blog's archive for that month, with the date it was published.
+
 ## User's answers (2026-11-04, all recommended)
 
 A deck's cutoff uses the release dates of its source's region. The G Trial Decks stay until G decks

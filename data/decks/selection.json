@@ -1,11 +1,10 @@
 {
-  "note": "Which source lists enter the library, and what the source states about them. Counts are not here: scripts/decks/buildLibrary.py takes them from the extracted source. `ordinal` is the list's position in the post; `mustInclude` guards against taking the wrong one. `tournament` holds only what the source states; null means not stated. `cutoff` comes from the source's stated card pool or event, else the date it was published.",
+  "note": "Which source lists enter the library, and what the source states about them. Counts are not here: scripts/decks/buildLibrary.py takes them from the extracted source. `published` and `ordinal` find the list: its position among the lists published that day; `mustInclude` guards against taking the wrong one. `tournament` holds the event and placing only, as the source states them; null means not stated. Player names are left out on purpose (user, 2026-11-04). `cutoff` comes from the source's stated card pool or event, else the date it was published.",
   "decks": [
     {
       "id": "jp-rp-alfred-soulsaver-2011",
-      "name": "Alfred Soul Saver (Kagami, 2011)",
+      "name": "Alfred Soul Saver (2011)",
       "archetype": "King of Knights, Alfred",
-      "url": "/2012/04/spotlight-kagami-takuya.html",
       "ordinal": 1,
       "mustInclude": ["King of Knights, Alfred", "Soul Saver Dragon"],
       "region": "jp",
@@ -13,15 +12,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Summer National Championship 2011, Seniors Division (Japan)",
-        "placement": null,
-        "player": "Kagami Takuya"
-      }
+        "placement": null
+      },
+      "published": "2012-04-04"
     },
     {
       "id": "jp-gp-blond-ezel-2012",
-      "name": "Blond Ezel (Fukushima, 2012)",
+      "name": "Blond Ezel (2012)",
       "archetype": "Incandescent Lion, Blond Ezel",
-      "url": "/2012/06/spotlight-fukushima-takahiro.html",
       "ordinal": 0,
       "mustInclude": ["Incandescent Lion, Blond Ezel"],
       "region": "jp",
@@ -29,15 +27,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Summer 2012 Regional Tournament, Hiroshima Seniors Division (Japan)",
-        "placement": null,
-        "player": "Fukushima Takahiro"
-      }
+        "placement": null
+      },
+      "published": "2012-06-12"
     },
     {
       "id": "jp-sb-dudley-emperor-2012",
-      "name": "Dudley Emperor (Chiku, 2012)",
+      "name": "Dudley Emperor (2012)",
       "archetype": "Demonic Lord, Dudley Emperor",
-      "url": "/2012/06/spotlight-chiku-fumiya.html",
       "ordinal": 0,
       "mustInclude": ["Demonic Lord, Dudley Emperor", "Juggernaut Maximum"],
       "region": "jp",
@@ -45,15 +42,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Summer 2012 Regional Tournament, Nagoya Juniors Division (Japan)",
-        "placement": null,
-        "player": "Chiku Fumiya"
-      }
+        "placement": null
+      },
+      "published": "2012-06-20"
     },
     {
       "id": "jp-ot-lulu-sakuya-2012",
-      "name": "LuLu and Sakuya (Rikino, 2012)",
+      "name": "LuLu and Sakuya (2012)",
       "archetype": "Goddess of Flower Divination, Sakuya",
-      "url": "/2012/05/spotlight-rikino-sakura.html",
       "ordinal": 4,
       "mustInclude": ["Goddess of Flower Divination, Sakuya"],
       "region": "jp",
@@ -61,31 +57,29 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Summer 2012 National Tournament, Juniors Division (Japan)",
-        "placement": "National Champion",
-        "player": "Rikino Sakura"
-      }
+        "placement": "National Champion"
+      },
+      "published": "2012-05-10"
     },
     {
       "id": "jp-nk-eradicator-descendant-2013",
-      "name": "Eradicator Descendant (Uemura, 2013)",
+      "name": "Eradicator Descendant (2013)",
       "archetype": "Eradicator, Dragonic Descendant",
-      "url": "/2013/04/spotlight-uemura-shouhei.html",
       "ordinal": 0,
       "mustInclude": ["Eradicator, Dragonic Descendant", "Eradicator, Gauntlet Buster Dragon"],
       "region": "jp",
       "cutoff": "2013-04-18",
       "confidence": "VERIFIED",
       "tournament": {
-        "event": "Published in a player spotlight on Uemura Shouhei; which event this list is from is not established",
-        "placement": null,
-        "player": "Uemura Shouhei"
-      }
+        "event": "Published in a player spotlight; which event this list is from is not established",
+        "placement": null
+      },
+      "published": "2013-04-18"
     },
     {
       "id": "jp-pm-luquier-reverse-2013",
-      "name": "Luquier Reverse (Hibari, 2013)",
+      "name": "Luquier Reverse (2013)",
       "archetype": "Silver Thorn Dragon Queen, Luquier Reverse",
-      "url": "/2013/08/news-luquier-reverse-wins-tachikawa.html",
       "ordinal": 0,
       "mustInclude": ["Silver Thorn Dragon Queen, Luquier “Я”"],
       "region": "jp",
@@ -93,15 +87,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Tachikawa Vanguard Championship (fan tournament, Japan)",
-        "placement": "First Place",
-        "player": "Hibari"
-      }
+        "placement": "First Place"
+      },
+      "published": "2013-08-08"
     },
     {
       "id": "jp-dp-daiyusha-2013",
-      "name": "Daiyusha and Daikaiser (Niida, 2013)",
+      "name": "Daiyusha and Daikaiser (2013)",
       "archetype": "Super Dimensional Robo, Daiyusha",
-      "url": "/2013/08/news-fighters-road-2013-national.html",
       "ordinal": 4,
       "mustInclude": ["Super Dimensional Robo, Daiyusha", "Super Dimensional Robo, Daikaiser"],
       "region": "jp",
@@ -109,15 +102,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Road 2013 National Championship, Junior's Division (Japan)",
-        "placement": "National Champion",
-        "player": "Niida Kazuki"
-      }
+        "placement": "National Champion"
+      },
+      "published": "2013-08-15"
     },
     {
       "id": "jp-lj-chaos-breaker-2013",
-      "name": "Chaos Breaker and Infinite Zero (Masa, 2013)",
+      "name": "Chaos Breaker and Infinite Zero (2013)",
       "archetype": "Star-vader, Chaos Breaker Dragon",
-      "url": "/2013/10/news-black-rings-rise-over-tokyo.html",
       "ordinal": 1,
       "mustInclude": ["Star-vader, Chaos Breaker Dragon", "Star-vader, Infinite Zero Dragon"],
       "region": "jp",
@@ -125,15 +117,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "West Tokyo Vanguard Championship (fan tournament, Japan)",
-        "placement": "Second Place",
-        "player": "Masa"
-      }
+        "placement": "Second Place"
+      },
+      "published": "2013-10-15"
     },
     {
       "id": "jp-kg-dauntless-drive-2014",
-      "name": "Dauntless Drive (Black-Rimmed Glasses, 2014)",
+      "name": "Dauntless Drive (2014)",
       "archetype": "Dauntless Drive Dragon",
-      "url": "/2014/01/news-beast-deity-cardfighter-places.html",
       "ordinal": 2,
       "mustInclude": ["Dauntless Drive Dragon", "Dauntless Dominate Dragon “Я”"],
       "region": "jp",
@@ -141,15 +132,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "The Fifth Fateclock Vanguard Championship (fan tournament, Japan)",
-        "placement": "Third Place",
-        "player": "Black-Rimmed Glasses"
-      }
+        "placement": "Third Place"
+      },
+      "published": "2014-01-25"
     },
     {
       "id": "jp-sp-phantom-blaster-abyss-2014",
-      "name": "Phantom Blaster Abyss (Mirutae, 2014)",
+      "name": "Phantom Blaster Abyss (2014)",
       "archetype": "Revenger, Phantom Blaster Abyss",
-      "url": "/2014/07/news-phantom-blaster-abyss-tops-in.html",
       "ordinal": 1,
       "mustInclude": ["Revenger, Phantom Blaster “Abyss”", "Revenger, Raging Form Dragon"],
       "region": "jp",
@@ -158,15 +148,14 @@
       "tournament": {
         "event": "Second Hokusetsu Vanguard Championship (fan tournament, Japan)",
         "placement": "First Place",
-        "player": "Mirutae",
         "date": "2014-07-06"
-      }
+      },
+      "published": "2014-07-08"
     },
     {
       "id": "jp-nk-gauntlet-buster-2013",
-      "name": "Gauntlet Buster (Aoyama, 2013)",
+      "name": "Gauntlet Buster (2013)",
       "archetype": "Eradicator, Gauntlet Buster Dragon",
-      "url": "/2013/05/news-fighters-road-2013-kyoto-results.html",
       "ordinal": 0,
       "mustInclude": ["Eradicator, Gauntlet Buster Dragon"],
       "region": "jp",
@@ -174,15 +163,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Road 2013 Kyoto, Open Class Regional Tournament (Japan)",
-        "placement": "Regional Champion",
-        "player": "Aoyama Takuya"
-      }
+        "placement": "Regional Champion"
+      },
+      "published": "2013-05-29"
     },
     {
       "id": "jp-gp-round-table-alfred-2013",
-      "name": "Round Table Alfred (Nakanishi, 2013)",
+      "name": "Round Table Alfred (2013)",
       "archetype": "Liberator of the Round Table, Alfred",
-      "url": "/2013/06/news-fr2013-kanazawa-decklists-aqua.html",
       "ordinal": 1,
       "mustInclude": ["Liberator of the Round Table, Alfred"],
       "region": "jp",
@@ -190,15 +178,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Road 2013 Kanazawa, Open Class Regional Tournament (Japan)",
-        "placement": "Runner-up",
-        "player": "Nakanishi Yuusuke"
-      }
+        "placement": "Runner-up"
+      },
+      "published": "2013-06-07"
     },
     {
       "id": "jp-sp-raging-form-2013",
-      "name": "Raging Form (Lee, 2013 national champion)",
+      "name": "Raging Form (2013)",
       "archetype": "Revenger, Raging Form Dragon",
-      "url": "/2014/01/news-beast-deity-cardfighter-places.html",
       "ordinal": 4,
       "mustInclude": ["Revenger, Raging Form Dragon"],
       "region": "jp",
@@ -206,15 +193,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Climax 2013 National Championship, Open Division (Japan)",
-        "placement": "National Champion",
-        "player": "Lee Innyeng"
-      }
+        "placement": "National Champion"
+      },
+      "published": "2014-01-25"
     },
     {
       "id": "jp-lj-infinite-zero-2013",
-      "name": "Infinite Zero (Adachi, 2013)",
+      "name": "Infinite Zero (2013)",
       "archetype": "Star-vader, Infinite Zero Dragon",
-      "url": "/2014/01/news-beast-deity-cardfighter-places.html",
       "ordinal": 5,
       "mustInclude": ["Star-vader, Infinite Zero Dragon"],
       "region": "jp",
@@ -222,15 +208,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Climax 2013 National Championship, Open Division (Japan)",
-        "placement": "Runner-up",
-        "player": "Adachi Yuuki"
-      }
+        "placement": "Runner-up"
+      },
+      "published": "2014-01-25"
     },
     {
       "id": "intl-kg-overlord-the-end-2013",
-      "name": "Overlord the End (Stewart, 2013)",
+      "name": "Overlord the End (2013)",
       "archetype": "Dragonic Overlord the End",
-      "url": "/2014/04/spotlight-almeida-stewart.html",
       "ordinal": 2,
       "mustInclude": ["Dragonic Overlord the End", "Dauntless Drive Dragon"],
       "region": "jp",
@@ -238,16 +223,15 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Winter 2013 International Tournament, Japan",
-        "placement": null,
-        "player": "Almeida Stewart"
+        "placement": null
       },
-      "note": "An international event. The source states a card pool of TD01-BT10 in English numbering, and English release dates are not researched yet, so the date check uses Japanese dates up to when the decklists were reported."
+      "note": "An international event. The source states a card pool of TD01-BT10 in English numbering, and English release dates are not researched yet, so the date check uses Japanese dates up to when the decklists were reported.",
+      "published": "2014-04-09"
     },
     {
       "id": "jp-kg-overlord-rebirth-2014",
-      "name": "Overlord The Re-birth (Hisui, 2014)",
+      "name": "Overlord The Re-birth (2014)",
       "archetype": "Dragonic Overlord \"The Яe-birth\"",
-      "url": "/2014/03/news-maelstrom-everse-places-second-in.html",
       "ordinal": 2,
       "mustInclude": ["Dragonic Overlord"],
       "region": "jp",
@@ -255,15 +239,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Beast Deity Cup (fan tournament, Japan)",
-        "placement": "First Place",
-        "player": "Hisui"
-      }
+        "placement": "First Place"
+      },
+      "published": "2014-03-17"
     },
     {
       "id": "jp-lj-glendios-2014",
-      "name": "Omega Glendios (Red Deer, 2014)",
+      "name": "Omega Glendios (2014)",
       "archetype": "Star-vader, \"Omega\" Glendios",
-      "url": "/2014/03/news-glendios-cardfighter-wins-second.html",
       "ordinal": 0,
       "mustInclude": ["Star-vader, “Ω” Glendios"],
       "region": "jp",
@@ -271,15 +254,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Second Tsurumai Vanguard Championship (fan tournament, Japan)",
-        "placement": "First Place",
-        "player": "Red Deer"
-      }
+        "placement": "First Place"
+      },
+      "published": "2014-03-22"
     },
     {
       "id": "jp-kg-nouvelle-vague-2014",
-      "name": "Nouvelle Vague (Ishibashi, 2014)",
+      "name": "Nouvelle Vague (2014)",
       "archetype": "Transcendence Dragon, Dragonic Nouvelle Vague",
-      "url": "/2014/04/news-duo-fighter-makes-top-4-in-second.html",
       "ordinal": 0,
       "mustInclude": ["Transcendence Dragon, Dragonic Nouvelle Vague"],
       "region": "jp",
@@ -287,15 +269,14 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Second Kansai Vanguard Championship (fan tournament, Japan)",
-        "placement": "First Place",
-        "player": "Ishibashi"
-      }
+        "placement": "First Place"
+      },
+      "published": "2014-04-02"
     },
     {
       "id": "jp-rp-thing-saver-2014",
-      "name": "Thing Saver (Takagi, 2014)",
+      "name": "Thing Saver (2014)",
       "archetype": "Seeker, Thing Saver Dragon",
-      "url": "/2014/05/news-fighters-collection-units-to-be.html",
       "ordinal": 0,
       "mustInclude": ["Seeker, Thing Saver Dragon"],
       "region": "jp",
@@ -303,9 +284,9 @@
       "confidence": "VERIFIED",
       "tournament": {
         "event": "Fighter's Road 2014 Open Class Tokyo Regional Qualifier (Japan)",
-        "placement": "First Place",
-        "player": "Takagi Yuuta"
-      }
+        "placement": "First Place"
+      },
+      "published": "2014-05-23"
     },
     {
       "manual": {

@@ -10,3 +10,11 @@
   EB03 (Dragonic Executioner, Marhaus, …) are not in the pool unless a Japanese product has them
   (the English-only BT16/BT17 cards are, by the user's choice: D-031).
 - Behaviours still to be modelled are listed in docs/UNRESOLVED_RULINGS.md (Legion, loops, simultaneous placement, ...) and the deliberate engine simplifications listed there.
+
+## Intermittent: update chain test, "The update could not be prepared"
+
+`tests/updates/chain.test.ts` failed once in a full `npm run check` (2026-11-04, "consecutive updates
+each take the small package", on the second update in a row), with the other session also busy. It did
+not recur in later full runs or in 8 parallel runs of that file. **The cause is unknown:** a locked
+`VanguardUpdater.exe` was suspected, but a retry with logging never fired, so the retry was not kept. If
+it happens to a player, nothing has changed in their game and they can press Install again.

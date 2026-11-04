@@ -47,11 +47,11 @@ def main():
         if 'manual' in sel:
             decks.append(sel['manual'])
             continue
-        inpost = [c for c in candidates if c['url'].endswith(sel['url'])]
-        if sel['ordinal'] >= len(inpost):
-            problems.append(f"{sel['id']}: no list {sel['ordinal']} in {sel['url']}")
+        that_day = [c for c in candidates if c['date'] == sel['published']]
+        if sel['ordinal'] >= len(that_day):
+            problems.append(f"{sel['id']}: no list {sel['ordinal']} on {sel['published']}")
             continue
-        c = inpost[sel['ordinal']]
+        c = that_day[sel['ordinal']]
         if c['unresolved']:
             problems.append(f"{sel['id']}: unresolved names {[u['name'] for u in c['unresolved']]}")
             continue
@@ -79,9 +79,10 @@ def main():
             'cutoff': sel['cutoff'],
             'version': 1,
             'confidence': sel['confidence'],
+            # no player names: the month's archive, not the post's address or title
             'sources': [{
-                'url': c['url'],
-                'title': c['post'],
+                'url': 'https://vanguardus.blogspot.com/' + c['date'][:7].replace('-', '/') + '/',
+                'title': 'vanguardus blog, tournament report or player spotlight',
                 'published': c['date'],
                 'kind': 'contemporary report',
             }],

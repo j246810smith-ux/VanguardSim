@@ -34,11 +34,10 @@ export interface LibraryDeck {
     readonly published: string;
     readonly kind: string;
   }[];
-  /** Only what the source states; null fields are simply not stated there. */
+  /** Only what the source states; a null placement is not stated there. No player names. */
   readonly tournament: {
     readonly event: string;
     readonly placement: string | null;
-    readonly player: string | null;
     readonly date?: string;
   } | null;
   /** Anything a reader must know about this list (e.g. what is not from the source). */

@@ -35,6 +35,15 @@ describe('the deck library', () => {
     expect(replayMatch(setup, ctx, r.commands).events).toEqual(r.events);
   });
 
+  it('holds placings only: no player field, and no names in titles or source addresses', () => {
+    for (const d of LIBRARY) {
+      expect(d.tournament ?? {}, d.id).not.toHaveProperty('player');
+      // a deck's name is its archetype and year
+      expect(d.name, d.id).not.toMatch(/\(\D+, \d{4}/);
+      for (const s of d.sources) expect(s.url, d.id).not.toMatch(/spotlight|\.html/);
+    }
+  });
+
   it('a VERIFIED deck states its source and event', () => {
     for (const d of LIBRARY.filter((x) => x.confidence === 'VERIFIED')) {
       expect(d.sources[0]!.url, d.id).toMatch(/^https:\/\//);

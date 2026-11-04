@@ -27,7 +27,7 @@ Phase 1 of the user's "Vanguard Deck Intelligence & AI Training System" spec (20
 ## 2. Research feasibility (sampled, not yet the research itself)
 
 - **Complete lists with exact counts exist.** The vanguardus blog, written at the time, prints full
-  lists. Sampled: Gotou Kiyomi's Royal Paladin list (2012 spotlight, 30 card lines) and the Link
+  lists. Sampled: a Royal Paladin national champion's list (2012 spotlight, 30 card lines) and the Link
   Joker lists from a May 2014 European tournament report (241 card lines).
 - **It is a secondary source.** A list from it is VERIFIED only with the event, date and URL
   recorded and every card name resolved to a card in the database. A name that does not resolve

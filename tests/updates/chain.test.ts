@@ -220,7 +220,8 @@ beforeEach(() => {
   // 0.30 drops old-tool.dll; 0.31 is a normal release on top
   publish('0.30.0-alpha', RUNTIME_1, 'game 30', { 'keep.dat': 'k' }, '0.29.0-alpha');
   publish('0.31.0-alpha', RUNTIME_1, 'game 31', { 'keep.dat': 'k' }, '0.30.0-alpha');
-});
+  // three releases on disk: slow under a full parallel run with a virus scanner
+}, 60_000);
 
 afterEach(async () => {
   await finished();

@@ -1,11 +1,15 @@
 // Which `vgart://cards/…` paths the desktop app serves (main.cjs serveArt): `<SET>/<CARD-ID>.<ext>`.
 // Card ids are `BT01-001`; the English-only BT16/BT17 cards (D-031) are `BT17-001EN`; side sets
-// may have three letters (`MBT01-001`) and the G era's sets start with `G-` (`G-TD01-001`, D-034).
+// may have three letters (`MBT01-001`), the G era's sets start with `G-` (`G-TD01-001`, D-034) and
+// PR cards have the four-digit Japanese number (`PR11-0003`).
 // Sleeves and playmats (D-033) are any image file name in `sleeves/` or `playmats/`.
 
 /** True for `BT17/BT17-001.jpg`, `BT16/BT16-004EN.png`, `G-TD01/G-TD01-001.png`; false otherwise. */
 function isArtPath(rel) {
-  const m = /^((?:G-)?[A-Z]{2,4}\d{2})\/((?:G-)?[A-Z]{2,4}\d{2})-\d{3}(EN)?\.(png|jpg)$/.exec(rel);
+  const m =
+    /^((?:G-)?[A-Z]{2,4}\d{2})\/((?:G-)?[A-Z]{2,4}\d{2})-(\d{3}(EN)?|\d{4}[A-Z]?)\.(png|jpg)$/.exec(
+      rel,
+    );
   return m !== null && m[1] === m[2];
 }
 

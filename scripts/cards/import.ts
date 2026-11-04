@@ -65,6 +65,16 @@ const REVIEWED_DIFFERENCES: Readonly<
       'Shining Singer, Ionia: the English page prints "Critical -" (missing); the Japanese database shows 1 like every unit.',
     use: 'jp',
   },
+  'G-BT02-030': {
+    reason:
+      'Blue Storm Marine General, Milos: the Japanese database lists the grade 2 unit with [Boost]; every grade 2 unit has [Intercept], as the English page shows.',
+    use: 'en',
+  },
+  'PR11-0020': {
+    reason:
+      'Sphere Magus: the Japanese database calls it a trigger unit and its text limits it as [Heal], but its trigger field is empty; the English page shows the heal trigger.',
+    use: 'en',
+  },
   'TD07-004': {
     reason:
       'The Japanese database lists Tear Knight, Lazarus with no shield; every grade 2 [Intercept] unit has 5000 (the English page shows 5000).',
@@ -98,6 +108,8 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   // ティアーナイト ラザロス Tear Knight, Lazarus: the JP page omits its shield (see REVIEWED_DIFFERENCES)
   // 黒百合の銃士 ヘルマン Black Lily Musketeer, Hermann: race differs (see REVIEWED_DIFFERENCES)
   BT08: { '058': '058' },
+  // 蒼嵐水将 ミロス Blue Storm Marine General, Milos: the JP page gives [Boost] (see REVIEWED_DIFFERENCES)
+  'G-BT02': { '030': '030' },
   // English BT16 "ver.E" is numbered differently and adds cards from other products; by name:
   // 探索者 シングセイバー・ドラゴン Seeker, Thing Saver Dragon, 実直の探索者 エグバート Forthright
   // Seeker, Egbert, 喧嘩屋 ビッグバンナックル・ドラゴン Brawler, Big Bang Knuckle Dragon, 喧嘩屋
@@ -250,11 +262,119 @@ const EN_PRINTED_ELSEWHERE: Readonly<Record<string, Readonly<Record<string, stri
   // タンポポの銃士 ミルッカ Dandelion Musketeer, Mirkka; 波状螺旋の水将 ベネディクト Water General of
   // Wave-like Spirals, Benedict
   FC01: { '002': 'EB12/009EN', '005': 'PR/0048EN', '006': 'PR/0150EN', '025': 'PR/0052EN' },
+  // PR cards whose English printing is in an English booster (the "English-only" cards of those sets):
+  // みるびる Miru Biru, ドラゴニック・エクスキューショナー Dragonic Executioner, ドラゴンアーマード・ナイト
+  // Dragon Armored Knight, カップボウラー Cup Bowler, 天空のイーグルナイト Eagle Knight of the Skies,
+  // ジャイロスリンガー Gyro Slinger, カンフーキッド ボルタ Kungfu Kid, Bolta, グレイプショット・ワイバーン
+  // Grapeshot Wyvern, 双煌の剣士 マーハウス Twin Shine Swordsman, Marhaus, ブラッディ・カーフ Bloody
+  // Calf, メガコロニー戦闘員B Megacolony Battler B, 魔竜導師 マコラガ Demonic Dragon Mage, Mahoraga,
+  // ミスリルの召喚術士 Conjurer of Mithril
+  PR11: {
+    '0013': 'EB03/039EN',
+    '0015': 'EB03/017EN',
+    '0016': 'EB03/042EN',
+    '0018': 'BT06/113EN',
+    '0028': 'EB03/038EN',
+    '0034': 'EB03/024EN',
+    '0038': 'BT06/112EN',
+    '0039': 'EB03/043EN',
+    '0041': 'EB03/016EN',
+    '0047': 'BT03/026EN',
+    '0048': 'BT04/036EN',
+    '0052': 'BT05/040EN',
+    '0053': 'BT05/035EN',
+  },
   // DAIGO Special Set: English printed its new cards in Mega Trial Deck MT01 under the same numbers
   DG01: Object.fromEntries(
     ['001', '006', '007', '010', '011', '012', '013'].map((n) => [n, `MT01/${n}EN`]),
   ),
+  // PR cards printed in English boosters: 指揮官 ゲイリー・ギャノン Commander, Garry Gannon,
+  // くーんがる Coongal, ドレッドチャージ・ドラゴン Dreadcharge Dragon, ブライトランス・ドラグーン
+  // Brightlance Dragoon, 軍旗の騎士 ロディーヌ Battle Flag Knight, Laudine, グリード・シェイド Greed
+  // Shade, サテライトフォール・ドラゴン Satellitefall Dragon
+  PR12: {
+    '0050': 'EB03/025EN',
+    '0055': 'BT06/089EN',
+    '0056': 'BT06/101EN',
+    '0057': 'BT06/102EN',
+    '0059': 'BT06/090EN',
+    '0062': 'BT06/077EN',
+    '0063': 'BT06/091EN',
+  },
 };
+/**
+ * PR cards (roadmap: docs/design/ORIGINAL_ERA_ROADMAP.md): set PR11 is the official 【2011年度】 list,
+ * ids are `PR11-0003` (Japanese number). The English site numbers its PR cards differently and has
+ * no yearly lists, so a pair is only accepted from this table, checked by name: JP number → English
+ * number. A card not listed here has no English printing and takes its Japanese record.
+ */
+const PR_PAIRS: Readonly<Record<string, Readonly<Record<string, string>>>> = {
+  // ブラスター・ブレード・バースト Blaster Blade Burst; no English printing: 015 くらうでぃあ
+  VZ01: { '001': '0412' },
+  // no English printing: 0012 ぐらいむ, 0040 ブラスター・ケロロ
+  PR11: {
+    '0003': '0011', // 剣帝 ドラゴニック・ヴァルブレイド Sword Emperor, Dragonic Valblade
+    '0004': '0006', // エグザイル・ドラゴン Exile Dragon
+    '0006': '0004', // 空域の守護 ナイトグリフォン Guardian of the Skies, Night Griffon
+    '0008': '0027', // ナイトスクワイヤ アレン Knight Squire Allen
+    '0010': '0005', // アルフレッド・アーリー Alfred Early
+    '0011': '0022', // ライオンメイン・スタリオン Lion Mane Stallion
+    '0014': '0034', // ぎろ Giro
+    '0020': '0015', // スフィア・メイガス Sphere Magus
+    '0021': '0008', // 不死竜 スカルドラゴン Dragon Undead, Skull Dragon
+    '0022': '0009', // キング・シーホース King Seahorse
+    '0023': '0016', // ハイドッグブリーダー セイラン High Dog Breeder, Seiran
+    '0024': '0014', // ドラゴニック・ヴァニッシャー Dragonic Vanisher
+    '0026': '0028', // ワイバーンストライク プラジューリ Wyvern Strike, Plajuri
+    '0027': '0013', // 剛剣の騎士 カラドック Knight of the Steel Blade, Caradoc
+    '0030': '0023', // ドラゴニック・ウォーターフォウル Dragonic Waterfall
+    '0031': '0010', // ホーリーディザスター・ドラゴン Holy Disaster Dragon
+    '0033': '0050', // 砲撃竜 スレッジアンキロ Cannon Fire Dragon, Sledge Ankylo
+    '0035': '0012', // ナレッジ・ドランカー Knowledge Drunkard
+    '0042': '0037', // フレアウィップ・ドラゴン Flare Whip Dragon
+    '0043': '0029', // トリプル・ダーク・アーマー Triple Dark Armor
+    '0044': '0033', // ダークサイド・ペガサス Darkside Pegasus
+    '0046': '0030', // 陸戦支援型イニグシップ Land Battle Support Type, Enigship
+    '0051': '0062', // ワイバーンストライク ギュントゥル Wyvern Strike, Gyuntulu
+    '0054': '0031', // ノーライフキング デスアンカー No Life King, Death Anchor
+  },
+  // no English printing: 0064 ブラスター・豆しば, 0065 灼熱の獅子 ケロロエイゼル, 0080 スパイダーマン,
+  // 0086 レディバグ・キャヴァリー, 0087 ボルテージクロー・ドラゴン, 0094 くまモン,
+  // 0095 珊瑚の王女 テティス, 0101 キッダーニ男爵
+  PR12: {
+    '0061': '0038', // レッド・マグマ Red Magma
+    '0067': '0025', // ザ・ダーク・ディクテイター The Dark Dictator
+    '0068': '0032', // 蒼白き月の魔王 Dark Lord of Pale Moon
+    '0070': '0018', // ブラックメイン・ウィッチ Blackmane Witch
+    '0071': '0039', // ランブルガン・ドラゴン Rumble Gun Dragon
+    '0072': '0019', // 媚態のサキュバス Flirtatious Succubus
+    '0073': '0020', // サイクリング・アクター Cycling Actor
+    '0074': '0021', // ビーカー・ホルスタイン Beaker Holstein
+    '0076': '0026', // 学問の体現者 シルベスト Epitome of Knowledge, Silvest
+    '0077': '0024', // スタンプ・ラッコ Stamp Sea Otter
+    '0081': '0040', // 薬剤の弾丸 エルミエル Medical Gunner, Hermieres
+    '0082': '0041', // 突撃竜 サーキュラー・スピノ Assault Dragon, Circular Spino
+    '0083': '0035', // 魔竜戦鬼 ヴァスキ Demonic Dragon Berserker, Vasuki
+    '0085': '0042', // 戦場の歌姫 ネフェリィ Battle Siren, Neferli
+    '0090': '0063', // 残光の騎士 ジェラール Knight of Afterglow, Gerard
+    '0091': '0073', // タービュランス・ドラゴン Turbulence Dragon
+    '0092': '0036', // エクスカルペイト・ザ・ブラスター Exculpate the Blaster
+    '0093': '0044', // クリムゾンライトニング・ドラゴン Crimson Lightning Dragon
+    '0096': '0053', // ホーリーエッジ・ナイト Holy Edge Knight
+    '0097': '0074', // ドラゴンダンサー ストーミ Dragon Dancer, Stormy
+    '0098': '0054', // 忍妖 ガシャドクロ Stealth Fiend, Gashadokuro
+    '0099': '0055', // アース・ガンナー Earth Gunner
+    '0100': '0083', // ソフトタンク・スロース Soft Tank Sloth
+  },
+};
+const prYear = (s: string) => /^PR(\d{2})$/.exec(s)?.[1] ?? null;
+/**
+ * Products imported like a PR list: only cards new to the game, reprints recorded by Japanese
+ * name. VZ01 is the "Cardfight!! Vanguard 0" Start Set (number VZ/001, product 【VZ】, 2013).
+ */
+const isListProduct = (s: string) => prYear(s) !== null || s === 'VZ01';
+/** The last English PR number is found by asking until this many numbers in a row do not exist. */
+const EN_PR_MISSES = 15;
 const HOSTS = { en: 'https://en.cf-vanguard.com', jp: 'https://cf-vanguard.com' } as const;
 const DELAY_MS = 400; // be polite to the official site
 const USER_AGENT = 'VanguardSim card importer (personal offline simulator)';
@@ -267,9 +387,9 @@ const refresh = args.includes('--refresh');
 const images = args.includes('--images');
 // boosters, trial decks and the side sets of DECISIONS D-029
 // …and the G era's products (DECISIONS D-034): G-BT01, G-TD01, G-EB01, G-CB01, G-CHB01, G-FC01, …
-if (!set || !/^((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2})$/.test(set)) {
+if (!set || !/^((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2}|PR1[1-4]|VZ01)$/.test(set)) {
   console.error(
-    'usage: npm run cards:import -- BT01|TD01|EB01|FC01|MBT01|G-TD01|G-BT01|… [--refresh] [--images]',
+    'usage: npm run cards:import -- BT01|TD01|EB01|FC01|MBT01|G-TD01|G-BT01|PR11|… [--refresh] [--images]',
   );
   process.exit(2);
 }
@@ -367,8 +487,10 @@ async function fetchJpApi(s: string): Promise<Fetched[]> {
     'api_products',
     s,
   );
-  const product = products.data.items.find((p) => p.name.startsWith(`【${s}】`));
-  if (!product) throw new Error(`jp: no product named 【${s}】 in the card list`);
+  const year = prYear(s);
+  const productName = year ? `【20${year}年度】PRカード` : s === 'VZ01' ? '【VZ】' : `【${s}】`;
+  const product = products.data.items.find((p) => p.name.startsWith(productName));
+  if (!product) throw new Error(`jp: no product named ${productName} in the card list`);
   const numbers: string[] = [];
   for (let p = 1; p < 50; p++) {
     const { data } = await apiJson<{ total: number; items: { card_number: string }[] }>(
@@ -379,7 +501,9 @@ async function fetchJpApi(s: string): Promise<Fetched[]> {
     numbers.push(...data.items.map((i) => i.card_number));
     if (data.items.length === 0 || numbers.length >= data.total) break;
   }
-  const own = [...new Set(numbers)].filter((n) => n.startsWith(`${s}/`));
+  const own = [...new Set(numbers)].filter((n) =>
+    n.startsWith(year ? 'PR/' : s === 'VZ01' ? 'VZ/' : `${s}/`),
+  );
   console.log(`jp ${s}: product ${product.id} ${product.name} (API), ${own.length} printings`);
   const out: Fetched[] = [];
   for (const no of own) {
@@ -406,7 +530,52 @@ const hasPageCache = (s: string) => {
   return existsSync(dir) && readdirSync(dir).some((f) => /^list_\d+_1\.html$/.test(f));
 };
 
+/** Every English PR card, read by number (they are cached across the yearly sets in data/raw/en/PR). */
+async function fetchEnPr(): Promise<Fetched[]> {
+  const out: Fetched[] = [];
+  for (let n = 1, misses = 0; misses < EN_PR_MISSES; n++) {
+    const no = `PR/${String(n).padStart(4, '0')}EN`;
+    const { html, fetchedAt } = await page('en', cardPath(no), no, 'PR');
+    if (!/cardlist_detail/.test(html) || !html.includes('class="face"')) {
+      misses++;
+      continue;
+    }
+    misses = 0;
+    let card: ParsedCard;
+    try {
+      card = parseCardPage(html, 'en');
+    } catch (e) {
+      // not a unit (no power or grade): tokens and the like are not cards of this game
+      console.log(`  note: ${no} skipped: ${(e as Error).message}`);
+      continue;
+    }
+    out.push({
+      card,
+      source: { url: HOSTS.en + cardPath(no), fetchedAt, regulation: card.regulation },
+    });
+  }
+  console.log(`en PR: ${out.length} printings`);
+  return out;
+}
+
+/** PR lists hold a card several times (other art): the lowest number is the base, the rest printings. */
+function groupPr(site: Site, fetched: Fetched[]): ReturnType<typeof group> {
+  const key = (f: Fetched) => /^(?:PR|VZ)\/(\d{3,4}[A-Z]?)(?:EN.*)?$/.exec(f.card.number)![1]!;
+  const bases = new Map<string, Fetched>();
+  const printings = new Map<string, string[]>();
+  for (const f of [...fetched].sort((a, b) => key(a).localeCompare(key(b)))) {
+    const base = [...bases].find(([, b]) => b.card.name === f.card.name);
+    if (base) printings.get(base[0])!.push(f.card.number);
+    else {
+      bases.set(key(f), f);
+      printings.set(key(f), [f.card.number]);
+    }
+  }
+  return { bases, printings, specials: new Map() };
+}
+
 async function fetchSite(site: Site, s: string = set!): Promise<Fetched[]> {
+  if (site === 'en' && isListProduct(s)) return fetchEnPr();
   if (site === 'jp' && (refresh || !hasPageCache(s))) return fetchJpApi(s);
   const exp = await expansionOf(site, s);
   const numbers = await listNumbers(site, exp, s);
@@ -609,9 +778,74 @@ function englishByJapaneseName(): Map<string, { id: string; en: Localized }> {
   return out;
 }
 
+/** Japanese name → the imported card with that name (first by set order), for PR reprints. */
+function cardsByJapaneseName(): Map<string, CardRecord> {
+  const out = new Map<string, CardRecord>();
+  const dir = join('data', 'cards');
+  for (const f of readdirSync(dir)
+    .filter((n) => /^(G-)?[A-Z]+\d{2}\.json$/.test(n))
+    .sort()) {
+    if (f === `${set}.json`) continue;
+    for (const c of (JSON.parse(readFileSync(join(dir, f), 'utf8')) as SetFile).cards) {
+      if (c.jp && !out.has(c.jp.name)) out.set(c.jp.name, c);
+    }
+  }
+  return out;
+}
+
 async function main(): Promise<void> {
-  const jp = group('jp', await fetchSite('jp'));
-  const en = NO_ENGLISH_SET.has(set!) ? group('en', []) : group('en', await fetchSite('en'));
+  const isPr = isListProduct(set!);
+  const jp = isPr ? groupPr('jp', await fetchSite('jp')) : group('jp', await fetchSite('jp'));
+  const en = isPr
+    ? groupPr('en', await fetchSite('en'))
+    : NO_ENGLISH_SET.has(set!)
+      ? group('en', [])
+      : group('en', await fetchSite('en'));
+  // a PR card with the name of a card in the game is another printing of it: nothing new to add
+  const reprints: { number: string; id: string }[] = [];
+  if (isPr) {
+    const known = cardsByJapaneseName();
+    const knownEnglish = new Set([...known.values()].flatMap((c) => (c.en ? [c.en.name] : [])));
+    for (const [no, f] of [...jp.bases]) {
+      const original = known.get(f.card.name);
+      if (!original) continue;
+      const clean = (t: string) => t.replace(/\s+/g, '');
+      if (clean(original.jp!.text) !== clean(f.card.text))
+        console.log(`  TEXT DIFFERS: ${f.card.number} vs ${original.id} ${f.card.name}: review`);
+      for (const n of jp.printings.get(no)!) reprints.push({ number: n, id: original.id });
+      jp.bases.delete(no);
+      jp.printings.delete(no);
+    }
+    for (const [no, f] of [...en.bases]) if (knownEnglish.has(f.card.name)) en.bases.delete(no);
+    // the unchecked candidates, for filling in PR_PAIRS by name
+    const candidates = pairPrintings(
+      new Map([...jp.bases].map(([n, f]) => [n, f.card])),
+      new Map([...en.bases].map(([n, f]) => [n, f.card])),
+      knownNames(),
+      {},
+      false,
+    );
+    const label = (n: string) => `${n} ${en.bases.get(n)!.card.name}`;
+    for (const [j, e] of candidates.pairs) {
+      if (PR_PAIRS[set!]?.[j]) continue;
+      console.log(`  candidate: JP ${j} ${jp.bases.get(j)!.card.name} → EN ${label(e)}`);
+    }
+    for (const a of candidates.ambiguous) {
+      if (PR_PAIRS[set!]?.[a.jp]) continue;
+      const names = a.candidates.map(label).join(' | ');
+      console.log(`  ambiguous: JP ${a.jp} ${jp.bases.get(a.jp)!.card.name} → ${names}`);
+    }
+    for (const j of candidates.jpOnly) {
+      if (PR_PAIRS[set!]?.[j]) continue;
+      console.log(`  no candidate: JP ${j} ${jp.bases.get(j)!.card.name}`);
+    }
+    if (process.env.PR_DUMP_EN) {
+      for (const n of en.bases.keys()) console.log(`  en: ${label(n)}`);
+    }
+    // only reviewed pairs count
+    const allowed = new Set(Object.values(PR_PAIRS[set!] ?? {}));
+    for (const no of [...en.bases.keys()]) if (!allowed.has(no)) en.bases.delete(no);
+  }
   useSpecials(en, PAIRING_OVERRIDES[set!] ?? {});
   const elsewhere = EN_PRINTED_ELSEWHERE[set!] ?? {};
   for (const enNo of Object.values(elsewhere)) {
@@ -642,9 +876,9 @@ async function main(): Promise<void> {
     card(jp.bases),
     card(en.bases),
     knownNames(),
-    { ...PAIRING_OVERRIDES[set!], ...elsewhere },
+    { ...PAIRING_OVERRIDES[set!], ...elsewhere, ...PR_PAIRS[set!] },
     // the English ver.E sets reshuffled the Japanese ones: equal numbers mean nothing there
-    !EN_SHARED_SETS[set!],
+    !EN_SHARED_SETS[set!] && !isPr,
   );
   if (pairing.ambiguous.length > 0) {
     for (const a of pairing.ambiguous) {
@@ -668,12 +902,18 @@ async function main(): Promise<void> {
     const reviewed =
       crossCheck(j?.card, e?.card).length > 0
         ? (REVIEWED_DIFFERENCES[`${set}-${no}`] ??
-          (NO_ENGLISH_SET.has(set!) && !enFrom
+          (isPr && !e
             ? {
-                reason: `${set} had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).`,
+                reason:
+                  'This card was never printed in English. Japanese text and stats are used (like BT11-055).',
                 use: 'jp' as const,
               }
-            : undefined))
+            : NO_ENGLISH_SET.has(set!) && !enFrom
+              ? {
+                  reason: `${set} had no English release and this card was never printed in English. Japanese text and stats are used (like BT11-055).`,
+                  use: 'jp' as const,
+                }
+              : undefined))
         : undefined;
     // CARD_DATA policy §1/§7: Japanese-original data is canonical, unless the user chose the English printing
     const canonical = (reviewed?.use === 'en' && e ? e : (j ?? e))!.card;
@@ -769,7 +1009,8 @@ async function main(): Promise<void> {
     importerVersion: IMPORTER_VERSION,
     cards,
     ...(product ? { product } : {}),
-    enOnly: pairing.enOnly
+    ...(isPr ? { reprints } : {}),
+    enOnly: (isPr ? [] : pairing.enOnly)
       .filter((no) => !shared.has(no) && !(EN_ONLY_IN_POOL.has(set!) && englishOnly.includes(no)))
       .map((no) => {
         const c = en.bases.get(no)!.card;

@@ -11,6 +11,7 @@ Releases are tagged `v<version>`:
 - `v0.27.0-alpha` — Dear Days-style battle screen, the G era in testing (G-TD01, G-TD02).
 - `v0.27.1-alpha` — fix: the joining player's screen went blank online; crash guard.
 - `v0.28.0-alpha` — v0.28 player feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help; G-BT01 and G art.
+- `v0.29.0-alpha` — first release with in-game updates; tournament decks, G-BT02, PR 2011 and 2012, the Blaster Blade Burst deck.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 
@@ -64,14 +65,65 @@ repository keeps its full history.
    npm run dist:smoke
    ```
 
+   `npm run dist:win` also builds `VanguardUpdater.exe` into the zip. Then sign the update files (needs the signing key, on the developer's PC only). Fetch the last
+   release's manifest first, so files it had and this one lacks are removed on update:
+
+   ```
+   gh release download v<previous> --repo j246810smith-ux/VanguardSim -p manifest.json -D release/prev
+   npm run release:manifest -- --previous release/prev/manifest.json
+   ```
+
+   Skip `--previous` only when the last release has no manifest. After publishing, run
+   `npm run release:verify <version>`. The script refuses a zip whose
+   version differs from `package.json`, and a manifest the game would not accept. Details:
+   `docs/design/UPDATE_MANAGER.md`.
+
 3. Commit, tag and push: `git tag v0.15.0-alpha` → `git push origin main --tags`.
 4. On GitHub → Releases → **Draft a new release** from the tag. Tick **Set as a pre-release** for
    alpha/beta versions. Attach `release/VanguardSim-<version>-win-x64.zip` and
-   `release/VanguardSim-<version>-portable.exe`. Paste the release notes (template below).
+   `release/VanguardSim-<version>-portable.exe`, and the three files in
+   `release/update-<version>/`: `manifest.json`, `manifest.json.sig`,
+   `VanguardSim-<version>-app.zip`. Paste the release notes (template below).
 
 Optional automation: `.github/workflows/release.yml` builds both files on GitHub's Windows
 runners when a `v*` tag is pushed and attaches them to a **draft** release for you to review and
-publish. `.github/workflows/ci.yml` runs `npm run check` on every push and pull request.
+publish; the update files still have to be signed and attached from the developer's PC, because the
+key is never on GitHub. `.github/workflows/ci.yml` runs `npm run check` on every push and pull request.
+
+## Updating from inside the game (D-037)
+
+Design: `docs/design/UPDATE_MANAGER.md`. What matters when releasing:
+
+- **The signing key** is `%USERPROFILE%\\.vanguardsim\\update-signing-key.pem`, made once by
+  `npm run release:keygen`. Never commit it or put it on GitHub. Keep a backup: copies of the game trust
+  only the key they shipped with, so if it is lost they cannot update in-app and players must
+  download by hand once. Replacing `app/main/updatePublicKey.cjs` has the same effect.
+- **One zip.** The manifest records the exact zip it was made from. If GitHub Actions built the draft's
+  zip, a local build has a different hash and every player would be told their download is damaged.
+  Either attach your local zip in place of the draft's, or download the draft's zip into `release/` and
+  run `release:manifest` on that.
+- **After publishing,** run `npm run release:verify <version>`. It reads the release as the game will
+  and downloads both packages. Fix a failure at once: replace the assets or publish a new version.
+- **A bad release** cannot be recalled from copies that installed it. Publish a higher version; a player
+  can also use **Go Back to This Version** once. Deleting a release only stops new downloads.
+- **Electron upgrades** need nothing special: the runtime files change, so `runtimeId` changes and
+  players get the full package once.
+- **Do not** turn on the asar integrity fuse, or an old exe will refuse a new `app.asar`. A change to the
+  exe alone, such as a new icon, does not reach existing copies: see the design document.
+- **Files removed** from the game are deleted on update only if you pass `--previous`. A release signed
+  without it also forgets the deletions of earlier releases, so those files stay on any copy that
+  still has them. Do not skip it.
+- **The first release with an updater** is installed by hand. Say so in its release notes.
+
+### Changing the saved-data format
+
+Decks and settings are read by the next version as they are. If a release changes their shape in a way
+old data would break:
+
+1. Add a step to `MIGRATIONS` in `app/renderer/migrations.ts` and raise `DATA_VERSION` by one. A step
+   gets every saved key as text and returns the new set; never edit a step that has shipped.
+2. Add a test in `app/tests/migrations.test.ts` with data as the previous version really wrote it.
+   New optional fields do not need a step: `loadSettings` already fills in defaults.
 
 ## Release notes template
 

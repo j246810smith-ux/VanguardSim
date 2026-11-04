@@ -1,5 +1,76 @@
 # Changelog
 
+## 0.29.0-alpha — 2026-11-04
+
+**Tournament decks** (first part of the Deck Intelligence project, `docs/deck-intelligence/`): Game
+Setup and CPU Demonstration now offer 20 decks under **TOURNAMENT DECKS**, 19 of them real tournament
+lists from 2011–2014 with exact card counts, among them the 2013 national champion's Raging Form and
+the top decks of 2013 and 2014. Each shows only what its source states. They cover 10 of the 23 clans;
+the starter and trial decks stay until all clans are covered. Each deck also has a written strategy
+profile in the project's data; the screens to read them are still to come.
+
+**Hard AI, two experiments, neither switched on:** looking ahead through the next turn won 34.2% of
+424 games against the current Hard AI, and using a deck's strategy profile won 50.0% of 420. The Hard
+AI in the game is unchanged.
+
+**Update Manager (stage 1, D-037)** — Settings → **Open Update Manager**: your installed version,
+the newest release on GitHub with its date and release notes, **Check for Updates**, an **Update
+channel** (Stable, or Preview for early builds), **Open Download Page**, and what to do with the
+zip or the portable exe. **Check when the game starts** is off by default (the game stays
+offline); when on, a notice on the main menu says when a new version is out, never during a match.
+Installing from inside the game comes in a later stage.
+
+**Update Manager (stage 2, D-037)** — developer side, nothing changes in the game yet: releases can
+now carry a signed list of their files, and the game can check that signature. A normal update will
+be a download of about 1.4 MB instead of 154 MB.
+
+**Update Manager (stage 3, D-037)** — **Download Update** fetches a new version in the background of
+that screen and checks it against its signed file list, with progress and **Pause**; an interrupted
+download carries on where it stopped. It needs a release with a signed list, and installing it from
+inside the game comes in stage 4. Your game folder is not changed.
+
+**Update Manager (stage 4, D-037)** — **Install and Restart** closes the game, installs the update
+and opens the game again; the main menu says how it went. What it replaces is backed up first, so a
+failed or interrupted update puts your previous version back by itself, and **Go Back to This
+Version** does the same on request. Your decks, settings, card art, sleeves and playmats are never
+touched. It works from the first release that includes the updater: that one is installed by hand.
+
+**Update Manager (stage 5, D-037)** — if an update ever changes how decks and settings are saved, they
+are upgraded at start with a copy kept first; a failure changes nothing, and going back a version puts
+the old data back. Developer side: tests over several releases in a row, `npm run release:verify`, and
+a release guide in `docs/RELEASING.md`.
+
+**PR cards 2012** (38 cards, set `PR12`) — every new card from the official 2012 PR list, playable
+in both eras: **Exculpate the Blaster**, **The Dark Dictator**, Knight of Afterglow, Gerard, Turbulence
+Dragon and more. Eight cards never printed in English, including the collaboration cards Spider-Man
+and Kumamon, carry a marked unofficial translation. New in the engine: an attack on all of the
+opponent's units, back row included, and "you cannot normal ride this card". Silvest is always legal
+despite its printed deck date, and Baron Kiddani's bonus never applies, because no fighter is him.
+
+**Report a Problem / Suggest Something** — a button on the main menu and in Settings opens GitHub's
+new-issue page in your browser with your version filled in. The game sends nothing itself; you write
+and post it there. It needs a free GitHub account, and posts are public.
+
+**G era: G-BT02 "Soaring Ascent of Gale and Blossom"** (103 cards, D-034): Royal Paladin, Narukami,
+Gear Chronicle, Aqua Force, Great Nature, Neo Nectar and Cray Elemental cards, legal in Expanded Era
+games and in the Deck Builder. New in the engine: **Resist** (your opponent's effects cannot choose
+the unit), attacking from the back row (Battle Siren, Stacia), an [ACT] that loses its cost once
+(Dragonic Kaiser Crimson), "for each open (RC)", and searches for a copy of each chosen unit
+(Primavera). Shared G-era ability shapes moved to `src/cards/gShapes.ts`. Test fixtures `unitAt` and
+`gAttack` now use the Legion Leader on a legion's (VC).
+
+**The Blaster Blade Burst deck** (user's request): the "Cardfight!! Vanguard 0" Start Set, set `VZ01`.
+Two new cards, Blaster Blade Burst and Claudia (marked unofficial translation), plus 17 cards already
+in the game, and a new starter deck, **Royal Paladin — Blaster Blade Burst**. The official list gives
+no copy counts, so the deck's counts are our own build.
+
+**PR cards, 2011** (39 new cards, set `PR11`, ids like `PR11-0003`; roadmap in
+`docs/design/ORIGINAL_ERA_ROADMAP.md`): legal in both eras and in the Deck Builder. Scripted and tested, with
+official English text wherever an English printing exists, including those inside English boosters
+(Conjurer of Mithril in BT05, Dragon Armored Knight in EB03). Two cards were never printed in English
+and carry a marked unofficial translation: Graimu and Blaster Keroro. The 12 reprints in the list are
+recorded against the cards already in the game. The Artwork Manager handles PR art and file names.
+
 ## 0.28.0-alpha — 2026-11-03
 
 **v0.28: player feedback on v0.27** (user's spec, 2026-11-03; audit in

@@ -438,7 +438,53 @@ All cards complete.
 
 All cards complete.
 
+## PR11
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 39    | 37                  | 39                  | 0               | 0            | 39            | 39  | 37       |
+
+### Incomplete
+
+- PR11-0012 ぐらいむ — data
+- PR11-0040 ブラスター・ケロロ — data
+
+## PR12
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 38    | 30                  | 38                  | 0               | 0            | 38            | 38  | 30       |
+
+### Incomplete
+
+- PR12-0064 ブラスター・豆しば — data
+- PR12-0065 灼熱の獅子 ケロロエイゼル — data
+- PR12-0080 スパイダーマン — data
+- PR12-0086 レディバグ・キャヴァリー — data
+- PR12-0087 ボルテージクロー・ドラゴン — data
+- PR12-0094 くまモン — data
+- PR12-0095 珊瑚の王女 テティス — data
+- PR12-0101 キッダーニ男爵 — data
+
+## VZ01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 2     | 1                   | 2                   | 0               | 0            | 2             | 2   | 1        |
+
+### Incomplete
+
+- VZ01-015 くらうでぃあ — data
+
 ## G-BT01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 103   | 103                 | 103                 | 0               | 0            | 103           | 103 | 103      |
+
+All cards complete.
+
+## G-BT02
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |

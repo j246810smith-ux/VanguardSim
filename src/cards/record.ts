@@ -87,6 +87,8 @@ export interface SetFile {
     readonly cards: readonly { readonly id: string; readonly count: number }[];
     readonly source: SourceRef;
   };
+  /** PR lists: printings of cards already in the game (same Japanese name), nothing new to add. */
+  readonly reprints?: readonly { readonly number: string; readonly id: string }[];
   readonly enOnly?: readonly {
     readonly number: string;
     readonly name: string;

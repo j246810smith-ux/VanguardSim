@@ -1,0 +1,1834 @@
+{
+  "set": "PR11",
+  "importedAt": "2026-11-04T17:43:28.339Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "PR11-0003",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0003",
+        "name": "剣帝 ドラゴニック・ヴァルブレイド",
+        "text": "【自】【(V)】：このユニットのドライブチェックでグレード３の《かげろう》がでた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0003.png"
+      },
+      "en": {
+        "number": "PR/0011EN",
+        "name": "Sword Emperor, Dragonic Valblade",
+        "text": "[AUTO](VC):When this unit's drive check reveals a grade 3 <<Kagero>>, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0011.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0003", "PR/0029", "PR/0011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0003",
+          "fetchedAt": "2026-11-04T17:26:46.895Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0011EN",
+          "fetchedAt": "2026-11-04T17:27:12.264Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0004",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0004",
+        "name": "エグザイル・ドラゴン",
+        "text": "【起】【(R)】[このユニットを退却させる]相手のグレード０以下のリアガードを1枚選び、退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0004.png"
+      },
+      "en": {
+        "number": "PR/0006EN",
+        "name": "Exile Dragon",
+        "text": "[ACT](RC):[Retire this unit] Choose an opponent's grade 0 or less rear-guard, and retire it.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0006.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0004", "PR/0006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0004",
+          "fetchedAt": "2026-11-04T17:26:45.755Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0006EN",
+          "fetchedAt": "2026-11-04T17:27:06.065Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0006",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0006",
+        "name": "空域の守護 ナイトグリフォン",
+        "text": "【自】【(V)/(R)】：[【ソウルブラスト】(1)] このユニットがアタックした時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、コストを払ってよい。 払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0006.png"
+      },
+      "en": {
+        "number": "PR/0004EN",
+        "name": "Guardian of the Skies, Night Griffon",
+        "text": "[AUTO](VC/RC):[Soul-Blast 1] When this unit attacks, if you have a <<Royal Paladin>> vanguard, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0004.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0006", "PR/0004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0006",
+          "fetchedAt": "2026-11-04T17:26:43.362Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0004EN",
+          "fetchedAt": "2026-11-04T17:27:03.582Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0008",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0008",
+        "name": "ナイトスクワイヤ アレン",
+        "text": "【起】【(V)/(R)】[【カウンターブラスト】(1)] そのターン中、このユニットのパワー＋1000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0008.png"
+      },
+      "en": {
+        "number": "PR/0027EN",
+        "name": "Knight Squire Allen",
+        "text": "[ACT](VC/RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0027.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0008", "PR/0027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0008",
+          "fetchedAt": "2026-11-04T17:26:41.164Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0027EN",
+          "fetchedAt": "2026-11-04T17:27:35.190Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0010",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0010",
+        "name": "アルフレッド・アーリー",
+        "text": "【自】：このユニットが(V)に登場した時、あなたのソウルから「ブラスター・ブレード」を1枚まで選び、(R)にコールする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0010.png"
+      },
+      "en": {
+        "number": "PR/0005EN",
+        "name": "Alfred Early",
+        "text": "[AUTO]:When this unit is placed on (VC), choose up to one card named \"Blaster Blade\" from your soul, and call it to (RC).",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0005.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0010", "PR/0005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0010",
+          "fetchedAt": "2026-11-04T17:26:39.655Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0005EN",
+          "fetchedAt": "2026-11-04T17:27:04.863Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0011",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0011",
+        "name": "ライオンメイン・スタリオン",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)] このユニットがカード名に「アルフレッド」を含むユニットを【ブースト】した時、コストを払ってよい。 払ったら、そのバトル中、【ブースト】されたユニットのパワー＋6000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0011.png"
+      },
+      "en": {
+        "number": "PR/0022EN",
+        "name": "Lion Mane Stallion",
+        "text": "[AUTO](RC):[Soul-Blast 1] When this unit boosts ([Boost] ) a unit with \"Alfred\" in its card name, you may pay the cost. If you do, the boosted ([Boost] ) unit gets [Power] +6000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0022.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0011", "PR/0022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0011",
+          "fetchedAt": "2026-11-04T17:26:38.804Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0022EN",
+          "fetchedAt": "2026-11-04T17:27:27.764Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0012",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0012",
+        "name": "ぐらいむ",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0012.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 6000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0012"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0012",
+          "fetchedAt": "2026-11-04T17:26:10.816Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "This PR card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "PR11-0013",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0013",
+        "name": "みるびる",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]　このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0013.png"
+      },
+      "en": {
+        "number": "EB03/039EN",
+        "name": "Miru Biru",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_039EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0013", "EB03/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0013",
+          "fetchedAt": "2026-11-04T17:26:37.530Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/039EN",
+          "fetchedAt": "2026-11-04T17:38:58.764Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0014",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0014",
+        "name": "ぎろ",
+        "text": "【自】：このユニットが(G)からドロップゾーンに置かれた時、このカードをソウルに置く。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0014.png"
+      },
+      "en": {
+        "number": "PR/0034EN",
+        "name": "Giro",
+        "text": "[AUTO]: When this unit is put into the drop zone from (GC), put this card into your soul.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0034.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0014", "PR/0034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0014",
+          "fetchedAt": "2026-11-04T17:26:36.738Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0034EN",
+          "fetchedAt": "2026-11-04T17:27:50.945Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0015",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0015",
+        "name": "ドラゴニック・エクスキューショナー",
+        "text": "【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、あなたの《かげろう》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0015.png"
+      },
+      "en": {
+        "number": "EB03/017EN",
+        "name": "Dragonic Executioner",
+        "text": "[AUTO](VC)/(RC):When this unit attacks a vanguard, if you have a <Kagero> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_017EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0015", "EB03/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0015",
+          "fetchedAt": "2026-11-04T17:26:35.558Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/017EN",
+          "fetchedAt": "2026-11-04T17:38:59.696Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0016",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0016",
+        "name": "ドラゴンアーマード・ナイト",
+        "text": "【永】【(V)/(R)】：他のあなたの《かげろう》がこのユニットと同じ縦列にいないなら、このユニットのパワー－2000。\n【起】【(V)/(R)】：[カウンターブラスト(1)] そのターン中、このユニットのパワー＋1000。",
+        "clan": "かげろう",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0016.png"
+      },
+      "en": {
+        "number": "EB03/042EN",
+        "name": "Dragon Armored Knight",
+        "text": "[CONT](VC)/(RC):If you do not have another <Kagero> in the same column as this unit, this unit gets [Power] -2000.\n[ACT](VC)/(RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_042EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0016", "EB03/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0016",
+          "fetchedAt": "2026-11-04T17:26:34.374Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/042EN",
+          "fetchedAt": "2026-11-04T17:39:01.084Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0018",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0018",
+        "name": "カップボウラー",
+        "text": "【自】【(V)】：あなたの《ノヴァグラップラー》のリアガードが【レスト】した時、そのターン中、このユニットのパワー＋1000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0018.png"
+      },
+      "en": {
+        "number": "BT06/113EN",
+        "name": "Cup Bowler",
+        "text": "[AUTO](VC):When your <Nova Grappler> rear-guard becomes [Rest], this unit gets [Power] +1000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/bt06/BT06_113EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0018", "BT06/113EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0018",
+          "fetchedAt": "2026-11-04T17:26:32.371Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT06/113EN",
+          "fetchedAt": "2026-11-04T17:39:02.210Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0020",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0020",
+        "name": "スフィア・メイガス",
+        "text": "（【治】はデッキに４枚までしか入れられない。）\n【自】：他の《オラクルシンクタンク》がこのユニットにライドした時、このカードを(R)にコールしてよい。\n【自】【(R)】：このユニットが【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0020.png"
+      },
+      "en": {
+        "number": "PR/0015EN",
+        "name": "Sphere Magus",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)\n[AUTO]:When another <<Oracle Think Tank>> rides this unit, you may call this card to (RC).\n[AUTO](RC):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, return this unit to your deck, and shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0015.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 3000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0020", "PR/0015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0020",
+          "fetchedAt": "2026-11-04T17:26:15.785Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0015EN",
+          "fetchedAt": "2026-11-04T17:27:17.098Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["trigger: JP null vs EN heal"],
+        "reviewed": "Sphere Magus: the Japanese database calls it a trigger unit and its text limits it as [Heal], but its trigger field is empty; the English page shows the heal trigger.",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "PR11-0021",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0021",
+        "name": "不死竜 スカルドラゴン",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたの《グランブルー》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋3000し、そのターンのエンドフェイズ開始時、このユニットを退却させる。\n【起】【ドロップゾーン】：[【カウンターブラスト】(1)，あなたのグレード２以上の《グランブルー》のリアガードを１枚選び、退却させる]あなたの《グランブルー》のヴァンガードがいるなら、このカードを(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0021.png"
+      },
+      "en": {
+        "number": "PR/0008EN",
+        "name": "Dragon Undead, Skull Dragon",
+        "text": "[AUTO](RC):When this unit attacks, if you have a <<Granblue>> vanguard, this unit gets [Power] +3000 until end of that battle, and at the beginning of the end phase of that turn, retire this unit.\n[ACT](Drop zone):[Counter-Blast 1 & Choose one of your grade 2 or greater <<Granblue>> rear-guards, and retire it] If you have a <<Granblue>> vanguard, call this card to (RC).",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0008.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0021", "PR/0008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0021",
+          "fetchedAt": "2026-11-04T17:26:14.901Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0008EN",
+          "fetchedAt": "2026-11-04T17:27:08.469Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0022",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0022",
+        "name": "キング・シーホース",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]このユニットが【ブースト】したバトル中、アタックがヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "グランブルー",
+        "race": "クラーケン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0022.png"
+      },
+      "en": {
+        "number": "PR/0009EN",
+        "name": "King Seahorse",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] When an attack hits during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Granblue",
+        "race": "Kraken",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0009.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0022", "PR/0009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0022",
+          "fetchedAt": "2026-11-04T17:26:13.929Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0009EN",
+          "fetchedAt": "2026-11-04T17:27:09.390Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0023",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0023",
+        "name": "ハイドッグブリーダー セイラン",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたはコストを払ってよい。払ったら、他のあなたの《ロイヤルパラディン》の〈ハイビースト〉を１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0023.png"
+      },
+      "en": {
+        "number": "PR/0016EN",
+        "name": "High Dog Breeder, Seiran",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose another of your <<Royal Paladin>> <High Beast>, and that unit gets [Power] +4000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0016.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0023", "PR/0016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0023",
+          "fetchedAt": "2026-11-04T17:26:12.738Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0016EN",
+          "fetchedAt": "2026-11-04T17:27:18.382Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0024",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0024",
+        "name": "ドラゴニック・ヴァニッシャー",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0024.png"
+      },
+      "en": {
+        "number": "PR/0014EN",
+        "name": "Dragonic Vanisher",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is greater than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0014.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0024", "PR/0014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0024",
+          "fetchedAt": "2026-11-04T17:26:11.566Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0014EN",
+          "fetchedAt": "2026-11-04T17:27:15.832Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0026",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0026",
+        "name": "ワイバーンストライク プラジューリ",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(2)] そのターン中、このユニットのパワー＋4000。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0026.png"
+      },
+      "en": {
+        "number": "PR/0028EN",
+        "name": "Wyvern Strike, Plajuri",
+        "text": "[ACT](VC/RC):[Counter-Blast 2] This unit gets [Power] +4000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0028.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0026", "PR/0028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0026",
+          "fetchedAt": "2026-11-04T17:26:07.667Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0028EN",
+          "fetchedAt": "2026-11-04T17:27:36.131Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0027",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0027",
+        "name": "剛剣の騎士 カラドック",
+        "text": "【起】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0027.png"
+      },
+      "en": {
+        "number": "PR/0013EN",
+        "name": "Knight of the Steel Blade, Caradoc",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is greater than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0013.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 9000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0027", "PR/0013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0027",
+          "fetchedAt": "2026-11-04T17:26:05.575Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0013EN",
+          "fetchedAt": "2026-11-04T17:27:14.876Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0028",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0028",
+        "name": "天空のイーグルナイト",
+        "text": "【起】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0028.png"
+      },
+      "en": {
+        "number": "EB03/038EN",
+        "name": "Eagle Knight of the Skies",
+        "text": "[AUTO](VC)/(RC):When this unit attacks, if the number of rear-guards you have is greater than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_038EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0028", "EB03/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0028",
+          "fetchedAt": "2026-11-04T17:26:04.399Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/038EN",
+          "fetchedAt": "2026-11-04T17:39:03.058Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0030",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0030",
+        "name": "ドラゴニック・ウォーターフォウル",
+        "text": "【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。\n【自】【(V)】：[あなたの手札からグレード３の《かげろう》を1枚選び、捨てる]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋10000。",
+        "clan": "かげろう",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0030.png"
+      },
+      "en": {
+        "number": "PR/0023EN",
+        "name": "Dragonic Waterfall",
+        "text": "[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.\n[AUTO](VC):[Choose a grade 3 <<Kagero>> from your hand, and discard it] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0023.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0030", "PR/0023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0030",
+          "fetchedAt": "2026-11-04T17:26:06.451Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0023EN",
+          "fetchedAt": "2026-11-04T17:27:29.662Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0031",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0031",
+        "name": "ホーリーディザスター・ドラゴン",
+        "text": "【自】【(V)/(R)】：[あなたの手札から《ロイヤルパラディン》を1枚選び、捨てる] このユニットがアタックした時、コストを払ってよい。 払ったら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0031.png"
+      },
+      "en": {
+        "number": "PR/0010EN",
+        "name": "Holy Disaster Dragon",
+        "text": "[AUTO](VC/RC):[Choose a <<Royal Paladin>> from your hand, and discard it] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0010.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0031", "PR/0010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0031",
+          "fetchedAt": "2026-11-04T17:26:03.599Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0010EN",
+          "fetchedAt": "2026-11-04T17:27:11.180Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0033",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0033",
+        "name": "砲撃竜 スレッジアンキロ",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《たちかぜ》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0033.png"
+      },
+      "en": {
+        "number": "PR/0050EN",
+        "name": "Cannon Fire Dragon, Sledge Ankylo",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Tachikaze>, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0050.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0033", "PR/0050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0033",
+          "fetchedAt": "2026-11-04T17:26:01.169Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0050EN",
+          "fetchedAt": "2026-11-04T17:28:08.668Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0034",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0034",
+        "name": "ジャイロスリンガー",
+        "text": "【起】【(V)/(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "スパイクブラザーズ",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0034.png"
+      },
+      "en": {
+        "number": "EB03/024EN",
+        "name": "Gyro Slinger",
+        "text": "[ACT](VC)/(RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Spike Brothers",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_024EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0034", "EB03/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0034",
+          "fetchedAt": "2026-11-04T17:25:59.979Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/024EN",
+          "fetchedAt": "2026-11-04T17:39:04.261Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0035",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0035",
+        "name": "ナレッジ・ドランカー",
+        "text": "【自】【(V)/(R)】：[あなたの手札から1枚選び、ソウルに置く] このユニットのアタックがヴァンガードにヒットした時、あなたの《ダークイレギュラーズ》のヴァンガードがいるなら、コストを払ってよい。 払ったら、1枚引く。",
+        "clan": "ダークイレギュラーズ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0035.png"
+      },
+      "en": {
+        "number": "PR/0012EN",
+        "name": "Knowledge Drunkard",
+        "text": "[AUTO](VC/RC):[Choose a card from your hand, and put it into your soul] When this unit's attack hits a vanguard, if you have a <Dark Irregulars> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Dark Irregulars",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0012.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0035", "PR/0012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0035",
+          "fetchedAt": "2026-11-04T17:25:59.192Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0012EN",
+          "fetchedAt": "2026-11-04T17:27:13.602Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0038",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0038",
+        "name": "カンフーキッド ボルタ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0038.png"
+      },
+      "en": {
+        "number": "BT06/112EN",
+        "name": "Kungfu Kid, Bolta",
+        "text": "[AUTO](VC)/(RC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/bt06/BT06_112EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0038", "BT06/112EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0038",
+          "fetchedAt": "2026-11-04T17:25:55.975Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT06/112EN",
+          "fetchedAt": "2026-11-04T17:39:05.379Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0039",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0039",
+        "name": "グレイプショット・ワイバーン",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《かげろう》を1枚選び、そのターン中、パワー＋2000。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0039.png"
+      },
+      "en": {
+        "number": "EB03/043EN",
+        "name": "Grapeshot Wyvern",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <Kagero>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_043EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0039", "EB03/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0039",
+          "fetchedAt": "2026-11-04T17:25:55.105Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/043EN",
+          "fetchedAt": "2026-11-04T17:39:06.323Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0040",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0040",
+        "name": "ブラスター・ケロロ",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたの手札が相手の手札より多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "エトランジェ",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0040.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0040"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0040",
+          "fetchedAt": "2026-11-04T17:25:54.369Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "This PR card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "PR11-0041",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0041",
+        "name": "双煌の剣士 マーハウス",
+        "text": "【自】【(V)/(R)】：このユニットがヴァンガードにアタックした時、あなたの《ロイヤルパラディン》のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0041.png"
+      },
+      "en": {
+        "number": "EB03/016EN",
+        "name": "Twin Shine Swordsman, Marhaus",
+        "text": "[AUTO](VC)/(RC):When this unit attacks a vanguard, if you have a <Royal Paladin> vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/eb03/EB03_016EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0041", "EB03/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0041",
+          "fetchedAt": "2026-11-04T17:25:53.129Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=EB03/016EN",
+          "fetchedAt": "2026-11-04T17:39:07.182Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0042",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0042",
+        "name": "フレアウィップ・ドラゴン",
+        "text": "【自】【(V)】：このユニットのドライブチェックで《かげろう》の〈フレイムドラゴン〉がでた時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0042.png"
+      },
+      "en": {
+        "number": "PR/0037EN",
+        "name": "Flare Whip Dragon",
+        "text": "[AUTO](VC):When this unit's drive check reveals a <<Kagero>> <Flame Dragon>, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0037.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0042", "PR/0037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0042",
+          "fetchedAt": "2026-11-04T17:25:51.479Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0037EN",
+          "fetchedAt": "2026-11-04T17:27:54.311Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0043",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0043",
+        "name": "トリプル・ダーク・アーマー",
+        "text": "【自】【(V)/(R)】：[他のあなたの《シャドウパラディン》のリアガードを1枚選び、退却させる] このユニットがアタックした時、コストを払ってよい。 払ったら、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0043.png"
+      },
+      "en": {
+        "number": "PR/0029EN",
+        "name": "Triple Dark Armor",
+        "text": "[AUTO](VC/RC):[Choose another of your <<Shadow Paladin>> rear-guards, and retire it] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0029.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0043", "PR/0029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0043",
+          "fetchedAt": "2026-11-04T17:25:49.965Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0029EN",
+          "fetchedAt": "2026-11-04T17:27:37.486Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0044",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0044",
+        "name": "ダークサイド・ペガサス",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの《シャドウパラディン》を1枚選び、そのターン中、パワー＋2000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0044.png"
+      },
+      "en": {
+        "number": "PR/0033EN",
+        "name": "Darkside Pegasus",
+        "text": "[AUTO]:When this unit is placed on (RC), choose another of your <<Shadow Paladin>>, and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/s/pr_0033.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0044", "PR/0033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0044",
+          "fetchedAt": "2026-11-04T17:25:49.223Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0033EN",
+          "fetchedAt": "2026-11-04T17:27:49.700Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0046",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0046",
+        "name": "陸戦支援型イニグシップ",
+        "text": "【起】【(V)/(R)】[カウンターブラスト(1)] そのターン中、このユニットのパワー＋1000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0046.png"
+      },
+      "en": {
+        "number": "PR/0030EN",
+        "name": "Land Battle Support Type, Enigship",
+        "text": "[ACT](VC/RC)：[Counter-Blast 1] This unit get [Power] +1000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0030.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0046", "PR/0030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0046",
+          "fetchedAt": "2026-11-04T17:25:40.531Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0030EN",
+          "fetchedAt": "2026-11-04T17:27:45.365Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0047",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0047",
+        "name": "ブラッディ・カーフ",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)か(R)に登場した時、あなたの《ダークイレギュラーズ》のヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード１以下のリアガードを１枚選び、退却させる。",
+        "clan": "ダークイレギュラーズ",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0047.png"
+      },
+      "en": {
+        "number": "BT03/026EN",
+        "name": "Bloody Calf",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a <Dark Irregulars> vanguard, you may pay the cost. If you do, choose one of your opponent's grade 1 or less rear-guards, and retire it.",
+        "clan": "Dark Irregulars",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt03/BT03_026EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0047", "BT03/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0047",
+          "fetchedAt": "2026-11-04T17:25:39.650Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT03/026EN",
+          "fetchedAt": "2026-11-04T17:39:08.062Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0048",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0048",
+        "name": "メガコロニー戦闘員B",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットが《メガコロニー》を【ブースト】したバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。 払ったら、相手のリアガードを1枚選び、そのユニットは、次の相手のスタンドフェイズ中、【スタンド】できない。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0048.png"
+      },
+      "en": {
+        "number": "BT04/036EN",
+        "name": "Megacolony Battler B",
+        "text": "[AUTO][(RC)]:[Counter-Blast 1] When an attack hits a vanguard during the battle that this unit boosted ([Boost]) a <Megacolony>, you may pay the cost. If you do, choose one of your opponent's rear-guards, and that unit cannot [Stand] during your opponent's next stand phase.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/bt04/BT04_036EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0048", "BT04/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0048",
+          "fetchedAt": "2026-11-04T17:25:38.468Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT04/036EN",
+          "fetchedAt": "2026-11-04T17:39:08.964Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0051",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0051",
+        "name": "ワイバーンストライク ギュントゥル",
+        "text": "【自】【(V)/(R)】：このユニットがアタックした時、あなたのリアガードが相手のリアガードより多いなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "かげろう",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0051.png"
+      },
+      "en": {
+        "number": "PR/0062EN",
+        "name": "Wyvern Strike, Gyuntulu",
+        "text": "[AUTO](VC/RC):When this unit attacks, if the number of rear-guards you have is more than your opponent's, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0062.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0051", "PR/0062EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0051",
+          "fetchedAt": "2026-11-04T17:25:37.704Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0062EN",
+          "fetchedAt": "2026-11-04T17:28:27.167Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0052",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0052",
+        "name": "魔竜導師 マコラガ",
+        "text": "【自】【(R)】：あなたのメインフェイズ中、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋5000。",
+        "clan": "かげろう",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0052.png"
+      },
+      "en": {
+        "number": "BT05/040EN",
+        "name": "Demonic Dragon Mage, Mahoraga",
+        "text": "[AUTO](RC)：During your main phase, when an opponent's rear-guard is put into the drop zone, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Kagero",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/bt05/BT05_040EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0052", "BT05/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0052",
+          "fetchedAt": "2026-11-04T17:25:36.612Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT05/040EN",
+          "fetchedAt": "2026-11-04T17:39:09.834Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0053",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0053",
+        "name": "ミスリルの召喚術士",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上を公開する。そのカードがグレード１かグレード２の、《ロイヤルパラディン》なら、そのカードを(R)にコールし、違うなら、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0053.png"
+      },
+      "en": {
+        "number": "BT05/035EN",
+        "name": "Conjurer of Mithril",
+        "text": "[AUTO]：When this unit is placed on (VC) or (RC), reveal the top card of your deck. If the revealed card is a grade 1 or 2 <Royal Paladin>, call it to (RC), and if it is not, shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/bt05/BT05_035EN.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0053", "BT05/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0053",
+          "fetchedAt": "2026-11-04T17:25:35.414Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=BT05/035EN",
+          "fetchedAt": "2026-11-04T17:39:11.016Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "PR11-0054",
+      "set": "PR11",
+      "jp": {
+        "number": "PR/0054",
+        "name": "ノーライフキング デスアンカー",
+        "text": "【永】【(V)】：あなたのソウルの《ダークイレギュラーズ》が８枚以上なら、このユニットのパワー＋1000。\n【自】【(V)】：あなたのメインフェイズ開始時、【ソウルチャージ】(1)し、そのターン中、このユニットのパワー＋2000。\n【自】【(V)】：[あなたのダメージゾーンから表向きの《ダークイレギュラーズ》を５枚選び、ソウルに置く]このユニットがアタックした時、コストを払ってよい。 払ったら、そのターン中、このユニットのパワー＋10000/クリティカル＋１し、そのターンのエンドフェイズ開始時、あなたの山札の上から５枚をダメージゾーンに置く。",
+        "clan": "ダークイレギュラーズ",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/PR/pr_0054.png"
+      },
+      "en": {
+        "number": "PR/0031EN",
+        "name": "No Life King, Death Anchor",
+        "text": "[CONT](VC):If the number of <Dark Irregulars> in your soul is 8 or more, this unit gets [Power] +1000.\n[AUTO](VC):At the beginning of your main phase, [Soul-Charge 1] , and this unit gets [Power] +2000 until end of turn.\n[AUTO](VC):[Choose five face up <Dark Irregulars> from your damage zone, and put them into your soul] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +10000/[Critical] +1 until end of turn, and at the beginning of the end phase of that turn, put five cards from the top of your deck into your damage zone.",
+        "clan": "Dark Irregulars",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr/pr_0031.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "PR",
+      "printings": ["PR/0054", "PR/0031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=PR%2F0054",
+          "fetchedAt": "2026-11-04T17:25:34.187Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0031EN",
+          "fetchedAt": "2026-11-04T17:27:47.574Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "reprints": [
+    {
+      "number": "PR/0001",
+      "id": "BT01-002"
+    },
+    {
+      "number": "PR/0002",
+      "id": "EB07-020"
+    },
+    {
+      "number": "PR/0025",
+      "id": "EB07-020"
+    },
+    {
+      "number": "PR/0005",
+      "id": "EB09-027"
+    },
+    {
+      "number": "PR/0007",
+      "id": "BT01-044"
+    },
+    {
+      "number": "PR/0009",
+      "id": "EB05-012"
+    },
+    {
+      "number": "PR/0017",
+      "id": "EB07-026"
+    },
+    {
+      "number": "PR/0019",
+      "id": "EB05-016"
+    },
+    {
+      "number": "PR/0032",
+      "id": "EB07-019"
+    },
+    {
+      "number": "PR/0036",
+      "id": "BT07-032"
+    },
+    {
+      "number": "PR/0037",
+      "id": "BT15-022"
+    },
+    {
+      "number": "PR/0045",
+      "id": "EB09-019"
+    }
+  ],
+  "enOnly": []
+}

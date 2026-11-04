@@ -55,7 +55,12 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-03, end): v0.28.0-alpha published
+## Latest (2026-11-04): v0.29.0-alpha published
+
+Next: improving the AI (user's request, `docs/ai/AI_AUDIT_AND_PLAN.md`); then PR 2012
+(`docs/NEXT_SESSION.md`, top update). Another session may be working on the Update Manager in this tree.
+
+## Earlier (2026-11-03, end): v0.28.0-alpha published
 
 The user's v0.28 spec (feedback on 0.27) is built and released with G-BT01/G art: see
 `docs/design/V028_AUDIT.md`. **Next: PR cards** (four yearly batches,

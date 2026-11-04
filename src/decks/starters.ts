@@ -1855,4 +1855,36 @@ export const STARTER_DECKS: readonly StarterDeck[] = [
       ],
     },
   },
+  // ---- VZ01 ---------------------------------------------------------------------------------------
+  // The 19 cards of the "Cardfight!! Vanguard 0" Start Set. The official card list gives no copy
+  // counts, so the counts here are our own build, not the product's (user's request, 2026-11-04).
+  {
+    name: 'Royal Paladin — Blaster Blade Burst',
+    description:
+      'Fill the front row, then Blaster Blade Burst adds their original power to its attack. The cards of the Vanguard 0 Start Set; the card counts are our own build.',
+    deck: {
+      firstVanguard: 'VZ01-015',
+      cards: [
+        ...n(1, 'VZ01-015'), // Claudia (G0, forerunner)
+        ...n(4, 'DG01-014'), // Bringer of Good Luck, Epona (critical)
+        ...n(4, 'BT01-045'), // Weapons Dealer, Govannon (draw)
+        ...n(4, 'BT01-046'), // Flogal (stand)
+        ...n(4, 'BT01-047'), // Yggdrasil Maiden, Elaine (heal)
+        ...n(3, 'BT01-042'), // Little Sage, Marron
+        ...n(3, 'TD01-010'), // Starlight Unicorn
+        ...n(2, 'PR11-0008'), // Knight Squire Allen
+        ...n(2, 'BT02-057'), // Soul Guiding Elf
+        ...n(2, 'BT01-044'), // Wingal
+        ...n(2, 'PR11-0013'), // Miru Biru
+        ...n(4, 'BT01-002'), // Blaster Blade (G2)
+        ...n(3, 'BT01-021'), // Knight of Silence, Gallatin
+        ...n(2, 'BT02-056'), // Knight of Truth, Gordon
+        ...n(2, 'BT01-041'), // Covenant Knight, Randolf
+        ...n(4, 'VZ01-001'), // Blaster Blade Burst (G3)
+        ...n(2, 'PR11-0041'), // Twin Shine Swordsman, Marhaus
+        ...n(1, 'DG01-003'), // Knight of Conviction, Bors
+        ...n(1, 'BT01-010'), // Solitary Knight, Gancelot
+      ],
+    },
+  },
 ];

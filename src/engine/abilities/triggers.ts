@@ -80,6 +80,8 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (Array.isArray(t.circle) ? !t.circle.includes(circle) : circle !== t.circle) return null;
       if (t.from && e.from.zone !== t.from) return null;
       if (t.byYourEffect && e.by !== ec.master) return null;
+      if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
+        return null;
       return subjectIs(ec, t.who, e.instanceId, e.to.player) ? { eventCard: e.instanceId } : null;
     }
     case 'ridden': {
@@ -205,6 +207,11 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         ? { eventCard: e.instanceId }
         : null;
     case 'put_into_bind':
+      if (
+        t.byYourEffect &&
+        !(e.type === 'CARD_MOVED' && e.reason === 'effect' && e.by === ec.master)
+      )
+        return null;
       return e.type === 'CARD_MOVED' &&
         e.to.zone === 'bind' &&
         e.from.zone !== 'bind' &&

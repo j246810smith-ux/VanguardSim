@@ -1,5 +1,6 @@
-/** Choosing a deck: the starter decks, the Trial Decks and the player's saved decks. */
+/** Choosing a deck: the researched library, the starter decks, the Trial Decks and saved decks. */
 import type { CSSProperties } from 'react';
+import { deckListOf, LIBRARY, type LibraryDeck } from '../../../src/decks/library';
 import { STARTER_DECKS } from '../../../src/decks/starters';
 import { G_TRIAL_DECKS, TRIAL_DECKS } from '../../../src/decks/trialDecks';
 import {
@@ -16,21 +17,31 @@ export interface DeckEntry {
   readonly description: string;
   readonly deck: Deck;
   readonly legal: boolean;
-  readonly section: 'gtrial' | 'starter' | 'trial' | 'mine';
+  readonly section: 'library' | 'gtrial' | 'starter' | 'trial' | 'mine';
   /** A saved deck's own sleeve (D-033). */
   readonly sleeve?: string;
   readonly playmat?: string;
 }
 
 const SECTION_TITLE = {
+  library: 'TOURNAMENT DECKS',
   gtrial: 'G TRIAL DECKS',
   starter: 'STARTER DECKS',
   trial: 'TRIAL DECKS',
   mine: 'YOUR DECKS',
 } as const;
 
+/** Only what the deck's source states, and how far the list can be trusted. */
+export function libraryDescription(d: LibraryDeck): string {
+  const t = d.tournament;
+  const result = t ? [t.placement, t.event].filter(Boolean).join(', ') : null;
+  const trust =
+    d.confidence === 'VERIFIED' ? 'Verified list' : 'Official cards, card counts are ours';
+  return [result, trust].filter(Boolean).join(' · ');
+}
+
 /**
- * The starter decks, the Trial Decks (D-023), then the player's saved decks (D-022: usable by both
+ * The researched decks (docs/deck-intelligence), the starter decks, the Trial Decks (D-023), then the player's saved decks (D-022: usable by both
  * sides). In the G era (D-034) the G Trial Decks come first; Classic decks are legal there too.
  */
 export function deckEntries(format: FormatKey = 'classic'): DeckEntry[] {
@@ -39,6 +50,13 @@ export function deckEntries(format: FormatKey = 'classic'): DeckEntry[] {
     ...(format === 'g'
       ? G_TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'gtrial' as const }))
       : []),
+    ...LIBRARY.map((d) => ({
+      name: d.name,
+      description: libraryDescription(d),
+      deck: deckListOf(d),
+      legal: true,
+      section: 'library' as const,
+    })),
     ...STARTER_DECKS.map((d) => ({ ...d, legal: true, section: 'starter' as const })),
     ...TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'trial' as const })),
     ...loadDecks().map((d) => {

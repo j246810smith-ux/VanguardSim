@@ -40,20 +40,20 @@ Plan:
 
 ## 3. The "Blaster Blade Burst" deck
 
-No product of that name was found (official databases and web search, 2026-11-03). Blaster Blade
-products that do exist: **TD01 "Blaster Blade"** (in the game), **G-LD01 "The Blaster Blade"**
-(Legend Deck, G era: Expanded Era) and the 2026 **DZ-SS13 Start Deck** (D era: outside this
-simulator). **Waiting for the user to say which deck is meant** (a product name, a set code or a
-deck list) — no card list or text will be guessed.
+**Found 2026-11-04:** Blaster Blade Burst is a card: Japanese **VZ/001**, in the product 【VZ】
+"Cardfight!! Vanguard 0 Start Set" (a preconstructed Royal Paladin deck), and English **PR/0412EN**.
+The user confirmed it is the deck they meant. **Done:** set `VZ01` and a starter deck with the
+product's 19 cards. No official source found gives the copy counts, so those are our own build
+(D-038).
 
 ## PR inventory
 
-| Year | New cards |
-| ---- | --------- |
-| 2011 | 40        |
-| 2012 | 38        |
-| 2013 | 58        |
-| 2014 | 79        |
+| Year | New cards                                                          |
+| ---- | ------------------------------------------------------------------ |
+| 2011 | 40 → done: 39 cards, set `PR11` (PR/0003 and PR/0029 are one card) |
+| 2012 | 38 → done: set `PR12`                                              |
+| 2013 | 58                                                                 |
+| 2014 | 79                                                                 |
 
 | No.      | Japanese name                             | Grade | Clan                 |
 | -------- | ----------------------------------------- | ----- | -------------------- |

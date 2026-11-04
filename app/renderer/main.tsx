@@ -11,6 +11,10 @@ import '@fontsource/orbitron/900.css';
 import './styles.css';
 import { App } from './App';
 import { CrashGuard } from './ui/CrashGuard';
+import { runStartMigrations } from './migrations';
+
+// before anything loads decks or settings
+runStartMigrations();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

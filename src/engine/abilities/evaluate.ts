@@ -173,6 +173,11 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     if (ref === undefined || currentPower(state, ctx, id) > currentPower(state, ctx, ref))
       return false;
   }
+  if (filter.gradeAboveOf !== undefined) {
+    const ref = (ec.bindings[filter.gradeAboveOf] ?? [])[0];
+    if (ref === undefined || currentGrade(state, ctx, id) <= currentGrade(state, ctx, ref))
+      return false;
+  }
   if (filter.power !== undefined && !inRange(currentPower(state, ctx, id), filter.power)) {
     return false;
   }

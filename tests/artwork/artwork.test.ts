@@ -200,7 +200,13 @@ describe('manifest', () => {
     expect(id('BT17_001EN.jpg')).toBe('BT17-001EN');
     // English BT03 is shifted by one after its English-only 026
     expect(id('BT03_031EN.png')).toBe('BT03-030');
-    expect(id('BT03_026EN.png')).toBeNull();
+    // … which is the Japanese PR card Bloody Calf
+    expect(id('BT03_026EN.png')).toBe('PR11-0047');
+    // PR cards: the game's name, the Japanese number and the unrelated English number
+    expect(id('PR11-0003.png')).toBe('PR11-0003');
+    expect(id('PR_0003.png')).toBe('PR11-0003');
+    expect(id('PR_0011EN.png')).toBe('PR11-0003');
+    expect(id('PR_0001EN.png')).toBeNull(); // not a card with its own entry
     // a card printed in English under its own number keeps it, even if a later set reprinted it
     expect(id('BT01_021EN.png')).toBe('BT01-021');
     expect(id('BT01-021.png')).toBe('BT01-021');

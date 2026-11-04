@@ -21,6 +21,7 @@ execFileSync('powershell', [
   `Expand-Archive -LiteralPath '${zip}' -DestinationPath '${dir}' -Force`,
 ]);
 const exe = join(dir, 'Vanguard Sim.exe');
+if (!existsSync(join(dir, 'VanguardUpdater.exe'))) throw new Error('the zip has no updater');
 
 function run(label, args = []) {
   const out = join(dir, `smoke-${label}.json`);

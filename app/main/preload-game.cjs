@@ -8,6 +8,26 @@ contextBridge.exposeInMainWorld('vanguardDesktop', {
   openArtworkManager: () => ipcRenderer.invoke('art:open'),
   /** The player's own sleeve and playmat image file names (D-033). */
   cosmetics: () => ipcRenderer.invoke('cosmetics:list'),
+  /** Report a problem or suggest something: GitHub's new-issue page, in the browser. */
+  openFeedback: () => ipcRenderer.invoke('feedback:open'),
+  /** Vanguard Update Manager (D-037): look up the newest release; open its page. */
+  updates: {
+    info: () => ipcRenderer.invoke('updates:info'),
+    check: (channel) => ipcRenderer.invoke('updates:check', channel),
+    openPage: (url) => ipcRenderer.invoke('updates:open-page', url),
+    download: (version) => ipcRenderer.invoke('updates:download', version),
+    cancelDownload: () => ipcRenderer.invoke('updates:cancel'),
+    install: (version) => ipcRenderer.invoke('updates:install', version),
+    rollback: () => ipcRenderer.invoke('updates:rollback'),
+    rollbackInfo: () => ipcRenderer.invoke('updates:rollback-info'),
+    lastResult: () => ipcRenderer.invoke('updates:last-result'),
+    /** Returns a function that stops listening. */
+    onProgress: (callback) => {
+      const listener = (_event, p) => callback(p);
+      ipcRenderer.on('updates:progress', listener);
+      return () => ipcRenderer.removeListener('updates:progress', listener);
+    },
+  },
   online: {
     host: (port) => ipcRenderer.invoke('online:host', port),
     join: (address, port) => ipcRenderer.invoke('online:join', address, port),

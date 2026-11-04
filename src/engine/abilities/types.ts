@@ -103,6 +103,8 @@ export interface CardFilter {
   readonly gUnit?: boolean;
   /** "with [Power] less than or equal to that unit's [Power]": the first card bound as this name. */
   readonly powerAtMostOf?: string;
+  /** "a card that is a grade greater than that unit": grade above the first card bound as this name. */
+  readonly gradeAboveOf?: string;
 }
 
 export type BattleRole = 'attacker' | 'attacked' | 'booster' | 'boosted';
@@ -203,6 +205,8 @@ export type Duration =
 export type Restriction =
   | 'cannot_be_hit'
   | 'cannot_attack'
+  /** "You cannot normal ride this card" (PR12 Exculpate the Blaster): a superior ride still can. */
+  | 'cannot_normal_ride'
   /** "This unit cannot attack a rear-guard" (e.g. the Djinn of TD06). */
   | 'cannot_attack_rear_guard'
   | 'cannot_boost'
@@ -214,20 +218,35 @@ export type Restriction =
   /** "Does not deal damage even if its attack hits" (the hit still happens). */
   | 'no_damage'
   /** "Cannot be retired by card effects" (costs and rule actions still move it). */
-  | 'cannot_be_retired';
+  | 'cannot_be_retired'
+  /** "This unit cannot be retired by your card effects" (G-BT02 Undying Eradicator, Schub). */
+  | 'cannot_be_retired_by_you'
+  /**
+   * Resist (G era, CR 1.48.1 10.2.9): "this unit cannot be chosen by the effects of your
+   * opponent's cards" (a `choose` step of an ability whose master is the other player).
+   */
+  | 'resist';
 /** Rule permissions a continuous ability can give. */
 export type Permission =
   | 'attack_back_row_same_column'
   | 'attack_entire_front_row'
+  /** "This unit battles all of your opponent's units in one attack" (PR12 Exculpate the Blaster). */
+  | 'attack_all_units'
   /** "When this unit would choose a unit to attack, choose four of your opponent's units instead" */
   | 'attack_four_units'
   /** "If this unit would attack, it may instead attack an opponent's unit in the back row" */
   | 'attack_back_row'
   /** "… get "Boost"([Boost])" / "… get "Intercept"([Intercept])": the skill without the icon. */
   | 'boost'
-  | 'intercept';
+  | 'intercept'
+  /** "This unit can attack from the back row" (G-BT02 Battle Siren, Stacia). */
+  | 'attack_from_back_row';
 /** What a "loses …" effect removes: an ability (by id) or a skill icon. */
-export type Losable = { readonly ability: string } | { readonly icon: 'twin_drive' };
+export type Losable =
+  | { readonly ability: string }
+  | { readonly icon: 'twin_drive' }
+  /** "That [ACT] loses its cost until the next time it is played" (G-BT02 Dragonic Kaiser Crimson). */
+  | { readonly actCosts: true };
 export type Destination = 'hand' | 'soul' | 'drop' | 'deck_top' | 'deck_bottom' | 'damage' | 'bind';
 
 /** One instruction of an effect. Steps run in order and may pause for a player's choice. */
@@ -255,6 +274,11 @@ export type Step =
       readonly upTo: number;
       /** "cards with different card names": only the first card of each name counts. */
       readonly distinctNames?: boolean;
+      /**
+       * "for up to n cards with the same card name as each of those units": every card found must
+       * share a name with a different card bound as this name (one card per bound card).
+       */
+      readonly onePerNameOf?: string;
     }
   | { readonly op: 'retire'; readonly target: Selector }
   | { readonly op: 'move'; readonly target: Selector; readonly to: Destination }
@@ -331,6 +355,8 @@ export type Step =
       readonly duration: Duration;
       /** "for each …": the amount is multiplied by the number of selected cards. */
       readonly per?: Selector;
+      /** "for each of your opponent's open (RC) (in the front row)": multiplied by empty circles. */
+      readonly perOpen?: { readonly owner: Owner; readonly areas: 'RC' | 'front_RC' };
       /** "by the original [Power] of …": the amount is the printed power of the selected cards. */
       readonly byOriginalPowerOf?: Selector;
     }
@@ -518,6 +544,8 @@ export type TriggerCondition =
       readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage';
       /** "placed on (RC) due to an effect from one of your cards" (a superior call by you). */
       readonly byYourEffect?: boolean;
+      /** "… from one of your cards with X in its card name": the card whose effect it was. */
+      readonly causeFilter?: CardFilter;
     }
   /**
    * A unit rides `who` (who goes to the soul). `by` filters the new vanguard; `bySelf`: the new
@@ -602,7 +630,7 @@ export type TriggerCondition =
   /** "When this unit intercepts" (CR 10.2.2). */
   | { readonly on: 'intercepts'; readonly who: Subject }
   /** "When <a card> is placed in a bind zone" (who: the card, e.g. an opponent's card). */
-  | { readonly on: 'put_into_bind'; readonly who: Subject }
+  | { readonly on: 'put_into_bind'; readonly who: Subject; readonly byYourEffect?: boolean }
   /** "When your opponent's vanguard is deleted" (CR 10.1.25). */
   | { readonly on: 'deleted'; readonly who: Subject }
   /** CR 6.8.1.2: "when a card is unlocked". */

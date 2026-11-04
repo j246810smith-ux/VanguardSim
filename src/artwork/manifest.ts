@@ -64,9 +64,9 @@ export function buildManifest(sets: readonly SetData[], cardData: string): Artwo
 
 /** The file of a card's image inside the artwork folder (forward slashes). */
 export const imagePath = (id: string, ext: ImageExtension): string =>
-  `${id.replace(/-\d{3}(EN)?$/, '')}/${id}.${ext}`;
+  `${id.replace(/-(\d{3}(EN)?|\d{4}[A-Z]?)$/, '')}/${id}.${ext}`;
 
-const SET_KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD'];
+const SET_KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD', 'PR', 'VZ'];
 /** Classic kinds in order, then the G era's products (G-BT, G-TD, …, DECISIONS D-034). */
 const kindOf = (set: string) => {
   const kind = set.replace(/\d+$/, '');
@@ -116,6 +116,19 @@ export function cardIdFromFileName(
   english: ReadonlyMap<string, string> = new Map(),
 ): string | null {
   const stem = fileName.replace(/\.[^.]+$/, '');
+  // the Vanguard 0 Start Set: official "VZ_001", the game's "VZ01-001"
+  const vz = /^VZ(?:01)?[-_ ]?(\d{3})$/i.exec(stem.trim());
+  if (vz) return `VZ01-${vz[1]}`;
+  // PR cards: the game's own "PR11-0003"; official "PR_0003" (the Japanese number, in any yearly
+  // set) and "PR_0011EN" (the English number, which is unrelated)
+  const own = /^PR(\d{2})[-_ ]?(\d{4}[A-Z]?)$/i.exec(stem.trim());
+  if (own) return `PR${own[1]}-${own[2]!.toUpperCase()}`;
+  const pr = /^PR[-_ ]?(\d{4}[A-Z]?)(EN)?$/i.exec(stem.trim());
+  if (pr) {
+    const no = pr[1]!.toUpperCase();
+    if (pr[2]) return english.get(`PR-${no}`) ?? null;
+    return [...known].find((k) => new RegExp(`^PR\\d{2}-${no}$`).test(k)) ?? null;
+  }
   // G-era numbers: "G-TD01_001EN", "GTD01-001" (D-034)
   const g = /^G[-_ ]?([A-Z]{2,4})(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
   if (g) return `G-${g[1]!.toUpperCase()}${g[2]}-${g[3]}`;

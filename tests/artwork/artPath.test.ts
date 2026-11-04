@@ -13,6 +13,10 @@ describe('desktop art paths', () => {
   it('serves normal and English-only card ids', () => {
     expect(isArtPath('BT17/BT17-001.jpg')).toBe(true);
     expect(isArtPath('BT17/BT17-001EN.jpg')).toBe(true);
+    expect(isArtPath('PR11/PR11-0003.png')).toBe(true);
+    expect(isArtPath('PR14/PR14-0160A.png')).toBe(true);
+    expect(isArtPath('PR11/PR12-0003.png')).toBe(false);
+    expect(isArtPath('PR11/PR11-003.png')).toBe(true); // the same shape as every other set
     expect(isArtPath('BT16/BT16-059EN.png')).toBe(true);
     // three-letter side sets and the G era (D-034)
     expect(isArtPath('MBT01/MBT01-001.png')).toBe(true);

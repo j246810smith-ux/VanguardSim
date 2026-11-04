@@ -33,6 +33,9 @@ describe('deck text format', () => {
   });
 
   it('normalizes card IDs', () => {
+    // PR cards have four-digit numbers, some with a letter
+    expect(normalizeId('PR11-0003')).toBe('PR11-0003');
+    expect(normalizeId('pr14/0160a')).toBe('PR14-0160A');
     expect(normalizeId('BT03/052EN')).toBe('BT03-052');
     // English-only cards (D-031) keep the English number
     const has = (id: string) => id === 'BT16-001EN';

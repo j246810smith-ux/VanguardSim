@@ -39,12 +39,18 @@ export function declareAttack(
         : null,
     target,
     targetCircle: targetOption.circle,
-    // "battles every unit in your opponent's front row in one attack" (CR 7.3.1.4.5)
-    extraTargets: hasPermission(s, d.ctx, attacker, 'attack_entire_front_row')
-      ? option.targets.filter(
-          (t) => t.id !== target && (t.circle === 'vanguard' || t.circle.startsWith('front')),
-        )
-      : [],
+    // "battles every unit in your opponent's front row in one attack" (CR 7.3.1.4.5); "all of your
+    // opponent's units" takes in the back row as well (PR12 Exculpate the Blaster)
+    extraTargets: hasPermission(s, d.ctx, attacker, 'attack_all_units')
+      ? unitsOf(s, other(s.activePlayer)).flatMap((id) => {
+          const at = locate(s, id);
+          return id !== target && at.zone === 'circle' ? [{ id, circle: at.circle }] : [];
+        })
+      : hasPermission(s, d.ctx, attacker, 'attack_entire_front_row')
+        ? option.targets.filter(
+            (t) => t.id !== target && (t.circle === 'vanguard' || t.circle.startsWith('front')),
+          )
+        : [],
     guarding: {},
     booster: boosterOption?.id ?? null,
     boosterCircle: boosterOption?.circle ?? null,

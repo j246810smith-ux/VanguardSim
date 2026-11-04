@@ -50,6 +50,10 @@ import dg01Data from '../../data/cards/DG01.json';
 import gtd01Data from '../../data/cards/G-TD01.json';
 import gtd02Data from '../../data/cards/G-TD02.json';
 import gbt01Data from '../../data/cards/G-BT01.json';
+import gbt02Data from '../../data/cards/G-BT02.json';
+import pr11Data from '../../data/cards/PR11.json';
+import pr12Data from '../../data/cards/PR12.json';
+import vz01Data from '../../data/cards/VZ01.json';
 import { BT01 } from './BT01';
 import { BT02 } from './BT02';
 import { BT03 } from './BT03';
@@ -101,6 +105,10 @@ import { DG01 } from './DG01';
 import { G_TD01 } from './G-TD01';
 import { G_TD02 } from './G-TD02';
 import { G_BT01 } from './G-BT01';
+import { G_BT02 } from './G-BT02';
+import { PR11 } from './PR11';
+import { PR12 } from './PR12';
+import { VZ01 } from './VZ01';
 import { registryFor, type SetAbilities } from './load';
 import type { SetFile } from './record';
 
@@ -156,10 +164,14 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   // the G era (DECISIONS D-034): legal in the G format only
   { file: gtd01Data as SetFile, abilities: G_TD01 },
   { file: gtd02Data as SetFile, abilities: G_TD02 },
+  { file: pr11Data as SetFile, abilities: PR11 },
+  { file: pr12Data as SetFile, abilities: PR12 },
+  { file: vz01Data as SetFile, abilities: VZ01 },
   { file: gbt01Data as SetFile, abilities: G_BT01 },
+  { file: gbt02Data as SetFile, abilities: G_BT02 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'gbt01-1.0.0';
+export const CARD_DATA_VERSION = 'pr12-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

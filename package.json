@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.28.0-alpha",
+  "version": "0.29.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -24,8 +24,12 @@
     "artwork:build": "tsx scripts/artwork-build.ts",
     "app": "npm run artwork:build && vite build && electron .",
     "ui:build:release": "vite build --mode release",
-    "dist:win": "npm run artwork:build && vite build --mode release && electron-builder --win --x64 --publish never",
+    "dist:win": "npm run artwork:build && vite build --mode release && npm run updater:build && electron-builder --win --x64 --publish never",
     "dist:smoke": "node scripts/release-smoke.mjs",
+    "updater:build": "node scripts/build-updater.mjs",
+    "release:keygen": "node scripts/release-keygen.mjs",
+    "release:manifest": "node scripts/release-manifest.mjs",
+    "release:verify": "node scripts/release-verify.mjs",
     "ui:shots": "npm run artwork:build && vite build && node scripts/ui-shots.mjs",
     "ui:jitter": "npm run artwork:build && vite build && node scripts/ui-jitter.mjs",
     "online:probe": "npm run artwork:build && vite build && node scripts/online-probe.mjs"
@@ -78,6 +82,10 @@
     ],
     "asar": true,
     "extraFiles": [
+      {
+        "from": "dist/updater/VanguardUpdater.exe",
+        "to": "VanguardUpdater.exe"
+      },
       {
         "from": "LICENSE",
         "to": "LICENSE.txt"

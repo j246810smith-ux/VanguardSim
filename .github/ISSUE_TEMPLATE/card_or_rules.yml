@@ -3,6 +3,11 @@ description: A card or game rule behaves differently from its text or the offici
 labels: [cards-rules]
 body:
   - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Filled in when you come from the game.
+  - type: input
     id: card
     attributes:
       label: Card (set and number)
@@ -23,5 +28,5 @@ body:
   - type: input
     id: seed
     attributes:
-      label: Version and seed
-      placeholder: v0.19.0-alpha, seed 123456
+      label: Seed (if in a game)
+      placeholder: '123456'

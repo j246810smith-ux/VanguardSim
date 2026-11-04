@@ -281,18 +281,32 @@ export function actOptions(state: GameState, ctx: EngineContext, player: PlayerI
         eventCard: null,
       };
       if (a.requires && !evaluate(ec, a.requires)) continue;
-      if (!canPay(ec, a.cost)) continue; // CR 8.5.2.3: cannot start what cannot be paid
+      // CR 8.5.2.3: cannot start what cannot be paid
+      if (!actCostFree(state, id) && !canPay(ec, a.cost)) continue;
       out.push({ source: id, abilityId: a.id });
     }
   }
   return out;
 }
 
+/** "That [ACT] loses its cost until the next time it is played" (Dragonic Kaiser Crimson). */
+const actCostFree = (state: GameState, id: InstanceId): boolean =>
+  state.suppressions.some((x) => x.target === id && 'actCosts' in x.what);
+
 export function activate(d: Draft, player: PlayerId, source: InstanceId, abilityId: string): void {
   const a = abilityOf(d.state, d.ctx, source, abilityId) as ActAbility;
   if (a.oncePerTurn) d.state.usedThisTurn.push(useKey(source, a.id));
   if (a.oncePerGame) d.state.usedThisGame.push(useKey(source, a.id));
-  openFrame(d, 'ACT', player, source, a.id, null, [{ op: 'pay', costs: a.cost }, ...a.effect]);
+  // played without its cost once, then the cost is back
+  const free = actCostFree(d.state, source);
+  if (free)
+    d.state.suppressions = d.state.suppressions.filter(
+      (x) => !(x.target === source && 'actCosts' in x.what),
+    );
+  openFrame(d, 'ACT', player, source, a.id, null, [
+    { op: 'pay', costs: free ? [] : a.cost },
+    ...a.effect,
+  ]);
 }
 
 // Costs ------------------------------------------------------------------------------------------
@@ -530,7 +544,15 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
 
   switch (step.op) {
     case 'choose': {
-      const options = select(ec, step.from);
+      // Resist (CR 1.48.1 10.2.9): the other player's units with Resist cannot be chosen
+      const options = select(ec, step.from).filter(
+        (id) =>
+          !(
+            onField(s, id) &&
+            locate(s, id).player !== frame.master &&
+            isRestricted(s, d.ctx, id, 'resist')
+          ),
+      );
       const count = step.countOf ? select(ec, step.countOf).length : step.count;
       const kept = step.append ? (frame.bindings[step.as] ?? []) : [];
       if (count === 0) {
@@ -560,18 +582,22 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'search': {
       // CR 10.1.9.1.1: a hidden zone, so the player may choose not to find anything.
+      const perName = step.onePerNameOf ? (frame.bindings[step.onePerNameOf] ?? []) : null;
       const options = select(ec, {
         sel: 'cards',
         owner: 'you',
         areas: ['deck'],
         filter: step.filter,
-      });
+      }).filter(
+        (id) =>
+          !perName || perName.some((b) => currentName(s, d.ctx, b) === currentName(s, d.ctx, id)),
+      );
       const picked = ask(d, task, {
         player: frame.master,
         kind: 'search',
         options,
         min: 0,
-        max: step.upTo,
+        max: perName ? Math.min(step.upTo, perName.length) : step.upTo,
         prompt: step.distinctNames
           ? `Search your deck for up to ${step.upTo} cards with different names`
           : `Search your deck for up to ${step.upTo}`,
@@ -579,6 +605,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       if (picked === null) return false;
       // "with different card names": a second card of a name already chosen is not taken
       const names = new Set<string>();
+      // "for each of those units": each found card uses up one bound card of its name
+      const unused = perName ? perName.map((b) => currentName(s, d.ctx, b)) : [];
       frame.bindings[step.as] = step.distinctNames
         ? picked.filter((id) => {
             const name = currentName(s, d.ctx, id);
@@ -586,13 +614,27 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
             names.add(name);
             return true;
           })
-        : picked;
+        : perName
+          ? picked.filter((id) => {
+              const i = unused.indexOf(currentName(s, d.ctx, id));
+              if (i < 0) return false;
+              unused.splice(i, 1);
+              return true;
+            })
+          : picked;
       return true;
     }
     case 'retire':
       for (const id of targets) {
         // e.g. Tankraizer: "cannot be retired by card effects"
-        if (onField(s, id) && !isRestricted(s, d.ctx, id, 'cannot_be_retired')) {
+        if (
+          onField(s, id) &&
+          !isRestricted(s, d.ctx, id, 'cannot_be_retired') &&
+          !(
+            locate(s, id).player === frame.master &&
+            isRestricted(s, d.ctx, id, 'cannot_be_retired_by_you')
+          )
+        ) {
           moveTo(d, id, 'drop', 'effect', frame);
         }
       }
@@ -888,6 +930,21 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'modify': {
       let amount = step.amount;
       if (step.per) amount *= select(ec, step.per).length;
+      if (step.perOpen) {
+        const players =
+          step.perOpen.owner === 'any'
+            ? [frame.master, other(frame.master)]
+            : [step.perOpen.owner === 'you' ? frame.master : other(frame.master)];
+        const circles =
+          step.perOpen.areas === 'front_RC'
+            ? (['front_left', 'front_right'] as const)
+            : REAR_GUARD_CIRCLES;
+        // an open circle has no unit (a locked card is not a unit but still fills its circle)
+        let open = 0;
+        for (const p of players)
+          open += circles.filter((c) => s.players[p].circles[c].length === 0).length;
+        amount *= open;
+      }
       if (step.byOriginalPowerOf) {
         amount = select(ec, step.byOriginalPowerOf).reduce(
           (sum, id) => sum + d.ctx.registry.get(s.cards[id]!.definitionId).power,

@@ -1,3 +1,4 @@
+import { isRestricted } from '../abilities/continuous';
 import { actOptions, type ActOption } from '../abilities/runtime';
 import {
   attackedUnits,
@@ -117,7 +118,7 @@ function rideableCards(state: GameState, ctx: EngineContext, player: PlayerId): 
   if (vg === null) return [];
   return state.players[player].hand.filter((id) => {
     const g = currentGrade(state, ctx, id);
-    return g === vg || g === vg + 1;
+    return (g === vg || g === vg + 1) && !isRestricted(state, ctx, id, 'cannot_normal_ride');
   });
 }
 

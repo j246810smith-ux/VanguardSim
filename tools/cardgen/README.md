@@ -35,6 +35,8 @@ implement; test runners for them are in `tests/fixtures/shapeChecks.ts`.
 2. `npm run cards:reprints -- BT08` (check `TEXT DIFFERS: review` lines by eye)
 3. `python tools/cardgen/newtexts.py . BT08` → write `specs/BT08.py` (+ new shapes / engine pieces)
 4. `python tools/cardgen/gen_set.py . tools/cardgen/specs/BT08.py` and `gen_index.py . bt08-1.0.0`
+   (**not `gen_index.py` for G, PR or VZ sets**: it only knows BT/TD/EB/FC/DG/MBT/MTD and rewrites the
+   index without the others. Add those by hand to `src/cards/index.ts` and bump `CARD_DATA_VERSION`.)
 5. `npm run cards:validate`, `npx vitest run tests/cards/texts.test.ts`
 6. `tests/cards/BT08.test.ts` naming every scripted card id in quotes (`npm run cards:report`)
 7. Starter decks (`decks/bt08_decks.json` + `add_decks.py`), `npx vitest run tests/sim/setGames.test.ts -t BT08`

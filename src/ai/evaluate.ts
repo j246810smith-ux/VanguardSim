@@ -17,17 +17,27 @@ import {
   type PlayerId,
 } from '../engine';
 import { isPerfectGuard } from './guarding';
+import { PROFILE_WEIGHTS } from './profile';
 import { DEFAULT_WEIGHTS, type EvalWeights } from './weights';
 
 /** What the AI knows about its own deck, to plan rides and keep the right cards. */
 export interface DeckPlan {
   /** Cards that have a Limit Break ability: damage up to 4 hurts them less. */
   readonly limitBreak: boolean;
+  /** From the deck's profile: cards worth keeping one copy of in hand. */
+  readonly hold?: readonly string[];
 }
 
-export function planFor(ctx: EngineContext, cards: readonly string[] | null): DeckPlan {
+export function planFor(
+  ctx: EngineContext,
+  cards: readonly string[] | null,
+  hold?: readonly string[],
+): DeckPlan {
   const defs = (cards ?? []).map((id) => ctx.registry.get(id));
-  return { limitBreak: defs.some((d) => d.abilities.some((a) => a.limitBreak !== undefined)) };
+  return {
+    limitBreak: defs.some((d) => d.abilities.some((a) => a.limitBreak !== undefined)),
+    ...(hold && hold.length > 0 ? { hold } : {}),
+  };
 }
 
 const FRONT_COLUMNS = [
@@ -117,6 +127,10 @@ export class Evaluator {
     let v = values.reduce((sum, x, i) => sum + (i < reserve ? w.reserveMultiplier * x : x), 0);
     // keep one copy of the next grade to ride (worth less than actually riding it)
     if (vgGrade < 3 && hand.some((d) => d.grade === vgGrade + 1)) v += w.nextGrade;
+    // a card the deck's profile holds for later: one copy of each
+    for (const id of this.plan.hold ?? []) {
+      if (hand.some((d) => d.id === id)) v += PROFILE_WEIGHTS.hold;
+    }
     return v;
   }
 

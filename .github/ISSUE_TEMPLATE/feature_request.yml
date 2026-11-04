@@ -8,8 +8,12 @@ body:
       label: What would you like, and why?
     validations:
       required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Filled in when you come from the game.
   - type: markdown
     attributes:
       value: >
-        Out of scope for now: online multiplayer, G-era and later mechanics, and card artwork
-        (never included, see THIRD_PARTY_NOTICES.md).
+        Card artwork is never included (see THIRD_PARTY_NOTICES.md).

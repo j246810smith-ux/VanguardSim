@@ -8,7 +8,18 @@ import data from '../../data/cards/G-BT01.json';
 import { ab, type AbilityDefinition, type CardFilter, type Cost, type Step } from '../engine';
 import type { SetAbilities } from './load';
 import type { SetFile } from './record';
-import { gbAttackVanguard, gPerfectGuard } from './G-TD01';
+import { gbAttackVanguard } from './G-TD01';
+import {
+  faceUpGZone,
+  gFaceUp,
+  gPerfectGuardCC as gPerfectGuardCCShape,
+  lookTakeBottom,
+  opponentRetiredByYou,
+  opponentToBottom,
+  pumpThenReturn,
+  retireOpponent,
+  strideFodder as strideFodderShape,
+} from './gShapes';
 
 const RECORDS = (data as SetFile).cards;
 /** Line `n` (0-based) of a card's English text. */
@@ -20,35 +31,9 @@ const text = (id: string, n = 0): string => {
 
 // ---- G-BT01 shapes ------------------------------------------------------------------------------
 
-/** "[Choose a face down card named <name> from your G zone, and turn it face up]" */
-const gFaceUp = (name: string): Cost => ({ cost: 'g_face_up', n: 1, filter: { name } });
-/** "If the number of face up cards in your G zone is two or more" */
-const faceUpGZone = (n = 2) => ab.count(ab.cards('you', ['gzone'], { faceUp: true }), { min: n });
-
-const lookTakeBottom = (n: number, take: number, filter: CardFilter = {}): Step[] => [
-  ab.lookTop('look', n),
-  ab.choose('t', ab.bound('look', filter), take, { upTo: true }),
-  ab.toHand(ab.bound('t')),
-  ab.bottomInOrder(ab.bound('look', { zone: 'deck' })),
-];
-
-const opponentToBottom = (maxGrade?: number): Step[] => [
-  ab.choose(
-    'b',
-    ab.units('opponent', ['RC'], maxGrade === undefined ? {} : { grade: { max: maxGrade } }),
-  ),
-  ab.moveTo(ab.bound('b'), 'deck_bottom'),
-];
-
-const retireOpponent = (maxGrade?: number, n = 1, upTo = false): Step[] => [
-  ab.choose(
-    'r',
-    ab.units('opponent', ['RC'], maxGrade === undefined ? {} : { grade: { max: maxGrade } }),
-    n,
-    upTo ? { upTo } : {},
-  ),
-  ab.retire(ab.bound('r')),
-];
+/** Sentinel with Counter-Charge (gShapes.gPerfectGuardCC) with this set's text. */
+const gPerfectGuardCC = (id: string, name: string): AbilityDefinition =>
+  gPerfectGuardCCShape(text(id, 1), name);
 
 /** "until end of that battle, your opponent cannot call grade 0 cards from hand to (GC)" */
 const noGrade0Guards = (): Step =>
@@ -63,55 +48,9 @@ const noGrade0Guards = (): Step =>
     'end_of_battle',
   );
 
-/** Sentinel: perfect guard, then Counter-Charge 1 if a card of the same name is in the drop zone. */
-const gPerfectGuardCC = (id: string, name: string): AbilityDefinition => {
-  const pg = gPerfectGuard(text(id, 1));
-  if (pg.kind !== 'AUTO') return pg;
-  return {
-    ...pg,
-    trigger: ab.placedOn('GC', 'self', 'hand'),
-    effect: [
-      ab.choose('t', ab.units('you', ['VC'], { beingAttacked: true })),
-      ab.restrict(ab.bound('t'), 'cannot_be_hit', 'end_of_battle'),
-      ab.if_(ab.exists(ab.cards('you', ['drop'], { name })), ab.counterCharge(1)),
-    ],
-  };
-};
-
-/**
- * "Stride fodder": [AUTO][Choose a grade 3 card from your hand, and reveal it] placed on (RC)
- * from hand: search a grade 3 with <part> in its name, reveal it, to hand, shuffle, discard a card;
- * [CONT]Hand: grade +2 while paying a stride cost.
- */
-const strideFodder = (id: string, part: string): AbilityDefinition[] => [
-  ab.auto({
-    id: '1',
-    zones: ['RC'],
-    trigger: ab.placedOn('RC', 'self', 'hand'),
-    condition: ab.exists(ab.cards('you', ['hand'], { grade: { min: 3, max: 3 } })),
-    effect: [
-      ab.may('Reveal a grade 3 card from your hand to use this ability?', [
-        ab.choose('rv', ab.cards('you', ['hand'], { grade: { min: 3, max: 3 } }), 1, {
-          prompt: 'Choose a grade 3 card from your hand to reveal',
-        }),
-        ab.reveal(ab.bound('rv')),
-        ab.search('s', { grade: { min: 3, max: 3 }, nameIncludes: part }),
-        ab.reveal(ab.bound('s')),
-        ab.toHand(ab.bound('s')),
-        ab.shuffle(),
-        ab.choose('dc', ab.cards('you', ['hand']), 1, { prompt: 'Choose a card to discard' }),
-        ab.moveTo(ab.bound('dc'), 'drop'),
-      ]),
-    ],
-    text: text(id, 0),
-  }),
-  ab.cont({
-    id: 'stride_grade',
-    zones: ['hand'],
-    effects: [{ ce: 'stride_grade', amount: 2 }],
-    text: text(id, 1),
-  }),
-];
+/** Stride fodder (gShapes.strideFodder) with this set's texts. */
+const strideFodder = (id: string, part: string): AbilityDefinition[] =>
+  strideFodderShape(part, text(id, 0), text(id, 1));
 
 /** "[AUTO]:… When this unit is placed on (VC)/(VC) or (RC), you may pay the cost. If you do, …" */
 const placed = (
@@ -145,15 +84,6 @@ const gbBoostedAttack = (id: string, cost: Cost[], effect: Step[]): AbilityDefin
     text: text(id, 0),
   });
 
-/** "When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards" */
-const opponentRetiredByYou = (other = false) => ({
-  on: 'put_into_drop' as const,
-  who: { owner: 'opponent' as const },
-  from: 'RC' as const,
-  byYourEffect: true,
-  ...(other ? { otherCause: true } : {}),
-});
-
 /** "When this unit [Stand] due to an effect from one of your cards" */
 const stoodByYou = (who: Parameters<typeof ab.stands>[0] = 'self') => ({
   on: 'stands' as const,
@@ -183,13 +113,6 @@ const callAndPump: Step[] = [
 ];
 
 const vanguardNamed = (part: string) => ab.exists(ab.units('you', ['VC'], { nameIncludes: part }));
-
-/** "… you may have those units get +n until end of turn. If you do, return this unit to your deck, and shuffle your deck." */
-const pumpThenReturn = (as: string, amount: number): Step =>
-  ab.may(`Give +${amount} and return this unit to your deck?`, [
-    ab.power(ab.bound(as), amount),
-    ...ab.returnSelfToDeck(),
-  ]);
 
 /** "[AUTO](RC)[GB1]:When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle." */
 const gb3000 = (id: string) => [gbAttackVanguard(1, 3000, ['RC'], text(id, 0))];

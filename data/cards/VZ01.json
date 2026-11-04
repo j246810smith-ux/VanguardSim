@@ -1,0 +1,160 @@
+{
+  "set": "VZ01",
+  "importedAt": "2026-11-04T18:00:57.903Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "VZ01-001",
+      "set": "VZ01",
+      "jp": {
+        "number": "VZ/001",
+        "name": "ブラスター・ブレード・バースト",
+        "text": "【永】【(V)】：あなたのユニットはこのユニットを【ブースト】できない。\n【自】【(V)】：[【カウンターブラスト】(2)-《ロイヤルパラディン》]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワーを増やす。増やす数値は、あなたの前列の《ロイヤルパラディン》のリアガードの元々のパワーの合計である。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/VZ/vz01_001.png"
+      },
+      "en": {
+        "number": "PR/0412EN",
+        "name": "Blaster Blade Burst",
+        "text": "[CONT](VC):This unit cannot be boosted ([Boost]) by your units.\n[AUTO](VC):[Counter-Blast 2]-<Royal Paladin>] When this unit attacks a vanguard, you may pay the cost. If you do, increase this unit's [Power] by the total original [Power] of all of your <Royal Paladin> rear-guards in your front row until end of that battle.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/pr/pr_0412.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["VZ/001", "PR/0412EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=VZ%2F001",
+          "fetchedAt": "2026-11-04T18:00:34.937Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=PR/0412EN",
+          "fetchedAt": "2026-11-04T17:35:52.007Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "VZ01-015",
+      "set": "VZ01",
+      "jp": {
+        "number": "VZ/015",
+        "name": "くらうでぃあ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[このユニットをソウルに置く]あなたの《ロイヤルパラディン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/VZ/vz01_015.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "-",
+      "printings": ["VZ/015"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=VZ%2F015",
+          "fetchedAt": "2026-11-04T18:00:49.138Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"],
+        "reviewed": "This card was never printed in English. Japanese text and stats are used (like BT11-055).",
+        "statsFrom": "jp"
+      }
+    }
+  ],
+  "reprints": [
+    {
+      "number": "VZ/002",
+      "id": "PR11-0041"
+    },
+    {
+      "number": "VZ/003",
+      "id": "DG01-003"
+    },
+    {
+      "number": "VZ/004",
+      "id": "BT01-010"
+    },
+    {
+      "number": "VZ/005",
+      "id": "BT01-021"
+    },
+    {
+      "number": "VZ/006",
+      "id": "BT01-002"
+    },
+    {
+      "number": "VZ/007",
+      "id": "BT02-056"
+    },
+    {
+      "number": "VZ/008",
+      "id": "BT01-041"
+    },
+    {
+      "number": "VZ/009",
+      "id": "BT01-042"
+    },
+    {
+      "number": "VZ/010",
+      "id": "PR11-0008"
+    },
+    {
+      "number": "VZ/011",
+      "id": "BT02-057"
+    },
+    {
+      "number": "VZ/012",
+      "id": "BT01-044"
+    },
+    {
+      "number": "VZ/013",
+      "id": "TD01-010"
+    },
+    {
+      "number": "VZ/014",
+      "id": "PR11-0013"
+    },
+    {
+      "number": "VZ/016",
+      "id": "DG01-014"
+    },
+    {
+      "number": "VZ/017",
+      "id": "BT01-045"
+    },
+    {
+      "number": "VZ/018",
+      "id": "BT01-046"
+    },
+    {
+      "number": "VZ/019",
+      "id": "BT01-047"
+    }
+  ],
+  "enOnly": []
+}

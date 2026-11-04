@@ -6,6 +6,7 @@ export type Speed = 'normal' | 'fast' | 'instant';
 export type CutIns = 'full' | 'short' | 'off';
 /** Battle view: the tilted table (D-035) or straight from above (user's request, 2026-11-03). */
 export type TableView = 'tilted' | 'overhead';
+export type UpdateChannel = 'stable' | 'preview';
 
 export interface Settings {
   readonly speed: Speed;
@@ -26,6 +27,10 @@ export interface Settings {
   readonly defaultSleeve: string;
   /** Battle playmat (cosmetics.ts PLAYMATS). */
   readonly playmat: string;
+  /** Update Manager (D-037): Stable (default) or the opt-in Preview channel. */
+  readonly updateChannel: UpdateChannel;
+  /** Look for a new release when the game starts. Off by default: the game is offline (D-004). */
+  readonly checkUpdatesAtStart: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -41,6 +46,8 @@ export const DEFAULT_SETTINGS: Settings = {
   muted: false,
   defaultSleeve: 'classic',
   playmat: 'daybreak',
+  updateChannel: 'stable',
+  checkUpdatesAtStart: false,
 };
 
 const KEY = 'vanguard-sim.settings.v1';

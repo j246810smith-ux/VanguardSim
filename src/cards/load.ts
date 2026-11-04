@@ -10,10 +10,19 @@ import translationFile from '../../data/translations/unofficial.json';
 
 /**
  * Unofficial English name and text for cards never printed in English (FC01, user's request
- * 2026-10-30): used only when a card has no official English record.
+ * 2026-10-30): used only when a card has no official English record. `clan` and `race` are for
+ * names no officially translated card teaches (Etranger, Alien).
  */
 export const UNOFFICIAL: Readonly<
-  Record<string, { readonly name: string; readonly text: string }>
+  Record<
+    string,
+    {
+      readonly name: string;
+      readonly text: string;
+      readonly clan?: string;
+      readonly race?: string;
+    }
+  >
 > = translationFile.cards;
 
 /**
@@ -68,8 +77,8 @@ export function toDefinition(
     : {
         ...loc,
         ...(translated ? { name: translated.name, text: translated.text } : {}),
-        clan: names.clan.get(loc.clan) ?? loc.clan,
-        race: names.race.get(loc.race) ?? loc.race,
+        clan: translated?.clan ?? names.clan.get(loc.clan) ?? loc.clan,
+        race: translated?.race ?? names.race.get(loc.race) ?? loc.race,
       };
   return {
     id: r.id,

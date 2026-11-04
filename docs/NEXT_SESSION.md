@@ -15,6 +15,57 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Update 2026-11-04 — v0.29.0-alpha published
+
+Work from both sessions is released: tournament decks (`docs/deck-intelligence/PROGRESS.md`), profiles,
+G-BT02, PR 2011 and 2012, VZ01, the Update Manager. **Next:** the user's playtest notes on the AI;
+Deck Intelligence stage 7 (spectator arena); PR 2013, PR 2014, then G-TD03 onward.
+
+## ▶ Update 2026-11-04 — Update Manager stage 2 (D-037)
+
+Signed manifest done: `npm run release:keygen`, `npm run release:manifest`,
+`app/main/updateManifest.cjs`; design and measurements in `docs/design/UPDATE_MANAGER.md`. A normal
+update is the 1.4 MB app package: the exe only differs by 65 unused bytes between builds. Stage 3
+(download + verify) is also built: `app/main/updateDownload.cjs`, staged in
+`%LOCALAPPDATA%\VanguardSim\updates\<v>\`. Stage 4 (updater program) is built too and tested with
+two real packaged builds: `packaging/updater/VanguardUpdater.cs`, `app/main/updateInstall.cjs`. Next:
+stage 5 is done too, so D-037 is finished apart from a real release: the first one needs the steps in
+`docs/RELEASING.md` ("Updating from inside the game"), then `npm run release:verify`. The feedback button is a link to GitHub's new-issue page, the user's
+choice over an in-game box; direct posting without an account would need a hosted relay. The first release with a manifest also needs the steps in
+`docs/RELEASING.md`. Signing key: `%USERPROFILE%\.vanguardsim\update-signing-key.pem`, needs a backup.
+
+## ▶ Update 2026-11-04 — PR 2012 done, PR 2013 next
+
+`PR12` is imported, scripted and tested (`tools/cardgen/specs/PR12.py`, `tests/cards/PR12.test.ts`). The
+user asked for the next sets in order: **PR 2013, PR 2014, then G-TD03 onward.** Traps: `gen_index.py`
+drops G, PR and VZ sets, so add those to `src/cards/index.ts` by hand; `cards:reprints` does not read
+PR sets, because the importer records their reprints itself. In tests: a scene already has a card in the
+soul, decks cap at four copies, a vanguard with no legal attack skips the battle phase when the scene
+is made, and with an empty defending hand a whole battle resolves in one command.
+
+## ▶ Update 2026-11-04 — PR 2011 done, PR 2012 next
+
+`PR11` is imported, scripted and tested (`tools/cardgen/specs/PR11.py`, `tests/cards/PR11.test.ts`).
+Importer: `npm run cards:import -- PR12` lists English candidates, but **a pair only counts when it
+is in `PR_PAIRS` or `EN_PRINTED_ELSEWHERE`**, checked by name (`PR_DUMP_EN=1` prints every English
+PR). Look in the sets' `enOnly` lists too: many PR cards were printed in English boosters. Then add
+the set to `SIDE_SETS` in `rules/format.ts`, `src/cards/index.ts`, and the regexes already accept
+PR11–PR14. PR/0262 and PR/0263 are reprints of G-BT01 cards; the Gear Chronicle and no-clan cards go
+with the Expanded Era.
+
+**Blaster Blade Burst done (D-038):** set `VZ01`, the user confirmed it is the deck they meant. The
+user also confirmed Bigbelly's two draws. PR/0197 くらうでぃあ (PR 2013) is VZ01-015. Next the user
+asked to **improve the AI**; PR 2012 waits until they say so.
+
+## ▶ Update 2026-11-04 — G-BT02 done, PR cards next
+
+G-BT02 is scripted and tested (`src/cards/G-BT02.ts`, `tests/cards/G-BT02.test.ts`, shapes in
+`gShapes.ts`). Open question for the user: Bigbelly's two draws (UNRESOLVED_RULINGS "G era notes").
+The user chose G-BT02, then **PR batch 2011** (`docs/design/ORIGINAL_ERA_ROADMAP.md`) and asked for
+all images to be downloaded. Test quirks: `settle` takes the first circle, which replaces a unit
+(use `settleOpen`), and `min` of an "up to" choice unless `most`; a defender with no legal guard
+skips the guard step; a damage trigger can pump the defender before a later attack.
+
 ## ▶ Pick up here (2026-11-03, end) — v0.28.0-alpha published
 
 The user's v0.28 spec (player feedback on v0.27) is done except content, and released as

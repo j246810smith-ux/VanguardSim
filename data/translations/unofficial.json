@@ -1,5 +1,5 @@
 {
-  "note": "Unofficial English names and text for cards that were never printed in English (FC01 and BT11-055; user's request, 2026-10-30). Used only when a card has no official English record; the game marks them as unofficial translations. Text follows the official English templates of the time (Nov 2014); the official Japanese text stays canonical.",
+  "note": "Unofficial English names and text for cards that were never printed in English (FC01, BT11-055 and PR cards; user's request, 2026-10-30). Used only when a card has no official English record; the game marks them as unofficial translations. Text follows the official English templates of the time (Nov 2014); the official Japanese text stays canonical.",
   "cards": {
     "FC01-001": {
       "name": "Mighty Spear Liberator, Bleoberis",
@@ -20,6 +20,68 @@
     "BT11-055": {
       "name": "Hazard Bob",
       "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (VC) or (RC), if you have a <Genesis> vanguard, you may pay the cost. If you do, put the top card of your deck into your damage zone, and at the end of that turn, choose a card from your damage zone, return it to your deck, and shuffle your deck."
+    },
+    "PR11-0012": {
+      "name": "Graimu",
+      "text": ""
+    },
+    "PR11-0040": {
+      "name": "Blaster Keroro",
+      "text": "[AUTO](VC/RC):When this unit attacks, if you have more cards in your hand than your opponent, this unit gets [Power] +3000 until end of that battle.",
+      "clan": "Etranger",
+      "race": "Alien"
+    },
+    "VZ01-015": {
+      "name": "Claudia",
+      "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] Choose up to one of your <Royal Paladin>, and that unit gets [Power] +3000 until end of turn."
+    },
+    "PR12-0064": {
+      "name": "Blaster Mameshiba",
+      "text": "[AUTO]:When this unit is put into the drop zone from (GC), put this unit into your soul.",
+      "clan": "Etranger",
+      "race": "High Beast"
+    },
+    "PR12-0065": {
+      "name": "Incandescent Lion, Keroro Ezel",
+      "text": "[AUTO](VC)/(RC):When this unit is boosted ([Boost]) by an <Etranger>, this unit gets [Power] +2000 until end of that battle.",
+      "clan": "Etranger",
+      "race": "Alien"
+    },
+    "PR12-0080": {
+      "name": "Spider-Man",
+      "text": "[AUTO](VC)[Limit-Break 4](This ability is active if you have four or more damage):When this unit attacks a vanguard, this unit gets [Power] +5000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, and retire it.",
+      "clan": "Etranger",
+      "race": "Human"
+    },
+    "PR12-0086": {
+      "name": "Ladybug Cavalry",
+      "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (GC), if you have a <Gold Paladin> vanguard, you may pay the cost. If you do, this unit gets [Shield] +5000 until end of that battle.",
+      "clan": "Gold Paladin",
+      "race": "Sylph"
+    },
+    "PR12-0087": {
+      "name": "Voltage Claw Dragon",
+      "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC) or (RC), if you have a <Narukami> vanguard, you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, and retire it.",
+      "clan": "Narukami",
+      "race": "Thunder Dragon"
+    },
+    "PR12-0094": {
+      "name": "Kumamon",
+      "text": "[AUTO]:When this unit is put into the drop zone from (GC), put this unit into your soul.",
+      "clan": "Etranger",
+      "race": "High Beast"
+    },
+    "PR12-0095": {
+      "name": "Princess of Coral, Thetis",
+      "text": "[ACT](VC)/(RC):[Counter-Blast 1] This unit gets [Power] +1000 until end of turn.\n[CONT]:This card is also an <Aqua Force>.",
+      "clan": "Etranger",
+      "race": "Mermaid"
+    },
+    "PR12-0101": {
+      "name": "Baron Kiddani",
+      "text": "[AUTO](VC):When this unit attacks, if either fighter is \"Baron Kiddani\", this unit gets [Power] +3000 until end of that battle.\n[AUTO](RC):When this unit attacks, if either fighter is \"Baron Kiddani\", this unit gets [Power] +1000 until end of that battle.",
+      "clan": "Etranger",
+      "race": "Human"
     }
   }
 }

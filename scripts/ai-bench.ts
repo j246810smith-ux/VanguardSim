@@ -1,5 +1,5 @@
 /**
- * AI benchmark: `npm run ai:bench -- [games] [--a smart] [--b basic] [--seed 1000] [--decks all|BT08|…]`
+ * AI benchmark: `npm run ai:bench -- [games] [--a smart] [--b basic] [--seed 1000] [--decks all|library|BT08|…]`
  *
  * Weight tuning: a controller named `smart-w:path=value,path=value` is the current Hard AI with
  * those evaluation weights changed (paths into `EvalWeights`, e.g. `smart-w:hand.sentinel=2000`).
@@ -16,6 +16,8 @@ import { RandomController } from '../src/ai/randomController';
 import { SMART_BASELINE, SmartController } from '../src/ai/smartController';
 import { withWeights, type EvalWeights } from '../src/ai/weights';
 import { cardRegistry } from '../src/cards';
+import { deckListOf, LIBRARY } from '../src/decks/library';
+import { profileForList } from '../src/decks/profiles';
 import { STARTER_DECKS } from '../src/decks/starters';
 import { EARLY_BT01_BT17_FORMAT, EARLY_VANGUARD_RULES, type EngineContext } from '../src/engine';
 import {
@@ -42,6 +44,13 @@ const CONTROLLERS: Record<string, ControllerFactory> = {
     new SmartController(c, deck, { ...SMART_BASELINE, realisticOpponent: true }),
   'smart-planner': (c, deck) =>
     new SmartController(c, deck, { ...SMART_BASELINE, attackPlanner: true }),
+  /** The lookahead also plays the next turn (AI plan stage 6). */
+  /** Uses the deck's strategy profile when the deck is exactly a library deck. */
+  'smart-profile': (c, deck) =>
+    new SmartController(c, deck, { profile: profileForList(deck)?.ai ?? null }),
+  'smart-next': (c, deck) => new SmartController(c, deck, { nextTurnLookahead: true }),
+  'smart-next8': (c, deck) =>
+    new SmartController(c, deck, { nextTurnLookahead: true, battleSamples: 8, otherSamples: 4 }),
   'smart-8samples': (c, deck) =>
     new SmartController(c, deck, { battleSamples: 8, otherSamples: 4 }),
   'smart-competent': (c, deck) =>
@@ -71,9 +80,12 @@ const setOf = (cards: readonly string[]) =>
     .filter((s) => s.startsWith('BT'))
     .sort()
     .at(-1) ?? 'TD';
-const pool: NamedDeck[] = STARTER_DECKS.filter(
-  (d) => deckFilter === 'all' || setOf(d.deck.cards) === deckFilter,
-).map((d) => ({ name: d.name, deck: d.deck }));
+const pool: NamedDeck[] =
+  deckFilter === 'library'
+    ? LIBRARY.map((d) => ({ name: d.name, deck: deckListOf(d) }))
+    : STARTER_DECKS.filter((d) => deckFilter === 'all' || setOf(d.deck.cards) === deckFilter).map(
+        (d) => ({ name: d.name, deck: d.deck }),
+      );
 if (pool.length === 0) throw new Error(`no starter decks for --decks ${deckFilter}`);
 // a deterministic spread of pairs over the pool
 const pairs = pool.map((a, i) => [a, pool[(i * 7 + 3) % pool.length]!] as const);

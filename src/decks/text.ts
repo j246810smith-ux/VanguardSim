@@ -26,7 +26,7 @@ export interface ParsedDeck {
  * English number of an English-only card keeps its "EN" ("BT16/001EN" → "BT16-001EN", D-031).
  */
 export function normalizeId(raw: string, has?: (id: string) => boolean): string | null {
-  const m = /^((?:G-)?[A-Za-z]{2,3}\d{2})[-/](S?P?\d{1,3})(EN)?$/i.exec(raw.trim());
+  const m = /^((?:G-)?[A-Za-z]{2,3}\d{2})[-/](S?P?\d{1,3}|\d{4}[A-Z]?)(EN)?$/i.exec(raw.trim());
   if (!m) return null;
   const num = /^\d+$/.test(m[2]!) ? m[2]!.padStart(3, '0') : m[2]!.toUpperCase();
   const id = `${m[1]!.toUpperCase()}-${num}`;

@@ -30,6 +30,9 @@ describe('card search', () => {
     expect(ids('bt01-1')[0]).toBe('BT01-001');
     expect(ids('G-BT01/025')[0]).toBe('G-BT01-025');
     expect(ids('gbt01-025')[0]).toBe('G-BT01-025');
+    expect(ids('PR11/0003')[0]).toBe('PR11-0003');
+    expect(ids('pr11-0003')[0]).toBe('PR11-0003');
+    expect(ids('vz01-1')[0]).toBe('VZ01-001');
   });
 
   it('searches clan and text, and narrows with each word', () => {

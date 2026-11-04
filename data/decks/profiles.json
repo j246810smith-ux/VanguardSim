@@ -1,0 +1,965 @@
+{
+  "note": "Strategy profiles for the deck library, one per deck. `basis` says where a section comes from: source = stated in the deck's source write-up; cards = our reading of the official card text; both = the source plus our reading. A section with a null text has no evidence yet, and nothing is invented for it. `ai` is the part the AI uses: card IDs from the deck, most preferred first.",
+  "profiles": [
+    {
+      "deckId": "jp-rp-alfred-soulsaver-2011",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Fill the rear-guard circles so King of Knights, Alfred gains +2000 per Royal Paladin rear-guard without a boost, with Soul Saver Dragon's five soul giving three rear-guards +5000 as the alternative finish."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Alfred first, with Soul Saver support; Pongal searches Soul Saver Dragon. Barcgal is the first vanguard."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Keep one of each grade with Alfred as the target; Pongal counts as a route to the alternative grade 3."
+      },
+      "field": {
+        "basis": "both",
+        "text": "Marron, and Lake Maiden Lien as a filter, boost the side columns; the vanguard needs no booster because Alfred cannot be boosted, so every circle is worth filling."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Counter-Blast 3 on Alfred fetches a grade 2 or less; save soul towards five if Soul Saver is the plan."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Alfred's power grows with the field, so build the field before attacking. Attack with the vanguard first while rear-guards can use its triggers."
+      },
+      "defence": {
+        "basis": "source",
+        "text": "Gordon's intercept (+5000 shield) is the main defensive tool alongside Iseult."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Without Alfred, ride Soul Saver or Bors; Alfred's Counter-Blast rebuilds a removed field one unit at a time."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-042", "BT01-043"],
+        "ride2": ["BT01-021", "BT01-002"],
+        "ride3": ["BT01-001", "BT02-004", "DG01-003"],
+        "keep": ["BT01-001", "BT01-042", "BT01-021", "BT02-030"],
+        "hold": [],
+        "callFirst": ["BT01-021", "BT01-002", "BT02-056"]
+      }
+    },
+    {
+      "deckId": "jp-gp-blond-ezel-2012",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "The Blond Ezel ride chain reaches grade 3 ahead of the opponent; Viviane and Ezel's superior calls fill the field quickly for Ezel's continuous power, forcing repeated guards from 20000-and-above lines."
+      },
+      "ride": {
+        "basis": "both",
+        "text": "Kyrph, Gareth, Beaumains: with Kyrph and Gareth on (RC) and Beaumains on (VC), Kyrph's [ACT] searches and rides Blond Ezel early."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Gareth and Beaumains are the priority, since they enable the early Ezel; Ezel himself can be searched from the deck."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Minimal direct calling and low cost: superior calls do the work, Sleygals combine for power, and Manawydan attacks with a Gold Paladin boost."
+      },
+      "resources": {
+        "basis": "source",
+        "text": "Tripp unflips damage so the Sleygals and Viviane can Counter-Blast repeatedly."
+      },
+      "combat": {
+        "basis": "both",
+        "text": "Boost Viviane and Tripp so their on-hit abilities trigger; press with every line above 20000."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Mark as a perfect guard, paid with a Gold Paladin from hand."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "If the chain is missed, ride Manawydan or a natural Ezel; Viviane's call still refills open circles on a hit."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT06-082", "TD05-010"],
+        "ride2": ["BT06-032", "BT06-033"],
+        "ride3": ["BT06-004", "BT06-078"],
+        "keep": ["BT06-082", "BT06-032", "BT06-004"],
+        "hold": [],
+        "callFirst": ["BT06-005", "BT06-033", "BT06-016"]
+      }
+    },
+    {
+      "deckId": "jp-sb-dudley-emperor-2012",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Dudley Emperor's Limit Break brings out two more Spike Brothers once the field has opened, chiefly Juggernaut Maximum and Brakki, which attack at 16000 before a boost and return to the deck. Zachary deals free damage at grade 2."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Medical Manager and Wonder Boy are the preferred grade 1 rides for the first and second turns; Black Panther is the grade 2 vanguard; Dudley Emperor is the finish."
+      },
+      "mulligan": {
+        "basis": "source",
+        "text": "Mecha Trainer can fetch any grade 1, Marilyn or Express by situation, so a missing grade 1 is less urgent than grade 2 and Dudley."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Wonder Boy assists the returning attackers up to 24000. Units are meant to leave and be replaced."
+      },
+      "resources": {
+        "basis": "both",
+        "text": "The Limit Break costs two Spike Brothers from hand, which weakens the hand; Medical Manager's Soul-Charge pays for the self-returning attackers' Soul-Blast."
+      },
+      "combat": {
+        "basis": "source",
+        "text": "Vacate circles with the returning attackers so Dudley has open circles to call into, and let Zachary hit and run before Limit Break."
+      },
+      "defence": {
+        "basis": "source",
+        "text": "The hand is thin after Limit Break; Zachary's pressure draws cards from the opponent's hand if they guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Before four damage, keep attacking with self-returning units and Zachary rather than holding them."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["EB03-019", "BT01-075"],
+        "ride2": ["BT02-022", "EB03-017"],
+        "ride3": ["EB03-001", "BT01-020"],
+        "keep": ["EB03-001", "BT02-022", "EB03-019", "BT01-075"],
+        "hold": [],
+        "callFirst": ["EB03-017", "BT01-020", "BT01-074"]
+      }
+    },
+    {
+      "deckId": "jp-ot-lulu-sakuya-2012",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Hold LuLu's ability for the endgame. Riding CoCo or Sakuya pops her out of the soul to draw; CoCo then has an empty soul for +3000 and a two-card draw, while Sakuya returns the field to hand for +4000 with four or more cards."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "LuLu first vanguard; CoCo or Sakuya at grade 3 by situation."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Grade 1 and 2 rides that keep the soul small come first; either grade 3 works."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Sakuya's return lets the field be rearranged freely and LuLu saved as a 10000 shield; Mocha and Sakuya want four or more cards in hand."
+      },
+      "resources": {
+        "basis": "both",
+        "text": "Psychic Bird and Luck Bird manage the soul and hand; keep the soul at one or fewer before riding CoCo."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Silent Tom attacks stop grade 0 guards; a large hand powers both Mocha and the vanguard."
+      },
+      "defence": {
+        "basis": "source",
+        "text": "Hand size is the defence: returning units adds shield on demand."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "If the soul has grown too big for CoCo, ride Sakuya instead."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-054", "EB05-023"],
+        "ride2": ["BT01-026", "BT01-018"],
+        "ride3": ["BT02-007", "EB05-004"],
+        "keep": ["BT02-007", "EB05-004", "BT01-054", "BT01-026"],
+        "hold": [],
+        "callFirst": ["BT01-018", "BT02-017", "EB05-023"]
+      }
+    },
+    {
+      "deckId": "jp-nk-eradicator-descendant-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "A faster game than the break rides of its format: Descendant and Gauntlet Buster, with no bad grade 3 ride. Both have skills outside Limit Break, so baiting them by leaving them at three damage does not work."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Either grade 3; their 11000 bases also make them useful rear-guards. Spark Kid Dragoon can search a grade 3."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Any grade 3 is fine, so prioritise grades 1 and 2 with the attack-boost skills."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Deathscythe supports Gauntlet Buster and controls the field; Demolition Dragon and Spark Rain attack at +3000 with an Eradicator vanguard."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Gauntlet Buster and Descendant share Counter-Blast 2 from Eradicator cards; Descendant's restand also needs three Eradicators from hand."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Retire a rear-guard before attacking at Limit Break so Gauntlet Buster gets +3000 and +1 critical."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Guld as perfect guard; save hand for Descendant's cost when that line is on."
+      },
+      "recovery": {
+        "basis": "source",
+        "text": "Retiring and forcing retires works from early on, so continue the plan under four damage."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Luquier Reverse was called a hard counter to Descendant builds, since soul-based calls avoid Deathscythe's retires."
+      },
+      "ai": {
+        "ride1": ["FC01-023", "BT10-037"],
+        "ride2": ["FC01-021", "TD09-005"],
+        "ride3": ["BT10-007", "BT10-006"],
+        "keep": ["BT10-007", "BT10-006", "FC01-023", "FC01-021"],
+        "hold": [],
+        "callFirst": ["BT06-019", "TD09-005", "FC01-023"]
+      }
+    },
+    {
+      "deckId": "jp-nk-gauntlet-buster-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Retire rear-guards with Cho-Ou and Deathscythe so Gauntlet Buster's Limit Break gains +3000 and +1 critical for each, reported as the top Open-division deck at Kanazawa."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Vowing Sword as a break ride under Gauntlet Buster when available; otherwise Gauntlet Buster or Descendant directly."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Grade 2 Cho-Ou and grade 1 attackers first; keep one grade 3."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Cho-Ou moves an Eradicator to the soul to retire a front-row unit, fuelling Rising Phoenix's draw."
+      },
+      "resources": {
+        "basis": "source",
+        "text": "Soul from Cho-Ou pays for Rising Phoenix; Counter-Blast 2 is for Gauntlet Buster's forced retire."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Do retire effects in the main phase before attacks; Shuki also gains +3000 on each."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Guld as perfect guard; Castor draws when the opponent has two or fewer rear-guards."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Against an empty opposing field, retire effects have no target, so the plan becomes plain pressure and Castor's draw."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Liberators were named its constant rival in this format."
+      },
+      "ai": {
+        "ride1": ["FC01-023", "BT11-039"],
+        "ride2": ["TD09-005", "BT11-017"],
+        "ride3": ["TD09-001", "BT10-007", "BT10-006"],
+        "keep": ["BT10-007", "BT11-017", "FC01-023", "TD09-001"],
+        "hold": [],
+        "callFirst": ["BT11-017", "BT06-019", "BT11-039"]
+      }
+    },
+    {
+      "deckId": "jp-gp-round-table-alfred-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "cards",
+        "text": "Break ride Solitary Liberator Gancelot with Liberator of the Round Table, Alfred: +10000 on the vanguard, +5000 on three rear-guards, and Alfred's +2000 per Liberator rear-guard at Limit Break."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Gancelot first, Round Table Alfred over it at four damage."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Gancelot and a grade 1 and 2 to ride; Alfred can be held for later."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Fill the field before the break ride so all three +5000s land; Marron and Phallon attack at +3000."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Alfred's Counter-Blast 2 from Liberators looks at the top card to call; Josephus draws when called from the deck."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Attack with the pumped rear-guards alongside the vanguard to demand several guards in one turn."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Mark Liberator as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Without the break ride, Alfred alone still gains from a full Liberator field."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Named the Eradicators' constant rival in the 2013 Open divisions."
+      },
+      "ai": {
+        "ride1": ["FC01-015", "BT10-025"],
+        "ride2": ["FC01-013", "TD08-005"],
+        "ride3": ["TD08-001", "BT10-003"],
+        "keep": ["TD08-001", "BT10-003", "FC01-015", "FC01-013"],
+        "hold": ["BT10-003"],
+        "callFirst": ["TD08-005", "TD08-006", "FC01-015"]
+      }
+    },
+    {
+      "deckId": "jp-pm-luquier-reverse-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Soul-based calls: Ionela and Irina call two units at once, one to the field and one to the soul, then Luquier Reverse's Limit Break chain-locks rear-guards to call from the soul, multiplying one card into several."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Luquier the Dragon Tamer under Reverse, which gains +2000 with her in the soul; Eva is the other break ride."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Irina and a grade 2 first, then any grade 3 of the three."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Keep cards in the soul: the opponent cannot retire it, so field removal matters less."
+      },
+      "resources": {
+        "basis": "both",
+        "text": "Nitro Juggler soul-charges; each Reverse activation needs Counter-Blast 1 and a rear-guard to lock."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Lock used-up rear-guards to refresh circles with fresh attackers before the battle phase."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Lydia as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "With little soul, Irina and Trapezist rebuild it before Limit Break matters."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Called a hard counter to Descendant, because its retires do not reach the soul."
+      },
+      "ai": {
+        "ride1": ["BT12-092", "BT12-093"],
+        "ride2": ["BT12-040", "BT12-042"],
+        "ride3": ["BT07-004", "BT12-018", "BT12-008"],
+        "keep": ["BT12-092", "BT12-040", "BT12-008", "BT07-004"],
+        "hold": ["BT12-008"],
+        "callFirst": ["BT12-092", "BT07-032", "EB01-022"]
+      }
+    },
+    {
+      "deckId": "jp-dp-daiyusha-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Enigman Storm's grade security with Daikaiser's break ride, and Laurel to stand a 26000-plus critical 3 vanguard. Fifteen grade 3s drive-check often enough to retire perfect guards."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Flow, Ripple, Wave, Storm is the chain, with Daikaiser under Storm or Daiyusha at four damage."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Ripple and Wave are the priority: Flow searches Wave when Ripple rides it, and high grade counts make grade 3 easy."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Commander Laurel needs four Dimension Police rear-guards to rest, so a full field is part of the combo."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Daikaiser's ride costs Counter-Blast 1; Mika's draw costs Counter-Blast 2, so spend on her only when the combo is safe."
+      },
+      "combat": {
+        "basis": "source",
+        "text": "Vanguard power crosses the attack-step thresholds for +1 critical; rest four with Laurel on a hit to stand it."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Diamond Ace as perfect guard; Ripple's and the chain's discards can take grade 3s."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Lady Justice and Daiyusha work without the chain."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Its drive-checked grade 3s retire opposing guardians, including perfect guards."
+      },
+      "ai": {
+        "ride1": ["BT04-054", "BT04-015"],
+        "ride2": ["BT04-012", "BT08-009"],
+        "ride3": ["TD12-001", "BT04-004", "BT03-020"],
+        "keep": ["BT04-054", "BT04-012", "TD12-001", "BT04-004"],
+        "hold": ["BT04-004"],
+        "callFirst": ["BT04-015", "BT08-009", "BT08-022"]
+      }
+    },
+    {
+      "deckId": "jp-lj-chaos-breaker-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Control: lock opposing rear-guards so they cannot be used or called over, then retire them later as they unlock. Chaos Breaker was described as a dominant control deck of its format."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Infinite Zero under Chaos Breaker: the break ride locks two rear-guards and gives +10000. Mobius Breath on the vanguard circle locks on a hit."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Infinite Zero and a grade 2 first; Pleiades can search a grade 3 from the deck."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Chaos Beat boosts Chaos Breaker at +5000 once anything is locked; Colony Maker calls a grade 1 or less while the opponent has a lock."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Soul-Blast 1 of Star-vaders for each retire and draw; Counter-Blast 1 plus a discard for each extra lock."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Lock first, then attack: locked rear-guards cannot intercept or boost."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Promethium as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "If the opponent has no rear-guards to lock, Radon and Neon still attack at +3000."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["TD11-011", "BT13-083"],
+        "ride2": ["TD11-005", "TD11-006"],
+        "ride3": ["TD11-001", "BT13-007"],
+        "keep": ["TD11-001", "BT13-007", "TD11-005", "TD11-011"],
+        "hold": ["BT13-007"],
+        "callFirst": ["BT13-015", "TD11-006", "TD11-011"]
+      }
+    },
+    {
+      "deckId": "jp-lj-infinite-zero-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "cards",
+        "text": "The same lock and retire control as Chaos Breaker, built around the Infinite Zero break ride, here with Lanthanum gaining power from each lock."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Infinite Zero then Chaos Breaker; Mobius Breath at grade 2."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Infinite Zero, then a grade 2; Pleiades or Dust Tail helps by situation."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Lanthanum gains +2000 per lock; Colony Maker fills the field while a lock is up; Aurora Eagle boosts the vanguard with more rear-guards."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "As Chaos Breaker: Soul-Blast of Star-vaders and Counter-Blast 1 per extra lock."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Lock before attacking so Lanthanum's bonus is live."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Promethium as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Palladium re-locks an unlocking unit if the break ride is delayed."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["TD11-012", "BT12-068"],
+        "ride2": ["TD11-005", "TD11-006"],
+        "ride3": ["TD11-001", "BT13-007"],
+        "keep": ["TD11-001", "BT13-007", "TD11-005", "BT12-068"],
+        "hold": ["BT13-007"],
+        "callFirst": ["BT13-015", "BT12-068", "TD11-006"]
+      }
+    },
+    {
+      "deckId": "intl-kg-overlord-the-end-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "The source's game-deciding play: break ride Dragonic Overlord the End over Dauntless Drive, then use the End's persona ability to stand for a second attack and more drive checks."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Dauntless Drive at grade 3, the End over it at four damage."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Dauntless Drive and a second grade 3; a spare End is the persona cost, so grade 3s are worth keeping."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Bahr and Nehalem form plain high-power lines; Burning Horn gains +3000 with an Overlord vanguard; Kersey draws against a grade 2."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Keep Counter-Blast 2 and a spare End for the persona ability."
+      },
+      "combat": {
+        "basis": "both",
+        "text": "The vanguard is the threat: the base 21000 to 23000 line wins on its own once it stands."
+      },
+      "defence": {
+        "basis": "source",
+        "text": "The End's higher defence lets 16000 lines be blocked with one 5000 shield."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Without the break ride, the End alone still has its persona ability."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-048", "BT11-065"],
+        "ride2": ["BT01-022", "BT05-037"],
+        "ride3": ["BT11-005", "BT05-005"],
+        "keep": ["BT11-005", "BT05-005", "BT01-048", "BT01-022"],
+        "hold": ["BT05-005"],
+        "callFirst": ["BT05-037", "BT01-022", "BT11-065"]
+      }
+    },
+    {
+      "deckId": "jp-kg-dauntless-drive-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "cards",
+        "text": "Dauntless Drive's break ride gives +10000 and a three-card discard to stand, with Nouvelle Vague or Dauntless Dominate over it as the finish."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Dauntless Drive, then Dominate Reverse or Nouvelle Vague over it."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Dauntless Drive first; a second grade 3 or grade 4 for the break ride."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Dominate Drive attacks at +3000; Bellicosity unflips damage; Gojo filters excess cards."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Keep three cards for the restand; Nouvelle Vague's retire needs Counter-Blast 3, Soul-Blast 3 and a spare copy."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Attack with the vanguard first or last by whether you intend to stand it."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Barri and Maria as perfect guards."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Calamity Tower Wyvern's soul draw rebuilds a hand spent on a restand."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-049", "BT14-082"],
+        "ride2": ["BT14-032", "EB01-012"],
+        "ride3": ["BT11-005", "BT14-006", "EB09-001"],
+        "keep": ["BT11-005", "EB09-001", "BT14-032", "BT01-049"],
+        "hold": ["EB09-001"],
+        "callFirst": ["BT14-032", "EB01-012", "EB09-006"]
+      }
+    },
+    {
+      "deckId": "jp-kg-overlord-rebirth-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Break ride Overlord The Re-birth over Dragonic Overlord, lock five rear-guards for +10000 and a stand, with on-call units that reuse the circles it locks."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Dragonic Overlord under Re-birth; Eternal Bringer Griffin was prioritised to find it."
+      },
+      "mulligan": {
+        "basis": "source",
+        "text": "Griffin and grade 3s first: reaching the break ride is the priority."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Dragonic Burnout and Berserk Dragon are favoured for field control when called, using circles freed by locks."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Keep two Kagero for the discard to stand; Berserk's retire costs Counter-Blast 2."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Attack with rear-guards before locking them, then swing with the vanguard at +10000."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Rinocross as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Dragonic Overlord's own Counter-Blast 3 restand is the fallback."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT15-060", "BT14-082"],
+        "ride2": ["BT05-037", "BT15-014"],
+        "ride3": ["BT01-004", "BT15-005"],
+        "keep": ["BT01-004", "BT15-005", "BT15-060", "BT05-037"],
+        "hold": ["BT15-005"],
+        "callFirst": ["BT15-060", "BT15-014", "EB09-011"]
+      }
+    },
+    {
+      "deckId": "jp-kg-nouvelle-vague-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Break ride Nouvelle Vague over Dauntless Drive. On your turn all opposing trigger effects are nullified and grade 0s cannot guard; its Limit Break retires every opposing rear-guard."
+      },
+      "ride": {
+        "basis": "both",
+        "text": "Dauntless Drive at grade 3, then Nouvelle Vague at grade 4. Sources describe it as a break-ride-centric deck."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Dauntless Drive and Nouvelle Vague; Nouvelleroman can search a grade 3 or greater."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Nouvellecritic and Berserk retire rear-guards when called; Dominate Drive attacks at +3000."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Save Counter-Blast 3, Soul-Blast 3 and a spare Nouvelle Vague for the field wipe; Artpique and Calamity Tower Wyvern handle soul."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Wipe the field in the main phase, then attack: no intercepts, and fewer guards."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Maria as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Dragonic Overlord and Dauntless Drive carry the deck if Nouvelle Vague is missed."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Reported in direct competition with Shotgun Blow's Brawlers in spring 2014."
+      },
+      "ai": {
+        "ride1": ["EB09-014", "BT01-049"],
+        "ride2": ["EB09-006", "BT14-032"],
+        "ride3": ["BT11-005", "EB09-001", "BT01-004"],
+        "keep": ["BT11-005", "EB09-001", "EB09-014", "EB09-006"],
+        "hold": ["EB09-001"],
+        "callFirst": ["EB09-006", "EB09-011", "BT14-032"]
+      }
+    },
+    {
+      "deckId": "jp-sp-raging-form-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Twin bosses Mordred Phantom and Raging Form: Mordred's break ride gives +10000 and a search; Raging Form retires three Revenger rear-guards to ride another copy standing at +10000."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Mordred Phantom under Raging Form. Two Claudas fetch two Blaster Dark Revengers without relying on Mordred's break ride."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Mordred and Raging Form, then Dorint and Blaster Dark Revenger."
+      },
+      "field": {
+        "basis": "source",
+        "text": "Rear-guards feed the three-unit retire; Masquerades attack at +3000 and Dorint unflips when Blaster Dark Revenger arrives in its column."
+      },
+      "resources": {
+        "basis": "both",
+        "text": "Dorint supports repeated Counter-Blasts; hold a second Raging Form for the standing ride."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Attack with rear-guards first, then swing with Raging Form and retire them for the second strike."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Mac Lir as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Tartu calls a grade 1 or less to refill a column for the retire."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT12-021", "TD10-011"],
+        "ride2": ["TD10-005", "BT12-010"],
+        "ride3": ["TD10-001", "BT12-001"],
+        "keep": ["TD10-001", "BT12-001", "BT12-021", "TD10-006"],
+        "hold": ["BT12-001"],
+        "callFirst": ["TD10-006", "BT12-010", "BT12-021"]
+      }
+    },
+    {
+      "deckId": "jp-sp-phantom-blaster-abyss-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "source",
+        "text": "Raging Form with the Legion grade 3 Phantom Blaster Abyss: two separate self-standing vanguards, each attacking around 21000 to 22000 on the second strike."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Either grade 3, with Abyss legioning Blaster Dark Revenger Abyss when the drop zone has four cards."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Both grade 3s; the Legion mate can be searched."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Three Revengers to retire for the stand; Tartu and Masquerade fill columns."
+      },
+      "resources": {
+        "basis": "source",
+        "text": "Counter-Blast heavy, offset by its unflipping engine; Dorint and Blaster Dark Revenger."
+      },
+      "combat": {
+        "basis": "source",
+        "text": "Second strikes are the plan: spend rear-guards as the cost after they have attacked."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Mac Lir as perfect guard."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "If Legion is off for lack of a grade 3 opponent, Raging Form's own stand still works."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT12-021", "TD10-011"],
+        "ride2": ["BT12-010", "TD10-006"],
+        "ride3": ["EB11-002", "BT12-001"],
+        "keep": ["EB11-002", "BT12-001", "BT12-021", "BT12-010"],
+        "hold": ["BT12-001"],
+        "callFirst": ["TD10-006", "EB11-003", "BT12-010"]
+      }
+    },
+    {
+      "deckId": "jp-lj-glendios-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Omega Lock: Glendios's Limit Break keeps the opponent's locked cards from unlocking at their next end phase, and at Limit Break 5 five opposing locks win the game. Other clans' Reverse grade 3s count as Link Joker rear-guards at +4000 and lock when called."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Cradle or a Reverse unit into Glendios; Worldline can search on the way up."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Glendios and Cradle, with a Я card for Worldline's cost."
+      },
+      "field": {
+        "basis": "both",
+        "text": "Я units on the rear-guard circles power Cradle's locks and Ruin Magician. Colony Maker was this build's choice over Cold Death Dragon."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Praseodymium unflips per different Я rear-guard; Ruin Magician returns Я cards from the drop zone."
+      },
+      "combat": {
+        "basis": "source",
+        "text": "Win through locks rather than through damage alone; the source notes other builds were readier to play around Omega Lock."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Promethium as perfect guard; Rubidium redirects an attack to a Я rear-guard under Glendios."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Magnet Hollow searches a Я card on a hit."
+      },
+      "matchups": {
+        "basis": "source",
+        "text": "Reported as stronger in central Japan than in Hokkaido, where Nouvelle Vague held the format."
+      },
+      "ai": {
+        "ride1": ["BT15-033", "BT15-072"],
+        "ride2": ["BT15-030", "BT13-015"],
+        "ride3": ["BT15-006", "BT15-000"],
+        "keep": ["BT15-000", "BT15-006", "BT15-033", "BT15-030"],
+        "hold": ["BT15-000"],
+        "callFirst": ["BT15-072", "BT15-033", "BT13-015"]
+      }
+    },
+    {
+      "deckId": "jp-rp-thing-saver-2014",
+      "version": 1,
+      "winCondition": {
+        "basis": "both",
+        "text": "Legion with Blaster Blade Seeker, then at the end of the battle pay Counter-Blast 2, Soul-Blast 3 and two discards to search another Thing Saver, ride it standing and Legion again from the soul. Sources report it finishing first and second at the 2014 Tokyo regional."
+      },
+      "ride": {
+        "basis": "source",
+        "text": "Sacred Wingal is the usual supporting grade 3; Thing Saver follows."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Thing Saver and Sacred Wingal, then Gildas for the Legion call."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "Gildas calls a Seeker on Legion; File calls Blaster Blade Seeker; Isbuzzard gains +4000 under a Legion."
+      },
+      "resources": {
+        "basis": "both",
+        "text": "Soul fuels each repeat of the ability: three per ride, and earlier riding helps. Blaster Blade Seeker must be in the soul for the Legion to repeat."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Vanguard attack, then stand; hold the discards for it."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "Iseult and Gloria as guards."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Without Legion, either grade 3 still has +2000 on attacking a vanguard."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-043", "BT16-022"],
+        "ride2": ["BT16-021", "TD14-006"],
+        "ride3": ["TD14-001", "BT16-001"],
+        "keep": ["BT16-001", "TD14-001", "BT16-021", "BT01-043"],
+        "hold": [],
+        "callFirst": ["BT16-021", "BT16-009", "BT16-022"]
+      }
+    },
+    {
+      "deckId": "jp-rp-blaster-blade-burst-2013",
+      "version": 1,
+      "winCondition": {
+        "basis": "cards",
+        "text": "Blaster Blade Burst adds the original power of its front-row Royal Paladin rear-guards to its attack for Counter-Blast 2, on top of +3000."
+      },
+      "ride": {
+        "basis": "cards",
+        "text": "Blaster Blade at grade 2, Burst at grade 3."
+      },
+      "mulligan": {
+        "basis": "cards",
+        "text": "Burst and grade 1 and 2 rides."
+      },
+      "field": {
+        "basis": "cards",
+        "text": "High printed power in the front row counts most: Gallatin's 10000. Burst cannot be boosted, so the centre back circle is for spare units."
+      },
+      "resources": {
+        "basis": "cards",
+        "text": "Counter-Blast must use Royal Paladin cards; spend it on Burst first."
+      },
+      "combat": {
+        "basis": "cards",
+        "text": "Keep both front rear-guards in place until Burst has attacked."
+      },
+      "defence": {
+        "basis": "cards",
+        "text": "The product has no perfect guard, so it guards with shield only."
+      },
+      "recovery": {
+        "basis": "cards",
+        "text": "Bors and Marhaus still work if Burst is missed."
+      },
+      "matchups": {
+        "basis": "cards",
+        "text": null
+      },
+      "ai": {
+        "ride1": ["BT01-042", "BT02-057"],
+        "ride2": ["BT01-002", "BT01-021"],
+        "ride3": ["VZ01-001", "PR11-0041"],
+        "keep": ["VZ01-001", "BT01-002", "BT01-042", "BT01-021"],
+        "hold": [],
+        "callFirst": ["BT01-021", "BT01-002", "TD01-010"]
+      }
+    }
+  ]
+}

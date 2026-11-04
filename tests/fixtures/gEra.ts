@@ -15,7 +15,7 @@ import {
   type LegalAction,
   type PlayerId,
 } from '../../src/engine';
-import { battleScenario, type SideSpec } from './scenario';
+import { battleScenario, unitAt, type SideSpec } from './scenario';
 
 export const gCtx: EngineContext = {
   registry: cardRegistry(),
@@ -103,12 +103,12 @@ type Circle = 'vanguard' | 'front_left' | 'front_right';
 
 /** Player 0 attacks player 1's vanguard with the unit on `circle` (boosted from behind if `boost`). */
 export function gAttack(s: GameState, circle: Circle = 'vanguard', boost = false): Run {
-  const attacker = s.players[0].circles[circle].at(-1)!;
+  const attacker = unitAt(s, 0, circle);
   const back = { vanguard: 'back_center', front_left: 'back_left', front_right: 'back_right' }[
     circle
   ] as 'back_center' | 'back_left' | 'back_right';
   const booster = boost ? (s.players[0].circles[back].at(-1) ?? null) : null;
-  const target = s.players[1].circles.vanguard.at(-1)!;
+  const target = unitAt(s, 1, 'vanguard');
   return gApply(s, { type: 'ATTACK', player: 0, attacker, target, booster });
 }
 

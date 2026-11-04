@@ -27,7 +27,16 @@ const range = (prefix: string, n: number) =>
  * The Japanese side products of the same era (DECISIONS D-029): Extra Boosters, Fighter's
  * Collections, the DAIGO set and the movie booster / trial deck. Only sets in the card pool matter.
  */
-const SIDE_SETS = [...range('EB', 12), ...range('FC', 2), 'DG01', 'MBT01', 'MTD01'];
+const SIDE_SETS = [
+  ...range('EB', 12),
+  ...range('FC', 2),
+  'DG01',
+  'MBT01',
+  'MTD01',
+  'PR11',
+  'PR12',
+  'VZ01',
+];
 
 /** Deck rules from Comprehensive Rules ver. 1.29 (identical in ver. 1.19). */
 export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
@@ -46,7 +55,7 @@ export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
  * The G era's products (DECISIONS D-034), in Japanese release order. A set joins the pool when it
  * is imported and scripted; listing it here makes it legal in the G format.
  */
-export const G_SETS: readonly string[] = ['G-TD01', 'G-TD02', 'G-BT01'];
+export const G_SETS: readonly string[] = ['G-TD01', 'G-TD02', 'G-BT01', 'G-BT02'];
 
 /**
  * The G format (DECISIONS D-034): every Classic set plus the G era's cards, deck rules of

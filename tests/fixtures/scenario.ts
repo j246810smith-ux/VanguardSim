@@ -132,5 +132,7 @@ export function battleScenario(spec: {
 }
 
 /** The unit on a circle in a scenario. */
+/** The unit on a circle; for a legion's (VC) that is the leader (the mate is stacked on top). */
 export const unitAt = (state: GameState, player: PlayerId, circle: BoardCircle): InstanceId =>
+  (circle === 'vanguard' ? state.players[player].legion?.leader : undefined) ??
   state.players[player].circles[circle].at(-1)!;

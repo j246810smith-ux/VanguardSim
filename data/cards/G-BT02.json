@@ -1,0 +1,4766 @@
+{
+  "set": "G-BT02",
+  "importedAt": "2026-11-03T21:42:45.508Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-BT02-001",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/001",
+        "name": "立春の花乙姫 プリマヴェーラ",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(3)，あなたのドロップゾーンからノーマルユニットを５枚選び、山札の上に好きな順番で置く，あなたの手札から１枚選び、捨てる]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、あなたのリアガードを２枚まで選び、あなたの山札からそのユニットと同名のカードをそれぞれ２枚まで探し、別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_001.png"
+      },
+      "en": {
+        "number": "G-BT02/001EN",
+        "name": "Flower Princess of Spring's Beginning, Primavera",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 3 & Choose five normal units from your drop zone, put them on the top of your deck in any order, choose a card from your hand, and discard it] When this unit attacks a vanguard, you may pay the cost. If you do, choose up to two of your rear-guards, search your deck for up to two cards with the same card name as each of those units, call them to separate (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-BT02/001", "G-BT02/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F001",
+          "fetchedAt": "2026-11-03T21:36:42.250Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/001EN",
+          "fetchedAt": "2026-11-03T21:39:16.532Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-002",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/002",
+        "name": "閃火の聖騎士 サムイル",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(2)]このユニットがヴァンガードにアタックした時、相手のダメージゾーンが４枚以下で、あなたのリアガードが５枚以上なら、コストを払ってよい。払ったら、相手のヴァンガードを１枚選び、１ダメージ。（ダメージチェックを行う）",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_002.png"
+      },
+      "en": {
+        "number": "G-BT02/002EN",
+        "name": "Divine Knight of Flashing Flame, Samuel",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 2] When this unit attacks a vanguard, if the number of cards in your opponent's damage zone is four or less, and the number of your rear-guards is five or more, you may pay the cost. If you do, choose one of your opponent's vanguards, and deal one damage. (Perform a damage check)",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_002EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/002", "G-BT02/S01", "G-BT02/002EN", "G-BT02/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F002",
+          "fetchedAt": "2026-11-03T21:36:43.621Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/002EN",
+          "fetchedAt": "2026-11-03T21:39:22.697Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-003",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/003",
+        "name": "征天覇竜 コンクエスト・ドラゴン",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏の「征天覇竜 コンクエスト・ドラゴン」を１枚選び、表にする]あなたのＧゾーンの表のカードが２枚以上なら、相手の前列のリアガードを１枚選び、退却させ、そのターン中、カードのない相手の前列の(R)１つにつき、あなたの前列のユニットすべてのパワー＋5000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_003.png"
+      },
+      "en": {
+        "number": "G-BT02/003EN",
+        "name": "Conquering Supreme Dragon, Conquest Dragon",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card named \"Conquering Supreme Dragon, Conquest Dragon\" from your G zone, and turn it face up] If the number of face up cards in your G zone is two or more, choose one of your opponent's rear-guards in the front row, retire it, and all of your units in the front row get [Power] +5000 for each of your opponent's open (RC) in the front row until end of turn.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_003EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/003", "G-BT02/S02", "G-BT02/003EN", "G-BT02/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F003",
+          "fetchedAt": "2026-11-03T21:36:44.349Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/003EN",
+          "fetchedAt": "2026-11-03T21:39:24.097Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-004",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/004",
+        "name": "ドラゴニック・ヴァンキッシャー",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、そのターン中、このユニットのパワー＋3000/クリティカル＋１。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、相手の前列のリアガードを１枚選び、退却させ、そのカードを表でバインドする。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_004.png"
+      },
+      "en": {
+        "number": "G-BT02/004EN",
+        "name": "Dragonic Vanquisher",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards, this unit gets [Power] +3000/[Critical] +1 until end of turn.\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, retire it, and bind that card face up.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/004", "G-BT02/S03", "G-BT02/004EN", "G-BT02/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F004",
+          "fetchedAt": "2026-11-03T21:36:45.731Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/004EN",
+          "fetchedAt": "2026-11-03T21:39:25.335Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-005",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/005",
+        "name": "時空竜 フェイトライダー・ドラゴン",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：あなたのリアガードを１枚選び、山札の下に置き、あなたの山札からそのユニットのグレード＋１のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、あなたのＧゾーンの表のカード１枚につき、あなたのユニットを１枚選び、そのターン中、パワー＋3000。（コストがない【起】は、プレイを宣言することでコストを払える）",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_005.png"
+      },
+      "en": {
+        "number": "G-BT02/005EN",
+        "name": "Interdimensional Dragon, Faterider Dragon",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:Choose one of your rear-guards, put it on the bottom of your deck, search for your deck for up to one card that is a grade greater than that unit, call it to (RC), shuffle your deck, choose one of your units for each face up card in your G zone, and they get [Power] +3000 until end of turn. (If an [ACT] has no cost, the cost is paid when declaring that you are playing it)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_005EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/005", "G-BT02/S04", "G-BT02/005EN", "G-BT02/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F005",
+          "fetchedAt": "2026-11-03T21:36:46.866Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/005EN",
+          "fetchedAt": "2026-11-03T21:39:26.617Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-006",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/006",
+        "name": "天羅水将 ランブロス",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[あなたのＧゾーンから裏の「天羅水将 ランブロス」を１枚選び、表にする]このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、コストを払ってよい。払ったら、あなたのリアガードを２枚まで選び、【スタンド】する。さらに、あなたのＧゾーンの表のカードが２枚以上なら、そのターン中、この効果で【スタンド】したユニットのパワー＋10000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_006.png"
+      },
+      "en": {
+        "number": "G-BT02/006EN",
+        "name": "Marine General of Heavenly Silk, Lambros",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Choose a face down card named \"Marine General of Heavenly Silk, Lambros\" from your G zone, and turn it face up] When this unit attacks a vanguard, if it is the fourth battle of that turn or more, you may pay the cost. If you do, choose up to two of your rear-guards, and [Stand] them. Then, if the number of face up cards in your G zone is two or more, the units that [Stand] by this effect get [Power] +10000 until end of turn.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_006EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/006", "G-BT02/S05", "G-BT02/006EN", "G-BT02/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F006",
+          "fetchedAt": "2026-11-03T21:36:47.638Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/006EN",
+          "fetchedAt": "2026-11-03T21:39:28.362Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-007",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/007",
+        "name": "全智竜 マーナガルム",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏の「全智竜 マーナガルム」を１枚選び、表にする]あなたのＧゾーンの表のカードが２枚以上なら、あなたのリアガードを２枚まで選び、そのターン中、パワー＋4000し、『【自】【(R)】：このユニットがヴァンガードにアタックした時、このユニットのパワーが20000以上なら、そのバトル中、相手はグレード１以上のカードを手札から(G)にコールできない。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_007.png"
+      },
+      "en": {
+        "number": "G-BT02/007EN",
+        "name": "Omniscience Dragon, Managarmr",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card named \"Omniscience Dragon, Managarmr\" from your G zone, and turn it face up] If the number of face up cards in your G zone is two or more, choose up to two of your rear-guards, until end of turn, they get [Power] +4000, and \"[AUTO](RC):When this unit attacks a vanguard, if this unit's [Power] is 20000 or greater, until end of that battle, your opponent cannot call grade 1 or greater cards from hand to (GC).\".",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_007EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/007", "G-BT02/S06", "G-BT02/007EN", "G-BT02/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F007",
+          "fetchedAt": "2026-11-03T21:36:48.381Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/007EN",
+          "fetchedAt": "2026-11-03T21:39:30.080Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-008",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/008",
+        "name": "名物博士 ビッグベリー",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：このユニットがヴァンガードにアタックした時、あなたのリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンの終了時、１枚引き、そのユニットを退却させる。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたのリアガードを２枚まで選び、そのターン中、パワー＋4000し、『【自】【(R)】：このユニットと同じ縦列にいるユニットのアタックがヴァンガードにヒットした時、アタックしているユニットのパワーが20000以上なら、１枚引く。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_008.png"
+      },
+      "en": {
+        "number": "G-BT02/008EN",
+        "name": "Famous Professor, Bigbelly",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, choose one of your rear-guards, it gets [Power] +4000 until end of turn, at the end of that turn, draw a card, and retire that unit.\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose up to two of your rear-guards, until end of turn, they get [Power] +4000, and \"[AUTO](RC):When an attack by a unit in the same column as this unit hits a vanguard, if the attacking unit's [Power] is 20000 or greater, draw a card.\".",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/008", "G-BT02/S07", "G-BT02/008EN", "G-BT02/S07EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F008",
+          "fetchedAt": "2026-11-03T21:36:49.119Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/008EN",
+          "fetchedAt": "2026-11-03T21:39:31.174Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-009",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/009",
+        "name": "聖樹竜 ジングルフラワー・ドラゴン",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏の「聖樹竜 ジングルフラワー・ドラゴン」を１枚選び、表にする]あなたのＧゾーンの表のカードが２枚以上なら、あなたのユニットを１枚選び、そのターン中、『【永】【(V)/(R)】：あなたのターン中、このユニットと同名のあなたのユニット１枚につき、あなたのユニットすべてのパワー＋2000。』を与える。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_009.png"
+      },
+      "en": {
+        "number": "G-BT02/009EN",
+        "name": "Sacred Tree Dragon, Jingle Flower Dragon",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card named \"Sacred Tree Dragon, Jingle Flower Dragon\" from your G zone, and turn it face up] If the number of face up cards in your G zone is two or more, choose one of your units, until end of turn, it gets \"[CONT](VC/RC):During your turn, all of your units get [Power] +2000 for each of your units with the same card name as this unit.\".",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_009EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-BT02/009", "G-BT02/S08", "G-BT02/009EN", "G-BT02/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F009",
+          "fetchedAt": "2026-11-03T21:36:49.859Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/009EN",
+          "fetchedAt": "2026-11-03T21:39:32.428Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-010",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/010",
+        "name": "風雅の騎士 ベニゼール",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのグレード３以上のカード名に「アルトマイル」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札から「風雅の騎士 ベニゼール」以外のグレード２のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターン中、そのユニットとこのユニットのパワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_010.png"
+      },
+      "en": {
+        "number": "G-BT02/010EN",
+        "name": "Knight of Refinement, Benizel",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (RC), if you have a grade 3 or greater vanguard with \"Altmile\" in its card name, you may pay the cost. If you do, search your deck for up to one grade 2 card not named \"Knight of Refinement, Benizel\", call it to (RC), shuffle your deck, and that unit and this unit get [Power] +2000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/010", "G-BT02/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F010",
+          "fetchedAt": "2026-11-03T21:36:51.243Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/010EN",
+          "fetchedAt": "2026-11-03T21:39:33.594Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-011",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/011",
+        "name": "夢の運び手 ベレヌス",
+        "text": "アップデート：シールド、トリガー、テキスト\n【自】【(R)】：「アルトマイル」を含むグレード３以上のあなたのヴァンガードがアタックした時、【コスト】[このユニットをソウルに置く]ことで、１枚引き、あなたのヴァンガードを１枚選び、そのバトル中、パワー＋5000。\n【自】：このカードがダメージチェックで出た時、１枚引く。",
+        "clan": "ロイヤルパラディン",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gbt02_011up.png"
+      },
+      "en": {
+        "number": "G-BT02/011EN",
+        "name": "Bringer of Dreams, Belenus",
+        "text": "[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with \"Altmile\" in its card name, you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_011EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 15000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/011", "G-BT02/S09", "G-BT02/011EN", "G-BT02/S09EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F011",
+          "fetchedAt": "2026-11-03T21:36:52.017Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/011EN",
+          "fetchedAt": "2026-11-03T21:39:36.010Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191213100011/https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/011EN",
+          "fetchedAt": "2019-12-13T10:00:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Shield, Trigger, Text\n[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with \"Altmile\" in its card name, you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.\n[AUTO]:When this card is revealed for a damage check, draw a card."
+      }
+    },
+    {
+      "id": "G-BT02-012",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/012",
+        "name": "ドラゴニック・カイザー・クリムゾン",
+        "text": "【起】【(V)】：【双闘22000】「ドラゴニック・カイザー・ヴァーミリオン」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【起】【(V)】【ターン1回】【リミットブレイク】(4)（あなたのダメージが４枚以上で有効）：あなたのレギオンメイトの【起】を１つ選び、そのターン中、次にその能力をプレイするまで、そのコストをなくす。（コストがない【起】は、プレイを宣言することでコストを払える）\n【起】【(V)】：[【ソウルブラスト】(1)]中央列に他のあなたのユニットがいるなら、そのターン中、このユニットのパワー＋2000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_012.png"
+      },
+      "en": {
+        "number": "G-BT02/012EN",
+        "name": "Dragonic Kaiser Crimson",
+        "text": "[ACT](VC):[Legion 22000]\"Dragonic Kaiser Vermillion\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[ACT](VC)[1/turn][Limit-Break 4](This ability is active if you have four or more damage):Choose one of your Legion Mate's [ACT], until end of turn, that ability loses its cost until the next time it is played. (If an [ACT] has no cost, the cost is paid when declaring that you are playing it)\n[ACT](VC):[Soul-Blast 1] If you have another unit in your middle column, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/012", "G-BT02/S10", "G-BT02/012EN", "G-BT02/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F012",
+          "fetchedAt": "2026-11-03T21:36:52.751Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/012EN",
+          "fetchedAt": "2026-11-03T21:39:36.993Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-013",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/013",
+        "name": "ボルテージホーン・ドラゴン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、相手は自分のリアガードを１枚選び、退却させ、そのカードを表でバインドする。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_013.png"
+      },
+      "en": {
+        "number": "G-BT02/013EN",
+        "name": "Voltage Horn Dragon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, your opponent chooses one of his or her rear-guards, retires it, and binds that card face up.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/013", "G-BT02/S11", "G-BT02/013EN", "G-BT02/S11EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F013",
+          "fetchedAt": "2026-11-03T21:36:53.923Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/013EN",
+          "fetchedAt": "2026-11-03T21:39:37.938Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-014",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/014",
+        "name": "ドラゴンダンサー アナスタシア",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「ドラゴンダンサー アナスタシア」があるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_014.png"
+      },
+      "en": {
+        "number": "G-BT02/014EN",
+        "name": "Dragon Dancer, Anastasia",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Dragon Dancer, Anastasia\" in your drop zone, choose a card from your damage zone, and turn it face up.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-BT02/014", "G-BT02/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F014",
+          "fetchedAt": "2026-11-03T21:36:54.674Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/014EN",
+          "fetchedAt": "2026-11-03T21:39:39.272Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-015",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/015",
+        "name": "グリマーブレス・ドラゴン",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのグレード３以上のカード名に「クロノジェット」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、相手はそのユニットを山札の下に置き、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_015.png"
+      },
+      "en": {
+        "number": "G-BT02/015EN",
+        "name": "Glimmer Breath Dragon",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (RC), if you have a grade 3 or greater vanguard with \"Chronojet\"in its card name, you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, your opponent puts that unit on the bottom of his or her deck, and this unit gets [Power] +2000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/015", "G-BT02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F015",
+          "fetchedAt": "2026-11-03T21:36:55.408Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/015EN",
+          "fetchedAt": "2026-11-03T21:39:40.257Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-016",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/016",
+        "name": "ドキドキ・ワーカー",
+        "text": "アップデート：シールド、トリガー、テキスト\n【自】【(R)】：「クロノジェット」を含むグレード３以上のあなたのヴァンガードがアタックした時、【コスト】[このユニットをソウルに置く]ことで、１枚引き、あなたのヴァンガードを１枚選び、そのバトル中、パワー＋5000。\n【自】：このカードがダメージチェックで出た時、１枚引く。",
+        "clan": "ギアクロニクル",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gbt02_016up.png"
+      },
+      "en": {
+        "number": "G-BT02/016EN",
+        "name": "Heart Thump Worker",
+        "text": "[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with \"Chronojet\" in its card name, you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 15000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/016", "G-BT02/S12", "G-BT02/016EN", "G-BT02/S12EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F016",
+          "fetchedAt": "2026-11-03T21:36:56.149Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/016EN",
+          "fetchedAt": "2026-11-03T21:39:42.267Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191209214432/https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/016EN",
+          "fetchedAt": "2019-12-09T21:44:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Shield, Trigger, Text\n[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with \"Chronojet\" in its card name, you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.\n[AUTO]:When this card is revealed for a damage check, draw a card."
+      }
+    },
+    {
+      "id": "G-BT02-017",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/017",
+        "name": "蒼嵐水将 ミハエル",
+        "text": "【起】【(V)】：【双闘20000】「蒼嵐水将 ミロス」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：[あなたの手札からあなたの(V)にいるユニットと同名のカードを１枚選び、捨てる]このユニットがヴァンガードにアタックしたバトルの終了時、このユニットが【双闘】していて、そのターンで４回目以降のバトル中なら、コストを払ってよい。払ったら、あなたのリアガードすべての位置を好きなように交換し、あなたのリアガードを２枚まで選び、【スタンド】する。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_017.png"
+      },
+      "en": {
+        "number": "G-BT02/017EN",
+        "name": "Blue Storm Marine General, Michael",
+        "text": "[ACT](VC):[Legion 20000]\"Blue Storm Marine General, Milos\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):[Choose a card with the same card name as a unit on your (VC) from your hand, and discard it] At the end of the battle that this unit attacked a vanguard, if this unit is [Legion], and it is the fourth battle of that turn or more, you may pay the cost. If you do, exchange the positions of all your rear-guards as you like, choose up to two of your rear-guards, and [Stand] them.\n[AUTO](VC):When this unit attacks a vanguard, if it is the fourth battle of that turn or more, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/017", "G-BT02/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F017",
+          "fetchedAt": "2026-11-03T21:36:56.878Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/017EN",
+          "fetchedAt": "2026-11-03T21:39:43.482Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-018",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/018",
+        "name": "海域の守り手 プラトン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「海域の守り手 プラトン」があるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_018.png"
+      },
+      "en": {
+        "number": "G-BT02/018EN",
+        "name": "Ocean Keeper, Plato",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Ocean Keeper, Plato\" in your drop zone, choose a card from your damage zone, and turn it face up.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_018EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-BT02/018", "G-BT02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F018",
+          "fetchedAt": "2026-11-03T21:36:58.043Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/018EN",
+          "fetchedAt": "2026-11-03T21:39:44.539Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-019",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/019",
+        "name": "クレヨン・タイガー",
+        "text": "【自】【(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、他のあなたのリアガードを１枚選び、【スタンド】し、そのターン中、パワー＋4000し、そのターンの終了時、１枚引き、そのユニットを退却させる。（コストを払わなくても、この能力は使えなくなる）",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_019.png"
+      },
+      "en": {
+        "number": "G-BT02/019EN",
+        "name": "Crayon Tiger",
+        "text": "[AUTO](RC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, choose one of your other rear-guards, [Stand] it, it gets [Power] +4000 until end of turn, at the end of that turn, draw a card, and retire that unit. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn)",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-BT02/019", "G-BT02/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F019",
+          "fetchedAt": "2026-11-03T21:36:59.242Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/019EN",
+          "fetchedAt": "2026-11-03T21:39:46.154Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-020",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/020",
+        "name": "矛盾教官 シェル・マスター",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「矛盾教官 シェル・マスター」があるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_020.png"
+      },
+      "en": {
+        "number": "G-BT02/020EN",
+        "name": "Contradictory Instructor, Shell Master",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Contradictory Instructor, Shell Master\" in your drop zone, choose a card from your damage zone, and turn it face up.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-BT02/020", "G-BT02/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F020",
+          "fetchedAt": "2026-11-03T21:37:00.393Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/020EN",
+          "fetchedAt": "2026-11-03T21:39:48.731Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-021",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/021",
+        "name": "メイデン・オブ・パッションフラワー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「メイデン・オブ・パッションフラワー」があるなら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_021.png"
+      },
+      "en": {
+        "number": "G-BT02/021EN",
+        "name": "Maiden of Passionflower",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Maiden of Passionflower\" in your drop zone, choose a card from your damage zone, and turn it face up.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-BT02/021", "G-BT02/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F021",
+          "fetchedAt": "2026-11-03T21:37:01.131Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/021EN",
+          "fetchedAt": "2026-11-03T21:39:49.626Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-022",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/022",
+        "name": "秘められし賢者 ミロン",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットが山札から(R)に登場した時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_022.png"
+      },
+      "en": {
+        "number": "G-BT02/022EN",
+        "name": "Hidden Sage, Miron",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC) from your deck, you may pay the cost. If you do, draw a card.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/022", "G-BT02/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F022",
+          "fetchedAt": "2026-11-03T21:37:01.859Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/022EN",
+          "fetchedAt": "2026-11-03T21:39:50.917Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-023",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/023",
+        "name": "雷龍騎士 ゾラス",
+        "text": "アップデート：テキスト\n【超越】-ストライドステップ-【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：あなたのヴァンガードがグレード３の「ドラゴニック・ヴァンキッシャー」で、このファイトであなたがイマジナリーギフトを得ていないなら、【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。さらに【コスト】[Ｇゾーンからこのユニットと同名を１枚表にする]ことで、イマジナリーギフト・アクセルを２つ得る。\n【永】【(V)】：あなたは、このユニットの『ヒットした時』の効果を、ヒットしていなくても発動する。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、相手は自分のリアガードを１枚選び、退却させ、あなたは相手のドロップから２枚まで選び、バインドする。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gbt02_023up.png"
+      },
+      "en": {
+        "number": "G-BT02/023EN",
+        "name": "Lightning Dragon Knight, Zorras",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):When this unit's attack hits a vanguard, your opponent chooses one of his or her rear-guards, retires it, you choose up to two cards from your opponent's drop zone, and bind them face up.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_023EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/023", "G-BT02/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F023",
+          "fetchedAt": "2026-11-03T21:37:03.153Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/023EN",
+          "fetchedAt": "2026-11-03T21:39:52.721Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191209200257/https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/023EN",
+          "fetchedAt": "2019-12-09T20:02:57Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Text\n[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[ACT]G Zone:If your vanguard is a grade 3 \"Dragonic Vanquisher\", and you did not get an Imaginary Gift this fight, [COST][choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down. Then, [COST][turn a card from G zone with the same card name as this unit face up], and you get two Imaginary Gift:Accel.\n[CONT](VC):This unit's \"when attack hits\" effects activate even if the attack did not hit.\n[AUTO](VC):When this unit's attack hits a vanguard, your opponent chooses one of their rear-guards, retires it, you choose up to two cards from your opponent's drop, and bind them."
+      }
+    },
+    {
+      "id": "G-BT02-024",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/024",
+        "name": "マイティボルト・ドラグーン",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード３のカード名に「ヴァンキッシャー」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルし、あなたの手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレードを＋２する。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_024.png"
+      },
+      "en": {
+        "number": "G-BT02/024EN",
+        "name": "Mighty Bolt Dragoon",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Vanquisher\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/024", "G-BT02/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F024",
+          "fetchedAt": "2026-11-03T21:37:04.323Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/024EN",
+          "fetchedAt": "2026-11-03T21:39:53.773Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-025",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/025",
+        "name": "ハーブリンガー・ドラコキッド",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのカードの効果で、カードがバインドゾーンに置かれた時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_025.png"
+      },
+      "en": {
+        "number": "G-BT02/025EN",
+        "name": "Harbinger Dracokid",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When a card is placed in the bind zone due to an effect from one of your cards, this unit gets [Power] +3000 until end of that turn.",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/025", "G-BT02/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F025",
+          "fetchedAt": "2026-11-03T21:37:05.048Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/025EN",
+          "fetchedAt": "2026-11-03T21:39:54.637Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-026",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/026",
+        "name": "ニキシーナンバー・ドラゴン",
+        "text": "【起】【(V)】：【双闘20000】「スチームナイト ザング」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【自】【(V)】：あなたのカードの効果で、相手のリアガードが山札に置かれた時、このユニットが【双闘】しているなら、そのターン中、このユニットは『【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、相手はグレード１以上のカードを手札から(G)にコールできない。』を得る。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、中央列に他のあなたのユニットがいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_026.png"
+      },
+      "en": {
+        "number": "G-BT02/026EN",
+        "name": "Nixie Number Dragon",
+        "text": "[ACT](VC):[Legion 20000]\"Steam Knight, Xang\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[AUTO](VC):When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards, if this unit is [Legion], until end of turn, this unit gets \"[AUTO](VC):When this unit attacks a vanguard, until end of that battle, your opponent cannot call grade 1 or greater cards from hand to (GC).\".\n[AUTO](VC):When this unit attacks a vanguard, ifyou have another unit in your middle column, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/026", "G-BT02/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F026",
+          "fetchedAt": "2026-11-03T21:37:05.769Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/026EN",
+          "fetchedAt": "2026-11-03T21:39:55.774Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-027",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/027",
+        "name": "スチームナイト ザング",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたのヴァンガードが【双闘】しているなら、コストを払ってよい。払ったら、相手のグレード２以下のリアガードを１枚選び、相手はそのユニットを山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_027.png"
+      },
+      "en": {
+        "number": "G-BT02/027EN",
+        "name": "Steam Knight, Xang",
+        "text": "[AUTO](RC):[Counter-Blast 1] When this unit's attack hits a vanguard, if your vanguard is [Legion], you may pay the cost. If you do, choose one of your opponent's grade 2 or less rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/027", "G-BT02/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F027",
+          "fetchedAt": "2026-11-03T21:37:06.504Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/027EN",
+          "fetchedAt": "2026-11-03T21:39:56.691Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-028",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/028",
+        "name": "スチームメイジ エンナーダ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[【カウンターブラスト】(1)]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたの山札の上から５枚を(G)に【レスト】でコールする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_028.png"
+      },
+      "en": {
+        "number": "G-BT02/028EN",
+        "name": "Steam Mage, En-narda",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Counter-Blast 1] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC) at [Rest].",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_028EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "R",
+      "printings": ["G-BT02/028", "G-BT02/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F028",
+          "fetchedAt": "2026-11-03T21:37:07.226Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/028EN",
+          "fetchedAt": "2026-11-03T21:39:57.553Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-029",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/029",
+        "name": "斬波刀の水将 マックス",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックしたバトルの終了時、そのターンで３回目以降のバトル中なら、コストを払ってよい。払ったら、あなたのリアガードを１枚選び、そのターン中、パワー＋2000し、あなたのリアガードを２枚選び、位置を交換する。（カードの向きは変わらない）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_029.png"
+      },
+      "en": {
+        "number": "G-BT02/029EN",
+        "name": "Marine General of the Wave-slicing Sword, Max",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] At the end of the battle that this unit attacked a vanguard, if it is the third battle of that turn or more, you may pay the cost. If you do, choose one of your rear-guards, it gets [Power] +2000 until end of turn, choose two of your rear-guards, and exchange their positions. (The state of the card does not change)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_029EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/029", "G-BT02/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F029",
+          "fetchedAt": "2026-11-03T21:37:08.368Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/029EN",
+          "fetchedAt": "2026-11-03T21:39:58.856Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-030",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/030",
+        "name": "蒼嵐水将 ミロス",
+        "text": "【自】【(R)】【ターン1回】：このユニットがヴァンガードにアタックしたバトルの終了時、あなたのヴァンガードが【双闘】しているなら、このユニットを【スタンド】し、そのターン中、このユニットのパワー－5000。\n【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_030.png"
+      },
+      "en": {
+        "number": "G-BT02/030EN",
+        "name": "Blue Storm Marine General, Milos",
+        "text": "[AUTO](RC)[1/turn]:At the end of the battle that this unit attacked a vanguard, if your vanguard is [Legion], [Stand] this unit, and this unit gets [Power] -5000 until end of turn.\n[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_030EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/030", "G-BT02/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F030",
+          "fetchedAt": "2026-11-03T21:37:09.512Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/030EN",
+          "fetchedAt": "2026-11-03T21:40:00.206Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["skillIcon: JP boost vs EN intercept"],
+        "reviewed": "Blue Storm Marine General, Milos: the Japanese database lists the grade 2 unit with [Boost]; every grade 2 unit has [Intercept], as the English page shows.",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "G-BT02-031",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/031",
+        "name": "ケルピーライダー ニッキー",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード３のカード名に「サヴァス」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルし、あなたの手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレードを＋２する。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_031.png"
+      },
+      "en": {
+        "number": "G-BT02/031EN",
+        "name": "Kelpie Rider, Nikki",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Thavas\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_031EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/031", "G-BT02/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F031",
+          "fetchedAt": "2026-11-03T21:37:10.696Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/031EN",
+          "fetchedAt": "2026-11-03T21:40:02.131Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-032",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/032",
+        "name": "戦場の歌姫 オルティア",
+        "text": "【自】【(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットがリアガードを【ブースト】したバトルの終了時、コストを払ってよい。払ったら、そのバトル中、【ブースト】されていたユニットを１枚選び、【スタンド】し、そのターン中、そのユニットのパワー－5000。（コストを払わなくても、この能力は使えなくなる）\n【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_032.png"
+      },
+      "en": {
+        "number": "G-BT02/032EN",
+        "name": "Battle Siren, Orthia",
+        "text": "[AUTO](RC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Soul-Blast 1] At the end of the battle that this unit boosted ([Boost]) a rear-guard, you may pay the cost. If you do, choose one of the boosted ([Boost]) units, [Stand] it, and that unit gets [Power] -5000 until end of that turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn)\n[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_032EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/032", "G-BT02/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F032",
+          "fetchedAt": "2026-11-03T21:37:11.422Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/032EN",
+          "fetchedAt": "2026-11-03T21:40:03.538Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-033",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/033",
+        "name": "永世教授 フェニキアクス",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、あなたのリアガードを２枚まで選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ロイヤルビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_033.png"
+      },
+      "en": {
+        "number": "G-BT02/033EN",
+        "name": "Immortality Professor, Phoeniciax",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):When this unit attacks a vanguard, choose up to two of your rear-guards, and you may have them get [Power] +4000 until end of turn. If you do, at the end of turn, retire those units.",
+        "clan": "Great Nature",
+        "race": "Royal Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_033EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/033", "G-BT02/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F033",
+          "fetchedAt": "2026-11-03T21:37:12.147Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/033EN",
+          "fetchedAt": "2026-11-03T21:40:05.090Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-034",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/034",
+        "name": "熱血教授 グル・タイガー",
+        "text": "【起】【(V)】：【双闘20000】「腕利き助手 グル・ウルフ」（相手ヴァンガードがグレード３以上なら、このユニットは１度だけドロップゾーンから４枚山札に戻し、山札から指定カードを探し、双闘できる）\n【起】【(V)】：[あなたの手札からあなたの(V)にいるユニットと同名のカードを１枚選び、捨てる]このユニットが【双闘】しているなら、あなたのリアガードを２枚まで選び、そのターン中、『【自】：あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、このカードをユニットのいない(R)にコールし、１枚引き、あなたのダメージゾーンから１枚選び、表にする。』を与える。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、あなたのリアガードを１枚選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_034.png"
+      },
+      "en": {
+        "number": "G-BT02/034EN",
+        "name": "Fervent Professor, Guru Tiger",
+        "text": "[ACT](VC):[Legion 20000]\"Capable Assistant, Guru Wolf\"(If your opponent's vanguard is grade 3 or greater, this unit may return four cards from your drop zone into your deck once, search your deck for the specified card, and Legion)\n[ACT](VC):[Choose a card with the same card name as a unit on your (VC) from your hand, and discard it] If this unit is [Legion], choose up to two of your rear-guards, until end of turn, they get \"[AUTO]:During your end phase, when this unit is put into the drop zone from (RC), call this card to an open (RC), draw a card, choose a card from your damage zone, and turn it face up.\".\n[AUTO](VC):When this unit attacks a vanguard, choose one of your rear-guards, and you may have it get [Power] +4000 until end of turn. If you do, at the end of turn, retire that unit.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_034EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/034", "G-BT02/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F034",
+          "fetchedAt": "2026-11-03T21:37:13.305Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/034EN",
+          "fetchedAt": "2026-11-03T21:40:06.603Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-035",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/035",
+        "name": "腕利き助手 グル・ウルフ",
+        "text": "【自】【(R)】：このユニットのアタックがヴァンガードにヒットした時、このユニットのパワーが20000以上なら、１枚引く。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_035.png"
+      },
+      "en": {
+        "number": "G-BT02/035EN",
+        "name": "Capable Assistant, Guru Wolf",
+        "text": "[AUTO](RC):When this unit's attack hits a vanguard, if this unit's [Power] is 20000 or greater, draw a card.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_035EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/035", "G-BT02/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F035",
+          "fetchedAt": "2026-11-03T21:37:14.490Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/035EN",
+          "fetchedAt": "2026-11-03T21:40:07.873Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-036",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/036",
+        "name": "セットスクエア・ペンギン",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのメインフェイズ中、このユニットが(R)に登場した時、他のあなたのリアガードを１枚選び、そのターン中、『【自】：あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、１枚引き、あなたのダメージゾーンから１枚選び、表にする。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_036.png"
+      },
+      "en": {
+        "number": "G-BT02/036EN",
+        "name": "Set Square Penguin",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):During your main phase, when this unit is placed on (RC), choose one of your other rear-guards, until end of turn, it gets \"[AUTO]:During your end phase, when this unit is put into the drop zone from (RC), draw a card, choose a card from your damage zone, and turn it face up.\".",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_036EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/036", "G-BT02/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F036",
+          "fetchedAt": "2026-11-03T21:37:15.211Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/036EN",
+          "fetchedAt": "2026-11-03T21:40:08.768Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-037",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/037",
+        "name": "ひたむき助手 ミニベリー",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード３のカード名に「ビッグベリー」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルし、あなたの手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレードを＋２する。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_037.png"
+      },
+      "en": {
+        "number": "G-BT02/037EN",
+        "name": "Diligent Assistant, Minibelly",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Bigbelly\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_037EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/037", "G-BT02/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F037",
+          "fetchedAt": "2026-11-03T21:37:16.279Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/037EN",
+          "fetchedAt": "2026-11-03T21:40:10.039Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-038",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/038",
+        "name": "バルーン・ラクーン",
+        "text": "【自】：[【カウンターブラスト】(1)]あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、コストを払ってよい。払ったら、このカードを表でバインドする。\n【自】【バインドゾーン】：あなたのユニットがアタックされたバトルのガードステップ開始時、このカードを(G)に【レスト】でコールしてよい。コールしたら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_038.png"
+      },
+      "en": {
+        "number": "G-BT02/038EN",
+        "name": "Balloon Racoon",
+        "text": "[AUTO]:[Counter-Blast 1] During your end phase, when this unit is put into the drop zone from (RC), you may pay the cost. If you do, bind this card face up.\n[AUTO]Bind Zone: At the beginning of the guard step of the battle that your unit is being attacked, you may call this card to (GC) at [Rest]. If you do, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_038EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/038", "G-BT02/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F038",
+          "fetchedAt": "2026-11-03T21:37:17.014Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/038EN",
+          "fetchedAt": "2026-11-03T21:40:10.995Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-039",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/039",
+        "name": "メイデン・オブ・フリルドロッド",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、「メイデン・オブ・フリルドロッド」以外のあなたのリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_039.png"
+      },
+      "en": {
+        "number": "G-BT02/039EN",
+        "name": "Maiden of Frilldrod",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your rear-guards not named \"Maiden of Frilldrod\", search your deck for up to one card with the same card name as that unit, call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_039EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/039", "G-BT02/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F039",
+          "fetchedAt": "2026-11-03T21:37:18.399Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/039EN",
+          "fetchedAt": "2026-11-03T21:40:12.145Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-040",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/040",
+        "name": "仮初めの騎士 メアドリーム",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)，このユニットを山札の上に置く]あなたのターンの終了時、コストを払ってよい。払ったら、あなたの山札から「仮初めの騎士 メアホープ」を２枚まで探し、別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_040.png"
+      },
+      "en": {
+        "number": "G-BT02/040EN",
+        "name": "Knight of Transience, Maredream",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Soul-Blast 1 & Put this card on the top of your deck] At the end of your turn, you may pay the cost. If you do, search your deck for up to two cards named \"Knight of Transcience, Marehope\", call them to separate (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_040EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/040", "G-BT02/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F040",
+          "fetchedAt": "2026-11-03T21:37:19.118Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/040EN",
+          "fetchedAt": "2026-11-03T21:40:13.091Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-041",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/041",
+        "name": "開墾の戦乙女 パドミニ",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からグレード３のカード名に「ラナンキュラス」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルし、あなたの手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレードを＋２する。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_041.png"
+      },
+      "en": {
+        "number": "G-BT02/041EN",
+        "name": "Valkyrie of Reclamation, Padmini",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Ranunculus\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_041EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/041", "G-BT02/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F041",
+          "fetchedAt": "2026-11-03T21:37:20.274Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/041EN",
+          "fetchedAt": "2026-11-03T21:40:14.486Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-042",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/042",
+        "name": "仮初めの騎士 メアホープ",
+        "text": "【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットを山札の上に置く]あなたの山札から「仮初めの騎士 メアドリーム」を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_042.png"
+      },
+      "en": {
+        "number": "G-BT02/042EN",
+        "name": "Knight of Transience, Marehope",
+        "text": "[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit on the top of your deck] Search your deck for up to one card named \"Knight of Transcience, Maredream], call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_042EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/042", "G-BT02/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F042",
+          "fetchedAt": "2026-11-03T21:37:21.001Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/042EN",
+          "fetchedAt": "2026-11-03T21:40:15.604Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-043",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/043",
+        "name": "スノーエレメント ブリーザ",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏のカードを１枚選び、表にする]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、あなたのＧゾーンの表のカード１枚につき、このユニットのパワー＋5000。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_043.png"
+      },
+      "en": {
+        "number": "G-BT02/043EN",
+        "name": "Snow Element, Blizza",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +5000 for each face up card in your G zone until end of that battle.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_043EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-BT02/043", "G-BT02/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F043",
+          "fetchedAt": "2026-11-03T21:37:22.163Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/043EN",
+          "fetchedAt": "2026-11-03T21:40:17.271Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-044",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/044",
+        "name": "清風の宝石騎士 キンベリヌス",
+        "text": "【自】：[【ソウルブラスト】(1)-カード名に「宝石騎士」を含むカード]このユニットが【インターセプト】した時、他のカード名に「宝石騎士」を含むリアガードが３枚以上なら、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_044.png"
+      },
+      "en": {
+        "number": "G-BT02/044EN",
+        "name": "Pure Wind Jewel Knight, Kymbelinus",
+        "text": "[AUTO]:[Soul-Blast 1]-card with \"Jewel Knight\" in its card name] When this unit intercepts ([Intercept]), if the number of other rear-guards with \"Jewel Knight\" in its card name is three or more, you may pay the cost. If you do, this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_044EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/044", "G-BT02/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F044",
+          "fetchedAt": "2026-11-03T21:37:23.306Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/044EN",
+          "fetchedAt": "2026-11-03T21:40:18.458Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-045",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/045",
+        "name": "熱風の宝石騎士 シンベリン",
+        "text": "【自】：[このユニットを【レスト】する]このユニットが(R)に登場した時、他のあなたのカード名に「宝石騎士」を含むリアガードが３枚以上いるなら、コストを払ってよい。払ったら、他のあなたのカード名に「宝石騎士」を含むユニットを１枚まで選び、そのターン中、パワー＋10000。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_045.png"
+      },
+      "en": {
+        "number": "G-BT02/045EN",
+        "name": "Heat Wind Jewel Knight, Cymbeline",
+        "text": "[AUTO]:[[Rest] this unit] When this unit is placed on (RC), if the number of other rear-guards you have with \"Jewel Knight\" in its card name is three or more, you may pay the cost. If you do, choose up to one of your other units with \"Jewel Knight\" in its card name, and it gets [Power] +10000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_045EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/045", "G-BT02/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F045",
+          "fetchedAt": "2026-11-03T21:37:24.028Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/045EN",
+          "fetchedAt": "2026-11-03T21:40:19.889Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-046",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/046",
+        "name": "ジャギーショット・ドラグーン",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、相手の前列のリアガードを１枚選び、退却させる。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_046.png"
+      },
+      "en": {
+        "number": "G-BT02/046EN",
+        "name": "Jaggy Shot Dragoon",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, and retire it.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_046EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/046", "G-BT02/046EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F046",
+          "fetchedAt": "2026-11-03T21:37:25.184Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/046EN",
+          "fetchedAt": "2026-11-03T21:40:20.835Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-047",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/047",
+        "name": "乱神咆哮 ルドラ",
+        "text": "【自】【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、あなたの(R)の「乱神咆哮 ルドラ」１枚につき、相手は自分のリアガードを１枚選び、退却させる。",
+        "clan": "なるかみ",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_047.png"
+      },
+      "en": {
+        "number": "G-BT02/047EN",
+        "name": "Turbulence Deity Howl, Rudra",
+        "text": "[AUTO](VC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, your opponent chooses one of his or her rear-guards for each of your \"Turbulence Deity Howl, Rudra\" on (RC), and retires them.",
+        "clan": "Narukami",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_047EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/047", "G-BT02/047EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F047",
+          "fetchedAt": "2026-11-03T21:37:25.925Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/047EN",
+          "fetchedAt": "2026-11-03T21:40:21.699Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-048",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/048",
+        "name": "ワイバーンストライク バーグス",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_048.png"
+      },
+      "en": {
+        "number": "G-BT02/048EN",
+        "name": "Wyvern Strike, Bargs",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_048EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/048", "G-BT02/048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F048",
+          "fetchedAt": "2026-11-03T21:37:27.073Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/048EN",
+          "fetchedAt": "2026-11-03T21:40:22.920Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-049",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/049",
+        "name": "ヒートブレード・ドラグーン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_049.png"
+      },
+      "en": {
+        "number": "G-BT02/049EN",
+        "name": "Heat Blade Dragoon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_049EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/049", "G-BT02/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F049",
+          "fetchedAt": "2026-11-03T21:37:28.224Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/049EN",
+          "fetchedAt": "2026-11-03T21:40:23.849Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-050",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/050",
+        "name": "両刀の抹消者 コエンシャク",
+        "text": "【自】【(R)】【ターン1回】：あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、あなたのカード名に「抹消者」を含むヴァンガードがいるなら、『すべてのファイターは自分のリアガードを１枚選び、退却させる。』をしてよい。（各ターンで１回目のみプレイできる）",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_050.png"
+      },
+      "en": {
+        "number": "G-BT02/050EN",
+        "name": "Two-sword Eradicator, Koenshak",
+        "text": "[AUTO](RC)[1/turn]:When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards, if you have a vanguard with \"Eradicator\" in its card name, you may play \"All fighters choose one of their rear-guards, and retires it.\". (This can only be played the first time it activates in a turn)",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_050EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/050", "G-BT02/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F050",
+          "fetchedAt": "2026-11-03T21:37:29.375Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/050EN",
+          "fetchedAt": "2026-11-03T21:40:24.767Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-051",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/051",
+        "name": "不滅の抹消者 シューブ",
+        "text": "【永】【(R)】：このユニットはあなたのカードの効果で退却しない。\n【自】【(R)】：[【ソウルブラスト】(1)-カード名に「抹消者」を含むカード]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、すべてのファイターのカードのない(R)１つにつき、このユニットのパワー＋1000。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_051.png"
+      },
+      "en": {
+        "number": "G-BT02/051EN",
+        "name": "Undying Eradicator, Schub",
+        "text": "[CONT](RC):This unit cannot be retired by your card effects.\n[AUTO](RC):[Soul-Blast 1]-card with \"Eradicator\" in its card name] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +1000 for each of all fighters' open (RC) until end of that battle.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_051EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/051", "G-BT02/051EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F051",
+          "fetchedAt": "2026-11-03T21:37:30.121Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/051EN",
+          "fetchedAt": "2026-11-03T21:40:25.638Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-052",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/052",
+        "name": "魔竜戦鬼 チャトゥラ",
+        "text": "【永】【(R)】：このユニットはリアガードにアタックできない。\n【永】【(R)】：あなたのターン中、このユニットのパワー＋3000し、『【自】【(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引き、相手のドロップゾーンから１枚選び、表でバインドする。』を得る。",
+        "clan": "なるかみ",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_052.png"
+      },
+      "en": {
+        "number": "G-BT02/052EN",
+        "name": "Demonic Dragon Berserker, Chatura",
+        "text": "[CONT](RC):This unit cannot attack a rear-guard.\n[CONT](RC):During your turn, this unit gets [Power] +3000, and \"AUTO(RC):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, draw a card, choose a card from your opponent's drop zone, and bind it face up.\".",
+        "clan": "Narukami",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_052EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/052", "G-BT02/052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F052",
+          "fetchedAt": "2026-11-03T21:37:30.846Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/052EN",
+          "fetchedAt": "2026-11-03T21:40:26.734Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-053",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/053",
+        "name": "サンダーシャウト・ドラゴン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_053.png"
+      },
+      "en": {
+        "number": "G-BT02/053EN",
+        "name": "Thunder Shout Dragon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_053EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/053", "G-BT02/053EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F053",
+          "fetchedAt": "2026-11-03T21:37:32.013Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/053EN",
+          "fetchedAt": "2026-11-03T21:40:27.983Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-054",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/054",
+        "name": "突撃の抹消者 サイケイ",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]あなたのメインフェイズ中、相手の前列のリアガードがドロップゾーンに置かれた時、あなたのカード名に「抹消者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_054.png"
+      },
+      "en": {
+        "number": "G-BT02/054EN",
+        "name": "Assault Eradicator, Saikei",
+        "text": "[AUTO](RC):[Soul-Blast 1] During your main phase, when your opponent's rear-guard in the front row is put into the drop zone, if you have a vanguard with \"Eradicator\" in its card name, you may pay the cost. If you do, choose a card from your damage zone, and turn it face up.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_054EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/054", "G-BT02/054EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F054",
+          "fetchedAt": "2026-11-03T21:37:33.149Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/054EN",
+          "fetchedAt": "2026-11-03T21:40:28.844Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-055",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/055",
+        "name": "ワイバーンストライク ピグルマ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがアタックした時、そのバトル中、このユニットのパワー＋4000。\n【永】【(R)】：このユニットはリアガードにアタックできない。",
+        "clan": "なるかみ",
+        "race": "ウイングドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_055.png"
+      },
+      "en": {
+        "number": "G-BT02/055EN",
+        "name": "Wyvern Strike, Pyglma",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks, this unit gets [Power] +4000 until end of that battle.\n[CONT](RC):This unit cannot attack a rear-guard.",
+        "clan": "Narukami",
+        "race": "Winged Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_055EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/055", "G-BT02/055EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F055",
+          "fetchedAt": "2026-11-03T21:37:33.882Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/055EN",
+          "fetchedAt": "2026-11-03T21:40:30.060Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-056",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/056",
+        "name": "プラズマダンス・ドラゴン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_056.png"
+      },
+      "en": {
+        "number": "G-BT02/056EN",
+        "name": "Plasma Dance Dragon",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_056EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/056", "G-BT02/056EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F056",
+          "fetchedAt": "2026-11-03T21:37:34.644Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/056EN",
+          "fetchedAt": "2026-11-03T21:40:31.038Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-057",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/057",
+        "name": "疑心暗鬼のジン",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_057.png"
+      },
+      "en": {
+        "number": "G-BT02/057EN",
+        "name": "Djinn of Paranoia",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_057EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/057", "G-BT02/057EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F057",
+          "fetchedAt": "2026-11-03T21:37:35.800Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/057EN",
+          "fetchedAt": "2026-11-03T21:40:32.190Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-058",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/058",
+        "name": "愛の神 カーマ",
+        "text": "",
+        "clan": "なるかみ",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_058.png"
+      },
+      "en": {
+        "number": "G-BT02/058EN",
+        "name": "Deity of Love, Kama",
+        "text": "",
+        "clan": "Narukami",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_058EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/058", "G-BT02/058EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F058",
+          "fetchedAt": "2026-11-03T21:37:36.953Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/058EN",
+          "fetchedAt": "2026-11-03T21:40:33.149Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-059",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/059",
+        "name": "電離の抹消者 カプーニス",
+        "text": "【自】：あなたのカードの効果で、このユニットが(R)からドロップゾーンに置かれた時、あなたの山札の上から３枚見て、カード名に「抹消者」を含むカードを１枚まで探し、相手に見せ、手札に加え、このカードを山札に戻し、その山札をシャッフルする。",
+        "clan": "なるかみ",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_059.png"
+      },
+      "en": {
+        "number": "G-BT02/059EN",
+        "name": "Ionization Eradicator, Capnis",
+        "text": "[AUTO]:When this unit is put into the drop zone from (RC) due to an effect from one of your cards, look at three cards from the top of your deck, search fo up to one card with \"Eradicator\" in its card name from among them, reveal it to your opponent, put it into your hand, return this card to your deck, and shuffle your deck.",
+        "clan": "Narukami",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_059EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/059", "G-BT02/059EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F059",
+          "fetchedAt": "2026-11-03T21:37:37.685Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/059EN",
+          "fetchedAt": "2026-11-03T21:40:34.052Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-060",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/060",
+        "name": "ドラゴンダンサー ヴィアンネ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットを山札の上に置く]あなたのカードの効果で、相手のリアガードがドロップゾーンに置かれた時、コストを払ってよい。払ったら、あなたの山札をシャッフルし、１枚引き、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "なるかみ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_060.png"
+      },
+      "en": {
+        "number": "G-BT02/060EN",
+        "name": "Dragon Dancer, Vianne",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit on the top of your deck] When your opponent's rear-guard is put into the drop zone due to an effect from one of your cards, you may pay the cost. If you do, shuffle your deck, draw a card, choose a card from your damage zone, and turn it face up.",
+        "clan": "Narukami",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_060EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/060", "G-BT02/060EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F060",
+          "fetchedAt": "2026-11-03T21:37:38.411Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/060EN",
+          "fetchedAt": "2026-11-03T21:40:35.216Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-061",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/061",
+        "name": "次元放逐の時空巨兵",
+        "text": "【起】【(V)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[あなたのグレード０のリアガードを１枚選び、山札の下に置く]あなたの山札からグレード３のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターン中、そのユニットのパワー＋5000。\n【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、相手のグレード１以下のリアガードを１枚選び、相手はそのユニットを山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアコロッサス",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_061.png"
+      },
+      "en": {
+        "number": "G-BT02/061EN",
+        "name": "Dimension Expulsion Colossus",
+        "text": "[ACT](VC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Choose one of your grade 0 rear-guards, and put it on the bottom of your deck] Search your deck for up to one grade 3 card, call it to (RC), shuffle your deck, and that unit gets [Power] +5000 until end of turn.\n[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's grade 1 or less rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Colossus",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_061EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/061", "G-BT02/061EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F061",
+          "fetchedAt": "2026-11-03T21:37:39.552Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/061EN",
+          "fetchedAt": "2026-11-03T21:40:36.164Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-062",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/062",
+        "name": "スチームメイデン イーシン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]あなたのカードの効果で、相手のリアガードが山札に置かれた時、コストを払ってよい。払ったら、そのターン中、このユニットは『【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、相手はグレード０のカードを手札から(G)にコールできない。』を得る。\n【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_062.png"
+      },
+      "en": {
+        "number": "G-BT02/062EN",
+        "name": "Steam Maiden, Ishin",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards., you may pay the cost. If you do, until end of turn, this unit gets \"[AUTO](RC):When this unit attacks a vanguard, until end of that battle, your opponent cannot call grade 0 cards from hand to (GC).\".\n[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_062EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/062", "G-BT02/062EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F062",
+          "fetchedAt": "2026-11-03T21:37:40.298Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/062EN",
+          "fetchedAt": "2026-11-03T21:40:37.360Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-063",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/063",
+        "name": "万里を駆けるギアホース",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_063.png"
+      },
+      "en": {
+        "number": "G-BT02/063EN",
+        "name": "Distance-running Gear Horse",
+        "text": "AUTO(VC/RC):When this unit's attack hits a vanguard, choose a card from your damage zone, and turn it face up.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_063EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/063", "G-BT02/063EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F063",
+          "fetchedAt": "2026-11-03T21:37:41.038Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/063EN",
+          "fetchedAt": "2026-11-03T21:40:38.291Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-064",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/064",
+        "name": "鉄の牙のギアハウンド",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのカードの効果で、相手のリアガードが山札に置かれた時、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_064.png"
+      },
+      "en": {
+        "number": "G-BT02/064EN",
+        "name": "Iron-fanged Gear Hound",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone)::When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_064EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/064", "G-BT02/064EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F064",
+          "fetchedAt": "2026-11-03T21:37:42.188Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/064EN",
+          "fetchedAt": "2026-11-03T21:40:39.451Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-065",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/065",
+        "name": "スチームメイデン ウルニン",
+        "text": "【自】：[あなたの手札から１枚選び、捨てる]このユニットが(R)に登場した時、相手のリアガードが２枚以下なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_065.png"
+      },
+      "en": {
+        "number": "G-BT02/065EN",
+        "name": "Steam Maiden, Ul-nin",
+        "text": "[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (RC), if the number of rear-guards your opponent has is two or less, you may pay the cost. If you do, draw a card.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_065EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/065", "G-BT02/065EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F065",
+          "fetchedAt": "2026-11-03T21:37:43.342Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/065EN",
+          "fetchedAt": "2026-11-03T21:40:40.422Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-066",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/066",
+        "name": "ミストゲイザー・ドラゴン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのカードの効果で、相手のリアガードが山札に置かれた時、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_066.png"
+      },
+      "en": {
+        "number": "G-BT02/066EN",
+        "name": "Mist Geyser Dragon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_066EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/066", "G-BT02/066EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F066",
+          "fetchedAt": "2026-11-03T21:37:44.509Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/066EN",
+          "fetchedAt": "2026-11-03T21:40:41.294Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-067",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/067",
+        "name": "真鍮の羽のギアホーク",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのカードの効果で、相手のリアガードが山札に置かれた時、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_067.png"
+      },
+      "en": {
+        "number": "G-BT02/067EN",
+        "name": "Brass-winged Gear Hawk",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_067EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/067", "G-BT02/067EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F067",
+          "fetchedAt": "2026-11-03T21:37:45.247Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/067EN",
+          "fetchedAt": "2026-11-03T21:40:42.321Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-068",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/068",
+        "name": "スチームメイデン ジュシール",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_068.png"
+      },
+      "en": {
+        "number": "G-BT02/068EN",
+        "name": "Steam Maiden, Jusil",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_068EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/068", "G-BT02/068EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F068",
+          "fetchedAt": "2026-11-03T21:37:45.969Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/068EN",
+          "fetchedAt": "2026-11-03T21:40:43.458Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-069",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/069",
+        "name": "邯鄲の夢のギアキャット",
+        "text": "【自】【(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのカードの効果で、相手のリアガードが山札に置かれた時、他のあなたのユニットを１枚選び、そのターン中、パワー＋10000してよい。パワー＋10000したら、このユニットを山札に戻し、その山札をシャッフルする。（各ターンで１回目のみプレイできる）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_069.png"
+      },
+      "en": {
+        "number": "G-BT02/069EN",
+        "name": "Vainglory-dream Gear Cat",
+        "text": "[AUTO](RC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When your opponent's rear-guard is put into his or her deck due to an effect from one of your cards, choose one of your other units, and you may have it get [Power] +10000 until end of turn. If you do, return this unit to your deck, and shuffle your deck. (This can only be played the first time it activates in a turn)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_069EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/069", "G-BT02/069EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F069",
+          "fetchedAt": "2026-11-03T21:37:47.125Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/069EN",
+          "fetchedAt": "2026-11-03T21:40:45.092Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-070",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/070",
+        "name": "ストライクヘッド・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのリアガードがヴァンガードにアタックした時、そのターンで３回目以降のバトル中なら、そのバトル中、そのユニットのパワー＋3000。\n【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの手札から１枚まで選び、(R)にコールし、そのターン中、そのユニットに、『【自】【(R)】：このユニットがヴァンガードにアタックした時、そのターンで１回目のバトル中なら、このユニットを【スタンド】する。』を与える。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_070.png"
+      },
+      "en": {
+        "number": "G-BT02/070EN",
+        "name": "Strikehead Dragon",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When your rear-guard attacks a vanguard, if it is the third battle of that turn or more, that unit gets [Power] +3000 until end of that battle.\n[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (VC), you may pay the cost. IF you do, choose up to one card from your hand, call it to (RC), until end of turn, that unit gets \"[AUTO](RC):When this unit attacks a vanguard, if it is the first battle of that turn, [Stand] this unit.\".",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_070EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/070", "G-BT02/070EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F070",
+          "fetchedAt": "2026-11-03T21:37:48.269Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/070EN",
+          "fetchedAt": "2026-11-03T21:40:46.072Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-071",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/071",
+        "name": "蒼嵐兵 ラスカル・スイーパー",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「メイルストローム」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。\n【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、あなたのカード名に「メイルストローム」を含むヴァンガードがいて、そのターンで１回目のバトル中なら、他のこのユニットと同じ縦列にいるあなたのリアガードを１枚選び、このユニットと位置を交換する。（カードの向きは変わらない）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_071.png"
+      },
+      "en": {
+        "number": "G-BT02/071EN",
+        "name": "Blue Storm Soldier, Rascal Sweeper",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Maelstrom\" in its card name, this unit gets [Power] +2000 until end of that battle.\n[AUTO](RC):At the end of the battle that this unit attacked a vanguard, if you have a vanguard with \"Maelstrom\" in its card name, and if it is the first battle of that turn, choose one of your other rear-guards in the same column as this unit, and exchange positions with this unit. (The state of the card does not change)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_071EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/071", "G-BT02/071EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F071",
+          "fetchedAt": "2026-11-03T21:37:49.082Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/071EN",
+          "fetchedAt": "2026-11-03T21:40:47.428Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-072",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/072",
+        "name": "ハイタイド・スナイパー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【ソウルブラスト】(1)]このユニットがアタックした時、そのターンで３回目以降のバトル中なら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋10000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_072.png"
+      },
+      "en": {
+        "number": "G-BT02/072EN",
+        "name": "High Tide Sniper",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] When this unit attacks, if it is the third battle of that turn or more, you may pay the cost. If you do, this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_072EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/072", "G-BT02/072EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F072",
+          "fetchedAt": "2026-11-03T21:37:49.828Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/072EN",
+          "fetchedAt": "2026-11-03T21:40:49.052Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-073",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/073",
+        "name": "サーベルフロー・セイラー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットを退却させる]このユニットがヴァンガードにアタックしたバトルの終了時、そのターンで４回目以降のバトル中なら、コストを払ってよい。払ったら、２枚引く。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_073.png"
+      },
+      "en": {
+        "number": "G-BT02/073EN",
+        "name": "Saberflow Sailor",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Retire this unit] At the end of the battle that this unit attacked a vanguard, if it is the fourth battle of that turn of more, you may pay the cost. If you do, draw two cards.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_073EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/073", "G-BT02/073EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F073",
+          "fetchedAt": "2026-11-03T21:37:50.591Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/073EN",
+          "fetchedAt": "2026-11-03T21:40:50.755Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-074",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/074",
+        "name": "アサシネイト・セイラー",
+        "text": "【自】【(R)】：このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、そのターンで４回目以降のバトル中なら、相手のリアガードを１枚選び、退却させる。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_074.png"
+      },
+      "en": {
+        "number": "G-BT02/074EN",
+        "name": "Assassinate Sailor",
+        "text": "[AUTO](RC):When an attack hits a vanguard during the battle that this unit boosted ([Boost]), if it is the fourth battle of that turn or more, choose one of your opponent's rear-guards, and retire it.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_074EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/074", "G-BT02/074EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F074",
+          "fetchedAt": "2026-11-03T21:37:51.315Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/074EN",
+          "fetchedAt": "2026-11-03T21:40:51.905Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-075",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/075",
+        "name": "タクティクス・セイラー",
+        "text": "【自】【(R)】：このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、そのターンで４回目以降のバトル中なら、１枚引く。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_075.png"
+      },
+      "en": {
+        "number": "G-BT02/075EN",
+        "name": "Tactics Sailor",
+        "text": "[AUTO](RC):When an attack hits a vanguard during the battle that this unit boosted ([Boost]), if it is the fourth battle of that turn or more, draw a card.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_075EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/075", "G-BT02/075EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F075",
+          "fetchedAt": "2026-11-03T21:37:52.479Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/075EN",
+          "fetchedAt": "2026-11-03T21:40:52.838Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-076",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/076",
+        "name": "旋風のブレイブ・シューター",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【ソウルブラスト】(1)]このユニットがアタックした時、そのターンで３回目以降のバトル中なら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000し、『【自】【(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから１枚選び、表にする。』を得る。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_076.png"
+      },
+      "en": {
+        "number": "G-BT02/076EN",
+        "name": "Whirlwind Brave Shooter",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] When this unit attacks, if it is the third battle of that turn or more, you may pay the cost. If you do, until end of that battle, this unit gets [Power] +5000, and \"[AUTO](RC):When this unit's attack hits a vanguard, choose a card from your damage zone, and turn it face up.\".",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_076EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/076", "G-BT02/076EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F076",
+          "fetchedAt": "2026-11-03T21:37:53.665Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/076EN",
+          "fetchedAt": "2026-11-03T21:40:54.053Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-077",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/077",
+        "name": "戦場の歌姫 スタシア",
+        "text": "【永】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのターン中、このユニットは、『【永】【(R)】：このユニットは後列からアタックできる。』『【自】【(R)】：このユニットがアタックした時、あなたの後列にこのユニットがいるなら、そのバトル中、このユニットのパワー＋3000。』を得る。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_077.png"
+      },
+      "en": {
+        "number": "G-BT02/077EN",
+        "name": "Battle Siren, Stacia",
+        "text": "[CONT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):During your turn, this unit gets \"[CONT](RC):This unit can attack from the back row.\" and \"[AUTO](RC):When this unit attacks, if this unit is in your back row, this unit gets [Power] +3000 until end of that battle.\".",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_077EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/077", "G-BT02/077EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F077",
+          "fetchedAt": "2026-11-03T21:37:54.865Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/077EN",
+          "fetchedAt": "2026-11-03T21:40:55.697Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-078",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/078",
+        "name": "士官候補生 キリル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【ソウルブラスト】(1)]このユニットがアタックした時、そのターンで３回目以降のバトル中なら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋10000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_078.png"
+      },
+      "en": {
+        "number": "G-BT02/078EN",
+        "name": "Officer Cadet, Cyril",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] When this unit attacks, if it is the third battle of that turn or more, you may pay the cost. If you do, this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_078EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/078", "G-BT02/078EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F078",
+          "fetchedAt": "2026-11-03T21:37:56.019Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/078EN",
+          "fetchedAt": "2026-11-03T21:40:56.860Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-079",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/079",
+        "name": "サージブレス・ドラコキッド",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_079.png"
+      },
+      "en": {
+        "number": "G-BT02/079EN",
+        "name": "Surge Breath Dracokid",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_079EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/079", "G-BT02/079EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F079",
+          "fetchedAt": "2026-11-03T21:37:57.176Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/079EN",
+          "fetchedAt": "2026-11-03T21:40:58.098Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-080",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/080",
+        "name": "蒼嵐水将 デスピナ",
+        "text": "【自】【(R)】：このユニットがカード名に「メイルストローム」を含むヴァンガードを【ブースト】した時、そのターンで４回目以降のバトル中なら、そのバトル中、相手はグレード０のカードを手札から(G)にコールできず、そのバトルの終了時、このユニットを山札に戻し、その山札をシャッフルする。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_080.png"
+      },
+      "en": {
+        "number": "G-BT02/080EN",
+        "name": "Blue Storm Marine General, Despina",
+        "text": "[AUTO](RC):When this unit boosts ([Boost]) your vanguard with \"Maelstrom\" in its card name, if it is the fourth battle of that turn or more, until end of that battle, your opponent cannot call grade 0 cards from hand to (GC), at the end of that battle, return this unit to your deck, and shuffle your deck.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_080EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/080", "G-BT02/080EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F080",
+          "fetchedAt": "2026-11-03T21:37:58.320Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/080EN",
+          "fetchedAt": "2026-11-03T21:40:59.558Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-081",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/081",
+        "name": "矛盾教官 タスク・マスター",
+        "text": "【自】【(V)/(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、他のあなたのリアガードを１枚選び、【スタンド】し、そのターン中、パワー＋4000し、そのターンの終了時、そのユニットを退却させる。（コストを払わなくても、この能力は使えなくなる）",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_081.png"
+      },
+      "en": {
+        "number": "G-BT02/081EN",
+        "name": "Contradictory Instructor, Tusk Master",
+        "text": "[AUTO](VC/RC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, choose one of your other rear-guards, [Stand] it, it gets [Power] +4000 until end of turn, at the end of that turn, retire that unit. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn.)",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_081EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/081", "G-BT02/081EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F081",
+          "fetchedAt": "2026-11-03T21:37:59.517Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/081EN",
+          "fetchedAt": "2026-11-03T21:41:01.651Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-082",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/082",
+        "name": "全力科学者 にゃんしろー",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_082.png"
+      },
+      "en": {
+        "number": "G-BT02/082EN",
+        "name": "Full-power Scientist, Nyanshiro",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_082EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/082", "G-BT02/082EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F082",
+          "fetchedAt": "2026-11-03T21:38:00.672Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/082EN",
+          "fetchedAt": "2026-11-03T21:41:02.842Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-083",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/083",
+        "name": "スリーピー・テイパー",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、他のあなたのリアガードを１枚選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、そのユニットを退却させる。\n【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_083.png"
+      },
+      "en": {
+        "number": "G-BT02/083EN",
+        "name": "Sleepy Tapir",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, choose one of your other rear-guards, and you may have it get [Power] +4000 until end of turn. If you do, at the end of that turn, retire that unit.\n[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_083EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/083", "G-BT02/083EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F083",
+          "fetchedAt": "2026-11-03T21:38:01.410Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/083EN",
+          "fetchedAt": "2026-11-03T21:41:04.271Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-084",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/084",
+        "name": "マリシャス・サーベル",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_084.png"
+      },
+      "en": {
+        "number": "G-BT02/084EN",
+        "name": "Malicious Saber",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_084EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/084", "G-BT02/084EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F084",
+          "fetchedAt": "2026-11-03T21:38:02.563Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/084EN",
+          "fetchedAt": "2026-11-03T21:41:05.428Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-085",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/085",
+        "name": "沈着科学者 にゃんくろー",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_085.png"
+      },
+      "en": {
+        "number": "G-BT02/085EN",
+        "name": "Composed Scientist, Nyankuro",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_085EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/085", "G-BT02/085EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F085",
+          "fetchedAt": "2026-11-03T21:38:03.705Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/085EN",
+          "fetchedAt": "2026-11-03T21:41:06.667Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-086",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/086",
+        "name": "ペイント・オッター",
+        "text": "【永】【(R)】：あなたのヴァンガードの『【リミットブレイク】(4)』はあなたのダメージゾーンが３枚以下でも有効になる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_086.png"
+      },
+      "en": {
+        "number": "G-BT02/086EN",
+        "name": "Paint Otter",
+        "text": "[CONT](RC):Your vanguard's \"[Limit-Break 4]\" is active even when you have three or less damage.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_086EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/086", "G-BT02/086EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F086",
+          "fetchedAt": "2026-11-03T21:38:04.557Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/086EN",
+          "fetchedAt": "2026-11-03T21:41:07.562Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-087",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/087",
+        "name": "モヒカン・ハイエナ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが【ブースト】した時、【ブースト】されたユニットのパワーが19000以上なら、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_087.png"
+      },
+      "en": {
+        "number": "G-BT02/087EN",
+        "name": "Mohican Hyena",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]), if the boosted ([Boost]) unit's [Power] is 19000 or greater, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_087EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/087", "G-BT02/087EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F087",
+          "fetchedAt": "2026-11-03T21:38:05.288Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/087EN",
+          "fetchedAt": "2026-11-03T21:41:08.557Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-088",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/088",
+        "name": "ペンシル・コアラ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、他のあなたのリアガードを１枚選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、１枚引き、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_088.png"
+      },
+      "en": {
+        "number": "G-BT02/088EN",
+        "name": "Pencil Koala",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When an attack hits a vanguard during the battle that this unit boosted ([Boost]), choose one of your other rear-guards, and you may have it get [Power] +4000 until end of turn. If you do, at the end of that turn, draw a card, and retire that unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_088EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/088", "G-BT02/088EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F088",
+          "fetchedAt": "2026-11-03T21:38:06.025Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/088EN",
+          "fetchedAt": "2026-11-03T21:41:10.966Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-089",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/089",
+        "name": "カッター・ファルコン",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_089.png"
+      },
+      "en": {
+        "number": "G-BT02/089EN",
+        "name": "Cutter Falcon",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_089EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/089", "G-BT02/089EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F089",
+          "fetchedAt": "2026-11-03T21:38:07.228Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/089EN",
+          "fetchedAt": "2026-11-03T21:41:12.543Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-090",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/090",
+        "name": "カフェテリア・ラッコ",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_090.png"
+      },
+      "en": {
+        "number": "G-BT02/090EN",
+        "name": "Cafeteria Sea Otter",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_090EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/090", "G-BT02/090EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F090",
+          "fetchedAt": "2026-11-03T21:38:08.385Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/090EN",
+          "fetchedAt": "2026-11-03T21:41:13.522Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-091",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/091",
+        "name": "ブロードキャスト・ラビット",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_091.png"
+      },
+      "en": {
+        "number": "G-BT02/091EN",
+        "name": "Broadcast Rabbit",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_091EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/091", "G-BT02/091EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F091",
+          "fetchedAt": "2026-11-03T21:38:09.459Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/091EN",
+          "fetchedAt": "2026-11-03T21:41:15.235Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-092",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/092",
+        "name": "プロトラクター・ウータン",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]あなたのエンドフェイズ中、このユニットが(R)からドロップゾーンに置かれた時、コストを払ってよい。払ったら、あなたの山札から「プロトラクター・ウータン」を１枚まで探し、相手に見せ、手札に加え、このカードを山札に戻し、その山札をシャッフルする。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_092.png"
+      },
+      "en": {
+        "number": "G-BT02/092EN",
+        "name": "Protractor Orangutan",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] During your end phase, when this unit is put into the drop zone from (RC), you may pay the cost. If you do, search your deck for up to one card named \"Protractor Orangutan\", reveal it to your opponent, put it into your hand, return this card to your deck, and shuffle your deck.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_092EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/092", "G-BT02/092EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F092",
+          "fetchedAt": "2026-11-03T21:38:10.179Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/092EN",
+          "fetchedAt": "2026-11-03T21:41:16.385Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-093",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/093",
+        "name": "ベジタブルアバター・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]あなたのメインフェイズ開始時、コストを払ってよい。払ったら、あなたの山札から「ベジタブルアバター・ドラゴン」を１枚まで探し、(R)にコールし、その山札をシャッフルする。\n【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたのグレード２以下のリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_093.png"
+      },
+      "en": {
+        "number": "G-BT02/093EN",
+        "name": "Vegetable Avatar Dragon",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] At the beginning of your main phase, you may pay the cost. If you do, search your deck for up to one card named \"Vegetable Avatar Dragon\", call it to (RC), and shuffle your deck.\n[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your grade 2 or less rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_093EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/093", "G-BT02/093EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F093",
+          "fetchedAt": "2026-11-03T21:38:11.359Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/093EN",
+          "fetchedAt": "2026-11-03T21:41:17.337Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-094",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/094",
+        "name": "弾幕戦士 スイカーク",
+        "text": "【永】【(R)】：あなたのターン中、あなたの(R)に他の「弾幕戦士 スイカーク」がいるなら、このユニットのパワー＋2000。",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_094.png"
+      },
+      "en": {
+        "number": "G-BT02/094EN",
+        "name": "Barrage Warrior, Watermelock",
+        "text": "[CONT](RC):During your turn, if you have another \"Barrage Warrior, Watermelock\" on your (RC), this unit gets [Power] +2000.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_094EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/094", "G-BT02/094EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F094",
+          "fetchedAt": "2026-11-03T21:38:12.495Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/094EN",
+          "fetchedAt": "2026-11-03T21:41:18.482Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-095",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/095",
+        "name": "ホイールウインド・ドラゴン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから２枚まで選び、表にする。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_095.png"
+      },
+      "en": {
+        "number": "G-BT02/095EN",
+        "name": "Wheelwind Dragon",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit's attack hits a vanguard, choose up to two cards from your damage zone, and turn them face up.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_095EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/095", "G-BT02/095EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F095",
+          "fetchedAt": "2026-11-03T21:38:13.658Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/095EN",
+          "fetchedAt": "2026-11-03T21:41:19.338Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-096",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/096",
+        "name": "メイデン・オブ・ロストメモリー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(2)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、このユニットと同名のあなたのユニット１枚につき、１枚引き、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_096.png"
+      },
+      "en": {
+        "number": "G-BT02/096EN",
+        "name": "Maiden of Lost Memory",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 2] When this unit's attack hits a vanguard, you may pay the cost. If you do, for each of your units with the same card name as this unit, draw a card, choose a card from your damage zone, and turn it face up.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_096EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/096", "G-BT02/096EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F096",
+          "fetchedAt": "2026-11-03T21:38:14.808Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/096EN",
+          "fetchedAt": "2026-11-03T21:41:20.484Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-097",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/097",
+        "name": "スノードロップの銃士 ピルッコ",
+        "text": "【永】【(R)】：あなたのヴァンガードの『【リミットブレイク】(4)』はあなたのダメージゾーンが３枚以下でも有効になる。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_097.png"
+      },
+      "en": {
+        "number": "G-BT02/097EN",
+        "name": "Snowdrop Musketeer, Pilkko",
+        "text": "[CONT](RC):Your vanguard's \"[Limit-Break 4]\" is active even when you have three or less damage.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_097EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/097", "G-BT02/097EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F097",
+          "fetchedAt": "2026-11-03T21:38:15.527Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/097EN",
+          "fetchedAt": "2026-11-03T21:41:21.388Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-098",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/098",
+        "name": "メイデン・オブ・カンナ",
+        "text": "【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]他のあなたのユニットを１枚選ぶ。選んだら、そのユニットと同名のあなたのユニットを４枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_098.png"
+      },
+      "en": {
+        "number": "G-BT02/098EN",
+        "name": "Maiden of Canna",
+        "text": "[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Choose one of your other units. If you do, choose up to four of your units with the same card name as that unit, and they get [Power] +5000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_098EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/098", "G-BT02/098EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F098",
+          "fetchedAt": "2026-11-03T21:38:16.666Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/098EN",
+          "fetchedAt": "2026-11-03T21:41:22.284Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-099",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/099",
+        "name": "哀愁戦士 オニオーン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのメインフェイズ開始時、あなたの山札から「哀愁戦士 オニオーン」を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_099.png"
+      },
+      "en": {
+        "number": "G-BT02/099EN",
+        "name": "Warrior of Grief, Onion",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):At the beginning of your main phase, search your deck for up to one card named \"Warrior of Grief, Onion\", call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_099EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/099", "G-BT02/099EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F099",
+          "fetchedAt": "2026-11-03T21:38:17.387Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/099EN",
+          "fetchedAt": "2026-11-03T21:41:24.513Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-100",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/100",
+        "name": "芽生えの乙女 ホー",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]他のあなたのユニットを１枚選ぶ。選んだら、そのユニットと同名のあなたのユニットを４枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_100.png"
+      },
+      "en": {
+        "number": "G-BT02/100EN",
+        "name": "Bud Maiden, Ho",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Choose one of your other units. If you do, choose up to four of your units with the same card name as that unit, and they get [Power] +5000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_100EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/100", "G-BT02/100EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F100",
+          "fetchedAt": "2026-11-03T21:38:18.540Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/100EN",
+          "fetchedAt": "2026-11-03T21:41:25.701Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-101",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/101",
+        "name": "マグノリアナイト",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_101.png"
+      },
+      "en": {
+        "number": "G-BT02/101EN",
+        "name": "Magnolia Knight",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_101EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/101", "G-BT02/101EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F101",
+          "fetchedAt": "2026-11-03T21:38:19.263Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/101EN",
+          "fetchedAt": "2026-11-03T21:41:26.829Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-102",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/102",
+        "name": "梔子の銃士 アラン",
+        "text": "【自】：あなたのカード名に「銃士」を含むカードの効果で、このユニットが(R)に登場した時、あなたのダメージゾーンから２枚まで選び、表にする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_102.png"
+      },
+      "en": {
+        "number": "G-BT02/102EN",
+        "name": "Gardenia Musketeer, Alain",
+        "text": "[AUTO]:When this unit is placed on (RC) due to an effect from one of your cards with \"Musketeer\" in its card name, choose up to two cards from your damage zone, and turn them face up.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_102EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/102", "G-BT02/102EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F102",
+          "fetchedAt": "2026-11-03T21:38:20.436Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/102EN",
+          "fetchedAt": "2026-11-03T21:41:28.102Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-BT02-103",
+      "set": "G-BT02",
+      "jp": {
+        "number": "G-BT02/103",
+        "name": "レインエレメンタル ティア",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたのＧゾーンの表の《クレイエレメンタル》１枚につき、あなたのダメージゾーンから１枚選び、表にする。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-BT02/gbt02_103.png"
+      },
+      "en": {
+        "number": "G-BT02/103EN",
+        "name": "Rain Elemental, Tear",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, choose a card from your damage zone for each face up <Cray Elemental> card in your G zone, and turn them face up.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "/wordpress/wp-content/images/cardlist/gbt02/GBT02_103EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-BT02/103", "G-BT02/103EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-BT02%2F103",
+          "fetchedAt": "2026-11-03T21:38:21.249Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-BT02/103EN",
+          "fetchedAt": "2026-11-03T21:41:29.816Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

@@ -22,6 +22,12 @@ import { PlaymatPicker, SleevePicker } from './ui/CosmeticPickers';
 import { DEFAULT_SLEEVE } from './cosmetics';
 import { randomSeed, seedFrom } from './game/seed';
 import { DemoSetup, type DemoChoice } from './screens/DemoSetup';
+import { UpdateManager } from './screens/UpdateManager';
+import { migrationNotice, startMigrationResult } from './migrations';
+import { desktopUpdates, updateResultText, type UpdateCheck, type UpdateResult } from './updates';
+
+const FEEDBACK_HINT =
+  'Opens GitHub in your browser, where you can write and post it. Needs a free GitHub account. Posts are public.';
 
 /** D-019: a fixed 1920×1080 stage, scaled to fit the window. */
 function Stage({
@@ -55,6 +61,7 @@ type Screen =
   | { name: 'menu' }
   | { name: 'setup' }
   | { name: 'settings' }
+  | { name: 'updates'; from: 'menu' | 'settings' }
   | { name: 'decks' }
   | { name: 'battle'; config: SessionConfig; key: number }
   | { name: 'demo-setup' }
@@ -90,6 +97,35 @@ export function App() {
     online.current?.stop();
     online.current = null;
   };
+  /** The last update check this run (D-037); the start-up check fills it when switched on. */
+  const [updateCheck, setUpdateCheck] = useState<UpdateCheck | null>(null);
+  const [startSettings] = useState(settings);
+  useEffect(() => {
+    if (!startSettings.checkUpdatesAtStart) return;
+    let live = true;
+    void desktopUpdates()
+      ?.check(startSettings.updateChannel)
+      .then((r) => live && setUpdateCheck(r))
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+  }, [startSettings]);
+  const updateReady = updateCheck?.ok && updateCheck.available ? updateCheck.latest.version : null;
+  /** What the updater did before this start, shown once on the main menu. */
+  const [updateResult, setUpdateResult] = useState<UpdateResult | null>(null);
+  /** What happened to the saved data at this start, when the player should know. */
+  const [dataNotice, setDataNotice] = useState(() => migrationNotice(startMigrationResult()));
+  useEffect(() => {
+    let live = true;
+    void desktopUpdates()
+      ?.lastResult()
+      .then((r) => live && setUpdateResult(r))
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+  }, []);
   useEffect(() => saveSettings(settings), [settings]);
   // menus and the Deck Builder use the Classic rules; a G-era game sets its own (D-034)
   useEffect(() => {
@@ -103,7 +139,27 @@ export function App() {
   return (
     <SettingsContext.Provider value={settings}>
       <Stage reducedMotion={settings.reducedMotion} screenShake={settings.screenShake}>
-        {screen.name === 'menu' && <MainMenu go={setScreen} />}
+        {screen.name === 'menu' && (
+          <MainMenu
+            go={setScreen}
+            updateReady={updateReady}
+            updateResult={updateResult}
+            onDismissResult={() => setUpdateResult(null)}
+            dataNotice={dataNotice}
+            onDismissData={() => setDataNotice(null)}
+          />
+        )}
+        {screen.name === 'updates' && (
+          <UpdateManager
+            settings={settings}
+            onChange={setSettings}
+            initial={updateCheck}
+            onChecked={setUpdateCheck}
+            onBack={() =>
+              setScreen(screen.from === 'menu' ? { name: 'menu' } : { name: 'settings' })
+            }
+          />
+        )}
         {screen.name === 'setup' && (
           <Setup
             onBack={() => setScreen({ name: 'menu' })}
@@ -154,6 +210,7 @@ export function App() {
             settings={settings}
             onChange={setSettings}
             onBack={() => setScreen({ name: 'menu' })}
+            onUpdates={() => setScreen({ name: 'updates', from: 'settings' })}
           />
         )}
         {screen.name === 'battle' && (
@@ -183,9 +240,67 @@ export function App() {
  */
 const ONLINE_READY = true;
 
-function MainMenu({ go }: { go: (s: Screen) => void }) {
+function MainMenu({
+  go,
+  updateReady,
+  updateResult,
+  onDismissResult,
+  dataNotice,
+  onDismissData,
+}: {
+  go: (s: Screen) => void;
+  updateResult: UpdateResult | null;
+  onDismissResult: () => void;
+  dataNotice: string | null;
+  onDismissData: () => void;
+  /** A newer version found by the start-up check (shown on the menu only, never in a match). */
+  updateReady: string | null;
+}) {
   return (
     <div className="menu">
+      {window.vanguardDesktop?.openFeedback && (
+        <button
+          className="btn"
+          onClick={() => void window.vanguardDesktop?.openFeedback?.()}
+          data-testid="feedback-menu"
+          title={FEEDBACK_HINT}
+          style={{ position: 'absolute', bottom: 24, right: 24 }}
+        >
+          Report a Problem / Suggest Something
+        </button>
+      )}
+      {dataNotice && (
+        <button
+          className="btn"
+          onClick={onDismissData}
+          data-testid="data-notice"
+          title="Click to dismiss"
+          style={{ position: 'absolute', bottom: 24, left: 24, maxWidth: 560, textAlign: 'left' }}
+        >
+          {dataNotice}
+        </button>
+      )}
+      {updateResult && (
+        <button
+          className="btn update-result"
+          onClick={onDismissResult}
+          data-testid="update-result"
+          title="Click to dismiss"
+          style={{ position: 'absolute', top: 24, left: 24, maxWidth: 560, textAlign: 'left' }}
+        >
+          {updateResultText(updateResult)}
+        </button>
+      )}
+      {updateReady && (
+        <button
+          className="btn update-notice"
+          onClick={() => go({ name: 'updates', from: 'menu' })}
+          data-testid="update-notice"
+          style={{ position: 'absolute', top: 24, right: 24, borderColor: '#ffd166' }}
+        >
+          Update available: v{updateReady}
+        </button>
+      )}
       <h1 className="title">CARDFIGHT SIM</h1>
       <div className="subtitle">VG-BT01 — BT17 · CLASSIC RULES</div>
       <button className="menu-btn" onClick={() => go({ name: 'setup' })} data-testid="new-game">
@@ -367,10 +482,12 @@ function SettingsScreen({
   settings,
   onChange,
   onBack,
+  onUpdates,
 }: {
   settings: Settings;
   onChange: (s: Settings) => void;
   onBack: () => void;
+  onUpdates: () => void;
 }) {
   const speeds: [Speed, string][] = [
     ['normal', 'Normal'],
@@ -522,6 +639,30 @@ function SettingsScreen({
           />
         </div>
         <ArtworkStatus />
+        {window.vanguardDesktop?.openFeedback && (
+          <div className="row">
+            <span style={{ width: 300 }}>
+              Feedback
+              <div className="hint">{FEEDBACK_HINT}</div>
+            </span>
+            <button
+              className="btn"
+              onClick={() => void window.vanguardDesktop?.openFeedback?.()}
+              data-testid="feedback-settings"
+            >
+              Report a Problem / Suggest Something
+            </button>
+          </div>
+        )}
+        <div className="row">
+          <span style={{ width: 300 }}>
+            Updates
+            <div className="hint">Installed version, newest release, release notes</div>
+          </span>
+          <button className="btn" onClick={onUpdates} data-testid="open-updates">
+            Open Update Manager
+          </button>
+        </div>
       </div>
       <button
         className="menu-btn"

@@ -22,6 +22,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 const { createOnline } = require('./online.cjs');
+const updates = require('./updates.cjs');
+const { createUpdateDownloader } = require('./updateDownload.cjs');
+const { createUpdateInstaller } = require('./updateInstall.cjs');
 
 const devUrl = process.env.VANGUARD_DEV_URL;
 /** Set by the release smoke test (docs/RELEASING.md): load, report, quit. */
@@ -195,6 +198,80 @@ function registerArtworkIpc() {
   });
 }
 
+/**
+ * Vanguard Update Manager stage 1 (D-037): the game window asks, the main process looks up the
+ * newest GitHub release (Node's fetch, like the Artwork Manager; the window itself stays offline,
+ * D-004) and can open the official release page in the browser. Stage 3: on request it downloads
+ * and verifies an update into a staging folder. Stage 4: the updater program installs it.
+ */
+const updateRoot = () =>
+  path.join(process.env.LOCALAPPDATA || app.getPath('userData'), 'VanguardSim');
+const portable = () => Boolean(process.env.PORTABLE_EXECUTABLE_DIR);
+/** A portable copy unpacks itself on every run and a development build has no install to update. */
+const canUpdateInPlace = () => app.isPackaged && !portable();
+const NOT_IN_PLACE = { ok: false, error: 'This copy cannot be updated in place.' };
+let installer = null;
+const getInstaller = () =>
+  (installer ??= createUpdateInstaller({
+    installDir: path.dirname(app.getPath('exe')),
+    downloadRoot: path.join(updateRoot(), 'updates'),
+    stateDir: path.join(updateRoot(), 'state'),
+    currentVersion: app.getVersion(),
+    pid: process.pid,
+  }));
+
+function registerUpdateIpc() {
+  let downloader = null;
+  const getDownloader = () =>
+    (downloader ??= createUpdateDownloader({
+      installDir: path.dirname(app.getPath('exe')),
+      downloadRoot: path.join(updateRoot(), 'updates'),
+      currentVersion: app.getVersion(),
+      fetchFn: (url, init) => globalThis.fetch(url, init),
+    }));
+  // the updater waits for this process to end before it touches anything
+  const closeIfStarted = (r) => {
+    if (r.ok) setTimeout(() => app.quit(), 200);
+    return r;
+  };
+  ipcMain.handle('updates:install', async (_e, version) =>
+    canUpdateInPlace() ? closeIfStarted(await getInstaller().start(version)) : NOT_IN_PLACE,
+  );
+  ipcMain.handle('updates:rollback', async () =>
+    canUpdateInPlace() ? closeIfStarted(await getInstaller().restore('manual')) : NOT_IN_PLACE,
+  );
+  ipcMain.handle('updates:rollback-info', () =>
+    canUpdateInPlace() ? getInstaller().rollbackInfo() : null,
+  );
+  ipcMain.handle('updates:last-result', () =>
+    canUpdateInPlace() ? getInstaller().lastResult() : null,
+  );
+  ipcMain.handle('updates:download', (e, version) => {
+    if (!canUpdateInPlace()) return NOT_IN_PLACE;
+    return getDownloader().start(version, (progress) => {
+      if (!e.sender.isDestroyed()) e.sender.send('updates:progress', progress);
+    });
+  });
+  ipcMain.handle('updates:cancel', () => downloader?.cancel());
+  ipcMain.handle('updates:check', (_e, channel) =>
+    updates.checkForUpdates({
+      currentVersion: app.getVersion(),
+      channel,
+      fetchFn: (url, init) => globalThis.fetch(url, init),
+    }),
+  );
+  ipcMain.handle('updates:info', () => ({
+    version: app.getVersion(),
+    portable: portable(),
+    packaged: app.isPackaged,
+  }));
+  // the address is made here: the window can ask for this page, not for any address
+  ipcMain.handle('feedback:open', () => shell.openExternal(updates.feedbackUrl(app.getVersion())));
+  ipcMain.handle('updates:open-page', (_e, url) =>
+    updates.isReleasePage(url) ? shell.openExternal(url) : undefined,
+  );
+}
+
 /** Play Online (D-032): the game window hosts or joins through these; one connection at a time. */
 function registerOnlineIpc(win) {
   const online = createOnline((kind, data) => {
@@ -304,8 +381,20 @@ const deckShotsStep = `(() => {
     if (n === 6) return typeIn('');
     return 'wait';
   })()`;
+/** VANGUARD_SHOTS_SCREEN=updates: the Update Manager (D-037), a live check, the release notes. */
+const updateShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const n = (window.__n = (window.__n || 0) + 1);
+    if (n === 1) return (q('[data-testid=settings]').click(), 'settings');
+    if (n === 2) return (q('[data-testid=open-updates]').click(), 'updates');
+    if (n === 3) return (q('[data-testid=check-updates]').click(), 'check');
+    if (n === 6 && q('[data-testid=toggle-notes]')) return (q('[data-testid=toggle-notes]').click(), 'notes');
+    return 'wait';
+  })()`;
 function runShots(win) {
-  const step = process.env.VANGUARD_SHOTS_SCREEN === 'decks' ? deckShotsStep : shotsStep;
+  const screen = process.env.VANGUARD_SHOTS_SCREEN;
+  const step =
+    screen === 'decks' ? deckShotsStep : screen === 'updates' ? updateShotsStep : shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);
@@ -737,7 +826,15 @@ function runSmokeTest(win) {
 const ROOM_CODE_SERVICE = /^(https|wss):\/\/0\.peerjs\.com\//;
 let roomCodesOpen = false;
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  // an update stopped part-way (power cut, crash): go back to the version it came from first
+  if (canUpdateInPlace() && !smokeTest && (await getInstaller().interrupted())) {
+    const r = await getInstaller().restore('interrupted');
+    if (r.ok) {
+      app.quit();
+      return;
+    }
+  }
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
     const remote = /^(https?|wss?):/.test(details.url);
     const allowed =
@@ -747,6 +844,7 @@ app.whenReady().then(() => {
   });
   serveArt();
   registerArtworkIpc();
+  registerUpdateIpc();
   if (process.argv.includes('--artwork')) openArtworkManager();
   else createWindow();
 });

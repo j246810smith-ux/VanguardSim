@@ -29,6 +29,7 @@ import type { PlayerController } from './controller';
 import { determinize } from './determinize';
 import { alreadySafe, isPerfectGuard, payableSentinel } from './guarding';
 import { Evaluator, planFor } from './evaluate';
+import { PROFILE_WEIGHTS, profileBonus, profileMulligan, type DeckAi } from './profile';
 import { DEFAULT_WEIGHTS, type EvalWeights } from './weights';
 
 type Choose = Extract<LegalAction, { type: 'CHOOSE' }>;
@@ -53,6 +54,13 @@ export interface SmartOptions {
   /** Fillings of the hidden cards averaged per decision: in battle, and otherwise. */
   readonly battleSamples?: number;
   readonly otherSamples?: number;
+  /**
+   * The lookahead also plays the next turn (both sides by the Normal AI's policies), so the score
+   * sees what the other player does with the position (AI plan stage 6).
+   */
+  readonly nextTurnLookahead?: boolean;
+  /** The deck's strategy profile (./profile.ts): rides, mulligan, cards to hold and call first. */
+  readonly profile?: DeckAi | null;
   /** Evaluation weights (./weights.ts), for tuning runs. */
   readonly weights?: EvalWeights;
 }
@@ -69,6 +77,8 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
   // 8/4 samples measured 50.7% (n=420) at twice the think time: kept at 4/2
   battleSamples: SAMPLES,
   otherSamples: 2,
+  nextTurnLookahead: false,
+  profile: null,
   weights: DEFAULT_WEIGHTS,
 };
 /** The Hard AI as of 0.13.0 (the stage 1 baseline), for comparisons. */
@@ -79,6 +89,8 @@ export const SMART_BASELINE: Required<SmartOptions> = {
   competentOpponent: false,
   battleSamples: SAMPLES,
   otherSamples: 2,
+  nextTurnLookahead: false,
+  profile: null,
   weights: DEFAULT_WEIGHTS,
 };
 
@@ -102,7 +114,11 @@ export class SmartController implements PlayerController {
     options: SmartOptions = {},
   ) {
     this.options = { ...SMART_DEFAULTS, ...options };
-    this.evaluator = new Evaluator(ctx, planFor(ctx, deck?.cards ?? null), this.options.weights);
+    this.evaluator = new Evaluator(
+      ctx,
+      planFor(ctx, deck?.cards ?? null, this.options.profile?.hold),
+      this.options.weights,
+    );
     this.fallback = new BasicController(ctx);
     this.opponentModel = new BasicController(ctx, {
       competentGuard: this.options.competentOpponent,
@@ -157,6 +173,11 @@ export class SmartController implements PlayerController {
 
   /** Keep one card of each grade 1–3 (a ride chain); send the rest back. */
   private mulligan(view: GameState, me: PlayerId, selectable: readonly InstanceId[]): Command {
+    const profile = this.options.profile;
+    if (profile) {
+      const cardIds = profileMulligan(profile, view, me, selectable, (id) => this.def(view, id));
+      return { type: 'MULLIGAN', player: me, cardIds };
+    }
     const keep = new Set<number>();
     const back: InstanceId[] = [];
     for (const id of selectable) {
@@ -222,13 +243,27 @@ export class SmartController implements PlayerController {
     let bestScore = end ? this.expected(me, [end]) + 60 : -Infinity;
     for (const c of candidates) {
       if (c === end) continue;
-      const score = this.expected(me, [c]);
+      const score = this.expected(me, [c]) + this.deckBonus(s, me, c);
       if (score > bestScore) {
         best = c;
         bestScore = score;
       }
     }
     return best;
+  }
+
+  /** What the deck's profile adds to a ride or call (nothing without a profile). */
+  private deckBonus(s: GameState, me: PlayerId, c: Command): number {
+    const profile = this.options.profile;
+    if (!profile) return 0;
+    const vg = vanguardOf(s.players[me]);
+    return profileBonus(
+      profile,
+      c,
+      (id) => this.def(s, id),
+      vg ? this.def(s, vg) : null,
+      s.players[me].damage.length,
+    );
   }
 
   /**
@@ -497,7 +532,12 @@ export class SmartController implements PlayerController {
       // play the rest of the current turn with simple policies for both sides: my own choices by
       // the defaults, no further calls or abilities of mine, attacks and guards by the basic AI
       const turn = s.turnNumber;
-      for (let i = 0; i < ROLLOUT_STEPS && s.status === 'playing' && s.turnNumber === turn; i++) {
+      const lastTurn = turn + (this.options.nextTurnLookahead ? 1 : 0);
+      for (
+        let i = 0;
+        i < ROLLOUT_STEPS && s.status === 'playing' && s.turnNumber <= lastTurn;
+        i++
+      ) {
         const acting = actingPlayer(s);
         if (acting === null) break;
         const actions = getLegalActions(s, acting, this.ctx);
@@ -510,7 +550,12 @@ export class SmartController implements PlayerController {
             choiceId: c.choiceId,
             selection: this.defaultAnswer(s, me, c),
           };
-        } else if (acting === me && (s.phase === 'ride' || s.phase === 'main') && !c) {
+        } else if (
+          acting === me &&
+          s.turnNumber === turn &&
+          (s.phase === 'ride' || s.phase === 'main') &&
+          !c
+        ) {
           next = { type: 'END_PHASE', player: me };
         } else if (acting === me && planned.length > 0 && find(actions, 'ATTACK')) {
           // the planned attack order, while each planned attack is still possible
@@ -564,7 +609,9 @@ export class SmartController implements PlayerController {
     const power = (id: string) => (s.cards[id] ? (this.def(s, id)?.power ?? 0) : 0);
     const handValue = (id: string) => {
       const d = this.def(s, id);
-      return d ? d.shield / 1000 + (isPerfectGuard(d) ? 20 : 0) + d.grade : 0;
+      if (!d) return 0;
+      const held = this.options.profile?.hold.includes(d.id) ? PROFILE_WEIGHTS.hold / 50 : 0;
+      return d.shield / 1000 + (isPerfectGuard(d) ? 20 : 0) + d.grade + held;
     };
     switch (c.kind) {
       case 'yes_no':

@@ -83,6 +83,16 @@ Decision times in parallel runs are inflated by the shared CPU.
 | Weight: damage at 4–5 costs more (5800/9000, default 4800/7200)                                                                                                                      | vs `smart`, seeds 36000–38139         | 420   | 50.7%                  | 45.9–55.5% | No                                         |
 | Weight: damage at 4–5 costs less (4200/5600)                                                                                                                                         | vs `smart`, seeds 39000–41139         | 420   | 47.1%                  | 42.4–51.9% | No                                         |
 
+**2026-11-04 (cards `vz01-1.0.0`):** current Hard vs Normal, all batches on this card pool: 476/700 =
+**68.0%** (64.5–71.3%). Next-turn lookahead (`SmartOptions.nextTurnLookahead`, the rollout also plays
+the next turn with the Normal AI's policies) vs current Hard, seeds 60000–66069: 145/424 = **34.2%**
+(29.8–38.8%), at about twice the think time. **Rejected, stays off.** The cause was not investigated.
+
+Deck strategy profiles (`SmartOptions.profile`, bench name `smart-profile`: ride order, break ride,
+mulligan, held cards, call order) vs current Hard, on the 20 library decks, seeds 71000–76069: 210/420 =
+**50.0%** (about 45–55%), same think time. **No measured gain, so not promoted: off in the game.** The
+bonuses were a first guess and have not been tuned.
+
 Reading: the opponent model is the first measured improvement. Single weight changes (four so far) and more samples
 show no measurable gain at 420 games: the next gains need structure (search over the opponent's turn, stage 6), not tuning. The planner and the competent-guard
 rollout showed no gain _with the current one-turn lookahead_: the sequences' later steps are

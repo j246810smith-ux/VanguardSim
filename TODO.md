@@ -29,9 +29,12 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] MBT01: nothing new (its 50 cards are the English-only BT16/BT17 cards; Harmonics Messiah left out, see UNRESOLVED_RULINGS)
 - [x] G era: card art (Artwork Manager downloads G sets), G-BT01 (103 cards)
 - [x] G era: G decks in the Deck Builder (Dear Days style, D-036)
-- [ ] G era: G-BT02 onward
+- [x] G era: G-BT02 (103 cards)
+- [ ] G era: G-TD03 onward, in release order
 - [x] v0.28 feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help
-- [ ] PR cards 2011–2014: 215 new cards in four batches (docs/design/ORIGINAL_ERA_ROADMAP.md)
-- [ ] "Blaster Blade Burst" deck: waiting for the user to identify it
+- [x] PR cards 2011 (39 cards, set PR11)
+- [x] PR cards 2012 (38 cards, set PR12)
+- [ ] PR cards 2012–2014: 175 new cards in three batches (docs/design/ORIGINAL_ERA_ROADMAP.md)
+- [x] "Blaster Blade Burst" deck: set VZ01 (Vanguard 0 Start Set), card counts are our own build (D-038)
 - [ ] MTD01 (left out for now, user 2026-10-30)
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

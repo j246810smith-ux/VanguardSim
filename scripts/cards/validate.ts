@@ -22,7 +22,11 @@ function checkRecord(r: CardRecord, set: string): void {
   const e = (m: string) => errors.push(`${r.id}: ${m}`);
   const w = (m: string) => warnings.push(`${r.id}: ${m}`);
   const englishOnly = r.checks.englishOnly !== undefined; // D-031: 'BT16-001EN', no JP record
-  if (!/^((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2})-\d{3}$/.test(r.id.replace(/EN$/, '')))
+  if (
+    !/^(((BT|TD|EB|FC|DG|MBT|MTD)\d{2}|G-[A-Z]{2,4}\d{2})-\d{3}|PR1[1-4]-\d{4}[A-Z]?|VZ01-\d{3})$/.test(
+      r.id.replace(/EN$/, ''),
+    )
+  )
     e('bad id format');
   if (englishOnly !== r.id.endsWith('EN')) e('English-only id and record disagree');
   if (r.set !== set) e(`set ${r.set} in file ${set}`);

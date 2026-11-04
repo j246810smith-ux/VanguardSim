@@ -22,7 +22,7 @@ export function buildIndex(defs: readonly CardDefinition[]): SearchEntry[] {
     return {
       def,
       name: def.name.toLowerCase(),
-      number: `${id} ${id.replace(/-(\d{3})/, '/$1')} ${id.replace(/-/g, '')}`,
+      number: `${id} ${id.replace(/-(\d{3,4})/, '/$1')} ${id.replace(/-/g, '')}`,
       rest: `${def.clan} ${def.race ?? ''} ${def.set} ${def.text}`.toLowerCase(),
     };
   });
@@ -30,10 +30,10 @@ export function buildIndex(defs: readonly CardDefinition[]): SearchEntry[] {
 
 /** "bt01/1" → "bt01-001": a typed card number in the index's form, or null. */
 function asNumber(word: string): string | null {
-  const m = /^((?:g-?)?[a-z]{2,3}\d{2})[-/ ]?(\d{1,3})(en)?$/.exec(word);
+  const m = /^((?:g-?)?[a-z]{2,3}\d{2})[-/ ]?(\d{1,4}[a-z]?)(en)?$/.exec(word);
   if (!m) return null;
   const set = m[1]!.replace(/^g(?!-)/, 'g-');
-  return `${set}-${m[2]!.padStart(3, '0')}`;
+  return `${set}-${m[2]!.padStart(3, '0')}`; // PR numbers already have four digits
 }
 
 /**

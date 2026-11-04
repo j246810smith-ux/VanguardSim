@@ -82,15 +82,20 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
   });
   if (targets.length === 0) return [];
 
-  return FRONT_ROW.flatMap((circle) => {
+  // "this unit can attack from the back row" (G-BT02 Battle Siren, Stacia): such a unit has no
+  // booster behind it and attacks the usual targets
+  return [...FRONT_ROW, ...BACK_ROW].flatMap((circle) => {
     const attacker = unitOn(state, me, circle);
     if (attacker === null || state.cards[attacker]!.orientation !== 'stand') return [];
+    const fromBack = (BACK_ROW as readonly Circle[]).includes(circle);
+    if (fromBack && !hasPermission(state, ctx, attacker, 'attack_from_back_row')) return [];
     if (isRestricted(state, ctx, attacker, 'cannot_attack')) return []; // Restraint, Lord, effects
     // CR 10.1.24.5: a legion attacks as both units; the mate cannot attack alone
     const mate = circle === 'vanguard' ? (me.legion?.mate ?? null) : null;
     if (mate !== null && isRestricted(state, ctx, mate, 'cannot_attack')) return [];
-    const backCircle = BACK_OF[circle]!;
-    const back = unitOn(state, me, backCircle) ?? undefined;
+    const backCircle = BACK_OF[circle];
+    const back =
+      backCircle === undefined ? undefined : (unitOn(state, me, backCircle) ?? undefined);
     const canBoost =
       back !== undefined &&
       state.cards[back]!.orientation === 'stand' &&
@@ -100,9 +105,11 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
       !isRestricted(state, ctx, attacker, 'cannot_be_boosted');
     // e.g. Wyvern Strike, Tejas: may attack the opponent's back-row unit in the same column.
     // Columns face each other: my left is the opponent's right (CR 4.6.2.1).
-    const backTarget = hasPermission(state, ctx, attacker, 'attack_back_row_same_column')
-      ? unitOn(state, opp, OPPOSING_BACK[circle]!)
-      : null;
+    const opposite = OPPOSING_BACK[circle];
+    const backTarget =
+      opposite !== undefined && hasPermission(state, ctx, attacker, 'attack_back_row_same_column')
+        ? unitOn(state, opp, opposite)
+        : null;
     // e.g. Boomerang Thrower: "it may instead attack an opponent's unit in the back row"
     const backRow = hasPermission(state, ctx, attacker, 'attack_back_row')
       ? BACK_ROW.flatMap((c) => {
@@ -111,7 +118,7 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
         })
       : backTarget === null
         ? []
-        : [{ id: backTarget, circle: OPPOSING_BACK[circle]! }];
+        : [{ id: backTarget, circle: opposite! }];
     const allowed = [...targets, ...backRow];
     const onlyVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_rear_guard');
     return [
@@ -119,7 +126,7 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
         attacker,
         attackerCircle: circle,
         targets: onlyVanguard ? allowed.filter((t) => t.circle === 'vanguard') : allowed,
-        boosters: canBoost ? [{ id: back, circle: backCircle }] : [],
+        boosters: canBoost && backCircle !== undefined ? [{ id: back, circle: backCircle }] : [],
       },
     ];
   });

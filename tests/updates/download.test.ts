@@ -456,6 +456,20 @@ describe('interrupted downloads', () => {
     expect(r.ok).toBe(false);
   });
 
+  it('gives up when the stall timer fires before the read has begun', async () => {
+    // the response only arrives after the timer has already aborted, and then never sends a byte
+    handlers.set(urlOf(appAsset), async () => {
+      await new Promise((done) => setTimeout(done, 40));
+      return new Response(new ReadableStream({ pull: () => new Promise(() => {}) }));
+    });
+    const result = await Promise.race([
+      downloader({ stallMs: 5 }).start(VERSION),
+      new Promise<'hung'>((done) => setTimeout(() => done('hung'), 8000)),
+    ]);
+    expect(result).not.toBe('hung');
+    expect((result as { ok: boolean }).ok).toBe(false);
+  });
+
   it('cancel stops the download, keeps the bytes, and the next start carries on', async () => {
     handlers.set(urlOf(appAsset), () => brokenBody(appZip.subarray(0, half()), 'stall'));
     const d = downloader();

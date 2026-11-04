@@ -191,6 +191,8 @@ function createUpdateDownloader({
       const reader = res.body.getReader();
       const stop = () => void reader.cancel().catch(() => {});
       signal.addEventListener('abort', stop, { once: true });
+      // an abort before this point fired no event
+      if (signal.aborted) stop();
       try {
         for (;;) {
           const { done, value } = await reader.read();

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.29.1-alpha — 2026-11-04
+
+**Tournament decks:** event and placing only. Player names are gone from deck titles and data, and a
+deck's source link is now the source's archive for that month. No card or count changed.
+
+**Update Manager:** a download whose connection stalled at exactly the wrong moment could hang instead
+of giving up; it now gives up, and carries on next time. Installing retries for a moment if its updater
+file is briefly locked.
+
 ## 0.29.0-alpha — 2026-11-04
 
 **Tournament decks** (first part of the Deck Intelligence project, `docs/deck-intelligence/`): Game

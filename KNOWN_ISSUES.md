@@ -13,8 +13,8 @@
 
 ## Intermittent: update chain test, "The update could not be prepared"
 
-`tests/updates/chain.test.ts` failed once in a full `npm run check` (2026-11-04, "consecutive updates
-each take the small package", on the second update in a row), with the other session also busy. It did
-not recur in later full runs or in 8 parallel runs of that file. **The cause is unknown:** a locked
-`VanguardUpdater.exe` was suspected, but a retry with logging never fired, so the retry was not kept. If
-it happens to a player, nothing has changed in their game and they can press Install again.
+`tests/updates/chain.test.ts` failed once in a full `npm run check` (2026-11-04), on the second update
+in a row. It did not recur in later full runs or in 8 parallel runs of that file. **The cause is not
+confirmed:** two separate reviews suspected a briefly locked `VanguardUpdater.exe`, so v0.29.1 retries
+that copy, but the failure was never caught happening. If a player sees it, nothing has changed in their
+game and they can press Install again.

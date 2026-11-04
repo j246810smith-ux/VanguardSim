@@ -27,6 +27,23 @@ const exists = async (file) => {
   }
 };
 
+/**
+ * Replaces a file that may be briefly locked: on Windows a virus scanner reading it, or an updater
+ * that has only just exited, can make the copy fail for a moment.
+ */
+async function copyWhenFree(from, to, options = {}) {
+  const { copy = fsp.copyFile, attempts = 8, delayMs = 250 } = options;
+  for (let i = 1; ; i++) {
+    try {
+      await copy(from, to);
+      return;
+    } catch (e) {
+      if (i >= attempts || !['EBUSY', 'EPERM', 'EACCES'].includes(e?.code)) throw e;
+      await new Promise((done) => setTimeout(done, delayMs));
+    }
+  }
+}
+
 /** The plan the updater reads: one tab-separated instruction per line, paths already validated. */
 function planText({ manifest, mode, from, installDir, stagedDir, stateDir }) {
   const lines = [
@@ -119,7 +136,7 @@ function createUpdateInstaller({
           };
 
         await fsp.mkdir(stateDir, { recursive: true });
-        await fsp.copyFile(onDisk(stagedDir, UPDATER), updaterPath);
+        await copyWhenFree(onDisk(stagedDir, UPDATER), updaterPath);
         if (!(await fileMatches(updaterPath, entry)))
           return { ok: false, error: 'The updater could not be prepared. Try again.' };
 
@@ -190,4 +207,4 @@ function createUpdateInstaller({
   };
 }
 
-module.exports = { createUpdateInstaller, planText };
+module.exports = { copyWhenFree, createUpdateInstaller, planText };

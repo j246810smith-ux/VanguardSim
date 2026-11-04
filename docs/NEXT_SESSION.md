@@ -15,6 +15,18 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-04, end) — Update Manager wrap-up
+
+`npm run release:verify 0.29.0-alpha` passed on the real GitHub release: in-game updating is live from
+v0.29. Full notes: OneDrive Desktop "VanguardSim HANDOVER 2026-11-04 (Update Manager, feedback, PR 2012).md".
+
+**Done in v0.29.1:** all three fixes below this handover's plan: the missed abort in `fetchBytes`, a retry
+on copying `VanguardUpdater.exe` (the lock itself is still not confirmed: `KNOWN_ISSUES.md`), and more time
+for the chain test's hook.
+
+v0.29.1 is also the first real update through the game: the user's copy has v0.29.0, and has to press Update. The user
+must also back up `%USERPROFILE%\.vanguardsim\update-signing-key.pem`. Then the list below.
+
 ## ▶ Update 2026-11-04 — v0.29.0-alpha published
 
 Work from both sessions is released: tournament decks (`docs/deck-intelligence/PROGRESS.md`), profiles,

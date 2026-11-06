@@ -13,6 +13,7 @@ Releases are tagged `v<version>`:
 - `v0.28.0-alpha` — v0.28 player feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help; G-BT01 and G art.
 - `v0.29.0-alpha` — first release with in-game updates; tournament decks, G-BT02, PR 2011 and 2012, the Blaster Blade Burst deck.
 - `v0.29.1-alpha` — first update through the game; tournament decks without player names; two updater fixes.
+- `v0.30.0-alpha` — deck-top pictures, seeing the card you look at, Hard AI fixes, G-BT02 shields.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

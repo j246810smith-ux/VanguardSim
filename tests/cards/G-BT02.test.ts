@@ -293,6 +293,13 @@ function guardsPerfectly(defMaker: Maker, sentinel: string, defVanguard: string)
 // ---- the set ------------------------------------------------------------------------------------
 
 describe('G-BT02 in the card pool', () => {
+  it('G-era shields: critical triggers Belenus and Heart Thump Worker are 10000, not the later 15000', () => {
+    const cards = SETS.find((x) => x.file.set === 'G-BT02')!.file.cards;
+    for (const id of ['G-BT02-011', 'G-BT02-016']) {
+      expect(cards.find((c) => c.id === id)?.shield).toBe(10000);
+    }
+  });
+
   it('every card is scripted and the set is legal in the G era', () => {
     const set = SETS.find((x) => x.file.set === 'G-BT02')!;
     expect(set.file.cards.length).toBe(103);

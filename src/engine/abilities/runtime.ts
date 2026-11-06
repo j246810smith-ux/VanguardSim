@@ -1018,10 +1018,13 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         min: 1,
         max: 1,
         prompt: 'Put the top card of your deck on the top or the bottom?',
+        shown: [top],
       });
       if (picked === null) return false;
       if (picked[0] === 'bottom') {
         moveCard(d, top, { player: frame.master, zone: 'deck' }, 'effect', { position: 'bottom' });
+      } else {
+        emit(d, { type: 'TOP_CARD_KEPT', player: frame.master, instanceId: top });
       }
       return true;
     }

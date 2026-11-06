@@ -3,6 +3,7 @@
  * human's `viewFor`) and acts by sending Commands, exactly like the AI (scope: UI never mutates
  * state).
  */
+import { DeckKnowledge } from './deckKnowledge';
 import { BasicController } from '../../../src/ai/basicController';
 import type { PlayerController } from '../../../src/ai/controller';
 import { RandomController } from '../../../src/ai/randomController';
@@ -129,6 +130,8 @@ export abstract class SessionBase {
   fx: Fx[] = [];
   /** Sound cues of the events since the screen last took them (presentation only). */
   protected cues: Cue[] = [];
+  /** The cards on the top and bottom of each deck this seat knows, for their pictures on the table. */
+  readonly deckKnown = new DeckKnowledge(ME);
   /** Card moves since the board last took them, for movement animation (presentation only). */
   protected moves = new Map<string, Move>();
   readonly commands: Command[] = [];
@@ -200,6 +203,7 @@ export abstract class SessionBase {
     if (this.log.length > 400) this.log = this.log.slice(-300);
     this.cues.push(...cuesFor(events, ME));
     movesOf(events, this.moves);
+    this.deckKnown.update(events, names);
   }
 
   private toFx(e: GameEvent, names: GameState): Fx | null {

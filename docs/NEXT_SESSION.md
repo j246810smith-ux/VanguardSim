@@ -15,6 +15,31 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-06) — AI self-play
+
+The user asked to make the AI play itself, watch the games and improve it. Read
+`docs/ai/AI_AUDIT_AND_PLAN.md` section 4b. The fixes are on by default; the user said to ship what is an
+improvement and keep working on the rest. Measured gain so far: about 54.8% pooled against `smart-v29`, not
+the target of about 65%; an early 59.2% did not repeat, so confirm every gain on fresh seeds. **Next:**
+re-run `attackPlanner` and `competentOpponent` against `smart`, then the untried ideas in 4b. Keep benchmarks to 4
+processes: 8 plus another session's test run ran the PC out of memory. Set work (PR13, PR14, G-BT03 onward)
+is on branch `sets/pr13` in the worktree `~/source/VanguardSim-sets`. Its session merges after the release,
+and it fixes the shields of G-BT02-011 and G-BT02-016 (10000, not 15000).
+
+## ▶ Pick up here (2026-11-04, final) — v0.29.1-alpha published
+
+The user opened the game to try the in-game update from v0.29.0 and said "this works great". Everything
+is committed; this handover commit is not pushed, the public repository is on v0.29.1. The signing key
+was copied to the user's Desktop, which syncs to OneDrive; they were advised to move it somewhere offline.
+
+**Next, in order:** the user's notes on bad AI plays; Deck Intelligence stage 7, the spectator arena
+(`docs/deck-intelligence/PROGRESS.md`); controller support, with the button map approved first; more
+clans for the library; PR 2013, PR 2014, then G-TD03 onward. English release dates are still not
+researched. Profiles (50.0%, n=420) and next-turn lookahead (34.2%, n=424) stay off in the game.
+
+**Rules learned:** gate commits on the exit code of `npm run check`, and run it in the commit's own tree;
+check for a plan from another session before using a version number; the library holds no player names.
+
 ## ▶ Pick up here (2026-11-04, end) — Update Manager wrap-up
 
 `npm run release:verify 0.29.0-alpha` passed on the real GitHub release: in-game updating is live from

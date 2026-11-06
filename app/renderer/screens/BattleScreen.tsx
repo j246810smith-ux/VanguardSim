@@ -470,7 +470,12 @@ export function BattleScreen({ config, online, onRematch, onExit, onRestart, onD
           <div className="field-frame me" />
           <div className="divider" />
           {!battle && <CentreEmblem />}
-          <TablePiles view={view} onOpen={openZone} gEra={gEra} />
+          <TablePiles
+            view={view}
+            onOpen={openZone}
+            gEra={gEra}
+            deckEnds={(p) => session.deckKnown.ends(p)}
+          />
 
           <Field
             view={view}

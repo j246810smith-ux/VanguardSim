@@ -128,6 +128,11 @@ export function ChoicePrompt({
       return (
         <DockedPrompt>
           <h3>{choose.prompt}</h3>
+          {view.pendingChoice?.shown?.map((id) => (
+            <div key={id} className="looked-card">
+              <CardView definitionId={view.cards[id]!.definitionId} width={150} height={218} />
+            </div>
+          ))}
           {buttons(choose.options.map((o) => [o, o === 'top' ? 'Top of deck' : 'Bottom of deck']))}
         </DockedPrompt>
       );

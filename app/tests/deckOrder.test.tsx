@@ -40,6 +40,43 @@ describe('deck order', () => {
     expect(strip.textContent).toMatch(/3 · bottom card/);
   });
 
+  it('looking at the top card: the prompt shows that card', () => {
+    const choose: Choose = {
+      type: 'CHOOSE',
+      choiceId: 1,
+      kind: 'top_or_bottom',
+      options: ['top', 'bottom'],
+      min: 1,
+      max: 1,
+      prompt: 'Put the top card of your deck on the top or the bottom?',
+    };
+    const top = s.players[0].deck[0]!;
+    const view = {
+      ...s,
+      pendingChoice: {
+        id: 1,
+        player: 0 as const,
+        kind: 'top_or_bottom' as const,
+        options: ['top', 'bottom'],
+        min: 1,
+        max: 1,
+        prompt: choose.prompt,
+        shown: [top],
+      },
+    };
+    const { container } = render(
+      <ChoicePrompt
+        view={view}
+        choose={choose}
+        picked={[]}
+        onToggle={() => {}}
+        onSubmit={() => {}}
+      />,
+    );
+    expect(container.querySelector('.looked-card')).not.toBeNull();
+    screen.getByText('Top of deck');
+  });
+
   it("log lines name where your card went; the opponent's cards from hand stay unnamed", () => {
     const base = { type: 'CARD_MOVED', reason: 'effect', by: 0 } as const;
     const mine = describeEvent(s, {

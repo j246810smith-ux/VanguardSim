@@ -13,7 +13,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { BasicController } from '../src/ai/basicController';
 import { RandomController } from '../src/ai/randomController';
-import { SMART_BASELINE, SmartController } from '../src/ai/smartController';
+import { SMART_BASELINE, SMART_V29, SmartController } from '../src/ai/smartController';
 import { withWeights, type EvalWeights } from '../src/ai/weights';
 import { cardRegistry } from '../src/cards';
 import { deckListOf, LIBRARY } from '../src/decks/library';
@@ -37,6 +37,8 @@ const CONTROLLERS: Record<string, ControllerFactory> = {
   random: (_ctx, _deck, seed) => new RandomController(seed),
   basic: (c) => new BasicController(c),
   smart: (c, deck) => new SmartController(c, deck),
+  /** The Hard AI as released up to v0.29. */
+  'smart-v29': (c, deck) => new SmartController(c, deck, SMART_V29),
   /** The Hard AI as of the stage 1 baseline (0.13.0). */
   'smart-baseline': (c, deck) => new SmartController(c, deck, SMART_BASELINE),
   /** Stage 3 parts on their own. */
@@ -107,8 +109,40 @@ function weightedController(name: string): ControllerFactory | undefined {
   });
   return (c, deck) => new SmartController(c, deck, { weights });
 }
-const makeA = CONTROLLERS[aName] ?? weightedController(aName);
-const makeB = CONTROLLERS[bName] ?? weightedController(bName);
+/** `smart-off:noEarlyGuard,alwaysBoost`: the Hard AI with those options as they were in v0.29. */
+function withoutController(name: string): ControllerFactory | undefined {
+  if (!name.startsWith('smart-off:')) return undefined;
+  const off = Object.fromEntries(
+    name
+      .slice('smart-off:'.length)
+      .split(',')
+      .map((k) => {
+        if (!(k in SMART_V29)) throw new Error(`no such option: ${k}`);
+        return [k, SMART_V29[k as keyof typeof SMART_V29]];
+      }),
+  );
+  return (c, deck) => new SmartController(c, deck, off);
+}
+/** `smart-set:attackPlanner=true;competentOpponent=true`: the Hard AI with those options set (JSON values). */
+function setController(name: string): ControllerFactory | undefined {
+  if (!name.startsWith('smart-set:')) return undefined;
+  const options = Object.fromEntries(
+    name
+      .slice('smart-set:'.length)
+      .split(';')
+      .map((part) => {
+        const at = part.indexOf('=');
+        const key = part.slice(0, at);
+        if (!(key in SMART_V29)) throw new Error(`no such option: ${key}`);
+        return [key, JSON.parse(part.slice(at + 1))];
+      }),
+  );
+  return (c, deck) => new SmartController(c, deck, options);
+}
+const named = (n: string) =>
+  CONTROLLERS[n] ?? weightedController(n) ?? withoutController(n) ?? setController(n);
+const makeA = named(aName);
+const makeB = named(bName);
 if (!makeA || !makeB) throw new Error(`controllers: ${Object.keys(CONTROLLERS).join(', ')}`);
 let commit: string | undefined;
 try {

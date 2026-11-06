@@ -16,7 +16,11 @@ export function viewFor(state: GameState, viewer: PlayerId): GameState {
   const view = cloneState(state);
   const visibleChoice = new Set<InstanceId>(
     state.pendingChoice?.player === viewer
-      ? [...state.pendingChoice.options, ...(state.pendingChoice.order?.placed ?? [])]
+      ? [
+          ...state.pendingChoice.options,
+          ...(state.pendingChoice.order?.placed ?? []),
+          ...(state.pendingChoice.shown ?? []),
+        ]
       : [],
   );
   const hidden = new Set<InstanceId>([

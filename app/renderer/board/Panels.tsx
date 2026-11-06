@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { GameState, InstanceId, PlayerId } from '../../../src/engine';
-import { ME } from '../engine';
+import { ctx, ME } from '../engine';
+import type { DeckEnds } from '../game/deckKnowledge';
 import { CardView } from '../ui/CardView';
 import { ClanBadge } from '../ui/svg';
 import { pileBox, type Box } from './layout';
@@ -20,7 +21,11 @@ interface PileProps {
   readonly big?: boolean;
   /** The engine's zone name, when the title is not it (motion.ts finds tiles by it). */
   readonly zone?: string;
+  /** A deck's top and bottom cards this seat knows: shown as pictures on the pile. */
+  readonly known?: DeckEnds;
 }
+
+const nameOf = (definitionId: string) => ctx.registry.get(definitionId).name;
 
 /** A compact zone tile: label, top card preview and count. */
 export function Pile({
@@ -33,6 +38,7 @@ export function Pile({
   face = true,
   big,
   zone,
+  known,
 }: PileProps) {
   const [w, h] = big ? [64, 93] : [52, 75];
   const top = ids.at(face ? -1 : 0);
@@ -47,7 +53,18 @@ export function Pile({
     >
       <div className="panel-title">{title}</div>
       <div className={`panel-body ${big ? 'big' : ''}`}>
-        {top ? (
+        {known?.bottom && (
+          <div className="deck-known bottom" title={`Bottom of the deck: ${nameOf(known.bottom)}`}>
+            <CardView definitionId={known.bottom} width={w} height={h} className="mini" />
+            <span className="deck-known-tag">BOTTOM</span>
+          </div>
+        )}
+        {known?.top ? (
+          <div className="deck-known top" title={`Top of the deck: ${nameOf(known.top)}`}>
+            <CardView definitionId={known.top} width={w} height={h} className="mini" />
+            <span className="deck-known-tag">TOP</span>
+          </div>
+        ) : top ? (
           <CardView definitionId={visible} width={w} height={h} className="mini" />
         ) : (
           <div className="mini" style={{ width: w, height: h }} />
@@ -272,9 +289,12 @@ export function TablePiles({
   view,
   onOpen,
   gEra,
+  deckEnds,
 }: {
   view: GameState;
   onOpen: (title: string, ids: readonly InstanceId[]) => void;
+  /** The deck cards this seat knows, shown on each deck pile. */
+  deckEnds: (player: PlayerId) => DeckEnds;
   /** G era (D-034): show the G zones */
   gEra: boolean;
 }) {
@@ -292,6 +312,7 @@ export function TablePiles({
               ids={pl.deck}
               face={false}
               big
+              known={deckEnds(p)}
               style={box(pileBox(p, 'deck'))}
             />
             <Pile

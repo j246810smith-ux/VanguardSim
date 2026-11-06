@@ -26,6 +26,16 @@ export interface DeckPlan {
   readonly limitBreak: boolean;
   /** From the deck's profile: cards worth keeping one copy of in hand. */
   readonly hold?: readonly string[];
+  /**
+   * The cards the deck wants on its vanguard circle: grade 3s with Limit Break (Break Ride is a
+   * Limit Break too). Read from the card data, so it works for any deck.
+   */
+  readonly finishers?: readonly string[];
+}
+
+/** A grade 3 with an ability that wants it on the vanguard circle. */
+export function isFinisher(d: CardDefinition): boolean {
+  return d.grade === 3 && d.abilities.some((a) => a.limitBreak !== undefined);
 }
 
 export function planFor(
@@ -36,6 +46,7 @@ export function planFor(
   const defs = (cards ?? []).map((id) => ctx.registry.get(id));
   return {
     limitBreak: defs.some((d) => d.abilities.some((a) => a.limitBreak !== undefined)),
+    finishers: [...new Set(defs.filter(isFinisher).map((d) => d.id))],
     ...(hold && hold.length > 0 ? { hold } : {}),
   };
 }
@@ -56,6 +67,7 @@ export const TERMS = [
   'grade',
   'resources',
   'battle',
+  'exposure',
 ] as const;
 export type Term = (typeof TERMS)[number];
 
@@ -84,7 +96,9 @@ export class Evaluator {
     return {
       damage: this.damageCost(oppDamage) - this.damageCost(myDamage),
       limitBreak: this.plan.limitBreak && myDamage >= 4 && myDamage < 6 ? w.limitBreakBonus : 0,
-      hand: this.handValue(s, me) - w.oppHandCard * s.players[opp].hand.length,
+      hand:
+        this.handValue(s, me) -
+        w.oppHandCard * s.players[opp].hand.length * this.handScale(oppDamage),
       field: this.fieldValue(s, me) - w.field.oppFactor * this.fieldValue(s, opp),
       pressure: this.pressure(s, me) - w.pressure.oppFactor * this.pressure(s, opp),
       grade: w.grade * this.vanguardGrade(s, me) - w.grade * this.vanguardGrade(s, opp),
@@ -92,6 +106,7 @@ export class Evaluator {
         w.resources.faceUpDamage * Math.min(faceUp, w.resources.faceUpCap) +
         w.resources.soul * Math.min(s.players[me].soul.length, w.resources.soulCap),
       battle: this.battle(s, me),
+      exposure: w.exposure.theirs * this.exposure(s, opp) - w.exposure.mine * this.exposure(s, me),
     };
   }
 
@@ -107,6 +122,10 @@ export class Evaluator {
     let score = 0;
     for (const t of TERMS) score += parts[t];
     return score;
+  }
+
+  private handScale(damage: number): number {
+    return this.weights.hand.damageScale[Math.min(damage, 5)]!;
   }
 
   private vanguardGrade(s: GameState, p: PlayerId): number {
@@ -125,6 +144,16 @@ export class Evaluator {
       .sort((a, b) => b - a);
     const reserve = w.reserveBase + (damage >= 3 ? 1 : 0) + (damage >= 4 ? 1 : 0);
     let v = values.reduce((sum, x, i) => sum + (i < reserve ? w.reserveMultiplier * x : x), 0);
+    v *= this.handScale(damage);
+    // the deck's finisher, while it is not the vanguard yet: keep one to ride
+    const vg = vanguardOf(s.players[me]);
+    const riding = vg ? this.def(s, vg).id : null;
+    if (
+      w.finisher > 0 &&
+      !(riding && this.plan.finishers?.includes(riding)) &&
+      hand.some((d) => this.plan.finishers?.includes(d.id))
+    )
+      v += w.finisher;
     // keep one copy of the next grade to ride (worth less than actually riding it)
     if (vgGrade < 3 && hand.some((d) => d.grade === vgGrade + 1)) v += w.nextGrade;
     // a card the deck's profile holds for later: one copy of each
@@ -142,7 +171,10 @@ export class Evaluator {
       const id = s.players[p].circles[c].at(-1);
       if (!id || s.cards[id]!.locked) continue;
       const d = this.def(s, id);
-      v += w.base + d.power / w.powerDivisor + (d.abilities.length > 0 ? w.hasAbilities : 0);
+      const unit =
+        w.base + d.power / w.powerDivisor + (d.abilities.length > 0 ? w.hasAbilities : 0);
+      const stuck = c.startsWith('back') && d.skillIcon !== 'boost';
+      v += stuck ? unit * w.backNoBoost : unit;
     }
     return v;
   }
@@ -167,6 +199,77 @@ export class Evaluator {
       if (power >= defense) v += w.column + w.per5000 * Math.floor((power - defense) / 5000 + 1);
     }
     return v;
+  }
+
+  /**
+   * What `defender` stands to lose to the other player's next attack: each column's power against
+   * the defender's vanguard, the shields each would take to stop (in steps of 5000), a greedy
+   * guard from the defender's hand and interceptors (a perfect guard stops the hardest attack),
+   * and the cost of the hits left over. Deterministic: a whole turn played out at random is too
+   * noisy to compare moves with (docs/ai/AI_AUDIT_AND_PLAN.md).
+   */
+  private exposure(s: GameState, defender: PlayerId): number {
+    const w = this.weights;
+    if (w.exposure.mine === 0 && w.exposure.theirs === 0) return 0;
+    const attacker = other(defender);
+    const vgId = vanguardOf(s.players[defender]);
+    if (!vgId) return 0;
+    const vgDef = this.def(s, vgId);
+    const defense = vgDef.power;
+    const a = s.players[attacker];
+    const handCards = a.hand.length;
+    const needs: number[] = [];
+    for (const [front, back] of FRONT_COLUMNS) {
+      const id = front === 'vanguard' ? vanguardOf(a) : a.circles[front].at(-1);
+      let power = 0;
+      if (id && !s.cards[id]!.locked) {
+        const d = this.def(s, id);
+        power = d.power;
+        if (front === 'vanguard') {
+          const checks = d.skillIcon === 'triple_drive' ? 3 : d.skillIcon === 'twin_drive' ? 2 : 1;
+          power += w.exposure.drivePower * checks;
+        }
+      } else if (front !== 'vanguard' && handCards >= 3) {
+        power = 9000; // an empty column they can still fill from a good hand
+      }
+      if (power === 0) continue;
+      const b = a.circles[back].at(-1);
+      if (b && !s.cards[b]!.locked && this.def(s, b).skillIcon === 'boost')
+        power += this.def(s, b).power;
+      if (power < defense) continue;
+      needs.push(Math.ceil((power - defense + 1) / 5000) * 5000);
+    }
+    if (needs.length === 0) return 0;
+    needs.sort((x, y) => x - y);
+    // the guards available: grade limit as the vanguard's, plus interceptors in the front row
+    const shields: number[] = [];
+    let perfect = 0;
+    for (const id of s.players[defender].hand) {
+      const d = this.def(s, id);
+      if (d.grade > vgDef.grade) continue;
+      if (isPerfectGuard(d)) perfect++;
+      else if (d.shield > 0) shields.push(d.shield);
+    }
+    if (perfect > s.players[defender].hand.length - 1) perfect = 0;
+    for (const c of ['front_left', 'front_right'] as const) {
+      const id = s.players[defender].circles[c].at(-1);
+      if (id && !s.cards[id]!.locked && this.def(s, id).shield > 0)
+        shields.push(this.def(s, id).shield);
+    }
+    shields.sort((x, y) => y - x);
+    let hits = 0;
+    let pool = shields.reduce((t, x) => t + x, 0);
+    let rest = needs;
+    // a perfect guard takes the hardest attacks
+    for (let i = 0; i < perfect && rest.length > 0; i++) rest = rest.slice(0, -1);
+    for (const need of rest) {
+      if (pool >= need) pool -= need;
+      else hits++;
+    }
+    const damage = s.players[defender].damage.length;
+    const after = damage + hits;
+    const cost = this.damageCost(Math.min(after, 5)) - this.damageCost(Math.min(damage, 5));
+    return after >= 6 ? cost + w.exposure.lethal : cost;
   }
 
   /** A battle in progress: the attacker's prospects, from `me`'s side. */

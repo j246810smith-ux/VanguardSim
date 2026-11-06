@@ -8,6 +8,7 @@
 import {
   actingPlayer,
   applyCommand,
+  other,
   currentCritical,
   currentPower,
   currentShield,
@@ -28,9 +29,9 @@ import { BasicController } from './basicController';
 import type { PlayerController } from './controller';
 import { determinize } from './determinize';
 import { alreadySafe, isPerfectGuard, payableSentinel } from './guarding';
-import { Evaluator, planFor } from './evaluate';
+import { Evaluator, isFinisher, planFor } from './evaluate';
 import { PROFILE_WEIGHTS, profileBonus, profileMulligan, type DeckAi } from './profile';
-import { DEFAULT_WEIGHTS, type EvalWeights } from './weights';
+import { DEFAULT_WEIGHTS, V29_WEIGHTS, type EvalWeights } from './weights';
 
 type Choose = Extract<LegalAction, { type: 'CHOOSE' }>;
 const find = <T extends LegalAction['type']>(actions: readonly LegalAction[], type: T) =>
@@ -63,6 +64,33 @@ export interface SmartOptions {
   readonly profile?: DeckAi | null;
   /** Evaluation weights (./weights.ts), for tuning runs. */
   readonly weights?: EvalWeights;
+  /**
+   * A guard plan that uses the last card able to guard counts as a real plan. Up to v0.29 its
+   * lookahead failed (the engine ends the step by itself, so the plan's pass was illegal) and the
+   * AI would rather lose than play it.
+   */
+  readonly lastGuardFix?: boolean;
+  /**
+   * Never pass on a hit that loses the game while a guard is possible, even when the lookahead
+   * sees the game lost either way: make the opponent find the win.
+   */
+  readonly neverPassLethal?: boolean;
+  /** An attacker that cannot reach its target waits for the vanguard's drive check to power it up. */
+  readonly patientAttacks?: boolean;
+  /** Mulligan for the ride: the deck's finisher at grade 3, a real unit rather than a sentinel. */
+  readonly planMulligan?: boolean;
+  /** Finish a multi-card guard: play the whole plan, trigger margin included, not just its first card. */
+  readonly followGuardPlan?: boolean;
+  /** Take the hit while it leaves the vanguard at 3 damage or less: early damage is cheap and pays for abilities. */
+  readonly noEarlyGuard?: boolean;
+  /** A rear-guard is only worth a small guard, from a full hand, below 4 damage. */
+  readonly thriftyRearGuard?: boolean;
+  /** Score an attack on the vanguard higher the closer the opponent is to losing (by their damage). */
+  readonly vanguardFocus?: readonly number[];
+  /** Always boost when a booster is available: it costs nothing and makes the attack harder to stop. */
+  readonly alwaysBoost?: boolean;
+  /** Prefer the deck's finisher when riding grade 3. */
+  readonly rideFinisher?: boolean;
 }
 
 /** The current Hard AI. */
@@ -80,18 +108,36 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
   nextTurnLookahead: false,
   profile: null,
   weights: DEFAULT_WEIGHTS,
+  planMulligan: false,
+  lastGuardFix: true,
+  neverPassLethal: true,
+  patientAttacks: true,
+  followGuardPlan: true,
+  noEarlyGuard: true,
+  thriftyRearGuard: true,
+  vanguardFocus: [0, 0, 100, 300, 800, 2000],
+  alwaysBoost: true,
+  rideFinisher: true,
+};
+/** The Hard AI as released up to v0.29, frozen for head-to-head measurements. */
+export const SMART_V29: Required<SmartOptions> = {
+  ...SMART_DEFAULTS,
+  weights: V29_WEIGHTS,
+  planMulligan: false,
+  lastGuardFix: false,
+  neverPassLethal: false,
+  patientAttacks: false,
+  followGuardPlan: false,
+  noEarlyGuard: false,
+  thriftyRearGuard: false,
+  vanguardFocus: [0, 0, 0, 0, 0, 0],
+  alwaysBoost: false,
+  rideFinisher: false,
 };
 /** The Hard AI as of 0.13.0 (the stage 1 baseline), for comparisons. */
 export const SMART_BASELINE: Required<SmartOptions> = {
+  ...SMART_V29,
   realisticOpponent: false,
-  attackPlanner: false,
-  vanguardFirstBonus: 500,
-  competentOpponent: false,
-  battleSamples: SAMPLES,
-  otherSamples: 2,
-  nextTurnLookahead: false,
-  profile: null,
-  weights: DEFAULT_WEIGHTS,
 };
 
 export class SmartController implements PlayerController {
@@ -102,6 +148,8 @@ export class SmartController implements PlayerController {
   private decisions = 0;
   private samples: GameState[] = [];
   private readonly swapped = new Set<string>();
+  /** The rest of the guard plan being played, and the attack it answers. */
+  private guardPlan: { key: string; rest: Command[] } | null = null;
   /** Diagnostics hook (tests, tuning). */
   debug: ((message: string) => void) | null = null;
 
@@ -132,8 +180,10 @@ export class SmartController implements PlayerController {
       if (command?.type === 'SWAP_REAR_GUARDS')
         this.swapped.add(`${view.turnNumber}/${command.column}`);
       if (command) return command;
-    } catch {
+      this.debug?.('FALLBACK no command');
+    } catch (e) {
       // a lookahead that the engine rejects (e.g. an approximation of hidden cards) falls back
+      this.debug?.(`FALLBACK ${e instanceof Error ? e.message : String(e)}`);
     }
     return this.fallback.chooseCommand(view, me, actions);
   }
@@ -177,6 +227,20 @@ export class SmartController implements PlayerController {
     if (profile) {
       const cardIds = profileMulligan(profile, view, me, selectable, (id) => this.def(view, id));
       return { type: 'MULLIGAN', player: me, cardIds };
+    }
+    if (this.options.planMulligan) {
+      // one of each grade 1–3: never a sentinel while a real unit can ride, the finisher at grade 3
+      const rank = (d: CardDefinition | null) =>
+        !d ? 9 : d.sentinel ? 2 : d.grade === 3 && !isFinisher(d) ? 1 : 0;
+      const best = new Map<number, InstanceId>();
+      for (const id of selectable) {
+        const d = this.def(view, id);
+        if (!d || d.grade < 1 || d.grade > 3) continue;
+        const held = best.get(d.grade);
+        if (held === undefined || rank(d) < rank(this.def(view, held))) best.set(d.grade, id);
+      }
+      const kept = new Set(best.values());
+      return { type: 'MULLIGAN', player: me, cardIds: selectable.filter((id) => !kept.has(id)) };
     }
     const keep = new Set<number>();
     const back: InstanceId[] = [];
@@ -244,6 +308,7 @@ export class SmartController implements PlayerController {
     for (const c of candidates) {
       if (c === end) continue;
       const score = this.expected(me, [c]) + this.deckBonus(s, me, c);
+      this.debug?.(`  try ${c.type} ${JSON.stringify(c)} = ${score.toFixed(0)}`);
       if (score > bestScore) {
         best = c;
         bestScore = score;
@@ -255,7 +320,7 @@ export class SmartController implements PlayerController {
   /** What the deck's profile adds to a ride or call (nothing without a profile). */
   private deckBonus(s: GameState, me: PlayerId, c: Command): number {
     const profile = this.options.profile;
-    if (!profile) return 0;
+    if (!profile) return this.rideBonus(s, me, c);
     const vg = vanguardOf(s.players[me]);
     return profileBonus(
       profile,
@@ -264,6 +329,18 @@ export class SmartController implements PlayerController {
       vg ? this.def(s, vg) : null,
       s.players[me].damage.length,
     );
+  }
+
+  /** Riding the deck's finisher, read from the card data: the plan the deck was built around. */
+  private rideBonus(s: GameState, me: PlayerId, c: Command): number {
+    if (!this.options.rideFinisher || c.type !== 'RIDE') return 0;
+    const card = this.def(s, c.cardId);
+    const vgId = vanguardOf(s.players[me]);
+    const vg = vgId ? this.def(s, vgId) : null;
+    if (!card || !vg || card.grade !== 3 || !isFinisher(card)) return 0;
+    if (vg.grade < 3) return 800;
+    // already grade 3: riding again costs a card, so it has to be an upgrade
+    return card.id === vg.id || isFinisher(vg) ? 0 : 1200;
   }
 
   /**
@@ -275,11 +352,13 @@ export class SmartController implements PlayerController {
     const attack = find(actions, 'ATTACK')!;
     const others = (attacker: InstanceId) =>
       attack.options.some((o) => o.attacker !== attacker && o.attackerCircle !== 'vanguard');
+    const vanguardCanAttack = attack.options.some((o) => o.attackerCircle === 'vanguard');
     let best: Command | null = null;
     let bestScore = -Infinity;
     for (const o of attack.options) {
       for (const t of o.targets) {
-        for (const booster of [...o.boosters.map((b) => b.id), null]) {
+        const unboosted = this.options.alwaysBoost && o.boosters.length > 0 ? [] : [null];
+        for (const booster of [...o.boosters.map((b) => b.id), ...unboosted]) {
           const command: Command = {
             type: 'ATTACK',
             player: me,
@@ -291,6 +370,21 @@ export class SmartController implements PlayerController {
           // vanguard first while rear-guards can still use its triggers
           if (o.attackerCircle === 'vanguard' && others(o.attacker))
             score += this.options.vanguardFirstBonus;
+          // too weak for now: the vanguard's drive check may yet power it up
+          if (
+            this.options.patientAttacks &&
+            o.attackerCircle !== 'vanguard' &&
+            vanguardCanAttack &&
+            currentPower(s, this.ctx, o.attacker) +
+              (booster ? currentPower(s, this.ctx, booster) : 0) <
+              currentPower(s, this.ctx, t.id)
+          )
+            score -= 3000;
+          // the closer the opponent is to losing, the more every attack on the vanguard demands
+          if (t.circle === 'vanguard') {
+            const damage = s.players[other(me)].damage.length;
+            score += this.options.vanguardFocus[Math.min(damage, 5)]!;
+          }
           if (score > bestScore) {
             best = command;
             bestScore = score;
@@ -357,6 +451,20 @@ export class SmartController implements PlayerController {
     const pass: Command = { type: 'PASS_GUARD', player: me };
     const b = s.battle;
     if (!b) return pass;
+    const key = `${s.turnNumber}/${b.attacker}/${b.target}`;
+    if (this.guardPlan?.key === key) {
+      const next = this.guardPlan.rest.shift();
+      if (next) {
+        const legal =
+          next.type === 'PASS_GUARD' ||
+          (next.type === 'GUARD' &&
+            find(actions, 'GUARD')?.cardIds.includes(next.cardId) === true) ||
+          (next.type === 'INTERCEPT' &&
+            find(actions, 'INTERCEPT')?.unitIds.includes(next.unitId) === true);
+        if (legal) return next;
+      }
+    }
+    this.guardPlan = null;
     const vg = vanguardOf(s.players[me]);
     const target = b.target === vg || b.extraTargets.some((t) => t.id === vg) ? vg! : b.target;
     const plans: Command[][] = [[pass]];
@@ -366,6 +474,9 @@ export class SmartController implements PlayerController {
     if (deficit > 0 && !alreadySafe(s, this.ctx, me, target)) {
       const damage = s.players[me].damage.length;
       const crit = currentCritical(s, this.ctx, b.attacker);
+      if (this.options.noEarlyGuard && target === vg && damage + crit <= 3) return pass;
+      const thrifty = this.options.thriftyRearGuard && target !== vg;
+      if (thrifty && (damage >= 4 || s.players[me].hand.length < 5)) return pass;
       const checks = b.attackerCircle === 'vanguard' ? this.driveChecks(s, b.attacker) : 0;
       const lethal = target === vg && damage + crit >= 6;
       const margin =
@@ -388,6 +499,7 @@ export class SmartController implements PlayerController {
       for (const id of guard?.cardIds ?? []) {
         const d = this.def(s, id);
         if (!d || d.sentinel) continue;
+        if (thrifty && d.shield > 5000) continue;
         pieces.push({
           command: { type: 'GUARD', player: me, cardId: id, ...guarding },
           shield: currentShield(s, this.ctx, id),
@@ -414,7 +526,11 @@ export class SmartController implements PlayerController {
       const capped = pieces.slice(0, 10);
       // at lethal damage only guards that also cover the trigger margin are safe
       let safe = false;
-      for (const need of new Set(lethal ? [deficit + margin] : [deficit, deficit + margin])) {
+      const needs = lethal ? [deficit + margin] : [deficit, deficit + margin];
+      // no guard covers the trigger margin: stopping the hit as it stands still beats losing to it
+      if (lethal && this.options.lastGuardFix) needs.push(deficit);
+      for (const need of new Set(needs)) {
+        if (safe && need === deficit && lethal) break;
         const fits: { mask: number; cost: number }[] = [];
         for (let mask = 1; mask < 1 << capped.length; mask++) {
           let shield = 0;
@@ -436,7 +552,7 @@ export class SmartController implements PlayerController {
       }
       // a perfect guard (sentinel)
       const sentinel = payableSentinel(s, this.ctx, me, guard?.cardIds ?? []);
-      if (sentinel) {
+      if (sentinel && !thrifty) {
         const perfect: Command = { type: 'GUARD', player: me, cardId: sentinel, ...guarding };
         // the lookahead cannot see the attacker's triggers: never risk a lethal hit
         if (lethal && !safe) return perfect;
@@ -444,6 +560,16 @@ export class SmartController implements PlayerController {
       }
     }
 
+    // a hit that loses on the spot: guarding always beats passing, however the lookahead scores it
+    if (
+      this.options.neverPassLethal &&
+      plans.length > 1 &&
+      target === vg &&
+      attackPower >= currentPower(s, this.ctx, target) &&
+      !alreadySafe(s, this.ctx, me, target) &&
+      s.players[me].damage.length + currentCritical(s, this.ctx, b.attacker) >= 6
+    )
+      plans.shift();
     let best = plans[0]!;
     let bestScore = -Infinity;
     for (const plan of plans) {
@@ -454,6 +580,8 @@ export class SmartController implements PlayerController {
         bestScore = score;
       }
     }
+    if (this.options.followGuardPlan && best.length > 1)
+      this.guardPlan = { key, rest: best.slice(1) };
     return best[0]!;
   }
 
@@ -526,6 +654,13 @@ export class SmartController implements PlayerController {
     const planned = [...plan];
     try {
       for (const c of commands) {
+        // the engine ends the guard step by itself when no guard is left: nothing to pass then
+        if (
+          this.options.lastGuardFix &&
+          c.type === 'PASS_GUARD' &&
+          (s.status !== 'playing' || actingPlayer(s) !== me || s.battle?.step !== 'guard')
+        )
+          continue;
         s = applyCommand(s, c, this.ctx).state;
         s = this.resolveOwnChoices(s, me); // e.g. a sentinel's cost, before the next command
       }
@@ -580,7 +715,8 @@ export class SmartController implements PlayerController {
         if (next.type === 'CONCEDE') break;
         s = applyCommand(s, next, this.ctx).state;
       }
-    } catch {
+    } catch (e) {
+      this.debug?.(`ROLLOUT ERROR ${e instanceof Error ? e.message : String(e)}`);
       return null;
     }
     return s;

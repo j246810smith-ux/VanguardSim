@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.29.1-alpha",
+  "version": "0.30.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -19,6 +19,7 @@
     "play": "tsx scripts/play.ts",
     "ai:bench": "tsx scripts/ai-bench.ts",
     "ai:compare": "tsx scripts/ai-compare.ts",
+    "ai:watch": "tsx scripts/ai-watch.ts",
     "ui:dev": "vite",
     "ui:build": "vite build",
     "artwork:build": "tsx scripts/artwork-build.ts",

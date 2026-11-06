@@ -172,6 +172,6 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'pr12-1.0.0';
+export const CARD_DATA_VERSION = 'pr12-1.0.1';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

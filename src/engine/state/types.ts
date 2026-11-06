@@ -275,6 +275,8 @@ export interface PendingChoice {
   readonly prompt: string;
   /** Set while cards are put on the top or bottom of the deck in a chosen order. */
   readonly order?: DeckOrder;
+  /** Cards the chooser looks at to answer, though they are not the options (the deck's top card). */
+  readonly shown?: readonly InstanceId[];
 }
 
 /** Optional house rules, chosen when the game is created. Every rule is off unless set. */

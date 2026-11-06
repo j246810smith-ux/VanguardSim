@@ -9,6 +9,7 @@ export interface ChoiceSpec {
   readonly max: number;
   readonly prompt: string;
   readonly order?: DeckOrder;
+  readonly shown?: readonly string[];
 }
 
 /**

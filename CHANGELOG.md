@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.30.0-alpha — 2026-11-06
+
+**You can now see the card when you look at the top of your deck.** "Look at the top card of your deck,
+and put it on the top or the bottom" (CEO Amaterasu, Battle Sister Cocoa and others) used to ask without
+showing the card. The prompt now shows it, to you only.
+
+**Pictures on the deck:** a card put on the top or bottom of a deck now shows on the pile, tagged TOP or
+BOTTOM, until it leaves the deck or the deck is shuffled. You see your own cards. An opponent's card shows
+only if it came from a public zone or was revealed.
+
+**Hard AI, improved by watching it play itself.** It no longer takes a lethal hit with guards in hand: it
+would refuse to play its last card able to guard, and would give up when it thought the game was lost. It
+also finishes a guard of several cards, stops putting units that cannot boost in the back row, takes early
+hits instead of spending guards, spends less guarding rear-guards, always boosts, focuses the vanguard as
+you near 6 damage, holds weak attackers until its drive check, prefers its Limit Break grade 3 when riding,
+and now works out what your next attack can do. **Measured:** the fixes beat the previous Hard AI 54.8% of
+1,260 games (about 52–57.5%) on the tournament decks, a real but modest gain, and work continues. The AI
+can also use the card it looks at, which it could not see before.
+
+**Card fix:** Bringer of Dreams, Belenus and Heart Thump Worker (G-BT02) have 10000 shield, as in the G era,
+not the later 15000.
+
+**Online:** v0.30 cannot play v0.29 or earlier, because the card data changed.
+
 ## 0.29.1-alpha — 2026-11-04
 
 **Tournament decks:** event and placing only. Player names are gone from deck titles and data, and a

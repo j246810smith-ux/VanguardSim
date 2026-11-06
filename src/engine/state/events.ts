@@ -43,6 +43,8 @@ export type MoveReason =
 export type GameEvent =
   | { readonly type: 'GAME_CREATED'; readonly seed: number; readonly firstPlayer: PlayerId }
   | { readonly type: 'DECK_SHUFFLED'; readonly player: PlayerId }
+  /** "Look at the top card, put it on the top or bottom": it stayed on top, so no card moved. */
+  | { readonly type: 'TOP_CARD_KEPT'; readonly player: PlayerId; readonly instanceId: InstanceId }
   | {
       readonly type: 'CARD_MOVED';
       readonly instanceId: InstanceId;

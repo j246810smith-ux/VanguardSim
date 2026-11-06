@@ -106,6 +106,57 @@ runs the current Hard AI with the listed `EvalWeights` paths changed against the
 Benchmark controller names: `random`, `basic` (Normal), `smart` (current Hard), `smart-baseline`
 (Hard as of stage 1), `smart-sampler`, `smart-planner`, `smart-competent`, `smart-8samples`, `smart-w:…`.
 
+## 4b. Watching the AI play itself (2026-11-06)
+
+`npm run ai:watch -- 12 --logs 12` plays the tournament decks through the engine, writes turn-by-turn
+logs to `bench-results/watch/` and counts plays that look wrong. The counts are symptoms to read in the
+logs, not proof of a mistake, and several are expected (a guard over the need is the trigger margin; empty
+circles are often grade 3s that could not boost). `smart-v29` in `ai:bench` is the Hard AI as released up
+to v0.29, frozen for comparison. `smart-set:key=json;key=json` and `smart-off:key,key` change options.
+
+Reading the logs found bugs no weight tuning could fix:
+
+- **The AI would not play its last guard.** A plan ends with a pass, but the engine ends the guard step
+  by itself when nothing can guard any more. The pass was illegal, the plan scored `-Infinity`, and taking
+  a lethal hit scored better (42 failed lookaheads in 11 logged games). `lastGuardFix`.
+- **No plan at lethal damage** unless the guard also covered a trigger. `lastGuardFix`.
+- **Passing when every plan loses:** ties went to the pass, with guards in hand. `neverPassLethal`.
+- **Only the first card of a multi-card guard was played:** the next decision saw the hit stopped and
+  dropped the margin. `followGuardPlan`.
+- **"Look at the top card" was blind**, for players and AIs: the view hid it (`PendingChoice.shown`).
+
+Head to head, tournament decks. "Kept" means the interval is above 50%.
+
+| Change                                                                                    | Against      | Games | Win rate  | 95% CI     | Kept? |
+| ----------------------------------------------------------------------------------------- | ------------ | ----- | --------- | ---------- | ----- |
+| Field, hand and guard habits, before the last-guard fix                                   | `smart-v29`  | 480   | 52.5%     | 48.0–56.9% | -     |
+| The same plus `lastGuardFix`, `neverPassLethal`, `patientAttacks`                         | `smart-v29`  | 480   | 59.2%     | 54.7–63.5% | Yes   |
+| The same, repeated on fresh seeds                                                         | `smart-v29`  | 240   | 51.2%     | 45.0–57.5% | -     |
+| Exposure: the next attack on each player worked out, not played (`exposure`, weights 0.5) | exposure off | 240   | 57.1%     | 50.8–63.2% | Yes   |
+| Everything above together (the released AI)                                               | `smart-v29`  | 540   | **52.6%** | 48.4–56.8% | -     |
+| Exposure at weights 1.0                                                                   | weights 0.5  | 240   | 50.0%     | 43.7–56.3% | No    |
+| `planMulligan`: finisher at grade 3, no sentinel while a real unit can ride               | current      | 240   | 50.4%     | 44.1–56.7% | No    |
+| Stronger `vanguardFocus` [700,700,700,900,1300,2500]                                      | current      | 240   | 51.2%     | 45.0–57.5% | No    |
+| `attackPlanner` retested on the new evaluation (second run lost to a low-memory stop)     | current      | 240   | 55.8%     | 49.5–62.0% | Open  |
+| `competentOpponent` retested, two runs pooled                                             | current      | 480   | 53.8%     | 49.3–58.1% | Open  |
+
+**Reading these honestly.** The 59.2% did not repeat, so it was largely a lucky high. All four runs of
+the fixes against `smart-v29` pooled, with and without exposure, give 691/1260 = **54.8%** (about
+52.1–57.5%): a real gain, but a modest one. The released AI on its own (52.6%, n=540) does not clear 50%
+by itself. Exposure is less certain than its 57.1% suggests: with it 52.6% (n=540) and without it 51.2%
+(n=240) against `smart-v29` are not distinguishable. **The target of about 65% against `smart-v29` was not
+reached.** 240 games move by about ±6 points, so single runs are not enough: confirm any gain on fresh
+seeds before believing it. A game with this much luck compresses win rates (Hard beats Normal only 68%).
+What the win rate does not show is that the fixed plays were plainly wrong: no version should pass on a
+lethal hit with guards in hand.
+
+Why next-turn lookahead scored 34%: probably noise, not knowledge. One random playout of a whole turn
+swings by more than the differences between moves, and few samples do not average that out. This was
+not tested directly; `exposure` was built on that reading and works out the same question without chance.
+
+The two open options are the next things to re-run. Others not yet tried: search abilities when the hand
+has no grade 3 to ride, and rear-guard attacks at low damage.
+
 ## 5. Running the benchmark
 
 ```

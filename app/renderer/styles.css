@@ -3515,3 +3515,48 @@ input.text {
 .demo-moments .l-hit {
   color: var(--hit);
 }
+
+/* a deck's known top and bottom cards: their pictures on the pile */
+.deck-known {
+  position: relative;
+}
+/* the count stays readable over a picture on the deck */
+.table .panel-body:has(.deck-known) .panel-count {
+  z-index: 2;
+}
+.deck-known.bottom {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  transform: translateX(-50%) rotate(-7deg) translateX(-10px);
+  filter: brightness(0.8);
+}
+.deck-known.top {
+  z-index: 1;
+  box-shadow: 0 0 14px rgba(255, 214, 110, 0.75);
+  border-radius: 6px;
+}
+.deck-known-tag {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: #1a1408;
+  background: #ffd66e;
+}
+.deck-known.bottom .deck-known-tag {
+  color: #fff;
+  background: #51607a;
+}
+
+.looked-card {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 10px;
+}

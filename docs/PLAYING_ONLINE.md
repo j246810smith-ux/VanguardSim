@@ -11,7 +11,7 @@ Vanguard Sim server: one player **hosts** the game on their PC and the other **j
 ## Before you start
 
 - **Both players need the same version** of Vanguard Sim (same release). The game checks this and
-  explains if they differ. Players on v0.25.0 or earlier cannot play players on v0.26.0 or later, and v0.27.x cannot play v0.28.0 or later (the card data changed).
+  explains if they differ. Players on v0.25.0 or earlier cannot play players on v0.26.0 or later, and v0.29.x or earlier cannot play v0.30.0 or later, v0.27.x cannot play v0.28.0 or later (the card data changed).
 - Pick your deck and your name on the Play Online screen. Your deck must be legal.
 - The first time you host, **Windows may ask whether to allow Vanguard Sim on networks**: click
   **Allow**, or nobody can reach your game.

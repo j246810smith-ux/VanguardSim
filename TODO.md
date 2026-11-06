@@ -34,7 +34,10 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] v0.28 feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help
 - [x] PR cards 2011 (39 cards, set PR11)
 - [x] PR cards 2012 (38 cards, set PR12)
-- [ ] PR cards 2012–2014: 175 new cards in three batches (docs/design/ORIGINAL_ERA_ROADMAP.md)
+- [ ] PR cards 2013–2014: in progress on branch `sets/pr13` (docs/design/ORIGINAL_ERA_ROADMAP.md)
 - [x] "Blaster Blade Burst" deck: set VZ01 (Vanguard 0 Start Set), card counts are our own build (D-038)
 - [ ] MTD01 (left out for now, user 2026-10-30)
+- [x] Hard AI: fixes from watching self-play (`npm run ai:watch`, `docs/ai/AI_AUDIT_AND_PLAN.md` 4b)
+- [x] Deck-top pictures; the card you look at is shown
+- [ ] Hard AI: reach about 65% against v0.29 (now about 55%); retest attackPlanner, competentOpponent
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

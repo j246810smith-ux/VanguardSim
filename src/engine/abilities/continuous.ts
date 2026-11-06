@@ -59,6 +59,13 @@ export function limitBreakMet(
   source: InstanceId,
 ): boolean {
   if (n === undefined || state.players[master].damage.length >= n) return true;
+  // G-BT04 Doxic: [Limit-Break 5] plays as [Limit-Break 4]
+  if (
+    n === 5 &&
+    state.players[master].damage.length >= 4 &&
+    limitBreakFiveAsFour(state, ctx, master)
+  )
+    return true;
   if (n !== 4) return false;
   const at = locate(state, source);
   if (at.player !== master || at.zone !== 'circle' || at.circle !== 'vanguard') return false;
@@ -71,6 +78,23 @@ export function limitBreakMet(
             a.kind === 'CONT' &&
             a.zones.includes('RC') &&
             a.effects.some((e) => e.ce === 'limit_break_always'),
+        ),
+      ),
+  );
+}
+
+/** "[Limit-Break 5] becomes [Limit-Break 4]" (G-BT04 Doxic): a rear-guard of the master has it. */
+export function limitBreakFiveAsFour(
+  state: GameState,
+  ctx: EngineContext,
+  master: PlayerId,
+): boolean {
+  return Object.entries(state.players[master].circles).some(
+    ([circle, stack]) =>
+      circle !== 'vanguard' &&
+      stack.some((id) =>
+        abilitiesOf(state, ctx, id).some(
+          (a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'limit_break_five_as_four'),
         ),
       ),
   );

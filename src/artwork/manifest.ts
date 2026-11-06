@@ -131,7 +131,11 @@ export function cardIdFromFileName(
   }
   // G-era numbers: "G-TD01_001EN", "GTD01-001" (D-034)
   const g = /^G[-_ ]?([A-Z]{2,4})(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
-  if (g) return `G-${g[1]!.toUpperCase()}${g[2]}-${g[3]}`;
+  if (g) {
+    const gId = `G-${g[1]!.toUpperCase()}${g[2]}-${g[3]}`;
+    // a card of another set printed under this English number (PR14's Sulfur is G-RC01/036EN)
+    return (g[4] && english.get(gId)) || gId;
+  }
   const m = /^(BT|TD|EB|FC|DG|MBT|MTD|MT)(\d{2})[-_ ]?(\d{3})(EN)?$/i.exec(stem.trim());
   if (!m) return null;
   const id = `${m[1]!.toUpperCase()}${m[2]}-${m[3]}`;

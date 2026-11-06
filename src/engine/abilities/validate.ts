@@ -95,6 +95,7 @@ export function validateAbilities(
           case 'delay_legion_end':
           case 'look_top_place':
           case 'end_normal_ride':
+          case 'no_normal_ride_next':
           case 'extra_drive_check':
           case 'win':
           case 'place_top_locked':
@@ -130,6 +131,10 @@ export function validateAbilities(
             checkSelector(st.target, here);
             for (const p of validateAbilities(where, [st.ability])) report(`granted: ${p}`);
             break;
+          case 'also_named_as':
+            checkSelector(st.target, here);
+            checkSelector(st.of, here);
+            break;
           default:
             checkSelector(st.target, here);
         }
@@ -156,6 +161,9 @@ export function validateAbilities(
           if (
             e.ce === 'forbid_guard' ||
             e.ce === 'also_clan' ||
+            e.ce === 'also_named' ||
+            e.ce === 'retire_counts_two' ||
+            e.ce === 'limit_break_five_as_four' ||
             e.ce === 'deck_limit' ||
             e.ce === 'limit_break_always' ||
             e.ce === 'nullify_triggers' ||

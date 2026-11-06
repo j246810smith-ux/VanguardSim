@@ -46,11 +46,17 @@ export function declareAttack(
           const at = locate(s, id);
           return id !== target && at.zone === 'circle' ? [{ id, circle: at.circle }] : [];
         })
-      : hasPermission(s, d.ctx, attacker, 'attack_entire_front_row')
-        ? option.targets.filter(
-            (t) => t.id !== target && (t.circle === 'vanguard' || t.circle.startsWith('front')),
-          )
-        : [],
+      : hasPermission(s, d.ctx, attacker, 'attack_vanguard_and_rear_guard')
+        ? // the attack's other target: the vanguard, or the first rear-guard that can be attacked
+          option.targets
+            .filter((t) => t.id !== target)
+            .filter((t) => (targetOption.circle === 'vanguard') === (t.circle !== 'vanguard'))
+            .slice(0, 1)
+        : hasPermission(s, d.ctx, attacker, 'attack_entire_front_row')
+          ? option.targets.filter(
+              (t) => t.id !== target && (t.circle === 'vanguard' || t.circle.startsWith('front')),
+            )
+          : [],
     guarding: {},
     booster: boosterOption?.id ?? null,
     boosterCircle: boosterOption?.circle ?? null,

@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.31.0-alpha — 2026-11-06
+
+**G Trial Decks G-TD03, G-TD04 and G-TD05** (57 cards) — Neo Nectar, Aqua Force and Link Joker, each ready to play exactly as sold.
+
+**G starter decks** — eleven ready-to-play decks in the Expanded Era's deck list, one for each clan of G-BT03 to G-BT05 without a G Trial Deck. These are our own builds, not official products.
+
+**Expanded Era: G-BT03, G-BT04 and G-BT05** (312 cards) — with their new mechanics: **Time Leap**, **Oracle**,
+**Thunderstrike** and **Magia**; cards returning to the G zone and placed as hearts; healing and calling from
+the damage zone; One Strike Two Hits Djinn's attack on a vanguard and a rear-guard; Dogetts' Legion cost.
+
+**Fixed:** cards rewritten after the G era kept their later shield. Bringer of Dreams, Belenus and Heart Thump
+Worker (G-BT02) now have shield 10000, as in the G era, and so do the same cards in the new sets.
+
+**PR cards 2014** (66 cards, set `PR14`) — the rest of the Original Era's PR lists: Legion pairs such as
+**Seeker, Light Saver Dragon** and **Light Blaze Dragon**, **Goddess of the Treasured Mirror, Ohirume**,
+**Machining Tarantula mk II** and **Gust Blaster Dragon**. 22 cards never printed in English carry a marked
+unofficial translation. Generation Break abilities on these cards only work in the Expanded Era. Three true
+G-era cards on the list (Harmonics Messiah, Heat Elemental Magum, Steam Fighter Mesh-he) wait for the
+Expanded Era's own PR cards.
+
+**PR cards 2013** (50 cards, set `PR13`) — every new card from the official 2013 PR list, playable
+in both eras: **Sanctuary of Light, Brightness Dragon**, **Goddess of Law, Justitia**, **Seal Dragon,
+Georgette**, **Gravity Bolt Dragon**, **Fearless Jewel Knight, Julia**, **Revenger, Deathmaster Dragon**
+and more. Eleven cards never printed in English, including the GARO and DAIGO collaboration cards, carry
+a marked unofficial translation. New in the engine, for these cards only: a unit that takes on another
+card's name until end of turn (Thousand Name Wyvern Knight) and a search for "the same card name as one
+of your <clan> units" (Maiden of Venus Trap Muse).
+
 ## 0.30.0-alpha — 2026-11-06
 
 **You can now see the card when you look at the top of your deck.** "Look at the top card of your deck,

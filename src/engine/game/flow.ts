@@ -89,7 +89,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       delete s.extraTurn;
       s.turnNumber += 1;
       s.activePlayer = player;
-      s.turnFlags = { normalRideUsed: false };
+      s.turnFlags = { normalRideUsed: s.players[s.activePlayer].noNormalRideNext === true };
+      delete s.players[s.activePlayer].noNormalRideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });
       s.tasks.unshift(

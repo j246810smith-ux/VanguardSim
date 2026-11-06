@@ -55,7 +55,11 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-04): v0.29.0-alpha published
+## Latest (2026-11-06): v0.31.0-alpha published
+
+PR 2013, PR 2014, G-BT03–05, G-TD03–05 and G starter decks. See `docs/NEXT_SESSION.md`.
+
+## Earlier (2026-11-04): v0.29.0-alpha published
 
 v0.29.1-alpha is published. Next: the user's first in-game update and AI notes (`docs/NEXT_SESSION.md`), then improving
 the AI (`docs/ai/AI_AUDIT_AND_PLAN.md`), then PR 2013. Another session may be working in this tree.

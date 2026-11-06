@@ -192,6 +192,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
       if (t.otherCause && e.cause === ec.source) return null;
+      if (t.byCost && e.reason !== 'cost') return null;
       // the card is already in the drop zone: column filters use the circle it left
       const at =
         e.from.zone === 'circle'
@@ -199,7 +200,22 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
           : ec;
       return subjectIs(at, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     }
+    case 'leaves_rc':
+      if (e.type !== 'CARD_MOVED' || e.from.zone !== 'circle' || e.from.circle === 'vanguard')
+        return null;
+      if (e.to.zone === 'circle') return null;
+      return subjectIs(ec, t.who, e.instanceId, e.from.player) ? { eventCard: e.instanceId } : null;
     case 'put_into_soul':
+      if (
+        t.byYourEffect &&
+        !(e.type === 'CARD_MOVED' && e.reason === 'effect' && e.by === ec.master)
+      )
+        return null;
+      if (
+        t.fromRC &&
+        !(e.type === 'CARD_MOVED' && e.from.zone === 'circle' && e.from.circle !== 'vanguard')
+      )
+        return null;
       return e.type === 'CARD_MOVED' &&
         e.to.zone === 'soul' &&
         e.from.zone !== 'soul' &&
@@ -210,6 +226,11 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (
         t.byYourEffect &&
         !(e.type === 'CARD_MOVED' && e.reason === 'effect' && e.by === ec.master)
+      )
+        return null;
+      if (
+        t.fromRC &&
+        !(e.type === 'CARD_MOVED' && e.from.zone === 'circle' && e.from.circle !== 'vanguard')
       )
         return null;
       return e.type === 'CARD_MOVED' &&

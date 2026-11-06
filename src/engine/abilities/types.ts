@@ -80,10 +80,16 @@ export interface CardFilter {
   readonly boosting?: boolean;
   /** Has a Limit Break n ability ("a <clan> with [Limit-Break 4]"); printed abilities. */
   readonly limitBreak?: number;
+  /** Has any Limit Break ability ("a card with the [Limit Break] ability"). */
+  readonly anyLimitBreak?: boolean;
+  /** A printed ability's text contains this ("with the oracle ability", "the magia ability"). */
+  readonly abilityTextIncludes?: string;
   /** Another unit with the same name is on its controller's (VC) or (RC). */
   readonly sameNameAsAnotherUnit?: boolean;
   /** "with the same card name as a unit on your (VC)" (the master's vanguards). */
   readonly sameNameAsVanguard?: boolean;
+  /** "with the same card name as a <clan> in your (VC) or (RC)": any such unit of the master's (Muse); '*': any of your units. */
+  readonly sameNameAsClanUnit?: string;
   /** "rear-guards in your front row with a unit in your back row of the same column" */
   readonly withUnitBehind?: boolean;
   /** "in the same column as the (RC) that card was on": the column the event card left. */
@@ -124,7 +130,9 @@ export type Selector =
   /** Units holding a role in the current battle. */
   | { readonly sel: 'role'; readonly role: BattleRole }
   /** The card that caused this automatic ability to trigger (e.g. the unit that was placed). */
-  | { readonly sel: 'event_card' };
+  | { readonly sel: 'event_card' }
+  /** One specific card (a delayed effect made at resolution, e.g. the card a time leap bound). */
+  | { readonly sel: 'card'; readonly id: string };
 
 // ---------------------------------------------------------------------------------------------
 // Conditions
@@ -188,6 +196,10 @@ export type Condition =
       readonly filter: CardFilter;
       readonly range: Range;
     }
+  /** "if your card was put into the drop zone from your soul during this turn" (G-BT04 Gleipnir). */
+  | { readonly cond: 'dropped_from_soul_this_turn' }
+  /** "if you have a heart card with X in its card name" (G-BT04 Chronodragon Nextage). */
+  | { readonly cond: 'heart_named'; readonly part: string }
   /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
   | { readonly cond: 'deck_shuffled_this_turn' }
   | { readonly cond: 'not'; readonly c: Condition }
@@ -230,6 +242,8 @@ export type Restriction =
 export type Permission =
   | 'attack_back_row_same_column'
   | 'attack_entire_front_row'
+  /** "choose up to one each of your opponent's vanguards and rear-guards" (G-BT05 One Strike Two Hits Djinn). */
+  | 'attack_vanguard_and_rear_guard'
   /** "This unit battles all of your opponent's units in one attack" (PR12 Exculpate the Blaster). */
   | 'attack_all_units'
   /** "When this unit would choose a unit to attack, choose four of your opponent's units instead" */
@@ -247,7 +261,8 @@ export type Losable =
   | { readonly icon: 'twin_drive' }
   /** "That [ACT] loses its cost until the next time it is played" (G-BT02 Dragonic Kaiser Crimson). */
   | { readonly actCosts: true };
-export type Destination = 'hand' | 'soul' | 'drop' | 'deck_top' | 'deck_bottom' | 'damage' | 'bind';
+export type Destination =
+  'gzone' | 'hand' | 'soul' | 'drop' | 'deck_top' | 'deck_bottom' | 'damage' | 'bind';
 
 /** One instruction of an effect. Steps run in order and may pause for a player's choice. */
 export type Step =
@@ -274,6 +289,8 @@ export type Step =
       readonly upTo: number;
       /** "cards with different card names": only the first card of each name counts. */
       readonly distinctNames?: boolean;
+      /** "up to one grade 2, grade 1 and grade 0 card": only the first card of each grade counts. */
+      readonly distinctGrades?: boolean;
       /**
        * "for up to n cards with the same card name as each of those units": every card found must
        * share a name with a different card bound as this name (one card per bound card).
@@ -359,6 +376,8 @@ export type Step =
       readonly perOpen?: { readonly owner: Owner; readonly areas: 'RC' | 'front_RC' };
       /** "by the original [Power] of …": the amount is the printed power of the selected cards. */
       readonly byOriginalPowerOf?: Selector;
+      /** "by this unit's [Power]": the amount is the current power of the selected unit. */
+      readonly byPowerOf?: Selector;
     }
   | {
       readonly op: 'restrict';
@@ -419,6 +438,12 @@ export type Step =
   | { readonly op: 'bottom_in_order'; readonly target: Selector; readonly top?: boolean }
   /** "You cannot normal ride during that ride phase." */
   | { readonly op: 'end_normal_ride' }
+  /** "your opponent cannot normal ride during your opponent's next ride phase" (G-BT04 Stun Beetle). */
+  | { readonly op: 'no_normal_ride_next' }
+  /** CR 1.48.1 10.31: bind, call a card one grade greater; at the end of the turn it goes to the bottom of the deck and the bound card is called. */
+  | { readonly op: 'time_leap'; readonly target: Selector }
+  /** "place it on your (VC) as a heart" (G-BT04 Steam Fighter, Balih). */
+  | { readonly op: 'place_heart'; readonly target: Selector; readonly replacing?: string }
   /**
    * "Put that unit on (VC)" without riding (Stil Vampir): the card goes to its owner's (VC) and the
    * vanguard there goes to that player's soul. No ride happens, so no ride abilities trigger.
@@ -453,6 +478,11 @@ export type Step =
       readonly ability: AbilityDefinition;
       readonly duration: Duration;
     }
+  /**
+   * "this unit will be regarded as a unit with the same card name" (PR13 Thousand Name Wyvern
+   * Knight): until end of turn the targets also have the card name of the first `of` unit.
+   */
+  | { readonly op: 'also_named_as'; readonly target: Selector; readonly of: Selector }
   /** CR 10.1.20.2: the targets lose an ability or icon for the duration. */
   | {
       readonly op: 'lose';
@@ -541,7 +571,7 @@ export type TriggerCondition =
       readonly who: Subject;
       readonly circle: 'VC' | 'RC' | 'GC' | readonly ('VC' | 'RC' | 'GC')[];
       /** Only when placed from this zone ("placed on (RC) from the drop zone"). */
-      readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage';
+      readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage' | 'bind';
       /** "placed on (RC) due to an effect from one of your cards" (a superior call by you). */
       readonly byYourEffect?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
@@ -622,15 +652,31 @@ export type TriggerCondition =
       readonly causeFilter?: CardFilter;
       /** "… from one of your other cards": not this card's own effect. */
       readonly otherCause?: boolean;
+      /** "for the cost of your unit's ability" (G-BT04 Darkpride Dragon). */
+      readonly byCost?: boolean;
     }
+  /** "When this unit leaves the (RC)" (G-BT04 Dreamlight Unicorn): to any zone. */
+  | { readonly on: 'leaves_rc'; readonly who: Subject }
   /** "When your opponent's rear-guard is locked (due to an effect from one of your cards)" */
   | { readonly on: 'locked'; readonly who: Subject; readonly byYourEffect?: boolean }
   /** "When a card is put into your soul" (who: the card). */
-  | { readonly on: 'put_into_soul'; readonly who: Subject }
+  | {
+      readonly on: 'put_into_soul';
+      readonly who: Subject;
+      readonly byYourEffect?: boolean;
+      /** "from (RC)" */
+      readonly fromRC?: boolean;
+    }
   /** "When this unit intercepts" (CR 10.2.2). */
   | { readonly on: 'intercepts'; readonly who: Subject }
   /** "When <a card> is placed in a bind zone" (who: the card, e.g. an opponent's card). */
-  | { readonly on: 'put_into_bind'; readonly who: Subject; readonly byYourEffect?: boolean }
+  | {
+      readonly on: 'put_into_bind';
+      readonly who: Subject;
+      readonly byYourEffect?: boolean;
+      /** "from (RC)" */
+      readonly fromRC?: boolean;
+    }
   /** "When your opponent's vanguard is deleted" (CR 10.1.25). */
   | { readonly on: 'deleted'; readonly who: Subject }
   /** CR 6.8.1.2: "when a card is unlocked". */
@@ -725,6 +771,12 @@ export type ContinuousEffect =
    */
   /** `rearGuardsNamed`: (VC) gives the clan to your rear-guards with that text in their names. */
   | { readonly ce: 'also_clan'; readonly clan: string; readonly rearGuardsNamed?: string }
+  /** "While you are retiring your rear-guards for the cost of your unit's ability, retiring this unit may be regarded as retiring two rear-guards." */
+  | { readonly ce: 'retire_counts_two' }
+  /** "it becomes [Limit-Break 4] as long as this unit is on the field" (G-BT04 Dark Elemental, Doxic). */
+  | { readonly ce: 'limit_break_five_as_four' }
+  /** A gained card name, granted by `also_named_as` and read by namesOf. */
+  | { readonly ce: 'also_named'; readonly name: string }
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
   | { readonly ce: 'deck_limit'; readonly copies: number }
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */

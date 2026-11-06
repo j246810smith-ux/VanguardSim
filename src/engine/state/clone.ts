@@ -38,6 +38,7 @@ export function cloneState(s: GameState): GameState {
       ...s.turnFlags,
       ...(s.turnFlags.called ? { called: [...s.turnFlags.called] } : {}),
       ...(s.turnFlags.droppedFromRC ? { droppedFromRC: [...s.turnFlags.droppedFromRC] } : {}),
+      ...(s.turnFlags.droppedFromSoul ? { droppedFromSoul: [...s.turnFlags.droppedFromSoul] } : {}),
       ...(s.turnFlags.stood ? { stood: [...s.turnFlags.stood] } : {}),
       ...(s.turnFlags.strode ? { strode: [...s.turnFlags.strode] } : {}),
     },

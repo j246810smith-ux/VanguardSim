@@ -27,6 +27,8 @@ describe('choosing a deck', () => {
     expect(sections).toContain('starter');
     expect(sections).toContain('trial');
     expect(deckEntries('g').some((e) => e.section === 'gtrial')).toBe(true);
+    expect(deckEntries('g').filter((e) => e.section === 'gstarter')).toHaveLength(11);
+    expect(deckEntries('classic').some((e) => e.section === 'gstarter')).toBe(false);
   });
 
   it('says what a source states, and never a result it does not', () => {

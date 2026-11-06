@@ -33,10 +33,11 @@ import {
   type RearGuardCircle,
 } from '../state/types';
 import { abilitiesOf, holders } from './catalog';
+import { currentPower } from '../game/stats';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
 import { generationBreakMet } from '../game/generation';
 import { columnOf, evaluate, select, type EvalContext } from './evaluate';
-import { currentName } from '../game/characteristics';
+import { currentGrade, currentName } from '../game/characteristics';
 import type {
   AbilityDefinition,
   ActAbility,
@@ -311,13 +312,27 @@ export function activate(d: Draft, player: PlayerId, source: InstanceId, ability
 
 // Costs ------------------------------------------------------------------------------------------
 
+/** The rear-guard has an active "retiring this unit may be regarded as retiring two rear-guards". */
+function retireCountsTwo(ec: EvalContext, id: InstanceId): boolean {
+  if (ec.state.cards[id]!.locked) return false;
+  return abilitiesOf(ec.state, ec.ctx, id).some(
+    (a) =>
+      a.kind === 'CONT' &&
+      a.effects.some((e) => e.ce === 'retire_counts_two') &&
+      generationBreakMet(ec.state, ec.ctx, ec.master, a.generationBreak),
+  );
+}
+
 const onField = (state: GameState, id: InstanceId): boolean => {
   const z = locate(state, id).zone;
   return z === 'circle' || z === 'guardian';
 };
 
 /** For costs where the player picks cards: the candidates and how many. null = nothing to pick. */
-function costChoice(ec: EvalContext, cost: Cost): { options: InstanceId[]; n: number } | null {
+function costChoice(
+  ec: EvalContext,
+  cost: Cost,
+): { options: InstanceId[]; n: number; twoFor?: readonly InstanceId[] } | null {
   const mine = (area: 'damage' | 'soul' | 'hand', filter = {}) =>
     select(ec, { sel: 'cards', owner: 'you', areas: [area], filter });
   switch (cost.cost) {
@@ -327,8 +342,12 @@ function costChoice(ec: EvalContext, cost: Cost): { options: InstanceId[]; n: nu
       return { options: mine('soul', cost.filter), n: cost.n };
     case 'discard':
       return { options: mine('hand', cost.filter), n: cost.n };
-    case 'retire':
-      return { options: select(ec, cost.from).filter((id) => onField(ec.state, id)), n: cost.n };
+    case 'retire': {
+      const options = select(ec, cost.from).filter((id) => onField(ec.state, id));
+      // G-BT03 Promising Knight, David: one unit may pay for two rear-guards
+      const twoFor = cost.n >= 2 ? options.filter((id) => retireCountsTwo(ec, id)) : [];
+      return twoFor.length > 0 ? { options, n: cost.n - 1, twoFor } : { options, n: cost.n };
+    }
     case 'lock':
       return {
         options: select(ec, cost.from).filter((id) => locate(ec.state, id).zone === 'circle'),
@@ -508,19 +527,31 @@ function pay(
       fizzle(d, frame.id, `cannot pay ${cost.cost} ${choice.n}`);
       return true;
     }
+    const twoFor = choice.twoFor ?? [];
     const picked = ask(d, task, {
       player: frame.master,
       kind: 'cost',
       options,
       min: choice.n,
-      max: cost.cost === 'lock' && cost.orMore ? options.length : choice.n,
+      max:
+        cost.cost === 'lock' && cost.orMore
+          ? options.length
+          : twoFor.length > 0
+            ? choice.n + 1
+            : choice.n,
       prompt: costInstruction(cost, choice.n),
     });
     if (picked === null) {
       task.picks = picks;
       return false;
     }
-    picks.push(picked);
+    // too few for the cost without the unit that counts as two: take it as the last unit
+    const short =
+      twoFor.length > 0 && picked.length === choice.n && !picked.some((id) => twoFor.includes(id));
+    if (short) {
+      const extra = twoFor.find((id) => options.includes(id));
+      picks.push([...picked, ...(extra ? [extra] : [])]);
+    } else picks.push(picked);
     delete task.selection;
   }
   const perCost = costs.map((c, i) => applyCost(d, ec, c, picks[i]!));
@@ -600,13 +631,16 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         max: perName ? Math.min(step.upTo, perName.length) : step.upTo,
         prompt: step.distinctNames
           ? `Search your deck for up to ${step.upTo} cards with different names`
-          : `Search your deck for up to ${step.upTo}`,
+          : step.distinctGrades
+            ? `Search your deck for up to ${step.upTo} cards with different grades`
+            : `Search your deck for up to ${step.upTo}`,
       });
       if (picked === null) return false;
       // "with different card names": a second card of a name already chosen is not taken
       const names = new Set<string>();
       // "for each of those units": each found card uses up one bound card of its name
       const unused = perName ? perName.map((b) => currentName(s, d.ctx, b)) : [];
+      const grades = new Set<number>();
       frame.bindings[step.as] = step.distinctNames
         ? picked.filter((id) => {
             const name = currentName(s, d.ctx, id);
@@ -614,14 +648,21 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
             names.add(name);
             return true;
           })
-        : perName
+        : step.distinctGrades
           ? picked.filter((id) => {
-              const i = unused.indexOf(currentName(s, d.ctx, id));
-              if (i < 0) return false;
-              unused.splice(i, 1);
+              const grade = d.ctx.registry.get(s.cards[id]!.definitionId).grade;
+              if (grades.has(grade)) return false;
+              grades.add(grade);
               return true;
             })
-          : picked;
+          : perName
+            ? picked.filter((id) => {
+                const i = unused.indexOf(currentName(s, d.ctx, id));
+                if (i < 0) return false;
+                unused.splice(i, 1);
+                return true;
+              })
+            : picked;
       return true;
     }
     case 'retire':
@@ -913,6 +954,66 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'end_normal_ride':
       s.turnFlags.normalRideUsed = true;
       return true;
+    case 'time_leap': {
+      // CR 1.48.1 10.31.2: for each card bound, one card a grade greater; end of turn: back again
+      const steps: Step[] = [];
+      targets.forEach((id, i) => {
+        const grade = currentGrade(s, d.ctx, id);
+        moveTo(d, id, 'bind', 'effect', frame);
+        const as = `__leap${i}`;
+        const delayed: AbilityDefinition = {
+          kind: 'AUTO',
+          id: `time_leap_${id}`,
+          zones: ['any'],
+          trigger: { on: 'step_start', step: 'end_phase', whose: 'any' },
+          effect: [
+            { op: 'move', target: { sel: 'self' }, to: 'deck_bottom' },
+            { op: 'call', target: { sel: 'card', id } },
+          ],
+          text: 'Time leap: at the end of that turn, put this unit on the bottom of your deck, and call the card that was bound.',
+        };
+        steps.push(
+          { op: 'search', as, filter: { grade: { min: grade + 1, max: grade + 1 } }, upTo: 1 },
+          { op: 'call', target: { sel: 'bound', name: as } },
+          { op: 'shuffle' },
+          {
+            op: 'grant',
+            target: { sel: 'bound', name: as },
+            ability: delayed,
+            duration: 'end_of_turn',
+          },
+        );
+      });
+      s.tasks.unshift(...stepTasks(frame.id, steps));
+      return true;
+    }
+    case 'no_normal_ride_next':
+      s.players[other(frame.master)].noNormalRideNext = true;
+      return true;
+    case 'place_heart': {
+      const p = s.players[frame.master];
+      if (p.hearts.length === 0) return true;
+      for (const id of targets) {
+        moveCard(d, id, { player: frame.master, zone: 'circle', circle: 'vanguard' }, 'effect', {
+          orientation: 'stand',
+          by: frame.master,
+          cause: frame.source,
+        });
+        // the G unit stays on top; the card joins its hearts
+        const stack = p.circles.vanguard;
+        const at = stack.indexOf(id);
+        stack.splice(at, 1);
+        stack.splice(Math.max(0, stack.length - 1), 0, id);
+        s.cards[id]!.faceUp = true;
+        p.hearts.push(id);
+        // "If you placed a card, choose a heart card named X, and put it on the bottom of your deck"
+        const out = step.replacing
+          ? p.hearts.find((h) => h !== id && currentName(s, d.ctx, h) === step.replacing)
+          : undefined;
+        if (out !== undefined) moveTo(d, out, 'deck_bottom', 'effect', frame);
+      }
+      return true;
+    }
     case 'stand':
     case 'rest':
       for (const id of targets.filter((t) => onField(s, t)))
@@ -944,6 +1045,12 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         for (const p of players)
           open += circles.filter((c) => s.players[p].circles[c].length === 0).length;
         amount *= open;
+      }
+      if (step.byPowerOf) {
+        amount = select(ec, step.byPowerOf).reduce(
+          (sum, id) => sum + currentPower(s, d.ctx, id),
+          0,
+        );
       }
       if (step.byOriginalPowerOf) {
         amount = select(ec, step.byOriginalPowerOf).reduce(
@@ -1079,6 +1186,24 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         emit(d, { type: 'ABILITY_GRANTED', grant });
       }
       return true;
+    case 'also_named_as': {
+      const of = select(ec, step.of)[0];
+      if (of === undefined) return true;
+      const name = currentName(s, ec.ctx, of);
+      for (const target of targets) {
+        const ability: AbilityDefinition = {
+          kind: 'CONT',
+          id: 'also_named',
+          zones: ['VC', 'RC'],
+          effects: [{ ce: 'also_named', name }],
+          text: `This unit is regarded as a unit named "${name}" until end of turn.`,
+        };
+        const grant = { id: s.nextId++, target, ability, until: 'end_of_turn' as const };
+        s.grants.push(grant);
+        emit(d, { type: 'ABILITY_GRANTED', grant });
+      }
+      return true;
+    }
     case 'lock':
       for (const id of targets) lockCard(d, id, { by: frame.master, card: frame.source });
       return true;

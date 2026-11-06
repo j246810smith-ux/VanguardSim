@@ -49,10 +49,18 @@ import fc02Data from '../../data/cards/FC02.json';
 import dg01Data from '../../data/cards/DG01.json';
 import gtd01Data from '../../data/cards/G-TD01.json';
 import gtd02Data from '../../data/cards/G-TD02.json';
+import gtd03Data from '../../data/cards/G-TD03.json';
+import gtd04Data from '../../data/cards/G-TD04.json';
+import gtd05Data from '../../data/cards/G-TD05.json';
 import gbt01Data from '../../data/cards/G-BT01.json';
 import gbt02Data from '../../data/cards/G-BT02.json';
+import gbt03Data from '../../data/cards/G-BT03.json';
+import gbt04Data from '../../data/cards/G-BT04.json';
+import gbt05Data from '../../data/cards/G-BT05.json';
 import pr11Data from '../../data/cards/PR11.json';
 import pr12Data from '../../data/cards/PR12.json';
+import pr13Data from '../../data/cards/PR13.json';
+import pr14Data from '../../data/cards/PR14.json';
 import vz01Data from '../../data/cards/VZ01.json';
 import { BT01 } from './BT01';
 import { BT02 } from './BT02';
@@ -104,10 +112,18 @@ import { FC02 } from './FC02';
 import { DG01 } from './DG01';
 import { G_TD01 } from './G-TD01';
 import { G_TD02 } from './G-TD02';
+import { G_TD03 } from './G-TD03';
+import { G_TD04 } from './G-TD04';
+import { G_TD05 } from './G-TD05';
 import { G_BT01 } from './G-BT01';
 import { G_BT02 } from './G-BT02';
+import { G_BT03 } from './G-BT03';
+import { G_BT04 } from './G-BT04';
+import { G_BT05 } from './G-BT05';
 import { PR11 } from './PR11';
 import { PR12 } from './PR12';
+import { PR13 } from './PR13';
+import { PR14 } from './PR14';
 import { VZ01 } from './VZ01';
 import { registryFor, type SetAbilities } from './load';
 import type { SetFile } from './record';
@@ -166,12 +182,20 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gtd02Data as SetFile, abilities: G_TD02 },
   { file: pr11Data as SetFile, abilities: PR11 },
   { file: pr12Data as SetFile, abilities: PR12 },
+  { file: pr13Data as SetFile, abilities: PR13 },
+  { file: pr14Data as SetFile, abilities: PR14 },
   { file: vz01Data as SetFile, abilities: VZ01 },
   { file: gbt01Data as SetFile, abilities: G_BT01 },
   { file: gbt02Data as SetFile, abilities: G_BT02 },
+  { file: gbt03Data as SetFile, abilities: G_BT03 },
+  { file: gbt04Data as SetFile, abilities: G_BT04 },
+  { file: gbt05Data as SetFile, abilities: G_BT05 },
+  { file: gtd03Data as SetFile, abilities: G_TD03 },
+  { file: gtd04Data as SetFile, abilities: G_TD04 },
+  { file: gtd05Data as SetFile, abilities: G_TD05 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'pr12-1.0.1';
+export const CARD_DATA_VERSION = 'g-td05-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

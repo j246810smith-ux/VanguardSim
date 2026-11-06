@@ -438,6 +438,75 @@ All cards complete.
 
 All cards complete.
 
+## G-TD03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 6             | 19  | 6        |
+
+### Incomplete
+
+- G-TD03-001 Flower Princess of Spring, Arborea — no test
+- G-TD03-002 Ranunculus Flower Maiden, Ahsha — no test
+- G-TD03-003 Jungle Lord Dragon — no test
+- G-TD03-004 Full Bloom Dragon — no test
+- G-TD03-006 Grace Knight — no test
+- G-TD03-007 Maiden of Gladiolus — no test
+- G-TD03-008 Qool Qute Qiwi — no test
+- G-TD03-010 Coral Berry Squire — no test
+- G-TD03-011 Gardener Elf — no test
+- G-TD03-012 100% Orange — no test
+- G-TD03-013 Maiden of Safflower — no test
+- G-TD03-014 Spring-Heralding Maiden, Ozu — no test
+- G-TD03-019 Maiden of Daybreak — no test
+
+## G-TD04
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 18                  | 1               | 0            | 6             | 19  | 5        |
+
+### Incomplete
+
+- G-TD04-001 Marine General of the Heavenly Scales, Tidal Bore Dragon — no test
+- G-TD04-002 One Who Surpasses the Storm, Thavas — no test
+- G-TD04-003 Titan of the Beam Fists — no test
+- G-TD04-004 Batteryboom Dragon — no test
+- G-TD04-006 Battle Siren, Rohde — no test
+- G-TD04-007 Magnum Assault — no test
+- G-TD04-008 Hydro Hammer Sailor — no test
+- G-TD04-010 Railgun Assault — no test
+- G-TD04-011 Gundiver Dracokid — no test
+- G-TD04-012 Battle Siren, Phaidra — no test
+- G-TD04-013 Minestar Trooper — no test
+- G-TD04-014 Officer Cadet, Andrey — no test
+- G-TD04-018 Battle Siren, Carolina — effect missing
+- G-TD04-019 Officer Cadet, Alekbors — no test
+
+## G-TD05
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 18                  | 1               | 0            | 5             | 19  | 4        |
+
+### Incomplete
+
+- G-TD05-001 Genesis Dragon, Judgement Messiah — no test
+- G-TD05-002 Alter Ego Messiah — no test
+- G-TD05-003 Astrobreak Dragon — no test
+- G-TD05-004 Wings of Phenomenon, Wingmatter — no test
+- G-TD05-005 Awaking Messiah — no test
+- G-TD05-006 Sunset Edge, Duskblade — no test
+- G-TD05-007 Gyre Flower, Dark Chakram — no test
+- G-TD05-008 Lightspeed Cheetah — no test
+- G-TD05-010 Lockbreaker, Riddle Biter — no test
+- G-TD05-011 Lady Keeper of Virtual Reality — no test
+- G-TD05-012 Grab Hand Gorilla — no test
+- G-TD05-013 Protosun Dracokid — no test
+- G-TD05-014 Neon Messiah — no test
+- G-TD05-018 Lady Healer of the Torn World — effect missing
+- G-TD05-019 Beloved Child of Superstring Theory — no test
+
 ## PR11
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
@@ -466,6 +535,57 @@ All cards complete.
 - PR12-0095 珊瑚の王女 テティス — data
 - PR12-0101 キッダーニ男爵 — data
 
+## PR13
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 50    | 39                  | 50                  | 0               | 0            | 50            | 50  | 39       |
+
+### Incomplete
+
+- PR13-0103 ブラスター・ケロロ・ダーク — data
+- PR13-0110 黄金騎士 ガロ — data
+- PR13-0111 魔獣 ザルバ — data
+- PR13-0112 蒼竜騎士 ガロ — data
+- PR13-0125 フェラルド王国 女王リーネ — data
+- PR13-0126 闇の貴公子 ムマ — data
+- PR13-0127 ファイヤーレオン — data
+- PR13-0128 伝説のスター DAIGO — data
+- PR13-0129 ブラックDAIGO — data
+- PR13-0175 超次元ロボ ゴーイーグル — data
+- PR13-0182 チアガール キャロル — data
+
+## PR14
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 66    | 44                  | 66                  | 0               | 0            | 66            | 66  | 44       |
+
+### Incomplete
+
+- PR14-0178 パートナーエッジ・ドラグーン — data
+- PR14-0190 機神将・ギガロード — data
+- PR14-0191 聖獣の探索者 クロード — data
+- PR14-0192 喧嘩屋 スカイブロー・ドラゴン — data
+- PR14-0193 マキシマムライザー — data
+- PR14-0194 ワイルド・ヒッター — data
+- PR14-0196 メイデン・オブ・ドリーミングアロマ — data
+- PR14-0199 乱刃の探索者 ペラム — data
+- PR14-0200 喧嘩屋 サンダーアロー・ドラコキッド — data
+- PR14-0201 騎士王 エゼル — data
+- PR14-0202 喧嘩屋 プラズマクロー・ドラゴン — data
+- PR14-0204 勇気の探索者 アルス — data
+- PR14-0207 威風の解放者 ダーナー — data
+- PR14-0208 星輝兵 モリオンスター・ドラゴン — data
+- PR14-0209 誘致の魔女 アルドラ — data
+- PR14-0211 煉獄竜 ヴァイシャス・ドラゴン — data
+- PR14-0212 古代竜 ジオコンダ — data
+- PR14-0213 煉獄竜騎士 エルハーム — data
+- PR14-0214 矜恃の解放者 エリドゥルス — data
+- PR14-0251 聖棍の探索者 オクタウィウス — data
+- PR14-0253 ジェイドネイル・ドラゴン — data
+- PR14-0257 りーばがる — data
+
 ## VZ01
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
@@ -489,5 +609,33 @@ All cards complete.
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
 | 103   | 103                 | 103                 | 0               | 0            | 103           | 103 | 103      |
+
+All cards complete.
+
+## G-BT03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 104                 | 104                 | 0               | 0            | 104           | 104 | 104      |
+
+All cards complete.
+
+## G-BT04
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 104                 | 101                 | 3               | 0            | 104           | 104 | 101      |
+
+### Incomplete
+
+- G-BT04-060 Nurse of Sweet Heart — effect missing
+- G-BT04-080 Goddess of Youth, Hebe — effect missing
+- G-BT04-097 Cocoon Healer — effect missing
+
+## G-BT05
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 104                 | 104                 | 0               | 0            | 104           | 104 | 104      |
 
 All cards complete.

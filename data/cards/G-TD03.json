@@ -1,0 +1,980 @@
+{
+  "set": "G-TD03",
+  "importedAt": "2026-11-06T15:03:06.674Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD03-001",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/001",
+        "name": "春色の花乙姫 アルボレア",
+        "text": "アップデート：テキスト\n【超越】-ストライドステップ-【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：あなたのヴァンガードがグレード３の「ラナンキュラスの花乙女 アーシャ」で、このファイトであなたがイマジナリーギフトを得ていないなら、【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。さらに【コスト】[Ｇゾーンからこのユニットと同名を１枚表にする]ことで、イマジナリーギフト・フォースを２つ得る。\n【永】【(V)】：あなたは、このユニットの『ヒットした時』の効果を、ヒットしていなくても発動する。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、あなたのリアガードを１枚選び、あなたの山札から、それと同名を１枚まで探し、(R)にコールし、そのターン中、パワー＋2000。山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gtd03_001up.png"
+      },
+      "en": {
+        "number": "G-TD03/001EN",
+        "name": "Flower Princess of Spring, Arborea",
+        "text": "[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[AUTO](VC):When this unit's attack hits a vanguard, choose one of your rear-guards, search your deck for up to one card with the same name as that unit, call it to (RC), shuffle your deck, and the unit called with this effect gets [Power] +2000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/001", "G-TD03/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F001",
+          "fetchedAt": "2026-11-06T14:35:45.759Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/001EN",
+          "fetchedAt": "2026-11-06T14:36:07.042Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20190721000620/https://cardfight.fandom.com/wiki/Flower_Princess_of_Spring,_Arborea",
+          "fetchedAt": "2019-07-21T00:06:20.000Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Text\n[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[ACT]G Zone:If your vanguard is a grade 3 \"Ranunculus Flower Maiden, Ahsha\", and you did not get an Imaginary Gift this fight, [COST][choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down. Then, [COST][turn a card from G zone with the same card name as this unit face up], and you get two Imaginary Gift:Force.\n[CONT](VC):This unit's \"when attack hits\" effects activate even if the attack did not hit.\n[AUTO](VC):When this unit's attack hits a vanguard, choose one of your rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), and it gets [Power] +2000 until end of turn. Shuffle your deck."
+      }
+    },
+    {
+      "id": "G-TD03-002",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/002",
+        "name": "ラナンキュラスの花乙女 アーシャ",
+        "text": "【永】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：あなたのユニットすべてに『【永】【(V)/(R)】：あなたのターン中、あなたの、(V)か(R)に、他のこのユニットと同名のユニットがいるなら、このユニットのパワー＋5000。』を与える。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたのリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターン中、この効果でコールされたユニットのパワー＋2000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_002.png"
+      },
+      "en": {
+        "number": "G-TD03/002EN",
+        "name": "Ranunculus Flower Maiden, Ahsha",
+        "text": "[CONT](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):All of your units get \"[CONT](VC/RC):During your turn, if you have another unit with the same card name as this unit on your (VC) or (RC), this unit gets [Power] +5000.\".\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose one of your rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), shuffle your deck, and the unit called with this effect gets [Power] +2000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/002", "G-TD03/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F002",
+          "fetchedAt": "2026-11-06T14:35:46.989Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/002EN",
+          "fetchedAt": "2026-11-06T14:36:09.410Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-003",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/003",
+        "name": "ジャングルロード・ドラゴン",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_003.png"
+      },
+      "en": {
+        "number": "G-TD03/003EN",
+        "name": "Jungle Lord Dragon",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/003", "G-TD03/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F003",
+          "fetchedAt": "2026-11-06T14:35:48.206Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/003EN",
+          "fetchedAt": "2026-11-06T14:36:10.753Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-004",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/004",
+        "name": "フルブルーム・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札の上から５枚見て、あなたの、ヴァンガードかリアガードと、同名のカードを２枚まで探し、別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_004.png"
+      },
+      "en": {
+        "number": "G-TD03/004EN",
+        "name": "Full Bloom Dragon",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +6000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, look at five cards from the top of your deck, search for up to two cards with the same card name as your vanguard or rear-guard from among them, call them to separate (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/004", "G-TD03/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F004",
+          "fetchedAt": "2026-11-06T14:35:49.440Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/004EN",
+          "fetchedAt": "2026-11-06T14:36:11.971Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-005",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/005",
+        "name": "開花の乙女 ケラ",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_005.png"
+      },
+      "en": {
+        "number": "G-TD03/005EN",
+        "name": "Blossoming Maiden, Cela",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/005", "G-TD03/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F005",
+          "fetchedAt": "2026-11-06T14:35:50.226Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/005EN",
+          "fetchedAt": "2026-11-06T14:36:14.023Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-006",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/006",
+        "name": "グレースナイト",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_006.png"
+      },
+      "en": {
+        "number": "G-TD03/006EN",
+        "name": "Grace Knight",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/006", "G-TD03/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F006",
+          "fetchedAt": "2026-11-06T14:35:51.471Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/006EN",
+          "fetchedAt": "2026-11-06T14:36:15.147Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-007",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/007",
+        "name": "メイデン・オブ・グラジオラス",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、他のあなたのリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_007.png"
+      },
+      "en": {
+        "number": "G-TD03/007EN",
+        "name": "Maiden of Gladiolus",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, choose one of your other rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/007", "G-TD03/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F007",
+          "fetchedAt": "2026-11-06T14:35:52.352Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/007EN",
+          "fetchedAt": "2026-11-06T14:36:16.894Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-008",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/008",
+        "name": "カコカワ・キウイ",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_008.png"
+      },
+      "en": {
+        "number": "G-TD03/008EN",
+        "name": "Qool Qute Qiwi",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/008", "G-TD03/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F008",
+          "fetchedAt": "2026-11-06T14:35:53.580Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/008EN",
+          "fetchedAt": "2026-11-06T14:36:18.200Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-009",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/009",
+        "name": "萌芽の乙女 ディアン",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_009.png"
+      },
+      "en": {
+        "number": "G-TD03/009EN",
+        "name": "Budding Maiden, Diane",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/009", "G-TD03/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F009",
+          "fetchedAt": "2026-11-06T14:35:54.435Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/009EN",
+          "fetchedAt": "2026-11-06T14:36:19.135Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-010",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/010",
+        "name": "コーラルベリー・スクワイア",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_010.png"
+      },
+      "en": {
+        "number": "G-TD03/010EN",
+        "name": "Coral Berry Squire",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/010", "G-TD03/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F010",
+          "fetchedAt": "2026-11-06T14:35:55.638Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/010EN",
+          "fetchedAt": "2026-11-06T14:36:20.325Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-011",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/011",
+        "name": "ガーデナー・エルフ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードを【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "ネオネクタール",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_011.png"
+      },
+      "en": {
+        "number": "G-TD03/011EN",
+        "name": "Gardener Elf",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]) a vanguard, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/011", "G-TD03/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F011",
+          "fetchedAt": "2026-11-06T14:35:56.492Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/011EN",
+          "fetchedAt": "2026-11-06T14:36:21.553Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-012",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/012",
+        "name": "100％・オーランジュ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_012.png"
+      },
+      "en": {
+        "number": "G-TD03/012EN",
+        "name": "100% Orange",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD03/012", "G-TD03/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F012",
+          "fetchedAt": "2026-11-06T14:35:57.258Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/012EN",
+          "fetchedAt": "2026-11-06T14:36:22.617Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 0 vs EN 5000"],
+        "reviewed": "The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "G-TD03-013",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/013",
+        "name": "メイデン・オブ・サフラワー",
+        "text": "【自】【(V)/(R)】：このユニットがアタックされた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_013.png"
+      },
+      "en": {
+        "number": "G-TD03/013EN",
+        "name": "Maiden of Safflower",
+        "text": "[AUTO](VC/RC):When this unit is attacked, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/013", "G-TD03/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F013",
+          "fetchedAt": "2026-11-06T14:35:58.484Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/013EN",
+          "fetchedAt": "2026-11-06T14:36:23.949Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 5000 vs EN 0"],
+        "reviewed": "The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).",
+        "statsFrom": "jp"
+      }
+    },
+    {
+      "id": "G-TD03-014",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/014",
+        "name": "春待ちの乙女 オズ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]他のあなたのグレード２以下のリアガードを１枚選び、あなたの山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_014.png"
+      },
+      "en": {
+        "number": "G-TD03/014EN",
+        "name": "Spring-Heralding Maiden, Ozu",
+        "text": "[AUTO]:Forerunner(When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Choose one of your other grade 2 or less rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), and shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/014", "G-TD03/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F014",
+          "fetchedAt": "2026-11-06T14:35:59.298Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/014EN",
+          "fetchedAt": "2026-11-06T14:36:24.971Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-015",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/015",
+        "name": "メイデン・オブ・ディモルフォーセ",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_015.png"
+      },
+      "en": {
+        "number": "G-TD03/015EN",
+        "name": "Maiden of Dimorphotheca",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/015", "G-TD03/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F015",
+          "fetchedAt": "2026-11-06T14:36:00.581Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/015EN",
+          "fetchedAt": "2026-11-06T14:36:26.425Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-016",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/016",
+        "name": "ウーント・タナップ",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_016.png"
+      },
+      "en": {
+        "number": "G-TD03/016EN",
+        "name": "Heave-ho Turnip",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/016", "G-TD03/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F016",
+          "fetchedAt": "2026-11-06T14:36:01.484Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/016EN",
+          "fetchedAt": "2026-11-06T14:36:27.296Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-017",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/017",
+        "name": "ラベンダーナイト",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_017.png"
+      },
+      "en": {
+        "number": "G-TD03/017EN",
+        "name": "Lavender Knight",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/017", "G-TD03/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F017",
+          "fetchedAt": "2026-11-06T14:36:02.922Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/017EN",
+          "fetchedAt": "2026-11-06T14:36:28.503Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-018",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/018",
+        "name": "フェアリーライト・ドラゴン",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_018.png"
+      },
+      "en": {
+        "number": "G-TD03/018EN",
+        "name": "Fairy Light Dragon",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Fairy Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/018", "G-TD03/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F018",
+          "fetchedAt": "2026-11-06T14:36:04.201Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/018EN",
+          "fetchedAt": "2026-11-06T14:36:29.730Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD03-019",
+      "set": "G-TD03",
+      "jp": {
+        "number": "G-TD03/019",
+        "name": "メイデン・オブ・デイブレイク",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットを山札の上に置く]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたのユニットを１枚選ぶ。選んだら、そのユニットと同名のあなたのユニットを２枚まで選び、そのターン中、パワー＋5000。あなたの山札をシャッフルする。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD03/gtd03_019.png"
+      },
+      "en": {
+        "number": "G-TD03/019EN",
+        "name": "Maiden of Daybreak",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit on the top of your deck] When this unit is placed on (RC), you may pay the cost. If you do, choose one of your units. Choose up to two of your units with the same card name as that unit, and those units get [Power] +5000 until end of turn. Shuffle your deck.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd03/GTD03_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD03/019", "G-TD03/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD03%2F019",
+          "fetchedAt": "2026-11-06T14:36:05.502Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD03/019EN",
+          "fetchedAt": "2026-11-06T14:36:30.592Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 10000 vs EN 5000"],
+        "reviewed": "The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).",
+        "statsFrom": "jp"
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 3: Flower Maiden of Purity",
+    "cards": [
+      {
+        "id": "G-TD03-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-003",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-011",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-013",
+        "count": 3
+      },
+      {
+        "id": "G-TD03-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD03-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-017",
+        "count": 2
+      },
+      {
+        "id": "G-TD03-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD03-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/gtd03/",
+      "fetchedAt": "2026-11-06T14:57:57.882Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

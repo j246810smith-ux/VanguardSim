@@ -7,6 +7,7 @@ Helpers used to add a set quickly. Run from the repo root with `PYTHONIOENCODING
 | `newtexts.py <repo> <SET>`                   | Prints every card of the set that is not a reprint and has text: stats + English text. Read this first.                                                                                           |
 | `gen_set.py <repo> specs/<SET>.py`           | Writes `src/cards/<SET>.ts` from a spec. Reprints (via `npm run cards:reprints`) become `{ sameAs }`; cards with only reminder text become `[]`; any other card without a spec entry is an error. |
 | `gen_index.py <repo> <dataVersion>`          | Rewrites `src/cards/index.ts` to register every set that has both `data/cards/<SET>.json` and `src/cards/<SET>.ts`. Bump the version (e.g. `bt08-1.0.0`).                                         |
+| `g_starters.py <repo>`                       | Writes `src/decks/gStarters.ts`: the G starter decks.                                                                                                                                             |
 | `add_decks.py <repo> decks/<set>_decks.json` | Appends starter decks to `src/decks/starters.ts` (asserts 50 cards).                                                                                                                              |
 
 ## Spec format (`specs/<SET>.py`)

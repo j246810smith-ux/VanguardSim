@@ -1,0 +1,974 @@
+{
+  "set": "G-TD04",
+  "importedAt": "2026-11-06T15:02:13.883Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD04-001",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/001",
+        "name": "天鱗水将 タイダルボアー・ドラゴン",
+        "text": "アップデート：テキスト\n【超越】-ストライドステップ-【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：あなたのヴァンガードがグレード３の「嵐を超える者 サヴァス」で、このファイトであなたがイマジナリーギフトを得ていないなら、【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。さらに【コスト】[Ｇゾーンからこのユニットと同名を１枚表にする]ことで、イマジナリーギフト・アクセルを２つ得る。\n【永】【(V)】：あなたは、このユニットの『ヒットした時』の効果を、ヒットしていなくても発動する。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、このターン３回目以降のバトルなら、１枚引き、あなたの手札から１枚まで選び、(R)にコールする。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gtd04_001up.png"
+      },
+      "en": {
+        "number": "G-TD04/001EN",
+        "name": "Marine General of the Heavenly Scales, Tidal Bore Dragon",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[AUTO](VC):When this unit's attack hits a vanguard, if it is the third battle of that turn or more, draw a card, choose up to one card from your hand, and call it to (RC).",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/001", "G-TD04/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F001",
+          "fetchedAt": "2026-11-06T14:36:46.890Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/001EN",
+          "fetchedAt": "2026-11-06T14:37:06.569Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191207184604/https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/001EN",
+          "fetchedAt": "2019-12-07T18:46:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Text\n[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[ACT]G Zone:If your vanguard is a grade 3 \"One Who Surpasses the Storm, Thavas\", and you did not get an Imaginary Gift this fight, [COST][choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down. Then, [COST][turn a card from G zone with the same card name as this unit face up], and you get two Imaginary Gift:Accel.\n[CONT](VC):This unit's \"when attack hits\" effects activate even if the attack did not hit.\n[AUTO](VC):When this unit's attack hits a vanguard, if it is the third battle of this turn or more, draw a card, choose up to one card from your hand, and call it to (RC)."
+      }
+    },
+    {
+      "id": "G-TD04-002",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/002",
+        "name": "嵐を超える者 サヴァス",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：このユニットがヴァンガードにアタックした時、そのターンで４回目以降のバトル中なら、そのバトル中、このユニットのクリティカル＋１し、相手はグレード０のカードを手札から(G)にコールできない。\n【自】【(V)】：あなたのターン中、あなたのＧユニットが【超越】した時、あなたのヴァンガードを１枚選び、そのターン中、『【自】【(V)】：あなたのユニットがヴァンガードにアタックした時、そのターンで４回目のバトル中なら、あなたは相手のリアガードを３枚選び、相手はその中から１枚選び、退却させる。』を与える。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_002.png"
+      },
+      "en": {
+        "number": "G-TD04/002EN",
+        "name": "One Who Surpasses the Storm, Thavas",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, if it is the fourth battle of that turn or more, until end of that battle, this unit gets [Critical] +1, and your opponent cannot call grade 0 cards from hand to (GC).\n[AUTO](VC):During your turn, when your G unit [Stride], choose one of your vanguards, until end of turn, it gets \"[AUTO](VC):When your unit attacks a vanguard, if it is the fourth battle of that turn, choose three of your opponent's rear-guards, your opponent chooses one card from them, and retires it.\".",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/002", "G-TD04/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F002",
+          "fetchedAt": "2026-11-06T14:36:48.102Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/002EN",
+          "fetchedAt": "2026-11-06T14:37:09.079Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-003",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/003",
+        "name": "光学拳闘の巨人兵",
+        "text": "【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_003.png"
+      },
+      "en": {
+        "number": "G-TD04/003EN",
+        "name": "Titan of the Beam Fists",
+        "text": "[AUTO](VC/RC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Golem",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/003", "G-TD04/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F003",
+          "fetchedAt": "2026-11-06T14:36:48.912Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/003EN",
+          "fetchedAt": "2026-11-06T14:37:10.290Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-004",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/004",
+        "name": "バタリーブーム・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、そのターンで１回目のバトル中なら、他のこのユニットと同じ縦列にいるあなたのリアガードを１枚選び、このユニットと位置を交換する。（カードの向きは変わらない）",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_004.png"
+      },
+      "en": {
+        "number": "G-TD04/004EN",
+        "name": "Batteryboom Dragon",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +6000 until end of that battle.\n[AUTO](RC):At the end of the battle that this unit attacked a vanguard, if it is the first battle of that turn, choose another of your rear-guards in the same column as this unit, and exchange positions with this unit. (The state of the card does not change)",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/004", "G-TD04/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F004",
+          "fetchedAt": "2026-11-06T14:36:50.111Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/004EN",
+          "fetchedAt": "2026-11-06T14:37:11.768Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-005",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/005",
+        "name": "ケルピーライダー デニス",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_005.png"
+      },
+      "en": {
+        "number": "G-TD04/005EN",
+        "name": "Kelpie Rider, Denis",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/005", "G-TD04/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F005",
+          "fetchedAt": "2026-11-06T14:36:51.305Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/005EN",
+          "fetchedAt": "2026-11-06T14:37:12.679Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-006",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/006",
+        "name": "戦場の歌姫 ローデ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_006.png"
+      },
+      "en": {
+        "number": "G-TD04/006EN",
+        "name": "Battle Siren, Rohde",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/006", "G-TD04/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F006",
+          "fetchedAt": "2026-11-06T14:36:52.085Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/006EN",
+          "fetchedAt": "2026-11-06T14:37:13.947Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-007",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/007",
+        "name": "マグナム・アサルト",
+        "text": "【自】【(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックしたバトルの終了時、そのバトル中、【ブースト】されていたなら、コストを払ってよい。払ったら、このユニットを【スタンド】し、そのターン中、このユニットのパワー＋2000。（コストを払わなくても、この能力は使えなくなる）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_007.png"
+      },
+      "en": {
+        "number": "G-TD04/007EN",
+        "name": "Magnum Assault",
+        "text": "[AUTO](RC)[1/turn][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1]At the end of the battle that this unit attacked a vanguard, if this unit was boosted ([Boost]) during that battle, you may pay the cost. If you do, [Stand] this unit, and this unit gets [Power] +2000 until end of turn. (Even if you do not pay the cost, this ability cannot be used for the rest of that turn)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/007", "G-TD04/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F007",
+          "fetchedAt": "2026-11-06T14:36:53.302Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/007EN",
+          "fetchedAt": "2026-11-06T14:37:16.165Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-008",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/008",
+        "name": "ハイドロハンマー・セイラー",
+        "text": "【自】：このユニットが【インターセプト】した時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_008.png"
+      },
+      "en": {
+        "number": "G-TD04/008EN",
+        "name": "Hydro Hammer Sailor",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/008", "G-TD04/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F008",
+          "fetchedAt": "2026-11-06T14:36:54.068Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/008EN",
+          "fetchedAt": "2026-11-06T14:37:17.294Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-009",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/009",
+        "name": "ケルピーライダー ポロ",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_009.png"
+      },
+      "en": {
+        "number": "G-TD04/009EN",
+        "name": "Kelpie Rider, Polo",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/009", "G-TD04/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F009",
+          "fetchedAt": "2026-11-06T14:36:55.264Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/009EN",
+          "fetchedAt": "2026-11-06T14:37:18.251Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-010",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/010",
+        "name": "レールガン・アサルト",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_010.png"
+      },
+      "en": {
+        "number": "G-TD04/010EN",
+        "name": "Railgun Assault",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/010", "G-TD04/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F010",
+          "fetchedAt": "2026-11-06T14:36:56.479Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/010EN",
+          "fetchedAt": "2026-11-06T14:37:19.140Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-011",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/011",
+        "name": "ガンダイバー・ドラコキッド",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードを【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋4000。",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_011.png"
+      },
+      "en": {
+        "number": "G-TD04/011EN",
+        "name": "Gundiver Dracokid",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]) a vanguard, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/011", "G-TD04/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F011",
+          "fetchedAt": "2026-11-06T14:36:57.291Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/011EN",
+          "fetchedAt": "2026-11-06T14:37:20.455Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-012",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/012",
+        "name": "戦場の歌姫 ファイドラ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_012.png"
+      },
+      "en": {
+        "number": "G-TD04/012EN",
+        "name": "Battle Siren, Phaidra",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD04/012", "G-TD04/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F012",
+          "fetchedAt": "2026-11-06T14:36:58.081Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/012EN",
+          "fetchedAt": "2026-11-06T14:37:21.474Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-013",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/013",
+        "name": "マインスター・トルーパー",
+        "text": "【自】【(V)/(R)】：このユニットがアタックされた時、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "アクアフォース",
+        "race": "ドラゴンマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_013.png"
+      },
+      "en": {
+        "number": "G-TD04/013EN",
+        "name": "Minestar Trooper",
+        "text": "[AUTO](VC/RC):When this unit is attacked, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Dragonman",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/013", "G-TD04/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F013",
+          "fetchedAt": "2026-11-06T14:36:58.853Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/013EN",
+          "fetchedAt": "2026-11-06T14:37:22.407Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-014",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/014",
+        "name": "士官候補生 アンドレイ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]他のあなたのリアガードを１枚選び、そのターン中、『【自】【(R)】【ターン1回】：このユニットがヴァンガードにアタックしたバトルの終了時、このユニットを【スタンド】し、そのターン中、このユニットのパワー＋2000。』を与える。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_014.png"
+      },
+      "en": {
+        "number": "G-TD04/014EN",
+        "name": "Officer Cadet, Andrey",
+        "text": "[AUTO]:Forerunner(When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Choose one of your other rear-guards, until end of turn, it gets \"[AUTO](RC)[1/turn]:At the end of the battle that this unit attacked a vanguard, [Stand] this unit, and this unit gets [Power] +2000 until end of turn.\".",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/014", "G-TD04/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F014",
+          "fetchedAt": "2026-11-06T14:36:59.624Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/014EN",
+          "fetchedAt": "2026-11-06T14:37:23.590Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-015",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/015",
+        "name": "バブルバズーカ・ドラコキッド",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ティアードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_015.png"
+      },
+      "en": {
+        "number": "G-TD04/015EN",
+        "name": "Bubble Bazooka Dracokid",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Tear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/015", "G-TD04/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F015",
+          "fetchedAt": "2026-11-06T14:37:00.840Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/015EN",
+          "fetchedAt": "2026-11-06T14:37:24.835Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-016",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/016",
+        "name": "レインボー・スナイパー",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_016.png"
+      },
+      "en": {
+        "number": "G-TD04/016EN",
+        "name": "Rainbow Sniper",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/016", "G-TD04/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F016",
+          "fetchedAt": "2026-11-06T14:37:01.751Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/016EN",
+          "fetchedAt": "2026-11-06T14:37:25.996Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-017",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/017",
+        "name": "慧眼のタツノオトシゴ兵",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_017.png"
+      },
+      "en": {
+        "number": "G-TD04/017EN",
+        "name": "Keen Eyed Seahorse Soldier",
+        "text": "",
+        "clan": "Aqua Force",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/017", "G-TD04/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F017",
+          "fetchedAt": "2026-11-06T14:37:02.578Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/017EN",
+          "fetchedAt": "2026-11-06T14:37:26.901Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-018",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/018",
+        "name": "戦場の歌姫 カロリーナ",
+        "text": "",
+        "clan": "アクアフォース",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_018.png"
+      },
+      "en": {
+        "number": "G-TD04/018EN",
+        "name": "Battle Siren, Carolina",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Aqua Force",
+        "race": "Mermaid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/018", "G-TD04/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F018",
+          "fetchedAt": "2026-11-06T14:37:03.353Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/018EN",
+          "fetchedAt": "2026-11-06T14:37:28.296Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD04-019",
+      "set": "G-TD04",
+      "jp": {
+        "number": "G-TD04/019",
+        "name": "士官候補生 アレキポス",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがアタックしたバトルの終了時、、他のあなたのリアガードを１枚選び、このユニットと位置を交換してよい。交換したら、このユニットを山札に戻し、その山札をシャッフルする。（カードの向きは変わらない）",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD04/gtd04_019.png"
+      },
+      "en": {
+        "number": "G-TD04/019EN",
+        "name": "Officer Cadet, Alekbors",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):At the end of the battle that this unit attacked, choose one of your other rear-guards, and you may exchange its position with this unit. If you do, return this unit to your deck, and shuffle your deck. (The state of the card does not change)",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd04/GTD04_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD04/019", "G-TD04/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD04%2F019",
+          "fetchedAt": "2026-11-06T14:37:04.579Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD04/019EN",
+          "fetchedAt": "2026-11-06T14:37:29.356Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 4: Blue Cavalry of the Divine Marine Spirits",
+    "cards": [
+      {
+        "id": "G-TD04-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-003",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-011",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-013",
+        "count": 3
+      },
+      {
+        "id": "G-TD04-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD04-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-017",
+        "count": 2
+      },
+      {
+        "id": "G-TD04-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD04-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://en.cf-vanguard.com/products/gtd04/",
+      "fetchedAt": "2026-11-06T14:37:50.671Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

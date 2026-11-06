@@ -126,7 +126,10 @@ const CHARACTERISTIC_FILTERS: readonly (keyof CardFilter)[] = [
   'sentinel',
   'sameNameAsAnotherUnit',
   'limitBreak',
+  'anyLimitBreak',
+  'abilityTextIncludes',
   'sameNameAsVanguard',
+  'sameNameAsClanUnit',
   'sameGradeAsVanguard',
   'canLegionWithVanguard',
   'vanguardCanLegionWith',
@@ -244,6 +247,17 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.sameNameAsVanguard) {
     if (!cardsIn(state, ec.master, 'VC').some((v) => shareName(state, ctx, v, id))) return false;
   }
+  if (filter.sameNameAsClanUnit !== undefined) {
+    const units = (['VC', 'RC'] as const).flatMap((area) => cardsIn(state, ec.master, area));
+    const match = units.some(
+      (u) =>
+        !state.cards[u]!.locked &&
+        (filter.sameNameAsClanUnit === '*' ||
+          clansOf(state, ctx, u).includes(filter.sameNameAsClanUnit!)) &&
+        shareName(state, ctx, u, id),
+    );
+    if (!match) return false;
+  }
   if (filter.sameGradeAsVanguard) {
     const vc = vanguardOf(state.players[ec.master]);
     if (vc === null || currentGrade(state, ctx, id) !== currentGrade(state, ctx, vc)) return false;
@@ -291,6 +305,16 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (
     filter.limitBreak !== undefined &&
     !def.abilities.some((a) => a.limitBreak === filter.limitBreak)
+  )
+    return false;
+  if (
+    filter.abilityTextIncludes !== undefined &&
+    !def.abilities.some((a) => a.text.includes(filter.abilityTextIncludes!))
+  )
+    return false;
+  if (
+    filter.anyLimitBreak !== undefined &&
+    def.abilities.some((a) => a.limitBreak !== undefined) !== filter.anyLimitBreak
   )
     return false;
   if (filter.isVanguard !== undefined && isOnCircle(state, id, 'vanguard') !== filter.isVanguard) {
@@ -372,6 +396,8 @@ export function select(ec: EvalContext, selector: Selector): InstanceId[] {
     }
     case 'event_card':
       return ec.eventCard === null ? [] : [ec.eventCard];
+    case 'card':
+      return [selector.id];
     case 'role': {
       // every unit being attacked (several in a multi-unit attack, CR 7.3.1.4.6)
       if (selector.role === 'attacked') return attackedIds(ec.state);
@@ -446,6 +472,14 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     }
     case 'deck_shuffled_this_turn':
       return (ec.state.turnFlags.shuffledByEffect ?? []).includes(ec.master);
+    case 'dropped_from_soul_this_turn':
+      return (ec.state.turnFlags.droppedFromSoul ?? []).some(
+        (id) => ec.state.cards[id]!.owner === ec.master,
+      );
+    case 'heart_named':
+      return ec.state.players[ec.master].hearts.some((h) =>
+        namesOf(ec.state, ec.ctx, h).some((n) => n.includes(condition.part)),
+      );
     case 'dropped_from_rc_this_turn': {
       const dropped = (ec.state.turnFlags.droppedFromRC ?? []).filter(
         (id) => ec.state.cards[id]!.owner === ec.master && matches(ec, id, condition.filter),

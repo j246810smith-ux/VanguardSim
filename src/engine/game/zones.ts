@@ -70,6 +70,10 @@ export function moveCard(
   card.faceUp = options.faceUp ?? to.zone !== 'deck';
   card.locked = false; // a lock only exists on its circle (CR 10.1.21)
   if (card.boundBy !== undefined && to.zone !== 'bind') delete card.boundBy;
+  if (to.zone === 'drop' && from.zone === 'soul') {
+    const f = s.turnFlags;
+    f.droppedFromSoul = [...(f.droppedFromSoul ?? []), id];
+  }
   if (to.zone === 'drop' && from.zone === 'circle' && from.circle !== 'vanguard') {
     const f = s.turnFlags;
     f.droppedFromRC = [...(f.droppedFromRC ?? []), id];

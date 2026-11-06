@@ -48,12 +48,12 @@ product's 19 cards. No official source found gives the copy counts, so those are
 
 ## PR inventory
 
-| Year | New cards                                                          |
-| ---- | ------------------------------------------------------------------ |
-| 2011 | 40 → done: 39 cards, set `PR11` (PR/0003 and PR/0029 are one card) |
-| 2012 | 38 → done: set `PR12`                                              |
-| 2013 | 58                                                                 |
-| 2014 | 79                                                                 |
+| Year | New cards                                                                                   |
+| ---- | ------------------------------------------------------------------------------------------- |
+| 2011 | 40 → done: 39 cards, set `PR11` (PR/0003 and PR/0029 are one card)                          |
+| 2012 | 38 → done: set `PR12`                                                                       |
+| 2013 | 58 printings → done: 50 cards, set `PR13` (A/B promos are one card)                         |
+| 2014 | 79 printings → done: 66 cards, set `PR14`; PR/0250, 0258 and 0271 wait for the Expanded Era |
 
 | No.      | Japanese name                             | Grade | Clan                 |
 | -------- | ----------------------------------------- | ----- | -------------------- |

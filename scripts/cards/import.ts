@@ -25,6 +25,21 @@ const IMPORTER_VERSION = 2;
 const REVIEWED_DIFFERENCES: Readonly<
   Record<string, { readonly reason: string; readonly use: 'jp' | 'en' }>
 > = {
+  'G-TD03-012': {
+    reason:
+      'The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).',
+    use: 'jp',
+  },
+  'G-TD03-013': {
+    reason:
+      'The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).',
+    use: 'jp',
+  },
+  'G-TD03-019': {
+    reason:
+      'The English page lists the wrong shield; the Japanese value fits the card (a sentinel has shield 0, a grade 1 has 5000, a grade 0 has 10000).',
+    use: 'jp',
+  },
   'BT03-052': {
     reason:
       'English BT03 prints Spiral Master as a critical trigger; the Japanese original is a draw trigger (the game uses it: user, 2026-10-28, D-031).',
@@ -110,6 +125,10 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   BT08: { '058': '058' },
   // 蒼嵐水将 ミロス Blue Storm Marine General, Milos: the JP page gives [Boost] (see REVIEWED_DIFFERENCES)
   'G-BT02': { '030': '030' },
+  // the same numbers on both sites (names checked one by one); the name matcher misses several
+  'G-TD03': Object.fromEntries(
+    Array.from({ length: 19 }, (_, i) => String(i + 1).padStart(3, '0')).map((n) => [n, n]),
+  ),
   // English BT16 "ver.E" is numbered differently and adds cards from other products; by name:
   // 探索者 シングセイバー・ドラゴン Seeker, Thing Saver Dragon, 実直の探索者 エグバート Forthright
   // Seeker, Egbert, 喧嘩屋 ビッグバンナックル・ドラゴン Brawler, Big Bang Knuckle Dragon, 喧嘩屋
@@ -301,6 +320,27 @@ const EN_PRINTED_ELSEWHERE: Readonly<Record<string, Readonly<Record<string, stri
     '0062': 'BT06/077EN',
     '0063': 'BT06/091EN',
   },
+  // later English printings: デトニクス・ドリルドラゴン Detonix Drill Dragon, 遮光の星輝兵 サルファー Shading
+  // Star-vader, Sulfur; Duo いいコト日記 シェリル Duo Happy Diary, Sheryl has B/W numbers
+  PR14: {
+    '0235': 'G-RC01/034EN',
+    '0215': 'G-RC01/036EN',
+    '0195B': 'PR/0125EN-B',
+  },
+  // 紅の魔女 ラディッシュ Crimson Witch, Radish was printed in English as BT11/055EN. The A/B promos
+  // (光の聖域 ブライトネス・ドラゴン Sanctuary of Light, Brightness Dragon, 霧雨の騎士 ベルナルド Mist Rain
+  // Knight, Bernardo, 掟の女神 ユースティティア Goddess of Law, Justitia, 封竜 ジョーゼット Seal Dragon,
+  // Georgette, グラビティボルト・ドラゴン Gravity Bolt Dragon, 忍獣 メタモルフォックス Stealth Beast,
+  // Metamorfox) have English A/B numbers the PR scan misses.
+  PR13: {
+    '0117': 'BT11/055EN',
+    '0160A': 'PR/0102EN-A',
+    '0161A': 'PR/0103EN-A',
+    '0162A': 'PR/0104EN-A',
+    '0163A': 'PR/0105EN-A',
+    '0164A': 'PR/0106EN-A',
+    '0165A': 'PR/0107EN-A',
+  },
 };
 /**
  * PR cards (roadmap: docs/design/ORIGINAL_ERA_ROADMAP.md): set PR11 is the official 【2011年度】 list,
@@ -366,6 +406,91 @@ const PR_PAIRS: Readonly<Record<string, Readonly<Record<string, string>>>> = {
     '0099': '0055', // アース・ガンナー Earth Gunner
     '0100': '0083', // ソフトタンク・スロース Soft Tank Sloth
   },
+  PR13: {
+    '0102': '0070', // 雲海のシールドナイト Shield Knight of the Clouds
+    '0107': '0088', // ストームブリング・ドラゴン Storm Bring Dragon
+    '0108': '0084', // 輝ける未来 エリア Electrohm, Elia
+    '0116': '0060', // 大鷹の解放者 カドー Goshawk Liberator, Cadeau
+    '0118': '0049', // 抹消者 スパークホーン・ドラゴン Eradicator, Spark Horn Dragon
+    '0120': '0065', // 不死竜 マレフィックドラゴン Dragon Undead, Malefic Dragon
+    '0121': '0066', // マシニング・アーマービートル Machining Armor Beetle
+    '0122': '0075', // 強襲のスカイナイト Assault Sky Knight
+    '0132': '0067', // バトルシスター きゃんでぃ Battle Sister, Candy
+    '0133': '0076', // 呪槍の撃退者 ダーマッド Cursed Spear Revenger, Diarmuid
+    '0134': '0071', // グラファイトキャノン・ドラゴン Graphite Cannon Dragon
+    '0135': '0077', // 星輝兵 ダークバンド・ドラゴン Star-vader, Dark Band Dragon
+    '0136': '0110', // 倦怠のサキュバス Indifferent Succubus
+    '0137': '0085', // 涙滴の水将 カルロス Tear Drop Marine General, Carlos
+    '0139': '0111', // 希望の剣 リシャール Sword of Hope, Richard
+    '0143': '0080', // ペンタゴナル・メイガス Pentagonal Magus
+    '0150': '0126', // 繚乱の騎士 トゥールーズ Knight of Extravagance, Toulouse
+    '0152': '0086', // 敢然の宝石騎士 ジュリア Fearless Jewel Knight, Julia
+    '0153': '0112', // 千の名を持つ飛竜騎士 Thousand Name Wyvern Knight
+    '0154': '0087', // ジェットライザー Jetraizer
+    '0155': '0081', // 次元ロボ ダイバレット Dimensional Robo, Daibarrett
+    '0156': '0191', // パンジーの銃士 シルヴィア Pansy Musketeer, Silvia
+    '0157': '0192', // テーピング・キャット Taping Cat
+    '0158': '0113', // ぱぴるがる Papilugal
+    '0166': '0121', // 覚醒の解放者 フリード Awakening Liberator, Freed
+    '0169': '0127', // 撃退者 デスマスター・ドラゴン Revenger, Deathmaster Dragon
+    '0172': '0098', // 星輝兵 マルチバース・ドラゴン Star-vader, Multiverse Dragon
+    '0179': '0122', // シャドウブレイズ・ドラゴン Shadow Blaze Dragon
+    '0180': '0100', // ドラゴンダンサー アラベラ Dragon Dancer, Arabella
+    '0181': '0114', // 忍獣 バンデットエイプ Stealth Beast, Bandit Ape
+    '0183': '0123', // エッグ・ジャグラー Egg Juggler
+    '0184': '0108', // メイデン・オブ・ビーナストラップ ミューズ Maiden of Venus Trap Muse
+  },
+  PR14: {
+    '0151': '0119', // ガスト・ブラスター・ドラゴン Gust Blaster Dragon
+    '0185': '0115', // 着ぐるみアイドル アルク Costume Idol, Alk
+    '0186': '0116', // プラネットアイドル パシフィカ Planet Idol, Pacifica
+    '0187': '0117', // シャングリラスター コーラル Shangri-La Star, Coral
+    '0203': '0128', // 落日の星輝兵 ダームスタチウム Setting Sun Star-vader, Darmstadtium
+    '0210': '0129', // 黄昏の神器 ヘスペリス Twilight Regalia, Hesperis
+    '0223': '0130', // 探索者 ライトセイバー・ドラゴン Seeker, Light Saver Dragon
+    '0224': '0131', // 探索者 ライトブレイズ・ドラゴン Seeker, Light Blaze Dragon
+    '0225': '0132', // 切開の守護天使 マルキダエル Holy Edge Celestial, Malchidael
+    '0226': '0133', // 投薬の守護天使 アスモデル Dosage Celestial, Asmodel
+    '0227': '0134', // 陰陽の忍鬼 セイメイ Onmyo Stealth Rogue, Seimei
+    '0228': '0135', // 変幻の忍鬼 クズノハ Transformation Stealth Rogue, Kuzunoha
+    '0229': '0136', // クラッキング・ビーストテイマー Cracking Beast Tamer
+    '0230': '0137', // バーキング・スカイタイガー Barking Sky Tiger
+    '0231': '0138', // マシニング・タランチュラ mkⅡ Machining Tarantula mk II
+    '0232': '0139', // マシニング・ホーネット mkⅡ Machining Hornet mk II
+    '0233': '0140', // 魔法科学者 テスター・フォックス Magic Scientist, Tester Fox
+    '0234': '0141', // 幻想科学者 リサーチャー・フォックス Illusion Scientist, Researcher Fox
+    '0237': '0211', // 溢れ出す夢 マドレ Dream Team, Madre
+    '0243': '0217', // 溢れ出す夢 ディオス Dream Team, Dios
+    '0244': '0218', // 永遠の宝物 ローレンス Eternal Memory, Lorens
+    '0245': '0219', // 虹色の合図 ウルミア Mirage Sign, Urmia
+    '0248': '0153', // 変革の騎士 ラディナス Knight of Reform, Ladinas
+    '0252': '0154', // お天気お姉さん らむね Weather Girl, Ramune
+    '0254': '0155', // 忍獣 トビヒコ Stealth Beast, Tobihiko
+    '0255': '0156', // 喧嘩屋 アースクラック・ドラゴン Brawler, Earthcrack Dragon
+    '0256': '0158', // キング・サーペント King Serpent
+    '0259': '0166', // 勝機の宝石騎士 イーヴァン Prevail Jewel Knight, Yvain
+    '0260': '0167', // 宝石騎士 そーどみー Jewel Knight, Swordmy
+    '0261': '0181', // バトルシスター たふぃー Battle Sister, Taffy
+    '0265': '0151', // メッチャリーダー レイバード Extreme Leader, Raybird
+    '0269': '0174', // サンクチュアリガード・ギャランティ Sanctuary Guard Guarantee
+    '0270': '0175', // マジカル・ギャンブラー Magical Gambler
+    '0272': '0177', // ハイドロランス ツァニス Hydro Lance, Tzanis
+    '0273': '0178', // ラベル・パンゴリン Label Pangolin
+    '0274': '0179', // スッパ・スッパー Sour Slicer
+    '0285': '0142', // 宝鏡の女神 オオヒルメ Goddess of the Treasured Mirror, Ohirume
+    '0287': '0143', // 期待の新星 トロワ Rising Star, Trois
+    '0289': '0144', // 騎士王の先導者 エゼル King of Knights' Vanguard, Ezzell
+    '0291': '0163', // 真・究極次元ロボ グレートダイカイザー True Ultimate Dimensional Robo, Great Daikaiser
+    '0293': '0164', // アモンの主謀者 アスタロト Amon's Leader, Astaroth
+  },
+};
+/**
+ * G-era cards on a PR list: not Original Era cards, so they are left out of the list's set and wait
+ * for the Expanded Era's PR cards (roadmap): ハーモニクス・メサイア, ヒートエレメント マグム (G units),
+ * スチームファイター メスヘデ (Gear Chronicle, G Break).
+ */
+const G_ERA_ON_PR_LIST: Readonly<Record<string, readonly string[]>> = {
+  PR14: ['0250', '0258', '0271'],
 };
 const prYear = (s: string) => /^PR(\d{2})$/.exec(s)?.[1] ?? null;
 /**
@@ -625,7 +750,8 @@ function group(site: Site, fetched: Fetched[], s: string = set!) {
       // Liberator is BT09's), and the English "ver.E" BT16/BT17 add "L" (Legend) printings of
       // cards from trial and Legend decks (BT16/L02EN Blaster Blade Seeker is TD14's); those
       // cards are imported with their own set (Japanese set membership is canonical)
-      if (/\/[SL]\d+/.test(f.card.number)) {
+      // …and the G boosters' "SR" printings reprint earlier G sets' cards (G-BT04/SR01 is G-BT01/001)
+      if (/\/(S|L|SR)\d+/.test(f.card.number)) {
         if (s === set) {
           console.log(`  note: ${f.card.number} (${f.card.name}) is not a card of ${s}; skipped`);
         }
@@ -670,7 +796,61 @@ function useSpecials(g: ReturnType<typeof group>, overrides: Readonly<Record<str
 const ARCHIVE_BEFORE = '20200101';
 const isUpdated = (text: string) => /^(Updated:|アップデート：)/.test(text);
 
-async function archivedText(enNumber: string): Promise<{ text: string; source: SourceRef } | null> {
+/**
+ * G-era cards rewritten after the G era whose official page was never archived (D-034). The two
+ * G units and Cafar come from a pre-2020 snapshot of the card wiki. The other three have no snapshot
+ * either: their text is the current text without the lines added later, the same difference the
+ * archived cards of each kind show (a G unit loses its Imaginary Gift [ACT] and "even if the attack
+ * did not hit" [CONT]; a former critical trigger loses "revealed for a damage check", shield 10000).
+ */
+const STRIDE_LINE =
+  '[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.';
+const NO_OFFICIAL_ARCHIVE: Readonly<
+  Record<string, { text: string; shield?: number; url: string; stamp: string }>
+> = {
+  'G-TD03-001': {
+    text: `${STRIDE_LINE}\n[AUTO](VC):When this unit's attack hits a vanguard, choose one of your rear-guards, search your deck for up to one card with the same name as that unit, call it to (RC), shuffle your deck, and the unit called with this effect gets [Power] +2000 until end of turn.`,
+    url: 'https://web.archive.org/web/20190721000620/https://cardfight.fandom.com/wiki/Flower_Princess_of_Spring,_Arborea',
+    stamp: '2019-07-21T00:06:20.000Z',
+  },
+  'G-BT03-032': {
+    text: `${STRIDE_LINE}\n[AUTO](VC):When this unit's attack hits a vanguard, choose one of your rear-guards, search your deck for up to two cards with the same card name as that unit, call them to separate (RC), shuffle your deck, and at the end of that turn, put the units called with this effect on the bottom of your deck in any order.`,
+    url: 'https://web.archive.org/web/20190917003808/https://cardfight.fandom.com/wiki/Ambush_Demon_Stealth_Fiend,_Ushimitsu_Train',
+    stamp: '2019-09-17T00:38:08.000Z',
+  },
+  'G-BT03-039': {
+    text: `${STRIDE_LINE}\n[AUTO](VC):When this unit's attack hits a vanguard, [Soul-Charge 2], if the number of cards in your soul is six or more, draw a card.`,
+    url: 'https://web.archive.org/web/20191021145110/https://cardfight.fandom.com/wiki/Love_Tempest,_Kisskill_Lira',
+    stamp: '2019-10-21T14:51:10.000Z',
+  },
+  'G-BT04-015': {
+    text: '[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with "Claret Sword Dragon" in its card name, you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.',
+    shield: 10000,
+    url: 'https://web.archive.org/web/20190824222201/https://cardfight.fandom.com/wiki/Taboo_Mage,_Cafar',
+    stamp: '2019-08-24T22:22:01.000Z',
+  },
+  'G-BT04-032': {
+    text: `${STRIDE_LINE}\n[AUTO](VC):When this unit's attack hits a vanguard, [COST][Soul-Blast 3], look at the top three cards of your deck, choose a card from among them, put it into your hand, and put the rest into your soul.`,
+    url: 'https://en.cf-vanguard.com/cardlist/?cardno=G-BT04/032EN',
+    stamp: '2026-11-06T00:00:00.000Z',
+  },
+  'G-BT05-012': {
+    text: '[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with "Susanoo" in its card name, you may pay the cost. If you do, draw a card, choose up to one of your vanguards, and it gets [Power] +5000 until end of that battle.',
+    shield: 10000,
+    url: 'https://en.cf-vanguard.com/cardlist/?cardno=G-BT05/012EN',
+    stamp: '2026-11-06T00:00:00.000Z',
+  },
+  'G-BT05-015': {
+    text: '[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, if you have a grade 3 or greater vanguard with "Vanquisher" in its card name, you may pay the cost. If you do, draw a card, choose up to one of your vanguards, and it gets [Power] +5000 until end of that battle.',
+    shield: 10000,
+    url: 'https://en.cf-vanguard.com/cardlist/?cardno=G-BT05/015EN',
+    stamp: '2026-11-06T00:00:00.000Z',
+  },
+};
+
+async function archivedText(
+  enNumber: string,
+): Promise<{ text: string; shield: number; source: SourceRef } | null> {
   const url = HOSTS.en + cardPath(enNumber);
   const file = join('data', 'raw', 'archive', set!, `${enNumber.replace(/[/\\?&=]/g, '_')}.html`);
   let html: string;
@@ -706,6 +886,7 @@ async function archivedText(enNumber: string): Promise<{ text: string; source: S
   const at = `${stamp.slice(0, 4)}-${stamp.slice(4, 6)}-${stamp.slice(6, 8)}T${stamp.slice(8, 10)}:${stamp.slice(10, 12)}:${stamp.slice(12, 14)}Z`;
   return {
     text: c.text,
+    shield: c.shield,
     source: {
       url: `https://web.archive.org/web/${stamp}/${url}`,
       fetchedAt: at,
@@ -804,6 +985,10 @@ async function main(): Promise<void> {
   // a PR card with the name of a card in the game is another printing of it: nothing new to add
   const reprints: { number: string; id: string }[] = [];
   if (isPr) {
+    for (const no of G_ERA_ON_PR_LIST[set!] ?? []) {
+      jp.bases.delete(no);
+      jp.printings.delete(no);
+    }
     const known = cardsByJapaneseName();
     const knownEnglish = new Set([...known.values()].flatMap((c) => (c.en ? [c.en.name] : [])));
     for (const [no, f] of [...jp.bases]) {
@@ -923,6 +1108,18 @@ async function main(): Promise<void> {
     let original: Awaited<ReturnType<typeof archivedText>> = null;
     if (e && isUpdated(e.card.text)) {
       original = await archivedText(e.card.number);
+      const reviewedOriginal = NO_OFFICIAL_ARCHIVE[id];
+      if (!original && reviewedOriginal) {
+        original = {
+          text: reviewedOriginal.text,
+          shield: reviewedOriginal.shield ?? e.card.shield,
+          source: {
+            url: reviewedOriginal.url,
+            fetchedAt: reviewedOriginal.stamp,
+            regulation: e.card.regulation,
+          },
+        };
+      }
       if (!original) throw new Error(`${id}: "Updated" text and no pre-2020 archived page`);
       console.log(`  ${id}: updated text; G-era text from ${original.source.url}`);
     }
@@ -936,7 +1133,8 @@ async function main(): Promise<void> {
       cardType: canonical.type,
       grade: canonical.grade,
       power: canonical.power,
-      shield: canonical.shield,
+      // the G-era card: later updates raised some shields (G-BT02-011: 10000, now 15000)
+      shield: original?.shield ?? canonical.shield,
       critical: canonical.critical,
       skillIcon: canonical.skillIcon,
       trigger: canonical.trigger,
@@ -958,7 +1156,14 @@ async function main(): Promise<void> {
       },
     });
     // Japanese-only cards (BT11-055) use the Japanese art
-    await downloadImage(id, e?.card ?? j?.card, e ? 'en' : 'jp');
+    try {
+      await downloadImage(id, e?.card ?? j?.card, e ? 'en' : 'jp');
+    } catch (err) {
+      // PR/0102EN-A…0107EN-A: the official English page names an image that is not on the server
+      if (!e || !j) throw err;
+      console.log(`  ${id}: no English image, using the Japanese art`);
+      await downloadImage(id, j.card, 'jp');
+    }
   }
   // a Trial Deck is a fixed 50-card product: its contents come from the official English
   // product page (the Japanese pages and the card pages list no quantities)
@@ -1032,6 +1237,37 @@ async function main(): Promise<void> {
   }
 }
 
+/** A Trial Deck whose official product page has no card list. */
+const PRODUCT_LISTS: Readonly<
+  Record<string, { counts: Readonly<Record<string, number>>; url: string; stamp: string }>
+> = {
+  'G-TD05': {
+    counts: {
+      '001': 2,
+      '002': 2,
+      '003': 4,
+      '004': 2,
+      '005': 4,
+      '006': 2,
+      '007': 2,
+      '008': 2,
+      '009': 4,
+      '010': 4,
+      '011': 2,
+      '012': 3,
+      '013': 2,
+      '014': 1,
+      '015': 4,
+      '016': 2,
+      '017': 4,
+      '018': 4,
+      '019': 2,
+    },
+    url: 'https://web.archive.org/web/20170905224536/https://cardfight.wikia.com/wiki/G_Trial_Deck_5:_Fateful_Star_Messiah',
+    stamp: '2017-09-05T22:45:36.000Z',
+  },
+};
+
 /**
  * "4pc TD01/001EN Crimson Butterfly, Brigitte" lines of the English product page. A G-era Trial
  * Deck also lists its G units (DECISIONS D-034): they form the G deck.
@@ -1046,13 +1282,21 @@ async function productDeck(
     /<h1 class="title">(?:[^<]*<br\s*\/?>)?\s*([^<]+)<\/h1>/.exec(html)?.[1]?.trim() ?? set!;
   const enToJp = new Map([...pairs].map(([jp, en]) => [en, jp]));
   const cards: { id: string; count: number }[] = [];
-  // "0?": the TD11 page prints "TD11/0002EN"
-  for (const m of html.matchAll(/(\d+)pc\s+((?:G-)?[A-Z]{2}\d{2})\/0?(\d{3})EN\*?\s/g)) {
+  // "0?": the TD11 page prints "TD11/0002EN"; "G-?": the G-TD03 page prints "GTD03/001EN"
+  for (const m of html.matchAll(/(\d+)pc\s+((?:G-?)?[A-Z]{2}\d{2})\/0?(\d{3})EN\*?\s/g)) {
     const [, count, code, enNo] = m;
-    if (code !== set) throw new Error(`${set} product page lists ${code}/${enNo}EN`);
+    if (code!.replace(/^G(?=T)/, 'G-') !== set)
+      throw new Error(`${set} product page lists ${code}/${enNo}EN`);
     const jpNo = enToJp.get(enNo!);
     if (!jpNo) throw new Error(`${set} product card ${code}/${enNo}EN has no Japanese printing`);
     cards.push({ id: `${set}-${jpNo}`, count: Number(count) });
+  }
+  // the official page gives only "52 pre-set cards": the list is from the card wiki, and adds up to 52
+  const listed = PRODUCT_LISTS[set!];
+  if (cards.length === 0 && listed) {
+    for (const [no, count] of Object.entries(listed.counts))
+      cards.push({ id: `${set}-${no}`, count });
+    return { name, cards, source: { url: listed.url, fetchedAt: listed.stamp, regulation: '' } };
   }
   if (cards.length === 0) throw new Error(`${set}: no cards found on ${path}`);
   return { name, cards, source: { url: HOSTS.en + path, fetchedAt, regulation: '' } };

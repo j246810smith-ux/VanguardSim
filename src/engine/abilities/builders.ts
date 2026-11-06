@@ -133,7 +133,7 @@ export const powerAtLeast = (n: number, of: Selector = self()): Condition => ({
 export const placedOn = (
   circle: 'VC' | 'RC' | 'GC' | readonly ('VC' | 'RC' | 'GC')[],
   who: Subject = 'self',
-  from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage',
+  from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage' | 'bind',
 ): TriggerCondition => (from ? { on: 'placed', who, circle, from } : { on: 'placed', who, circle });
 /** "When … is placed on (RC) due to an effect from one of your cards" */
 export const placedByYourEffect = (
@@ -247,7 +247,7 @@ export const search = (
   as: string,
   filter: CardFilter,
   upTo = 1,
-  opts: { distinctNames?: boolean } = {},
+  opts: { distinctNames?: boolean; distinctGrades?: boolean } = {},
 ): Step => ({
   op: 'search',
   as,
@@ -379,6 +379,15 @@ export const grant = (
   target,
   ability,
   duration,
+});
+export const timeLeap = (target: Selector): Step => ({ op: 'time_leap', target });
+export const noNormalRideNext = (): Step => ({ op: 'no_normal_ride_next' });
+export const placeHeart = (target: Selector, replacing?: string): Step =>
+  replacing ? { op: 'place_heart', target, replacing } : { op: 'place_heart', target };
+export const alsoNamedAs = (target: Selector, of: Selector): Step => ({
+  op: 'also_named_as',
+  target,
+  of,
 });
 export const lock = (target: Selector): Step => ({ op: 'lock', target });
 export const unlock = (target: Selector): Step => ({ op: 'unlock', target });
@@ -645,6 +654,8 @@ export const breakRide = (a: {
 /** Delayed Legion's Seek Mate cost: normal units (no trigger icon) without Sentinel. */
 const DELAYED_COST = { trigger: 'none', sentinel: false } as const;
 
+/** G-BT05 Earth Elemental, Dogetts on any (RC) changes the cost of every unit's [Legion]. */
+const DOGETTS_IN_PLAY = exists(units('any', ['RC'], { name: 'Earth Elemental, Dogetts' }));
 export const seekMate = (a: {
   id?: string;
   names: string[];
@@ -659,12 +670,23 @@ export const seekMate = (a: {
       not(everInLegion()),
       exists(units('opponent', ['VC'], { grade: { min: 3 } })),
       any(
-        all(not(delayedLegionRule()), count(cards('you', ['drop']), { min: 4 })),
+        all(
+          not(delayedLegionRule()),
+          not(DOGETTS_IN_PLAY),
+          count(cards('you', ['drop']), { min: 4 }),
+        ),
+        all(DOGETTS_IN_PLAY, count(cards('you', ['drop'], { grade: { min: 2 } }), { min: 4 })),
         all(delayedLegionRule(), count(cards('you', ['drop'], DELAYED_COST), { min: 4 })),
       ),
     ),
     cost: [],
     effect: [
+      if_(DOGETTS_IN_PLAY, [
+        choose('__seek_top', cards('you', ['drop'], { grade: { min: 2 } }), 4, {
+          prompt: 'Put four grade 2 or greater cards from your drop zone on the top of your deck',
+        }),
+        topInOrder(bound('__seek_top')),
+      ]),
       if_(
         delayedLegionRule(),
         [
@@ -673,9 +695,11 @@ export const seekMate = (a: {
           }),
         ],
         [
-          choose('__seek_return', cards('you', ['drop']), 4, {
-            prompt: 'Return four cards from your drop zone to your deck',
-          }),
+          if_(not(DOGETTS_IN_PLAY), [
+            choose('__seek_return', cards('you', ['drop']), 4, {
+              prompt: 'Return four cards from your drop zone to your deck',
+            }),
+          ]),
         ],
       ),
       moveTo(bound('__seek_return'), 'deck_bottom'),

@@ -15,6 +15,41 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-06, end) — v0.31.0-alpha published
+
+The batch below was playtested by the user and released as v0.31.0-alpha. Next sets when asked: G-TD06, G-TD07, G-BT06 onward, and the three G-era PR cards.
+
+## ▶ 2026-11-06 — the user's set batch is done
+
+PR 2013, PR 2014, G-BT03 to G-BT05, G-TD03 to G-TD05 and eleven G starter decks (`src/decks/gStarters.ts`, our own
+builds; regenerate with `tools/cardgen/g_starters.py`) are done, not released. Next: the user's playtest, then a
+release if they want one (agree the version number with any other session first). G-TD06 and G-TD07 came just after
+G-BT05 and are not in. Test runs next to AI benchmarks: `npx vitest run --maxWorkers=2`.
+
+## ▶ Update 2026-11-06 — G-BT03, G-BT04, G-BT05 done, G trial decks next
+
+Committed on branch `sets/pr13`, not released. The user confirmed "set 5" is G-BT05. Next: the G trial decks
+and their starter decks. Shared test scenes: `tests/fixtures/gSets.ts`. Many cards in these three sets are only
+checked for having a script and matching text; the new mechanics have real tests. Traps: never export a function
+named `then` from a module (it makes the module a thenable); `settle` takes the first circle and "up to" minimums;
+with an empty defending hand a whole battle resolves in one command.
+
+## ▶ Update 2026-11-06 — PR 2014 done, G-BT03 next
+
+`PR14` is imported, scripted and tested, not released. The user asked (2026-11-06) to go up to "set 5" (read as
+G-BT05: G-BT03, G-BT04, G-BT05), then the G trial decks and starter decks. Its three G-era PR cards are left out
+(`G_ERA_ON_PR_LIST` in the importer). Trap: an English name found by search can be a different card: read the
+pairing line and the stat differences it prints.
+
+## ▶ Update 2026-11-06 — PR 2013 done, PR 2014 next
+
+`PR13` is imported, scripted and tested (`tools/cardgen/specs/PR13.py`, `tests/cards/PR13.test.ts`), not
+released. Traps: an English A/B promo (`PR/0102EN-A`) is missed by the English PR scan, so it goes in
+`EN_PRINTED_ELSEWHERE`, and its official image is missing, so the importer now falls back to the
+Japanese art. Search the English site by name before writing an unofficial translation
+(`/cardlist/cardsearch/?keyword=`): that found six more official cards. Check the name it pairs: one
+guess was a different card. Set work now runs in a separate worktree while another session benches the AI.
+
 ## ▶ Pick up here (2026-11-06) — AI self-play
 
 The user asked to make the AI play itself, watch the games and improve it. Read

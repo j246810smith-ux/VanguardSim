@@ -2,6 +2,7 @@
 import type { CSSProperties } from 'react';
 import { deckListOf, LIBRARY, type LibraryDeck } from '../../../src/decks/library';
 import { STARTER_DECKS } from '../../../src/decks/starters';
+import { G_STARTER_DECKS } from '../../../src/decks/gStarters';
 import { G_TRIAL_DECKS, TRIAL_DECKS } from '../../../src/decks/trialDecks';
 import {
   PLAY_FORMATS,
@@ -17,7 +18,7 @@ export interface DeckEntry {
   readonly description: string;
   readonly deck: Deck;
   readonly legal: boolean;
-  readonly section: 'library' | 'gtrial' | 'starter' | 'trial' | 'mine';
+  readonly section: 'library' | 'gtrial' | 'gstarter' | 'starter' | 'trial' | 'mine';
   /** A saved deck's own sleeve (D-033). */
   readonly sleeve?: string;
   readonly playmat?: string;
@@ -26,6 +27,7 @@ export interface DeckEntry {
 const SECTION_TITLE = {
   library: 'TOURNAMENT DECKS',
   gtrial: 'G TRIAL DECKS',
+  gstarter: 'G STARTER DECKS',
   starter: 'STARTER DECKS',
   trial: 'TRIAL DECKS',
   mine: 'YOUR DECKS',
@@ -49,6 +51,9 @@ export function deckEntries(format: FormatKey = 'classic'): DeckEntry[] {
   return [
     ...(format === 'g'
       ? G_TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'gtrial' as const }))
+      : []),
+    ...(format === 'g'
+      ? G_STARTER_DECKS.map((d) => ({ ...d, legal: true, section: 'gstarter' as const }))
       : []),
     ...LIBRARY.map((d) => ({
       name: d.name,

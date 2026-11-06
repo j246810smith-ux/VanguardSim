@@ -91,6 +91,8 @@ export interface PlayerState {
    * when not strided.
    */
   hearts: InstanceId[];
+  /** This player cannot normal ride in their next ride phase (G-BT04 Stun Beetle). */
+  noNormalRideNext?: boolean;
   /** CR 10.28.3.3: the heart whose name and power the G unit gained. */
   heartChosen: InstanceId | null;
   /**
@@ -130,6 +132,8 @@ export interface TurnFlags {
   stood?: InstanceId[];
   /** Cards put into a drop zone from (RC) this turn (either player's). */
   droppedFromRC?: InstanceId[];
+  /** Cards put into a drop zone from a soul this turn (either player's). */
+  droppedFromSoul?: InstanceId[];
   /** Legion Leaders that entered a legion this turn ("during the turn your vanguard [Legion]"). */
   legioned?: InstanceId[];
   /** Players whose deck was shuffled by an effect of their own card this turn. */

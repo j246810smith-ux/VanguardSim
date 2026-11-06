@@ -11,7 +11,13 @@ import { ctx } from '../fixtures/bt01';
 
 describe('G trial decks', () => {
   it('are named after their products and legal only in the G format', () => {
-    expect(G_TRIAL_DECKS.map((d) => d.name.slice(0, 6))).toEqual(['G-TD01', 'G-TD02']);
+    expect(G_TRIAL_DECKS.map((d) => d.name.slice(0, 6))).toEqual([
+      'G-TD01',
+      'G-TD02',
+      'G-TD03',
+      'G-TD04',
+      'G-TD05',
+    ]);
     for (const d of G_TRIAL_DECKS) {
       expect(validateDeck(d.deck, gCtx.registry, gCtx.format)).toEqual([]);
       expect(validateDeck(d.deck, ctx.registry, ctx.format)).not.toEqual([]);

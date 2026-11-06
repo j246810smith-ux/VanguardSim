@@ -26,14 +26,19 @@ export function chosenHeartOf(state: GameState, id: InstanceId): InstanceId | nu
 
 /**
  * Every card name the card has: its own, plus (CR 1.48.1 10.28.3.3) the name a strided G unit
- * gained from its heart. Name conditions match if any of them matches.
+ * gained from its heart, plus names granted until end of turn (`also_named_as`). Name conditions
+ * match if any of them matches.
  */
 export function namesOf(state: GameState, ctx: EngineContext, id: InstanceId): readonly string[] {
   const own = definitionOf(state, ctx, id).name;
   const heart = chosenHeartOf(state, id);
-  if (heart === null) return [own];
-  const gained = definitionOf(state, ctx, heart).name;
-  return gained === own ? [own] : [own, gained];
+  const names = [own];
+  if (heart !== null) names.push(definitionOf(state, ctx, heart).name);
+  for (const g of state.grants) {
+    if (g.target !== id || g.ability.kind !== 'CONT') continue;
+    for (const e of g.ability.effects) if (e.ce === 'also_named') names.push(e.name);
+  }
+  return names.length === 1 ? names : [...new Set(names)];
 }
 
 /** Do two cards have a card name in common? */

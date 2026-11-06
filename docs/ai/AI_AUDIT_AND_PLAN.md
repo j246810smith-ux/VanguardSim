@@ -167,7 +167,8 @@ magic. Read such a run with a pair-based interval, because the win rate's usual 
 | `smart-v29` against Normal, same seeds                | `basic`     | 120   | 69.2%     | 60.4–76.7% | -          |
 | `attackPlanner`, two runs pooled                      | current     | 480   | 53.3%     | not proven | No         |
 | Without `noEarlyGuard`                                | current     | 240   | 49.2%     | 42.9–55.5% | Rule stays |
-| Without the new hand and back-row values (unpaired)   | current     | 240   | 53.8%     | 47.4–59.9% | Open       |
+| Without the new hand and back-row values (unpaired)   | current     | 240   | 53.8%     | 47.4–59.9% | -          |
+| Without the new hand and back-row values (paired)     | current     | 240   | 49.2%     | 43.7–54.6% | They stay  |
 | `winConPlan` (paired), the user's idea, first version | current     | 240   | 50.8%     | 45.8–55.9% | No         |
 
 The user's idea (2026-11-06): find the deck's main card and make every card push that win condition.
@@ -190,8 +191,7 @@ firing its ability: the plan's `useMain` bonus may be misplaced.** Next for the 
 add the ride order, and make reaching the card more reliable (searches, which `winCon.searchers` often finds
 empty, and the mulligan).
 
-Next, in order: that plan work; a paired re-run of the hand and back-row values, since they may hurt;
-`competentOpponent`. The evaluation has no way to see a good position for a deck's own plan beyond these
+Next, in order: that plan work, then `competentOpponent`. The evaluation has no way to see a good position for a deck's own plan beyond these
 bonuses, so the larger step is still a real search over a turn (stage 6).
 
 ## 5. Running the benchmark

@@ -31,6 +31,8 @@ export interface DeckPlan {
    * Limit Break too). Read from the card data, so it works for any deck.
    */
   readonly finishers?: readonly string[];
+  /** What the main card's abilities cost: face-up damage and soul up to these are worth more. */
+  readonly reserve?: { readonly counterBlast: number; readonly soulBlast: number };
 }
 
 /** A grade 3 with an ability that wants it on the vanguard circle. */
@@ -104,7 +106,10 @@ export class Evaluator {
       grade: w.grade * this.vanguardGrade(s, me) - w.grade * this.vanguardGrade(s, opp),
       resources:
         w.resources.faceUpDamage * Math.min(faceUp, w.resources.faceUpCap) +
-        w.resources.soul * Math.min(s.players[me].soul.length, w.resources.soulCap),
+        w.resources.soul * Math.min(s.players[me].soul.length, w.resources.soulCap) +
+        w.resources.reserved *
+          (Math.min(faceUp, this.plan.reserve?.counterBlast ?? 0) +
+            Math.min(s.players[me].soul.length, this.plan.reserve?.soulBlast ?? 0)),
       battle: this.battle(s, me),
       exposure: w.exposure.theirs * this.exposure(s, opp) - w.exposure.mine * this.exposure(s, me),
     };

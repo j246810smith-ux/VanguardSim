@@ -30,7 +30,7 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] G era: card art (Artwork Manager downloads G sets), G-BT01 (103 cards)
 - [x] G era: G decks in the Deck Builder (Dear Days style, D-036)
 - [x] G era: G-BT02 (103 cards)
-- [ ] G era: G-TD03 onward, in release order
+- [ ] G era: G-TD06 onward, in release order
 - [x] v0.28 feedback: Overhead view, layout, CPU demonstration, Original/Expanded Era, seed help
 - [x] PR cards 2011 (39 cards, set PR11)
 - [x] PR cards 2012 (38 cards, set PR12)
@@ -39,10 +39,10 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] G-TD03, G-TD04, G-TD05 (57 cards, playable as sold)
 - [x] G starter decks for the eleven clans of G-BT03 to G-BT05 without a G Trial Deck
 - [x] PR cards 2014 (66 cards, set PR14; 3 G-era cards wait for the Expanded Era's PR cards)
-- [ ] PR cards 2013–2014: in progress on branch `sets/pr13` (docs/design/ORIGINAL_ERA_ROADMAP.md)
+- [x] PR cards 2013 and 2014 (sets PR13, PR14)
 - [x] "Blaster Blade Burst" deck: set VZ01 (Vanguard 0 Start Set), card counts are our own build (D-038)
 - [ ] MTD01 (left out for now, user 2026-10-30)
 - [x] Hard AI: fixes from watching self-play (`npm run ai:watch`, `docs/ai/AI_AUDIT_AND_PLAN.md` 4b)
 - [x] Deck-top pictures; the card you look at is shown
-- [ ] Hard AI: reach about 65% against v0.29 (now about 55%); retest attackPlanner, competentOpponent
+- [ ] Hard AI: reach about 65% against v0.29 (best measurement 57.5%): win condition plan, hand and back-row values (`docs/ai/AI_AUDIT_AND_PLAN.md` 4b)
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)

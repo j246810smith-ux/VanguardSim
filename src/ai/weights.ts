@@ -69,6 +69,8 @@ export interface EvalWeights {
     readonly faceUpCap: number;
     readonly soul: number;
     readonly soulCap: number;
+    /** Extra per face-up damage and soul card that the deck's main card needs (./winCon.ts). */
+    readonly reserved: number;
   };
   readonly battle: {
     /** Share of the damage cost an unguarded hit on the vanguard is worth before guards. */
@@ -112,7 +114,7 @@ export const V29_WEIGHTS: EvalWeights = {
   field: { base: 700, powerDivisor: 12, hasAbilities: 250, oppFactor: 0.5, backNoBoost: 1 },
   pressure: { column: 450, per5000: 400, oppFactor: 0.5 },
   grade: 3500,
-  resources: { faceUpDamage: 320, faceUpCap: 5, soul: 110, soulCap: 10 },
+  resources: { faceUpDamage: 320, faceUpCap: 5, soul: 110, soulCap: 10, reserved: 300 },
   battle: { vanguardHit: 0.6, rearGuardHit: 0.35 },
   exposure: { mine: 0, theirs: 0, lethal: 0, drivePower: 0 },
   terminal: 10_000_000,

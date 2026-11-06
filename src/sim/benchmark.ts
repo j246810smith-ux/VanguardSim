@@ -42,6 +42,12 @@ export interface BenchmarkConfig {
   readonly games: number;
   readonly seedBase: number;
   readonly maxCommands?: number;
+  /**
+   * Play each game twice: same seed, same deck in each seat, the controllers swapped. Luck and deck
+   * strength are shared by the two games, so comparing them needs far fewer games. `games` should
+   * be even; games g and g+1 form a pair.
+   */
+  readonly paired?: boolean;
 }
 
 export interface GameRecord {
@@ -121,11 +127,17 @@ export interface BenchmarkReport {
 
 /** Plays one game; never throws (an engine error is recorded as the result). */
 export function playGame(ctx: EngineContext, config: BenchmarkConfig, g: number): GameRecord {
-  const [deckA, deckB] = config.pairs[g % config.pairs.length]!;
-  const seed = config.seedBase + g;
+  const round = Math.floor(g / 2);
   // alternate A's seat and who goes first independently, so both are balanced
   const seatA: PlayerId = (g % 2) as PlayerId;
-  const firstPlayer: PlayerId = (Math.floor(g / 2) % 2) as PlayerId;
+  const firstPlayer: PlayerId = (round % 2) as PlayerId;
+  const seatPair = config.pairs[round % config.pairs.length]!;
+  const [deckA, deckB] = config.paired
+    ? seatA === 0
+      ? seatPair
+      : ([seatPair[1], seatPair[0]] as const)
+    : config.pairs[g % config.pairs.length]!;
+  const seed = config.seedBase + (config.paired ? round : g);
   const decks: [DeckList, DeckList] =
     seatA === 0 ? [deckA.deck, deckB.deck] : [deckB.deck, deckA.deck];
   const controllers: PlayerController[] = [];

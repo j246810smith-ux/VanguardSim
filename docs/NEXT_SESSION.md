@@ -15,6 +15,28 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-06, final) — AI handover
+
+**Released:** v0.30.0-alpha (Hard AI fixes, the looked-at card shown, deck pictures, G-BT02 shields) and
+v0.31.0-alpha (sets, below). **On master and the public repository, not in a release:** the win condition plan,
+switched off, and paired benchmark games; nothing a player sees. The next version is 0.32.0.
+
+**The AI:** about 57.5% against v0.29 in the best measurement (paired, 240 games; 54.8% over 1,260 unpaired
+games), and no gain shown against Normal. The user's goal was a marked improvement, with a winning game plan and
+the best plays with what it has; the working target of about 65% **is not reached**. Read
+`docs/ai/AI_AUDIT_AND_PLAN.md` section 4b, which ends with the next steps. Their idea, the main card as win
+condition, is built as `winConPlan`; the first version showed no gain, but reaching the main card does look
+like it matters, so continue it.
+
+**Working rules learned:** confirm any gain on fresh seeds, because an early 59.2% did not repeat; use
+`ai:bench --paired`; keep to 4 benchmark processes, because 8 plus another session's test run ran the PC out of
+memory; `npm run ai:watch` logs are where the real bugs were found. Benchmarks from before the merge of the new
+sets ran on a smaller card pool, so compare new runs with each other.
+
+**Unconfirmed in real play:** the deck pictures were seen on the battle screen only by forcing them on, and the
+looked-at card is only covered by tests. Ask how they looked. The signing key still has a copy on the
+OneDrive-synced Desktop unless the user moved it.
+
 ## ▶ Pick up here (2026-11-06, end) — v0.31.0-alpha published
 
 The batch below was playtested by the user and released as v0.31.0-alpha. Next sets when asked: G-TD06, G-TD07, G-BT06 onward, and the three G-era PR cards.

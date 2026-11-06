@@ -30,6 +30,7 @@ import type { PlayerController } from './controller';
 import { determinize } from './determinize';
 import { alreadySafe, isPerfectGuard, payableSentinel } from './guarding';
 import { Evaluator, isFinisher, planFor } from './evaluate';
+import { WIN_CON_WEIGHTS, winConOf, type WinCon } from './winCon';
 import { PROFILE_WEIGHTS, profileBonus, profileMulligan, type DeckAi } from './profile';
 import { DEFAULT_WEIGHTS, V29_WEIGHTS, type EvalWeights } from './weights';
 
@@ -77,6 +78,11 @@ export interface SmartOptions {
   readonly neverPassLethal?: boolean;
   /** An attacker that cannot reach its target waits for the vanguard's drive check to power it up. */
   readonly patientAttacks?: boolean;
+  /**
+   * Play to the deck's win condition (./winCon.ts): get the main card onto the vanguard circle, keep
+   * what it costs, use it, and favour the cards that help it.
+   */
+  readonly winConPlan?: boolean;
   /** Mulligan for the ride: the deck's finisher at grade 3, a real unit rather than a sentinel. */
   readonly planMulligan?: boolean;
   /** Finish a multi-card guard: play the whole plan, trigger margin included, not just its first card. */
@@ -108,6 +114,7 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
   nextTurnLookahead: false,
   profile: null,
   weights: DEFAULT_WEIGHTS,
+  winConPlan: false,
   planMulligan: false,
   lastGuardFix: true,
   neverPassLethal: true,
@@ -123,6 +130,7 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
 export const SMART_V29: Required<SmartOptions> = {
   ...SMART_DEFAULTS,
   weights: V29_WEIGHTS,
+  winConPlan: false,
   planMulligan: false,
   lastGuardFix: false,
   neverPassLethal: false,
@@ -142,6 +150,7 @@ export const SMART_BASELINE: Required<SmartOptions> = {
 
 export class SmartController implements PlayerController {
   private readonly evaluator: Evaluator;
+  private readonly winCon: WinCon | null;
   private readonly fallback: BasicController;
   /** How the lookahead expects the opponent to play. */
   private readonly opponentModel: BasicController;
@@ -162,9 +171,20 @@ export class SmartController implements PlayerController {
     options: SmartOptions = {},
   ) {
     this.options = { ...SMART_DEFAULTS, ...options };
+    this.winCon = this.options.winConPlan ? winConOf(ctx, deck?.cards ?? null) : null;
+    const plan = planFor(ctx, deck?.cards ?? null, this.options.profile?.hold);
     this.evaluator = new Evaluator(
       ctx,
-      planFor(ctx, deck?.cards ?? null, this.options.profile?.hold),
+      this.winCon
+        ? {
+            ...plan,
+            finishers: this.winCon.mainIds,
+            reserve: {
+              counterBlast: this.winCon.counterBlast,
+              soulBlast: this.winCon.soulBlast,
+            },
+          }
+        : plan,
       this.options.weights,
     );
     this.fallback = new BasicController(ctx);
@@ -228,10 +248,12 @@ export class SmartController implements PlayerController {
       const cardIds = profileMulligan(profile, view, me, selectable, (id) => this.def(view, id));
       return { type: 'MULLIGAN', player: me, cardIds };
     }
-    if (this.options.planMulligan) {
+    if (this.options.planMulligan || this.winCon) {
       // one of each grade 1–3: never a sentinel while a real unit can ride, the finisher at grade 3
+      const wanted = (d: CardDefinition) =>
+        this.winCon ? this.winCon.mainName === d.name : isFinisher(d);
       const rank = (d: CardDefinition | null) =>
-        !d ? 9 : d.sentinel ? 2 : d.grade === 3 && !isFinisher(d) ? 1 : 0;
+        !d ? 9 : d.sentinel ? 2 : d.grade === 3 && !wanted(d) ? 1 : 0;
       const best = new Map<number, InstanceId>();
       for (const id of selectable) {
         const d = this.def(view, id);
@@ -320,6 +342,7 @@ export class SmartController implements PlayerController {
   /** What the deck's profile adds to a ride or call (nothing without a profile). */
   private deckBonus(s: GameState, me: PlayerId, c: Command): number {
     const profile = this.options.profile;
+    if (this.winCon) return this.winConBonus(s, me, c, this.winCon);
     if (!profile) return this.rideBonus(s, me, c);
     const vg = vanguardOf(s.players[me]);
     return profileBonus(
@@ -329,6 +352,34 @@ export class SmartController implements PlayerController {
       vg ? this.def(s, vg) : null,
       s.players[me].damage.length,
     );
+  }
+
+  /** What the deck's win condition adds to a ride, a call or an ability. */
+  private winConBonus(s: GameState, me: PlayerId, c: Command, plan: WinCon): number {
+    const w = WIN_CON_WEIGHTS;
+    const vgId = vanguardOf(s.players[me]);
+    const vg = vgId ? this.def(s, vgId) : null;
+    const riding = vg?.name === plan.mainName;
+    const inHand = s.players[me].hand.filter((id) => this.def(s, id)?.name === plan.mainName);
+    if (c.type === 'RIDE') {
+      if (this.def(s, c.cardId)?.name !== plan.mainName || riding) return 0;
+      return vg && vg.grade >= 3 ? w.rideOver : w.rideUp;
+    }
+    if (c.type === 'CALL') {
+      const card = this.def(s, c.cardId);
+      if (!card) return 0;
+      if (card.name === plan.mainName && !riding && inHand.length <= 1) return w.callLastCopy;
+      return plan.support.includes(card.id) ? w.support : 0;
+    }
+    if (c.type === 'ACTIVATE') {
+      const source = this.def(s, c.source);
+      const text = source?.abilities.find((a) => a.id === c.abilityId)?.text ?? '';
+      if (/\[Legion/.test(text)) return w.legion;
+      if (riding && c.source === vgId) return w.useMain;
+      if (!riding && inHand.length === 0 && source && plan.searchers.includes(source.id))
+        return w.search;
+    }
+    return 0;
   }
 
   /** Riding the deck's finisher, read from the card data: the plan the deck was built around. */
@@ -746,7 +797,10 @@ export class SmartController implements PlayerController {
     const handValue = (id: string) => {
       const d = this.def(s, id);
       if (!d) return 0;
-      const held = this.options.profile?.hold.includes(d.id) ? PROFILE_WEIGHTS.hold / 50 : 0;
+      const held =
+        this.options.profile?.hold.includes(d.id) || this.winCon?.mainName === d.name
+          ? PROFILE_WEIGHTS.hold / 50
+          : 0;
       return d.shield / 1000 + (isPerfectGuard(d) ? 20 : 0) + d.grade + held;
     };
     switch (c.kind) {

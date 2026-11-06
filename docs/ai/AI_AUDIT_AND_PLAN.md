@@ -154,8 +154,45 @@ Why next-turn lookahead scored 34%: probably noise, not knowledge. One random pl
 swings by more than the differences between moves, and few samples do not average that out. This was
 not tested directly; `exposure` was built on that reading and works out the same question without chance.
 
-The two open options are the next things to re-run. Others not yet tried: search abilities when the hand
-has no grade 3 to ride, and rear-guard attacks at low damage.
+### Later the same day: paired games and the win condition
+
+`ai:bench --paired` plays each game twice with the same seed and the same deck in each seat, with the
+controllers swapped. It cuts the margin of error from 6.3 to about 5.3 points at 240 games: useful, not
+magic. Read such a run with a pair-based interval, because the win rate's usual formula overstates it.
+
+| Change                                                | Against     | Games | Win rate  | 95% CI     | Kept?      |
+| ----------------------------------------------------- | ----------- | ----- | --------- | ---------- | ---------- |
+| Current Hard (paired: the best single measurement)    | `smart-v29` | 240   | **57.5%** | 51.9–63.1% | -          |
+| Current Hard against Normal, unpaired                 | `basic`     | 120   | 66.7%     | 57.8–74.5% | -          |
+| `smart-v29` against Normal, same seeds                | `basic`     | 120   | 69.2%     | 60.4–76.7% | -          |
+| `attackPlanner`, two runs pooled                      | current     | 480   | 53.3%     | not proven | No         |
+| Without `noEarlyGuard`                                | current     | 240   | 49.2%     | 42.9–55.5% | Rule stays |
+| Without the new hand and back-row values (unpaired)   | current     | 240   | 53.8%     | 47.4–59.9% | Open       |
+| `winConPlan` (paired), the user's idea, first version | current     | 240   | 50.8%     | 45.8–55.9% | No         |
+
+The user's idea (2026-11-06): find the deck's main card and make every card push that win condition.
+`src/ai/winCon.ts` reads it from the deck list, so it works for any deck; it chose a card in the researched
+profile's grade 3 list on all 20 library decks. That check is loose: the Nouvelle Vague deck gets Dauntless
+Drive, its first ride, not its finisher, so Break Ride decks need the ride order, not one card.
+
+Mirror games with the plan on (240 player-games, a link and not proof of cause; good draws help both):
+
+| Situation                       | Won           |
+| ------------------------------- | ------------- |
+| Only I got my main card on (VC) | 22/35, 62.9%  |
+| Only the opponent got theirs    | 13/35, 37.1%  |
+| Main card never reached (VC)    | 18/45, 40.0%  |
+| On (VC), its ACT used           | 40/80, 50.0%  |
+| On (VC), its ACT never used     | 62/115, 53.9% |
+
+It reached (VC) in 81% of games, on about turn 6. **So reaching the main card looks like what matters, not
+firing its ability: the plan's `useMain` bonus may be misplaced.** Next for the plan: drop or test that bonus,
+add the ride order, and make reaching the card more reliable (searches, which `winCon.searchers` often finds
+empty, and the mulligan).
+
+Next, in order: that plan work; a paired re-run of the hand and back-row values, since they may hurt;
+`competentOpponent`. The evaluation has no way to see a good position for a deck's own plan beyond these
+bonuses, so the larger step is still a real search over a turn (stage 6).
 
 ## 5. Running the benchmark
 

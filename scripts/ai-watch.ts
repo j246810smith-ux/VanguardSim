@@ -51,7 +51,11 @@ const games = Number(positional ?? '20');
 const seedBase = Number(flag('seed', '90000'));
 const logs = Number(flag('logs', '10'));
 
-const OPTIONS: Record<string, SmartOptions> = { smart: {}, 'smart-v29': SMART_V29 };
+const OPTIONS: Record<string, SmartOptions> = {
+  smart: {},
+  'smart-v29': SMART_V29,
+  'smart-plan': { winConPlan: true },
+};
 const optionsOf = (name: string): SmartOptions => {
   const o = OPTIONS[name];
   if (!o) throw new Error(`controllers: ${Object.keys(OPTIONS).join(', ')}`);

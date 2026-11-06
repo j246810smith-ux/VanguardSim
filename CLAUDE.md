@@ -57,7 +57,8 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 
 ## Latest (2026-11-06): v0.31.0-alpha published
 
-PR 2013, PR 2014, G-BT03–05, G-TD03–05 and G starter decks. See `docs/NEXT_SESSION.md`.
+PR 2013, PR 2014, G-BT03–05, G-TD03–05 and G starter decks. The AI is the open work: read the top of
+`docs/NEXT_SESSION.md`, then `docs/ai/AI_AUDIT_AND_PLAN.md` section 4b.
 
 ## Earlier (2026-11-04): v0.29.0-alpha published
 

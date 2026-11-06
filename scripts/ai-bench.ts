@@ -74,6 +74,7 @@ const aName = flag('a', 'smart');
 const bName = flag('b', 'basic');
 const seedBase = Number(flag('seed', '1000'));
 const deckFilter = flag('decks', 'all');
+const paired = args.includes('--paired');
 
 /** The newest booster a starter deck uses (its set). */
 const setOf = (cards: readonly string[]) =>
@@ -160,6 +161,7 @@ const report = runBenchmark(
     pairs,
     games,
     seedBase,
+    paired,
   },
   (r, done) => {
     if (done % 10 === 0) process.stderr.write(`  ${done}/${games}\n`);

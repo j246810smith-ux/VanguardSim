@@ -45,6 +45,11 @@ export function saveDeck(deck: SavedDeck): boolean {
   return store([...others, deck].sort((a, b) => a.name.localeCompare(b.name)));
 }
 
+/** Replace every saved deck at once (importing a backup, decks/backup.ts). */
+export function saveAllDecks(decks: readonly SavedDeck[]): boolean {
+  return store(decks);
+}
+
 export function deleteDeck(id: string): boolean {
   return store(loadDecks().filter((d) => d.id !== id));
 }

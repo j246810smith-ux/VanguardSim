@@ -9,6 +9,14 @@ import type { GameEvent, PlayerId } from '../../../src/engine';
 export type Cue =
   | 'draw'
   | 'call'
+  | 'superiorCall'
+  | 'stride'
+  | 'gGuard'
+  | 'criticalHit'
+  | 'damage'
+  | 'phase'
+  /** B11: a Final Turn declaration (cosmetic, from the UI, not an engine event) */
+  | 'finalTurn'
   | 'ride'
   | 'legion'
   | 'retire'
@@ -36,6 +44,13 @@ const PRIORITY: Record<Cue, number> = {
   victory: 100,
   defeat: 100,
   perfectGuard: 90,
+  criticalHit: 76,
+  stride: 72,
+  gGuard: 56,
+  superiorCall: 36,
+  damage: 12,
+  phase: 5,
+  finalTurn: 95,
   heal: 85,
   trigger: 80,
   hit: 75,
@@ -59,7 +74,7 @@ const PRIORITY: Record<Cue, number> = {
 };
 
 /** At most this many cues per batch. */
-export const MAX_CUES = 3;
+export const MAX_CUES = 4;
 
 function cueOf(e: GameEvent, me: PlayerId): Cue | Cue[] | null {
   switch (e.type) {
@@ -68,7 +83,15 @@ function cueOf(e: GameEvent, me: PlayerId): Cue | Cue[] | null {
     case 'LEGION':
       return 'legion';
     case 'UNIT_CALLED':
-      return 'call';
+      return e.superior ? 'superiorCall' : 'call';
+    case 'STRIDE':
+      return 'stride';
+    case 'G_GUARDIAN_CALLED':
+      return 'gGuard';
+    case 'DAMAGE_DEALT':
+      return 'damage';
+    case 'PHASE_CHANGED':
+      return 'phase';
     case 'ATTACK_DECLARED':
       return e.booster ? ['attack', 'boost'] : 'attack';
     case 'GUARDIAN_CALLED':
@@ -116,5 +139,17 @@ export function cuesFor(events: readonly GameEvent[], me: PlayerId): Cue[] {
   // the end of the game says it all
   if (seen.has('defeat') || seen.has('victory'))
     return [seen.has('victory') ? 'victory' : 'defeat'];
+  // a hit for two or more damage (a critical) is one heavier sound
+  const dealt = events.reduce(
+    (most, e) => (e.type === 'DAMAGE_DEALT' ? Math.max(most, e.amount) : most),
+    0,
+  );
+  if (seen.has('hit') && dealt >= 2) {
+    seen.delete('hit');
+    seen.add('criticalHit');
+  }
+  // the hit sound already says damage was dealt; a ride or a stride already says the phase moved on
+  if (seen.has('hit') || seen.has('criticalHit')) seen.delete('damage');
+  if (seen.size > 1) seen.delete('phase');
   return [...seen].sort((a, b) => PRIORITY[b] - PRIORITY[a]).slice(0, MAX_CUES);
 }

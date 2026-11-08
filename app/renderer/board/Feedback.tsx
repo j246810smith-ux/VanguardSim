@@ -27,16 +27,22 @@ export function RecentEvents({ lines, onOpen }: { lines: readonly LogLine[]; onO
   );
 }
 
-/** The card under the mouse, if the player can see it (not hidden, not face down). */
+/**
+ * The card under the mouse, if the player can see it (not hidden, not face down). Never for a
+ * finger: a touch screen also sends mouseover after a tap, which would leave the preview stuck on
+ * the tapped card; there a long press shows the card (ui/useLongPress.ts).
+ */
 export function useHoveredCard(view: GameState): InstanceId | null {
   const [id, setId] = useState<InstanceId | null>(null);
   useEffect(() => {
-    const over = (e: MouseEvent) => {
+    // pointerover says which kind of pointer it is (the mouseover sent after a tap does not)
+    const over = (e: PointerEvent) => {
+      if (e.pointerType === 'touch') return setId(null);
       const el = (e.target as Element | null)?.closest?.('.stage [data-iid]') as HTMLElement | null;
       setId(el?.dataset.iid ?? null);
     };
-    window.addEventListener('mouseover', over);
-    return () => window.removeEventListener('mouseover', over);
+    window.addEventListener('pointerover', over);
+    return () => window.removeEventListener('pointerover', over);
   }, []);
   const card = id ? view.cards[id] : undefined;
   if (!card || !card.faceUp || card.locked || card.definitionId === HIDDEN) return null;

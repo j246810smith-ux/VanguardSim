@@ -10,6 +10,19 @@
   (the English-only BT16/BT17 cards are, by the user's choice: D-031).
 - Behaviours still to be modelled are listed in docs/UNRESOLVED_RULINGS.md (Legion, loops, simultaneous placement, ...) and the deliberate engine simplifications listed there.
 
+## Android app (in testing)
+
+See docs/android/BUILDING_ANDROID.md.
+
+- **Not yet tried on a phone.** It is built and tested on the PC only.
+- **Debug build only.** There is no signed release yet, so it installs from the PC (adb) or as a
+  debug APK.
+- **No online play.** Play Online is left out on Android for now.
+- **No in-game updates.** A new version is a new APK, installed over the old one.
+- **No Artwork Manager.** Card art, sleeves and playmats come from the PC with
+  `npm run artwork:phone`. The phone cannot download art itself yet.
+- Uninstalling the app deletes its saved decks and settings. Use Export all decks first.
+
 ## Intermittent: update chain test, "The update could not be prepared"
 
 `tests/updates/chain.test.ts` failed once in a full `npm run check` (2026-11-04), on the second update

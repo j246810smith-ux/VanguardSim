@@ -154,13 +154,19 @@ export function DemoSetup({
               .map((d) => d.name)
               .join(', ')}`}
       </div>
-      <div className="row" style={{ marginTop: 10 }}>
-        <button className="menu-btn" style={{ width: 300 }} onClick={onBack}>
+      {/* B7 (v0.32 feedback): both buttons the same height, START on one line */}
+      <div className="row menu-row" style={{ marginTop: 10 }}>
+        <button
+          className="menu-btn"
+          style={{ width: 300 }}
+          onClick={onBack}
+          data-testid="demo-back"
+        >
           BACK
         </button>
         <button
           className="menu-btn"
-          style={{ width: 300 }}
+          style={{ width: 460 }}
           onClick={start}
           disabled={!ready}
           data-testid="demo-start"

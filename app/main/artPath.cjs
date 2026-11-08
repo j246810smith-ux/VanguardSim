@@ -24,4 +24,15 @@ function isCosmeticPath(rel) {
   return m !== null && isCosmeticName(m[2]);
 }
 
-module.exports = { isArtPath, isCosmeticName, isCosmeticPath };
+/** A music file name in `music/` (the player's own battle music): mp3, ogg, m4a or wav. */
+function isMusicName(name) {
+  return /^[\w .()'&+,-]{1,120}\.(mp3|ogg|m4a|wav)$/i.test(name) && !name.includes('..');
+}
+
+/** True for `music/My theme.mp3`; never a sub-folder. */
+function isMusicPath(rel) {
+  const m = /^music\/([^/\\]+)$/.exec(rel);
+  return m !== null && isMusicName(m[1]);
+}
+
+module.exports = { isArtPath, isCosmeticName, isCosmeticPath, isMusicName, isMusicPath };

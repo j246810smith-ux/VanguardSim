@@ -1,465 +1,67 @@
-import { audio } from '../audio/audio';
-import { useCardMotion } from '../board/motion';
-import { HoverPreview, RecentEvents, useHoveredCard } from '../board/Feedback';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  HIDDEN,
-  basePower,
-  currentCritical,
-  type Circle,
-  type Command,
-  type InstanceId,
-  type PlayerId,
-} from '../../../src/engine';
+import { HoverPreview, RecentEvents } from '../board/Feedback';
+import { HIDDEN } from '../../../src/engine';
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
 import { PhaseRail, PlayerPlate, TablePiles } from '../board/Panels';
-import { tableCss } from '../board/layout';
-import { AttackLines, AttackPreviewPanel, BattleHud, FxLayer } from '../combat/Combat';
+import { AttackLines, AttackPreviewPanel, BattleHud } from '../combat/Combat';
 import { AbilityCallout } from '../board/AbilityCallout';
 import { BattleCosmetics } from '../board/Cosmetics';
 import { DEFAULT_SLEEVE } from '../cosmetics';
-import { AI, ctx, ME, playFormat } from '../engine';
-import { GGuardPrompt, StridePrompt } from '../prompts/GPrompts';
-import {
-  circleState,
-  clickCircle,
-  clickHand,
-  legalOf,
-  type Click,
-  type Selection,
-} from '../game/interaction';
-import { attackPreview } from '../game/attackPreview';
-import { GameSession, type DemoSpeed, type SessionBase, type SessionConfig } from '../game/session';
-import { DemoSummary } from './DemoSummary';
-import { CardDetails, ZoneViewer } from '../prompts/CardDetails';
-import {
-  ActionBar,
-  CardMenu,
-  ChoicePrompt,
-  MulliganPrompt,
-  SkillsMenu,
-  type BarAction,
-} from '../prompts/Prompts';
-import { paced, useSettings } from '../settings';
+import { AI, ME } from '../engine';
+import { circleState } from '../game/interaction';
+import { ActionBar } from '../prompts/Prompts';
 import { CardView } from '../ui/CardView';
 import { CentreEmblem, Icon } from '../ui/svg';
-import { ConnectionBanner, type ConnectionWatch } from '../online/ConnectionBanner';
 
-/** An online match (D-032): the session comes from the host or guest link. */
-export interface OnlineInfo {
-  readonly session: SessionBase;
-  readonly opponentName: string;
-  /** The opponent's clan when known (the host knows the guest's deck); else read from the board. */
-  readonly opponentClan: string | null;
-  readonly myDeck: SessionConfig['myDeck'];
-  readonly myDeckName: string;
-  readonly opponentDeckName: string;
-  /** Sleeves and playmat (D-033); the opponent's is a built-in sleeve id when sent. */
-  readonly mySleeve?: string;
-  readonly opponentSleeve?: string;
-  readonly playmat?: string;
-  /** The connection state, for the reconnect banner. */
-  readonly connection?: ConnectionWatch;
-}
+import { BattleOverlays } from './BattleOverlays';
+import {
+  useBattleController,
+  LEVEL_NAME,
+  clanOf,
+  opponentVanguardClan,
+  type Props,
+} from './useBattleController';
 
-interface Props {
-  /** A game against the AI (unused when `online` is set). */
-  readonly config?: SessionConfig;
-  readonly online?: OnlineInfo;
-  readonly onRematch: () => void;
-  readonly onExit: () => void;
-  /** CPU demonstration: watch the same game again (same seed). */
-  readonly onRestart?: () => void;
-  /** CPU demonstration: back to the deck selection. */
-  readonly onDemoSetup?: () => void;
-}
+export type { OnlineInfo } from './useBattleController';
 
-const LEVEL_NAME = { random: 'Easy', basic: 'Normal', smart: 'Hard' } as const;
-const DEMO_SPEEDS: readonly (readonly [DemoSpeed, string])[] = [
-  ['normal', 'Normal'],
-  ['fast', 'Fast'],
-  ['veryfast', 'Very fast'],
-];
-
-/** One line on how the game ended, from the loser's loss reason. */
-function endingText(reason: string | null, winner: number | null): string {
-  const who = winner === ME ? 'Your opponent' : 'You';
-  switch (reason) {
-    case 'damage':
-      return `${who} took the sixth damage.`;
-    case 'deck_out':
-      return `${who} had no cards left to draw.`;
-    case 'concede':
-      return `${who} conceded.`;
-    case 'effect':
-      return winner === ME
-        ? "You won by a card's effect."
-        : "Your opponent won by a card's effect.";
-    default:
-      return 'The game is over.';
-  }
-}
-
-const systemReducedMotion = () =>
-  globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-
-const clanOf = (deck: SessionConfig['myDeck']) => ctx.registry.get(deck.firstVanguard).clan;
-/** The clan of `player`'s vanguard once it is face up (online, the opponent's deck is unknown). */
-const opponentVanguardClan = (view: SessionBase['view'], player: PlayerId): string | null => {
-  const vg = view.players[player].circles.vanguard[0];
-  const card = vg ? view.cards[vg] : undefined;
-  return card && card.definitionId !== HIDDEN && card.faceUp
-    ? ctx.registry.get(card.definitionId).clan
-    : null;
-};
-
-export function BattleScreen({ config, online, onRematch, onExit, onRestart, onDemoSetup }: Props) {
-  const settings = useSettings();
-  const sessionRef = useRef<SessionBase | null>(null);
-  if (!sessionRef.current) sessionRef.current = online?.session ?? new GameSession(config!);
-  const session = sessionRef.current;
-  const [, setTick] = useState(0);
-  const rerender = useCallback(() => setTick((t) => t + 1), []);
-  // online: the other player's moves arrive from the network
-  useEffect(() => {
-    session.onChange = rerender;
-    return () => {
-      session.onChange = null;
-    };
-  }, [session, rerender]);
-  const myDeck = online?.myDeck ?? config!.myDeck;
-  const myDeckName = online?.myDeckName ?? config!.myDeckName;
-  const opponentDeckName = online?.opponentDeckName ?? config!.aiDeckName;
-
-  const [selection, setSelection] = useState<Selection>(null);
-  const [picked, setPicked] = useState<string[]>([]);
-  const [details, setDetails] = useState<InstanceId | null>(null);
-  const [zone, setZone] = useState<{ title: string; ids: readonly InstanceId[] } | null>(null);
-  const [inspect, setInspect] = useState(false);
-  const [logOpen, setLogOpen] = useState(false);
-  const [menu, setMenu] = useState<'skills' | 'swap' | 'game' | 'stride' | 'gguard' | null>(null);
-  // G era (D-034, in testing): set by the session from this game's format
-  const gEra = playFormat === 'g';
-  const [toast, setToast] = useState<string | null>(null);
-
-  // CPU demonstration (v0.28): both seats are AIs, the player watches
-  const demo = online ? null : (config?.demo ?? null);
-  const [demoSpeed, setDemoSpeed] = useState<DemoSpeed>(demo?.speed ?? 'normal');
-  const [paused, setPaused] = useState(false);
-  const game = session instanceof GameSession ? session : null;
-  if (game) game.paused = paused;
-
-  const view = session.view;
-  const hovered = useHoveredCard(view);
-  const legal = useMemo(() => legalOf(session.actions), [session.actions]);
-  const choiceId = legal.choose?.choiceId ?? null;
-
-  // a new choice starts with nothing picked
-  useEffect(() => setPicked([]), [choiceId, legal.mulligan]);
-
-  // the AI acts after a short, speed-dependent pause, once the current effect has played
-  useEffect(() => {
-    if (online || view.status === 'finished' || !session.aiToAct) return;
-    const veryFast = demo !== null && demoSpeed === 'veryfast';
-    // Very fast skips the cut-ins: drop them instead of waiting for them
-    if (veryFast) session.fx = [];
-    if (session.fx.length > 0 && settings.speed !== 'instant') return;
-    const pause = veryFast ? 40 : demo && demoSpeed === 'fast' ? 220 : 650;
-    const t = setTimeout(
-      () => {
-        session.stepAi();
-        rerender();
-      },
-      veryFast ? pause : paced(settings, pause),
-    );
-    return () => clearTimeout(t);
-  });
-
-  // cards slide from where they were (presentation only; off at Instant speed / reduced motion)
-  useCardMotion(
-    () => session.takeMoves(),
-    settings.speed === 'instant' || settings.reducedMotion || systemReducedMotion()
-      ? 0
-      : paced(settings, 360),
+export function BattleScreen(props: Props) {
+  const c = useBattleController(props);
+  const {
+    settings,
+    session,
+    myDeck,
+    selection,
+    picked,
+    setDetails,
+    setLogOpen,
+    menu,
+    setMenu,
+    gEra,
+    staged,
+    demo,
     view,
-  );
-
-  // sounds for what the engine just resolved (after it happened, never before)
-  useEffect(() => {
-    audio.play(session.takeCues());
-  });
-
-  useEffect(() => {
-    if (!toast) return;
-    const t = setTimeout(() => setToast(null), 2600);
-    return () => clearTimeout(t);
-  }, [toast]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelection(null);
-        setMenu(null);
-        setDetails(null);
-        setZone(null);
-        setInspect(false);
-        setLogOpen(false);
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
-
-  const dismissFx = useCallback(
-    (id: number) => {
-      session.dismissFx(id);
-      rerender();
-    },
-    [session, rerender],
-  );
-  useEffect(() => {
-    if (settings.speed === 'instant' && session.fx.length) {
-      session.fx = [];
-      rerender();
-    }
-  });
-
-  const send = (command: Command) => {
-    if (session.send(command)) {
-      setSelection(null);
-      setPicked([]);
-      setMenu(null);
-    } else if (session.error) {
-      setToast(session.error);
-    }
-    rerender();
-  };
-
-  const toggle = (option: string) => {
-    const ch = legal.choose;
-    if (ch && ch.min === 1 && ch.max === 1) {
-      send({ type: 'CHOOSE', player: ME, choiceId: ch.choiceId, selection: [option] });
-      return;
-    }
-    setPicked((cur) => {
-      if (cur.includes(option)) return cur.filter((x) => x !== option);
-      if (ch && cur.length >= ch.max) return ch.max === 1 ? [option] : cur;
-      return [...cur, option];
-    });
-  };
-
-  const handle = (c: Click) => {
-    switch (c.do) {
-      case 'command':
-        return send(c.command);
-      case 'select':
-        setMenu(null);
-        return setSelection(c.selection);
-      case 'toggle_choice':
-        return toggle(c.option);
-      case 'details':
-        return setDetails(c.id);
-      case 'nothing':
-        return undefined;
-    }
-  };
-
-  const onCircle = (player: PlayerId, circle: Circle) => {
-    if (inspect) {
-      const id = view.players[player].circles[circle].at(-1);
-      if (id) setDetails(id);
-      setInspect(false);
-      return;
-    }
-    handle(clickCircle(view, legal, selection, player, circle));
-  };
-  const onHand = (id: InstanceId) => {
-    if (inspect) {
-      setDetails(id);
-      setInspect(false);
-      return;
-    }
-    handle(clickHand(legal, selection, id));
-  };
-  const onDropCard = (circle: Circle, cardId: InstanceId) =>
-    handle(clickCircle(view, legal, { kind: 'hand', id: cardId }, ME, circle));
-
-  // ---- action bar: only what is legal now ----
-  const bar: BarAction[] = [];
-  if (selection)
-    bar.push({ key: 'cancel', label: 'Cancel', icon: 'cancel', onClick: () => setSelection(null) });
-  if (legal.act.length)
-    bar.push({
-      key: 'skills',
-      label: `Skills (${legal.act.length})`,
-      icon: 'skill',
-      onClick: () => setMenu(menu === 'skills' ? null : 'skills'),
-    });
-  if (legal.swap.length)
-    bar.push({
-      key: 'swap',
-      label: 'Move',
-      icon: 'swap',
-      onClick: () => setMenu(menu === 'swap' ? null : 'swap'),
-    });
-  if (legal.stride)
-    bar.push({
-      key: 'stride',
-      label: 'Stride',
-      icon: 'skill',
-      tone: 'primary',
-      onClick: () => setMenu(menu === 'stride' ? null : 'stride'),
-    });
-  if (legal.gGuard)
-    bar.push({
-      key: 'gguard',
-      label: 'G Guardian',
-      icon: 'guard',
-      onClick: () => setMenu(menu === 'gguard' ? null : 'gguard'),
-    });
-  if (legal.passGuard) {
-    bar.push({
-      key: 'pass',
-      label: view.players[ME].guardian.length ? 'Done Guarding' : 'No Guard',
-      icon: 'guard',
-      tone: 'warn',
-      onClick: () => send({ type: 'PASS_GUARD', player: ME }),
-    });
-  }
-  if (legal.endPhase) {
-    const label =
-      view.phase === 'ride'
-        ? 'End Ride'
-        : view.phase === 'stride'
-          ? 'No Stride'
-          : view.phase === 'main'
-            ? 'To Battle'
-            : 'End Turn';
-    const noMoreMoves =
-      legal.attack.length === 0 &&
-      legal.ride.size === 0 &&
-      legal.call.size === 0 &&
-      legal.act.length === 0;
-    bar.push({
-      key: 'end',
-      label,
-      icon: 'end',
-      ...(noMoreMoves ? { tone: 'primary' as const } : {}),
-      onClick: () => send({ type: 'END_PHASE', player: ME }),
-    });
-  }
-  bar.push({
-    key: 'log',
-    label: 'Log',
-    icon: 'log',
-    toggled: logOpen,
-    onClick: () => setLogOpen(!logOpen),
-  });
-  bar.push({
-    key: 'details',
-    label: 'Card Details',
-    icon: 'details',
-    toggled: inspect,
-    onClick: () => setInspect(!inspect),
-  });
-
-  // CPU demonstration: the spectator's controls replace the player's actions
-  if (demo) {
-    bar.length = 0;
-    bar.push(
-      {
-        key: 'pause',
-        label: paused ? 'Resume' : 'Pause',
-        icon: paused ? 'end' : 'cancel',
-        ...(paused ? { tone: 'primary' as const } : {}),
-        onClick: () => setPaused((p) => !p),
-      },
-      {
-        key: 'speed',
-        label: DEMO_SPEEDS.find(([s]) => s === demoSpeed)![1],
-        icon: 'skill',
-        onClick: () =>
-          setDemoSpeed(DEMO_SPEEDS[(DEMO_SPEEDS.findIndex(([s]) => s === demoSpeed) + 1) % 3]![0]),
-      },
-      { key: 'restart', label: 'Restart', icon: 'swap', onClick: () => onRestart?.() },
-      { key: 'decks', label: 'Decks', icon: 'call', onClick: () => onDemoSetup?.() },
-      { key: 'log', label: 'History', icon: 'log', onClick: () => setLogOpen(true) },
-    );
-  }
-
-  // ---- status line ----
-  const status = (() => {
-    if (view.status === 'finished') return null;
-    if (demo && session.acting !== null)
-      return paused
-        ? { text: 'Paused', waiting: false, seat: session.acting }
-        : {
-            text: `CPU ${session.acting === ME ? 1 : 2} is thinking…`,
-            waiting: true,
-            seat: session.acting,
-          };
-    if (session.acting === AI) return { text: 'Opponent is thinking…', waiting: true };
-    if (legal.choose || legal.mulligan) return null;
-    if (selection?.kind === 'attacker')
-      return {
-        text: 'Choose a target. Click the glowing back-row unit to toggle the boost.',
-        waiting: false,
-      };
-    if (selection?.kind === 'hand')
-      return { text: 'Click (or drag to) a glowing circle.', waiting: false };
-    if (selection?.kind === 'guard' || selection?.kind === 'intercept')
-      return { text: 'Several units are attacked: click the one to guard.', waiting: false };
-    if (legal.passGuard)
-      return {
-        text: 'Guard: click hand cards to guard, or glowing front-row units to intercept.',
-        waiting: false,
-      };
-    if (view.phase === 'ride')
-      return {
-        text: 'Ride phase: click a card in your hand, then your vanguard circle.',
-        waiting: false,
-      };
-    if (view.phase === 'stride')
-      return {
-        text: legal.stride
-          ? 'Stride step: press Stride to stride a G unit, or No Stride.'
-          : 'Stride step: no stride possible now.',
-        waiting: false,
-      };
-    if (view.phase === 'main')
-      return { text: 'Main phase: call units, use skills, then go to battle.', waiting: false };
-    if (view.phase === 'battle' && legal.attack.length)
-      return { text: 'Battle: click a glowing unit to attack with it.', waiting: false };
-    return null;
-  })();
-
-  const battle = view.battle;
-  const lineAttacker = battle?.attacker ?? (selection?.kind === 'attacker' ? selection.id : null);
-  const lineBooster = battle
-    ? battle.booster
-    : selection?.kind === 'attacker'
-      ? selection.booster
-      : null;
-  const preview =
-    view.phase === 'battle' && view.activePlayer === ME && view.status !== 'finished'
-      ? attackPreview(view, ME, legal.attack, selection, {
-          power: (id) => basePower(view, ctx, id),
-          critical: (id) => currentCritical(view, ctx, id),
-        })
-      : null;
-  const opp = view.players[AI];
-  const me = view.players[ME];
-  const openZone = (title: string, ids: readonly InstanceId[]) => setZone({ title, ids });
-  const menuCard =
-    selection && (selection.kind === 'hand' || selection.kind === 'unit') ? selection.id : null;
-  const winner = view.winner;
-  const table = tableCss(settings.tableView);
-
+    hovered,
+    legal,
+    onCircle,
+    onHand,
+    onDropCard,
+    bar,
+    status,
+    battle,
+    lineAttacker,
+    lineBooster,
+    preview,
+    opp,
+    me,
+    openZone,
+    table,
+    config,
+    online,
+  } = c;
   return (
     <>
       {/* the table (D-035): field, piles and playmat on a tilted (or overhead) plane; the HUD stays flat */}
-      <div className="table-wrap" style={table.wrap}>
+      <div className={`table-wrap view-${settings.tableView}`} style={table.wrap}>
         <div className="table" style={table.plane}>
           <BattleCosmetics
             mySleeve={online?.mySleeve ?? config?.mySleeve ?? settings.defaultSleeve}
@@ -584,7 +186,7 @@ export function BattleScreen({ config, online, onRematch, onExit, onRestart, onD
         view={view}
         legal={legal}
         selection={selection}
-        marked={legal.mulligan || legal.choose ? picked : []}
+        marked={legal.mulligan || legal.choose ? picked : staged.map((g) => g.id)}
         onClick={onHand}
         onDetails={setDetails}
       />
@@ -605,182 +207,9 @@ export function BattleScreen({ config, online, onRematch, onExit, onRestart, onD
         </div>
       )}
 
-      {legal.choose && (
-        <ChoicePrompt
-          view={view}
-          choose={legal.choose}
-          picked={picked}
-          onToggle={toggle}
-          onSubmit={(sel) =>
-            send({ type: 'CHOOSE', player: ME, choiceId: legal.choose!.choiceId, selection: sel })
-          }
-        />
-      )}
-      {legal.mulligan && (
-        <MulliganPrompt
-          count={picked.length}
-          onSubmit={() => send({ type: 'MULLIGAN', player: ME, cardIds: picked })}
-        />
-      )}
-
-      {menuCard && !legal.choose && (
-        <CardMenu
-          view={view}
-          id={menuCard}
-          legal={legal}
-          onRide={() => send({ type: 'RIDE', player: ME, cardId: menuCard })}
-          onCall={(circle) => send({ type: 'CALL', player: ME, cardId: menuCard, circle })}
-          onActivate={(o) =>
-            send({ type: 'ACTIVATE', player: ME, source: o.source, abilityId: o.abilityId })
-          }
-          onDetails={() => setDetails(menuCard)}
-          onClose={() => setSelection(null)}
-        />
-      )}
-      {menu === 'skills' && (
-        <SkillsMenu
-          view={view}
-          legal={legal}
-          onActivate={(o) =>
-            send({ type: 'ACTIVATE', player: ME, source: o.source, abilityId: o.abilityId })
-          }
-          onClose={() => setMenu(null)}
-        />
-      )}
-      {menu === 'stride' && legal.stride && !legal.choose && (
-        <StridePrompt
-          view={view}
-          stride={legal.stride}
-          onSend={send}
-          onClose={() => setMenu(null)}
-        />
-      )}
-      {menu === 'gguard' && legal.gGuard && !legal.choose && (
-        <GGuardPrompt
-          view={view}
-          gGuard={legal.gGuard}
-          onSend={send}
-          onClose={() => setMenu(null)}
-        />
-      )}
-      {menu === 'swap' && (
-        <div className="popover" style={{ right: 20, bottom: 130, width: 340 }}>
-          <b style={{ fontSize: 20 }}>Move rear-guards</b>
-          {legal.swap.map((column) => (
-            <button
-              key={column}
-              className="btn ability-option"
-              onClick={() => send({ type: 'SWAP_REAR_GUARDS', player: ME, column })}
-            >
-              Swap the {column} column (front ↔ back)
-            </button>
-          ))}
-        </div>
-      )}
-      {menu === 'game' && (
-        <div className="popover" style={{ right: 20, top: 70, width: 300 }}>
-          <button className="btn ability-option" onClick={() => (setLogOpen(true), setMenu(null))}>
-            Battle log
-          </button>
-          {view.status !== 'finished' && (
-            <button
-              className="btn ability-option"
-              onClick={() => send({ type: 'CONCEDE', player: ME })}
-            >
-              Concede
-            </button>
-          )}
-          <button className="btn ability-option" onClick={onExit}>
-            Main menu
-          </button>
-        </div>
-      )}
-
-      {logOpen && <Log lines={session.log} onClose={() => setLogOpen(false)} />}
-
-      <FxLayer fx={session.fx[0]} onDone={dismissFx} />
-
-      {online?.connection && <ConnectionBanner watch={online.connection} />}
-      {toast && <div className="toast">Not allowed: {toast}</div>}
-      {details && <CardDetails view={view} id={details} onClose={() => setDetails(null)} />}
-      {zone && (
-        <ZoneViewer
-          view={view}
-          title={zone.title}
-          ids={zone.ids}
-          onPick={(id) => setDetails(id)}
-          onClose={() => setZone(null)}
-        />
-      )}
-
-      {demo && view.status === 'finished' && session.fx.length === 0 && game && (
-        <DemoSummary
-          game={game}
-          names={[myDeckName, opponentDeckName]}
-          onRestart={() => onRestart?.()}
-          onNewSeed={onRematch}
-          onDecks={() => onDemoSetup?.()}
-          onLog={() => setLogOpen(true)}
-        />
-      )}
-      {!demo && view.status === 'finished' && session.fx.length === 0 && (
-        <div className="game-over" data-testid="game-over">
-          <h1 className={winner === ME ? 'win' : 'lose'}>
-            {winner === ME ? 'VICTORY' : winner === null ? 'DRAW' : 'DEFEAT'}
-          </h1>
-          <div className="game-summary" data-testid="game-summary">
-            <div className="how">{endingText(session.ending?.reason ?? null, winner)}</div>
-            <div>
-              Turn {view.turnNumber} · your damage {me.damage.length}/6 · opponent's damage{' '}
-              {opp.damage.length}/6
-            </div>
-            <div>
-              {myDeckName} <span className="vs">vs</span> {opponentDeckName}
-            </div>
-            <div className="dim">
-              {online
-                ? `Online vs ${online.opponentName}`
-                : `Seed ${config!.seed} · ${session.commands.length} actions`}
-            </div>
-          </div>
-          <div className="buttons" style={{ display: 'flex', gap: 14 }}>
-            <button className="menu-btn" style={{ width: 300 }} onClick={onRematch}>
-              REMATCH
-            </button>
-            <button className="menu-btn" style={{ width: 300 }} onClick={onExit}>
-              {online ? 'LEAVE' : 'MAIN MENU'}
-            </button>
-          </div>
-        </div>
-      )}
+      <BattleOverlays c={c} />
     </>
   );
 }
 
-export function Log({ lines, onClose }: { lines: SessionBase['log']; onClose: () => void }) {
-  const end = useRef<HTMLDivElement>(null);
-  // block body: newer Chromium returns a Promise from scrollIntoView, which React would call as cleanup
-  useEffect(() => {
-    end.current?.scrollIntoView({ block: 'end' });
-  }, [lines.length]);
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal log-modal" data-testid="log" onClick={(e) => e.stopPropagation()}>
-        <div className="log-head">
-          <b>BATTLE LOG</b>
-          <button className="btn" onClick={onClose}>
-            Close
-          </button>
-        </div>
-        <div className="log-body">
-          {lines.map((l) => (
-            <div key={l.id} className={`l-${l.tone}`}>
-              {l.text}
-            </div>
-          ))}
-          <div ref={end} />
-        </div>
-      </div>
-    </div>
-  );
-}
+export { Log } from './BattleOverlays';

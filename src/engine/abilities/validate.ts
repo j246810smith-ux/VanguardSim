@@ -127,6 +127,11 @@ export function validateAbilities(
             checkCosts(st.costs, here);
             st.costs.forEach((_, i) => bound.add(`__cost${i}`));
             break;
+          case 'pay_either':
+            checkCosts(st.costs, here);
+            checkCosts(st.cheaper, here);
+            st.costs.forEach((_, i) => bound.add(`__cost${i}`));
+            break;
           case 'grant':
             checkSelector(st.target, here);
             for (const p of validateAbilities(where, [st.ability])) report(`granted: ${p}`);

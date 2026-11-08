@@ -40,6 +40,17 @@ body,
 button {
   font-family: inherit;
 }
+/* touch (Android): a long press inspects a card, so no copy/save-image callout or text pick */
+.card,
+.card img,
+.hand-card,
+.pool-card,
+.dd-tile,
+.circle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 /* ---- 16:9 stage (D-019) ------------------------------------------------------------------ */
 .viewport {
@@ -211,6 +222,16 @@ button {
 }
 .circle.hl-choice .ring {
   color: var(--gold);
+}
+/* the unit a yes/no prompt is about: marked, not clickable */
+.circle.hl-subject {
+  cursor: default;
+}
+.circle.hl-subject .ring {
+  color: var(--gold);
+}
+.circle.hl-subject .ring svg {
+  animation: pulse calc(0.8s / max(var(--anim), 0.01)) ease-in-out infinite;
 }
 .circle.hl-call .ring svg,
 .circle.hl-ride .ring svg,
@@ -405,20 +426,45 @@ button {
   animation: card-in calc(0.32s * var(--anim)) ease-out;
 }
 /* livelier when looked at closely: a hovered hand card, the large preview, card details */
-:is(.hand-card:hover, .details, .hover-preview) .foil .foil-layer::after {
+:is(.details, .hover-preview) .foil .foil-layer::after {
   animation-duration: calc(2.2s / max(var(--anim), 0.01));
 }
-:is(.hand-card:hover, .details, .hover-preview) .foil .foil-layer::before {
+@media (hover: hover) {
+  .hand-card:hover .foil .foil-layer::after {
+    animation-duration: calc(2.2s / max(var(--anim), 0.01));
+  }
+}
+:is(.details, .hover-preview) .foil .foil-layer::before {
   animation-duration: calc(3.5s / max(var(--anim), 0.01));
 }
-:is(.hand-card:hover, .details, .hover-preview) .foil-r .foil-layer::before {
+@media (hover: hover) {
+  .hand-card:hover .foil .foil-layer::before {
+    animation-duration: calc(3.5s / max(var(--anim), 0.01));
+  }
+}
+:is(.details, .hover-preview) .foil-r .foil-layer::before {
   opacity: 0.08;
 }
-:is(.hand-card:hover, .details, .hover-preview) .foil-rr .foil-layer::before {
+@media (hover: hover) {
+  .hand-card:hover .foil-r .foil-layer::before {
+    opacity: 0.08;
+  }
+}
+:is(.details, .hover-preview) .foil-rr .foil-layer::before {
   opacity: 0.22;
 }
-:is(.hand-card:hover, .details, .hover-preview) .foil-rrr .foil-layer::before {
+@media (hover: hover) {
+  .hand-card:hover .foil-rr .foil-layer::before {
+    opacity: 0.22;
+  }
+}
+:is(.details, .hover-preview) .foil-rrr .foil-layer::before {
   opacity: 0.38;
+}
+@media (hover: hover) {
+  .hand-card:hover .foil-rrr .foil-layer::before {
+    opacity: 0.38;
+  }
 }
 @keyframes foil-sheen {
   0%,
@@ -605,8 +651,10 @@ button {
 .panel.clickable {
   cursor: pointer;
 }
-.panel.clickable:hover {
-  border-color: #fff;
+@media (hover: hover) {
+  .panel.clickable:hover {
+    border-color: #fff;
+  }
 }
 .panel-title {
   font: 700 13px var(--font-display);
@@ -835,18 +883,29 @@ button {
   width: 100%;
   height: 100%;
 }
-.hand-card:hover,
 .hand-card.selected {
   z-index: 20;
 }
+@media (hover: hover) {
+  .hand-card:hover {
+    z-index: 20;
+  }
+}
 /* A lifted card's top edge stays just below your back-centre rear-guard circle (stage y ~897):
    it covered the circle you were calling to (user's report). The big hover preview shows the card. */
-.hand-card:hover .card,
 .hand-card.selected .card {
   transform: translateY(-12px) scale(1.2);
   box-shadow:
     0 0 24px var(--me-glow),
     0 10px 30px rgba(0, 0, 0, 0.8);
+}
+@media (hover: hover) {
+  .hand-card:hover .card {
+    transform: translateY(-12px) scale(1.2);
+    box-shadow:
+      0 0 24px var(--me-glow),
+      0 10px 30px rgba(0, 0, 0, 0.8);
+  }
 }
 .hand-card.selected .card {
   outline: 3px solid var(--gold);
@@ -876,9 +935,13 @@ button {
   text-shadow: 0 0 6px #000;
   transition: transform calc(0.18s * var(--anim)) ease;
 }
-.hand-card:hover .shield-tag,
 .hand-card.selected .shield-tag {
   transform: translate(-50%, -34px);
+}
+@media (hover: hover) {
+  .hand-card:hover .shield-tag {
+    transform: translate(-50%, -34px);
+  }
 }
 
 /* ---- action bar ----------------------------------------------------------------------------- */
@@ -912,9 +975,11 @@ button {
   width: 30px;
   height: 30px;
 }
-.action:hover:not(:disabled) {
-  border-color: #fff;
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .action:hover:not(:disabled) {
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
 }
 .action.primary {
   border: 2px solid var(--me);
@@ -1091,8 +1156,10 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
-.btn:hover:not(:disabled) {
-  border-color: #fff;
+@media (hover: hover) {
+  .btn:hover:not(:disabled) {
+    border-color: #fff;
+  }
 }
 .btn.primary {
   border: 2px solid var(--me);
@@ -1197,8 +1264,10 @@ button {
   outline: 4px solid var(--gold);
   box-shadow: 0 0 18px var(--gold-glow);
 }
-.pick:hover .card {
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .pick:hover .card {
+    transform: translateY(-4px);
+  }
 }
 .ability-option {
   display: block;
@@ -1420,8 +1489,10 @@ button {
   width: 24px;
   height: 24px;
 }
-.icon-btn:hover {
-  border-color: #fff;
+@media (hover: hover) {
+  .icon-btn:hover {
+    border-color: #fff;
+  }
 }
 
 /* ---- fx ------------------------------------------------------------------------------------- */
@@ -1583,9 +1654,11 @@ button {
   clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
   cursor: pointer;
 }
-.menu-btn:hover:not(:disabled) {
-  background: linear-gradient(90deg, var(--me-strong), var(--me));
-  color: #fff;
+@media (hover: hover) {
+  .menu-btn:hover:not(:disabled) {
+    background: linear-gradient(90deg, var(--me-strong), var(--me));
+    color: #fff;
+  }
 }
 .menu-btn:disabled {
   opacity: 0.35;
@@ -1834,8 +1907,10 @@ input.text {
   cursor: pointer;
   width: 122px;
 }
-.pool-card:hover .card {
-  outline: 2px solid var(--me);
+@media (hover: hover) {
+  .pool-card:hover .card {
+    outline: 2px solid var(--me);
+  }
 }
 .pool-name {
   font-size: 13px;
@@ -2023,11 +2098,13 @@ input.text {
   border-radius: 6px;
   transition: transform 0.08s;
 }
-.dd-tile:hover {
-  transform: translateY(-3px);
-}
-.dd-tile:hover .card {
-  outline: 2px solid var(--hit);
+@media (hover: hover) {
+  .dd-tile:hover {
+    transform: translateY(-3px);
+  }
+  .dd-tile:hover .card {
+    outline: 2px solid var(--hit);
+  }
 }
 .dd-tile.first .card {
   outline: 3px solid var(--gold);
@@ -3425,15 +3502,19 @@ input.text {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.call-spot.open:not(:disabled):hover {
-  background: rgba(51, 209, 255, 0.3);
+@media (hover: hover) {
+  .call-spot.open:not(:disabled):hover {
+    background: rgba(51, 209, 255, 0.3);
+  }
 }
 .call-spot.occupied {
   border-color: var(--gold);
   background: rgba(255, 200, 80, 0.12);
 }
-.call-spot.occupied:not(:disabled):hover {
-  background: rgba(255, 200, 80, 0.28);
+@media (hover: hover) {
+  .call-spot.occupied:not(:disabled):hover {
+    background: rgba(255, 200, 80, 0.28);
+  }
 }
 .call-spot:disabled {
   opacity: 0.35;
@@ -3559,4 +3640,1319 @@ input.text {
   display: flex;
   justify-content: center;
   margin: 6px 0 10px;
+}
+
+/* ---- phones and slower devices (Android, docs/android/ANDROID_AUDIT_AND_PLAN.md) ------------- */
+/* U8: keep the stage out of the camera cutout, rounded corners and gesture bar. The insets are 0 on
+   Windows, so nothing changes there; index.html sets viewport-fit=cover so phones report them. */
+.viewport {
+  box-sizing: border-box;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+.stage-area {
+  /* the stage is centred in this box, which is the viewport minus the insets */
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* U14 graphics. Reduced: foil only in the card details, no blur behind panels. Low turns foil and
+   cut-ins off in the settings themselves (settings.tsx effectiveSettings), so it needs no foil rule. */
+.gfx-reduced .foil-layer:not(.details *) {
+  display: none;
+}
+.gfx-reduced .card.foil-rrr:not(.details *) {
+  animation: card-in calc(0.32s * var(--anim)) ease-out;
+}
+:is(.gfx-reduced, .gfx-low) .panel {
+  backdrop-filter: none;
+}
+
+/* U11: on a small screen (stage scale under 0.5) the battle log and prompts get larger type.
+   --text-boost is 1 everywhere else (App.tsx Stage, stageFit.ts textBoost). */
+.prompt h3 {
+  font-size: calc(22px * var(--text-boost, 1));
+}
+.prompt .hint {
+  font-size: calc(15px * var(--text-boost, 1));
+}
+.prompt .name-list .btn,
+.ability-option {
+  font-size: calc(15px * var(--text-boost, 1));
+}
+/* the docked prompt is only 300 px wide and grows upwards from above your trigger zone: a smaller
+   boost, words wrap, and past the top of the stage it scrolls instead of being cut off */
+.prompt.docked {
+  --docked-boost: min(var(--text-boost, 1), 1.6);
+  max-height: 494px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+.prompt.docked h3 {
+  font-size: calc(17px * var(--docked-boost));
+}
+.prompt.docked .hint {
+  font-size: calc(13px * var(--docked-boost));
+}
+.prompt.docked .btn {
+  font-size: calc(15px * var(--docked-boost));
+}
+.log-body {
+  font-size: calc(18px * var(--text-boost, 1));
+}
+.log-body .l-turn {
+  font-size: calc(14px * var(--text-boost, 1));
+}
+/* the feed stays one line per event (cut with "…"); a tap opens the full log, which scrolls. It
+   sits just above the hand, so its boost is capped lower to keep four lines clear of the cards */
+.recent-events {
+  font-size: calc(16px * min(var(--text-boost, 1), 1.5));
+}
+
+/* U3, U5: touch-only buttons (shown only where the pointer cannot hover). The stage is shown at
+   about 0.4 on a phone, so they are large here, with an invisible margin that also takes taps. */
+.inspect-btn {
+  position: absolute;
+  z-index: 70;
+  width: 170px;
+  height: 72px;
+  padding: 0;
+  font-size: 26px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 18px var(--gold-glow);
+}
+.inspect-btn::after,
+.info-tip-btn::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+}
+.info-tip {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.info-tip-btn {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  font: 700 28px var(--font-body);
+  font-style: italic;
+  color: var(--text);
+  background: linear-gradient(180deg, #1a2c4e, #0c1830);
+  border: 1px solid rgba(140, 180, 240, 0.5);
+}
+.info-tip-btn.on {
+  border-color: var(--gold);
+}
+.info-tip-pop {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  transform: translateX(-50%);
+  z-index: 80;
+  width: 520px;
+  padding: 12px 16px;
+  font: 500 calc(20px * min(var(--text-boost, 1), 1.6)) / 1.4 var(--font-body);
+  color: var(--text);
+  text-align: left;
+  background: rgba(6, 12, 24, 0.96);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+.phase-rail .info-tip {
+  margin: 4px 0 0 36px;
+}
+.phase-rail .info-tip-pop {
+  transform: none;
+}
+
+/* Feedback E1/E2 (2026-11-08): a phone uses its whole screen and shows bigger cards.
+   .wide: the screen is wider than 16:9 (App.tsx Stage, stageFit.ts stageLayout). The 1920 px stage
+   stays put, so every position on it is unchanged; its background and the playmat reach out by
+   --edge on both sides, and the side panels move out into that space. */
+.stage.wide {
+  overflow: visible;
+}
+.stage.wide::after {
+  content: '';
+  position: absolute;
+  /* beyond the edge too: the camera cutout's safe area beside the stage area shows it */
+  inset: -200px calc(-1 * var(--edge) - 400px);
+  z-index: -1;
+  background: inherit;
+  pointer-events: none;
+}
+.stage.wide .table .playmat {
+  left: calc(150px - var(--edge));
+  width: calc(1620px + 2 * var(--edge));
+}
+.stage.wide :is(.plate, .turn-label, .phase-rail, .recent-events) {
+  translate: calc(-1 * var(--edge)) 0;
+}
+.stage.wide :is(.counters, .action-bar, .attack-preview) {
+  translate: var(--edge) 0;
+}
+/* .phone: units on the circles and the hand are drawn larger (about 40 dp wide was too small to
+   read). Scaling about each circle's centre keeps every position and hit area where it was. */
+.stage.phone .table .circle {
+  scale: 1.28;
+}
+.stage.phone .hand {
+  scale: 1.3;
+  transform-origin: 0 0;
+}
+
+/* Settings → App icon (icon pack, 2026-11-08) */
+.app-icon-option img {
+  border-radius: 16px;
+  display: block;
+}
+
+/* ---- Phone layout (MobileBattleScreen, docs/android/MOBILE_UI_PLAN.md) -----------------------
+   A grid over the whole phone: the stage is 1920 px wide plus --edge on each side on a phone
+   wider than 16:9. The side columns share the extra width equally, so the field stays centred at
+   stage x 960 and the shared HUD pieces placed on the centre line still line up. */
+.m-battle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--edge, 0px));
+  right: calc(-1 * var(--edge, 0px));
+  display: grid;
+  grid-template-columns: minmax(350px, 1fr) 1220px minmax(350px, 1fr);
+  grid-template-rows: 870px 210px;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255, 74, 61, 0.12), transparent 55%),
+    radial-gradient(ellipse at 50% 75%, rgba(51, 209, 255, 0.14), transparent 60%),
+    linear-gradient(180deg, #0b1330, #0a1430 45%, #08122c);
+}
+.m-battle > * {
+  min-width: 0;
+}
+
+/* left rail */
+.m-rail {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 14px 10px 24px;
+  overflow: hidden;
+}
+.m-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.m-rail-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 0 16px;
+  font: 700 24px var(--font-body);
+  color: var(--text);
+  text-align: left;
+  background: rgba(10, 20, 44, 0.85);
+  border: 1px solid var(--panel-edge);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.m-rail-btn svg {
+  width: 30px;
+  height: 30px;
+}
+.m-rail-btn.toggled {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.stage .m-battle .recent-events {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  translate: none;
+  font-size: 20px;
+  white-space: normal;
+}
+.m-battle .recent-events div {
+  white-space: normal;
+}
+
+/* plates with a portrait (the deck's vanguard art) */
+.m-plate {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, rgba(10, 18, 34, 0.95), rgba(10, 18, 34, 0.55));
+  border-radius: 12px;
+}
+.m-plate.opp {
+  border-bottom: 3px solid var(--opp);
+}
+.m-plate.me {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 10px 14px 16px 24px;
+  border-top: 3px solid var(--me);
+}
+.m-portrait {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 3px solid currentColor;
+}
+.m-plate.opp .m-portrait {
+  color: var(--opp);
+}
+.m-plate.me .m-portrait {
+  color: var(--me);
+}
+/* the art's upper part (the character), enlarged in the circle */
+.m-portrait .card {
+  transform: translateY(26%) scale(1.25);
+}
+.m-portrait .emblem-badge {
+  width: 80px;
+  height: 80px;
+}
+.m-plate-text {
+  min-width: 0;
+}
+.m-plate .role {
+  font: 700 16px var(--font-display);
+  letter-spacing: 0.2em;
+}
+.m-plate.opp .role {
+  color: var(--opp);
+}
+.m-plate.me .role {
+  color: var(--me);
+}
+.m-plate .who {
+  font: 700 26px var(--font-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-plate .clan {
+  font-size: 19px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* the battlefield: fixed geometry (board/mobileLayout.ts) in its cell */
+.m-field-cell {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+}
+.m-field {
+  position: absolute;
+  left: 0;
+  /* room above for the opponent's hand */
+  top: 30px;
+}
+.m-band {
+  position: absolute;
+  left: 210px;
+  right: 210px;
+  border-radius: 18px;
+  border: 2px solid;
+  padding: 0;
+  transition:
+    top calc(0.3s * var(--anim)),
+    height calc(0.3s * var(--anim));
+}
+.m-band.opp {
+  top: 4px;
+  height: 300px;
+  border-color: rgba(255, 74, 61, 0.65);
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 74, 61, 0.05) 0 2px, transparent 2px 22px),
+    linear-gradient(180deg, rgba(120, 16, 30, 0.55), rgba(70, 10, 24, 0.4));
+  box-shadow: inset 0 0 30px rgba(255, 74, 61, 0.25);
+  cursor: pointer;
+}
+.m-band.me {
+  top: 392px;
+  height: 448px;
+  border-color: rgba(51, 209, 255, 0.65);
+  background:
+    repeating-linear-gradient(135deg, rgba(51, 209, 255, 0.05) 0 2px, transparent 2px 22px),
+    linear-gradient(180deg, rgba(12, 50, 120, 0.5), rgba(8, 30, 80, 0.45));
+  box-shadow: inset 0 0 30px rgba(51, 209, 255, 0.25);
+  pointer-events: none;
+}
+.m-battle.opp-open .m-band.opp {
+  height: 400px;
+}
+.m-battle.opp-open .m-band.me {
+  top: 480px;
+  height: 360px;
+}
+.m-field .circle {
+  z-index: 1;
+}
+.m-field .power-plate {
+  font-size: 22px;
+}
+
+.m-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  pointer-events: none;
+  transition: top calc(0.3s * var(--anim));
+  z-index: 2;
+}
+.m-banner-title {
+  font: italic 900 50px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  color: #9fdcff;
+  text-shadow:
+    0 0 18px rgba(51, 209, 255, 0.7),
+    0 3px 0 #0a2a6a;
+}
+.m-banner.opp .m-banner-title {
+  color: #ffb0a8;
+  text-shadow:
+    0 0 18px rgba(255, 74, 61, 0.7),
+    0 3px 0 #5a0a14;
+}
+.m-banner-sub {
+  margin-top: 6px;
+  font: 600 24px var(--font-body);
+  color: var(--text);
+}
+.m-banner-sub span {
+  color: var(--text-dim);
+  margin: 0 6px;
+}
+.m-banner.me .m-banner-sub b {
+  color: var(--me);
+}
+.m-banner.opp .m-banner-sub b {
+  color: var(--opp);
+}
+.m-banner-sub .m-era {
+  margin-left: 14px;
+  font: 700 14px var(--font-display);
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+.m-banner-sub .m-era.g {
+  color: var(--gold);
+}
+
+/* zone tiles beside each band */
+.m-piles {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  z-index: 1;
+}
+.m-piles .panel {
+  position: relative;
+  min-width: 0;
+}
+.m-piles .panel-title {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.m-piles.me {
+  top: 400px;
+  width: 196px;
+  grid-template-columns: 1fr 1fr;
+}
+.m-piles.me.left {
+  left: 0;
+  grid-template-columns: 1fr;
+}
+.m-piles.me.right {
+  right: 0;
+}
+.m-piles.opp {
+  top: 4px;
+  width: 196px;
+  grid-template-columns: 1fr 1fr;
+}
+.m-piles.opp.left {
+  left: 0;
+}
+.m-piles.opp.right {
+  right: 0;
+}
+.m-opp-hand {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* card info (right) */
+.m-info {
+  grid-column: 3;
+  grid-row: 1;
+  padding: 16px 24px 10px 14px;
+  overflow: hidden;
+}
+.m-info-card,
+.m-info-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(10, 20, 44, 0.9);
+  border: 1px solid var(--panel-edge);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.m-info-empty {
+  justify-content: center;
+  text-align: center;
+  font-size: 22px;
+  color: var(--text-dim);
+}
+.m-info-empty b {
+  font: 700 26px var(--font-display);
+  color: var(--text);
+}
+.m-info-title {
+  align-self: stretch;
+  font: 700 24px var(--font-display);
+  color: var(--text);
+}
+.m-info-name {
+  font: 700 26px var(--font-body);
+  text-align: center;
+}
+.m-info-stats {
+  display: flex;
+  gap: 14px;
+  font: 700 24px var(--font-body);
+}
+.m-info-stats .changed {
+  color: var(--gold);
+}
+.m-info-clan {
+  font-size: 19px;
+  color: var(--text-dim);
+}
+.m-info-text {
+  align-self: stretch;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 20px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+
+/* bottom: phase bar and actions */
+.m-bottom {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 0 0 16px;
+}
+.m-guide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 4px;
+  text-align: center;
+  font: 600 22px var(--font-body);
+  color: var(--text);
+  text-shadow: 0 2px 6px #000;
+  pointer-events: none;
+}
+.m-phases {
+  display: flex;
+  gap: 6px;
+}
+.m-phase {
+  width: 96px;
+  height: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: 700 19px var(--font-body);
+  color: var(--text-dim);
+  background: rgba(10, 20, 44, 0.85);
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+.m-phase svg {
+  width: 32px;
+  height: 32px;
+}
+.m-phase.done {
+  opacity: 0.55;
+}
+.m-phase.current {
+  color: #fff;
+  border: 2px solid var(--gold);
+  background: linear-gradient(180deg, rgba(60, 50, 10, 0.9), rgba(30, 24, 6, 0.9));
+}
+.m-phase.current.opp {
+  border-color: var(--opp);
+  background: linear-gradient(180deg, rgba(90, 16, 20, 0.9), rgba(40, 8, 10, 0.9));
+}
+.m-actions {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.m-action {
+  min-height: 72px;
+  min-width: 132px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 700 23px var(--font-body);
+  color: var(--text);
+  background: rgba(16, 32, 70, 0.95);
+  border: 2px solid var(--panel-edge);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.m-action svg {
+  width: 28px;
+  height: 28px;
+}
+.m-action.primary {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px var(--gold-glow);
+}
+.m-action.warn {
+  border-color: var(--opp-strong);
+}
+.m-action.toggled {
+  border-color: var(--gold);
+}
+
+/* the hand: bottom right, fanned about the middle of its cell */
+.m-hand {
+  grid-column: 3;
+  grid-row: 2;
+  position: relative;
+}
+.m-battle .m-hand .hand {
+  left: 44%;
+  bottom: 18px;
+  scale: 1;
+}
+.m-battle .m-hand .hand-card {
+  bottom: -40px;
+}
+
+/* shared HUD pieces moved to the phone's centre line (the banner between the fields) */
+.m-battle ~ .battle-vs {
+  top: 372px !important;
+}
+.m-battle ~ .ability-callout {
+  top: 372px;
+}
+.m-battle ~ .thinking {
+  top: auto;
+  bottom: 236px;
+}
+/* the per-column preview: over the top of Card Info, not the field */
+.m-battle ~ .attack-preview {
+  translate: var(--edge, 0px) 0;
+  top: 20px;
+}
+
+/* a big hand on the phone: a row you swipe sideways (Hand stripAbove) */
+.m-battle .m-hand .hand.hand-strip {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: 210px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0 24px 0 12px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  touch-action: pan-x;
+}
+.m-battle .m-hand .hand-strip .hand-card {
+  position: relative;
+  flex: none;
+  bottom: -30px;
+  margin-right: -28px;
+}
+
+/* Phone layout: decision panels that are not placed on the board, and the selected card's menu,
+   take the right column (over Card Info) at full height, with phone-sized text. The column runs
+   from stage x 1570 (the field's right edge) to the screen edge (1920 + --edge). */
+/* the same size whether or not the panel is placed on the board: DockedPrompt measures it to place
+   it, and a size that changed with the placement re-placed it forever (React error 185) */
+.m-battle ~ .prompt.docked,
+.m-battle ~ .popover.card-menu {
+  width: calc(312px + var(--edge, 0px));
+  max-height: 838px;
+  overflow-y: auto;
+  padding: 16px 18px;
+}
+.m-battle ~ .prompt.docked:not(.centred),
+.m-battle ~ .popover.card-menu {
+  left: 1584px;
+  right: auto;
+  top: 16px;
+  bottom: auto;
+}
+.m-battle ~ .prompt.docked {
+  --docked-boost: 1;
+}
+.m-battle ~ .prompt.docked h3,
+.m-battle ~ .popover.card-menu b {
+  font-size: 26px !important;
+}
+.m-battle ~ .prompt.docked .hint,
+.m-battle ~ .popover.card-menu .hint {
+  font-size: 20px;
+}
+.m-battle ~ :is(.prompt.docked, .popover.card-menu) :is(.btn, .ability-option) {
+  min-height: 60px;
+  font-size: 22px;
+}
+.m-battle ~ :is(.prompt.docked, .popover.card-menu) .call-spot {
+  min-height: 72px;
+}
+
+/* Phone layout: the battle log as a drawer over the left rail (the board stays in view) */
+.log-drawer {
+  position: absolute;
+  z-index: 60;
+  left: calc(24px - var(--edge, 0px));
+  top: 16px;
+  bottom: 226px;
+  width: calc(312px + var(--edge, 0px));
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  background: rgba(6, 12, 24, 0.96);
+  border: 1px solid var(--panel-edge);
+  border-radius: 14px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+}
+.log-drawer .log-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 700 24px var(--font-display);
+  margin-bottom: 8px;
+}
+.log-drawer .log-head .btn {
+  min-height: 56px;
+  font-size: 20px;
+}
+.log-drawer .log-body {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+/* Phone layout, user feedback 2026-11-08: the hand covered Guard / To Battle / End Turn. The
+   phase bar and its buttons are drawn in front of the hand, and the buttons sit next to the phases. */
+.m-bottom {
+  z-index: 5;
+}
+.m-hand {
+  z-index: 1;
+}
+.m-actions {
+  justify-content: flex-start;
+}
+.m-battle .m-hand .hand {
+  left: 56%;
+}
+/* the hand opened large (first tap on it): above the bottom bar, over the lower part of the field */
+.m-battle.hand-big .m-hand {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 210px;
+  height: 430px;
+  top: auto;
+  z-index: 40;
+  background: linear-gradient(180deg, rgba(4, 8, 20, 0), rgba(4, 8, 20, 0.92) 26%);
+}
+.m-battle.hand-big .m-hand .hand {
+  left: 50%;
+  bottom: 22px;
+  scale: 1.55;
+}
+.m-battle.hand-big .m-hand .hand.hand-strip {
+  scale: 1.4;
+  transform-origin: 50% 100%;
+}
+.m-hand-close {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  z-index: 50;
+  min-height: 64px;
+  padding: 0 22px;
+  font: 700 24px var(--font-body);
+  color: var(--text);
+  background: rgba(16, 32, 70, 0.95);
+  border: 2px solid var(--panel-edge);
+  border-radius: 12px;
+}
+/* in a battle the attack and defence numbers take the banner's place, inside the field */
+.m-battle.in-battle .m-banner {
+  opacity: 0;
+}
+.m-battle ~ .battle-vs > .vs-plate:first-child {
+  left: 470px;
+}
+.m-battle ~ .battle-vs > .vs-plate:nth-child(3) {
+  left: 1120px;
+}
+.m-battle ~ .battle-vs .vs-plate {
+  scale: 0.85;
+}
+
+/* Settings -> Audio (docs/audio/AUDIO_PLAN.md) */
+.audio-settings .volume-slider {
+  flex: 1;
+  max-width: 420px;
+  height: 36px;
+  accent-color: var(--me);
+  cursor: pointer;
+}
+.audio-settings .volume-slider:disabled {
+  opacity: 0.4;
+}
+.audio-settings .volume-value {
+  width: 64px;
+  text-align: right;
+  font: 700 18px var(--font-body);
+  margin-right: 12px;
+}
+
+/* user feedback 2026-11-08: with the hand opened large, the mulligan box covered the cards. Any
+   docked panel then sits at the top of the screen, clear of the large hand (440-870 stage px). */
+.m-battle.hand-big ~ .prompt.docked {
+  top: 24px !important;
+  bottom: auto !important;
+  max-height: 400px;
+}
+
+.audio-settings .battle-music {
+  flex-wrap: wrap;
+  max-width: 760px;
+}
+
+/* ---- Themes (docs/android/MOBILE_UI_PLAN.md phase 5; Settings -> Theme) -----------------------
+   Each theme is a set of colour tokens on the viewport. Classic is the game's own look; the others
+   follow the user's brief: OverDress Modern (charcoal, white, red), G Era Holo (purple and gold),
+   Royal Futuristic (cyan holo), Anime Cel-Shaded (bright blue and yellow), Dark Premium (black,
+   violet, gold). Only colours change: the layout and the game are the same in every theme. */
+.viewport {
+  --stage-top: #080b14;
+  --stage-mid: #050810;
+  --stage-glow-opp: rgba(255, 60, 40, 0.1);
+  --stage-glow-me: rgba(40, 140, 255, 0.12);
+  --field-opp-a: rgba(120, 16, 30, 0.55);
+  --field-opp-b: rgba(70, 10, 24, 0.4);
+  --field-me-a: rgba(12, 50, 120, 0.5);
+  --field-me-b: rgba(8, 30, 80, 0.45);
+  --surface: rgba(10, 20, 44, 0.88);
+  --surface-strong: rgba(16, 32, 70, 0.95);
+  --banner-me: #9fdcff;
+  --banner-opp: #ffb0a8;
+  --accent: var(--gold);
+}
+.viewport.theme-overdress {
+  --bg-0: #121318;
+  --bg-1: #1b1d24;
+  --bg-2: #262932;
+  --panel: rgba(28, 30, 38, 0.92);
+  --panel-edge: rgba(255, 255, 255, 0.35);
+  --me: #f2f4f8;
+  --me-strong: #c9ced8;
+  --me-glow: rgba(242, 244, 248, 0.45);
+  --opp: #ff3b5c;
+  --opp-strong: #ff6b81;
+  --opp-glow: rgba(255, 59, 92, 0.5);
+  --gold: #ff3b5c;
+  --gold-glow: rgba(255, 59, 92, 0.5);
+  --stage-top: #16171c;
+  --stage-mid: #0f1014;
+  --stage-glow-opp: rgba(255, 59, 92, 0.1);
+  --stage-glow-me: rgba(255, 255, 255, 0.06);
+  --field-opp-a: rgba(80, 18, 30, 0.55);
+  --field-opp-b: rgba(40, 10, 16, 0.45);
+  --field-me-a: rgba(60, 64, 76, 0.55);
+  --field-me-b: rgba(30, 32, 40, 0.5);
+  --surface: rgba(24, 26, 33, 0.92);
+  --surface-strong: rgba(36, 38, 46, 0.96);
+  --banner-me: #ffffff;
+  --banner-opp: #ff8095;
+}
+.viewport.theme-gera {
+  --bg-0: #160d2e;
+  --bg-1: #211444;
+  --bg-2: #2e1d5c;
+  --panel: rgba(44, 26, 86, 0.88);
+  --panel-edge: rgba(255, 207, 77, 0.45);
+  --me: #b98cff;
+  --me-strong: #8f5cff;
+  --me-glow: rgba(185, 140, 255, 0.55);
+  --opp: #ff5a7a;
+  --opp-glow: rgba(255, 90, 122, 0.5);
+  --gold: #ffcf4d;
+  --gold-glow: rgba(255, 207, 77, 0.6);
+  --stage-top: #140b2a;
+  --stage-mid: #0c0620;
+  --stage-glow-opp: rgba(255, 90, 122, 0.1);
+  --stage-glow-me: rgba(185, 140, 255, 0.14);
+  --field-opp-a: rgba(100, 20, 60, 0.5);
+  --field-opp-b: rgba(60, 12, 40, 0.42);
+  --field-me-a: rgba(70, 36, 140, 0.5);
+  --field-me-b: rgba(40, 20, 90, 0.45);
+  --surface: rgba(32, 18, 64, 0.9);
+  --surface-strong: rgba(48, 28, 92, 0.95);
+  --banner-me: #ffe08a;
+  --banner-opp: #ffb0c2;
+}
+.viewport.theme-royal {
+  --bg-0: #031419;
+  --bg-1: #062530;
+  --bg-2: #0a3442;
+  --panel: rgba(6, 40, 52, 0.88);
+  --panel-edge: rgba(41, 243, 255, 0.45);
+  --me: #29f3ff;
+  --me-strong: #00c2d6;
+  --me-glow: rgba(41, 243, 255, 0.55);
+  --opp: #ff4d6d;
+  --opp-glow: rgba(255, 77, 109, 0.5);
+  --gold: #9ffcff;
+  --gold-glow: rgba(159, 252, 255, 0.6);
+  --stage-top: #031218;
+  --stage-mid: #020b10;
+  --stage-glow-opp: rgba(255, 77, 109, 0.08);
+  --stage-glow-me: rgba(41, 243, 255, 0.14);
+  --field-opp-a: rgba(90, 16, 40, 0.45);
+  --field-opp-b: rgba(40, 8, 20, 0.4);
+  --field-me-a: rgba(4, 80, 96, 0.5);
+  --field-me-b: rgba(2, 44, 56, 0.45);
+  --surface: rgba(4, 30, 40, 0.9);
+  --surface-strong: rgba(6, 48, 62, 0.95);
+  --banner-me: #bffcff;
+  --banner-opp: #ffb3c1;
+}
+.viewport.theme-cel {
+  --bg-0: #0b2a6b;
+  --bg-1: #12398f;
+  --bg-2: #1a4cb3;
+  --panel: rgba(18, 57, 143, 0.9);
+  --panel-edge: rgba(255, 214, 0, 0.55);
+  --me: #4fc3ff;
+  --me-strong: #1e88e5;
+  --me-glow: rgba(79, 195, 255, 0.6);
+  --opp: #ff5252;
+  --opp-glow: rgba(255, 82, 82, 0.55);
+  --gold: #ffd600;
+  --gold-glow: rgba(255, 214, 0, 0.65);
+  --stage-top: #1b4fb8;
+  --stage-mid: #0e2f7a;
+  --stage-glow-opp: rgba(255, 82, 82, 0.16);
+  --stage-glow-me: rgba(255, 214, 0, 0.1);
+  --field-opp-a: rgba(200, 40, 60, 0.45);
+  --field-opp-b: rgba(140, 20, 40, 0.4);
+  --field-me-a: rgba(30, 110, 220, 0.5);
+  --field-me-b: rgba(16, 70, 170, 0.45);
+  --surface: rgba(14, 48, 130, 0.92);
+  --surface-strong: rgba(22, 66, 168, 0.96);
+  --banner-me: #fff59d;
+  --banner-opp: #ffcdd2;
+}
+.viewport.theme-dark {
+  --bg-0: #08070c;
+  --bg-1: #120e1a;
+  --bg-2: #1c1528;
+  --panel: rgba(20, 15, 30, 0.92);
+  --panel-edge: rgba(212, 166, 64, 0.4);
+  --me: #9b7bff;
+  --me-strong: #7a55f0;
+  --me-glow: rgba(155, 123, 255, 0.45);
+  --opp: #e0455a;
+  --opp-glow: rgba(224, 69, 90, 0.45);
+  --gold: #d4a640;
+  --gold-glow: rgba(212, 166, 64, 0.5);
+  --stage-top: #0b0910;
+  --stage-mid: #050408;
+  --stage-glow-opp: rgba(224, 69, 90, 0.06);
+  --stage-glow-me: rgba(155, 123, 255, 0.08);
+  --field-opp-a: rgba(60, 14, 24, 0.5);
+  --field-opp-b: rgba(30, 8, 14, 0.45);
+  --field-me-a: rgba(40, 26, 80, 0.5);
+  --field-me-b: rgba(20, 14, 44, 0.45);
+  --surface: rgba(16, 12, 24, 0.94);
+  --surface-strong: rgba(26, 20, 38, 0.97);
+  --banner-me: #e6d3a3;
+  --banner-opp: #f2a3ae;
+}
+
+/* the surfaces that follow the theme */
+.stage {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 28%, var(--stage-glow-opp), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 72%, var(--stage-glow-me), transparent 70%),
+    linear-gradient(180deg, var(--stage-top) 0%, var(--stage-mid) 50%, var(--stage-top) 100%);
+}
+.m-battle {
+  background:
+    radial-gradient(ellipse at 50% 30%, var(--stage-glow-opp), transparent 55%),
+    radial-gradient(ellipse at 50% 75%, var(--stage-glow-me), transparent 60%),
+    linear-gradient(180deg, var(--stage-top), var(--stage-mid) 45%, var(--stage-top));
+}
+.m-band.opp {
+  border-color: color-mix(in srgb, var(--opp) 65%, transparent);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--opp) 5%, transparent) 0 2px,
+      transparent 2px 22px
+    ),
+    linear-gradient(180deg, var(--field-opp-a), var(--field-opp-b));
+  box-shadow: inset 0 0 30px color-mix(in srgb, var(--opp) 25%, transparent);
+}
+.m-band.me {
+  border-color: color-mix(in srgb, var(--me) 65%, transparent);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--me) 5%, transparent) 0 2px,
+      transparent 2px 22px
+    ),
+    linear-gradient(180deg, var(--field-me-a), var(--field-me-b));
+  box-shadow: inset 0 0 30px color-mix(in srgb, var(--me) 25%, transparent);
+}
+.m-banner-title {
+  color: var(--banner-me);
+  text-shadow:
+    0 0 18px var(--me-glow),
+    0 3px 0 color-mix(in srgb, var(--me) 30%, black);
+}
+.m-banner.opp .m-banner-title {
+  color: var(--banner-opp);
+  text-shadow:
+    0 0 18px var(--opp-glow),
+    0 3px 0 color-mix(in srgb, var(--opp) 30%, black);
+}
+:is(.m-rail-btn, .m-phase, .m-info-card, .m-info-empty, .m-plate) {
+  background: var(--surface);
+  border-color: var(--panel-edge);
+}
+:is(.m-action, .m-hand-close) {
+  background: var(--surface-strong);
+  border-color: var(--panel-edge);
+}
+.m-phase.current {
+  border-color: var(--accent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 30%, var(--surface)),
+    var(--surface)
+  );
+}
+.m-phase.current.opp {
+  border-color: var(--opp);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--opp) 30%, var(--surface)),
+    var(--surface)
+  );
+}
+:is(.m-action.primary, .m-rail-btn.toggled, .m-action.toggled) {
+  border-color: var(--accent);
+  box-shadow: 0 0 14px var(--gold-glow);
+}
+
+/* the phase banner slides in when the phase changes (not with reduced motion) */
+@keyframes m-banner-in {
+  from {
+    opacity: 0;
+    transform: translate(-6%, -50%) skewX(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+.m-banner {
+  animation: m-banner-in calc(0.35s * var(--anim)) ease-out;
+}
+.reduce-motion .m-banner {
+  animation: none;
+}
+
+/* Settings -> Theme */
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+}
+.theme-swatches {
+  display: flex;
+  gap: 4px;
+}
+.theme-swatches i {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Settings -> Phone text size: Large */
+.m-battle.text-large .m-rail-btn {
+  font-size: 30px;
+  min-height: 74px;
+}
+.m-battle.text-large .recent-events {
+  font-size: 25px;
+}
+.m-battle.text-large .m-info-text {
+  font-size: 25px;
+}
+.m-battle.text-large .m-info-name,
+.m-battle.text-large .m-info-stats {
+  font-size: 30px;
+}
+.m-battle.text-large .m-banner-sub {
+  font-size: 29px;
+}
+.m-battle.text-large .m-guide {
+  font-size: 27px;
+}
+.m-battle.text-large .m-phase {
+  font-size: 23px;
+}
+.m-battle.text-large .m-action {
+  font-size: 28px;
+  min-height: 84px;
+}
+.m-battle.text-large .m-plate .who {
+  font-size: 30px;
+}
+.m-battle.text-large .m-piles .panel-title {
+  font-size: 16px;
+}
+.m-battle.text-large ~ :is(.prompt.docked, .popover.card-menu) h3,
+.m-battle.text-large ~ .popover.card-menu b {
+  font-size: 32px !important;
+}
+.m-battle.text-large ~ :is(.prompt.docked, .popover.card-menu) :is(.hint) {
+  font-size: 25px;
+}
+.m-battle.text-large ~ :is(.prompt.docked, .popover.card-menu) :is(.btn, .ability-option) {
+  font-size: 27px;
+  min-height: 72px;
+}
+.m-battle.text-large ~ .log-drawer .log-body {
+  font-size: 25px;
+}
+
+/* phase 4: the attacker and target in focus for a moment as an attack begins */
+.m-field .circle {
+  transition:
+    scale calc(0.25s * var(--anim)) ease-out,
+    opacity calc(0.25s * var(--anim)) ease-out;
+}
+.m-field.focusing .circle:not(.focus) {
+  opacity: 0.45;
+}
+.m-field .circle.focus {
+  scale: 1.18;
+  z-index: 4;
+  filter: drop-shadow(0 0 18px var(--gold-glow));
+}
+.reduce-motion .m-field .circle.focus {
+  scale: 1;
+}
+
+/* B12: the house rules of this game */
+.modal.house-rules {
+  width: 760px;
+}
+.house-rules ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: grid;
+  gap: 10px;
+}
+.house-rules li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 19px;
+}
+.house-rules li.off {
+  opacity: 0.6;
+}
+.house-rules .state {
+  flex: none;
+  width: 56px;
+  text-align: center;
+  font: 700 15px var(--font-display);
+  padding: 4px 0;
+  border-radius: 6px;
+  border: 1px solid var(--panel-edge);
+}
+.house-rules li.on .state {
+  color: #08121e;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.house-rules .hint {
+  display: block;
+  font-size: 15px;
+  color: var(--text-dim);
+}
+
+/* B7: a row of menu buttons: the same height, labels on one line */
+.menu-row {
+  align-items: stretch;
+}
+.menu-row .menu-btn {
+  white-space: nowrap;
+}
+
+/* B11: Final Turn declaration (cosmetic) */
+@keyframes final-turn-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.final-turn {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  z-index: 80;
+  text-align: center;
+  pointer-events: none;
+  animation: final-turn-in calc(2.2s * max(var(--anim), 0.3)) ease-out forwards;
+}
+.final-turn-title {
+  font: italic 900 110px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-shadow:
+    0 0 30px var(--gold-glow),
+    0 5px 0 #4a3200;
+}
+.final-turn.opp .final-turn-title {
+  color: var(--opp);
+  text-shadow:
+    0 0 30px var(--opp-glow),
+    0 5px 0 #4a0010;
+}
+.final-turn-who {
+  margin-top: 8px;
+  font: 700 30px var(--font-body);
+  color: var(--text);
+  text-shadow: 0 2px 8px #000;
+}
+.reduce-motion .final-turn {
+  animation: none;
+}
+
+/* B13: your trigger ratio */
+.modal.trigger-ratio {
+  width: 700px;
+}
+.trigger-ratio table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 20px;
+}
+.trigger-ratio th,
+.trigger-ratio td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--panel-edge);
+}
+.trigger-ratio thead th {
+  font: 700 15px var(--font-display);
+  color: var(--text-dim);
+}
+.trigger-ratio tr.total {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* B8 (v0.32 feedback): in the overhead view the playmat reaches all four corners (the table is
+   flat there, so table and stage coordinates are the same); own images already cover, never stretch */
+.table-wrap.view-overhead .table .playmat {
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  border-radius: 0;
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.45);
+}
+.stage.wide .table-wrap.view-overhead .table .playmat {
+  left: calc(-1 * var(--edge));
+  width: calc(1920px + 2 * var(--edge));
 }

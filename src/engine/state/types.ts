@@ -281,6 +281,11 @@ export interface PendingChoice {
   readonly order?: DeckOrder;
   /** Cards the chooser looks at to answer, though they are not the options (the deck's top card). */
   readonly shown?: readonly InstanceId[];
+  /**
+   * The card the choice is about, when it is not the ability's own card: the unit whose event
+   * triggered an automatic ability (e.g. the unit that unlocked, for Sulfur). The UI marks it.
+   */
+  readonly subject?: InstanceId;
 }
 
 /** Optional house rules, chosen when the game is created. Every rule is off unless set. */
@@ -290,6 +295,17 @@ export interface CustomRules {
    * the player's next stand phase the Legion Mate goes into the soul or the drop zone.
    */
   readonly delayedLegion?: boolean;
+  /**
+   * 9K grade 3 (the user's house rule C1, Original era only): the vanguard whose printed grade is 3
+   * and printed power exactly 9000 gets this much power while it is on (VC). Eligibility comes from
+   * the card's printed values, never from its current power. In legion, the leader only.
+   */
+  readonly nineKGrade3?: 1000 | 2000;
+  /**
+   * Mega Blast (the user's house rule C2): Counter Blast 4 & Soul Blast 6 may be paid instead of an
+   * [ACT]'s Counter Blast 5 & Soul Blast 8; the player chooses when both can be paid.
+   */
+  readonly megaBlastCheap?: boolean;
 }
 
 /** Delayed Legion: a legion whose mate leaves at the start of `player`'s next stand phase. */

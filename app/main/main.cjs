@@ -16,12 +16,13 @@
 // only if the user has set up a download source in `artwork-sources.json` (in the app's data
 // folder), downloads images from the main process when asked. The game window stays offline.
 const { app, BrowserWindow, dialog, ipcMain, net, protocol, session, shell } = require('electron');
-const { isArtPath, isCosmeticPath } = require('./artPath.cjs');
+const { isArtPath, isCosmeticPath, isMusicName, isMusicPath } = require('./artPath.cjs');
 const { createCosmetics } = require('./cosmetics.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 const { createOnline } = require('./online.cjs');
+const { createAppIcon } = require('./appIcon.cjs');
 const updates = require('./updates.cjs');
 const { createUpdateDownloader } = require('./updateDownload.cjs');
 const { createUpdateInstaller } = require('./updateInstall.cjs');
@@ -41,7 +42,11 @@ if (onlineProbe)
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
 
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'vgart', privileges: { standard: true, secure: true, supportFetchAPI: true } },
+  // stream: the player's own music plays from vgart://music/… (seeking needs range requests)
+  {
+    scheme: 'vgart',
+    privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true },
+  },
 ]);
 
 function artDir() {
@@ -61,10 +66,12 @@ function serveArt() {
     // vgart://cosmetics/<sleeves|playmats>/<file> → the player's own sleeve or playmat image
     const url = new URL(request.url);
     const rel = decodeURIComponent(url.pathname).replace(/^\/+/, '');
-    const own = url.hostname === 'cosmetics';
+    // vgart://own/music/<file> → the player's own battle music (music\ next to cards\)
+    const own = url.hostname === 'cosmetics' || url.hostname === 'own';
     const top = own ? base : root;
     const file = path.resolve(top, rel);
-    const valid = own ? isCosmeticPath(rel) : isArtPath(rel);
+    const valid =
+      url.hostname === 'own' ? isMusicPath(rel) : own ? isCosmeticPath(rel) : isArtPath(rel);
     if (!valid || !file.startsWith(top + path.sep) || !fs.existsSync(file)) {
       return new Response('not found', { status: 404 });
     }
@@ -162,6 +169,18 @@ function registerArtworkIpc() {
     return r.filePath;
   });
   // sleeves and playmats from the player's own images (D-033)
+  // the player's own music files (music\ next to cards\), sorted by name
+  ipcMain.handle('music:list', () => {
+    const dir = path.join(path.dirname(path.resolve(artDir())), 'music');
+    try {
+      return fs
+        .readdirSync(dir)
+        .filter((f) => isMusicName(f) && fs.statSync(path.join(dir, f)).isFile())
+        .sort((a, b) => a.localeCompare(b));
+    } catch {
+      return [];
+    }
+  });
   ipcMain.handle('cosmetics:list', () => ({
     sleeves: cosmetics().list('sleeves'),
     playmats: cosmetics().list('playmats'),
@@ -272,6 +291,37 @@ function registerUpdateIpc() {
   );
 }
 
+/** The chosen app icon (app/main/appIcon.cjs). */
+let appIconStore = null;
+const appIcon = () =>
+  (appIconStore ??= createAppIcon({
+    userData: app.getPath('userData'),
+    iconsDir: path.join(__dirname, 'icons'),
+    desktop: app.getPath('desktop'),
+    // the portable exe unpacks to a temporary folder: a shortcut starts the real file
+    launch: () => {
+      const exe = process.env.PORTABLE_EXECUTABLE_FILE || process.execPath;
+      return {
+        target: exe,
+        args: app.isPackaged ? '' : `"${app.getAppPath()}"`,
+        cwd: path.dirname(exe),
+      };
+    },
+    writeShortcut: (file, op, options) => shell.writeShortcutLink(file, op, options),
+  }));
+
+function registerAppIconIpc(win) {
+  ipcMain.handle('icon:set', (_e, id) => {
+    const used = appIcon().set(id);
+    if (!win.isDestroyed()) win.setIcon(appIcon().iconPath(used));
+  });
+  ipcMain.handle('icon:shortcut', (_e, id) => appIcon().makeShortcut(id));
+  win.on('closed', () => {
+    ipcMain.removeHandler('icon:set');
+    ipcMain.removeHandler('icon:shortcut');
+  });
+}
+
 /** Play Online (D-032): the game window hosts or joins through these; one connection at a time. */
 function registerOnlineIpc(win) {
   const online = createOnline((kind, data) => {
@@ -299,14 +349,19 @@ function registerOnlineIpc(win) {
 }
 
 function createWindow() {
+  // VANGUARD_SHOTS_SIZE=923x411 (with VANGUARD_SHOTS): a phone-sized page, drawn at 2x, to review
+  // the Android layout on the PC. Never active in normal use.
+  const phone = shotsDir && /^(\d+)x(\d+)$/.exec(process.env.VANGUARD_SHOTS_SIZE || '');
   const win = new BrowserWindow({
-    width: 1600,
-    height: 900,
-    minWidth: 1024,
-    minHeight: 576,
+    width: phone ? Number(phone[1]) * 2 : 1600,
+    height: phone ? Number(phone[2]) * 2 : 900,
+    useContentSize: !!phone,
+    minWidth: phone ? 0 : 1024,
+    minHeight: phone ? 0 : 576,
     backgroundColor: '#04060b',
     autoHideMenuBar: true,
     title: 'Vanguard Simulator',
+    icon: appIcon().iconPath(),
     show: !smokeTest,
     webPreferences: {
       contextIsolation: true,
@@ -316,6 +371,10 @@ function createWindow() {
     },
   });
   registerOnlineIpc(win);
+  // phone-size pictures are drawn at 2x; Chromium remembers a page's zoom, so other runs reset it
+  if (shotsDir)
+    win.webContents.on('did-finish-load', () => win.webContents.setZoomFactor(phone ? 2 : 1));
+  registerAppIconIpc(win);
   if (devUrl) win.loadURL(devUrl);
   else win.loadFile(path.join(__dirname, '../../dist/renderer/index.html'));
   if (smokeTest) runSmokeTest(win);
@@ -344,6 +403,7 @@ const shotsStep = `(() => {
         (click(q('[data-testid=cpu-demo]')) || click(q('[data-testid=demo-start]')) || 'watch')) ||
       click(q('[data-testid=new-game]')) ||
       (${JSON.stringify(process.env.VANGUARD_SHOTS_FORMAT === 'g')} && !window.__fmt && q('[data-testid=format-g]') && ((window.__fmt = 1), click(q('[data-testid=format-g]')))) ||
+      (${JSON.stringify(process.env.VANGUARD_SHOTS_FORMAT === 'classic')} && !window.__fmt && q('[data-testid=format-classic]') && ((window.__fmt = 1), click(q('[data-testid=format-classic]')))) ||
       click(q('[data-testid=start]')) ||
       click(q('[data-testid=stride-go]')) ||
       click(q('[data-testid=g-guard-go]')) ||
@@ -402,21 +462,41 @@ function runShots(win) {
   win.webContents.on('did-finish-load', async () => {
     // VANGUARD_SHOTS_VIEW=overhead: the overhead battle view (Settings → Battle view)
     const view = process.env.VANGUARD_SHOTS_VIEW;
-    if (view && !runShots.viewSet) {
+    // VANGUARD_SHOTS_SOUND=1: sound on (unmuted, music at 50) to check the music in music.json
+    // VANGUARD_SHOTS_SET='{"theme":"gera"}': any settings, merged in (themes, text size…)
+    const sound = {
+      ...(process.env.VANGUARD_SHOTS_SOUND
+        ? { muted: false, masterVolume: 80, musicVolume: 50, mutedCategories: [] }
+        : {}),
+      ...(process.env.VANGUARD_SHOTS_SET ? JSON.parse(process.env.VANGUARD_SHOTS_SET) : {}),
+    };
+    if (
+      (view || process.env.VANGUARD_SHOTS_SOUND || process.env.VANGUARD_SHOTS_SET) &&
+      !runShots.viewSet
+    ) {
       runShots.viewSet = true;
       await win.webContents.executeJavaScript(`(() => {
         const k = 'vanguard-sim.settings.v1';
         const s = JSON.parse(localStorage.getItem(k) || '{}');
-        localStorage.setItem(k, JSON.stringify({ ...s, tableView: ${JSON.stringify(view)} }));
+        localStorage.setItem(k, JSON.stringify({ ...s, ${view ? `tableView: ${JSON.stringify(view)},` : ''} ...${JSON.stringify(sound)} }));
         location.reload();
       })()`);
       return;
     }
     fs.mkdirSync(shotsDir, { recursive: true });
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const musicLog = [];
     await wait(1500);
     for (let i = 0; i < Number(process.env.VANGUARD_SHOTS_STEPS || 40); i++) {
       const did = await win.webContents.executeJavaScript(step);
+      // the music each step (window.__vanguardMusic, a read-only diagnostic): is it playing?
+      musicLog.push({
+        step: i,
+        music: await win.webContents.executeJavaScript('window.__vanguardMusic?.() ?? null'),
+        layout: await win.webContents.executeJavaScript(
+          `({ phone: !!document.querySelector('.m-battle'), stage: document.querySelector('.stage')?.className, set: JSON.parse(localStorage.getItem('vanguard-sim.settings.v1') || '{}').battleLayout, w: innerWidth, h: innerHeight })`,
+        ),
+      });
       // one frame mid-animation, one after it has settled
       await wait(120);
       const mid = await win.webContents.capturePage();
@@ -483,6 +563,7 @@ function runShots(win) {
       return out;
     })()`);
     fs.writeFileSync(path.join(shotsDir, 'rects.json'), JSON.stringify(rects, null, 1));
+    fs.writeFileSync(path.join(shotsDir, 'music.json'), JSON.stringify(musicLog, null, 1));
     // and concede through the game menu to show the result screen
     await win.webContents.executeJavaScript(`(() => {
       document.querySelector('button[title="Game menu"]')?.click();

@@ -28,7 +28,8 @@ function run(label, args = []) {
   try {
     execFileSync(exe, args, {
       env: { ...process.env, VANGUARD_SMOKE_TEST: '1', VANGUARD_SMOKE_OUT: out },
-      timeout: 60_000,
+      // the first start of a freshly unpacked app can take over a minute while antivirus scans it
+      timeout: 180_000,
     });
   } catch {
     // a non-zero exit is reported below from the file (or its absence)

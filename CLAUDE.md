@@ -35,6 +35,10 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
   (a different file each time — likely antivirus locking new objects; not the Claude sandbox). Just retry;
   written objects persist, so it succeeds within a few tries. Run `git fsck` afterwards if worried.
 - Bash heredocs with quoted content sometimes break in the Claude Bash tool; prefer the Write tool for files.
+- Large new files (the 3-4 MB battle MP3s, 2026-11-08) can fail every `git add` with "Permission denied"
+  on the object file, however often it is retried. Writing the loose object directly works: zlib-compress
+  `b'blob <size>\0' + data` (a NUL byte after the size) into `.git/objects/<2>/<38>` (temp file, then rename), check it with
+  `git cat-file -t <hash>`, then `git add` and commit as usual.
 
 ## Layout
 

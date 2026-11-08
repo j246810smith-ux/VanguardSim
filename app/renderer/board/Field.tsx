@@ -1,4 +1,4 @@
-import { useState, type DragEvent, type MouseEvent } from 'react';
+import { useState, type DragEvent } from 'react';
 import {
   CIRCLES,
   basePower,
@@ -13,7 +13,21 @@ import { ctx, defOf, ME } from '../engine';
 import type { CircleState } from '../game/interaction';
 import { CardView } from '../ui/CardView';
 import { Ring } from '../ui/svg';
-import { CARD_RC, CARD_VC, circlePos } from './layout';
+import { useLongPress } from '../ui/useLongPress';
+import { CARD_RC, CARD_VC, circlePos, type Point } from './layout';
+
+/** Where each circle is and how big its unit is drawn: the desktop stage's by default. */
+export interface FieldGeometry {
+  readonly pos: (player: PlayerId, circle: Circle) => Point;
+  readonly size: (player: PlayerId, circle: Circle) => { readonly w: number; readonly h: number };
+  /** The circle's diameter; the stylesheet's (176/224 px) when not given. */
+  readonly ring?: (player: PlayerId, circle: Circle) => number;
+}
+
+export const DESKTOP_GEOMETRY: FieldGeometry = {
+  pos: circlePos,
+  size: (_player, circle) => (circle === 'vanguard' ? CARD_VC : CARD_RC),
+};
 
 /** Empty rear-guard circles show only the circle art (v0.28 feedback: no "REAR-GUARD" text). */
 const LABELS: Partial<Record<Circle, string>> = { vanguard: 'VANGUARD' };
@@ -26,6 +40,10 @@ interface FieldProps {
   readonly onDetails: (id: InstanceId) => void;
   readonly onDropCard: (circle: Circle, cardId: InstanceId) => void;
   readonly battleAttacker: InstanceId | null;
+  /** The phone layout's own circle positions and sizes (MobileBattleScreen). */
+  readonly geometry?: FieldGeometry;
+  /** Units in focus for a moment (the phone layout: attacker and target as an attack begins). */
+  readonly focus?: readonly InstanceId[];
 }
 
 export function Field(props: FieldProps) {
@@ -89,11 +107,14 @@ function CircleSlot({
   onDetails,
   onDropCard,
   battleAttacker,
+  geometry = DESKTOP_GEOMETRY,
+  focus,
 }: FieldProps & { circle: Circle }) {
   const [over, setOver] = useState(false);
-  const pos = circlePos(player, circle);
+  const press = useLongPress();
+  const pos = geometry.pos(player, circle);
   const vc = circle === 'vanguard';
-  const size = vc ? CARD_VC : CARD_RC;
+  const size = geometry.size(player, circle);
   const st = stateOf(player, circle);
   const pl = view.players[player];
   const legion = vc ? pl.legion : null;
@@ -108,12 +129,9 @@ function CircleSlot({
     st.mark ? `hl hl-${st.mark}` : '',
     st.selected ? `sel-${st.selected}` : '',
     top && top === battleAttacker ? 'in-battle-attacker' : '',
+    top && focus?.includes(top) ? 'focus' : '',
     over ? 'drop-over' : '',
   ].join(' ');
-  const onContext = (e: MouseEvent) => {
-    e.preventDefault();
-    if (top) onDetails(top);
-  };
   const droppable = st.mark === 'call' || st.mark === 'ride';
   const onDragOver = (e: DragEvent) => {
     if (!droppable) return;
@@ -131,9 +149,15 @@ function CircleSlot({
   return (
     <div
       className={cls}
-      style={{ left: pos.x, top: pos.y }}
+      style={{
+        left: pos.x,
+        top: pos.y,
+        ...(geometry.ring
+          ? { width: geometry.ring(player, circle), height: geometry.ring(player, circle) }
+          : {}),
+      }}
       onClick={() => onCircle(player, circle)}
-      onContextMenu={onContext}
+      {...press(top ? () => onDetails(top) : null)}
       onDragOver={onDragOver}
       onDragLeave={() => setOver(false)}
       onDrop={onDrop}

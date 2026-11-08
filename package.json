@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.31.0-alpha",
+  "version": "0.32.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -27,6 +27,8 @@
     "ui:build:release": "vite build --mode release",
     "dist:win": "npm run artwork:build && vite build --mode release && npm run updater:build && electron-builder --win --x64 --publish never",
     "dist:smoke": "node scripts/release-smoke.mjs",
+    "dist:android": "node scripts/build-android.mjs",
+    "artwork:phone": "node scripts/artwork-phone.mjs",
     "updater:build": "node scripts/build-updater.mjs",
     "release:keygen": "node scripts/release-keygen.mjs",
     "release:manifest": "node scripts/release-manifest.mjs",
@@ -36,6 +38,12 @@
     "online:probe": "npm run artwork:build && vite build && node scripts/online-probe.mjs"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3",
     "@eslint/js": "^10.0.1",
     "@fontsource/orbitron": "^5.3.0",
     "@fontsource/rajdhani": "^5.3.0",
@@ -101,6 +109,7 @@
       }
     ],
     "win": {
+      "icon": "app/main/icons/classic.ico",
       "target": [
         "zip",
         "portable"

@@ -471,6 +471,16 @@ export type Step =
     }
   /** Pay costs (CR 8.5.2.3): all choices first, then everything simultaneously. */
   | { readonly op: 'pay'; readonly costs: readonly Cost[] }
+  /**
+   * Pay one of two costs (house rule C2, the cheaper Mega Blast): whichever can be paid, or the
+   * player's choice when both can. Made by the engine, not written in card scripts.
+   */
+  | {
+      readonly op: 'pay_either';
+      readonly costs: readonly Cost[];
+      readonly cheaper: readonly Cost[];
+      readonly prompt: string;
+    }
   /** CR 10.1.20: the targets get an ability for the duration. */
   | {
       readonly op: 'grant';

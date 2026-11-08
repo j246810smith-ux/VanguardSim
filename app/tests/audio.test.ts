@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { BasicController } from '../../src/ai/basicController';
 import { STARTER_DECKS } from '../../src/decks/starters';
 import type { GameEvent } from '../../src/engine';
-import { audio } from '../renderer/audio/audio';
+import { audio, DEFAULT_AUDIO } from '../renderer/audio/audio';
 import { cuesFor, MAX_CUES } from '../renderer/audio/cues';
 import { movesOf } from '../renderer/board/motion';
 import { AI, ctx, ME } from '../renderer/engine';
@@ -128,7 +128,8 @@ describe('cuesFor', () => {
       ev({ type: 'ABILITY_RESOLVING' }),
       ev({ type: 'TURN_STARTED', turn: 2, player: 0 }),
     ];
-    expect(cuesFor(busy, ME)).toEqual(['ride', 'call', 'ability']);
+    // a superior call has its own sound (docs/audio/AUDIO_PLAN.md); at most MAX_CUES (4)
+    expect(cuesFor(busy, ME)).toEqual(['ride', 'superiorCall', 'ability', 'turn']);
     expect(cuesFor([...busy, ev({ type: 'GAME_ENDED', winner: ME, losses: {} })], ME)).toEqual([
       'victory',
     ]);
@@ -178,10 +179,12 @@ describe('sound in a whole game', () => {
 
   it('without Web Audio the sound manager does nothing and never throws', () => {
     expect(() => {
-      audio.configure({ musicVolume: 50, sfxVolume: 70, muted: false });
+      audio.configure(DEFAULT_AUDIO);
       audio.setMusic('battle');
-      audio.play(['ride', 'hit', 'victory']);
-      audio.configure({ musicVolume: 0, sfxVolume: 0, muted: true });
+      audio.play(['ride', 'hit', 'victory'], { landMs: 300 });
+      audio.ui('press');
+      audio.test();
+      audio.configure({ ...DEFAULT_AUDIO, muted: true });
     }).not.toThrow();
   });
 });

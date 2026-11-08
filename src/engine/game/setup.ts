@@ -126,7 +126,7 @@ export function createGame(
     usedThisTurn: [],
     usedThisGame: [],
     everInLegion: [],
-    ...(setup.customRules?.delayedLegion ? { customRules: { delayedLegion: true } } : {}),
+    ...(activeRules(setup.customRules) ? { customRules: activeRules(setup.customRules)! } : {}),
     grants: [],
     suppressions: [],
     players,
@@ -194,4 +194,14 @@ export function mulligan(d: Draft, player: PlayerId, cardIds: readonly InstanceI
   s.status = 'playing';
   emit(d, { type: 'VANGUARDS_STOOD_UP' });
   s.tasks.push({ kind: 'begin_turn', player: s.firstPlayer });
+}
+
+/** Only the house rules that are on (an all-off set is no `customRules` at all, as before). */
+function activeRules(rules: CustomRules | undefined): CustomRules | null {
+  if (!rules) return null;
+  const on: { -readonly [K in keyof CustomRules]: CustomRules[K] } = {};
+  if (rules.delayedLegion) on.delayedLegion = true;
+  if (rules.nineKGrade3 === 1000 || rules.nineKGrade3 === 2000) on.nineKGrade3 = rules.nineKGrade3;
+  if (rules.megaBlastCheap) on.megaBlastCheap = true;
+  return Object.keys(on).length ? on : null;
 }

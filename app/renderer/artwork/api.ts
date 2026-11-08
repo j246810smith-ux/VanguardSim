@@ -43,12 +43,16 @@ export interface VanguardDesktopApi {
   artworkStatus(): Promise<{ installed: number; expected: number; folder: string }>;
   openArtworkManager(): Promise<void>;
   cosmetics?(): Promise<OwnCosmetics>;
+  /** The player's own music file names (music\ next to cards\). */
+  music?(): Promise<readonly string[]>;
   /** Report a problem or suggest something: GitHub's new-issue page, in the browser. */
   openFeedback?(): Promise<void>;
   /** Vanguard Update Manager (D-037). */
   updates?: import('../updates').DesktopUpdates;
   /** Play Online (D-032). */
   online?: import('../online/controller').DesktopOnline;
+  /** The chosen app icon on the window, taskbar and a desktop shortcut (appIconNative.ts). */
+  appIcon?: import('../appIconNative').DesktopAppIcon;
 }
 
 declare global {

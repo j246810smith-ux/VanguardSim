@@ -15,6 +15,7 @@ Releases are tagged `v<version>`:
 - `v0.29.1-alpha` — first update through the game; tournament decks without player names; two updater fixes.
 - `v0.30.0-alpha` — deck-top pictures, seeing the card you look at, Hard AI fixes, G-BT02 shields.
 - `v0.31.0-alpha` — PR cards 2013 and 2014, G-BT03 to G-BT05, G-TD03 to G-TD05, G starter decks.
+- `v0.32.0-alpha` — recorded sounds and battle music, audio settings, house rules (9K Grade 3, Mega Blast), themes, v0.32 feedback fixes.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

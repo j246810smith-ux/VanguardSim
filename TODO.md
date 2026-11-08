@@ -46,3 +46,8 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] Deck-top pictures; the card you look at is shown
 - [ ] Hard AI: reach about 65% against v0.29 (best measurement 57.5%): win condition plan, hand and back-row values (`docs/ai/AI_AUDIT_AND_PLAN.md` 4b)
 - [ ] AI stage 5+ (`docs/ai/AI_AUDIT_AND_PLAN.md`)
+- [x] Android: audit and plan (`docs/android/ANDROID_AUDIT_AND_PLAN.md`)
+- [x] Android: touch, back button, graphics setting, safe areas, deck backup, art from the PC (branch `android-port`)
+- [ ] Android: first build on the phone, full AI match by touch (Phase A)
+- [ ] Android: info buttons, hand jitter check, Auto Backup, AI off the UI thread if needed, start-up time, CSP
+- [ ] Android: signed release APK on GitHub (Phase E)

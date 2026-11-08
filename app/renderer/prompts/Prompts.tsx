@@ -146,14 +146,38 @@ export function ChoicePrompt({
           ])}
         </DockedPrompt>
       );
-    case 'circle':
+    case 'circle': {
+      // rear-guard circles: the same circle map as a normal call (B9), legal circles only
+      const rear = choose.options.every((o) => REAR_GUARD_SET.has(o));
+      const placing = view.pendingChoice?.shown ?? [];
       return (
         <DockedPrompt>
           <h3>{choose.prompt}</h3>
+          {rear && placing.length > 0 && (
+            <div className="looked-card">
+              {placing.map((id) => (
+                <CardView
+                  key={id}
+                  definitionId={view.cards[id]!.definitionId}
+                  width={110}
+                  height={160}
+                />
+              ))}
+            </div>
+          )}
           <div className="hint">Click a glowing circle, or:</div>
-          {buttons(choose.options.map((o) => [o, circleName(o)]))}
+          {rear ? (
+            <CallMap
+              view={view}
+              open={choose.options as readonly RearGuardCircle[]}
+              onCall={(c) => onSubmit([c])}
+            />
+          ) : (
+            buttons(choose.options.map((o) => [o, circleName(o)]))
+          )}
         </DockedPrompt>
       );
+    }
     case 'order_abilities':
       return (
         <div className="prompt" data-testid="choice">
@@ -166,7 +190,14 @@ export function ChoicePrompt({
             const name = sb ? (defOf(view, sb.source)?.name ?? '?') : `#${o}`;
             return (
               <button key={o} className="btn ability-option" onClick={() => onSubmit([o])}>
-                <b>{name}</b> — {sb ? abilityText(view, sb.source, sb.abilityId) : ''}
+                <b>{name}</b>
+                {sb &&
+                sb.eventCard !== null &&
+                sb.eventCard !== sb.source &&
+                onBoard(view, sb.eventCard)
+                  ? ` (for ${defOf(view, sb.eventCard)?.name ?? '?'})`
+                  : ''}{' '}
+                — {sb ? abilityText(view, sb.source, sb.abilityId) : ''}
               </button>
             );
           })}
@@ -317,6 +348,14 @@ export function CardMenu({
     </div>
   );
 }
+
+const REAR_GUARD_SET: ReadonlySet<string> = new Set([
+  'front_left',
+  'front_right',
+  'back_left',
+  'back_center',
+  'back_right',
+]);
 
 /** Your circles as on the board: front row (left, VC, right) over the back row (v0.28). */
 const CALL_MAP: readonly (readonly (RearGuardCircle | 'vanguard')[])[] = [

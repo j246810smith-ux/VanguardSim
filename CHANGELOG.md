@@ -1,5 +1,56 @@
 # Changelog
 
+## 0.32.0-alpha — 2026-11-08
+
+**New sounds and battle music** (docs/audio/AUDIO_PLAN.md) — every sound effect is now a real
+recording (89 sounds from Kenney's free CC0 packs, docs/audio-licenses/), subtle and short: cards
+land with a crisp place and a small shimmer when their slide arrives, rides rise and land heavier,
+strides swell, guards pulse, hits punch, checks flip. Two battle themes (the owner's own tracks)
+play at random each battle, loop without a gap and fade in and out.
+
+- **Settings → Audio:** Master, Card actions, Battle effects, Interface, Music and Ambient volumes,
+  each with its own Mute; Mute all, Test sounds, Reset to defaults. Your old effects volume carries over.
+- **Settings → Audio → Battle music:** Random or one track. **Your own music:** put MP3, OGG, M4A or
+  WAV files in a `music` folder next to `cards` and they join the list (they stay on your PC).
+- Buttons click; refused moves make one soft sound; online, a repeated update never plays twice.
+
+**House rules** (Game Setup, off by default):
+
+- **9K Grade 3** (Original era): a vanguard with printed grade 3 and printed power exactly 9000 gets
+  +1000 power on the vanguard circle (press again for +2000). D-040.
+- **Mega Blast CB4 & SB6**: an ability costing Counter Blast 5 & Soul Blast 8 may be paid with Counter
+  Blast 4 & Soul Blast 6; you choose when you could pay both. D-041.
+- **Game menu → House rules** lists the rules of the game you are in, on or off, with their values.
+
+**Your feedback (v0.32 list):**
+
+- **Guarding:** a hand card is marked first (gold outline); click it again or Clear to take it back;
+  "Guard +N" places them.
+- **"Pay the cost?"** questions say which unit they are about, and that unit glows (four Sulfur
+  triggers can be told apart).
+- **Superior Calls** from effects use the same circle map as a normal call, showing the card.
+- **Game menu → Trigger ratio:** your deck list's triggers and how many are left in your deck now
+  (exact; never the opponent's deck). The deck builder shows the trigger share too.
+- **Final Turn!** — declare it once per turn in your main or battle phase; the CPU may declare it.
+  Cosmetic only.
+- **Deck builder:** ◀ Previous / Next ▶ (and the arrow keys) in a card's details, through the search
+  results or your deck.
+- **Overhead view:** the playmat reaches all four corners.
+- **CPU Demonstration:** Back and Start line up.
+- **Settings → Theme:** Classic, OverDress Modern, G Era Holo, Royal Futuristic, Anime Cel-Shaded and
+  Dark Premium. Only colours change.
+- **Settings → App icon:** five icons for the window, the taskbar and a desktop shortcut.
+- **Settings → Graphics:** Full, Reduced or Low (Low turns off foil and cut-ins, flat table).
+- The deck builder's questions use the game's own dialog. Hover effects only apply to a real mouse.
+  Music and sounds stop while the window is minimised.
+
+**Android (in testing, not in this download)** — the same game on phones, built from the same code
+(docs/android/BUILDING_ANDROID.md): a landscape phone layout of its own (docs/android/
+MOBILE_UI_PLAN.md) with a compact opponent field that opens on a tap, Card Info, a phase bar, a hand
+that opens large on a tap, the log as a side drawer; touch controls, long press for details, the back
+button, deck backup, card art and music copied from the PC (`npm run artwork:phone`). Settings →
+Battle layout chooses Automatic, Desktop or Phone (Windows stays on the desktop table).
+
 ## 0.31.0-alpha — 2026-11-06
 
 **G Trial Decks G-TD03, G-TD04 and G-TD05** (57 cards) — Neo Nectar, Aqua Force and Link Joker, each ready to play exactly as sold.

@@ -10,6 +10,7 @@ export interface ChoiceSpec {
   readonly prompt: string;
   readonly order?: DeckOrder;
   readonly shown?: readonly string[];
+  readonly subject?: string;
 }
 
 /**

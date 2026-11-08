@@ -2,10 +2,13 @@ import { createRequire } from 'node:module';
 import { describe, expect, it } from 'vitest';
 
 const require = createRequire(import.meta.url);
-const { isArtPath, isCosmeticPath } = require('../../app/main/artPath.cjs') as {
-  isArtPath: (rel: string) => boolean;
-  isCosmeticPath: (rel: string) => boolean;
-};
+const { isArtPath, isCosmeticPath, isMusicName, isMusicPath } =
+  require('../../app/main/artPath.cjs') as {
+    isArtPath: (rel: string) => boolean;
+    isCosmeticPath: (rel: string) => boolean;
+    isMusicName: (name: string) => boolean;
+    isMusicPath: (rel: string) => boolean;
+  };
 
 // The user's report (2026-10-30): the installed game showed placeholders for the English-only
 // BT16/BT17 cards (ids `BT17-001EN`): the desktop app refused to serve their art files.
@@ -46,5 +49,17 @@ describe('desktop sleeve and playmat paths', () => {
     expect(isCosmeticPath('sleeves/../secret.png')).toBe(false);
     expect(isCosmeticPath('sleeves/x.gif')).toBe(false);
     expect(isCosmeticPath('sleeves/a"b.png')).toBe(false);
+  });
+});
+
+// Battle music (docs/audio/AUDIO_PLAN.md): only plain music files in music\ are served.
+describe('desktop music paths', () => {
+  it('serves music/<file> for mp3, ogg, m4a and wav, nothing else and no sub-folders', () => {
+    expect(isMusicPath('music/My theme (1).mp3')).toBe(true);
+    expect(isMusicPath('music/track.ogg')).toBe(true);
+    expect(isMusicPath('music/../secret.mp3')).toBe(false);
+    expect(isMusicPath('music/sub/x.mp3')).toBe(false);
+    expect(isMusicPath('cards/x.mp3')).toBe(false);
+    expect(isMusicName('notes.txt')).toBe(false);
   });
 });

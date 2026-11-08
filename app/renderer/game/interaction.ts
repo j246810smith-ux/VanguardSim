@@ -70,7 +70,16 @@ export type Selection =
   | null;
 
 export type CircleMark =
-  'call' | 'ride' | 'target' | 'attacker' | 'booster' | 'intercept' | 'act' | 'choice';
+  | 'call'
+  | 'ride'
+  | 'target'
+  | 'attacker'
+  | 'booster'
+  | 'intercept'
+  | 'act'
+  | 'choice'
+  /** The unit a yes/no prompt is about (e.g. the unit that unlocked, for Sulfur). */
+  | 'subject';
 export interface CircleState {
   readonly mark: CircleMark | null;
   readonly selected: 'attacker' | 'booster' | 'choice' | null;
@@ -101,6 +110,7 @@ export function circleState(
     if (key && ch.options.includes(key)) {
       return { mark: 'choice', selected: choiceSel.includes(key) ? 'choice' : null };
     }
+    if (unit && s.pendingChoice?.subject === unit) return { mark: 'subject', selected: null };
     return { mark: null, selected: null };
   }
   if (sel?.kind === 'guard' || sel?.kind === 'intercept') {

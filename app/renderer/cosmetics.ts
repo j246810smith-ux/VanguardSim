@@ -8,6 +8,8 @@
  */
 import { useEffect, useState, type CSSProperties } from 'react';
 import type { OwnCosmetics } from './artwork/api';
+import { phoneFileUrl } from './android/native';
+import { phoneCosmetics } from './android/phoneArt';
 
 const FILE = 'file:';
 /** An own image's id, from its file name. */
@@ -17,9 +19,14 @@ export const isOwnImage = (id: string | null | undefined): boolean =>
 /** The name shown for an own image: its file name without the extension. */
 export const ownImageName = (id: string) => id.slice(FILE.length).replace(/\.[^.]+$/, '');
 
-/** The address of an own image (desktop app: vgart://cosmetics; dev server: assets/). */
+/**
+ * The address of an own image (desktop app: vgart://cosmetics; Android: the app's folder on the
+ * phone, android/native.ts; dev server: assets/).
+ */
 const ownImageUrl = (kind: 'sleeves' | 'playmats', id: string) => {
   const path = `${kind}/${encodeURIComponent(id.slice(FILE.length))}`;
+  const phone = phoneFileUrl(path);
+  if (phone) return phone;
   return globalThis.location?.protocol === 'file:' ? `vgart://cosmetics/${path}` : path;
 };
 
@@ -306,14 +313,21 @@ export const playmatOf = (id: string | null | undefined): Playmat =>
 export const shareableSleeve = (id: string | null | undefined): string =>
   !id || isOwnImage(id) || !SLEEVES.some((s) => s.id === id) ? DEFAULT_SLEEVE : id;
 
-/** The player's own sleeve and playmat images (desktop app only; empty elsewhere). */
+/**
+ * The player's own sleeve and playmat images: the desktop app's folders, or on Android the app's
+ * folder on the phone (android/phoneArt.ts); empty elsewhere.
+ */
 export function useOwnCosmetics(): OwnCosmetics {
   const [own, setOwn] = useState<OwnCosmetics>({ sleeves: [], playmats: [] });
   useEffect(() => {
-    const list = globalThis.window?.vanguardDesktop?.cosmetics ?? window.artworkManager?.cosmetics;
-    void list?.()
-      .then(setOwn)
-      .catch(() => undefined);
+    let live = true;
+    const desktop =
+      globalThis.window?.vanguardDesktop?.cosmetics ?? globalThis.window?.artworkManager?.cosmetics;
+    const list = desktop ? desktop() : phoneCosmetics();
+    void list.then((r) => live && r && setOwn(r)).catch(() => undefined);
+    return () => {
+      live = false;
+    };
   }, []);
   return own;
 }

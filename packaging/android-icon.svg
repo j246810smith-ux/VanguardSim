@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Vanguard Sim app icon (original design, no Bushiroad art or logos): two cards in the game's
+    blue and gold, the front one with a stylised sword. The Android launcher icons are made from
+    this file by scripts/android-icons.mjs:
+      #background  the square backdrop (left out of the adaptive icon's foreground layer)
+      #art         the cards and sword, kept inside the centre so launchers can mask it
+    The backdrop's colour matches android/app/src/main/res/values/ic_launcher_background.xml.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131f48" />
+      <stop offset="1" stop-color="#0d1636" />
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="#33d1ff" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#33d1ff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cardFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d3a7a" />
+      <stop offset="1" stop-color="#0f1f4a" />
+    </linearGradient>
+    <linearGradient id="cardBack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a7dff" />
+      <stop offset="1" stop-color="#173c8c" />
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e9fbff" />
+      <stop offset="0.5" stop-color="#ffffff" />
+      <stop offset="0.5" stop-color="#9fe6ff" />
+      <stop offset="1" stop-color="#33d1ff" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe58a" />
+      <stop offset="1" stop-color="#e0a722" />
+    </linearGradient>
+  </defs>
+
+  <g id="background">
+    <rect width="512" height="512" fill="url(#bg)" />
+    <rect width="512" height="512" fill="url(#halo)" />
+  </g>
+
+  <g id="art">
+    <!-- the card behind, tilted right -->
+    <g transform="rotate(12 256 256)">
+      <rect x="168" y="118" width="190" height="270" rx="18" fill="url(#cardBack)" />
+      <rect x="180" y="130" width="166" height="246" rx="12" fill="none" stroke="#33d1ff"
+        stroke-opacity="0.7" stroke-width="4" />
+    </g>
+    <!-- the card in front, tilted left, gold edge -->
+    <g transform="rotate(-8 256 256)">
+      <rect x="146" y="112" width="200" height="284" rx="20" fill="url(#cardFront)" stroke="url(#gold)"
+        stroke-width="10" />
+      <rect x="164" y="130" width="164" height="248" rx="12" fill="none" stroke="#ffd34d"
+        stroke-opacity="0.35" stroke-width="3" />
+    </g>
+    <!-- the sword, upright over both cards -->
+    <g>
+      <polygon points="256,92 274,128 274,318 238,318 238,128" fill="url(#blade)" />
+      <rect x="252" y="140" width="8" height="160" fill="#2a7dff" opacity="0.35" />
+      <rect x="196" y="316" width="120" height="20" rx="10" fill="url(#gold)" />
+      <rect x="246" y="334" width="20" height="54" rx="6" fill="#8a5a12" />
+      <rect x="246" y="342" width="20" height="6" fill="#ffd34d" opacity="0.8" />
+      <rect x="246" y="358" width="20" height="6" fill="#ffd34d" opacity="0.8" />
+      <circle cx="256" cy="400" r="17" fill="url(#gold)" />
+      <circle cx="256" cy="400" r="7" fill="#33d1ff" />
+    </g>
+  </g>
+</svg>

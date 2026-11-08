@@ -29,6 +29,8 @@ import type { BattleStep } from '../board/Panels';
 import { cuesFor, type Cue } from '../audio/cues';
 import { movesOf, type Move } from '../board/motion';
 import { describe, type LogLine } from './describe';
+import { AiTimer } from './aiTiming';
+import { IS_ANDROID } from '../platform';
 
 /** Easy (random), Basic (level 2) or Hard (deck-aware lookahead, D-021). */
 export type AiLevel = 'random' | 'basic' | 'smart';
@@ -47,6 +49,10 @@ export interface SessionConfig {
   readonly opponent?: 'ai' | 'remote';
   /** The Delayed Legion house rule (off by default). */
   readonly delayedLegion?: boolean;
+  /** House rule C1: a printed 9000-power grade 3 vanguard gets this much power (Original era). */
+  readonly nineKGrade3?: 1000 | 2000;
+  /** House rule C2: Mega Blast may be paid with Counter Blast 4 & Soul Blast 6. */
+  readonly megaBlastCheap?: boolean;
   /** Classic (default) or the G era (D-034, in testing; local games only). */
   readonly format?: FormatKey;
   /**
@@ -316,7 +322,14 @@ export class GameSession extends SessionBase {
       {
         seed: config.seed,
         decks: [config.myDeck, config.aiDeck],
-        ...(config.delayedLegion ? { customRules: { delayedLegion: true } } : {}),
+        customRules: {
+          ...(config.delayedLegion ? { delayedLegion: true } : {}),
+          // the 9K bonus is an Original era rule
+          ...(config.nineKGrade3 && (config.format ?? 'classic') === 'classic'
+            ? { nineKGrade3: config.nineKGrade3 }
+            : {}),
+          ...(config.megaBlastCheap ? { megaBlastCheap: true } : {}),
+        },
       },
       ctx,
     );
@@ -377,16 +390,20 @@ export class GameSession extends SessionBase {
     const ai = seat === AI ? this.ai : this.ai0;
     if (!ai) return;
     // each AI only sees what its player may know, as in any game
-    const command = ai.chooseCommand(
-      viewFor(this.state, seat),
-      seat,
-      getLegalActions(this.state, seat, ctx),
-    );
+    const view = viewFor(this.state, seat);
+    const actions = getLegalActions(this.state, seat, ctx);
+    const level = seat === AI ? this.config.aiLevel : (this.config.demo?.p1Level ?? 'basic');
+    const t0 = performance.now();
+    const command = ai.chooseCommand(view, seat, actions);
+    this.aiTimer.record(level, performance.now() - t0);
     if (!this.apply(command, [])) {
       // never let a bad AI command stall the game
       this.apply({ type: 'CONCEDE', player: seat }, []);
     }
+    if (this.state.status === 'finished') this.aiTimer.report(level);
   }
+  /** U15: how long the AI's decisions take; logged on Android only (game/aiTiming.ts). */
+  private readonly aiTimer = new AiTimer(IS_ANDROID);
 
   private apply(command: Command, errors: string[]): boolean {
     try {
@@ -450,12 +467,18 @@ export class GuestSession extends SessionBase {
 
   /** A view from the host, with the events that led to it and the guest's legal actions. */
   update(view: GameState, events: readonly GameEvent[], actions: readonly LegalAction[]): void {
+    // the same update twice (a resend after a reconnect) is not played or logged twice: its events
+    // led to the view the guest already has (docs/audio/AUDIO_PLAN.md, de-duplication)
+    const key = JSON.stringify(view);
+    const repeat = events.length > 0 && key === this.lastViewKey;
+    this.lastViewKey = key;
     this.view = view;
     this.actions = actions;
     this.waiting = false;
-    this.record(events, view);
+    if (!repeat) this.record(events, view);
     this.onChange?.();
   }
+  private lastViewKey: string | null = null;
 
   /** The host did not accept the last command. */
   rejected(message: string): void {

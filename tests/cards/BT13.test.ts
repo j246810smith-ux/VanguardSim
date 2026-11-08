@@ -554,6 +554,24 @@ describe('Link Joker', () => {
     expect(r.state.cards[target]!.locked).toBe(true);
   });
 
+  it('BT13-081 Palladium: the "pay the cost?" prompt names and marks the unit that unlocked', () => {
+    const s = scene({
+      at: 'main',
+      attacker: { circles: { vanguard: LJ_G2, back_left: 'BT13-081' }, damage: vanilla(1) },
+      defender: { circles: { vanguard: OPP, front_left: OPP_G1 }, deckTop: vanilla(4) },
+    });
+    const target = unitAt(s, 1, 'front_left');
+    s.cards[target]!.locked = true;
+    s.cards[target]!.faceUp = false;
+    const r = throughOpponentsTurn({ state: s, events: [] });
+    const asked = r.events.flatMap((e) =>
+      e.type === 'CHOICE_REQUESTED' && e.choice.kind === 'yes_no' ? [e.choice] : [],
+    );
+    expect(asked).toHaveLength(1);
+    expect(asked[0]!.subject).toBe(target);
+    expect(asked[0]!.prompt).toMatch(/\(for .+, your opponent's front-left rear-guard\)$/);
+  });
+
   it('BT13-015 Colony Maker, BT13-033 Knight of Entropy, BT13-035 Selenium, BT13-080 Tungsten, BT13-083 Chaos Beat', () => {
     const lockOpp = (st: GameState) => {
       const pl = st.players[1];

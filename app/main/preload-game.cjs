@@ -8,6 +8,8 @@ contextBridge.exposeInMainWorld('vanguardDesktop', {
   openArtworkManager: () => ipcRenderer.invoke('art:open'),
   /** The player's own sleeve and playmat image file names (D-033). */
   cosmetics: () => ipcRenderer.invoke('cosmetics:list'),
+  /** The player's own music file names (music\ next to cards\), for the battle playlist. */
+  music: () => ipcRenderer.invoke('music:list'),
   /** Report a problem or suggest something: GitHub's new-issue page, in the browser. */
   openFeedback: () => ipcRenderer.invoke('feedback:open'),
   /** Vanguard Update Manager (D-037): look up the newest release; open its page. */
@@ -27,6 +29,11 @@ contextBridge.exposeInMainWorld('vanguardDesktop', {
       ipcRenderer.on('updates:progress', listener);
       return () => ipcRenderer.removeListener('updates:progress', listener);
     },
+  },
+  /** The chosen app icon (appIcons.ts): window, taskbar, and a desktop shortcut made in Settings. */
+  appIcon: {
+    set: (id) => ipcRenderer.invoke('icon:set', id),
+    makeShortcut: (id) => ipcRenderer.invoke('icon:shortcut', id),
   },
   online: {
     host: (port) => ipcRenderer.invoke('online:host', port),

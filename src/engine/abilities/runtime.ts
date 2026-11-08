@@ -31,6 +31,7 @@ import {
   type InstanceId,
   type PlayerId,
   type RearGuardCircle,
+  type ZoneRef,
 } from '../state/types';
 import { abilitiesOf, holders } from './catalog';
 import { currentPower } from '../game/stats';
@@ -174,6 +175,32 @@ export function costInstruction(cost: Cost, n: number): string {
   }
 }
 
+/**
+ * The unit an automatic ability's event happened to, when it is another card on a circle (public):
+ * named in the "you may" prompt so several identical triggers (Sulfur, once per unlocked unit) can
+ * be told apart. Cards in hidden zones are never named.
+ */
+function publicSubject(
+  s: GameState,
+  ctx: EngineContext,
+  frame: Frame,
+  asked: PlayerId,
+): { id: InstanceId; label: string } | null {
+  const id = frame.eventCard;
+  if (id === null || id === frame.source || !s.cards[id]) return null;
+  let where: ZoneRef;
+  try {
+    where = locate(s, id);
+  } catch {
+    return null;
+  }
+  if (where.zone !== 'circle') return null;
+  const owner = where.player === asked ? 'your' : "your opponent's";
+  const circle =
+    where.circle === 'vanguard' ? 'vanguard' : `${where.circle.replace('_', '-')} rear-guard`;
+  return { id, label: `${currentName(s, ctx, id)}, ${owner} ${circle}` };
+}
+
 /** Turns an automatic ability's text structure into steps: "if …, you may pay the cost. If you do, …". */
 function autoProgram(a: AutoAbility): Step[] {
   let body: Step[] = [...a.effect];
@@ -282,8 +309,10 @@ export function actOptions(state: GameState, ctx: EngineContext, player: PlayerI
         eventCard: null,
       };
       if (a.requires && !evaluate(ec, a.requires)) continue;
-      // CR 8.5.2.3: cannot start what cannot be paid
-      if (!actCostFree(state, id) && !canPay(ec, a.cost)) continue;
+      // CR 8.5.2.3: cannot start what cannot be paid (house rule C2: or the cheaper Mega Blast)
+      const cheaper = cheaperMegaBlast(state, a.cost);
+      if (!actCostFree(state, id) && !canPay(ec, a.cost) && !(cheaper && canPay(ec, cheaper)))
+        continue;
       out.push({ source: id, abilityId: a.id });
     }
   }
@@ -304,10 +333,37 @@ export function activate(d: Draft, player: PlayerId, source: InstanceId, ability
     d.state.suppressions = d.state.suppressions.filter(
       (x) => !(x.target === source && 'actCosts' in x.what),
     );
+  const cheaper = free ? null : cheaperMegaBlast(d.state, a.cost);
   openFrame(d, 'ACT', player, source, a.id, null, [
-    { op: 'pay', costs: free ? [] : a.cost },
+    cheaper
+      ? {
+          op: 'pay_either',
+          costs: a.cost,
+          cheaper,
+          prompt:
+            'Pay the cheaper Mega Blast cost (Counter Blast 4 & Soul Blast 6) instead of Counter Blast 5 & Soul Blast 8?',
+        }
+      : { op: 'pay', costs: free ? [] : a.cost },
     ...a.effect,
   ]);
+}
+
+/**
+ * House rule C2 (`customRules.megaBlastCheap`): an [ACT] whose cost is exactly Counter Blast 5 &
+ * Soul Blast 8 (Mega Blast) may be paid with Counter Blast 4 & Soul Blast 6 instead; else null.
+ */
+export function cheaperMegaBlast(state: GameState, costs: readonly Cost[]): Cost[] | null {
+  if (!state.customRules?.megaBlastCheap || costs.length !== 2) return null;
+  const plain = (c: Cost, kind: string, n: number) =>
+    c.cost === kind && 'n' in c && c.n === n && !('filter' in c && c.filter);
+  const cb = costs.some((c) => plain(c, 'counter_blast', 5));
+  const sb = costs.some((c) => plain(c, 'soul_blast', 8));
+  return cb && sb
+    ? [
+        { cost: 'counter_blast', n: 4 },
+        { cost: 'soul_blast', n: 6 },
+      ]
+    : null;
 }
 
 // Costs ------------------------------------------------------------------------------------------
@@ -1165,13 +1221,16 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'may': {
       if (step.payable && !canPay(ec, step.payable)) return true;
+      const asked = step.player === 'opponent' ? other(frame.master) : frame.master;
+      const subject = publicSubject(s, ec.ctx, frame, asked);
       const answer = ask(d, task, {
-        player: step.player === 'opponent' ? other(frame.master) : frame.master,
+        player: asked,
         kind: 'yes_no',
         options: ['yes', 'no'],
         min: 1,
         max: 1,
-        prompt: step.prompt,
+        prompt: subject ? `${step.prompt} (for ${subject.label})` : step.prompt,
+        ...(subject ? { subject: subject.id } : {}),
       });
       if (answer === null) return false;
       if (answer[0] === 'yes') s.tasks.unshift(...stepTasks(frame.id, step.then));
@@ -1179,6 +1238,25 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'pay':
       return pay(d, task, frame, step.costs);
+    case 'pay_either': {
+      const normal = canPay(ec, step.costs);
+      const cheap = canPay(ec, step.cheaper);
+      let use = normal ? step.costs : step.cheaper;
+      if (normal && cheap) {
+        const answer = ask(d, task, {
+          player: frame.master,
+          kind: 'yes_no',
+          options: ['yes', 'no'],
+          min: 1,
+          max: 1,
+          prompt: step.prompt,
+        });
+        if (answer === null) return false;
+        use = answer[0] === 'yes' ? step.cheaper : step.costs;
+      }
+      s.tasks.unshift(...stepTasks(frame.id, [{ op: 'pay', costs: use }]));
+      return true;
+    }
     case 'grant':
       for (const target of targets) {
         const grant = { id: s.nextId++, target, ability: step.ability, until: step.duration };
@@ -1270,6 +1348,9 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
     prompt: task.move
       ? 'Choose an open rear-guard circle to move to'
       : 'Choose a rear-guard circle to call to',
+    // the card being placed, so the circle map can show it (B9); never one still in the deck,
+    // which would reveal a hidden card before it is placed
+    ...(locate(d.state, task.card).zone === 'deck' ? {} : { shown: [task.card] }),
   });
   if (picked === null) return false;
   if (picked.length === 0) return true; // no circle available

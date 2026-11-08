@@ -3,6 +3,7 @@ import type { GameState, InstanceId, PlayerId } from '../../../src/engine';
 import { ctx, ME } from '../engine';
 import type { DeckEnds } from '../game/deckKnowledge';
 import { CardView } from '../ui/CardView';
+import { InfoTip } from '../ui/InfoTip';
 import { ClanBadge } from '../ui/svg';
 import { pileBox, type Box } from './layout';
 
@@ -272,6 +273,17 @@ export function PhaseRail({
             )}
           </div>
         ))}
+        {/* touch screens (U5): the phases' tooltips, all in one place */}
+        <InfoTip
+          label="What the phases are"
+          testId="phase-help"
+          style={{ left: 0, top: 30, width: 420 }}
+          text={phases.map((p) => (
+            <span key={p} style={{ display: 'block' }}>
+              {PHASE_HELP[p]}
+            </span>
+          ))}
+        />
       </div>
     </>
   );

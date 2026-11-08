@@ -15,6 +15,25 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-08, end) — v0.32.0-alpha prepared
+
+Everything of 2026-11-08 is on `android-port` and goes into master by fast-forward for v0.32.0:
+the phone layout (docs/android/MOBILE_UI_PLAN.md, all six phases), the audio system and battle
+music (docs/audio/AUDIO_PLAN.md), themes, the house rules C1/C2 (D-040, D-041), the house rules
+panel (B12) and B3, B5, B6, B7, B8, B9, B11, B13 (docs/design/V032_FEEDBACK_AUDIT.md, Progress).
+**Open:** B10 panel layout (waiting for the user's screenshots), the user's ear test of the sounds
+and music on Windows and the phone, a signed Android release (only debug builds so far), online
+play for the two new house rules (the protocol does not carry them), A2–A4, more G sets, Deck
+Intelligence stage 7.
+
+## ▶ Pick up here (2026-11-08) — consolidated feedback brief
+
+Read `docs/design/V032_FEEDBACK_AUDIT.md` (audit, staged plan, the user's answers) and the OneDrive
+Desktop "VanguardSim HANDOVER 2026-11-08 (feedback brief, phone layout, icons).md". Done: the
+Android phone layout (branch `android-port`, installed on the phone), selectable app icons (both
+platforms), B3 guard marking (master, not playtested). Next: rest of stage 1 (B5, B9, B12, A1, D1),
+then the house rules C1/C2, then the Windows UI items and v0.32.0.
+
 ## ▶ Pick up here (2026-11-06, final) — AI handover
 
 **Released:** v0.30.0-alpha (Hard AI fixes, the looked-at card shown, deck pictures, G-BT02 shields) and
@@ -34,8 +53,10 @@ memory; `npm run ai:watch` logs are where the real bugs were found. Benchmarks f
 sets ran on a smaller card pool, so compare new runs with each other.
 
 **Unconfirmed in real play:** the deck pictures were seen on the battle screen only by forcing them on, and the
-looked-at card is only covered by tests. Ask how they looked. The signing key still has a copy on the
-OneDrive-synced Desktop unless the user moved it.
+looked-at card is only covered by tests. Ask how they looked.
+
+**Signing key:** the backup moved off the OneDrive Desktop on 2026-11-06 to a folder outside OneDrive. The user
+still has to clear it from OneDrive's recycle bin and put a copy on a USB stick, since both copies are on one drive.
 
 ## ▶ Pick up here (2026-11-06, end) — v0.31.0-alpha published
 

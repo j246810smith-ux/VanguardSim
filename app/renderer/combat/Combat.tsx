@@ -6,6 +6,7 @@ import {
   currentShield,
   type GameState,
   type InstanceId,
+  type Circle,
   type PlayerId,
 } from '../../../src/engine';
 import { circlePos, toScreen, type Point, type TableView } from '../board/layout';
@@ -18,10 +19,14 @@ import { CardView } from '../ui/CardView';
 const isOn = (s: GameState, p: PlayerId, id: InstanceId) =>
   Object.values(s.players[p].circles).some((ids) => ids.includes(id));
 
-function posOf(s: GameState, id: InstanceId): Point | null {
+function posOf(
+  s: GameState,
+  id: InstanceId,
+  at: (p: PlayerId, circle: Circle) => Point = circlePos,
+): Point | null {
   for (const p of [0, 1] as const) {
     for (const [circle, ids] of Object.entries(s.players[p].circles)) {
-      if (ids.includes(id)) return circlePos(p, circle as never);
+      if (ids.includes(id)) return at(p, circle as Circle);
     }
   }
   return null;
@@ -33,18 +38,28 @@ export function AttackLines({
   attacker,
   target,
   booster,
+  geometry,
+  size,
 }: {
   view: GameState;
   attacker: InstanceId | null;
   target: InstanceId | null;
   booster: InstanceId | null;
+  /** The phone field's circle positions and size (MobileBattleScreen); the stage's by default. */
+  geometry?: { readonly pos: (p: PlayerId, circle: Circle) => Point };
+  size?: { readonly w: number; readonly h: number };
 }) {
-  const a = attacker ? posOf(view, attacker) : null;
-  const t = target ? posOf(view, target) : null;
-  const b = booster ? posOf(view, booster) : null;
+  const at = geometry?.pos ?? circlePos;
+  const a = attacker ? posOf(view, attacker, at) : null;
+  const t = target ? posOf(view, target, at) : null;
+  const b = booster ? posOf(view, booster, at) : null;
   if (!a) return null;
   return (
-    <svg className="attack-lines" viewBox="0 0 1920 1080">
+    <svg
+      className="attack-lines"
+      viewBox={`0 0 ${size?.w ?? 1920} ${size?.h ?? 1080}`}
+      style={size ? { width: size.w, height: size.h } : undefined}
+    >
       <defs>
         <marker
           id="arrow"

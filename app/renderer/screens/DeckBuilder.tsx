@@ -5,14 +5,8 @@
  * narrows as you type (Enter adds the top card, Esc clears). Save / load / import / export /
  * sleeve & mat / test hand as before.
  */
-import {
-  useDeferredValue,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-  type MouseEvent,
-} from 'react';
+import { share } from '../game/triggerRatio';
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { exportDeck, parseDeck } from '../../../src/decks/text';
 import {
   maxCopiesOf,
@@ -27,15 +21,21 @@ import {
   formatOfSaved,
   loadDecks,
   newDeckId,
+  saveAllDecks,
   saveDeck,
   type SavedDeck,
 } from '../decks/storage';
+import { applyMerge, backupFileName, backupText, planMerge, readBackup } from '../decks/backup';
 import { buildIndex, search, type SearchEntry } from '../decks/search';
 import { clanColor, ctx, metaOf } from '../engine';
 import { CardView } from '../ui/CardView';
 import { playmatOf, sleeveLook } from '../cosmetics';
 import { useSettings } from '../settings';
 import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
+import { useConfirm } from '../ui/ConfirmDialog';
+import { useBackHandler } from '../android/back';
+import { nativeFiles } from '../android/native';
+import { isCoarsePointer, useLongPress } from '../ui/useLongPress';
 
 type Pool = { defs: CardDefinition[]; index: SearchEntry[] };
 /** The card pool of each format (Classic: BT01–BT17 and side sets; G era: those plus G sets). */
@@ -109,7 +109,8 @@ const deckOrder = (a: string, b: string) => {
 };
 
 type Modal =
-  | { kind: 'details'; id: string }
+  /** B6: `list` is the sequence previous/next step through (the search results, or the deck) */
+  | { kind: 'details'; id: string; list: readonly string[] }
   | { kind: 'load' }
   | { kind: 'import'; text: string; problems: readonly string[] }
   | { kind: 'export'; text: string }
@@ -135,6 +136,8 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   const [toast, setToast] = useState<string | null>(null);
   const [saved, setSaved] = useState<SavedDeck[]>(loadDecks);
   const searchBox = useRef<HTMLInputElement>(null);
+  const { ask, dialog } = useConfirm();
+  const press = useLongPress();
 
   const rules = PLAY_FORMATS[format].format;
   const gEra = rules.maxGDeckSize.value > 0;
@@ -163,7 +166,11 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   const ofGrade = (g: number) => defs.filter((d) => d.grade === g).length;
   const triggerTotal = defs.filter((d) => d.trigger).length;
   const sortedMain = useMemo(() => [...cards].sort(deckOrder), [cards]);
+  // B6: the sequences the card details step through, in the order on screen
+  const uniqueMain = useMemo(() => [...new Set(sortedMain)], [sortedMain]);
+  const shownIds = useMemo(() => shown.map((e) => e.def.id), [shown]);
   const sortedG = useMemo(() => [...gDeck].sort(), [gDeck]);
+  const uniqueG = useMemo(() => [...new Set(sortedG)], [sortedG]);
 
   const flash = (message: string) => {
     setToast(message);
@@ -209,13 +216,18 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   };
   const changeFormat = (next: FormatKey) => {
     if (next === format) return;
+    const apply = () => {
+      setFormat(next);
+      setLimit(PAGE);
+      if (cards.length > 0 || gDeck.length > 0) setDirty(true);
+    };
     if (PLAY_FORMATS[next].format.maxGDeckSize.value === 0 && gDeck.length > 0) {
-      if (!window.confirm('Original Era decks have no G deck. Remove the G deck?')) return;
-      setGDeck([]);
+      return ask('Original Era decks have no G deck. Remove the G deck?', 'Remove', () => {
+        setGDeck([]);
+        apply();
+      });
     }
-    setFormat(next);
-    setLimit(PAGE);
-    if (cards.length > 0 || gDeck.length > 0) setDirty(true);
+    apply();
   };
   const loadInto = (d: SavedDeck | null) => {
     setDeckId(d?.id ?? null);
@@ -246,11 +258,76 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
     setSaved(loadDecks());
     flash(issues.length ? 'Saved (not legal yet)' : 'Saved');
   };
-  const confirmDiscard = () => !dirty || window.confirm('Discard unsaved changes?');
-  const details = (id: string) => (e: MouseEvent) => {
-    e.preventDefault();
-    setModal({ kind: 'details', id });
+  /** Runs `then` now, or after the player agrees to lose unsaved changes. */
+  const discardThen = (then: () => void) =>
+    dirty ? ask('Discard unsaved changes?', 'Discard', then) : then();
+  // Android back (U6): close the open window first, then leave as "← Menu" does
+  useBackHandler(() => {
+    if (modal) setModal(null);
+    else discardThen(onBack);
+    return true;
+  });
+  /** U9: every saved deck in one file, kept outside the game (uninstalling wipes saved decks). */
+  const backupInput = useRef<HTMLInputElement>(null);
+  const exportAll = async () => {
+    const now = new Date();
+    const text = backupText(saved, ctx.registry, now);
+    const done = `${saved.length} deck${saved.length === 1 ? '' : 's'} saved to a file`;
+    // Android: a WebView does not download, so write the file and open the share sheet
+    // (Drive, Files, e-mail…)
+    const native = nativeFiles();
+    if (native) {
+      try {
+        const { uri } = await native.fs.writeFile({
+          path: backupFileName(now),
+          data: text,
+          directory: 'CACHE',
+          encoding: 'utf8',
+        });
+        await native.share.share({ title: 'Vanguard Sim decks', url: uri });
+        flash(done);
+      } catch {
+        // also when the player closes the share sheet without choosing anything
+        flash('The decks were not shared');
+      }
+      return;
+    }
+    const blob = new Blob([text], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = backupFileName(now);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    flash(done);
   };
+  const importAll = async (file: File) => {
+    const read = readBackup(await file.text());
+    if (read.decks.length === 0) return flash(read.problems[0] ?? 'No decks in this file');
+    const current = loadDecks();
+    const plan = planMerge(current, read.decks);
+    const finish = (replace: boolean) => {
+      if (!saveAllDecks(applyMerge(current, plan, replace)))
+        return flash('Could not save (storage unavailable)');
+      setSaved(loadDecks());
+      const n = plan.added.length + (replace ? plan.replacing.length : 0);
+      flash(
+        `${n} deck${n === 1 ? '' : 's'} imported${read.problems[0] ? ` · ${read.problems[0]}` : ''}`,
+      );
+    };
+    if (plan.replacing.length === 0) return finish(false);
+    const r = plan.replacing.length;
+    ask(
+      `${r} deck${r === 1 ? ' in the file is' : 's in the file are'} already saved here, with changes. Replace ${r === 1 ? 'it' : 'them'}?`,
+      'Replace',
+      () => finish(true),
+    );
+  };
+  /** Right-click (mouse) or long press (touch): the card's details. */
+  const details = (id: string, list: readonly string[]) =>
+    press(() => setModal({ kind: 'details', id, list }));
   const set = (k: keyof Filters) => (e: { target: { value: string } }) => {
     setFilters({ ...filters, [k]: e.target.value });
     setLimit(PAGE);
@@ -259,7 +336,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   return (
     <div className="builder dd">
       <div className="builder-head">
-        <button className="btn" onClick={() => confirmDiscard() && onBack()}>
+        <button className="btn" onClick={() => discardThen(onBack)}>
           ← Menu
         </button>
         <h1>DECK EDIT</h1>
@@ -284,7 +361,11 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           }}
           data-testid="deck-name"
         />
-        <span className="hint">Click a card to add or remove it · right-click for details</span>
+        <span className="hint">
+          {isCoarsePointer()
+            ? 'Tap a card to add or remove it · hold it for details'
+            : 'Click a card to add or remove it · right-click for details'}
+        </span>
       </div>
 
       <section className="dd-deck">
@@ -296,9 +377,13 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           <span className={triggerTotal === rules.triggerCount.value ? 'ok' : 'bad'}>
             {triggerTotal}/{rules.triggerCount.value} triggers
           </span>
-          <span>
+          <span
+            data-testid="deck-trigger-ratio"
+            title={`Of ${cards.length} cards: critical ${share(triggers('critical'), cards.length)}, draw ${share(triggers('draw'), cards.length)}, stand ${share(triggers('stand'), cards.length)}, heal ${share(triggers('heal'), cards.length)}`}
+          >
             ★{triggers('critical')} · draw {triggers('draw')} · stand {triggers('stand')} · heal{' '}
             {triggers('heal')}
+            {cards.length > 0 && ` (${Math.round((triggerTotal / cards.length) * 100)}% triggers)`}
           </span>
           <span>sentinels {defs.filter((d) => d.sentinel).length}</span>
           <span>
@@ -315,7 +400,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
                 className={`dd-tile ${isFirst ? 'first' : ''}`}
                 style={{ '--clan': clanColor(d.clan) } as CSSProperties}
                 onClick={() => remove(id)}
-                onContextMenu={details(id)}
+                {...details(id, uniqueMain)}
                 title={`${d.name} (click to remove)`}
                 data-testid={`deck-card-${id}`}
               >
@@ -355,7 +440,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
                   key={`${id}-${i}`}
                   className="dd-tile g"
                   onClick={() => remove(id)}
-                  onContextMenu={details(id)}
+                  {...details(id, uniqueG)}
                   title={`${ctx.registry.get(id).name} (click to remove)`}
                   data-testid={`g-card-${id}`}
                 >
@@ -398,7 +483,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           >
             Sleeve &amp; mat…
           </button>
-          <button className="btn" onClick={() => confirmDiscard() && loadInto(null)}>
+          <button className="btn" onClick={() => discardThen(() => loadInto(null))}>
             New
           </button>
           <button
@@ -524,7 +609,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
               key={d.id}
               className="pool-card"
               onClick={() => add(d.id)}
-              onContextMenu={details(d.id)}
+              {...details(d.id, shownIds)}
               data-testid={`pool-${d.id}`}
             >
               <CardView definitionId={d.id} width={112} height={163} />
@@ -542,7 +627,12 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
       </section>
 
       {modal?.kind === 'details' && (
-        <DefinitionDetails id={modal.id} onClose={() => setModal(null)} />
+        <DefinitionDetails
+          id={modal.id}
+          list={modal.list}
+          onShow={(id) => setModal({ ...modal, id })}
+          onClose={() => setModal(null)}
+        />
       )}
       {modal?.kind === 'sleeve' && (
         <div className="modal-backdrop" onClick={() => setModal(null)}>
@@ -608,17 +698,19 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
                   <b>{d.name}</b>
                   <span className="hint">{PLAY_FORMATS[f].label}</span>
                   <span className={legal ? 'ok' : 'bad'}>{legal ? 'legal' : 'not legal'}</span>
-                  <button className="btn" onClick={() => confirmDiscard() && loadInto(d)}>
+                  <button className="btn" onClick={() => discardThen(() => loadInto(d))}>
                     Load
                   </button>
                   <button
                     className="btn"
-                    onClick={() => {
-                      if (!window.confirm(`Delete "${d.name}"?`)) return;
-                      deleteDeck(d.id);
-                      setSaved(loadDecks());
-                      if (d.id === deckId) setDeckId(null);
-                    }}
+                    onClick={() =>
+                      ask(`Delete "${d.name}"?`, 'Delete', () => {
+                        deleteDeck(d.id);
+                        setSaved(loadDecks());
+                        if (d.id === deckId) setDeckId(null);
+                      })
+                    }
+                    data-testid={`delete-deck-${d.id}`}
                   >
                     Delete
                   </button>
@@ -626,6 +718,33 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
               );
             })}
             <div className="buttons">
+              <button
+                className="btn"
+                disabled={saved.length === 0}
+                onClick={() => void exportAll()}
+                data-testid="export-all-decks"
+              >
+                Export all decks
+              </button>
+              <button
+                className="btn"
+                onClick={() => backupInput.current?.click()}
+                data-testid="import-decks"
+              >
+                Import decks
+              </button>
+              <input
+                ref={backupInput}
+                type="file"
+                accept=".json,application/json"
+                style={{ display: 'none' }}
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  e.target.value = '';
+                  if (file) void importAll(file);
+                }}
+                data-testid="import-decks-file"
+              />
               <button className="btn" onClick={() => setModal(null)}>
                 Close
               </button>
@@ -661,16 +780,19 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
                       ...modal,
                       problems: ['No cards found.', ...parsed.problems],
                     });
-                  if (!confirmDiscard()) return;
-                  setDeckId(null);
-                  setName(parsed.name ?? 'Imported deck');
-                  setCards([...parsed.deck.cards]);
-                  setGDeck([...(parsed.deck.gDeck ?? [])]);
-                  if ((parsed.deck.gDeck?.length ?? 0) > 0) setFormat('g');
-                  setFirst(parsed.deck.firstVanguard || null);
-                  setDirty(true);
-                  setModal(parsed.problems.length ? { ...modal, problems: parsed.problems } : null);
-                  flash('Imported — save it to keep it');
+                  discardThen(() => {
+                    setDeckId(null);
+                    setName(parsed.name ?? 'Imported deck');
+                    setCards([...parsed.deck.cards]);
+                    setGDeck([...(parsed.deck.gDeck ?? [])]);
+                    if ((parsed.deck.gDeck?.length ?? 0) > 0) setFormat('g');
+                    setFirst(parsed.deck.firstVanguard || null);
+                    setDirty(true);
+                    setModal(
+                      parsed.problems.length ? { ...modal, problems: parsed.problems } : null,
+                    );
+                    flash('Imported — save it to keep it');
+                  });
                 }}
               >
                 Import
@@ -743,15 +865,40 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           </div>
         </div>
       )}
+      {dialog}
       {toast && <div className="toast">{toast}</div>}
     </div>
   );
 }
 
 /** A card's printed details (no game state). */
-function DefinitionDetails({ id, onClose }: { id: string; onClose: () => void }) {
+function DefinitionDetails({
+  id,
+  list,
+  onShow,
+  onClose,
+}: {
+  id: string;
+  list: readonly string[];
+  onShow: (id: string) => void;
+  onClose: () => void;
+}) {
   const d = ctx.registry.get(id);
   const meta = metaOf(id);
+  // B6 (v0.32 feedback): previous / next through the same results, the panel stays open
+  const at = list.indexOf(id);
+  const step = (by: number) => {
+    if (at < 0 || list.length < 2) return;
+    onShow(list[(at + by + list.length) % list.length]!);
+  };
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal details" onClick={(e) => e.stopPropagation()}>
@@ -788,7 +935,30 @@ function DefinitionDetails({ id, onClose }: { id: string; onClose: () => void })
             </div>
           </dl>
           <div className="skill-text">{d.text || 'No abilities.'}</div>
-          <div className="buttons" style={{ marginTop: 18 }}>
+          <div className="buttons" style={{ marginTop: 18, alignItems: 'center' }}>
+            {list.length > 1 && at >= 0 && (
+              <>
+                <button
+                  className="btn"
+                  onClick={() => step(-1)}
+                  data-testid="details-prev"
+                  aria-label="Previous card"
+                >
+                  ◀ Previous
+                </button>
+                <span className="details-position" data-testid="details-position">
+                  {at + 1} / {list.length}
+                </span>
+                <button
+                  className="btn"
+                  onClick={() => step(1)}
+                  data-testid="details-next"
+                  aria-label="Next card"
+                >
+                  Next ▶
+                </button>
+              </>
+            )}
             <button className="btn" onClick={onClose}>
               Close
             </button>

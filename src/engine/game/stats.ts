@@ -2,6 +2,7 @@ import { other, type GameState, type InstanceId, type Modifier } from '../state/
 import { continuousStat } from '../abilities/continuous';
 import { chosenHeartOf, definitionOf as definition, isOnCircle } from './characteristics';
 import type { EngineContext } from './context';
+import { EARLY_BT01_BT17_FORMAT } from '../rules/format';
 
 export { currentClan, currentGrade, isOnCircle } from './characteristics';
 
@@ -57,7 +58,23 @@ export function basePower(state: GameState, ctx: EngineContext, id: InstanceId):
   // CR 1.48.1 10.28.3.3: a strided G unit adds the power written on its chosen heart
   const heart = chosenHeartOf(state, id);
   const fromHeart = heart === null ? 0 : definition(state, ctx, heart).power;
-  return printed + fromHeart + modified(state, ctx, id, 'power');
+  return printed + fromHeart + nineKBonus(state, ctx, id) + modified(state, ctx, id, 'power');
+}
+
+/**
+ * House rule C1 (`customRules.nineKGrade3`, Original era only): the vanguard whose printed grade is
+ * 3 and printed power exactly 9000 gets the bonus while on (VC); in legion, the leader only.
+ */
+export function nineKBonus(state: GameState, ctx: EngineContext, id: InstanceId): number {
+  const bonus = state.customRules?.nineKGrade3;
+  if (!bonus || state.formatId !== EARLY_BT01_BT17_FORMAT.id) return 0;
+  const card = state.cards[id];
+  if (!card || card.deleted) return 0;
+  const p = state.players[card.owner];
+  const vanguard = p.legion ? p.legion.leader : p.circles.vanguard.at(-1);
+  if (vanguard !== id) return 0;
+  const def = definition(state, ctx, id);
+  return def.grade === 3 && def.power === 9000 ? bonus : 0;
 }
 
 /**

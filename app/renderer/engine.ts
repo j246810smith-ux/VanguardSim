@@ -1,5 +1,6 @@
 /** The renderer's single connection to the rules engine and card database. */
 import { cardRegistry, SETS } from '../../src/cards';
+import { phoneFileUrl } from './android/native';
 import {
   HIDDEN,
   PLAY_FORMATS,
@@ -68,6 +69,10 @@ export const artUrl = (definitionId: string, ext = 'png') => {
   // for PR11-0003
   const set = definitionId.replace(/-(\d{3}(EN)?|\d{4}[A-Z]?)$/, '');
   const path = `${set}/${definitionId}.${ext}`;
+  // Android: the art copied to the app's folder on the phone (npm run artwork:phone), once that
+  // folder is known (android/native.ts resolveArtFolder); until then, as below
+  const phone = phoneFileUrl(`cards/${path}`);
+  if (phone) return phone;
   // the desktop app serves optional art from a folder outside the build (app/main/main.cjs);
   // the Vite dev server and tests serve it from assets/ as `cards/…`
   return globalThis.location?.protocol === 'file:' ? `vgart://cards/${path}` : `cards/${path}`;

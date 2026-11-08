@@ -117,7 +117,15 @@ type Modal =
   | { kind: 'hand'; order: string[]; drawn: number }
   | { kind: 'sleeve' };
 
-export function DeckBuilder({ onBack }: { onBack: () => void }) {
+export function DeckBuilder({
+  onBack,
+  mode = 'edit',
+}: {
+  onBack: () => void;
+  /** 'browse': the Card Database from the home screen, the card pool only (no deck to edit). */
+  mode?: 'edit' | 'browse';
+}) {
+  const browse = mode === 'browse';
   const settings = useSettings();
   const [deckId, setDeckId] = useState<string | null>(null);
   const [name, setName] = useState('New deck');
@@ -334,12 +342,15 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <div className="builder dd">
+    <div
+      className={`builder dd ${browse ? 'browse' : ''}`}
+      data-testid={browse ? 'card-database' : undefined}
+    >
       <div className="builder-head">
         <button className="btn" onClick={() => discardThen(onBack)}>
           ← Menu
         </button>
-        <h1>DECK EDIT</h1>
+        <h1>{browse ? 'CARD DATABASE' : 'DECK EDIT'}</h1>
         <div className="format-switch" data-testid="deck-format">
           {(Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => (
             <button
@@ -353,6 +364,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           ))}
         </div>
         <input
+          hidden={browse}
           className="text deck-name"
           value={name}
           onChange={(e) => {
@@ -362,9 +374,11 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
           data-testid="deck-name"
         />
         <span className="hint">
-          {isCoarsePointer()
-            ? 'Tap a card to add or remove it · hold it for details'
-            : 'Click a card to add or remove it · right-click for details'}
+          {browse
+            ? `${isCoarsePointer() ? 'Tap' : 'Click'} a card for its details`
+            : isCoarsePointer()
+              ? 'Tap a card to add or remove it · hold it for details'
+              : 'Click a card to add or remove it · right-click for details'}
         </span>
       </div>
 
@@ -522,7 +536,7 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
             }}
             onKeyDown={(e) => {
               if (e.key === 'Escape') setQuery('');
-              if (e.key === 'Enter' && shown[0]) add(shown[0].def.id);
+              if (e.key === 'Enter' && shown[0] && !browse) add(shown[0].def.id);
             }}
             data-testid="card-search"
           />
@@ -608,7 +622,9 @@ export function DeckBuilder({ onBack }: { onBack: () => void }) {
             <div
               key={d.id}
               className="pool-card"
-              onClick={() => add(d.id)}
+              onClick={() =>
+                browse ? setModal({ kind: 'details', id: d.id, list: shownIds }) : add(d.id)
+              }
               {...details(d.id, shownIds)}
               data-testid={`pool-${d.id}`}
             >

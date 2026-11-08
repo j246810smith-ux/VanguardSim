@@ -63,6 +63,7 @@ describe('info button (U5)', () => {
   it('Game Setup has info buttons for the Expanded Era and Delayed Legion on touch', () => {
     touchScreen(true);
     render(<App />);
+    fireEvent.click(screen.getByTestId('start-battle'));
     fireEvent.click(screen.getByTestId('new-game'));
     fireEvent.click(screen.getByTestId('format-help'));
     expect(screen.getByTestId('format-help-text').textContent).toContain('Generation Break');
@@ -76,6 +77,7 @@ describe('info button (U5)', () => {
   it('Game Setup with a mouse: no info buttons, the tooltips stay', () => {
     touchScreen(false);
     render(<App />);
+    fireEvent.click(screen.getByTestId('start-battle'));
     fireEvent.click(screen.getByTestId('new-game'));
     expect(screen.queryByTestId('format-help')).toBeNull();
     expect(screen.getByTestId('format-g').getAttribute('title')).toContain('Generation Break');

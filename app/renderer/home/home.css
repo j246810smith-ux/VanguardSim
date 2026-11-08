@@ -1,0 +1,759 @@
+/* ---- home screen (docs/design/HOME_SCREEN_PLAN.md) --------------------------------------------
+   Laid out on the fixed 1920×1080 stage like every screen, so it scales the same on Windows and on
+   the phone. On a phone wider than 16:9 the fighters move out into the extra width (--edge). */
+.home {
+  --h-blue: #33d1ff;
+  --h-blue-deep: #1356c8;
+  --h-red: #ff3b5c;
+  --h-red-deep: #a3123a;
+  --h-gold: #ffd34d;
+  --h-gold-dark: #b8862a;
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  font-family: var(--font-display);
+}
+.home.paused *,
+.home.paused *::before,
+.home.paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* background: navy, a blue glow left and a red one right, a grid floor, a few sparks */
+.home-bg {
+  position: absolute;
+  inset: 0 calc(-1 * var(--edge, 0px));
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(120, 90, 255, 0.18), transparent 70%),
+    linear-gradient(180deg, #050a1c 0%, #0a1434 55%, #060b1e 100%);
+  overflow: hidden;
+  pointer-events: none;
+}
+.home-glow {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  width: 55%;
+  opacity: 0.75;
+}
+.home-glow.blue {
+  left: -15%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(30, 140, 255, 0.55), transparent 65%);
+}
+.home-glow.red {
+  right: -15%;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255, 40, 90, 0.5), transparent 65%);
+}
+.home-skyline {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 1200px;
+  height: 520px;
+  transform: translateX(-50%);
+  object-fit: cover;
+  opacity: 0.55;
+}
+.home-floor {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -30%;
+  height: 70%;
+  background-image:
+    linear-gradient(rgba(110, 170, 255, 0.16) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(110, 170, 255, 0.16) 2px, transparent 2px);
+  background-size: 80px 80px;
+  transform: perspective(700px) rotateX(62deg);
+  transform-origin: center top;
+  mask-image: linear-gradient(180deg, transparent, #000 40%);
+  animation: home-floor 18s linear infinite;
+}
+@keyframes home-floor {
+  to {
+    background-position: 0 80px;
+  }
+}
+.home-sparks span {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: home-spark 9s linear infinite;
+}
+.home-sparks span.blue {
+  background: var(--h-blue);
+  box-shadow: 0 0 10px var(--h-blue);
+}
+.home-sparks span.red {
+  background: var(--h-red);
+  box-shadow: 0 0 10px var(--h-red);
+}
+@keyframes home-spark {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-1100px) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* logo */
+.home-logo {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+.home-logo-main {
+  font: 900 72px var(--font-display);
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #8fe6ff 0%, #ffffff 50%, #ff8fa6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgba(80, 160, 255, 0.55)) drop-shadow(0 3px 0 #0b1a44);
+  white-space: nowrap;
+}
+.home-logo-sub {
+  margin-top: 2px;
+  font: 700 18px var(--font-display);
+  letter-spacing: 0.4em;
+  color: var(--h-gold);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* the field */
+.home-field {
+  position: absolute;
+  left: 490px;
+  top: 118px;
+  width: 940px;
+  height: 583px;
+  transform: perspective(1500px) rotateX(36deg);
+  transform-origin: center 60%;
+  z-index: 1;
+  pointer-events: none;
+}
+.home-field-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hf-edge {
+  fill: none;
+  stroke-width: 3;
+}
+.hf-edge.hf-rival {
+  stroke: rgba(255, 70, 110, 0.75);
+}
+.hf-edge.hf-player {
+  stroke: rgba(60, 190, 255, 0.8);
+}
+.hf-line {
+  stroke: rgba(220, 200, 255, 0.85);
+  stroke-width: 4;
+}
+.hf-line-flow {
+  stroke: #fff;
+  stroke-width: 6;
+  stroke-dasharray: 60 240;
+  stroke-linecap: round;
+  animation: hf-flow 3.2s linear infinite;
+}
+@keyframes hf-flow {
+  to {
+    stroke-dashoffset: -300;
+  }
+}
+.hf-spine {
+  stroke: rgba(180, 200, 255, 0.18);
+  stroke-width: 2;
+}
+.hf-circle circle {
+  fill: none;
+}
+.hf-ring-outer {
+  stroke-width: 5;
+  stroke-dasharray: 14 7;
+}
+.hf-ring-inner {
+  stroke-width: 2.5;
+}
+.hf-ring-core {
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+}
+.hf-rival .hf-ring-outer,
+.hf-rival .hf-ring-inner,
+.hf-rival .hf-ring-core {
+  stroke: var(--h-red);
+}
+.hf-player .hf-ring-outer,
+.hf-player .hf-ring-inner,
+.hf-player .hf-ring-core {
+  stroke: var(--h-blue);
+}
+.hf-circle {
+  animation: hf-glow 4.2s ease-in-out infinite;
+}
+.hf-rival.hf-circle {
+  filter: drop-shadow(0 0 6px rgba(255, 60, 100, 0.9));
+}
+.hf-player.hf-circle {
+  filter: drop-shadow(0 0 6px rgba(50, 190, 255, 0.9));
+}
+@keyframes hf-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.hf-v {
+  fill: rgba(255, 255, 255, 0.85);
+}
+.hf-card {
+  fill: #0b1736;
+  stroke-width: 2.5;
+}
+.hf-card.back {
+  fill: #081028;
+}
+.hf-rival .hf-card {
+  stroke: rgba(255, 80, 120, 0.8);
+}
+.hf-player .hf-card {
+  stroke: rgba(80, 200, 255, 0.85);
+}
+.hf-card-mark {
+  fill: none;
+  stroke: rgba(200, 220, 255, 0.6);
+  stroke-width: 2;
+}
+.hf-pulse {
+  fill: #fff;
+  filter: drop-shadow(0 0 10px #c8b6ff);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hf-pulse 5s ease-out infinite;
+}
+@keyframes hf-pulse {
+  0%,
+  70% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  85% {
+    transform: scale(5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* the fighters: separate layers at the sides, kept clear of the buttons */
+.home-side {
+  position: absolute;
+  bottom: 0;
+  width: 600px;
+  height: 1000px;
+  z-index: 2;
+  pointer-events: none;
+  animation: home-enter 0.7s ease-out both;
+}
+.home-side-player {
+  left: calc(-60px - var(--edge, 0px) * 0.6);
+  --enter: -80px;
+}
+.home-side-rival {
+  right: calc(-60px - var(--edge, 0px) * 0.6);
+  --enter: 80px;
+}
+.home-side-rival .home-standin {
+  transform: scaleX(-1);
+}
+@keyframes home-enter {
+  from {
+    opacity: 0;
+    transform: translateX(var(--enter));
+  }
+}
+.home-side.home-mech-layer {
+  z-index: 0;
+}
+.home-person,
+.home-mech {
+  position: absolute;
+}
+.home-person {
+  inset: 0;
+  animation: home-breathe 6s ease-in-out infinite;
+}
+.home-mech {
+  top: -30px;
+  width: 470px;
+  height: 470px;
+  opacity: 0.75;
+  animation: home-hover 8s ease-in-out infinite;
+}
+.home-side-player .home-mech {
+  left: 230px;
+}
+.home-side-rival .home-mech {
+  right: 230px;
+}
+.home-person img,
+.home-mech img,
+.home-standin {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+/* the cropped art has its edges faded already: no extra glow */
+.home-standin-shape {
+  stroke-width: 3;
+}
+/* stand-ins until the user's pictures arrive: kept quieter than real art */
+.home-standin {
+  opacity: 0.6;
+}
+.home-side-player .home-standin-shape {
+  stroke: rgba(120, 220, 255, 0.85);
+  filter: drop-shadow(0 0 18px rgba(50, 160, 255, 0.7));
+}
+.home-side-rival .home-standin-shape {
+  stroke: rgba(255, 120, 150, 0.85);
+  filter: drop-shadow(0 0 18px rgba(255, 50, 100, 0.7));
+}
+.home-standin.mech .home-standin-shape {
+  fill: rgba(8, 14, 36, 0.85);
+}
+.mech-eye.blue {
+  fill: var(--h-blue);
+}
+.mech-eye.red {
+  fill: var(--h-red);
+}
+@keyframes home-breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes home-hover {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* profile, top left */
+.home-profile {
+  position: absolute;
+  top: 24px;
+  left: calc(28px - var(--edge, 0px));
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+}
+.home-profile .home-avatar {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(80, 180, 255, 0.6));
+}
+.home-profile-plate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -16px;
+  padding: 10px 40px 10px 30px;
+  min-width: 260px;
+  background: linear-gradient(90deg, rgba(10, 30, 80, 0.95), rgba(6, 14, 36, 0.85));
+  border: 2px solid var(--h-gold);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
+}
+.home-profile-label {
+  font: 700 13px var(--font-display);
+  letter-spacing: 0.3em;
+  color: var(--h-gold);
+}
+.home-profile-name-text {
+  font: 700 30px var(--font-body);
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* menu, top right */
+.home-utility {
+  position: absolute;
+  top: 30px;
+  right: calc(30px - var(--edge, 0px));
+  z-index: 6;
+}
+.home-hex-btn {
+  width: 92px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(20, 50, 120, 0.95), rgba(6, 14, 40, 0.95));
+  border: 0;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  box-shadow: inset 0 0 0 3px var(--h-gold);
+  cursor: pointer;
+  transition:
+    filter 0.15s,
+    transform 0.15s;
+}
+.home-hex-btn.on,
+.home-hex-btn:active {
+  transform: scale(0.95);
+  filter: brightness(1.3);
+}
+.home-menu {
+  position: absolute;
+  right: 0;
+  top: 92px;
+  min-width: 420px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: rgba(6, 12, 32, 0.97);
+  border: 2px solid var(--h-gold);
+  border-radius: 10px;
+}
+.home-menu-item {
+  padding: 18px 20px;
+  text-align: left;
+  font: 700 24px var(--font-body);
+  color: #fff;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* START BATTLE */
+.home-start {
+  position: absolute;
+  left: 50%;
+  top: 690px;
+  width: 720px;
+  height: 132px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  z-index: 4;
+  background: linear-gradient(
+    180deg,
+    #fff2b3 0%,
+    var(--h-gold) 30%,
+    var(--h-gold-dark) 70%,
+    #ffe48a 100%
+  );
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+  filter: drop-shadow(0 0 18px rgba(255, 90, 60, 0.6));
+  animation: home-start-glow 2.6s ease-in-out infinite;
+  transition: transform 0.15s;
+}
+.home-start::before {
+  /* the deep red centre inside the gold rim */
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 40%, #ff4a4a 0%, transparent 70%),
+    linear-gradient(180deg, #c3122b 0%, #6d0618 100%);
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+}
+.home-start-emblem,
+.home-start-text {
+  position: relative;
+}
+.home-start-emblem {
+  margin-right: 18px;
+  color: #fff4c4;
+  filter: drop-shadow(0 0 6px rgba(255, 220, 120, 0.9));
+}
+.home-start-text {
+  font: 900 56px var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 3px 0 #5a0412,
+    0 0 16px rgba(255, 200, 120, 0.6);
+}
+.home-start:active {
+  transform: translateX(-50%) scale(0.97);
+}
+@keyframes home-start-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 14px rgba(255, 90, 60, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 120, 60, 0.9));
+  }
+}
+
+/* the game modes, in place of START BATTLE */
+.home-modes {
+  position: absolute;
+  left: 50%;
+  top: 600px;
+  width: 1180px;
+  transform: translateX(-50%);
+  padding: 22px 28px 18px;
+  background: rgba(5, 10, 28, 0.92);
+  border: 2px solid var(--h-gold);
+  border-radius: 14px;
+  z-index: 5;
+  text-align: center;
+  animation: home-pop 0.2s ease-out both;
+}
+@keyframes home-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96);
+  }
+}
+.home-modes-title {
+  font: 800 26px var(--font-display);
+  letter-spacing: 0.3em;
+  color: var(--h-gold);
+  margin-bottom: 16px;
+}
+.home-modes-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.home-mode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 16px;
+  color: #fff;
+  border: 2px solid;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+.home-mode b {
+  font: 800 30px var(--font-display);
+  letter-spacing: 0.04em;
+}
+.home-mode small {
+  font: 600 20px var(--font-body);
+  opacity: 0.85;
+}
+.home-mode.blue {
+  border-color: var(--h-blue);
+  background: linear-gradient(180deg, rgba(19, 86, 200, 0.75), rgba(6, 20, 60, 0.9));
+}
+.home-mode.red {
+  border-color: var(--h-red);
+  background: linear-gradient(180deg, rgba(163, 18, 58, 0.75), rgba(40, 6, 20, 0.9));
+}
+.home-mode.gold {
+  border-color: var(--h-gold);
+  background: linear-gradient(180deg, rgba(140, 100, 20, 0.7), rgba(36, 24, 6, 0.9));
+}
+.home-mode:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.home-mode:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.home-modes-back {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 26px;
+  font: 700 22px var(--font-body);
+  color: #fff;
+  background: rgba(20, 34, 70, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Decks / Card Database / Settings */
+.home-nav {
+  position: absolute;
+  left: 50%;
+  bottom: 58px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 34px;
+  z-index: 4;
+}
+.home-nav-btn {
+  width: 380px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, #ffe48a, var(--h-gold-dark));
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  position: relative;
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+.home-nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: linear-gradient(180deg, #123a8a 0%, #071640 100%);
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+}
+.home-nav-btn > * {
+  position: relative;
+}
+.home-nav-btn span {
+  font: 800 28px var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-align: left;
+}
+.home-nav-btn:active {
+  transform: scale(0.96);
+}
+@media (hover: hover) {
+  .home-start:hover {
+    transform: translateX(-50%) scale(1.03);
+  }
+  .home-nav-btn:hover,
+  .home-mode:hover:not(:disabled),
+  .home-hex-btn:hover {
+    filter: brightness(1.25) drop-shadow(0 0 12px rgba(80, 180, 255, 0.7));
+  }
+  .home-menu-item:hover,
+  .home-modes-back:hover {
+    background: rgba(51, 209, 255, 0.18);
+  }
+}
+.home-start:focus-visible,
+.home-nav-btn:focus-visible,
+.home-mode:focus-visible,
+.home-hex-btn:focus-visible,
+.home-profile:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.home-legal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  text-align: center;
+  font: 500 15px var(--font-body);
+  color: rgba(220, 230, 255, 0.55);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* profile editor */
+.home-profile-editor {
+  width: 640px;
+}
+.home-profile-name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 16px 0;
+  font: 700 18px var(--font-body);
+}
+.home-avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px 8px;
+  margin-bottom: 16px;
+}
+.home-avatar-choice {
+  padding: 4px;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.home-avatar-choice.on {
+  border-color: var(--h-gold);
+  background: rgba(255, 211, 77, 0.12);
+}
+
+/* calm: reduced motion (setting or system) and Low graphics stop the loops and the sparks */
+.reduce-motion .home *,
+.gfx-low .home * {
+  animation: none !important;
+}
+.reduce-motion .home-sparks,
+.gfx-low .home-sparks,
+.gfx-low .home-floor {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home * {
+    animation: none !important;
+  }
+  .home-sparks {
+    display: none;
+  }
+}
+.gfx-reduced .home-sparks span:nth-child(n + 9) {
+  display: none;
+}
+
+/* the old menu's notices, kept above the home screen */
+.home-notice {
+  position: absolute;
+  max-width: 560px;
+  text-align: left;
+  z-index: 7;
+}

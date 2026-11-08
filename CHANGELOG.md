@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.33.0-alpha — 2026-11-08
+
+**Now on Android:** a signed APK on the release page — how to install it:
+[docs/INSTALL_ANDROID.md](docs/INSTALL_ANDROID.md).
+
+**New home screen** (docs/design/HOME_SCREEN_PLAN.md) — a blue fighter and a red rival at the
+sides, a holographic field in the middle, **START BATTLE** (opens New Game, Play Online and CPU
+Demonstration) and **Decks / Card Database / Settings** along the bottom. The art is cropped from
+the owner's own art pack. Quiet animations (moving sparks, the field's energy line), off with
+Reduced motion or Low graphics and paused while the game is in the background.
+
+- **Your profile** (top left): a name and an avatar, kept on this device. The name is the one Play
+  Online shows your opponent. Six portraits and six emblems to choose from.
+- **Card Database:** every card with the Deck Builder's search and filters; tap a card for its details.
+- **Menu** (top right): Updates, Report a Problem / Suggest Something, Quit.
+- **Phone, card details:** the text is about twice the size, easier to read.
+- **Phone, battle screen:** the Card Info panel and its buttons are gone (tap or hold a card for its
+  details), the left side is narrower with a smaller log and menu, and the field is up to 10% larger.
+- **Phone, battle screen (2):** your soul, drop and deck are larger, and the hand at rest is larger and
+  fully on the screen.
+- **Game Setup scrolls** when it is taller than the screen, so every button can be reached on a phone.
+
 ## 0.32.0-alpha — 2026-11-08
 
 **New sounds and battle music** (docs/audio/AUDIO_PLAN.md) — every sound effect is now a real

@@ -5,6 +5,9 @@
   free PeerJS service (use connect by address if it is down); some very strict networks may not
   connect even through its relay; the host's PC runs the game, so a host could cheat; no turn
   timer, chat, emotes or spectators.
+- **Test suite, one flaky test** (2026-11-08): `tests/artwork/artwork.test.ts` "an empty folder"
+  failed once in a full run with 4 workers and passed on its own; it scans a fresh temp folder, which
+  antivirus can slow on this PC. Rerun before suspecting a regression.
 - Card pool: MTD01 is not in the game yet (D-029). English-only printings of English
   EB03 (Dragonic Executioner, Marhaus, …) are not in the pool unless a Japanese product has them
   (the English-only BT16/BT17 cards are, by the user's choice: D-031).

@@ -261,6 +261,7 @@ describe('Update Manager screen', () => {
     window.vanguardDesktop!.openFeedback = openFeedback;
     const { getByTestId } = render(<App />);
     expect(openFeedback).not.toHaveBeenCalled();
+    fireEvent.click(getByTestId('home-menu'));
     fireEvent.click(getByTestId('feedback-menu'));
     expect(openFeedback).toHaveBeenCalledTimes(1);
     fireEvent.click(getByTestId('settings'));

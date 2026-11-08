@@ -16,6 +16,6 @@ describe('settings screen', () => {
     expect(list.querySelector('[data-testid="view-overhead"]')).not.toBeNull();
     fireEvent.keyDown(window, { key: 'Escape' });
     expect(queryByTestId('settings-scroll')).toBeNull();
-    expect(getByTestId('new-game')).not.toBeNull();
+    expect(getByTestId('start-battle')).not.toBeNull();
   });
 });

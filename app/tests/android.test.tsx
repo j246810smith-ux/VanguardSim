@@ -74,9 +74,9 @@ describe('back button (U6)', () => {
     render(<App />);
     await act(() => Promise.resolve());
     fireEvent.click(screen.getByTestId('settings'));
-    expect(screen.queryByTestId('new-game')).toBeNull();
+    expect(screen.queryByTestId('start-battle')).toBeNull();
     press();
-    expect(screen.getByTestId('new-game')).toBeTruthy();
+    expect(screen.getByTestId('start-battle')).toBeTruthy();
     expect(app.exitApp).not.toHaveBeenCalled();
     press();
     expect(app.exitApp).toHaveBeenCalledTimes(1);
@@ -100,7 +100,7 @@ describe('back button (U6)', () => {
     expect(screen.getByTestId('card-pool')).toBeTruthy();
     press();
     fireEvent.click(screen.getByTestId('confirm-yes'));
-    expect(screen.getByTestId('new-game')).toBeTruthy();
+    expect(screen.getByTestId('start-battle')).toBeTruthy();
     expect(app.exitApp).not.toHaveBeenCalled();
   });
 
@@ -109,16 +109,17 @@ describe('back button (U6)', () => {
     g.Capacitor = { Plugins: { App: app } };
     render(<App />);
     await act(() => Promise.resolve());
+    fireEvent.click(screen.getByTestId('start-battle'));
     fireEvent.click(screen.getByTestId('new-game'));
     fireEvent.click(screen.getByTestId('start'));
-    expect(screen.queryByTestId('new-game')).toBeNull();
+    expect(screen.queryByTestId('start-battle')).toBeNull();
     press();
     expect(screen.getByTestId('confirm-dialog').textContent).toContain('Leave this game?');
     fireEvent.click(screen.getByTestId('confirm-no'));
-    expect(screen.queryByTestId('new-game')).toBeNull();
+    expect(screen.queryByTestId('start-battle')).toBeNull();
     press();
     fireEvent.click(screen.getByTestId('confirm-yes'));
-    expect(screen.getByTestId('new-game')).toBeTruthy();
+    expect(screen.getByTestId('start-battle')).toBeTruthy();
     expect(app.exitApp).not.toHaveBeenCalled();
   });
 });

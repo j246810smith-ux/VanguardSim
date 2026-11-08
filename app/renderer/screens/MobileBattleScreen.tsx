@@ -7,15 +7,8 @@
  * It lives in the stage's coordinates (1080 px tall, as wide as the phone's shape: App.tsx Stage
  * widens the 1920 px stage by --edge on each side), so the shared prompts and dialogs still fit.
  */
-import { useEffect, useRef, useState } from 'react';
-import {
-  currentCritical,
-  currentPower,
-  HIDDEN,
-  type GameState,
-  type InstanceId,
-  type PlayerId,
-} from '../../../src/engine';
+import { useContext, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { HIDDEN, type GameState, type InstanceId, type PlayerId } from '../../../src/engine';
 import { RecentEvents } from '../board/Feedback';
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
@@ -29,9 +22,10 @@ import {
 } from '../board/mobileLayout';
 import { AbilityCallout } from '../board/AbilityCallout';
 import { AttackLines, AttackPreviewPanel, BattleHud } from '../combat/Combat';
-import { AI, ctx, defOf, ME } from '../engine';
+import { AI, ME } from '../engine';
 import { circleState } from '../game/interaction';
 import { paced } from '../settings';
+import { StageInfo } from '../stageFit';
 import type { BarAction } from '../prompts/Prompts';
 import { CardView } from '../ui/CardView';
 import { ClanBadge, Icon } from '../ui/svg';
@@ -56,26 +50,23 @@ const PHASE_ICON: Record<string, Parameters<typeof Icon>[0]['name']> = {
   battle: 'guard',
   end: 'end',
 };
+/** The field's cell without the phone's extra width, its top, and how far the field may grow. */
+const FIELD_CELL_W = 1270;
+const FIELD_TOP = 30;
+const MAX_FIELD_SCALE = 1.1;
 /** The bar's buttons that live in the left rail instead (they are not game actions). */
 const RAIL_KEYS = new Set(['log', 'details']);
 
 export function MobileBattleScreen(props: Props) {
-  // a tap on a card with nothing to do shows it in Card Info (when shown); a long press opens
-  // every detail
+  // a tap on a card with nothing to do opens its details, as a long press does (the Card Info
+  // panel was removed for a bigger field, user 2026-11-08)
   const tapCard = useRef<(id: InstanceId) => void>(() => {});
   const c = useBattleController(props, { onTapCard: (id) => tapCard.current(id) });
-  const { view, legal, selection, picked, staged, hovered, battle, demo } = c;
+  const { view, legal, selection, picked, staged, battle, demo } = c;
   const [oppOpen, setOppOpen] = useState(false);
-  const [infoOpen, setInfoOpen] = useState(true);
   // the hand opens large on the first tap (user, 2026-11-08: "clicking on your hand should
   // enlarge the hand"); choosing a card to call or ride shrinks it so the circles can be tapped
   const [handBig, setHandBig] = useState(false);
-  // Card Info shows the card last selected, tapped or hovered
-  const [info, setInfo] = useState<InstanceId | null>(null);
-  const focus = selection?.id ?? hovered ?? null;
-  useEffect(() => {
-    if (focus && visible(view, focus)) setInfo(focus);
-  }, [focus, view]);
   useEffect(() => {
     if (selection?.kind === 'hand' || selection?.kind === 'unit' || selection?.kind === 'attacker')
       setHandBig(false);
@@ -83,8 +74,12 @@ export function MobileBattleScreen(props: Props) {
   useEffect(() => {
     if (view.players[ME].hand.length === 0) setHandBig(false);
   }, [view]);
-  tapCard.current = (id) => (infoOpen ? setInfo(id) : c.setDetails(id));
+  tapCard.current = (id) => c.setDetails(id);
   const geometry = oppOpen ? MOBILE_GEOMETRY_OPP_OPEN : MOBILE_GEOMETRY;
+  // the field grows into the room the Card Info column and the wide rail left (user, 2026-11-08):
+  // up to 10%, as far as the screen's width allows (its cell is 1270 px plus the phone's --edge)
+  const { edge } = useContext(StageInfo);
+  const fieldScale = Math.min(MAX_FIELD_SCALE, (FIELD_CELL_W + edge) / FIELD_W);
   // as an attack begins, the attacker and its target are in focus for a moment (the brief:
   // "briefly focus the attacking vanguard and target, then return to the board")
   const attackKey = battle ? `${battle.attacker}>${battle.target}` : null;
@@ -103,12 +98,22 @@ export function MobileBattleScreen(props: Props) {
     circleState(view, legal, selection, picked, p, circle);
   const names = seatNames(c);
   const actions = view.status === 'finished' ? [] : c.bar.filter((a) => !RAIL_KEYS.has(a.key));
-  const railActions = c.bar.filter((a) => RAIL_KEYS.has(a.key));
+  // only the log stays in the rail: Card Details went with the Card Info panel (user, 2026-11-08)
+  const railActions = c.bar.filter((a) => a.key === 'log');
 
   return (
-    <>
+    <div
+      className="m-root"
+      style={
+        {
+          display: 'contents',
+          '--m-scale': fieldScale,
+          '--m-centre': `${FIELD_TOP + BANNER_Y.normal * fieldScale}px`,
+        } as CSSProperties
+      }
+    >
       <div
-        className={`m-battle ${oppOpen ? 'opp-open' : ''} ${infoOpen ? '' : 'info-closed'} ${handBig ? 'hand-big' : ''} ${battle ? 'in-battle' : ''} ${c.settings.phoneText === 'large' ? 'text-large' : ''}`}
+        className={`m-battle ${oppOpen ? 'opp-open' : ''} ${handBig ? 'hand-big' : ''} ${battle ? 'in-battle' : ''} ${c.settings.phoneText === 'large' ? 'text-large' : ''}`}
       >
         {/* ---- left rail: opponent, menu, recent events ---- */}
         <aside className="m-rail">
@@ -125,15 +130,6 @@ export function MobileBattleScreen(props: Props) {
             {railActions.map((a) => (
               <RailButton key={a.key} action={a} />
             ))}
-            <RailButton
-              action={{
-                key: 'info',
-                label: infoOpen ? 'Hide Card Info' : 'Card Info',
-                icon: 'details',
-                toggled: infoOpen,
-                onClick: () => setInfoOpen(!infoOpen),
-              }}
-            />
             <RailButton
               action={{
                 key: 'menu',
@@ -193,11 +189,6 @@ export function MobileBattleScreen(props: Props) {
           </div>
         </main>
 
-        {/* ---- right: card info ---- */}
-        <aside className="m-info" data-testid="card-info">
-          {infoOpen && <CardInfo view={view} id={info} onMore={(id) => c.setDetails(id)} />}
-        </aside>
-
         {/* ---- bottom: you, the phase bar, the hand ---- */}
         <Portrait
           side="me"
@@ -226,7 +217,7 @@ export function MobileBattleScreen(props: Props) {
             marked={legal.mulligan || legal.choose ? picked : staged.map((g) => g.id)}
             onClick={(id) => (handBig ? c.onHand(id) : setHandBig(true))}
             onDetails={c.setDetails}
-            spreadWidth={handBig ? 1000 : 400}
+            spreadWidth={handBig ? 1000 : 480}
             stripAbove={handBig ? 9 : 6}
           />
         </div>
@@ -252,7 +243,7 @@ export function MobileBattleScreen(props: Props) {
         </div>
       )}
       <BattleOverlays c={c} logDrawer />
-    </>
+    </div>
   );
 }
 
@@ -453,6 +444,7 @@ function MyPiles({ c }: { c: BattleController }) {
           title="SOUL"
           ids={me.soul}
           style={tile}
+          big
           onOpen={() => openZone('Your soul', me.soul)}
         />
         <Pile
@@ -461,6 +453,7 @@ function MyPiles({ c }: { c: BattleController }) {
           title="DROP"
           ids={me.drop}
           style={tile}
+          big
           onOpen={() => openZone('Your drop zone', me.drop)}
         />
         <Pile
@@ -469,6 +462,7 @@ function MyPiles({ c }: { c: BattleController }) {
           title="DECK"
           ids={me.deck}
           style={tile}
+          big
           face={false}
           known={session.deckKnown.ends(ME)}
         />
@@ -480,6 +474,7 @@ function MyPiles({ c }: { c: BattleController }) {
             zone="gzone"
             ids={me.gzone}
             style={tile}
+            big
             onOpen={() => openZone('Your G zone', me.gzone)}
           />
         )}
@@ -490,6 +485,7 @@ function MyPiles({ c }: { c: BattleController }) {
             title="BIND"
             ids={me.bind}
             style={tile}
+            big
             onOpen={() => openZone('Your bind zone', me.bind)}
           />
         )}
@@ -560,46 +556,5 @@ function OppPiles({ c }: { c: BattleController }) {
         )}
       </div>
     </>
-  );
-}
-
-/** Card Info (right panel): the art, the numbers and the full text of the last card looked at. */
-function CardInfo({
-  view,
-  id,
-  onMore,
-}: {
-  view: GameState;
-  id: InstanceId | null;
-  onMore: (id: InstanceId) => void;
-}) {
-  const def = id && visible(view, id) ? defOf(view, id) : null;
-  if (!id || !def) {
-    return (
-      <div className="m-info-empty">
-        <b>Card Info</b>
-        <span>Tap a card to see it here. Hold a card for every detail.</span>
-      </div>
-    );
-  }
-  const onField = Object.values(view.players[view.cards[id]!.owner].circles).some((ids) =>
-    ids.includes(id),
-  );
-  const power = onField ? currentPower(view, ctx, id) : def.power;
-  const crit = onField ? currentCritical(view, ctx, id) : def.critical;
-  return (
-    <div className="m-info-card" onClick={() => onMore(id)}>
-      <div className="m-info-title">Card Info</div>
-      <CardView definitionId={def.id} width={300} height={437} />
-      <div className="m-info-name">{def.name}</div>
-      <div className="m-info-stats">
-        <span>G{def.grade}</span>
-        <span className={power !== def.power ? 'changed' : ''}>⚔ {power}</span>
-        <span>🛡 {def.shield || '—'}</span>
-        <span className={crit !== def.critical ? 'changed' : ''}>★{crit}</span>
-      </div>
-      <div className="m-info-clan">{def.clan}</div>
-      <div className="m-info-text">{def.text || 'No abilities.'}</div>
-    </div>
   );
 }

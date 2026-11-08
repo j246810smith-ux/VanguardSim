@@ -1,5 +1,17 @@
 apply plugin: 'com.android.application'
 
+// The version comes from package.json: "0.33.0-alpha" is versionName 0.33.0-alpha, versionCode 3300.
+def pkg = new groovy.json.JsonSlurper().parse(file('../../package.json'))
+def nums = (pkg.version =~ /^(\d+)\.(\d+)\.(\d+)/)[0]
+def appVersionCode = (nums[1] as int) * 1000000 + (nums[2] as int) * 100 + (nums[3] as int)
+
+// Release signing (docs/android/BUILDING_ANDROID.md): the key and its passwords stay on the
+// developer's PC, in %USERPROFILE%\.vanguardsimndroid-release.properties, never in the repository.
+def signingFile = file(System.getenv('VANGUARD_ANDROID_SIGNING') ?:
+        "${System.getProperty('user.home')}/.vanguardsim/android-release.properties")
+def signing = new Properties()
+if (signingFile.exists()) signingFile.withInputStream { signing.load(it) }
+
 android {
     namespace = "io.github.j246810smith_ux.vanguardsim"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,8 +19,8 @@ android {
         applicationId "io.github.j246810smith_ux.vanguardsim"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode appVersionCode
+        versionName pkg.version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,8 +28,19 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (signingFile.exists()) {
+                storeFile file(signing['storeFile'])
+                storePassword signing['storePassword']
+                keyAlias signing['keyAlias']
+                keyPassword signing['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
+            if (signingFile.exists()) signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

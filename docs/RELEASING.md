@@ -16,6 +16,7 @@ Releases are tagged `v<version>`:
 - `v0.30.0-alpha` — deck-top pictures, seeing the card you look at, Hard AI fixes, G-BT02 shields.
 - `v0.31.0-alpha` — PR cards 2013 and 2014, G-BT03 to G-BT05, G-TD03 to G-TD05, G starter decks.
 - `v0.32.0-alpha` — recorded sounds and battle music, audio settings, house rules (9K Grade 3, Mega Blast), themes, v0.32 feedback fixes.
+- `v0.33.0-alpha` — new home screen, Card Database, phone layout feedback; first Android APK on GitHub.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 
@@ -88,6 +89,12 @@ repository keeps its full history.
    `release/VanguardSim-<version>-portable.exe`, and the three files in
    `release/update-<version>/`: `manifest.json`, `manifest.json.sig`,
    `VanguardSim-<version>-app.zip`. Paste the release notes (template below).
+5. **Android:** `npm run dist:android -- --release` builds `release/android/VanguardSim-<version>-android.apk`,
+   signed with the Android release key; attach it to the same release. The key is
+   `%USERPROFILE%\.vanguardsimndroid-release.jks`, its passwords in `android-release.properties`
+   beside it (made 2026-11-08, never committed). **Keep a backup of both:** a phone only installs an
+   update signed with the same key, so with a lost key every player has to uninstall (losing their
+   decks) to get a new version. Player guide: `docs/INSTALL_ANDROID.md`.
 
 Optional automation: `.github/workflows/release.yml` builds both files on GitHub's Windows
 runners when a `v*` tag is pushed and attaches them to a **draft** release for you to review and

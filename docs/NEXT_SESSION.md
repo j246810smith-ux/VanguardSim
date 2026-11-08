@@ -15,9 +15,11 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
-## ▶ Pick up here (2026-11-08, end) — v0.32.0-alpha prepared
+## ▶ Pick up here (2026-11-08, end) — v0.32.0-alpha published
 
-Everything of 2026-11-08 is on `android-port` and goes into master by fast-forward for v0.32.0:
+Everything of 2026-11-08 is in master (fast-forward from `android-port`) and published as v0.32.0-alpha
+(public 7711e51, `release:verify` passed). Handover: OneDrive Desktop "VanguardSim HANDOVER 2026-11-08
+(v0.32, phone UI, audio).md". Contents:
 the phone layout (docs/android/MOBILE_UI_PLAN.md, all six phases), the audio system and battle
 music (docs/audio/AUDIO_PLAN.md), themes, the house rules C1/C2 (D-040, D-041), the house rules
 panel (B12) and B3, B5, B6, B7, B8, B9, B11, B13 (docs/design/V032_FEEDBACK_AUDIT.md, Progress).

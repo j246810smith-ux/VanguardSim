@@ -3,6 +3,7 @@
 //
 //   npm run dist:android               debug APK
 //   npm run dist:android -- --install  also install it on the phone connected by USB (adb)
+//   npm run dist:android -- --release  the signed APK for a GitHub release (needs the release key)
 //
 // Needs Android Studio (its bundled JDK) and the Android SDK; see docs/android/BUILDING_ANDROID.md.
 import { execFileSync } from 'node:child_process';
@@ -13,6 +14,15 @@ const root = resolve(import.meta.dirname, '..');
 const win = process.platform === 'win32';
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const install = process.argv.includes('--install');
+const release = process.argv.includes('--release');
+/** The release key's settings, outside the repository (android/app/build.gradle reads the same). */
+const signingFile =
+  process.env.VANGUARD_ANDROID_SIGNING ??
+  join(
+    process.env.USERPROFILE ?? process.env.HOME ?? '',
+    '.vanguardsim',
+    'android-release.properties',
+  );
 
 function firstExisting(paths) {
   return paths.find((p) => p && existsSync(p));
@@ -51,16 +61,22 @@ function run(cmd, args, cwd = root) {
 run('npx', ['vite', 'build', '--mode', 'android']);
 run('npx', ['cap', 'sync', 'android']);
 // a full path: some shells do not run programs from the current folder by name
+// --release: the signed APK for GitHub (needs the release key, docs/android/BUILDING_ANDROID.md)
+if (release && !existsSync(signingFile)) {
+  console.error(`The release key's settings were not found: ${signingFile}`);
+  process.exit(1);
+}
 run(
   win ? join(root, 'android', 'gradlew.bat') : './gradlew',
-  ['assembleDebug'],
+  [release ? 'assembleRelease' : 'assembleDebug'],
   join(root, 'android'),
 );
 
-const apk = join(root, 'android', 'app', 'build', 'outputs', 'apk', 'debug', 'app-debug.apk');
+const kind = release ? 'release' : 'debug';
+const apk = join(root, 'android', 'app', 'build', 'outputs', 'apk', kind, `app-${kind}.apk`);
 const outDir = join(root, 'release', 'android');
 mkdirSync(outDir, { recursive: true });
-const out = join(outDir, `VanguardSim-${pkg.version}-android-debug.apk`);
+const out = join(outDir, `VanguardSim-${pkg.version}-android${release ? '' : '-debug'}.apk`);
 copyFileSync(apk, out);
 console.log(`\nAPK: ${out}`);
 

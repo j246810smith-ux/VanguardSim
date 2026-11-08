@@ -18,6 +18,7 @@ import { THEMES, type ThemeId } from './themes';
 import { OnlineScreen } from './screens/OnlineScreen';
 import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
+import { HomeScreen } from './home/HomeScreen';
 import { deckEntries, DeckList } from './screens/deckChoice';
 import {
   effectiveSettings,
@@ -139,6 +140,7 @@ type Screen =
   | { name: 'settings' }
   | { name: 'updates'; from: 'menu' | 'settings' }
   | { name: 'decks' }
+  | { name: 'cards' }
   | { name: 'battle'; config: SessionConfig; key: number }
   | { name: 'demo-setup' }
   | { name: 'online'; notice: string | null }
@@ -280,6 +282,9 @@ export function App() {
           />
         )}
         {screen.name === 'decks' && <DeckBuilder onBack={() => setScreen({ name: 'menu' })} />}
+        {screen.name === 'cards' && (
+          <DeckBuilder mode="browse" onBack={() => setScreen({ name: 'menu' })} />
+        )}
         {screen.name === 'demo-setup' && (
           <DemoSetup
             initial={demoChoice.current}
@@ -369,89 +374,55 @@ function MainMenu({
   /** A newer version found by the start-up check (shown on the menu only, never in a match). */
   updateReady: string | null;
 }) {
+  const feedback = window.vanguardDesktop?.openFeedback;
   return (
-    <div className="menu">
-      {window.vanguardDesktop?.openFeedback && (
-        <button
-          className="btn"
-          onClick={() => void window.vanguardDesktop?.openFeedback?.()}
-          data-testid="feedback-menu"
-          title={FEEDBACK_HINT}
-          style={{ position: 'absolute', bottom: 24, right: 24 }}
-        >
-          Report a Problem / Suggest Something
-        </button>
-      )}
+    <HomeScreen
+      actions={{
+        newGame: () => go({ name: 'setup' }),
+        demo: () => go({ name: 'demo-setup' }),
+        online: CAN.playOnline ? () => go({ name: 'online', notice: null }) : null,
+        onlineReady: ONLINE_READY,
+        decks: () => go({ name: 'decks' }),
+        cards: () => go({ name: 'cards' }),
+        settings: () => go({ name: 'settings' }),
+        updates: CAN.updateInPlace ? () => go({ name: 'updates', from: 'menu' }) : null,
+        feedback: feedback ? () => void feedback() : null,
+        quit: IS_ANDROID ? null : () => window.close(),
+      }}
+    >
       {dataNotice && (
         <button
-          className="btn"
+          className="btn home-notice"
           onClick={onDismissData}
           data-testid="data-notice"
           title="Click to dismiss"
-          style={{ position: 'absolute', bottom: 24, left: 24, maxWidth: 560, textAlign: 'left' }}
+          style={{ bottom: 200, left: 24 }}
         >
           {dataNotice}
         </button>
       )}
       {updateResult && (
         <button
-          className="btn update-result"
+          className="btn update-result home-notice"
           onClick={onDismissResult}
           data-testid="update-result"
           title="Click to dismiss"
-          style={{ position: 'absolute', top: 24, left: 24, maxWidth: 560, textAlign: 'left' }}
+          style={{ top: 150, left: 24 }}
         >
           {updateResultText(updateResult)}
         </button>
       )}
       {updateReady && (
         <button
-          className="btn update-notice"
+          className="btn update-notice home-notice"
           onClick={() => go({ name: 'updates', from: 'menu' })}
           data-testid="update-notice"
-          style={{ position: 'absolute', top: 24, right: 24, borderColor: '#ffd166' }}
+          style={{ top: 130, right: 24, borderColor: '#ffd166' }}
         >
           Update available: v{updateReady}
         </button>
       )}
-      <h1 className="title">CARDFIGHT SIM</h1>
-      <div className="subtitle">VG-BT01 — BT17 · CLASSIC RULES</div>
-      <button className="menu-btn" onClick={() => go({ name: 'setup' })} data-testid="new-game">
-        NEW GAME
-      </button>
-      {CAN.playOnline && (
-        <button
-          className="menu-btn"
-          onClick={() => go({ name: 'online', notice: null })}
-          disabled={!ONLINE_READY}
-          title={ONLINE_READY ? undefined : 'Online play is not ready yet'}
-          data-testid="play-online"
-        >
-          PLAY ONLINE
-          <small>{ONLINE_READY ? 'In testing' : 'Coming soon'}</small>
-        </button>
-      )}
-      <button
-        className="menu-btn"
-        onClick={() => go({ name: 'demo-setup' })}
-        data-testid="cpu-demo"
-      >
-        CPU DEMONSTRATION
-        <small>Watch two decks play</small>
-      </button>
-      <button className="menu-btn" onClick={() => go({ name: 'decks' })} data-testid="deck-builder">
-        DECK BUILDER
-      </button>
-      <button className="menu-btn" onClick={() => go({ name: 'settings' })} data-testid="settings">
-        SETTINGS
-      </button>
-      <button className="menu-btn" onClick={() => window.close()}>
-        QUIT
-      </button>
-      <div className="hint" style={{ marginTop: 24, opacity: 0.6, fontSize: 14 }}>
-        Unofficial fan project, not affiliated with Bushiroad. Cardfight!! Vanguard © Bushiroad.
-      </div>
-    </div>
+    </HomeScreen>
   );
 }
 
@@ -497,7 +468,11 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
     });
   };
   return (
-    <div className="menu" style={{ justifyContent: 'flex-start', paddingTop: 40 }}>
+    <div
+      className="menu setup-screen"
+      style={{ justifyContent: 'flex-start', paddingTop: 40 }}
+      data-testid="setup-screen"
+    >
       <h1 className="title" style={{ fontSize: 52 }}>
         GAME SETUP
       </h1>

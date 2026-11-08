@@ -398,6 +398,8 @@ const shotsStep = `(() => {
     const myRide = end && /ride/i.test(end.textContent || '');
     q('[data-testid=card-details]')?.click(); // close a details window opened by a stray click
     return (
+      // the home screen: START BATTLE opens the game modes first
+      click(q('[data-testid=start-battle]')) ||
       // VANGUARD_SHOTS_DEMO=1: start a CPU demonstration instead and just watch (v0.28)
       (${JSON.stringify(!!process.env.VANGUARD_SHOTS_DEMO)} &&
         (click(q('[data-testid=cpu-demo]')) || click(q('[data-testid=demo-start]')) || 'watch')) ||
@@ -451,10 +453,29 @@ const updateShotsStep = `(() => {
     if (n === 6 && q('[data-testid=toggle-notes]')) return (q('[data-testid=toggle-notes]').click(), 'notes');
     return 'wait';
   })()`;
+/** VANGUARD_SHOTS_SCREEN=home: the home screen, its game modes, the profile, the Card Database. */
+const homeShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const n = (window.__n = (window.__n || 0) + 1);
+    if (n === 2) return (q('[data-testid=start-battle]').click(), 'modes');
+    if (n === 3) return (q('[data-testid=modes-back]').click(), 'back');
+    if (n === 4) return (q('[data-testid=home-profile]').click(), 'profile');
+    if (n === 5) return (q('[data-testid=profile-editor] .btn').click(), 'closed');
+    if (n === 6 && q('[data-testid=home-menu]')) return (q('[data-testid=home-menu]').click(), 'menu');
+    if (n === 7) return (q('[data-testid=card-db]').click(), 'card database');
+    if (n === 8) return (q('.pool-card')?.click(), 'card details');
+    return 'wait';
+  })()`;
 function runShots(win) {
   const screen = process.env.VANGUARD_SHOTS_SCREEN;
   const step =
-    screen === 'decks' ? deckShotsStep : screen === 'updates' ? updateShotsStep : shotsStep;
+    screen === 'decks'
+      ? deckShotsStep
+      : screen === 'updates'
+        ? updateShotsStep
+        : screen === 'home'
+          ? homeShotsStep
+          : shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);
@@ -616,6 +637,8 @@ function runOnlineProbe(win, role) {
   win.webContents.once('did-finish-load', async () => {
     try {
       await wait(800);
+      await click('start-battle');
+      await wait(300);
       await click('play-online');
       await wait(400);
       await type('online-name', role === 'host' ? 'Probe Host' : 'Probe Guest');

@@ -59,7 +59,7 @@ describe('the field geometry', () => {
 });
 
 describe('MobileBattleScreen', () => {
-  it('shows both plates, all twelve circles, the phase bar, Card Info and the hand', () => {
+  it('shows both plates, all twelve circles, the phase bar and the hand; no Card Info panel', () => {
     show();
     expect(screen.getByTestId('plate-opp').textContent).toContain('CPU (Normal)');
     expect(screen.getByTestId('plate-me').textContent).toContain('You');
@@ -67,7 +67,11 @@ describe('MobileBattleScreen', () => {
       for (const c of ['vanguard', 'front_left', 'back_center'])
         expect(screen.getByTestId(`circle-${p}-${c}`)).toBeTruthy();
     expect(screen.getByTestId('phase-bar').textContent).toContain('Battle');
-    expect(screen.getByTestId('card-info').textContent).toContain('Card Info');
+    // user, 2026-11-08: the Card Info panel, its Hide button and Card Details made room for the field
+    expect(screen.queryByTestId('card-info')).toBeNull();
+    expect(screen.queryByTestId('rail-info')).toBeNull();
+    expect(screen.queryByTestId('rail-details')).toBeNull();
+    expect(screen.getByTestId('rail-log')).toBeTruthy();
     expect(screen.getByTestId('hand-0')).toBeTruthy();
     // the mulligan comes first, through the shared prompts
     expect(screen.getByTestId('mulligan')).toBeTruthy();
@@ -81,18 +85,6 @@ describe('MobileBattleScreen', () => {
     expect(battle.classList.contains('opp-open')).toBe(true);
     fireEvent.click(screen.getByTestId('opp-band'));
     expect(battle.classList.contains('opp-open')).toBe(false);
-  });
-
-  it('a tapped hand card shows in Card Info; Card Info can be hidden', () => {
-    show();
-    act(() => {
-      fireEvent.click(screen.getByTestId('hand-0'));
-    });
-    const info = screen.getByTestId('card-info');
-    // during the mulligan a tap marks the card; selecting is for later, so check the panel's hint
-    expect(info.textContent).toMatch(/Card Info/);
-    fireEvent.click(screen.getByTestId('rail-info'));
-    expect(screen.getByTestId('card-info').textContent).toBe('');
   });
 
   it('the game is played through the same actions: keeping the hand starts the game', () => {
@@ -123,7 +115,7 @@ describe('MobileBattleScreen', () => {
     expect(battle.classList.contains('hand-big')).toBe(false);
   });
 
-  it("a tap on the opponent's vanguard shows it in Card Info, not a pop-up", () => {
+  it("a tap on the opponent's vanguard opens its details", () => {
     vi.useFakeTimers();
     try {
       show();
@@ -143,11 +135,7 @@ describe('MobileBattleScreen', () => {
       act(() => {
         fireEvent.click(opp);
       });
-      expect(screen.queryByTestId('card-details')).toBeNull();
-      const info = screen.getByTestId('card-info').textContent!;
-      // the panel shows a card (its stats line), not the empty hint
-      expect(info).not.toContain('Tap a card');
-      expect(info).toMatch(/G\d/);
+      expect(screen.getByTestId('card-details').textContent).toMatch(/GRADE/);
     } finally {
       vi.useRealTimers();
     }

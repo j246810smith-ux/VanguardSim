@@ -38,6 +38,7 @@ Wi-Fi can be listed twice in `adb devices`; the scripts use the first, or the on
 ```powershell
 npm run dist:android               # debug APK in release\android\
 npm run dist:android -- --install  # build, then install on the connected phone
+npm run dist:android -- --release  # the signed APK for a GitHub release
 ```
 
 The script finds JDK 21 and the SDK by itself; set `JAVA_HOME` / `ANDROID_HOME` to use others.

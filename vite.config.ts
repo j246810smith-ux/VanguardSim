@@ -25,7 +25,7 @@ export const ANDROID_CSP = [
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "script-src 'self'",
-  "connect-src 'self' https://localhost",
+  "connect-src 'self' https://localhost https://0.peerjs.com wss://0.peerjs.com",
   "object-src 'none'",
   "base-uri 'self'",
 ].join('; ');

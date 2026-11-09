@@ -73,10 +73,10 @@ sees your sleeve only if it is a built-in design). Details: [docs/ARTWORK.md](do
 
 Requirements: Windows 10 or 11, 64-bit. Nothing else needs to be installed.
 
-**Latest version: v0.34.0-alpha** — direct downloads:
-[portable .exe](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.34.0-alpha/VanguardSim-0.34.0-alpha-portable.exe)
+**Latest version: v0.35.0-alpha** — direct downloads:
+[portable .exe](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.35.0-alpha/VanguardSim-0.35.0-alpha-portable.exe)
 ·
-[zip](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.34.0-alpha/VanguardSim-0.34.0-alpha-win-x64.zip)
+[zip](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.35.0-alpha/VanguardSim-0.35.0-alpha-win-x64.zip)
 
 1. Open the [Releases page](https://github.com/j246810smith-ux/VanguardSim/releases).
 2. Under **Assets** at the bottom of the release, download either
@@ -97,11 +97,11 @@ images are © Bushiroad and for your personal use only; please don't share or up
 
 ## Download and play (Android)
 
-**[Android app (APK)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.34.0-alpha/VanguardSim-0.34.0-alpha-android.apk)**
+**[Android app (APK)](https://github.com/j246810smith-ux/VanguardSim/releases/download/v0.35.0-alpha/VanguardSim-0.35.0-alpha-android.apk)**
 — landscape, Android 7 or newer. It is not on the Play Store: download the APK on the phone, allow
 the install once and tap **Install**. Step by step, with updating and copying card art from your PC:
-[docs/INSTALL_ANDROID.md](docs/INSTALL_ANDROID.md). Card art: Settings → Download card art (from
-v0.34). Play Online is Windows-only for now.
+[docs/INSTALL_ANDROID.md](docs/INSTALL_ANDROID.md). Card art: Settings → Download card art. Play
+Online works by room code (phone against phone or PC); connecting by address is Windows-only.
 
 ### Card art (optional)
 

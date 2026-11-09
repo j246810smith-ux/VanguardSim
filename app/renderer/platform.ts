@@ -19,8 +19,8 @@ export const IS_ANDROID = PLATFORM === 'android';
 
 /** What this build can do; the UI asks this instead of checking the platform itself. */
 export const CAN = {
-  /** Play Online (D-032): out of scope on Android for now. */
-  playOnline: !IS_ANDROID,
+  /** Play Online (D-032): on Android by room code only (2026-11-09; OnlineScreen roomCodesOnly). */
+  playOnline: true,
   /** Update Manager (D-037): Windows-only; Android installs a new APK itself. */
   updateInPlace: !IS_ANDROID,
 } as const;

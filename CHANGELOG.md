@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.35.0-alpha — 2026-11-09
+
+- **Play Online on Android** (in testing): host or join a friend's game by **room code**, phone
+  against phone or phone against PC: START BATTLE → Play Online. Connecting by address stays on
+  Windows. The online battle uses the phone layout.
+
 ## 0.34.0-alpha — 2026-11-09
 
 - **Android: download card art in the app.** Settings → Card artwork → **Download card art**: all

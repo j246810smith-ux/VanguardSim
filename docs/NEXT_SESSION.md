@@ -15,6 +15,15 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-09) — v0.34.0-alpha published: card art download on Android
+
+Settings → Card artwork → Download card art (android/artDownload.ts, PhoneArtDownload.tsx): the
+phone fetches pictures from the official card list with native HTTP (CapacitorHttp). The manifest
+now has INTERNET (it had none, so the first try failed for every card; regression test
+tests/android/manifest.test.ts). Tested on the user's phone; public 447e0b7. To probe the phone app
+from the PC: a debug build with `applicationIdSuffix '.arttest'` installs beside the release app,
+then Chrome DevTools via `adb forward tcp:N localabstract:webview_devtools_remote_<pid>`.
+
 ## ▶ Pick up here (2026-11-08, late) — v0.33.0-alpha published, first Android APK
 
 v0.33.0-alpha (public dec19b5): the new home screen (docs/design/HOME_SCREEN_PLAN.md, art cropped

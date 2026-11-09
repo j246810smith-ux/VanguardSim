@@ -8,6 +8,9 @@
 You can play a friend over the internet or your home network. There are no accounts and no
 Vanguard Sim server: one player **hosts** the game on their PC and the other **joins** it.
 
+**On Android** (from v0.35) the same **room code** play works, phone against phone or phone against
+PC: START BATTLE → Play Online. Connecting by address is Windows-only.
+
 ## Before you start
 
 - **Both players need the same version** of Vanguard Sim (same release). The game checks this and

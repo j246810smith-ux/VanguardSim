@@ -49,6 +49,7 @@ the phone.
 
 ## What the phone version doesn't have yet
 
-- **Play Online** is Windows-only for now.
+- **Play Online** works by **room code** only (from version 0.35): phone against phone or PC.
+  Connecting by address is Windows-only.
 - **The Artwork Manager's** import, export and report are Windows-only; the phone has Download.
 - **Updating from inside the game** is Windows-only: install new APKs by hand.

@@ -12,6 +12,7 @@ import {
   type OnlineCallbacks,
 } from '../online/controller';
 import { peerBridge } from '../online/peerBridge';
+import { IS_ANDROID } from '../platform';
 import { codeProblem, makeCode } from '../online/roomCode';
 import { useSettings } from '../settings';
 import { deckEntries, DeckList } from './deckChoice';
@@ -60,7 +61,10 @@ export function OnlineScreen({
   const [controller, setController] = useState<OnlineController | null>(null);
   const [busy, setBusy] = useState(false);
 
-  if (!desktop) {
+  // Android (2026-11-09): room codes only. They run here in the page (WebRTC through the PeerJS
+  // service); connecting by address needs the Windows app's network code (app/main/online.cjs).
+  const roomCodesOnly = !desktop && IS_ANDROID;
+  if (!desktop && !roomCodesOnly) {
     return (
       <div className="menu">
         <h1 className="title" style={{ fontSize: 52 }}>
@@ -90,9 +94,11 @@ export function OnlineScreen({
     };
   };
   const bridgeFor = (withCode: boolean): OnlineBridge => {
-    if (!withCode) return tcpBridge(desktop, portNumber, address.trim());
+    if (!withCode && desktop) return tcpBridge(desktop, portNumber, address.trim());
     remember('code', code);
-    return peerBridge(code, (on) => desktop.allowRoomCodes(on));
+    // Windows opens its network block for the service only while hosting or joining; the phone
+    // app has no such block (its page may reach the service: vite.config.ts ANDROID_CSP)
+    return peerBridge(code, (on) => (desktop ? desktop.allowRoomCodes(on) : Promise.resolve()));
   };
   const make = (withCode: boolean) =>
     new OnlineController(bridgeFor(withCode), me(), {
@@ -233,15 +239,17 @@ export function OnlineScreen({
             </div>
           )}
 
-          <button
-            className="btn"
-            style={{ marginTop: 14 }}
-            onClick={() => setByAddress((v) => !v)}
-            data-testid="online-by-address"
-          >
-            {byAddress ? 'Hide address options' : 'Connect by address instead'}
-          </button>
-          {byAddress && (
+          {!roomCodesOnly && (
+            <button
+              className="btn"
+              style={{ marginTop: 14 }}
+              onClick={() => setByAddress((v) => !v)}
+              data-testid="online-by-address"
+            >
+              {byAddress ? 'Hide address options' : 'Connect by address instead'}
+            </button>
+          )}
+          {byAddress && !roomCodesOnly && (
             <>
               <div className="dim">
                 For players on the same home network, or using Tailscale or ZeroTier.

@@ -5131,3 +5131,22 @@ input.text {
   background: linear-gradient(90deg, var(--me), var(--gold));
   transition: width calc(0.3s * var(--anim));
 }
+
+/* Settings → Updates (Android, android/PhoneUpdates.tsx) */
+.modal.phone-updates {
+  width: 900px;
+  font-size: 22px;
+}
+.phone-update-notes {
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 10px 14px;
+  font-size: 19px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+.phone-update-notes .h {
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--gold);
+}

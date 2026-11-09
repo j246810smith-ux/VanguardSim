@@ -100,9 +100,12 @@
         </provider>
     </application>
 
-    <!-- Permissions: INTERNET only, for Settings → Download card art (android/artDownload.ts), the
-         one thing that goes online, and only when the player presses Download. Play itself is
-         offline (docs/android/ANDROID_AUDIT_AND_PLAN.md section 7). Without it every download fails
-         with "Permission denied (missing INTERNET permission?)" (2026-11-08). -->
+    <!-- INTERNET: used only when the player asks for it: Settings → Download card art
+         (android/artDownload.ts), Play Online by room code, and Settings → Updates. Single-player
+         play is offline (docs/android/ANDROID_AUDIT_AND_PLAN.md section 7). Without it every
+         request fails with "Permission denied (missing INTERNET permission?)" (2026-11-08). -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Settings → Updates: opening Android's installer for a downloaded release (ApkUpdatePlugin);
+         the player confirms every install, and Android only accepts the game's own key. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 </manifest>

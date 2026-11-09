@@ -55,19 +55,38 @@ export interface AppIconNativePlugin {
  * replaces fetch): requests made by Android itself, so a website's CORS rules don't apply. Used
  * only by the card art download (android/artDownload.ts). `responseType: 'blob'` gives base64.
  */
+interface HttpOptions {
+  url: string;
+  method: 'GET';
+  headers?: Record<string, string>;
+  connectTimeout?: number;
+  readTimeout?: number;
+  disableRedirects?: boolean;
+}
 export interface HttpPlugin {
-  request(options: {
-    url: string;
-    method: 'GET';
-    headers?: Record<string, string>;
-    responseType: 'blob';
-    connectTimeout?: number;
-    readTimeout?: number;
-    disableRedirects?: boolean;
-  }): Promise<{ status: number; data: string; headers: Record<string, string> }>;
+  request(
+    options: HttpOptions & { responseType: 'blob' },
+  ): Promise<{ status: number; data: string; headers: Record<string, string> }>;
+  /** A JSON answer is parsed by Capacitor: `data` is the value (still to be checked). */
+  request(
+    options: HttpOptions & { responseType: 'json' },
+  ): Promise<{ status: number; data: unknown; headers: Record<string, string> }>;
+}
+
+/** The app's own plugin (ApkUpdatePlugin.java): download a release APK and open the installer. */
+export interface ApkUpdatePlugin {
+  download(options: { url: string; sha256?: string }): Promise<{ version: string; bytes: number }>;
+  install(): Promise<void>;
+  canInstall(): Promise<{ allowed: boolean }>;
+  openInstallSettings(): Promise<void>;
+  addListener(
+    event: 'progress',
+    listener: (p: { done: number; total: number }) => void,
+  ): Promise<PluginListener> | PluginListener;
 }
 
 interface Plugins {
+  readonly ApkUpdate?: ApkUpdatePlugin;
   readonly CapacitorHttp?: HttpPlugin;
   readonly AppIcon?: AppIconNativePlugin;
   readonly App?: AppPlugin;
@@ -86,6 +105,8 @@ const capacitor = (): CapacitorGlobal | null =>
 const plugins = (): Plugins | null => capacitor()?.Plugins ?? null;
 
 export const nativeApp = (): AppPlugin | null => plugins()?.App ?? null;
+
+export const nativeApkUpdate = (): ApkUpdatePlugin | null => plugins()?.ApkUpdate ?? null;
 
 export const nativeHttp = (): HttpPlugin | null => plugins()?.CapacitorHttp ?? null;
 

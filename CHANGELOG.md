@@ -5,6 +5,10 @@
 - **Play Online on Android** (in testing): host or join a friend's game by **room code**, phone
   against phone or phone against PC: START BATTLE → Play Online. Connecting by address stays on
   Windows. The online battle uses the phone layout.
+- **Update the Android app from inside it:** Settings → Updates → **Check for updates**, then
+  **Download and install**. The game downloads the new version from GitHub, checks it, and Android
+  asks you to confirm the update (the first time, allow Vanguard Sim to install apps). Your decks,
+  settings and card art are kept.
 
 ## 0.34.0-alpha — 2026-11-09
 

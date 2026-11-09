@@ -18,7 +18,7 @@ Releases are tagged `v<version>`:
 - `v0.32.0-alpha` — recorded sounds and battle music, audio settings, house rules (9K Grade 3, Mega Blast), themes, v0.32 feedback fixes.
 - `v0.33.0-alpha` — new home screen, Card Database, phone layout feedback; first Android APK on GitHub.
 - `v0.34.0-alpha` — Android: download card art in the app.
-- `v0.35.0-alpha` — Android: Play Online by room code.
+- `v0.35.0-alpha` — Android: Play Online by room code, updating from inside the app.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

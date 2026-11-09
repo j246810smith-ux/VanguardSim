@@ -20,6 +20,7 @@ import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
 import { HomeScreen } from './home/HomeScreen';
 import { PhoneArtDownload } from './android/PhoneArtDownload';
+import { PhoneUpdates } from './android/PhoneUpdates';
 import { deckEntries, DeckList } from './screens/deckChoice';
 import {
   effectiveSettings,
@@ -872,6 +873,7 @@ function SettingsScreen({
             </button>
           </div>
         )}
+        {IS_ANDROID && !CAN.updateInPlace && <PhoneUpdatesRow />}
       </div>
       <button
         className="menu-btn"
@@ -881,6 +883,23 @@ function SettingsScreen({
       >
         BACK
       </button>
+    </div>
+  );
+}
+
+/** Settings → Updates on Android: the newest release from GitHub, installed over this copy. */
+function PhoneUpdatesRow() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="row" data-testid="phone-updates-row">
+      <span style={{ width: 300 }}>
+        Updates
+        <div className="hint">Download the newest version and install it over this one</div>
+      </span>
+      <button className="btn" onClick={() => setOpen(true)} data-testid="phone-updates-open">
+        Check for updates
+      </button>
+      {open && <PhoneUpdates onClose={() => setOpen(false)} />}
     </div>
   );
 }

@@ -21,8 +21,13 @@ You can switch off **Allow from this source** for Chrome again afterwards.
 
 ## Update to a newer version
 
-Download the newer APK the same way and install it over the old one: **your decks and settings
-are kept**. The phone app doesn't update itself (only the Windows version does).
+From version 0.35: **Settings → Updates → Check for updates**, then **Download and install**.
+The first time, Android asks you to allow Vanguard Sim to install apps: tap **Allow installs**, turn
+on **Allow from this source**, go back and tap **Install**. Then tap **Update** in Android's
+installer. **Your decks, settings and card art are kept.**
+
+Older versions: download the newer APK the same way as the first install and install it over the
+old one.
 
 ## Card art (optional)
 
@@ -52,4 +57,3 @@ the phone.
 - **Play Online** works by **room code** only (from version 0.35): phone against phone or PC.
   Connecting by address is Windows-only.
 - **The Artwork Manager's** import, export and report are Windows-only; the phone has Download.
-- **Updating from inside the game** is Windows-only: install new APKs by hand.

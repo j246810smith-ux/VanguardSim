@@ -15,6 +15,18 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-08, late) — v0.33.0-alpha published, first Android APK
+
+v0.33.0-alpha (public dec19b5): the new home screen (docs/design/HOME_SCREEN_PLAN.md, art cropped
+from the user's `Vanguard_Art_Assets` pack), Card Database, phone feedback (bigger card details
+text, no Card Info column, bigger field, piles and hand, Game Setup scrolls) and the **first signed
+Android APK** on the release (player guide docs/INSTALL_ANDROID.md). The Android release key is
+`%USERPROFILE%\.vanguardsimndroid-release.jks` + `.properties`, locked to the user's account;
+**it needs a backup** (docs/RELEASING.md step 5). The main tree has no Capacitor packages: build
+APKs in the `VanguardSim-android` worktree (detached at the release commit). The user's phone still
+has the debug build: moving to the release APK needs an uninstall first (decks and copied art on the
+phone are lost). Open: the user's playtest, the right phone column (empty except prompts).
+
 ## ▶ Pick up here (2026-11-08, end) — v0.32.0-alpha published
 
 Everything of 2026-11-08 is in master (fast-forward from `android-port`) and published as v0.32.0-alpha

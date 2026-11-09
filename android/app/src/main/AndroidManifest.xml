@@ -100,7 +100,9 @@
         </provider>
     </application>
 
-    <!-- Permissions: none. The game is offline (docs/android/ANDROID_AUDIT_AND_PLAN.md section 7);
-         Capacitor's own page server needs no permission. Add INTERNET back only for a feature that
-         goes online. -->
+    <!-- Permissions: INTERNET only, for Settings → Download card art (android/artDownload.ts), the
+         one thing that goes online, and only when the player presses Download. Play itself is
+         offline (docs/android/ANDROID_AUDIT_AND_PLAN.md section 7). Without it every download fails
+         with "Permission denied (missing INTERNET permission?)" (2026-11-08). -->
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

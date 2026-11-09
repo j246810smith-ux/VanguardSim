@@ -221,7 +221,7 @@ capacitor.config.ts ← NEW
 
 | Permission      | Needed?            | Why                                                                                                                                            |
 | --------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `INTERNET`      | **Not in phase 1** | Capacitor adds it by default; remove it while play is offline and art comes from the PC. Needed later only for the art download or online play |
+| `INTERNET`      | **Added 2026-11-08** | For Settings → Download card art only (play stays offline). Was removed in phase 1 while art came from the PC |
 | Storage / media | **No**             | the Android file picker grants access to the chosen file only                                                                                  |
 | Anything else   | No                 |                                                                                                                                                |
 

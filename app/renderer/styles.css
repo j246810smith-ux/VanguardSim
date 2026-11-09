@@ -5107,3 +5107,27 @@ input.text {
   left: calc(-1 * var(--edge, 0px));
   right: calc(-1 * var(--edge, 0px));
 }
+
+/* Settings → Download card art (Android, android/PhoneArtDownload.tsx) */
+.modal.phone-art {
+  width: 900px;
+  font-size: 22px;
+}
+.phone-art-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+.phone-art-bar {
+  height: 18px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.phone-art-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--me), var(--gold));
+  transition: width calc(0.3s * var(--anim));
+}

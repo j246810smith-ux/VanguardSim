@@ -18,12 +18,21 @@ export interface AppPlugin {
 }
 
 export interface FilesystemPlugin {
+  /** Text with `encoding: 'utf8'`; without an encoding, `data` is base64 (a picture). */
   writeFile(options: {
     path: string;
     data: string;
-    directory: 'CACHE';
-    encoding: 'utf8';
+    directory: 'CACHE' | 'EXTERNAL';
+    encoding?: 'utf8';
+    recursive?: boolean;
   }): Promise<{ uri: string }>;
+  rename(options: {
+    from: string;
+    to: string;
+    directory: 'EXTERNAL';
+    toDirectory: 'EXTERNAL';
+  }): Promise<void>;
+  deleteFile(options: { path: string; directory: 'EXTERNAL' }): Promise<void>;
   getUri(options: { directory: 'EXTERNAL'; path: string }): Promise<{ uri: string }>;
   readdir(options: {
     directory: 'EXTERNAL';
@@ -41,7 +50,25 @@ export interface AppIconNativePlugin {
   get(): Promise<{ id: string }>;
 }
 
+/**
+ * Capacitor's own HTTP plugin (part of @capacitor/core, registered natively whether or not it
+ * replaces fetch): requests made by Android itself, so a website's CORS rules don't apply. Used
+ * only by the card art download (android/artDownload.ts). `responseType: 'blob'` gives base64.
+ */
+export interface HttpPlugin {
+  request(options: {
+    url: string;
+    method: 'GET';
+    headers?: Record<string, string>;
+    responseType: 'blob';
+    connectTimeout?: number;
+    readTimeout?: number;
+    disableRedirects?: boolean;
+  }): Promise<{ status: number; data: string; headers: Record<string, string> }>;
+}
+
 interface Plugins {
+  readonly CapacitorHttp?: HttpPlugin;
   readonly AppIcon?: AppIconNativePlugin;
   readonly App?: AppPlugin;
   readonly Filesystem?: FilesystemPlugin;
@@ -59,6 +86,8 @@ const capacitor = (): CapacitorGlobal | null =>
 const plugins = (): Plugins | null => capacitor()?.Plugins ?? null;
 
 export const nativeApp = (): AppPlugin | null => plugins()?.App ?? null;
+
+export const nativeHttp = (): HttpPlugin | null => plugins()?.CapacitorHttp ?? null;
 
 export const nativeAppIcon = (): AppIconNativePlugin | null => plugins()?.AppIcon ?? null;
 

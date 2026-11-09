@@ -19,6 +19,7 @@ import { OnlineScreen } from './screens/OnlineScreen';
 import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
 import { HomeScreen } from './home/HomeScreen';
+import { PhoneArtDownload } from './android/PhoneArtDownload';
 import { deckEntries, DeckList } from './screens/deckChoice';
 import {
   effectiveSettings,
@@ -892,6 +893,9 @@ function ArtworkStatus() {
   const desktop = window.vanguardDesktop;
   const [status, setStatus] = useState<{ installed: number; expected: number } | null>(null);
   const [onPhone, setOnPhone] = useState<number | null>(null);
+  const [downloading, setDownloading] = useState(false);
+  // counted again after a download
+  const [recount, setRecount] = useState(0);
   useEffect(() => {
     void desktop?.artworkStatus().then(setStatus);
   }, [desktop]);
@@ -902,17 +906,28 @@ function ArtworkStatus() {
     return () => {
       live = false;
     };
-  }, [desktop]);
+  }, [desktop, recount]);
   if (IS_ANDROID && !desktop)
     return (
       <div className="row" data-testid="artwork-status">
         <span style={{ width: 300 }}>
           Card artwork
-          <div className="hint">Copy art from the PC with npm run artwork:phone</div>
+          <div className="hint">From the official card list, to this phone only</div>
         </span>
-        <span data-testid="phone-art-count">
+        <span data-testid="phone-art-count" style={{ width: 260 }}>
           {onPhone === null ? '…' : `${onPhone} cards found on this phone`}
         </span>
+        <button className="btn" onClick={() => setDownloading(true)} data-testid="phone-art-open">
+          Download card art
+        </button>
+        {downloading && (
+          <PhoneArtDownload
+            onClose={(changed) => {
+              setDownloading(false);
+              if (changed) setRecount((n) => n + 1);
+            }}
+          />
+        )}
       </div>
     );
   if (!desktop) return null;

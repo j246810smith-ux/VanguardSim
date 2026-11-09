@@ -27,21 +27,20 @@ are kept**. The phone app doesn't update itself (only the Windows version does).
 ## Card art (optional)
 
 Like the Windows download, the app has no card pictures; it is fully playable with the plain card
-frames. If you have the Windows game with its art, copy the pictures to the phone with a USB cable:
+frames. To get them (from version 0.34):
 
-1. Install and open the app once.
-2. Connect the phone to the PC by USB and, on the phone, choose **File transfer** in the USB
-   notification.
-3. On the PC, open the phone in File Explorer: **Internal storage → Android → data →
-   io.github.j246810smith_ux.vanguardsim → files**.
-4. Copy the Windows game's `cards` folder (next to `Vanguard Sim.exe`) into that `files` folder,
-   and its `sleeves` and `playmats` folders if you have them. The whole collection is about 1.4 GB.
-5. Restart the app. **Settings → Card artwork on the phone** shows how many cards it found.
+1. Open **Settings → Card artwork → Download card art**.
+2. Choose **All cards**, **Original Era** or **G era**, and tap **Download**. The pictures come from
+   the official Cardfight!! Vanguard card list straight to this phone.
+3. Use Wi-Fi (all cards are up to about 1.4 GB) and keep the game open. Tap **Cancel** any time;
+   **Download** again carries on where it stopped, skipping cards already on the phone.
 
-If the `Android/data` folder doesn't show up on the PC, the developer route works instead:
-`npm run artwork:phone` from the source code with the phone connected by adb
-([BUILDING_ANDROID.md](android/BUILDING_ANDROID.md)). Card images are © Bushiroad and for your
-personal use only.
+Card images are © Bushiroad and for your personal use only; please don't share or upload them.
+
+**From a PC instead:** if you have the Windows game with its art, connect the phone by USB, choose
+**File transfer**, and copy the game's `cards` folder (and `sleeves`, `playmats`) into **Internal
+storage → Android → data → io.github.j246810smith_ux.vanguardsim → files**. Developers can use
+`npm run artwork:phone` ([BUILDING_ANDROID.md](android/BUILDING_ANDROID.md)).
 
 ## Uninstall
 
@@ -51,5 +50,5 @@ the phone.
 ## What the phone version doesn't have yet
 
 - **Play Online** is Windows-only for now.
-- **The Artwork Manager** (downloading card art) is Windows-only: copy the art as above.
+- **The Artwork Manager's** import, export and report are Windows-only; the phone has Download.
 - **Updating from inside the game** is Windows-only: install new APKs by hand.

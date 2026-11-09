@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.34.0-alpha — 2026-11-09
+
+- **Android: download card art in the app.** Settings → Card artwork → **Download card art**: all
+  cards, the Original Era or the G era, straight from the official card list to your phone, with
+  progress and Cancel; Download again carries on where it stopped. Same checks as the Windows
+  Artwork Manager (docs/INSTALL_ANDROID.md).
+
 ## 0.33.0-alpha — 2026-11-08
 
 **Now on Android:** a signed APK on the release page — how to install it:

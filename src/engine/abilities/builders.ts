@@ -267,6 +267,8 @@ export const superiorCall = (
     sameColumnAsEvent?: boolean;
     rested?: boolean;
     circlesOf?: string;
+    frontRow?: boolean;
+    notSourceCircle?: boolean;
   } = {},
 ): Step => ({ op: 'call', target, ...opts });
 /** "Declare a <filter> card name, and reveal the top card of your deck": `as` = the top card if it has that name. */
@@ -381,6 +383,11 @@ export const grant = (
   duration,
 });
 export const timeLeap = (target: Selector): Step => ({ op: 'time_leap', target });
+/** "move this unit to your (GC) as [Rest]": a guardian of the attacked vanguard. */
+export const toGuardian = (target: Selector): Step => ({ op: 'to_guardian', target });
+/** CR 1.48.1 11.33: hollowed until end of turn, then retired; `then` runs after that retire. */
+export const hollow = (target: Selector, then?: readonly Step[]): Step =>
+  then ? { op: 'hollow', target, then } : { op: 'hollow', target };
 export const noNormalRideNext = (): Step => ({ op: 'no_normal_ride_next' });
 export const placeHeart = (target: Selector, replacing?: string): Step =>
   replacing ? { op: 'place_heart', target, replacing } : { op: 'place_heart', target };

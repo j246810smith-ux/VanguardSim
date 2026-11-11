@@ -124,6 +124,10 @@ export type TaskBody =
       readonly column?: 'left' | 'centre' | 'right';
       /** Only these circles (`call` with `circlesOf`). */
       readonly circles?: readonly RearGuardCircle[];
+      /** Only the front row (RC). */
+      readonly frontRow?: true;
+      /** Not the circle the ability's card is on. */
+      readonly notSourceCircle?: true;
       selection?: string[];
     }
   | { readonly kind: 'end_frame'; readonly frame: number };

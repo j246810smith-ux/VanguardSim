@@ -33,7 +33,9 @@ export function clanDeck(clan: string, include: string[], g: string[]): DeckList
   let sentinels = 0;
   const add = (id: string, n = 4) => {
     const def = gCtx.registry.get(id);
-    for (let i = cards.filter((x) => x === id).length; i < n && cards.length < 34; i++) {
+    // by card name: a Trial Deck reprint (G-TD06 Chronojet Dragon) shares its name with the original
+    const named = (x: string) => gCtx.registry.get(x).name === def.name;
+    for (let i = cards.filter(named).length; i < n && cards.length < 34; i++) {
       if (def.sentinel && sentinels >= 4) return;
       if (def.sentinel) sentinels++;
       cards.push(id);
@@ -49,7 +51,8 @@ export function clanDeck(clan: string, include: string[], g: string[]): DeckList
     ...include.filter((i) => gCtx.registry.get(i).trigger),
     ...of((c) => c.trigger !== null),
   ]) {
-    if (triggers.includes(id)) continue;
+    const name = gCtx.registry.get(id).name;
+    if (triggers.some((t) => gCtx.registry.get(t).name === name)) continue;
     const heal = gCtx.registry.get(id).trigger === 'heal';
     for (let i = 0; i < 4 && triggers.length < 16; i++) {
       if (heal && heals >= 4) break;

@@ -2827,7 +2827,7 @@ input.text {
   transform-style: preserve-3d;
 }
 .table .power-plate {
-  transform: translateX(-50%) translateZ(2px) rotateX(calc(-1deg * var(--tilt, 30)));
+  transform: translateX(-50%) translateZ(2px) rotateX(calc(-1deg * var(--tilt, 45)));
   transform-origin: 50% 100%;
   bottom: -14px;
   font: 900 32px/1.15 var(--font-display);
@@ -2838,7 +2838,7 @@ input.text {
   font-size: 40px;
 }
 .table .crit-badge {
-  transform: translateZ(2px) rotateX(calc(-1deg * var(--tilt, 30)));
+  transform: translateZ(2px) rotateX(calc(-1deg * var(--tilt, 45)));
   transform-origin: 50% 100%;
 }
 
@@ -5149,4 +5149,488 @@ input.text {
   margin-top: 8px;
   font-weight: 700;
   color: var(--gold);
+}
+
+/* ---- Battlefield 2.0, desktop stage ------------------------------------------------------------ */
+/* Fixed information panel in the left column, under the phase rail: history or the card looked at */
+.info-panel {
+  /* below the phase rail even when the battle step list and the action guide are open */
+  position: absolute;
+  left: 24px;
+  top: 548px;
+  width: 300px;
+  height: 386px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 8px 10px 10px;
+  background: linear-gradient(180deg, rgba(8, 14, 28, 0.9), rgba(8, 14, 28, 0.78));
+  border: 1px solid color-mix(in srgb, var(--me) 35%, transparent);
+  border-radius: 10px;
+  z-index: 45;
+}
+.info-panel .ip-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.info-panel .ip-tabs button {
+  padding: 4px 10px;
+  font: 700 14px var(--font-body);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.info-panel .ip-tabs button.on {
+  color: #fff;
+  border-color: var(--me);
+  background: color-mix(in srgb, var(--me) 22%, transparent);
+}
+.info-panel .ip-tabs button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.info-panel .ip-tabs .ip-log {
+  margin-left: auto;
+}
+.info-panel .ip-feed {
+  flex: 1;
+  overflow-y: auto;
+  /* larger type on a small screen (U11), capped: the panel's width is fixed */
+  font-size: calc(15px * min(var(--text-boost, 1), 1.6));
+  line-height: 1.35;
+  color: var(--muted, #b9c3d6);
+  scrollbar-width: thin;
+}
+.info-panel .ip-feed div {
+  padding: 1px 0;
+  animation: event-in calc(0.3s * var(--anim)) ease-out;
+}
+.info-panel .ip-feed div:last-child {
+  color: var(--text);
+}
+.info-panel .ip-feed .l-me {
+  color: #9fdcff;
+}
+.info-panel .ip-feed .l-opp {
+  color: #ffb3a8;
+}
+.info-panel .ip-feed .l-trigger {
+  color: var(--gold);
+}
+.info-panel .ip-feed .l-hit {
+  color: var(--hit);
+}
+.info-panel .ip-empty {
+  opacity: 0.6;
+  font-style: italic;
+}
+.info-panel .ip-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.info-panel .ip-details {
+  padding: 4px 18px;
+  font-size: 15px;
+}
+
+/* Attack and defence beside VS (or the guardians) on the centre line, between the two fields and
+   clear of the zone tiles and the left column (they were out at the sides, over the piles) */
+.table-wrap ~ .battle-vs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.table-wrap ~ .battle-vs > .vs-plate {
+  /* one compact row (about 60 px), so it fits the gap between the front rows at 45° */
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  grid-template-columns: auto auto 96px;
+  grid-template-rows: auto;
+  align-items: center;
+  column-gap: 10px;
+  padding: 1px 12px 2px;
+  transform: skewX(-12deg);
+}
+.table-wrap ~ .battle-vs .vs-plate .lbl {
+  grid-row: auto;
+  font-size: 11px;
+}
+.table-wrap ~ .battle-vs .vs-plate .val {
+  font-size: 30px;
+}
+.table-wrap ~ .battle-vs .vs-plate .sub {
+  font-size: 12px;
+  line-height: 1.1;
+}
+.table-wrap ~ .battle-vs .vs-mark {
+  font-size: 34px;
+}
+.table-wrap ~ .battle-vs .vs-mark,
+.table-wrap ~ .battle-vs .guardian-row {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+
+/* ---- Battlefield 2.0, Mobile profile (phase 3) -------------------------------------------------
+   Touch targets: on a phone the stage is drawn at about 0.38, so 104 stage px is about 40 dp (the
+   action buttons now match the phase buttons) and 88 px about 34 dp for the rail buttons; power
+   plates about 14 dp so the numbers read at arm's length. */
+.m-action {
+  min-height: 104px;
+  min-width: 150px;
+  font-size: 26px;
+}
+.m-rail-btn {
+  min-height: 88px;
+  font-size: 22px;
+}
+.m-field .power-plate {
+  font-size: 34px;
+  min-width: 108px;
+}
+.m-field .vc .power-plate {
+  font-size: 40px;
+  min-width: 128px;
+}
+
+/* Mobile, Tilted (45°): the field turns about the banner line (--m-pivot), your side near and
+   large, the opponent's further away; power plates and critical badges stand up again */
+.m-field.view-tilted {
+  --tilt: 45;
+  transform-origin: 50% var(--m-pivot, 342px);
+  transform: translateX(-50%) scale(var(--m-scale, 1)) perspective(2200px) rotateX(45deg)
+    scale(1.12);
+  transform-style: preserve-3d;
+}
+.m-field.view-tilted .circle,
+.m-field.view-tilted .unit {
+  transform-style: preserve-3d;
+}
+.m-field.view-tilted .power-plate {
+  transform: translateX(-50%) translateZ(2px) rotateX(-45deg);
+  transform-origin: 50% 100%;
+}
+.m-field.view-tilted .crit-badge {
+  transform: translateZ(2px) rotateX(-45deg);
+  transform-origin: 50% 100%;
+}
+
+/* ---- Battlefield 2.0 phase 4: dragging a hand card (mouse or finger, ui/usePointerDrag.ts) ------ */
+/* a finger on a playable card drags it instead of scrolling the page; in the phone's hand strip
+   the row still scrolls sideways and a drag starts upwards */
+.hand:not(.hand-strip) .hand-card.can-drag {
+  touch-action: none;
+}
+.hand-card.can-drag {
+  cursor: grab;
+}
+.hand-card.dragging {
+  opacity: 0.35;
+}
+.drag-ghost {
+  cursor: grabbing;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 14px var(--gold-glow));
+  transition: none;
+  animation: none;
+}
+.circle.drop-bad .ring svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px #ff4a3d) drop-shadow(0 0 6px #ff4a3d);
+}
+.circle.drop-over {
+  scale: 1.06;
+}
+
+/* ---- Battlefield 2.0 phase 5: battles on the field -------------------------------------------- */
+/* the attacked unit: a red ring that pulses while the battle lasts */
+.circle.in-battle-target .ring svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 16px var(--opp)) drop-shadow(0 0 6px var(--opp));
+  animation: target-pulse calc(1.1s * var(--anim, 1)) ease-in-out infinite;
+}
+@keyframes target-pulse {
+  50% {
+    filter: drop-shadow(0 0 26px var(--opp)) drop-shadow(0 0 10px var(--opp));
+  }
+}
+/* ATTACK! takes the place of VS for a moment */
+.vs-mark.attack-call {
+  color: var(--gold);
+  animation: attack-call calc(0.35s * var(--anim, 1)) cubic-bezier(0.2, 0.9, 0.2, 1.4);
+}
+@keyframes attack-call {
+  from {
+    scale: 1.8;
+    opacity: 0;
+  }
+}
+/* marked guardians previewed on the defence plate */
+.vs-plate.previewing {
+  border-style: dashed;
+}
+/* a drive or damage check rising from its player's trigger zone */
+.field-check {
+  position: absolute;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transform: translate(-30%, -50%);
+  pointer-events: none;
+  --tc: #fff;
+}
+.field-check.words-left {
+  flex-direction: row-reverse;
+  transform: translate(-70%, -50%);
+}
+.field-check.t-critical {
+  --tc: #ffd34d;
+}
+.field-check.t-draw {
+  --tc: #4dc3ff;
+}
+.field-check.t-stand {
+  --tc: #5dff9a;
+}
+.field-check.t-heal {
+  --tc: #ff7ad1;
+}
+.field-check .fc-card {
+  position: relative;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.85));
+  animation: check-rise calc(var(--hold) * 0.3) cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+}
+.field-check .burst {
+  position: absolute;
+  inset: -60px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, var(--tc) 0 6deg, transparent 6deg 18deg),
+    radial-gradient(circle, var(--tc) 0, transparent 60%);
+  mask-image: radial-gradient(circle, #000 30%, transparent 70%);
+  opacity: 0.7;
+  animation: burst var(--hold) linear forwards;
+}
+.field-check .fc-words {
+  padding: 8px 16px 10px;
+  background: rgba(6, 10, 22, 0.88);
+  border: 2px solid var(--tc);
+  border-radius: 10px;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--tc) 45%, transparent);
+  max-width: 300px;
+}
+.field-check .kind {
+  font: 800 15px var(--font-display);
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+.field-check .trig {
+  font: 900 30px/1.1 var(--font-display);
+  font-style: italic;
+  color: var(--tc);
+  text-shadow: 0 0 12px var(--tc);
+}
+.field-check .trig.none {
+  font-size: 22px;
+  color: var(--text);
+  text-shadow: none;
+}
+.field-check .effect {
+  font: 700 17px var(--font-body);
+  color: #fff;
+}
+.field-check.big .trig {
+  font-size: 38px;
+}
+@keyframes check-rise {
+  from {
+    transform: translateY(40px) scale(0.5) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+/* ---- Battlefield 2.0 phase 6: backgrounds ------------------------------------------------------ */
+/* the phone layout paints the Mobile profile's playmat on .m-battle itself (MobileBattleScreen):
+   a separate layer behind a transparent grid made Android drop layers and draw black boxes under
+   the blurred panels (user's Pixel 10, 2026-11-11) */
+/* the themed mats' optional moving layer: slow, soft and cheap (opacity and transform only) */
+.playmat-anim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.playmat-anim::before,
+.playmat-anim::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  will-change: transform, opacity;
+}
+.reduce-motion .playmat-anim {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .playmat-anim {
+    display: none;
+  }
+}
+.anim-light::before {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 240, 0.16) 50%,
+    transparent 60%
+  );
+  animation: mat-sweep 14s ease-in-out infinite;
+}
+.anim-stars::before,
+.anim-stars::after {
+  background:
+    radial-gradient(2px 2px at 18% 30%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 42% 70%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 66% 22%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 84% 58%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 8% 82%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 55% 44%, #fff, transparent 3px);
+  animation: mat-twinkle 5s ease-in-out infinite;
+}
+.anim-stars::after {
+  transform: rotate(37deg) scale(1.2);
+  animation-delay: -2.5s;
+}
+.anim-embers::before,
+.anim-embers::after {
+  background:
+    radial-gradient(3px 3px at 20% 90%, rgba(255, 150, 60, 0.9), transparent 4px),
+    radial-gradient(2px 2px at 45% 80%, rgba(255, 110, 40, 0.9), transparent 3px),
+    radial-gradient(3px 3px at 70% 95%, rgba(255, 170, 70, 0.9), transparent 4px),
+    radial-gradient(2px 2px at 88% 85%, rgba(255, 120, 50, 0.9), transparent 3px);
+  animation: mat-rise 11s linear infinite;
+}
+.anim-embers::after {
+  animation-delay: -5.5s;
+  left: -10%;
+}
+.anim-motes::before {
+  background:
+    radial-gradient(4px 4px at 25% 40%, rgba(150, 255, 190, 0.5), transparent 6px),
+    radial-gradient(3px 3px at 60% 65%, rgba(150, 255, 190, 0.45), transparent 5px),
+    radial-gradient(4px 4px at 80% 30%, rgba(150, 255, 190, 0.4), transparent 6px);
+  animation: mat-drift 18s ease-in-out infinite alternate;
+}
+.anim-caustics::before {
+  background: repeating-radial-gradient(
+    ellipse at 40% 30%,
+    rgba(90, 230, 220, 0.06) 0 3px,
+    transparent 3px 40px
+  );
+  animation: mat-drift 22s ease-in-out infinite alternate;
+}
+.anim-rays::before {
+  background: repeating-conic-gradient(
+    from 0deg at 50% 47%,
+    rgba(255, 215, 120, 0.05) 0 3deg,
+    transparent 3deg 14deg
+  );
+  animation: mat-spin 90s linear infinite;
+}
+@keyframes mat-sweep {
+  0%,
+  100% {
+    transform: translateX(-45%);
+  }
+  50% {
+    transform: translateX(45%);
+  }
+}
+@keyframes mat-twinkle {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes mat-rise {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+}
+@keyframes mat-drift {
+  to {
+    transform: translate(6%, -4%) scale(1.05);
+  }
+}
+@keyframes mat-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Settings: the chosen playmat with the field's circles on it */
+.mat-big-preview {
+  position: relative;
+  width: 480px;
+  height: 270px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--panel-edge);
+}
+.mat-big-preview .mp-rows {
+  position: absolute;
+  inset: 22px 0 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.mat-big-preview .mp-row {
+  display: flex;
+  gap: 46px;
+}
+.mat-big-preview .mp-row i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--me) 70%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--me) 40%, transparent);
+}
+.mat-big-preview .mp-row.opp i {
+  border-color: color-mix(in srgb, var(--opp) 70%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--opp) 40%, transparent);
+}
+.mat-big-preview .mp-row i.vc {
+  width: 50px;
+  height: 50px;
+}
+.mat-big-preview .mp-name {
+  position: absolute;
+  left: 10px;
+  bottom: 6px;
+  font: 700 15px var(--font-body);
+  color: #fff;
+  text-shadow: 0 1px 4px #000;
+}
+
+/* desktop stage: the hand sits a little left of centre, so a full action bar on the right (five
+   buttons: Cancel, To Battle, Final Turn!, Log, Card Details) no longer hides under it */
+.table-wrap ~ .hand {
+  left: 880px;
 }

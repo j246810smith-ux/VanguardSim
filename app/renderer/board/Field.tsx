@@ -1,4 +1,3 @@
-import { useState, type DragEvent } from 'react';
 import {
   CIRCLES,
   basePower,
@@ -38,8 +37,9 @@ interface FieldProps {
   readonly stateOf: (player: PlayerId, circle: Circle) => CircleState;
   readonly onCircle: (player: PlayerId, circle: Circle) => void;
   readonly onDetails: (id: InstanceId) => void;
-  readonly onDropCard: (circle: Circle, cardId: InstanceId) => void;
   readonly battleAttacker: InstanceId | null;
+  /** The attacked unit (Battlefield 2.0: its ring pulses red while the battle lasts). */
+  readonly battleTarget?: InstanceId | null;
   /** The phone layout's own circle positions and sizes (MobileBattleScreen). */
   readonly geometry?: FieldGeometry;
   /** Units in focus for a moment (the phone layout: attacker and target as an attack begins). */
@@ -105,12 +105,11 @@ function CircleSlot({
   stateOf,
   onCircle,
   onDetails,
-  onDropCard,
   battleAttacker,
+  battleTarget = null,
   geometry = DESKTOP_GEOMETRY,
   focus,
 }: FieldProps & { circle: Circle }) {
-  const [over, setOver] = useState(false);
   const press = useLongPress();
   const pos = geometry.pos(player, circle);
   const vc = circle === 'vanguard';
@@ -129,23 +128,10 @@ function CircleSlot({
     st.mark ? `hl hl-${st.mark}` : '',
     st.selected ? `sel-${st.selected}` : '',
     top && top === battleAttacker ? 'in-battle-attacker' : '',
+    top && top === battleTarget ? 'in-battle-target' : '',
     top && focus?.includes(top) ? 'focus' : '',
-    over ? 'drop-over' : '',
   ].join(' ');
-  const droppable = st.mark === 'call' || st.mark === 'ride';
-  const onDragOver = (e: DragEvent) => {
-    if (!droppable) return;
-    e.preventDefault();
-    setOver(true);
-  };
-  const onDrop = (e: DragEvent) => {
-    setOver(false);
-    const id = e.dataTransfer.getData('text/vanguard-card');
-    if (id && droppable) {
-      e.preventDefault();
-      onDropCard(circle, id);
-    }
-  };
+  // a dragged hand card marks this circle drop-over / drop-bad itself (ui/usePointerDrag.ts)
   return (
     <div
       className={cls}
@@ -158,9 +144,6 @@ function CircleSlot({
       }}
       onClick={() => onCircle(player, circle)}
       {...press(top ? () => onDetails(top) : null)}
-      onDragOver={onDragOver}
-      onDragLeave={() => setOver(false)}
-      onDrop={onDrop}
       data-testid={`circle-${player}-${circle}`}
     >
       <div className="ring">

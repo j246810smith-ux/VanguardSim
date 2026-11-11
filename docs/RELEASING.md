@@ -19,6 +19,7 @@ Releases are tagged `v<version>`:
 - `v0.33.0-alpha` — new home screen, Card Database, phone layout feedback; first Android APK on GitHub.
 - `v0.34.0-alpha` — Android: download card art in the app.
 - `v0.35.0-alpha` — Android: Play Online by room code, updating from inside the app.
+- `v0.36.0-alpha` — Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles, drag by finger, backgrounds); G-TD06–08, G-BT06.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.
 

@@ -5,6 +5,7 @@ import { DEFAULT_AUDIO } from './audio/audio';
 import { createContext, useContext } from 'react';
 import { IS_ANDROID } from './platform';
 import { DEFAULT_APP_ICON, validAppIcon } from './appIcons';
+import { seedProfiles, type ProfileId, type ProfilePrefs } from './presentation/profile';
 
 export type Speed = 'normal' | 'fast' | 'instant';
 /** Battle cut-ins (D-035): full-screen moments, quick ones, or only the small banners. */
@@ -26,6 +27,11 @@ export type Graphics = 'full' | 'reduced' | 'low';
 export interface Settings {
   readonly speed: Speed;
   readonly reducedMotion: boolean;
+  /**
+   * Battlefield 2.0: show a move's moments one after another (attack, checks, triggers, damage)
+   * instead of jumping to the result. Presentation only (presentation/queue.ts).
+   */
+  readonly stepByStep: boolean;
   readonly cutIns: CutIns;
   readonly tableView: TableView;
   readonly battleLayout: BattleLayout;
@@ -64,6 +70,14 @@ export interface Settings {
   readonly appIcon: string;
   /** Graphics level (U14). Older saved settings have none: they get the default below. */
   readonly graphics: Graphics;
+  /**
+   * Battlefield 2.0: the view and playmat of each presentation profile (presentation/profile.ts).
+   * A battle plays with its profile's values (`forProfile`); `tableView` and `playmat` above are
+   * the last edited ones, kept for screens outside a battle and for older versions.
+   */
+  readonly profiles: Readonly<Record<ProfileId, ProfilePrefs>>;
+  /** The playmat's moving layer: the battle's profile value (`forProfile`), like the view. */
+  readonly animatedBackground: boolean;
 }
 
 /**
@@ -83,12 +97,15 @@ export function defaultGraphics(
  * table, whatever those are set to (they come back when Graphics is raised again).
  */
 export function effectiveSettings(s: Settings): Settings {
-  return s.graphics === 'low' ? { ...s, foil: false, cutIns: 'off', tableView: 'overhead' } : s;
+  return s.graphics === 'low'
+    ? { ...s, foil: false, cutIns: 'off', tableView: 'overhead', animatedBackground: false }
+    : s;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   speed: 'normal',
   reducedMotion: false,
+  stepByStep: true,
   cutIns: 'full',
   tableView: 'overhead',
   battleLayout: 'auto',
@@ -105,7 +122,27 @@ export const DEFAULT_SETTINGS: Settings = {
   checkUpdatesAtStart: false,
   graphics: defaultGraphics(),
   appIcon: DEFAULT_APP_ICON,
+  profiles: seedProfiles({}),
+  animatedBackground: true,
 };
+
+/** The settings a battle in profile `id` plays with: that profile's view and playmat. */
+export function forProfile(s: Settings, id: ProfileId): Settings {
+  const p = s.profiles?.[id];
+  return p
+    ? {
+        ...s,
+        tableView: p.tableView,
+        playmat: p.playmat,
+        animatedBackground: p.animatedBackground,
+      }
+    : s;
+}
+
+/** Changes one profile's view or playmat (and the shared values, which follow the last edit). */
+export function setProfilePref(s: Settings, id: ProfileId, patch: Partial<ProfilePrefs>): Settings {
+  return { ...s, ...patch, profiles: { ...s.profiles, [id]: { ...s.profiles[id], ...patch } } };
+}
 
 const KEY = 'vanguard-sim.settings.v1';
 
@@ -115,7 +152,13 @@ export function loadSettings(): Settings {
     if (!raw) return DEFAULT_SETTINGS;
     const saved = JSON.parse(raw) as Partial<Settings>;
     const s = { ...DEFAULT_SETTINGS, ...saved, ...migrateAudio(saved) };
-    return { ...s, appIcon: validAppIcon(s.appIcon), theme: validTheme(s.theme) };
+    return {
+      ...s,
+      appIcon: validAppIcon(s.appIcon),
+      theme: validTheme(s.theme),
+      // settings saved before the profiles: both profiles start from the saved view and playmat
+      profiles: seedProfiles(saved),
+    };
   } catch {
     return DEFAULT_SETTINGS;
   }

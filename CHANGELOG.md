@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.36.0-alpha — 2026-11-11
+
+### Battlefield 2.0
+
+A new battle presentation over the same rules engine (docs/design/BATTLEFIELD_2_AUDIT.md). Two
+**presentation profiles**: **Desktop** (Windows, the spacious stage) and **Mobile** (Android, the
+compact landscape layout). Automatic picks Mobile on Android; Settings → Battle layout picks either.
+Each profile keeps its own battle view, playmat and animated background (Settings → Profile settings).
+
+- **Step-by-step battles** (on by default; Settings → Step-by-step battles): an attack's moments are
+  shown in order on the board — the drive check card waits in the trigger zone before it reaches the
+  hand, the damage check before the damage zone. Instant speed jumps straight to the result.
+- **Battles on the field:** only Ride, Legion and (new) **Stride** take the whole screen. An attack
+  lights the attacker, pulses the target's ring red, and ATTACK! appears between the power plates;
+  drive and damage checks rise out of the trigger zone with the trigger's name and effect.
+- **Guarding:** the cards you mark to guard are previewed on the defence plate ("marked +10000 ·
+  GUARDED") before you press Guard.
+- **Drag and drop with a finger** (and a mouse or pen): drag a hand card onto a glowing circle. A
+  circle it cannot go to says so, with a red shake, and the card stays selected.
+- **Desktop:** the tilted view is now a real 45°; a fixed panel on the left shows the battle history
+  or the card you look at (the Card tab keeps it); attack and defence are one compact row beside VS,
+  no longer over the damage zones; the hand moved left so a full action bar fits.
+- **Mobile:** larger buttons for fingers, larger power numbers, the opponent's damage tile label
+  fits, the Tilted (45°) view works on the phone, and the phone now shows your **playmat and
+  sleeves** (it never did).
+- **Backgrounds:** playmats in two groups, **Themed** (each with a gentle moving layer) and
+  **Classic** (two new plain mats: Tournament Blue, Slate Felt), with a preview in Settings.
+  Moving backgrounds are on for Desktop, off for Mobile, and never with Reduced motion or Low graphics.
+
+### New cards
+
+**Expanded Era: G-BT06 "Transcension of Blade & Blossom"** (104 cards) — Royal Paladin, Shadow Paladin, Nova Grappler, Pale Moon, Granblue and Neo Nectar, with **Brave**, **Bloom**, **Rush**, grades that change in the deck, units moving to the guardian circle and Air Elemental, Twitterun.
+
+**G Trial Decks G-TD06, G-TD07 and G-TD08** (57 cards) — Gear Chronicle, Pale Moon and Granblue, each ready to play exactly as sold, with the new **Hollow** ability (Granblue).
+
 ## 0.35.0-alpha — 2026-11-09
 
 - **Play Online on Android** (in testing): host or join a friend's game by **room code**, phone

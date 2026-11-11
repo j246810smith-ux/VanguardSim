@@ -64,13 +64,18 @@ interface TableParams {
   readonly shiftY: number;
 }
 
+/**
+ * 45° since Battlefield 2.0 (user's choice 2026-11-11; it was 30°). The weaker perspective (2400)
+ * keeps the near zone tiles on the 1920 px stage at the steeper angle, with the same near/far size
+ * ratio as before (about 1.11 and 0.91).
+ */
 export const TABLE: TableParams = {
-  tilt: 30,
-  scale: 1.03,
-  perspective: 1500,
+  tilt: 45,
+  scale: 1.04,
+  perspective: 2400,
   originY: 250,
   pivotY: 500,
-  shiftY: -58,
+  shiftY: -40,
 };
 
 /** The overhead view (user's request, 2026-11-03): the same table, flat, seen from above. */

@@ -1,9 +1,9 @@
-import type { DragEvent } from 'react';
 import type { GameState, InstanceId } from '../../../src/engine';
 import { defOf, ME } from '../engine';
 import type { Legal, Selection } from '../game/interaction';
 import { CardView } from '../ui/CardView';
-import { isCoarsePointer, useLongPress } from '../ui/useLongPress';
+import { useLongPress, type LongPressHandlers } from '../ui/useLongPress';
+import { usePointerDrag, type DragHandlers, type DropTarget } from '../ui/usePointerDrag';
 
 interface Props {
   readonly view: GameState;
@@ -19,11 +19,43 @@ interface Props {
    * fan whose cards get too narrow to tap.
    */
   readonly stripAbove?: number;
+  /** A card was picked up by a drag (Battlefield 2.0: mouse, finger or pen). */
+  readonly onDragStart?: (id: InstanceId) => void;
+  /** A dragged card was let go over `target` (null: over no circle); `good`: it glowed there. */
+  readonly onDrop?: (id: InstanceId, target: DropTarget | null, good: boolean) => void;
+}
+
+/** Both handler sets on one element: each pointer event goes to the long press and the drag. */
+function both(a: LongPressHandlers, b: DragHandlers) {
+  return {
+    ...a,
+    onPointerDown: (e: Parameters<LongPressHandlers['onPointerDown']>[0]) => {
+      a.onPointerDown(e);
+      b.onPointerDown(e);
+    },
+    onPointerMove: (e: Parameters<LongPressHandlers['onPointerMove']>[0]) => {
+      a.onPointerMove(e);
+      b.onPointerMove(e);
+    },
+    onPointerUp: (e: Parameters<DragHandlers['onPointerUp']>[0]) => {
+      a.onPointerUp();
+      b.onPointerUp(e);
+    },
+    onPointerCancel: (e: Parameters<DragHandlers['onPointerCancel']>[0]) => {
+      a.onPointerCancel();
+      b.onPointerCancel(e);
+    },
+    onClickCapture: (e: Parameters<LongPressHandlers['onClickCapture']>[0]) => {
+      b.onClickCapture(e);
+      if (!e.isPropagationStopped()) a.onClickCapture(e);
+    },
+  };
 }
 
 /**
  * The fanned hand along the bottom edge. Usable cards glow; hover (or selection) lifts and
- * enlarges. Right-click or a long press shows the card's details; drag is for the mouse only.
+ * enlarges. Right-click or a long press shows the card's details. A card that can be called or
+ * ridden can also be dragged onto a circle, with a mouse or a finger (ui/usePointerDrag.ts).
  */
 export function Hand({
   view,
@@ -34,9 +66,14 @@ export function Hand({
   onDetails,
   spreadWidth = 760,
   stripAbove = Infinity,
+  onDragStart,
+  onDrop,
 }: Props) {
   const press = useLongPress();
-  const coarse = isCoarsePointer();
+  const drag = usePointerDrag({
+    onStart: (id) => onDragStart?.(id),
+    onDrop: (id, target, good) => onDrop?.(id, target, good),
+  });
   const ids = view.players[ME].hand;
   const n = ids.length;
   const spread = Math.min(110, spreadWidth / Math.max(n, 1));
@@ -53,7 +90,7 @@ export function Hand({
           legal.call.has(id) ||
           legal.guard.has(id) ||
           legal.act.some((o) => o.source === id);
-        const draggable = !coarse && (legal.ride.has(id) || legal.call.has(id));
+        const draggable = !!onDrop && (legal.ride.has(id) || legal.call.has(id));
         const cls = [
           'hand-card',
           (selection?.kind === 'hand' || selection?.kind === 'guard') && selection.id === id
@@ -61,11 +98,8 @@ export function Hand({
             : '',
           marked.includes(id) ? 'marked' : '',
           choice ? 'choice' : usable || legal.mulligan ? 'usable' : '',
+          draggable ? 'can-drag' : '',
         ].join(' ');
-        const onDragStart = (e: DragEvent) => {
-          e.dataTransfer.setData('text/vanguard-card', id);
-          e.dataTransfer.effectAllowed = 'move';
-        };
         return (
           <div
             key={id}
@@ -76,9 +110,10 @@ export function Hand({
                 : { left: offset - 62, transform: `rotate(${angle}deg)`, zIndex: i + 1 }
             }
             onClick={() => onClick(id)}
-            {...press(() => onDetails(id))}
-            draggable={draggable}
-            onDragStart={onDragStart}
+            {...both(
+              press(() => onDetails(id)),
+              drag(id, draggable, strip),
+            )}
             data-testid={`hand-${i}`}
             data-iid={id}
           >

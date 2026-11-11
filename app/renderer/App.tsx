@@ -1,4 +1,5 @@
 import {
+  useContext,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -26,6 +27,7 @@ import {
   effectiveSettings,
   loadSettings,
   saveSettings,
+  setProfilePref,
   SettingsContext,
   useSettings,
   type Graphics,
@@ -33,11 +35,12 @@ import {
   type Speed,
 } from './settings';
 import { fitSize, stageLayout, StageInfo, textBoost, type StageLayout } from './stageFit';
+import { PROFILE_IDS, PROFILES, profileFor, type ProfileId } from './presentation/profile';
 import { listenForBack } from './android/back';
 import { nativeApp } from './android/native';
 import './artwork/api'; // window.vanguardDesktop types
 import { audio } from './audio/audio';
-import { PlaymatPicker, SleevePicker } from './ui/CosmeticPickers';
+import { PlaymatPicker, PlaymatPreview, SleevePicker } from './ui/CosmeticPickers';
 import { AppIconPicker } from './ui/AppIconPicker';
 import { applyAppIcon } from './appIconNative';
 import { DEFAULT_SLEEVE } from './cosmetics';
@@ -463,10 +466,11 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       ...(nineK && format === 'classic' ? { nineKGrade3: nineK } : {}),
       ...(megaCheap ? { megaBlastCheap: true } : {}),
       format,
-      // D-033: a deck's own sleeve and playmat, else the defaults from Settings
+      // D-033: a deck's own sleeve and playmat, else the defaults from Settings (the playmat of
+      // the battle's presentation profile, chosen when the battle screen opens)
       mySleeve: my.sleeve ?? settings.defaultSleeve,
       aiSleeve: their.sleeve ?? DEFAULT_SLEEVE,
-      playmat: my.playmat ?? settings.playmat,
+      ...(my.playmat ? { playmat: my.playmat } : {}),
     });
   };
   return (
@@ -619,20 +623,32 @@ function SettingsScreen({
   onBack: () => void;
   onUpdates: () => void;
 }) {
+  // which profile's view and playmat the rows below edit: the one this device plays with
+  const { phone } = useContext(StageInfo);
+  const inUse = profileFor(settings.battleLayout, phone);
+  const [editing, setEditing] = useState<ProfileId>(inUse);
   const speeds: [Speed, string][] = [
     ['normal', 'Normal'],
     ['fast', 'Fast'],
     ['instant', 'Instant (no effects)'],
   ];
-  const toggle = (label: string, key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil') => (
+  const toggle = (
+    label: string,
+    key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil' | 'stepByStep',
+    hint?: string,
+  ) => (
     <div className="row">
-      <span style={{ width: 300 }}>{label}</span>
+      <span style={{ width: 300 }}>
+        {label}
+        {hint && <div className="hint">{hint}</div>}
+      </span>
       <span className="seg">
         {[true, false].map((v) => (
           <button
             key={String(v)}
             className={settings[key] === v ? 'on' : ''}
             onClick={() => onChange({ ...settings, [key]: v })}
+            data-testid={`${key}-${v ? 'on' : 'off'}`}
           >
             {v ? 'On' : 'Off'}
           </button>
@@ -668,6 +684,11 @@ function SettingsScreen({
             ))}
           </span>
         </div>
+        {toggle(
+          'Step-by-step battles',
+          'stepByStep',
+          'Shows each moment of an attack in turn: checks, triggers, damage',
+        )}
         <div className="row">
           <span style={{ width: 300 }}>
             Battle cut-ins
@@ -742,14 +763,14 @@ function SettingsScreen({
         <div className="row">
           <span style={{ width: 300 }}>
             Battle layout
-            <div className="hint">Automatic uses the phone layout on Android</div>
+            <div className="hint">Automatic uses Mobile on Android and small screens</div>
           </span>
           <span className="seg">
             {(
               [
                 ['auto', 'Automatic'],
                 ['desktop', 'Desktop'],
-                ['phone', 'Phone'],
+                ['phone', 'Mobile'],
               ] as const
             ).map(([v, label]) => (
               <button
@@ -765,8 +786,30 @@ function SettingsScreen({
         </div>
         <div className="row">
           <span style={{ width: 300 }}>
+            Profile settings
+            <div className="hint">Battle view and playmat are kept per profile</div>
+          </span>
+          <span className="seg">
+            {PROFILE_IDS.map((id) => (
+              <button
+                key={id}
+                className={editing === id ? 'on' : ''}
+                onClick={() => setEditing(id)}
+                title={PROFILES[id].hint}
+                data-testid={`profile-${id}`}
+              >
+                {PROFILES[id].name}
+                {id === inUse ? ' (in use)' : ''}
+              </button>
+            ))}
+          </span>
+        </div>
+        <div className="row">
+          <span style={{ width: 300 }}>
             Battle view
-            <div className="hint">Straight from above, or a tilted table</div>
+            <div className="hint">
+              {PROFILES[editing].name}: straight from above, or a tilted table
+            </div>
           </span>
           <span className="seg">
             {(
@@ -777,8 +820,8 @@ function SettingsScreen({
             ).map(([v, label]) => (
               <button
                 key={v}
-                className={settings.tableView === v ? 'on' : ''}
-                onClick={() => onChange({ ...settings, tableView: v })}
+                className={settings.profiles[editing].tableView === v ? 'on' : ''}
+                onClick={() => onChange(setProfilePref(settings, editing, { tableView: v }))}
                 data-testid={`view-${v}`}
               >
                 {label}
@@ -830,11 +873,43 @@ function SettingsScreen({
           />
         </div>
         <div className="row" style={{ alignItems: 'flex-start' }}>
-          <span style={{ width: 300 }}>Playmat</span>
-          <PlaymatPicker
-            value={settings.playmat}
-            onChange={(id) => onChange({ ...settings, playmat: id })}
-          />
+          <span style={{ width: 300 }}>
+            Playmat
+            <div className="hint">For the {PROFILES[editing].name} profile</div>
+          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <PlaymatPreview
+              id={settings.profiles[editing].playmat}
+              animated={settings.profiles[editing].animatedBackground && !settings.reducedMotion}
+            />
+            <PlaymatPicker
+              value={settings.profiles[editing].playmat}
+              onChange={(id) => onChange(setProfilePref(settings, editing, { playmat: id }))}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <span style={{ width: 300 }}>
+            Animated background
+            <div className="hint">
+              {PROFILES[editing].name}: themed playmats move gently (never with Reduced motion or
+              Low graphics)
+            </div>
+          </span>
+          <span className="seg">
+            {[true, false].map((v) => (
+              <button
+                key={String(v)}
+                className={settings.profiles[editing].animatedBackground === v ? 'on' : ''}
+                onClick={() =>
+                  onChange(setProfilePref(settings, editing, { animatedBackground: v }))
+                }
+                data-testid={`anim-bg-${v ? 'on' : 'off'}`}
+              >
+                {v ? 'On' : 'Off'}
+              </button>
+            ))}
+          </span>
         </div>
         <div className="row" style={{ alignItems: 'flex-start' }}>
           <span style={{ width: 300 }}>

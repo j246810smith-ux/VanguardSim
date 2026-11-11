@@ -80,6 +80,16 @@ const REVIEWED_DIFFERENCES: Readonly<
       'Shining Singer, Ionia: the English page prints "Critical -" (missing); the Japanese database shows 1 like every unit.',
     use: 'jp',
   },
+  'G-BT06-015': {
+    reason:
+      'Extreme Battler, Break-pass: the Japanese database shows the card as updated after the G era (shield 15000, a damage-check draw); the archived 2019 English page is the G-era card (shield 10000), which the game uses.',
+    use: 'en',
+  },
+  'G-TD07-005': {
+    reason:
+      'Star Magician, Elen: the English page gives its race as Elf; the Japanese database shows Human (the card has no text, so only the race differs).',
+    use: 'jp',
+  },
   'G-BT02-030': {
     reason:
       'Blue Storm Marine General, Milos: the Japanese database lists the grade 2 unit with [Boost]; every grade 2 unit has [Intercept], as the English page shows.',
@@ -125,6 +135,10 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   BT08: { '058': '058' },
   // 蒼嵐水将 ミロス Blue Storm Marine General, Milos: the JP page gives [Boost] (see REVIEWED_DIFFERENCES)
   'G-BT02': { '030': '030' },
+  // 星の奇術師 エレン Star Magician, Elen: race differs (see REVIEWED_DIFFERENCES)
+  'G-TD07': { '005': '005' },
+  // メチャバトラー ブチヌーク Extreme Battler, Break-pass: the Japanese card was updated after the G era
+  'G-BT06': { '015': '015' },
   // the same numbers on both sites (names checked one by one); the name matcher misses several
   'G-TD03': Object.fromEntries(
     Array.from({ length: 19 }, (_, i) => String(i + 1).padStart(3, '0')).map((n) => [n, n]),
@@ -699,8 +713,85 @@ function groupPr(site: Site, fetched: Fetched[]): ReturnType<typeof group> {
   return { bases, printings, specials: new Map() };
 }
 
+/**
+ * Since its 2026-11 redesign the English site fills its card pages with JavaScript from an API we
+ * do not use, so G-era sets not cached before then are read from Internet Archive copies of the
+ * old English card pages (user's choice, 2026-11-11). One CDX query lists every archived card URL
+ * of the set; each card takes its newest pre-2020 copy with a card detail block (the G-era text),
+ * else its newest copy of any date. Cached in data/raw/archive/<SET>/.
+ */
+const enFromArchive = (s: string) =>
+  /^G-/.test(s) && !existsSync(join('data', 'raw', 'en', s)) && !isListProduct(s);
+
+async function archiveGet(url: string, file: string): Promise<string> {
+  if (!refresh && existsSync(file) && statSync(file).size > 0) return readFileSync(file, 'utf8');
+  const body = await (await fetchRaw(url, 5)).text();
+  if (/Internet Archive: Temporarily Offline|<title>Wayback Machine<\/title>/.test(body))
+    throw new Error(`the Internet Archive is unavailable (${url}); try again later`);
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, body);
+  return body;
+}
+
+async function fetchEnArchive(s: string): Promise<Fetched[]> {
+  const dir = join('data', 'raw', 'archive', s);
+  const host = HOSTS.en.replace(/^https:\/\//, '');
+  const cdx = await archiveGet(
+    `https://web.archive.org/cdx/search/cdx?url=${host}/cardlist/?cardno=${s}/&matchType=prefix&filter=statuscode:200&fl=original,timestamp&output=txt`,
+    join(dir, 'cdx.txt'),
+  );
+  // card number → its archived URLs and timestamps (any extra query parameters are kept)
+  const snaps = new Map<string, { url: string; stamp: string }[]>();
+  for (const line of cdx.split('\n')) {
+    const [url, stamp] = line.trim().split(' ');
+    if (!url || !stamp || !/^\d{14}$/.test(stamp)) continue;
+    const no = /cardno=([^&]+)/.exec(url)?.[1]?.replace(/%2F/gi, '/');
+    if (!no || !new RegExp(`^${s}/[0-9A-Z]+EN$`).test(no)) continue;
+    snaps.set(no, [...(snaps.get(no) ?? []), { url, stamp }]);
+  }
+  const out: Fetched[] = [];
+  for (const [no, list] of [...snaps].sort(([a], [b]) => a.localeCompare(b))) {
+    const ordered = [
+      ...list
+        .filter((x) => x.stamp < ARCHIVE_BEFORE)
+        .sort((a, b) => b.stamp.localeCompare(a.stamp)),
+      ...list
+        .filter((x) => x.stamp >= ARCHIVE_BEFORE)
+        .sort((a, b) => b.stamp.localeCompare(a.stamp)),
+    ];
+    let found: Fetched | null = null;
+    for (const { url, stamp } of ordered.slice(0, 4)) {
+      const file = join(dir, `${no.replace(/[/\\?&=]/g, '_')}_${stamp}.html`);
+      const html = await archiveGet(`https://web.archive.org/web/${stamp}id_/${url}`, file);
+      if (!/cardlist_detail/.test(html)) continue;
+      let card: ParsedCard;
+      try {
+        card = parseCardPage(html, 'en');
+      } catch {
+        continue;
+      }
+      if (isUpdated(card.text)) continue;
+      const at = `${stamp.slice(0, 4)}-${stamp.slice(4, 6)}-${stamp.slice(6, 8)}T${stamp.slice(8, 10)}:${stamp.slice(10, 12)}:${stamp.slice(12, 14)}Z`;
+      found = {
+        card,
+        source: {
+          url: `https://web.archive.org/web/${stamp}/${url}`,
+          fetchedAt: at,
+          regulation: card.regulation,
+        },
+      };
+      break;
+    }
+    if (found) out.push(found);
+    else console.log(`  en ${no}: no usable archived copy`);
+  }
+  console.log(`en ${s}: ${out.length} printings from the Internet Archive`);
+  return out;
+}
+
 async function fetchSite(site: Site, s: string = set!): Promise<Fetched[]> {
   if (site === 'en' && isListProduct(s)) return fetchEnPr();
+  if (site === 'en' && enFromArchive(s)) return fetchEnArchive(s);
   if (site === 'jp' && (refresh || !hasPageCache(s))) return fetchJpApi(s);
   const exp = await expansionOf(site, s);
   const numbers = await listNumbers(site, exp, s);
@@ -845,6 +936,116 @@ const NO_OFFICIAL_ARCHIVE: Readonly<
     shield: 10000,
     url: 'https://en.cf-vanguard.com/cardlist/?cardno=G-BT05/015EN',
     stamp: '2026-11-06T00:00:00.000Z',
+  },
+};
+
+/**
+ * G-BT06 onward (read from the Internet Archive): cards whose official English page was never
+ * archived. Name and text from the newest pre-2020 archived copy of their card-wiki page, written
+ * in the official notation ("[Counter-Blast 1]"); clan and race are the English names of the
+ * Japanese ones. Stats are the Japanese card's.
+ */
+const WIKI = (stamp: string, page: string) =>
+  `https://web.archive.org/web/${stamp}/http://cardfight.wikia.com/wiki/${page}`;
+const wikiStamp = (url: string) => {
+  const t = /web\/(\d{14})\//.exec(url)![1]!;
+  return `${t.slice(0, 4)}-${t.slice(4, 6)}-${t.slice(6, 8)}T${t.slice(8, 10)}:${t.slice(10, 12)}:${t.slice(12, 14)}Z`;
+};
+const WIKI_ENGLISH: Readonly<Record<string, { name: string; text: string; url: string }>> = {
+  'G-BT06-042': {
+    name: 'Red-leaf Dragon',
+    text: '[CONT]:You may have up to sixteen cards named "Red-leaf Dragon" in a deck.\n[AUTO](VC/RC)[Generation Break 1]:[Counter-Blast 1] At the beginning of your main phase, you may pay the cost. If you do, search your deck for up to one card named "Red-leaf Dragon", call it to (RC), shuffle your deck, and until end of turn, this unit gets "[CONT](VC/RC):This unit gets [Power] +1000 for each other unit named "Red-leaf Dragon" on (VC) or (RC).".',
+    url: WIKI('20170924065525', 'Red-leaf_Dragon'),
+  },
+  'G-BT06-045': {
+    name: 'Shyngal',
+    text: '[AUTO](RC)[Generation Break 1] Brave (This ability is active when you have three or less cards in your hand):When this unit attacks a vanguard, until end of that battle, this unit gets [Power] +2000, and "[AUTO](RC):[Counter-Blast 1] When this unit\'s attack hits, you may pay the cost. If you do, at the end of that turn, draw a card.".',
+    url: WIKI('20170106025711', 'Shyngal'),
+  },
+  'G-BT06-054': {
+    name: 'Greymyu',
+    text: '[AUTO][Generation Break 1]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (RC), if you have a vanguard with "Claret Sword Dragon" in its card name, you may pay the cost. If you do, search your deck for up to one grade 1 or less card, call it to (RC), shuffle your deck, and this unit gets [Power] +2000 until end of turn.',
+    url: WIKI('20170927022732', 'Greymyu'),
+  },
+  'G-BT06-056': {
+    name: 'Blaster Rapier',
+    text: '[AUTO](VC/RC):[Counter-Blast 1-card with "Blaster" in its card name] When this unit\'s attack hits a vanguard, you may pay the cost. If you do, search your deck for up to one grade 1 or less card, call it to (RC), and shuffle your deck.',
+    url: WIKI('20170704184743', 'Blaster_Rapier'),
+  },
+  'G-BT06-069': {
+    name: 'Master Kungfu',
+    text: 'Rush-[AUTO](RC)[Generation Break 1]:When this unit [Stand] due to an effect from one of your cards, until end of turn, this unit gets "[AUTO](RC):[Counter-Blast 1] When this unit\'s attack hits a vanguard, you may pay the cost. If you do, choose up to one of your other rear-guards, [Stand] it, and that unit gets [Power] +5000 until end of turn.".',
+    url: WIKI('20170917041217', 'Master_Kungfu'),
+  },
+  'G-BT06-070': {
+    name: 'Kumar the Destroyer',
+    text: 'Rush-[AUTO](RC)[Generation Break 1]:When this unit [Stand] due to an effect from one of your cards, until end of turn, this unit gets "[AUTO](RC):When this unit attacks, this unit gets [Power] +5000 until end of that battle.".',
+    url: WIKI('20170917042111', 'Kumar_the_Destroyer'),
+  },
+  'G-BT06-071': {
+    name: 'Shinobiraizer',
+    text: '[AUTO](RC)[1/Turn]:When your other unit with "Raizer" in its card name in the same column as this unit [Stand] due to an effect from one of your cards, you may reveal three cards from the top of your deck. If you reveal three cards, and all of the revealed cards have "Raizer" in its card name, choose up to one card from among them, put it into your hand, put the rest into your drop zone, and if not, put the revealed cards into your drop zone.',
+    url: WIKI('20180521223636', 'Shinobiraizer'),
+  },
+  'G-BT06-072': {
+    name: 'Beast Deity, Horned Hulk',
+    text: '[ACT](RC):[Soul-Blast 1-card with "Beast Deity" in its card name & [Rest] this unit] Choose up to one of your other units with "Beast Deity" in its card name, and it gets [Power] +5000 until end of turn.',
+    url: WIKI('20170917045923', 'Beast_Deity,_Horned_Hulk'),
+  },
+  'G-BT06-073': {
+    name: 'Rajadamnern Kid',
+    text: '[AUTO](RC):When your other unit with the rush ability in the same column as this unit [Stand] due to an effect from one of your cards, [Stand] this unit.',
+    url: WIKI('20170917043522', 'Rajadamnern_Kid'),
+  },
+  'G-BT06-074': {
+    name: 'Turboraizer Custom',
+    text: '[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Retire this unit] If you have a vanguard with "Raizer" in its card name, choose up to one of your other rear-guards with "Raizer" in its card name, and until end of turn, it gets "[AUTO](RC)[1/Turn]:When your vanguard attacks, [Stand] this unit, and this unit gets [Power] +5000 until end of turn.".',
+    url: WIKI('20180514041314', 'Turboraizer_Custom'),
+  },
+  'G-BT06-075': {
+    name: 'Totem Brothers',
+    text: '',
+    url: WIKI('20180812043709', 'G_Booster_Set_6:_Transcension_of_Blade_and_Blossom'),
+  },
+  'G-BT06-076': {
+    name: 'Training Therapist',
+    text: '(You may only have up to four cards with "[Heal] HEAL" in a deck.)',
+    url: WIKI('20180812043709', 'G_Booster_Set_6:_Transcension_of_Blade_and_Blossom'),
+  },
+  'G-BT06-080': {
+    name: 'Dreaming Pegasus',
+    text: '[AUTO][Generation Break 1]:When this unit is placed on (RC), look at three cards from the top of your deck, search for up to one card from among them, put it into your soul, and put the rest on the bottom of your deck in any order.',
+    url: WIKI('20170106010615', 'Dreaming_Pegasus'),
+  },
+  'G-BT06-081': {
+    name: 'Signal Snake Tamer',
+    text: "[ACT](RC):[Counter-Blast 1 & [Rest] this unit] Reveal the top card of your deck, choose up to one card from your soul with the same grade as the revealed card's grade, call it to (RC), and shuffle your deck.",
+    url: WIKI('20170924043148', 'Signal_Snake_Tamer'),
+  },
+  'G-BT06-097': {
+    name: 'Cropmaker Dragon',
+    text: '[AUTO][Generation Break 1]:[Counter-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose up to one of your other rear-guards with the bloom ability, retire it, search your deck for up to two cards with the same card name as that unit, call them to separate open (RC), shuffle your deck, and those units get [Power] +3000 until end of turn.',
+    url: WIKI('20181105053616', 'Cropmaker_Dragon'),
+  },
+  'G-BT06-098': {
+    name: 'Af Roccoli',
+    text: '[AUTO](RC)[Generation Break 1]:[Retire this unit] When an attack hits a vanguard during the battle that this unit boosted, you may pay the cost. If you do, choose up to one of your other rear-guards, search your deck for up to one card with the same card name as that unit, call it to (RC), shuffle your deck.',
+    url: WIKI('20180525184112', 'Af_Roccoli'),
+  },
+  'G-BT06-099': {
+    name: 'Tomboy Elf',
+    text: '[ACT](RC)[1/Turn]:[Choose a normal unit from your drop zone, and put it on the top of your deck] Choose up to one of your units with the bloom ability, until end of turn, it gets "[CONT](VC/RC):This unit gets [Power] +2000 for each of your other units with the same card name as this unit.", and shuffle your deck.',
+    url: WIKI('20170924042217', 'Tomboy_Elf'),
+  },
+  'G-BT06-100': {
+    name: 'Maiden of Rambler',
+    text: '[CONT](Hand):While you are paying the cost for Stride, if you have a vanguard with "Maiden of" in its card name, this card gets grade+1.\n[AUTO]:When this card is put into the drop zone from your hand for the cost of Stride, if you have a vanguard with "Maiden of" in its card name, call this card to (RC), and draw a card.',
+    url: WIKI('20170924082330', 'Maiden_of_Rambler'),
+  },
+  'G-BT06-101': {
+    name: 'Maiden of Noisette',
+    text: '[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1-card with "Maiden of" in its card name & Put this unit into your soul] If you have a vanguard with "Maiden of" in its card name, choose up to two of your other units with "Maiden of" in its card name, and until end of turn, they get "[AUTO](VC/RC):When this unit\'s attack hits a vanguard, draw a card.".',
+    url: WIKI('20170924064939', 'Maiden_of_Noisette'),
   },
 };
 
@@ -1078,6 +1279,7 @@ async function main(): Promise<void> {
   const numbers = [...jp.bases.keys()].sort();
   const englishOf = NO_ENGLISH_SET.has(set!) ? englishByJapaneseName() : new Map();
   const cards: CardRecord[] = [];
+  const names = knownNames();
   for (const no of numbers) {
     const j = jp.bases.get(no);
     const enNo = pairing.pairs.get(no);
@@ -1102,8 +1304,9 @@ async function main(): Promise<void> {
         : undefined;
     // CARD_DATA policy §1/§7: Japanese-original data is canonical, unless the user chose the English printing
     const canonical = (reviewed?.use === 'en' && e ? e : (j ?? e))!.card;
-    const mismatches = enFrom ? [] : crossCheck(j?.card, e?.card);
     const id = `${set}-${no}`;
+    const wiki = !e && j ? WIKI_ENGLISH[id] : undefined;
+    const mismatches = enFrom || wiki ? [] : crossCheck(j?.card, e?.card);
     // D-034: a G-era card rewritten after the G era plays with its archived G-era text
     let original: Awaited<ReturnType<typeof archivedText>> = null;
     if (e && isUpdated(e.card.text)) {
@@ -1129,7 +1332,16 @@ async function main(): Promise<void> {
       jp: j ? localized(j.card) : null,
       en: e
         ? { ...localized(e.card), ...(original ? { text: original.text } : {}) }
-        : (enFrom?.en ?? null),
+        : wiki && j
+          ? {
+              number: `${set}/${no}EN`,
+              name: wiki.name,
+              text: wiki.text,
+              clan: names.clan.get(j.card.clan) ?? j.card.clan,
+              race: names.race.get(j.card.race) ?? j.card.race,
+              image: j.card.image,
+            }
+          : (enFrom?.en ?? null),
       cardType: canonical.type,
       grade: canonical.grade,
       power: canonical.power,
@@ -1146,6 +1358,9 @@ async function main(): Promise<void> {
         ...(j ? { jp: j.source } : {}),
         ...(e ? { en: e.source } : {}),
         ...(original ? { enArchive: original.source } : {}),
+        ...(wiki
+          ? { enWiki: { url: wiki.url, fetchedAt: wikiStamp(wiki.url), regulation: '' } }
+          : {}),
       },
       checks: {
         jpEnStatsMatch: mismatches.length === 0,
@@ -1153,6 +1368,7 @@ async function main(): Promise<void> {
         ...(original ? { updatedText: e!.card.text } : {}),
         ...(reviewed ? { reviewed: reviewed.reason, statsFrom: reviewed.use } : {}),
         ...(enFrom ? { englishFrom: enFrom.id } : {}),
+        ...(wiki ? { englishFromWiki: true } : {}),
       },
     });
     // Japanese-only cards (BT11-055) use the Japanese art
@@ -1266,7 +1482,29 @@ const PRODUCT_LISTS: Readonly<
     url: 'https://web.archive.org/web/20170905224536/https://cardfight.wikia.com/wiki/G_Trial_Deck_5:_Fateful_Star_Messiah',
     stamp: '2017-09-05T22:45:36.000Z',
   },
+  // G-TD06 to G-TD08 share one layout (the wiki's grade breakdown: 17/15/10/8 + 2 G units)
+  'G-TD06': {
+    counts: gTd06To08Counts(),
+    url: 'https://web.archive.org/web/20170126050322/http://cardfight.wikia.com/wiki/G_Trial_Deck_6:_Rallying_Call_of_the_Interspectral_Dragon',
+    stamp: '2017-01-26T05:03:22.000Z',
+  },
+  'G-TD07': {
+    counts: gTd06To08Counts(),
+    url: 'https://web.archive.org/web/20170611040816/http://cardfight.wikia.com/wiki/G_Trial_Deck_7:_Illusionist_of_the_Crescent_Moon',
+    stamp: '2017-06-11T04:08:16.000Z',
+  },
+  'G-TD08': {
+    counts: gTd06To08Counts(),
+    url: 'https://web.archive.org/web/20170324101434/http://cardfight.wikia.com/wiki/G_Trial_Deck_8:_Vampire_Princess_of_the_Nether_Hour',
+    stamp: '2017-03-24T10:14:34.000Z',
+  },
 };
+
+/** 001…019 counts of G-TD06, G-TD07 and G-TD08 (52 cards each). */
+function gTd06To08Counts(): Readonly<Record<string, number>> {
+  const n = [2, 4, 2, 2, 4, 2, 2, 2, 4, 4, 3, 2, 2, 1, 4, 4, 2, 4, 2];
+  return Object.fromEntries(n.map((c, i) => [String(i + 1).padStart(3, '0'), c]));
+}
 
 /**
  * "4pc TD01/001EN Crimson Butterfly, Brigitte" lines of the English product page. A G-era Trial

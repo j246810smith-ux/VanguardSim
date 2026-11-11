@@ -3,7 +3,7 @@ import { whyIllegal } from './actions/legalActions';
 import { IllegalActionError } from './errors';
 import { activate } from './abilities/runtime';
 import { answerChoice, callGuardian, declareAttack, intercept, passGuard } from './game/battle';
-import type { Draft, EngineContext } from './game/context';
+import { observeStep, type Draft, type EngineContext, type StepObserver } from './game/context';
 import { normalCall, normalRide, swapRearGuards } from './game/play';
 import { advancePhase } from './game/flow';
 import { endGame } from './game/ruleActions';
@@ -22,13 +22,16 @@ export function applyCommand(
   state: GameState,
   command: Command,
   ctx: EngineContext,
+  options?: { readonly observe?: StepObserver },
 ): CommandResult {
   const reason = whyIllegal(state, command, ctx);
   if (reason !== null) {
     throw new IllegalActionError(reason, { command, phase: state.phase, status: state.status });
   }
 
-  const d: Draft = { state: cloneState(state), events: [], ctx };
+  const d: Draft = options?.observe
+    ? { state: cloneState(state), events: [], ctx, observe: options.observe }
+    : { state: cloneState(state), events: [], ctx };
   switch (command.type) {
     case 'MULLIGAN':
       mulligan(d, command.player, command.cardIds);
@@ -74,6 +77,7 @@ export function applyCommand(
       endGame(d, { [command.player]: 'concede' });
       return { state: d.state, events: d.events };
   }
+  observeStep(d);
   // Continue the game until a player has to decide something (check timings included).
   runTasks(d);
   return { state: d.state, events: d.events };

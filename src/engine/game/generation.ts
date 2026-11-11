@@ -13,7 +13,7 @@ import {
   type PlayerId,
 } from '../state/types';
 import type { Task } from '../state/tasks';
-import { currentGrade, definitionOf } from './characteristics';
+import { currentGrade, definitionOf, namesOf } from './characteristics';
 import { ask } from './choice';
 import { emit, type Draft, type EngineContext } from './context';
 import { moveCard, shuffleDeck } from './zones';
@@ -77,7 +77,18 @@ export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId
   let bonus = 0;
   for (const a of definitionOf(state, ctx, id).abilities) {
     if (a.kind !== 'CONT' || !a.zones.includes('hand')) continue;
-    for (const e of a.effects) if (e.ce === 'stride_grade') bonus += e.amount;
+    for (const e of a.effects) {
+      if (e.ce !== 'stride_grade') continue;
+      const owner = state.cards[id] ? state.players[state.cards[id]!.owner] : undefined;
+      if (
+        e.vanguardNameIncludes !== undefined &&
+        !owner?.circles.vanguard.some((v) =>
+          namesOf(state, ctx, v).some((n) => n.includes(e.vanguardNameIncludes!)),
+        )
+      )
+        continue;
+      bonus += e.amount;
+    }
   }
   return currentGrade(state, ctx, id) + bonus;
 }

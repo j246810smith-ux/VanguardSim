@@ -213,12 +213,21 @@ export interface Playmat {
   readonly name: string;
   /** The battle stage background. */
   readonly background: string;
+  /**
+   * Battlefield 2.0 phase 6: Themed (a scene, may move) or Classic (a plain mat). Own images count
+   * as Themed.
+   */
+  readonly style?: 'themed' | 'classic';
+  /** The optional moving layer over it (styles.css `.playmat-anim.anim-<name>`). */
+  readonly animation?: 'light' | 'stars' | 'embers' | 'motes' | 'caustics' | 'rays';
 }
 
 export const PLAYMATS: readonly Playmat[] = [
   {
     // the bright default (D-035): a sunlit arena mat; the circles sit in darker printed wells
     id: 'daybreak',
+    style: 'themed',
+    animation: 'light',
     name: 'Daybreak Arena',
     background: [
       'radial-gradient(ellipse 38% 30% at 50% 50%, rgba(255, 250, 225, 0.55), transparent 72%)',
@@ -231,6 +240,7 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'classic',
+    style: 'classic',
     name: 'Vanguard Night',
     background: [
       'radial-gradient(ellipse 60% 40% at 50% 28%, rgba(255, 60, 40, 0.1), transparent 70%)',
@@ -240,6 +250,8 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'nebula',
+    style: 'themed',
+    animation: 'stars',
     name: 'Nebula',
     background: [
       'radial-gradient(1px 1px at 12% 20%, rgba(255,255,255,0.7), transparent 2px)',
@@ -255,6 +267,8 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'inferno',
+    style: 'themed',
+    animation: 'embers',
     name: 'Inferno',
     background: [
       'radial-gradient(ellipse 70% 30% at 50% 100%, rgba(255, 90, 30, 0.28), transparent 70%)',
@@ -265,6 +279,8 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'verdant',
+    style: 'themed',
+    animation: 'motes',
     name: 'Verdant Glade',
     background: [
       'radial-gradient(ellipse 60% 45% at 50% 50%, rgba(80, 220, 140, 0.13), transparent 70%)',
@@ -275,6 +291,8 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'abyss',
+    style: 'themed',
+    animation: 'caustics',
     name: 'Abyssal Depths',
     background: [
       'repeating-radial-gradient(ellipse at 50% 140%, rgba(60, 220, 210, 0.05) 0 2px, transparent 2px 36px)',
@@ -284,6 +302,8 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'sanctum',
+    style: 'themed',
+    animation: 'rays',
     name: 'Golden Sanctum',
     background: [
       'repeating-conic-gradient(from 0deg at 50% 47%, rgba(255, 215, 120, 0.04) 0 4deg, transparent 4deg 16deg)',
@@ -293,8 +313,30 @@ export const PLAYMATS: readonly Playmat[] = [
   },
   {
     id: 'void',
+    style: 'classic',
     name: 'Void',
     background: 'linear-gradient(180deg, #050506, #020203)',
+  },
+  {
+    // Battlefield 2.0: plain mats like a tournament table's
+    id: 'tournament',
+    style: 'classic',
+    name: 'Tournament Blue',
+    background: [
+      'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 255, 255, 0.05), transparent 75%)',
+      'repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px)',
+      'linear-gradient(180deg, #13305c, #0c2142)',
+    ].join(', '),
+  },
+  {
+    id: 'slate',
+    style: 'classic',
+    name: 'Slate Felt',
+    background: [
+      'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 255, 255, 0.05), transparent 75%)',
+      'repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 3px)',
+      'linear-gradient(180deg, #2a2f38, #1b1f26)',
+    ].join(', '),
   },
 ];
 

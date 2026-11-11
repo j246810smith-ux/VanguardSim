@@ -173,6 +173,7 @@ export function validateAbilities(
             e.ce === 'limit_break_always' ||
             e.ce === 'nullify_triggers' ||
             e.ce === 'stride_grade' ||
+            e.ce === 'deck_grade' ||
             e.ce === 'all_clans'
           )
             continue;

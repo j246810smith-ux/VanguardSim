@@ -499,6 +499,8 @@ function runShots(win) {
       await win.webContents.executeJavaScript(`(() => {
         const k = 'vanguard-sim.settings.v1';
         const s = JSON.parse(localStorage.getItem(k) || '{}');
+        // overrides replace the per-profile view, playmat and moving background (Battlefield 2.0) too
+        delete s.profiles;
         localStorage.setItem(k, JSON.stringify({ ...s, ${view ? `tableView: ${JSON.stringify(view)},` : ''} ...${JSON.stringify(sound)} }));
         location.reload();
       })()`);

@@ -9,8 +9,8 @@ describe('battle view (Settings → Battle view)', () => {
     expect(DEFAULT_SETTINGS.screenShake).toBe(false);
   });
 
-  it('the tilted (45°) table tilts by 30° with perspective', () => {
-    expect(tableCss().plane.transform).toContain('rotateX(30deg)');
+  it('the tilted table tilts by 45° with perspective (Battlefield 2.0; it was 30°)', () => {
+    expect(tableCss().plane.transform).toContain('rotateX(45deg)');
     expect(tableCss('tilted').wrap.perspective).toBeDefined();
   });
 

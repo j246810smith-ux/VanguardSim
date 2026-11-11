@@ -15,6 +15,69 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-11, end) — Battlefield 2.0 and the new G sets merged into master (not released)
+
+At the user's request both branches are merged into master: `battlefield-2` (Battlefield 2.0,
+phases 0–7, F1/F2 fixed) and `sets/g-td06` (G-TD06, G-TD07, G-TD08, G-BT06 and their engine
+additions). Nothing is released or pushed; the version is still 0.35.0. **Next:** the user's
+playtest of the test APK on the phone, then a release (0.36.0-alpha suggested; CHANGELOG
+"Unreleased" has both). The two sections below are the details.
+
+Fixed after the merge (108b893, 9165480): on the phone, cards, panels and dialogs vanished or flickered
+and black boxes appeared. Cause: phase 6 put the playmat on a separate layer behind the transparent
+phone grid, under the blurred (backdrop-filter) panels, which Android's renderer could not draw. The
+grid paints the playmat itself again (no moving background on the phone). Verified by screen
+recordings on the user's Pixel 10 with step-by-step on and off; the fixed APK is installed.
+
+## ▶ Battlefield 2.0 (2026-11-11)
+
+The user's Battlefield 2.0 brief (Desktop = Dear Days-inspired, Mobile = Zero-inspired presentation
+profiles over the same engine) is built, phases 0–7: read `docs/design/BATTLEFIELD_2_AUDIT.md`
+(decisions in section 9, progress in section 10) and `docs/design/BATTLEFIELD_2_TESTPASS.md`.
+A signed test APK (version still 0.35.0, `VanguardSim-android/release/android/VanguardSim-battlefield2-test-android.apk`)
+is installed on the user's Pixel 10 (wireless adb, `adb mdns services` then `adb connect`).
+**Next:** the user's playtest; then merge `battlefield-2` into master and release (agree the version
+with the card-sets session; its G-TD06/07/08 + G-BT06 work on `sets/g-td06` in ../VanguardSim-sets2
+is uncommitted and has engine changes: Hollow, deck_grade, stride_grade, to_guardian, call options,
+placedOnVCInRidePhase). Known: F1/F3 in KNOWN_ISSUES.md. The local copy of the published v0.35.0 APK
+was overwritten by the test build (GitHub has the original). git add/commit here: write loose
+objects with a small Python script first (CLAUDE.md gotcha) when "Permission denied".
+
+## ▶ Pick up here (2026-11-11, later) — G-BT06 done too (same branch, not committed by this session)
+
+G-BT06 imported, scripted and tested (`tests/cards/G-BT06.test.ts`). The English site now loads cards
+from an API, so `cards:import` reads English text for G-era sets not cached before 2026-11 from the
+Internet Archive (`fetchEnArchive`, cached in `data/raw/archive/<SET>/`), and for cards never archived
+there from archived card-wiki pages typed into `WIKI_ENGLISH` (user's choice, 2026-11-11). New engine
+pieces: `deck_grade`, conditional `stride_grade`, `to_guardian`, the `stride_discarded` trigger, call
+options `frontRow`/`notSourceCircle`, `placed_on_vc_in_ride_phase`. Trap: `ab.atStartOf(step)` defaults
+to your own turn; pass 'opponent' for the guard step. Next sets: G-TD09 onward and G-BT07 the same way.
+**This session could not write to the shared `.git`: the user commits.**
+
+## ▶ Pick up here (2026-11-11) — G-TD06, G-TD07, G-TD08 done (branch `sets/g-td06`, not released)
+
+Worked in the worktree `~/source/VanguardSim-sets2` (branch `sets/g-td06` from master 035a14a) while
+another session builds Battlefield 2.0 on `battlefield-2`. Three G Trial Decks imported, scripted and
+tested (`tests/cards/G-TD06-08.test.ts`), each a legal 52-card deck as sold. New engine piece:
+**Hollow** (CR 1.48.1 11.33, `ab.hollow`, a `hollowed` unit flag and card filter). Product lists from
+2017 wiki snapshots (the official pages have none). Traps: the English card pages now come back with
+no card details (2026-11-11), so the importer worked only from the cached pages copied from the main
+tree's `data/raw` (git-ignored); WebFetch cannot reach web.archive.org, but `curl` can; the worktree
+needs `node_modules` and `assets` junctions to the main tree, or `cards:report` marks all art missing.
+Next sets: G-BT06 onward, G-CB sets, the three G-era PR cards (English site import needs a fix first).
+
+## ▶ Pick up here (2026-11-09, late) — v0.35.0-alpha published (release created after the user asked)
+
+v0.35 (tag v0.35.0-alpha = 235fd53, public main ddf67de, already pushed): **Play Online on Android by
+room code** (tested phone ↔ PC both ways; one phone-as-guest attempt hung at "Waiting for the host",
+the retry worked) and **updating the Android app from inside it** (Settings → Updates;
+ApkUpdatePlugin.java: official hosts only, SHA-256 from GitHub's asset digest, same package, newer,
+same key; REQUEST_INSTALL_PACKAGES). Not tested end to end: Android's own Update screen (needs a
+release newer than the installed one). **The GitHub release was blocked by the permission system**:
+the files are built and signed in `release/` and `../VanguardSim-android/release/android/`; the
+README already links v0.35 downloads, so create the release (gh release create, as for v0.34) and run
+`npm run release:verify 0.35.0-alpha`.
+
 ## ▶ Pick up here (2026-11-09) — v0.34.0-alpha published: card art download on Android
 
 Settings → Card artwork → Download card art (android/artDownload.ts, PhoneArtDownload.tsx): the

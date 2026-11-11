@@ -56,8 +56,12 @@ describe('battle cut-ins', () => {
     expect(container.querySelector('.fx-banner')?.textContent).toBe('RIDE!');
   });
 
-  it('attacks get a cut-in only in Full; Short and Off skip it at once', () => {
-    expect(show(attack, 'full').getByTestId('cutin-attack').textContent).toContain('ATTACK!');
+  // Battlefield 2.0 (user, 2026-11-11): only Ride, Legion and Stride take the whole screen
+  it('attacks never take the screen: the field shows them (Full keeps a beat for ATTACK!)', () => {
+    const full = show(attack, 'full');
+    expect(full.container.querySelector('.cutin')).toBeNull();
+    act(() => void vi.advanceTimersByTime(751));
+    expect(full.onDone).toHaveBeenCalledWith(2);
     cleanup();
     const short = show(attack, 'short');
     expect(short.container.querySelector('.cutin')).toBeNull();
@@ -65,13 +69,22 @@ describe('battle cut-ins', () => {
     expect(short.onDone).toHaveBeenCalledWith(2);
   });
 
-  it('checks: large in the middle in Full, the side panel otherwise', () => {
-    expect(show(check, 'full').getByTestId('cutin-check').textContent).toContain(
-      'CRITICAL TRIGGER!',
-    );
+  it('checks rise from the trigger zone on the field in Full and Short; Off keeps the panel', () => {
+    const full = show(check, 'full');
+    expect(full.queryByTestId('cutin-check')).toBeNull();
+    expect(full.getByTestId('field-check').textContent).toContain('CRITICAL TRIGGER!');
     cleanup();
-    const { container } = show(check, 'short');
-    expect(container.querySelector('.fx-check')).not.toBeNull();
-    expect(container.querySelector('.cutin')).toBeNull();
+    const short = show(check, 'short');
+    expect(short.getByTestId('field-check')).toBeTruthy();
+    expect(short.container.querySelector('.cutin')).toBeNull();
+    cleanup();
+    const off = show(check, 'off');
+    expect(off.container.querySelector('.fx-check')).not.toBeNull();
+    expect(off.queryByTestId('field-check')).toBeNull();
+  });
+
+  it('a stride gets the full-screen cut-in like a ride', () => {
+    const stride: Fx = { ...ride, id: 4, stride: true } as Fx;
+    expect(show(stride, 'full').getByTestId('cutin-ride').textContent).toContain('STRIDE!');
   });
 });

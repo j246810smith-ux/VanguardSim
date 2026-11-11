@@ -82,6 +82,9 @@ export function moveCard(
   // becomes a new card and loses its effects.
   const newCard = !(isCircle(from) && isCircle(to));
   if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
+  if (!isCircle(to)) delete card.hollowed; // CR 1.48.1 11.33: a new card is not hollowed
+  if (to.zone === 'circle' && to.circle === 'vanguard' && s.phase === 'ride')
+    s.players[to.player].placedOnVCInRidePhase = true;
   if (newCard) {
     s.modifiers = s.modifiers.filter((m) => m.target !== id);
     s.restrictions = s.restrictions.filter((r) => r.target !== id);

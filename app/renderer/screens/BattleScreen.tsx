@@ -1,4 +1,4 @@
-import { HoverPreview, RecentEvents } from '../board/Feedback';
+import { InfoPanel } from '../board/Feedback';
 import { HIDDEN } from '../../../src/engine';
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
@@ -44,6 +44,7 @@ export function BattleScreen(props: Props) {
     legal,
     onCircle,
     onHand,
+    onDragStart,
     onDropCard,
     bar,
     status,
@@ -85,8 +86,8 @@ export function BattleScreen(props: Props) {
             stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
             onCircle={onCircle}
             onDetails={setDetails}
-            onDropCard={onDropCard}
             battleAttacker={battle?.attacker ?? null}
+            battleTarget={battle?.target ?? null}
           />
           <Field
             view={view}
@@ -94,8 +95,8 @@ export function BattleScreen(props: Props) {
             stateOf={(p, c) => circleState(view, legal, selection, picked, p, c)}
             onCircle={onCircle}
             onDetails={setDetails}
-            onDropCard={onDropCard}
             battleAttacker={battle?.attacker ?? null}
+            battleTarget={battle?.target ?? null}
           />
           <AttackLines
             view={view}
@@ -105,7 +106,7 @@ export function BattleScreen(props: Props) {
           />
         </div>
       </div>
-      <BattleHud view={view} />
+      <BattleHud view={view} attackFresh={c.attackFresh} marked={c.markedShield} />
       <AbilityCallout
         view={view}
         fx={session.fx[0]?.kind === 'ability' ? session.fx[0] : undefined}
@@ -170,8 +171,14 @@ export function BattleScreen(props: Props) {
         guide={status && !status.waiting ? status.text : null}
         seats={session.seats}
       />
-      <RecentEvents lines={session.log} onOpen={() => setLogOpen(true)} />
-      <HoverPreview view={view} id={hovered} />
+      {/* fixed information panel (Battlefield 2.0): battle history or the card looked at */}
+      <InfoPanel
+        view={view}
+        hovered={hovered}
+        lines={session.log}
+        onOpenLog={() => setLogOpen(true)}
+        onDetails={setDetails}
+      />
 
       {/* me (bottom) */}
       <PlayerPlate
@@ -189,6 +196,8 @@ export function BattleScreen(props: Props) {
         marked={legal.mulligan || legal.choose ? picked : staged.map((g) => g.id)}
         onClick={onHand}
         onDetails={setDetails}
+        onDragStart={onDragStart}
+        onDrop={onDropCard}
       />
       <ActionBar actions={view.status === 'finished' ? [] : bar} />
 

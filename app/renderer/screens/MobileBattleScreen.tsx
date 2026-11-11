@@ -21,6 +21,8 @@ import {
   MOBILE_GEOMETRY_OPP_OPEN,
 } from '../board/mobileLayout';
 import { AbilityCallout } from '../board/AbilityCallout';
+import { BattleCosmetics } from '../board/Cosmetics';
+import { DEFAULT_SLEEVE, playmatOf } from '../cosmetics';
 import { AttackLines, AttackPreviewPanel, BattleHud } from '../combat/Combat';
 import { AI, ME } from '../engine';
 import { circleState } from '../game/interaction';
@@ -94,6 +96,9 @@ export function MobileBattleScreen(props: Props) {
     return () => clearTimeout(t);
     // only a new attack starts it
   }, [attackKey]);
+  // Battlefield 2.0: the Mobile profile's own view (Settings → Battle view, per profile)
+  const tilted = c.settings.tableView === 'tilted';
+  const matId = props.online?.playmat ?? props.config?.playmat ?? c.settings.playmat;
   const stateOf = (p: PlayerId, circle: Parameters<typeof circleState>[5]) =>
     circleState(view, legal, selection, picked, p, circle);
   const names = seatNames(c);
@@ -108,12 +113,25 @@ export function MobileBattleScreen(props: Props) {
         {
           display: 'contents',
           '--m-scale': fieldScale,
-          '--m-centre': `${FIELD_TOP + BANNER_Y.normal * fieldScale}px`,
+          // tilted, the field turns about the banner line, which therefore stays put
+          '--m-centre': `${FIELD_TOP + BANNER_Y.normal * (tilted ? 1 : fieldScale)}px`,
+          '--m-pivot': `${BANNER_Y.normal}px`,
         } as CSSProperties
       }
     >
+      {/* the sleeves (D-033); the playmat is the grid's own background (below) */}
+      <BattleCosmetics
+        mySleeve={props.online?.mySleeve ?? props.config?.mySleeve ?? c.settings.defaultSleeve}
+        opponentSleeve={props.online?.opponentSleeve ?? props.config?.aiSleeve ?? DEFAULT_SLEEVE}
+        playmat={matId}
+        sleevesOnly
+      />
       <div
         className={`m-battle ${oppOpen ? 'opp-open' : ''} ${handBig ? 'hand-big' : ''} ${battle ? 'in-battle' : ''} ${c.settings.phoneText === 'large' ? 'text-large' : ''}`}
+        // Battlefield 2.0 phase 6: the Mobile profile's playmat, painted on the grid itself (a
+        // separate layer behind it broke Android's drawing, 2026-11-11); no moving layer here
+        style={{ background: playmatOf(matId).background }}
+        data-testid="playmat"
       >
         {/* ---- left rail: opponent, menu, recent events ---- */}
         <aside className="m-rail">
@@ -146,7 +164,7 @@ export function MobileBattleScreen(props: Props) {
         {/* ---- the battlefield ---- */}
         <main className="m-field-cell">
           <div
-            className={`m-field ${attackFocus ? 'focusing' : ''}`}
+            className={`m-field ${attackFocus ? 'focusing' : ''} ${tilted ? 'view-tilted' : ''}`}
             style={{ width: FIELD_W, height: FIELD_H }}
           >
             <button
@@ -172,8 +190,8 @@ export function MobileBattleScreen(props: Props) {
                 stateOf={stateOf}
                 onCircle={c.onCircle}
                 onDetails={c.setDetails}
-                onDropCard={c.onDropCard}
                 battleAttacker={battle?.attacker ?? null}
+                battleTarget={battle?.target ?? null}
                 geometry={geometry}
                 {...(attackFocus ? { focus: attackFocus } : {})}
               />
@@ -217,12 +235,14 @@ export function MobileBattleScreen(props: Props) {
             marked={legal.mulligan || legal.choose ? picked : staged.map((g) => g.id)}
             onClick={(id) => (handBig ? c.onHand(id) : setHandBig(true))}
             onDetails={c.setDetails}
+            onDragStart={c.onDragStart}
+            onDrop={c.onDropCard}
             spreadWidth={handBig ? 1000 : 480}
             stripAbove={handBig ? 9 : 6}
           />
         </div>
       </div>
-      <BattleHud view={view} />
+      <BattleHud view={view} attackFresh={c.attackFresh} marked={c.markedShield} />
       <AbilityCallout
         view={view}
         fx={c.session.fx[0]?.kind === 'ability' ? c.session.fx[0] : undefined}
@@ -523,7 +543,8 @@ function OppPiles({ c }: { c: BattleController }) {
         <Pile
           view={view}
           player={AI}
-          title={`DAMAGE ${opp.damage.length}/6`}
+          // the tile is narrow: the count below says how many (it read "DAMAGE &" cut off)
+          title="DAMAGE"
           zone="damage"
           ids={opp.damage}
           style={tile}

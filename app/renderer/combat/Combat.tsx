@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import {
   HIDDEN,
   currentCritical,
@@ -80,13 +80,25 @@ export function AttackLines({
 }
 
 /** The centre line between the fields, on screen (the table may be tilted, D-035). */
-const centreY = (view: TableView) => Math.round(toScreen({ x: 960, y: 504 }, view).y);
+// a little below the middle (510): at 45° the gap between the front rows is narrow, and the
+// opponent's power plates sit just above it
+const centreY = (view: TableView) => Math.round(toScreen({ x: 960, y: 510 }, view).y);
 
 /**
  * Attack vs. defence on the centre line (D-035): your plate on the left, the opponent's on the
  * right, VS between them, with the boost, shields and how much shield still stops the hit.
  */
-export function BattleHud({ view }: { view: GameState }) {
+export function BattleHud({
+  view,
+  attackFresh = false,
+  marked = 0,
+}: {
+  view: GameState;
+  /** An attack was just declared: ATTACK! takes the place of VS for a moment (Battlefield 2.0). */
+  attackFresh?: boolean;
+  /** Shield of the guardians marked in your hand, not yet called (B3): previewed on the plate. */
+  marked?: number;
+}) {
   const { tableView } = useSettings();
   const b = view.battle;
   if (!b) return null;
@@ -112,23 +124,30 @@ export function BattleHud({ view }: { view: GameState }) {
       </span>
     </div>
   );
+  // the guardians you have marked, before calling them (Battlefield 2.0: guard decision preview)
+  const preview = !myAttack && marked > 0 ? def + marked : null;
+  const previewGuards = preview !== null && preview > atk;
   const defence = (
     <div
-      className={`vs-plate def ${myAttack ? 'opp' : 'me'} ${guarded ? 'guarded' : ''}`}
+      className={`vs-plate def ${myAttack ? 'opp' : 'me'} ${guarded || previewGuards ? 'guarded' : ''} ${preview !== null ? 'previewing' : ''}`}
       key="def"
+      data-testid="defence-plate"
     >
       <span className="lbl">DEFENCE</span>
-      <span className="val">{def}</span>
+      <span className="val">{preview ?? def}</span>
       <span className="sub">
-        {shield > 0 ? `shield +${shield} · ` : ''}
-        {guarded ? 'GUARDED' : `needs ${needs}`}
+        {preview !== null
+          ? `marked +${marked} · ${previewGuards ? 'GUARDED' : `needs ${needs - marked}`}`
+          : `${shield > 0 ? `shield +${shield} · ` : ''}${guarded ? 'GUARDED' : `needs ${needs}`}`}
       </span>
     </div>
   );
   return (
     <div className="battle-vs" style={{ top: centreY(tableView) }} data-testid="battle-hud">
       {myAttack ? attack : defence}
-      <div className="vs-mark">VS</div>
+      <div className={`vs-mark ${attackFresh ? 'attack-call' : ''}`} data-testid="vs-mark">
+        {attackFresh ? 'ATTACK!' : 'VS'}
+      </div>
       {myAttack ? defence : attack}
       {guardians.length > 0 && (
         <div className="guardian-row">
@@ -223,13 +242,18 @@ const HOLD: Record<Mode, Record<Fx['kind'], number>> = {
   off: { ride: 900, legion: 900, attack: 0, check: 1300, result: 900, banner: 900, ability: 1500 },
 };
 
+const rideCall = (fx: Extract<Fx, { kind: 'ride' }>) =>
+  fx.stride ? 'STRIDE!' : fx.superior ? 'SUPERIOR RIDE!' : 'RIDE!';
+
 const nameOf = (definitionId: string) =>
   definitionId === HIDDEN ? '' : ctx.registry.get(definitionId).name;
 
 /**
  * Checks, hit results, banners and (D-035) cut-ins take the stage briefly; the rules never wait
- * for them. "Full" plays Dear Days–style cut-ins (ride, legion, attack, a large check in the
- * middle), "Short" quick ones, "Off" only the small banners. Instant speed skips them all.
+ * for them. Battlefield 2.0: only Ride, Legion and Stride take the whole screen ("Full"; quick ones
+ * with "Short"); an attack and the drive and damage checks are shown on the field, the checked
+ * card rising from its player's trigger zone. "Off": only the small banners and check panel.
+ * Instant speed skips them all.
  */
 export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: number) => void }) {
   const settings = useSettings();
@@ -249,9 +273,7 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
     <div className={`fx fx-${mode}`} key={fx.id} style={{ ['--hold' as string]: ms }}>
       {fx.kind === 'ride' &&
         (mode === 'off' ? (
-          <div className={`fx-banner ${side(fx.player)}`}>
-            {fx.superior ? 'SUPERIOR RIDE!' : 'RIDE!'}
-          </div>
+          <div className={`fx-banner ${side(fx.player)}`}>{rideCall(fx)}</div>
         ) : (
           <div className={`cutin ride ${side(fx.player)} ${mode}`} data-testid="cutin-ride">
             <div className="band">
@@ -263,7 +285,7 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
               <CardView definitionId={fx.definitionId} width={260} height={379} />
             </div>
             <div className="words">
-              <div className="call">{fx.superior ? 'SUPERIOR RIDE!' : 'RIDE!'}</div>
+              <div className="call">{rideCall(fx)}</div>
               <div className="name">{nameOf(fx.definitionId)}</div>
             </div>
           </div>
@@ -290,63 +312,76 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
             </div>
           </div>
         ))}
-      {fx.kind === 'attack' && (
-        <div className={`cutin attack ${side(fx.player)}`} data-testid="cutin-attack">
-          <div className="slash" />
-          <div className="mini">
-            <CardView definitionId={fx.attacker} width={110} height={160} />
-          </div>
-          <div className="words">
-            <div className="call">ATTACK!</div>
-            <div className="name">
-              {nameOf(fx.attacker)}
-              {fx.boosted ? ' (boosted)' : ''} → {nameOf(fx.target)}
-            </div>
-          </div>
-        </div>
-      )}
-      {fx.kind === 'check' &&
-        (mode === 'full' ? (
-          <div
-            className={`cutin check ${side(fx.player)} ${fx.trigger && fx.active ? `t-${fx.trigger}` : 'none'}`}
-            data-testid="cutin-check"
-          >
+      {/* an attack is shown on the field (Battlefield 2.0): the attacker glows, the target's ring
+          pulses red, the attack line runs between them and ATTACK! takes the place of VS */}
+      {fx.kind === 'check' && mode !== 'off' && <FieldCheck fx={fx} big={mode === 'full'} />}
+      {fx.kind === 'check' && mode === 'off' && (
+        <div className={`fx-check ${side(fx.player)}`}>
+          <CardView definitionId={fx.definitionId} width={110} height={160} />
+          <div>
             <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
-            <div className="flip">
-              {fx.trigger && fx.active && <div className="burst" />}
-              <CardView definitionId={fx.definitionId} width={230} height={335} />
-            </div>
             {fx.trigger && fx.active ? (
               <>
-                <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER!</div>
+                <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER</div>
                 <div className="effect">{TRIGGER_EFFECT[fx.trigger]}</div>
               </>
             ) : (
               <div className="trig none">{fx.trigger ? 'NO EFFECT' : 'NO TRIGGER'}</div>
             )}
           </div>
-        ) : (
-          <div className={`fx-check ${side(fx.player)}`}>
-            <CardView definitionId={fx.definitionId} width={110} height={160} />
-            <div>
-              <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
-              {fx.trigger && fx.active ? (
-                <>
-                  <div className={`trig ${fx.trigger}`}>{fx.trigger.toUpperCase()} TRIGGER</div>
-                  <div className="effect">{TRIGGER_EFFECT[fx.trigger]}</div>
-                </>
-              ) : (
-                <div className="trig none">{fx.trigger ? 'NO EFFECT' : 'NO TRIGGER'}</div>
-              )}
-            </div>
-          </div>
-        ))}
+        </div>
+      )}
       {fx.kind === 'result' && (
         <div className={`fx-banner ${fx.hit ? 'hit' : 'nohit'} ${mode}`}>
           {fx.hit ? 'HIT!' : 'NO HIT'}
         </div>
       )}
       {fx.kind === 'banner' && <div className={`fx-banner ${fx.tone}`}>{fx.text}</div>}
+    </div>
+  );
+}
+
+/**
+ * A drive or damage check on the field (Battlefield 2.0 phase 5): the checked card rises out of its
+ * player's trigger zone tile, with the trigger's name and effect beside it. The tile is found on
+ * screen (both layouts mark it data-zone="<player>-trigger"), so this works on the tilted table and
+ * the phone field alike. Presentation only.
+ */
+function FieldCheck({ fx, big }: { fx: Extract<Fx, { kind: 'check' }>; big: boolean }) {
+  const [at, setAt] = useState<{ x: number; y: number } | null>(null);
+  useLayoutEffect(() => {
+    const stage = document.querySelector<HTMLElement>('.stage');
+    const tile = stage?.querySelector<HTMLElement>(`[data-zone="${fx.player}-trigger"]`);
+    if (!stage || !tile) return setAt(null);
+    const s = stage.getBoundingClientRect();
+    const k = stage.offsetWidth ? s.width / stage.offsetWidth : 1;
+    const r = tile.getBoundingClientRect();
+    setAt({ x: (r.left + r.width / 2 - s.left) / k, y: (r.top + r.height / 2 - s.top) / k });
+  }, [fx.id, fx.player]);
+  const side = fx.player === ME ? 'me' : 'opp';
+  const hit = fx.trigger && fx.active;
+  const [w, h] = big ? [170, 248] : [130, 190];
+  return (
+    <div
+      className={`field-check ${side} ${hit ? `t-${fx.trigger}` : 'none'} ${big ? 'big' : ''} ${at && at.x > 960 ? 'words-left' : ''}`}
+      style={at ? { left: at.x, top: at.y } : { left: 960, top: 540 }}
+      data-testid="field-check"
+    >
+      <div className="fc-card">
+        {hit && <div className="burst" />}
+        <CardView definitionId={fx.definitionId} width={w} height={h} />
+      </div>
+      <div className="fc-words">
+        <div className="kind">{fx.check === 'drive' ? 'DRIVE CHECK' : 'DAMAGE CHECK'}</div>
+        {hit ? (
+          <>
+            <div className={`trig ${fx.trigger}`}>{fx.trigger!.toUpperCase()} TRIGGER!</div>
+            <div className="effect">{TRIGGER_EFFECT[fx.trigger!]}</div>
+          </>
+        ) : (
+          <div className="trig none">{fx.trigger ? 'NO EFFECT' : 'NO TRIGGER'}</div>
+        )}
+      </div>
     </div>
   );
 }

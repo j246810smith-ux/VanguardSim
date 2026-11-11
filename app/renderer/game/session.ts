@@ -31,6 +31,7 @@ import { movesOf, type Move } from '../board/motion';
 import { describe, type LogLine } from './describe';
 import { AiTimer } from './aiTiming';
 import { IS_ANDROID } from '../platform';
+import { buildBeats, type Beat } from '../presentation/queue';
 
 /** Easy (random), Basic (level 2) or Hard (deck-aware lookahead, D-021). */
 export type AiLevel = 'random' | 'basic' | 'smart';
@@ -97,6 +98,8 @@ export type Fx =
       readonly player: 0 | 1;
       readonly definitionId: string;
       readonly superior: boolean;
+      /** A stride (G era): the G unit's cut-in (Battlefield 2.0: Ride, Legion and Stride). */
+      readonly stride?: boolean;
     }
   | {
       readonly id: number;
@@ -170,6 +173,20 @@ export abstract class SessionBase {
 
   /** Let the AI make one decision (only local games against the AI have one). */
   stepAi(): void {}
+
+  /**
+   * Battlefield 2.0 presentation queue: beats of the last command still to show. While it is not
+   * empty the board shows an earlier moment than the real game, so nobody may act.
+   */
+  get presenting(): boolean {
+    return false;
+  }
+
+  /** Shows the next beat (the screen calls it after a pause). */
+  advancePresentation(): void {}
+
+  /** Jumps to the real game at once (Instant speed, Skip, or before the next command). */
+  flushPresentation(): void {}
 
   /** The card moves since the last call. */
   takeMoves(): Map<string, Move> {
@@ -246,6 +263,15 @@ export abstract class SessionBase {
               ? 'YOUR TURN'
               : "OPPONENT'S TURN",
           tone: e.player === ME ? 'me' : 'opp',
+        };
+      case 'STRIDE':
+        return {
+          id,
+          kind: 'ride',
+          player: e.player,
+          definitionId: names.cards[e.gUnit]!.definitionId,
+          superior: false,
+          stride: true,
         };
       case 'UNIT_RIDDEN':
         return {
@@ -355,7 +381,7 @@ export class GameSession extends SessionBase {
   }
 
   override get aiToAct() {
-    if (this.paused || this.acting === null) return false;
+    if (this.paused || this.acting === null || this.presenting) return false;
     return this.acting === AI ? this.ai !== null : this.ai0 !== null;
   }
 
@@ -405,14 +431,55 @@ export class GameSession extends SessionBase {
   /** U15: how long the AI's decisions take; logged on Android only (game/aiTiming.ts). */
   private readonly aiTimer = new AiTimer(IS_ANDROID);
 
+  /**
+   * Show commands beat by beat (Battlefield 2.0): set by the screen from Settings. Off, a command's
+   * result is shown at once, as before.
+   */
+  stepped = false;
+  private beats: Beat[] = [];
+
+  override get presenting(): boolean {
+    return this.beats.length > 0;
+  }
+
+  override advancePresentation(): void {
+    const beat = this.beats.shift();
+    if (!beat) return;
+    this.record(beat.events, beat.state);
+    if (this.beats.length === 0) this.refresh();
+    else {
+      this.view = this.config.demo ? beat.state : viewFor(beat.state, ME);
+      this.actions = [];
+    }
+  }
+
+  override flushPresentation(): void {
+    while (this.beats.length > 0) this.advancePresentation();
+  }
+
   private apply(command: Command, errors: string[]): boolean {
     try {
-      const { state, events } = applyCommand(this.state, command, ctx);
+      // a new command always starts from the real game on screen
+      this.flushPresentation();
+      const steps: [GameState, number][] = [];
+      const { state, events } = applyCommand(
+        this.state,
+        command,
+        ctx,
+        this.stepped ? { observe: (snap, count) => steps.push([snap, count]) } : undefined,
+      );
       this.state = state;
       this.commands.push(command);
       if (command.player === ME) this.error = null;
-      this.record(events, this.state);
-      this.refresh();
+      const beats = this.stepped ? buildBeats(steps, events, state) : [];
+      if (beats.length > 1) {
+        // the first moment at once, the rest as the screen paces them
+        this.beats = beats;
+        this.advancePresentation();
+      } else {
+        this.record(events, this.state);
+        this.refresh();
+      }
       this.onUpdate?.(events);
       this.onChange?.();
       return true;

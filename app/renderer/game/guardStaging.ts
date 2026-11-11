@@ -46,3 +46,18 @@ export function stagedShield(
 ): number {
   return staged.reduce((sum, s) => sum + shieldOf(s.id), 0);
 }
+
+/**
+ * The next marked guardian to call, and the ones after it. `waiting`: a choice is open or a move
+ * is still being shown step by step (no legal actions yet): nothing is called and nothing is
+ * dropped (test pass F2, Battlefield 2.0). Marks that can no longer guard are skipped.
+ */
+export function nextGuard(
+  queue: readonly StagedGuard[],
+  canGuard: ReadonlySet<InstanceId>,
+  waiting: boolean,
+): { readonly next: StagedGuard | null; readonly rest: readonly StagedGuard[] } {
+  if (waiting || queue.length === 0) return { next: null, rest: queue };
+  const [next, ...rest] = stillLegal(queue, canGuard);
+  return { next: next ?? null, rest };
+}

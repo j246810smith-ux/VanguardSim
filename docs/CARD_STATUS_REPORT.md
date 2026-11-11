@@ -438,75 +438,6 @@ All cards complete.
 
 All cards complete.
 
-## G-TD03
-
-| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
-| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 19    | 19                  | 19                  | 0               | 0            | 6             | 19  | 6        |
-
-### Incomplete
-
-- G-TD03-001 Flower Princess of Spring, Arborea — no test
-- G-TD03-002 Ranunculus Flower Maiden, Ahsha — no test
-- G-TD03-003 Jungle Lord Dragon — no test
-- G-TD03-004 Full Bloom Dragon — no test
-- G-TD03-006 Grace Knight — no test
-- G-TD03-007 Maiden of Gladiolus — no test
-- G-TD03-008 Qool Qute Qiwi — no test
-- G-TD03-010 Coral Berry Squire — no test
-- G-TD03-011 Gardener Elf — no test
-- G-TD03-012 100% Orange — no test
-- G-TD03-013 Maiden of Safflower — no test
-- G-TD03-014 Spring-Heralding Maiden, Ozu — no test
-- G-TD03-019 Maiden of Daybreak — no test
-
-## G-TD04
-
-| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
-| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 19    | 19                  | 18                  | 1               | 0            | 6             | 19  | 5        |
-
-### Incomplete
-
-- G-TD04-001 Marine General of the Heavenly Scales, Tidal Bore Dragon — no test
-- G-TD04-002 One Who Surpasses the Storm, Thavas — no test
-- G-TD04-003 Titan of the Beam Fists — no test
-- G-TD04-004 Batteryboom Dragon — no test
-- G-TD04-006 Battle Siren, Rohde — no test
-- G-TD04-007 Magnum Assault — no test
-- G-TD04-008 Hydro Hammer Sailor — no test
-- G-TD04-010 Railgun Assault — no test
-- G-TD04-011 Gundiver Dracokid — no test
-- G-TD04-012 Battle Siren, Phaidra — no test
-- G-TD04-013 Minestar Trooper — no test
-- G-TD04-014 Officer Cadet, Andrey — no test
-- G-TD04-018 Battle Siren, Carolina — effect missing
-- G-TD04-019 Officer Cadet, Alekbors — no test
-
-## G-TD05
-
-| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
-| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 19    | 19                  | 18                  | 1               | 0            | 5             | 19  | 4        |
-
-### Incomplete
-
-- G-TD05-001 Genesis Dragon, Judgement Messiah — no test
-- G-TD05-002 Alter Ego Messiah — no test
-- G-TD05-003 Astrobreak Dragon — no test
-- G-TD05-004 Wings of Phenomenon, Wingmatter — no test
-- G-TD05-005 Awaking Messiah — no test
-- G-TD05-006 Sunset Edge, Duskblade — no test
-- G-TD05-007 Gyre Flower, Dark Chakram — no test
-- G-TD05-008 Lightspeed Cheetah — no test
-- G-TD05-010 Lockbreaker, Riddle Biter — no test
-- G-TD05-011 Lady Keeper of Virtual Reality — no test
-- G-TD05-012 Grab Hand Gorilla — no test
-- G-TD05-013 Protosun Dracokid — no test
-- G-TD05-014 Neon Messiah — no test
-- G-TD05-018 Lady Healer of the Torn World — effect missing
-- G-TD05-019 Beloved Child of Superstring Theory — no test
-
 ## PR11
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
@@ -639,3 +570,269 @@ All cards complete.
 | 104   | 104                 | 104                 | 0               | 0            | 104           | 104 | 104      |
 
 All cards complete.
+
+## G-TD03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 6             | 19  | 6        |
+
+### Incomplete
+
+- G-TD03-001 Flower Princess of Spring, Arborea — no test
+- G-TD03-002 Ranunculus Flower Maiden, Ahsha — no test
+- G-TD03-003 Jungle Lord Dragon — no test
+- G-TD03-004 Full Bloom Dragon — no test
+- G-TD03-006 Grace Knight — no test
+- G-TD03-007 Maiden of Gladiolus — no test
+- G-TD03-008 Qool Qute Qiwi — no test
+- G-TD03-010 Coral Berry Squire — no test
+- G-TD03-011 Gardener Elf — no test
+- G-TD03-012 100% Orange — no test
+- G-TD03-013 Maiden of Safflower — no test
+- G-TD03-014 Spring-Heralding Maiden, Ozu — no test
+- G-TD03-019 Maiden of Daybreak — no test
+
+## G-TD04
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 18                  | 1               | 0            | 6             | 19  | 5        |
+
+### Incomplete
+
+- G-TD04-001 Marine General of the Heavenly Scales, Tidal Bore Dragon — no test
+- G-TD04-002 One Who Surpasses the Storm, Thavas — no test
+- G-TD04-003 Titan of the Beam Fists — no test
+- G-TD04-004 Batteryboom Dragon — no test
+- G-TD04-006 Battle Siren, Rohde — no test
+- G-TD04-007 Magnum Assault — no test
+- G-TD04-008 Hydro Hammer Sailor — no test
+- G-TD04-010 Railgun Assault — no test
+- G-TD04-011 Gundiver Dracokid — no test
+- G-TD04-012 Battle Siren, Phaidra — no test
+- G-TD04-013 Minestar Trooper — no test
+- G-TD04-014 Officer Cadet, Andrey — no test
+- G-TD04-018 Battle Siren, Carolina — effect missing
+- G-TD04-019 Officer Cadet, Alekbors — no test
+
+## G-TD05
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 18                  | 1               | 0            | 5             | 19  | 4        |
+
+### Incomplete
+
+- G-TD05-001 Genesis Dragon, Judgement Messiah — no test
+- G-TD05-002 Alter Ego Messiah — no test
+- G-TD05-003 Astrobreak Dragon — no test
+- G-TD05-004 Wings of Phenomenon, Wingmatter — no test
+- G-TD05-005 Awaking Messiah — no test
+- G-TD05-006 Sunset Edge, Duskblade — no test
+- G-TD05-007 Gyre Flower, Dark Chakram — no test
+- G-TD05-008 Lightspeed Cheetah — no test
+- G-TD05-010 Lockbreaker, Riddle Biter — no test
+- G-TD05-011 Lady Keeper of Virtual Reality — no test
+- G-TD05-012 Grab Hand Gorilla — no test
+- G-TD05-013 Protosun Dracokid — no test
+- G-TD05-014 Neon Messiah — no test
+- G-TD05-018 Lady Healer of the Torn World — effect missing
+- G-TD05-019 Beloved Child of Superstring Theory — no test
+
+## G-TD06
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 7             | 0   | 0        |
+
+### Incomplete
+
+- G-TD06-001 Interdimensional Beast, Metallica Phoenix — no test, no art
+- G-TD06-002 Classicgun Dragon — no test, no art
+- G-TD06-003 Chronojet Dragon — no art
+- G-TD06-004 Steam Knight, Ilku — no test, no art
+- G-TD06-005 Steam Fighter, Zimudar — no art
+- G-TD06-006 Steam Maiden, Merianna — no test, no art
+- G-TD06-007 History-maker Dragon — no test, no art
+- G-TD06-008 Gear Goat Loitering in Ruins — no test, no art
+- G-TD06-009 Steam Battler, Ul-gir — no art
+- G-TD06-010 Steam Maiden, Danish — no test, no art
+- G-TD06-011 Timebreak Dragon — no test, no art
+- G-TD06-012 Steam Maiden, Sanilar — no test, no art
+- G-TD06-013 Gear Pony Aware of Twilight — no test, no art
+- G-TD06-014 Chrono Dran — no test, no art
+- G-TD06-015 Steam Scara, Ka-lanma — no art
+- G-TD06-016 Steam Scara, Udul — no art
+- G-TD06-017 One-two-punch Dracokid — no art
+- G-TD06-018 Scintillating Worker — no art
+- G-TD06-019 Gear Cat Meshing Cogs — no test, no art
+
+## G-TD07
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 7             | 0   | 0        |
+
+### Incomplete
+
+- G-TD07-001 Ardor Dragon Master, Amanda — no test, no art
+- G-TD07-002 Breathing Coatl — no test, no art
+- G-TD07-003 Masked Magician, Harri — no test, no art
+- G-TD07-004 Mirage Sword, Judy — no test, no art
+- G-TD07-005 Star Magician, Elen — no art
+- G-TD07-006 Sinhalite Beast Tamer — no test, no art
+- G-TD07-007 Card Dealer, Jacqueline — no test, no art
+- G-TD07-008 Bad Eater Clown — no test, no art
+- G-TD07-009 Miracle Tumbler, Lance — no art
+- G-TD07-010 Obsidian Beast Tamer — no test, no art
+- G-TD07-011 Moonlight Melody Tamer, Betty — no test, no art
+- G-TD07-012 Water Juggler — no test, no art
+- G-TD07-013 Egg Juggler — no art
+- G-TD07-014 Happiness Collector — no test, no art
+- G-TD07-015 Kitten Juggler — no art
+- G-TD07-016 Surprise Clown — no art
+- G-TD07-017 Tender Breeder — no art
+- G-TD07-018 Poison Juggler — no art
+- G-TD07-019 Amethyst Beast Tamer — no test, no art
+
+## G-TD08
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 6             | 0   | 0        |
+
+### Incomplete
+
+- G-TD08-001 Pirate King of Secret Schemes, Bandit Rum — no test, no art
+- G-TD08-002 Undead Knight of the Cursing Spear — no test, no art
+- G-TD08-003 Dragon Undead, Bone Dragon — no test, no art
+- G-TD08-004 Vampire Princess of Night Fog, Nightrose — no test, no art
+- G-TD08-005 Undead Knight of the Corrupting Sword — no art
+- G-TD08-006 Pirate Swordsman, Colombard — no test, no art
+- G-TD08-007 Witch Doctor of the Rotten Sea, Negrorook — no test, no art
+- G-TD08-008 Dragon Corrode, Cemetery Dragon — no test, no art
+- G-TD08-009 Parting Shade — no art
+- G-TD08-010 Greedy Mimic — no test, no art
+- G-TD08-011 Skeleton Underling Pirate — no test, no art
+- G-TD08-012 Freddy the Ghostie — no test, no art
+- G-TD08-013 Lord's Shadow, Sultana — no test, no art
+- G-TD08-014 Undying Departed, Grenache — no test, no art
+- G-TD08-015 Gorgeous Shade — no art
+- G-TD08-016 Blitzing Zombie — no art
+- G-TD08-017 Good Luck Charm Banshee — no art
+- G-TD08-018 Rough Seas Banshee — no art
+- G-TD08-019 Graham the Ghostie — no test, no art
+
+## G-BT06
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 85                  | 104                 | 0               | 0            | 104           | 0   | 0        |
+
+### Incomplete
+
+- G-BT06-001 Transcending the Heavens, Altmile — no art
+- G-BT06-002 Ranunculus in Glorious Bloom, Ahsha — no art
+- G-BT06-003 Counteroffensive Knight, Suleiman — no art
+- G-BT06-004 Dark Dragon, Spectral Blaster "Diablo" — no art
+- G-BT06-005 Whirlwind of Darkness, Vortimer "Diablo" — no art
+- G-BT06-006 Meteokaiser, Victor — no art
+- G-BT06-007 Exxtreme Battler, Danshark — no art
+- G-BT06-008 Mist Phantasm Pirate King, Nightrose — no art
+- G-BT06-009 Ghoul Dragon, Gast Dragon — no art
+- G-BT06-010 Cornflower Flower Maiden, Ines — no art
+- G-BT06-011 Model Knight, Orhan — no art
+- G-BT06-012 Hope Keeper — no art
+- G-BT06-013 Black Chain Flame Dance Formation, Hoel — no art
+- G-BT06-014 Extreme Battler, Headstrong-battle — no art
+- G-BT06-015 Extreme Battler, Break-pass — no art
+- G-BT06-016 Curtain Call Announcer, Mephisto — no art
+- G-BT06-017 Crescent Moon Juggler — no art
+- G-BT06-018 Hoop Master — no art
+- G-BT06-019 Witch Doctor of Languor, Negrolazy — no art
+- G-BT06-020 Waterspout Djinn — no art
+- G-BT06-021 Ideal Maiden, Thuria — no art
+- G-BT06-022 Cherry Blossom Blizzard Maiden, Lilga — no art
+- G-BT06-023 Knight of Light Order — no art
+- G-BT06-024 Favored Pupil of Light and Dark, Llew — no art
+- G-BT06-025 Headwind Knight, Selim — no art
+- G-BT06-026 Resurgent Knight, Stius — no art
+- G-BT06-027 Black Chain Spirit Dance Formation, Kahedin — no art
+- G-BT06-028 Bassinet Knight, Oscar — no art
+- G-BT06-029 Ultimate Raizer Glory-hand — no art
+- G-BT06-030 Ultimate Raizer Speed-star — no art
+- G-BT06-031 Extreme Battler, Arbarail — no art
+- G-BT06-032 Extreme Battler, Malyaki — no art
+- G-BT06-033 Extreme Battler, Kabutron — no art
+- G-BT06-034 Flying Manticore — no art
+- G-BT06-035 Cutie Paratrooper — no art
+- G-BT06-036 Cat Knight in High Boots — no art
+- G-BT06-037 Ghostie Great King, Obadiah — no art
+- G-BT06-038 Ruin Shade — no art
+- G-BT06-039 Tommy the Ghostie Brothers — no art
+- G-BT06-040 Witch Doctor of Powdered Bone, Negrobone — no art
+- G-BT06-041 Forbidden Space Banshee — no art
+- G-BT06-042 Red-leaf Dragon — data, no art
+- G-BT06-043 Pure Maiden, Katrina — no art
+- G-BT06-044 Peach Orchard Maiden, Elmy — no art
+- G-BT06-045 Shyngal — data, no art
+- G-BT06-046 Hopesong Angel — no art
+- G-BT06-047 Scouting Owl — no art
+- G-BT06-048 Blaster-friend, Barcgal — no art
+- G-BT06-049 Knight of Powercharge — no art
+- G-BT06-050 Sarugal — no art
+- G-BT06-051 Floral Paladin, Flogal — no art
+- G-BT06-052 Deathspray Dragon — no art
+- G-BT06-053 Blaster Axe — no art
+- G-BT06-054 Greymyu — data, no art
+- G-BT06-055 Dark Saga Painter — no art
+- G-BT06-056 Blaster Rapier — data, no art
+- G-BT06-057 Revenger, Darkbless Angel — no art
+- G-BT06-058 Abyss Summoner — no art
+- G-BT06-059 Revenger of Vigor, Maur — no art
+- G-BT06-060 Blaster Dagger — no art
+- G-BT06-061 Fullbau "Diablo" — no art
+- G-BT06-062 Grave Horn Unicorn — no art
+- G-BT06-063 Tactician of Godly-calculations, Orphe — no art
+- G-BT06-064 Illegal Alchemist — no art
+- G-BT06-065 Mage of the Rogue Eye, Arsur — no art
+- G-BT06-066 Envoy of Righteousness, Crystaldevil — no art
+- G-BT06-067 Beast Deity, Jackalord — no art
+- G-BT06-068 Babyface Narcissus — no art
+- G-BT06-069 Master Kungfu — data, no art
+- G-BT06-070 Kumar the Destroyer — data, no art
+- G-BT06-071 Shinobiraizer — data, no art
+- G-BT06-072 Beast Deity, Horned Hulk — data, no art
+- G-BT06-073 Rajadamnern Kid — data, no art
+- G-BT06-074 Turboraizer Custom — data, no art
+- G-BT06-075 Totem Brothers — data, no art
+- G-BT06-076 Training Therapist — data, no art
+- G-BT06-077 Beast Deity, Great Eater — no art
+- G-BT06-078 Perfect Referee, 2.99 — no art
+- G-BT06-079 Artilleryman — no art
+- G-BT06-080 Dreaming Pegasus — data, no art
+- G-BT06-081 Signal Snake Tamer — data, no art
+- G-BT06-082 Silver Thorn Assistant, Dixie — no art
+- G-BT06-083 Mighty Rogue, Nightstorm — no art
+- G-BT06-084 Seven Seas Dragon Undead, Prisoner Dragon — no art
+- G-BT06-085 Sleepless Skipper, Blackgick — no art
+- G-BT06-086 Seven Seas Master Swordsman, Slash Shade — no art
+- G-BT06-087 Skeleton Cannoneer — no art
+- G-BT06-088 Witch Doctor of the Seven Seas, Raisruler — no art
+- G-BT06-089 Seven Seas Helmsman, Nightcrow — no art
+- G-BT06-090 Headstart Zombie — no art
+- G-BT06-091 Seven Seas Apprentice, Nightrunner — no art
+- G-BT06-092 Assault Command, Carignan — no art
+- G-BT06-093 Looting Cutlass — no art
+- G-BT06-094 Mick the Ghostie and Family — no art
+- G-BT06-095 Greenshot Elf — no art
+- G-BT06-096 Maiden of Damask Rose — no art
+- G-BT06-097 Cropmaker Dragon — data, no art
+- G-BT06-098 Af Roccoli — data, no art
+- G-BT06-099 Tomboy Elf — data, no art
+- G-BT06-100 Maiden of Rambler — data, no art
+- G-BT06-101 Maiden of Noisette — data, no art
+- G-BT06-102 Tsukken Don — no art
+- G-BT06-103 Cosmos Pixy, Lizbeth — no art
+- G-BT06-104 Air Elemental, Twitterun — no art

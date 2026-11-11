@@ -45,6 +45,8 @@ export interface CardRecord {
     readonly en?: SourceRef;
     /** D-034: the archived English page the G-era text comes from (the card was later updated). */
     readonly enArchive?: SourceRef;
+    /** The archived card-wiki page the English name and text come from (no archived official page). */
+    readonly enWiki?: SourceRef;
   };
   /** Automated cross-checks between the two official sources. */
   readonly checks: {
@@ -66,6 +68,11 @@ export interface CardRecord {
      * reference; `en.text` holds the G-era text from `sources.enArchive`.
      */
     readonly updatedText?: string;
+    /**
+     * The official English page was never archived (G-BT06 onward, read from the Internet Archive):
+     * the English name and text come from an archived copy of the card wiki (`sources.enWiki`).
+     */
+    readonly englishFromWiki?: boolean;
   };
 }
 

@@ -1,7 +1,7 @@
 // Public engine API. UI, AI, persistence and tests import from here, never from internals.
 export { applyCommand } from './engine';
 export { createGame, type GameSetup } from './game/setup';
-export type { EngineContext } from './game/context';
+export type { EngineContext, StepObserver } from './game/context';
 export type { Command, CommandResult } from './actions/commands';
 export {
   actingPlayer,

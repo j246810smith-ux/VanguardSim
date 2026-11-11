@@ -72,7 +72,7 @@ export function DemoSetup({
         demo: { p1Level: c.p1Level, speed: c.speed },
         mySleeve: p1.sleeve ?? settings.defaultSleeve,
         aiSleeve: p2.sleeve ?? DEFAULT_SLEEVE,
-        playmat: settings.playmat,
+        // the playmat of the battle's presentation profile (screens/Battle.tsx)
       },
       c,
     );

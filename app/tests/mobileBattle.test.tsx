@@ -12,7 +12,7 @@ import { MOBILE_GEOMETRY, MOBILE_GEOMETRY_OPP_OPEN } from '../renderer/board/mob
 import { usesPhoneLayout } from '../renderer/screens/Battle';
 import { MobileBattleScreen } from '../renderer/screens/MobileBattleScreen';
 import type { SessionConfig } from '../renderer/game/session';
-import { DEFAULT_SETTINGS } from '../renderer/settings';
+import { DEFAULT_SETTINGS, SettingsContext } from '../renderer/settings';
 
 const config: SessionConfig = {
   seed: 7,
@@ -191,5 +191,26 @@ describe('the hand on the phone', () => {
     expect(hand(6).classList.contains('hand-strip')).toBe(false);
     cleanup();
     expect(hand(3).classList.contains('hand-strip')).toBe(true);
+  });
+});
+
+describe('Mobile profile view (Battlefield 2.0 phase 3)', () => {
+  const field = () => screen.getByTestId('opp-band').parentElement!;
+
+  it('is flat by default and tilts when the Mobile profile asks for 45°', () => {
+    show();
+    expect(field().className).not.toContain('view-tilted');
+    cleanup();
+    render(
+      <SettingsContext.Provider value={{ ...DEFAULT_SETTINGS, tableView: 'tilted' }}>
+        <MobileBattleScreen config={config} onRematch={() => {}} onExit={() => {}} />
+      </SettingsContext.Provider>,
+    );
+    expect(field().className).toContain('view-tilted');
+  });
+
+  it('labels the opponent damage tile so it fits the narrow tile', () => {
+    show();
+    expect(screen.getAllByText('DAMAGE').length).toBeGreaterThan(0);
   });
 });

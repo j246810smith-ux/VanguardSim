@@ -90,6 +90,7 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       s.turnNumber += 1;
       s.activePlayer = player;
       s.turnFlags = { normalRideUsed: s.players[s.activePlayer].noNormalRideNext === true };
+      delete s.players[s.activePlayer].placedOnVCInRidePhase;
       delete s.players[s.activePlayer].noNormalRideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });

@@ -78,9 +78,13 @@ export function PlaymatPicker({
       </button>
     );
   };
+  // Battlefield 2.0 phase 6: themed scenes and plain classic mats in their own groups
   return (
     <div className="cosmetic-row" data-testid="playmat-picker">
-      {PLAYMATS.map((m) => option(m.id))}
+      <div className="cosmetic-section">THEMED</div>
+      {PLAYMATS.filter((m) => m.style !== 'classic').map((m) => option(m.id))}
+      <div className="cosmetic-section">CLASSIC</div>
+      {PLAYMATS.filter((m) => m.style === 'classic').map((m) => option(m.id))}
       {own.length > 0 ? (
         <>
           <div className="cosmetic-section">YOUR IMAGES</div>
@@ -89,6 +93,33 @@ export function PlaymatPicker({
       ) : (
         <OwnHint what="playmat" />
       )}
+    </div>
+  );
+}
+
+/**
+ * A preview of a playmat with the field's circles on it, moving if `animated` (Battlefield 2.0
+ * phase 6, Settings → Playmat). Presentation only.
+ */
+export function PlaymatPreview({ id, animated }: { id: string; animated: boolean }) {
+  const m = playmatOf(id);
+  return (
+    <div className="mat-big-preview" data-testid="playmat-preview" title={m.name}>
+      <div className="playmat" style={{ background: m.background }} />
+      {animated && m.animation && <div className={`playmat-anim anim-${m.animation}`} />}
+      <div className="mp-rows">
+        {[0, 1, 2, 3].map((r) => (
+          <div key={r} className={`mp-row ${r < 2 ? 'opp' : 'me'}`}>
+            <i />
+            <i className={r === 1 || r === 2 ? 'vc' : ''} />
+            <i />
+          </div>
+        ))}
+      </div>
+      <span className="mp-name">
+        {m.name}
+        {m.style === 'classic' ? ' · Classic' : ' · Themed'}
+      </span>
     </div>
   );
 }

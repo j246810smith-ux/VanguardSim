@@ -1,5 +1,9 @@
 # Known Issues
 
+- **Battlefield 2.0, step-by-step battles online** (docs/design/BATTLEFIELD_2_TESTPASS.md F3): the
+  host's screen steps through a move while the guest sees the result at once, and a guest's command
+  during the host's steps jumps the host to the result. (F1, a unit vanishing a moment early, is fixed.)
+
 - **Online play is in testing** (docs/PLAYING_ONLINE.md): tested on one PC and through the
   room-code service, not yet widely between different homes and networks. Room codes depend on the
   free PeerJS service (use connect by address if it is down); some very strict networks may not

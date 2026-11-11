@@ -16,6 +16,7 @@ import { AI, ctx, defOf, ME, playFormat } from '../engine';
 import {
   guardCommand,
   stagedShield,
+  nextGuard,
   stillLegal,
   toggleGuard,
   type StagedGuard,
@@ -28,6 +29,7 @@ import { paced, useSettings } from '../settings';
 import { type ConnectionWatch } from '../online/ConnectionBanner';
 import { useBackHandler } from '../android/back';
 import { useConfirm } from '../ui/ConfirmDialog';
+import type { DropTarget } from '../ui/usePointerDrag';
 
 /** An online match (D-032): the session comes from the host or guest link. */
 export interface OnlineInfo {
@@ -83,6 +85,27 @@ export function endingText(reason: string | null, winner: number | null): string
       return 'The game is over.';
   }
 }
+
+/** What a drop on a circle the card cannot go to says (Battlefield 2.0 phase 4). */
+export const DROP_REFUSED = "That card can't go there";
+
+/** A short red shake on a circle that refused a dropped card (presentation only). */
+function refuse(el: HTMLElement) {
+  if (typeof el.animate !== 'function') return;
+  el.animate(
+    [
+      { translate: '0 0', filter: 'none' },
+      { translate: '-8px 0', filter: 'drop-shadow(0 0 14px #ff4a3d)' },
+      { translate: '8px 0', filter: 'drop-shadow(0 0 14px #ff4a3d)' },
+      { translate: '-5px 0', filter: 'drop-shadow(0 0 10px #ff4a3d)' },
+      { translate: '0 0', filter: 'none' },
+    ],
+    { duration: 360, easing: 'ease-out' },
+  );
+}
+
+/** The pause between two moments of a move shown step by step (about one card slide). */
+export const BEAT_PAUSE_MS = 380;
 
 const systemReducedMotion = () =>
   globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
@@ -159,6 +182,7 @@ export function useBattleController(
   const [paused, setPaused] = useState(false);
   const game = session instanceof GameSession ? session : null;
   if (game) game.paused = paused;
+  const veryFastDemo = () => demo !== null && demoSpeed === 'veryfast';
 
   const view = session.view;
   const hovered = useHoveredCard(view);
@@ -169,16 +193,44 @@ export function useBattleController(
   useEffect(() => setPicked([]), [choiceId, legal.mulligan]);
 
   // marks for cards that can no longer guard go (the guard step ended, the card left the hand)
+  // While a move is still being shown step by step there are no legal actions yet (the board is
+  // an earlier moment): wait for the real game instead of dropping the marks (test pass F2: a
+  // sentinel's yes/no made the other marked guardians vanish).
   useEffect(() => {
+    if (session.presenting) return;
     const keep = stillLegal(staged, legal.guard);
     if (keep.length !== staged.length) setStaged(keep);
-  }, [staged, legal.guard]);
+  }, [staged, legal.guard, session.presenting]);
   // "Guard": call the marked cards one by one, each after any choice the previous one asked for
   useEffect(() => {
-    if (guardQueue.current.length === 0 || legal.choose) return;
-    const [next, ...rest] = stillLegal(guardQueue.current, legal.guard);
+    const { next, rest } = nextGuard(
+      guardQueue.current,
+      legal.guard,
+      !!legal.choose || session.presenting,
+    );
     guardQueue.current = rest;
     if (next) send(guardCommand(next));
+  });
+
+  // Battlefield 2.0: a move's moments are shown one after another (presentation/queue.ts); the
+  // next one waits for the current effect, then a short pause so moving cards can land
+  if (game) game.stepped = settings.stepByStep && settings.speed !== 'instant' && !veryFastDemo();
+  useEffect(() => {
+    if (!session.presenting) return;
+    if (settings.speed === 'instant' || veryFastDemo()) {
+      session.flushPresentation();
+      rerender();
+      return;
+    }
+    if (session.fx.length > 0) return;
+    const t = setTimeout(
+      () => {
+        session.advancePresentation();
+        rerender();
+      },
+      paced(settings, BEAT_PAUSE_MS),
+    );
+    return () => clearTimeout(t);
   });
 
   // the AI acts after a short, speed-dependent pause, once the current effect has played
@@ -337,8 +389,24 @@ export function useBattleController(
     if (staged.some((g) => g.id === id)) return setStaged((cur) => cur.filter((g) => g.id !== id));
     handle(clickHand(legal, selection, id));
   };
-  const onDropCard = (circle: Circle, cardId: InstanceId) =>
-    handle(clickCircle(view, legal, { kind: 'hand', id: cardId }, ME, circle));
+  // Battlefield 2.0 phase 4: a hand card dragged onto a circle, with a mouse or a finger
+  // (ui/usePointerDrag.ts). Picking it up selects it, so its circles glow; letting go over a
+  // glowing circle plays it exactly as a tap there would.
+  const onDragStart = (id: InstanceId) => setSelection({ kind: 'hand', id });
+  const onDropCard = (id: InstanceId, target: DropTarget | null, good: boolean) => {
+    if (target && good && target.player === ME) {
+      handle(clickCircle(view, legal, { kind: 'hand', id }, ME, target.circle));
+      return;
+    }
+    if (target) {
+      // a circle it cannot go to: say so, and keep it selected so a glowing circle can be tapped
+      setToast(DROP_REFUSED);
+      audio.ui('invalid');
+      refuse(target.el);
+      return;
+    }
+    setSelection(null); // let go over nothing: put it back
+  };
 
   // ---- action bar: only what is legal now ----
   const bar: BarAction[] = [];
@@ -605,7 +673,13 @@ export function useBattleController(
     toggle,
     onCircle,
     onHand,
+    onDragStart,
     onDropCard,
+    markedShield:
+      staged.length > 0 && legal.guardable.length <= 1
+        ? stagedShield(staged, (id) => defOf(view, id)?.shield ?? 0)
+        : 0,
+    attackFresh: session.fx[0]?.kind === 'attack',
     bar,
     status,
     battle,

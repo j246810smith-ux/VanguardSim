@@ -845,6 +845,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(step.rested ? { rested: true as const } : {}),
           ...(eventColumn ? { column: eventColumn } : {}),
           ...(circles ? { circles } : {}),
+          ...(step.frontRow ? { frontRow: true as const } : {}),
+          ...(step.notSourceCircle ? { notSourceCircle: true as const } : {}),
         })),
       );
       return true;
@@ -1010,6 +1012,43 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'end_normal_ride':
       s.turnFlags.normalRideUsed = true;
       return true;
+    case 'to_guardian': {
+      // like an intercept (CR 10.2.2): the unit guards the attacked vanguard
+      const b = s.battle;
+      for (const id of targets) {
+        const at = locate(s, id);
+        if (at.zone !== 'circle' || at.circle === 'vanguard') continue;
+        moveCard(d, id, { player: at.player, zone: 'guardian' }, 'effect', { orientation: 'rest' });
+        const vg = s.players[at.player].circles.vanguard.at(-1);
+        if (b && vg !== undefined) b.guarding[id] = vg;
+      }
+      return true;
+    }
+    case 'hollow': {
+      // CR 1.48.1 11.33.2: at the end of the turn a hollowed unit goes to the drop zone (a retire)
+      const steps: Step[] = [];
+      for (const id of targets) {
+        const card = s.cards[id];
+        if (!card || locate(s, id).zone !== 'circle') continue;
+        card.hollowed = true;
+        steps.push({
+          op: 'grant',
+          target: { sel: 'card', id },
+          ability: {
+            kind: 'AUTO',
+            id: `hollow_${id}`,
+            zones: ['RC'],
+            trigger: { on: 'step_start', step: 'end_phase', whose: 'any' },
+            triggerIf: { cond: 'is', of: { sel: 'self' }, filter: { hollowed: true } },
+            effect: [{ op: 'retire', target: { sel: 'self' } }, ...(step.then ?? [])],
+            text: 'Hollow: at the end of the turn, retire this unit.',
+          },
+          duration: 'end_of_turn',
+        });
+      }
+      s.tasks.unshift(...stepTasks(frame.id, steps));
+      return true;
+    }
     case 'time_leap': {
       // CR 1.48.1 10.31.2: for each card bound, one card a grade greater; end of turn: back again
       const steps: Step[] = [];
@@ -1341,6 +1380,11 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
       if (task.sameColumn && CIRCLE_COLUMN[c] !== columnOf(d.state, frame.source)) return false;
       if (task.column && CIRCLE_COLUMN[c] !== task.column) return false;
       if (task.circles && !task.circles.includes(c)) return false;
+      if (task.frontRow && c !== 'front_left' && c !== 'front_right') return false;
+      if (task.notSourceCircle) {
+        const at = locate(d.state, frame.source);
+        if (at.zone === 'circle' && at.circle === c) return false;
+      }
       return !(task.separate && (frame.bindings['__called_circles'] ?? []).includes(c));
     }),
     min: 1,

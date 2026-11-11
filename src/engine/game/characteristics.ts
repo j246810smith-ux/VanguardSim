@@ -45,8 +45,23 @@ export function namesOf(state: GameState, ctx: EngineContext, id: InstanceId): r
 export const shareName = (state: GameState, ctx: EngineContext, a: InstanceId, b: InstanceId) =>
   namesOf(state, ctx, a).some((n) => namesOf(state, ctx, b).includes(n));
 
-export const currentGrade = (state: GameState, ctx: EngineContext, id: InstanceId): number =>
-  definitionOf(state, ctx, id).grade;
+export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceId): number {
+  const def = definitionOf(state, ctx, id);
+  // "[CONT]Deck:If you have a vanguard with X in its card name, this card gets grade +n" (G-BT06)
+  const deckGrade = def.abilities.flatMap((a) =>
+    a.kind === 'CONT' ? a.effects.filter((e) => e.ce === 'deck_grade') : [],
+  );
+  if (deckGrade.length === 0) return def.grade;
+  const card = state.cards[id];
+  const owner = card ? state.players[card.owner] : undefined;
+  if (!owner || !owner.deck.includes(id)) return def.grade;
+  const vanguardNames = owner.circles.vanguard.flatMap((v) => namesOf(state, ctx, v));
+  let grade = def.grade;
+  for (const e of deckGrade)
+    if (e.ce === 'deck_grade' && vanguardNames.some((n) => n.includes(e.vanguardNameIncludes)))
+      grade += e.amount;
+  return grade;
+}
 
 export const currentClan = (state: GameState, ctx: EngineContext, id: InstanceId): string =>
   definitionOf(state, ctx, id).clan;

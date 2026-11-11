@@ -3,7 +3,7 @@ import type { Task } from '../state/tasks';
 import { chooseAttackTargets } from './battle';
 import { runCheckTask } from './checks';
 import { endDelayedLegion } from './delayedLegion';
-import type { Draft } from './context';
+import { observeStep, type Draft } from './context';
 import { runFlowTask } from './flow';
 import { gAssistShuffle, returnGUnits, runGAssistTask } from './generation';
 
@@ -17,15 +17,23 @@ export function runTasks(d: Draft): void {
   while (s.status !== 'finished' && s.pendingChoice === null) {
     if (!s.tasks[0]?.atomic) {
       const result = checkTiming(d);
-      if (result === 'wait') return;
-      if (result === 'continue') continue;
+      if (result === 'wait') {
+        observeStep(d);
+        return;
+      }
+      if (result === 'continue') {
+        observeStep(d);
+        continue;
+      }
     }
     const task = s.tasks.shift();
     if (task === undefined) return; // nothing left: a player has a play timing
     if (!handle(d, task)) {
       s.tasks.unshift(task); // waiting for a choice
+      observeStep(d);
       return;
     }
+    observeStep(d);
   }
 }
 

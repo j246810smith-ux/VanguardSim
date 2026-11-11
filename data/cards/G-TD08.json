@@ -1,0 +1,974 @@
+{
+  "set": "G-TD08",
+  "importedAt": "2026-11-11T09:54:48.783Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD08-001",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/001",
+        "name": "暗躍する海賊王 バンデッドラム",
+        "text": "アップデート：テキスト\n【超越】-ストライドステップ-【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：あなたのヴァンガードがグレード３の「夜霧の吸血姫 ナイトローゼ」で、このファイトであなたがイマジナリーギフトを得ていないなら、【コスト】[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]ことで、裏のこのカードを(V)に【超越】する。さらに【コスト】[Ｇゾーンからこのユニットと同名を１枚表にする]ことで、イマジナリーギフト・プロテクトを２つ得る。\n【永】【(V)】：あなたは、このユニットの『ヒットした時』の効果を、ヒットしていなくても発動する。\n【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、あなたのドロップから１枚まで選び、(R)にコールし、そのターン中、パワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/gtd08_001up.png"
+      },
+      "en": {
+        "number": "G-TD08/001EN",
+        "name": "Pirate King of Secret Schemes, Bandit Rum",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"(When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\"[AUTO](VC):When this unit's attack hits a vanguard, choose up to one card from your drop zone, call it to (RC), and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/001", "G-TD08/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F001",
+          "fetchedAt": "2026-11-06T14:40:44.977Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/001EN",
+          "fetchedAt": "2026-11-06T14:41:04.554Z",
+          "regulation": "G-Regulation"
+        },
+        "enArchive": {
+          "url": "https://web.archive.org/web/20191215221638/https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/001EN",
+          "fetchedAt": "2019-12-15T22:16:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "updatedText": "Updated: Text\n[Stride]-Stride Step-[COST][Choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down.\n[ACT]G Zone:If your vanguard is a grade 3 \"Vampire Princess of Night Fog, Nightrose\", and you did not get an Imaginary Gift this fight, [COST][choose one or more cards from hand with the sum of their grades being 3 or greater, and discard them], and [Stride] this card on your (VC) from face down. Then, [COST][turn a card from G zone with the same card name as this unit face up], and you get two Imaginary Gift:Protect.\n[CONT](VC):This unit's \"when attack hits\" effects activate even if the attack did not hit.\n[AUTO](VC):When this unit's attack hits a vanguard, choose up to one card from your drop, call it to (RC), and it gets [Power] +2000 until end of turn."
+      }
+    },
+    {
+      "id": "G-TD08-002",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/002",
+        "name": "呪われし槍の死霊騎士",
+        "text": "【起】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(2)]ドロップゾーンから１枚まで選び、(R)にコールし、そのターン中、そのユニットのパワー＋2000。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_002.png"
+      },
+      "en": {
+        "number": "G-TD08/002EN",
+        "name": "Undead Knight of the Cursing Spear",
+        "text": "[ACT](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 2] Choose up to one card from your drop zone, call it to (RC), and that unit gets [Power] +2000 until end of turn.\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/002", "G-TD08/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F002",
+          "fetchedAt": "2026-11-06T14:40:46.188Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/002EN",
+          "fetchedAt": "2026-11-06T14:41:06.297Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-003",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/003",
+        "name": "不死竜 ボーンドラゴン",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_003.png"
+      },
+      "en": {
+        "number": "G-TD08/003EN",
+        "name": "Dragon Undead, Bone Dragon",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/003", "G-TD08/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F003",
+          "fetchedAt": "2026-11-06T14:40:47.412Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/003EN",
+          "fetchedAt": "2026-11-06T14:41:07.467Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-004",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/004",
+        "name": "夜霧の吸血姫 ナイトローゼ",
+        "text": "【自】【(V)】【ターン1回】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：[山札の上から３枚をドロップゾーンに置く]あなたのリアガードがドロップゾーンに置かれた時、コストを払ってよい。払ったら、そのカードを(R)にコールしてよい。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、ドロップゾーンから１枚まで選び、(R)にコールし、そのターン中、そのユニットのパワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_004.png"
+      },
+      "en": {
+        "number": "G-TD08/004EN",
+        "name": "Vampire Princess of Night Fog, Nightrose",
+        "text": "[AUTO](VC)[1/turn][Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):[Put three cards from the top of your deck into the drop zone] When your rear-guard is put into the drop zone, you may pay the cost. If you do, you may call that card to (RC).\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose up to one card from your drop zone, call it to (RC), and that unit gets [Power] +2000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/004", "G-TD08/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F004",
+          "fetchedAt": "2026-11-06T14:40:48.197Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/004EN",
+          "fetchedAt": "2026-11-06T14:41:08.542Z",
+          "regulation": "Standard"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-005",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/005",
+        "name": "汚れし剣の死霊騎士",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_005.png"
+      },
+      "en": {
+        "number": "G-TD08/005EN",
+        "name": "Undead Knight of the Corrupting Sword",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/005", "G-TD08/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F005",
+          "fetchedAt": "2026-11-06T14:40:48.963Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/005EN",
+          "fetchedAt": "2026-11-06T14:41:09.562Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-006",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/006",
+        "name": "海賊剣士 コロンバール",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットがブーストされているなら、コストを払ってよい。払ったら、ドロップゾーンから１枚まで選び、(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_006.png"
+      },
+      "en": {
+        "number": "G-TD08/006EN",
+        "name": "Pirate Swordsman, Colombard",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, choose up to one card from your drop zone, and call it to (RC).",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/006", "G-TD08/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F006",
+          "fetchedAt": "2026-11-06T14:40:49.726Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/006EN",
+          "fetchedAt": "2026-11-06T14:41:11.177Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-007",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/007",
+        "name": "腐海の呪術師 ネグロルーク",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがアタックした時、そのバトル中、このユニットのパワー＋2000し、このユニットが亡霊状態なら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_007.png"
+      },
+      "en": {
+        "number": "G-TD08/007EN",
+        "name": "Witch Doctor of the Rotten Sea, Negrorook",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks, this unit gets [Power] +2000 until end of that battle, and if this unit is hollowed, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/007", "G-TD08/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F007",
+          "fetchedAt": "2026-11-06T14:40:50.928Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/007EN",
+          "fetchedAt": "2026-11-06T14:41:12.846Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-008",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/008",
+        "name": "腐蝕竜 セメタリー・ドラゴン",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "グランブルー",
+        "race": "ゾンビ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_008.png"
+      },
+      "en": {
+        "number": "G-TD08/008EN",
+        "name": "Dragon Corrode, Cemetery Dragon",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Zombie",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/008", "G-TD08/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F008",
+          "fetchedAt": "2026-11-06T14:40:52.126Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/008EN",
+          "fetchedAt": "2026-11-06T14:41:13.881Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-009",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/009",
+        "name": "パーティング・シェイド",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_009.png"
+      },
+      "en": {
+        "number": "G-TD08/009EN",
+        "name": "Parting Shade",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/009", "G-TD08/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F009",
+          "fetchedAt": "2026-11-06T14:40:52.904Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/009EN",
+          "fetchedAt": "2026-11-06T14:41:14.987Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-010",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/010",
+        "name": "グリーディ・ミミック",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_010.png"
+      },
+      "en": {
+        "number": "G-TD08/010EN",
+        "name": "Greedy Mimic",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/010", "G-TD08/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F010",
+          "fetchedAt": "2026-11-06T14:40:53.671Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/010EN",
+          "fetchedAt": "2026-11-06T14:41:16.307Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-011",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/011",
+        "name": "スケルトンの下っ端海賊",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがアタックした時、そのバトル中、このユニットのパワー＋2000し、このユニットが亡霊状態なら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_011.png"
+      },
+      "en": {
+        "number": "G-TD08/011EN",
+        "name": "Skeleton Underling Pirate",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks, this unit gets [Power] +2000 until end of that battle, and if this unit is hollowed, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/011", "G-TD08/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F011",
+          "fetchedAt": "2026-11-06T14:40:54.450Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/011EN",
+          "fetchedAt": "2026-11-06T14:41:18.523Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-012",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/012",
+        "name": "お化けのふれでぃ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚まで選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_012.png"
+      },
+      "en": {
+        "number": "G-TD08/012EN",
+        "name": "Freddy the Ghostie",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose up to one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD08/012", "G-TD08/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F012",
+          "fetchedAt": "2026-11-06T14:40:55.649Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/012EN",
+          "fetchedAt": "2026-11-06T14:41:19.889Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-013",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/013",
+        "name": "覇王の影 サルタナ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードをブーストした時、そのバトル中、ブーストされたユニットのパワー＋4000。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_013.png"
+      },
+      "en": {
+        "number": "G-TD08/013EN",
+        "name": "Lord's Shadow, Sultana",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]) a vanguard, the boosted ([Boost]) unit gets [Power] +4000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/013", "G-TD08/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F013",
+          "fetchedAt": "2026-11-06T14:40:56.812Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/013EN",
+          "fetchedAt": "2026-11-06T14:41:20.810Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-014",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/014",
+        "name": "死せざる死者 グルナッシュ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：亡霊能力の効果で、このユニットが(R)からドロップゾーンに置かれた時、【カウンターチャージ】(2)。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_014.png"
+      },
+      "en": {
+        "number": "G-TD08/014EN",
+        "name": "Undying Departed, Grenache",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit is put into the drop zone from (RC) due to the effect of the hollow ability, [Counter-Charge 2].",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/014", "G-TD08/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F014",
+          "fetchedAt": "2026-11-06T14:40:57.676Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/014EN",
+          "fetchedAt": "2026-11-06T14:41:22.497Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-015",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/015",
+        "name": "ゴージャス・シェイド",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_015.png"
+      },
+      "en": {
+        "number": "G-TD08/015EN",
+        "name": "Gorgeous Shade",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/015", "G-TD08/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F015",
+          "fetchedAt": "2026-11-06T14:40:58.458Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/015EN",
+          "fetchedAt": "2026-11-06T14:41:23.488Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-016",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/016",
+        "name": "襲撃するゾンビ",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゾンビ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_016.png"
+      },
+      "en": {
+        "number": "G-TD08/016EN",
+        "name": "Blitzing Zombie",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Zombie",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/016", "G-TD08/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F016",
+          "fetchedAt": "2026-11-06T14:40:59.665Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/016EN",
+          "fetchedAt": "2026-11-06T14:41:25.481Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-017",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/017",
+        "name": "おまじないするバンシー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_017.png"
+      },
+      "en": {
+        "number": "G-TD08/017EN",
+        "name": "Good Luck Charm Banshee",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/017", "G-TD08/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F017",
+          "fetchedAt": "2026-11-06T14:41:00.891Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/017EN",
+          "fetchedAt": "2026-11-06T14:41:27.138Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-018",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/018",
+        "name": "荒海のバンシー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《グランブルー》のヴァンガードがいるなら、１枚まで引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_018.png"
+      },
+      "en": {
+        "number": "G-TD08/018EN",
+        "name": "Rough Seas Banshee",
+        "text": "[ACT](RC):[Put this unit into your soul] If you have a <Granblue> vanguard, draw up to one card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/018", "G-TD08/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F018",
+          "fetchedAt": "2026-11-06T14:41:01.707Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/018EN",
+          "fetchedAt": "2026-11-06T14:41:29.130Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD08-019",
+      "set": "G-TD08",
+      "jp": {
+        "number": "G-TD08/019",
+        "name": "お化けのぐらはむ",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD08/gtd08_019.png"
+      },
+      "en": {
+        "number": "G-TD08/019EN",
+        "name": "Graham the Ghostie",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/gtd08/GTD08_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD08/019", "G-TD08/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD08%2F019",
+          "fetchedAt": "2026-11-06T14:41:02.923Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD08/019EN",
+          "fetchedAt": "2026-11-06T14:41:30.382Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 8: Vampire Princess of the Nether Hour",
+    "cards": [
+      {
+        "id": "G-TD08-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD08-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD08-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-017",
+        "count": 2
+      },
+      {
+        "id": "G-TD08-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD08-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170324101434/http://cardfight.wikia.com/wiki/G_Trial_Deck_8:_Vampire_Princess_of_the_Nether_Hour",
+      "fetchedAt": "2017-03-24T10:14:34.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

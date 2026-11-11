@@ -279,6 +279,11 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'stride':
       if (e.type !== 'STRIDE') return null;
       return subjectIs(ec, t.who, e.gUnit, e.player) ? { eventCard: e.gUnit } : null;
+    case 'stride_discarded': {
+      if (e.type !== 'STRIDE') return null;
+      const hit = e.discarded.find((id) => subjectIs(ec, t.who, id, e.player));
+      return hit === undefined ? null : { eventCard: hit };
+    }
     case 'step_start': {
       let step: StepName | undefined;
       if (e.type === 'PHASE_CHANGED') step = PHASE_STEP[e.phase];

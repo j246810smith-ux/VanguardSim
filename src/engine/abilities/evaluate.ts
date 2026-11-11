@@ -158,6 +158,7 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.orientation !== undefined && card.orientation !== filter.orientation) return false;
   if (filter.faceUp !== undefined && card.faceUp !== filter.faceUp) return false;
   if (filter.deleted !== undefined && (card.deleted === true) !== filter.deleted) return false;
+  if (filter.hollowed !== undefined && (card.hollowed === true) !== filter.hollowed) return false;
   if (
     filter.legionMate !== undefined &&
     state.players.some((p) => p.legion?.mate === id) !== filter.legionMate
@@ -469,6 +470,10 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     case 'stood_this_turn': {
       const stood = ec.state.turnFlags.stood ?? [];
       return select(ec, condition.of).some((id) => stood.includes(id));
+    }
+    case 'placed_on_vc_in_ride_phase': {
+      const p = condition.player === 'you' ? ec.master : other(ec.master);
+      return ec.state.players[p].placedOnVCInRidePhase === true;
     }
     case 'deck_shuffled_this_turn':
       return (ec.state.turnFlags.shuffledByEffect ?? []).includes(ec.master);

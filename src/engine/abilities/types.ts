@@ -55,6 +55,8 @@ export interface CardFilter {
   readonly faceUp?: boolean;
   /** A deleted unit (CR 10.1.25): "if your opponent has a deleted vanguard". */
   readonly deleted?: boolean;
+  /** A hollowed unit (CR 1.48.1 11.33): "if this unit is hollowed". */
+  readonly hollowed?: boolean;
   /** Is a Legion Mate (CR 10.1.24): "choose one of your opponent's legion mates". */
   readonly legionMate?: boolean;
   /** Is a unit being attacked in the current battle. */
@@ -202,6 +204,8 @@ export type Condition =
   | { readonly cond: 'heart_named'; readonly part: string }
   /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
   | { readonly cond: 'deck_shuffled_this_turn' }
+  /** A unit was placed on that player's (VC) during the ride phase of their latest turn (G-BT06 Twitterun). */
+  | { readonly cond: 'placed_on_vc_in_ride_phase'; readonly player: 'you' | 'opponent' }
   | { readonly cond: 'not'; readonly c: Condition }
   | { readonly cond: 'all'; readonly cs: readonly Condition[] }
   | { readonly cond: 'any'; readonly cs: readonly Condition[] };
@@ -321,6 +325,10 @@ export type Step =
        * opponent's rear-guards you chose, EB11 witches). With `separate`, one card per circle.
        */
       readonly circlesOf?: string;
+      /** "call it to a front row (RC)" (G-BT06 Hoop Master). */
+      readonly frontRow?: boolean;
+      /** "call it to a (RC) this unit is not on" (G-BT06 Mighty Rogue, Nightstorm). */
+      readonly notSourceCircle?: boolean;
     }
   /** "Choose one of your open (RC), and move this unit to that circle" (its state does not change). */
   | { readonly op: 'move_to_circle'; readonly target: Selector }
@@ -442,6 +450,17 @@ export type Step =
   | { readonly op: 'no_normal_ride_next' }
   /** CR 1.48.1 10.31: bind, call a card one grade greater; at the end of the turn it goes to the bottom of the deck and the bound card is called. */
   | { readonly op: 'time_leap'; readonly target: Selector }
+  /**
+   * CR 1.48.1 11.33: the units become hollowed; at the end of the turn they are retired (moved to the
+   * drop zone). `then` runs after that retire, as the card's own "when this unit is put into the drop
+   * zone due to the effect of the hollow ability" (G-TD08 Grenache).
+   */
+  /**
+   * "move this unit to your (GC) as [Rest]" (G-BT06 Scouting Owl): the rear-guard becomes a guardian
+   * of the attacked vanguard, like an intercept.
+   */
+  | { readonly op: 'to_guardian'; readonly target: Selector }
+  | { readonly op: 'hollow'; readonly target: Selector; readonly then?: readonly Step[] }
   /** "place it on your (VC) as a heart" (G-BT04 Steam Fighter, Balih). */
   | { readonly op: 'place_heart'; readonly target: Selector; readonly replacing?: string }
   /**
@@ -695,6 +714,8 @@ export type TriggerCondition =
   | { readonly on: 'legion'; readonly who: Subject }
   /** CR 1.48.1 10.28: "when your G unit [Stride]s" / "when this unit [Stride]s" (who: the G unit). */
   | { readonly on: 'stride'; readonly who: Subject }
+  /** "When this card is put into the drop zone from your hand for the cost of [Stride]" (G-BT06). */
+  | { readonly on: 'stride_discarded'; readonly who: Subject }
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */
   | { readonly on: 'drawn'; readonly who: Subject }
   /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
@@ -792,7 +813,17 @@ export type ContinuousEffect =
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
   | { readonly ce: 'limit_break_always' }
   /** "[CONT]Hand:While you are paying the cost for [Stride], this card gets grade +n" (G era). */
-  | { readonly ce: 'stride_grade'; readonly amount: number }
+  | {
+      readonly ce: 'stride_grade';
+      readonly amount: number;
+      /** "if you have a vanguard with X in its card name" (G-BT06 Maiden of Rambler). */
+      readonly vanguardNameIncludes?: string;
+    }
+  /**
+   * "[CONT]Deck:If you have a vanguard with <part> in its card name, this card gets grade +n" (G-BT06
+   * Headwind Knight, Selim; Dark Saga Painter: -1). A characteristic read by currentGrade.
+   */
+  | { readonly ce: 'deck_grade'; readonly amount: number; readonly vanguardNameIncludes: string }
   /** "[CONT]:This card is from all clans and nations." (Cray Elemental, G era) */
   | { readonly ce: 'all_clans' }
   /** "This unit gets drive -1" (Meteokaiser, Victoplasma): added to its drive checks. */

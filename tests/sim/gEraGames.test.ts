@@ -17,6 +17,9 @@ describe('G trial decks', () => {
       'G-TD03',
       'G-TD04',
       'G-TD05',
+      'G-TD06',
+      'G-TD07',
+      'G-TD08',
     ]);
     for (const d of G_TRIAL_DECKS) {
       expect(validateDeck(d.deck, gCtx.registry, gCtx.format)).toEqual([]);

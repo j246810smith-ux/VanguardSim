@@ -66,6 +66,8 @@ export interface RuntimeCard {
    * keeps `faceUp` true and the UI draws it face down. Cleared in its owner's end phase.
    */
   deleted?: boolean;
+  /** CR 1.48.1 11.33: a hollowed unit (until end of turn; it goes to the drop zone then). Cleared off the field. */
+  hollowed?: boolean;
   /** In the bind zone: the card whose effect bound it ("cards bound with this card's effect"). */
   boundBy?: InstanceId;
 }
@@ -93,6 +95,12 @@ export interface PlayerState {
   hearts: InstanceId[];
   /** This player cannot normal ride in their next ride phase (G-BT04 Stun Beetle). */
   noNormalRideNext?: boolean;
+  /**
+   * A unit was placed on this player's (VC) during the ride phase of their latest turn (G-BT06 Air
+   * Elemental, Twitterun: "no unit was placed on your opponent's (VC) during the ride phase of your
+   * opponent's preceding turn"). Cleared when their turn starts.
+   */
+  placedOnVCInRidePhase?: boolean;
   /** CR 10.28.3.3: the heart whose name and power the G unit gained. */
   heartChosen: InstanceId | null;
   /**

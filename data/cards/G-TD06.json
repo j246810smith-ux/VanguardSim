@@ -1,0 +1,968 @@
+{
+  "set": "G-TD06",
+  "importedAt": "2026-11-11T09:54:41.718Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD06-001",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/001",
+        "name": "時空獣 メタリカ・フェニックス",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n時翔-【自】【(V)】：[Ｇゾーンから裏のカードを１枚選び、表にする]このユニットがヴァンガードにアタックした時、あなたの「クロノジェット」を含むハーツカードがあるなら、コストを払ってよい。払ったら、あなたのリアガードを１枚まで選び、タイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターンの終了時、コールしたユニットを山札の下に置き、バインドしたカードをコール）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_001.png"
+      },
+      "en": {
+        "number": "G-TD06/001EN",
+        "name": "Interdimensional Beast, Metallica Phoenix",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\nTime Leap-[AUTO](VC):[Choose a face down card from your G zone, and turn it face up] When this unit attacks a vanguard, if you have a heart card with \"Chronojet\" in its card name, you may pay the cost. If you do, choose up to one of your rear-guards, and time leap it. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/001", "G-TD06/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F001",
+          "fetchedAt": "2026-11-06T14:39:03.479Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/001EN",
+          "fetchedAt": "2026-11-06T14:39:24.484Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-002",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/002",
+        "name": "クラシックガン・ドラゴン",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが(V)か(R)に登場した時、あなたのユニットを１枚まで選び、そのターン中、『時翔-【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、他のあなたのリアガードを１枚まで選び、タイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターンの終了時、コールしたユニットを山札の下に置き、バインドしたカードをコール）』を与える。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_002.png"
+      },
+      "en": {
+        "number": "G-TD06/002EN",
+        "name": "Classicgun Dragon",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (VC) or (RC), choose up to one of your units, and until end of turn, it gets \"Time Leap-[AUTO](VC/RC):When this unit's attack hits a vanguard, choose up to one of your other rear-guards, and time leap it. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/002", "G-TD06/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F002",
+          "fetchedAt": "2026-11-06T14:39:04.662Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/002EN",
+          "fetchedAt": "2026-11-06T14:39:26.629Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-003",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/003",
+        "name": "クロノジェット・ドラゴン",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋5000し、相手はグレード１以上のカードを手札から(G)にコールできない。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、相手はそのユニットを自分の山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_003.png"
+      },
+      "en": {
+        "number": "G-TD06/003EN",
+        "name": "Chronojet Dragon",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, until end of that battle, this unit gets [Power] +5000, and your opponent cannot call grade 1 or greater cards from hand to (GC).\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose one of your opponent's rear-guards, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/003", "G-TD06/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F003",
+          "fetchedAt": "2026-11-06T14:39:05.896Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/003EN",
+          "fetchedAt": "2026-11-06T14:39:28.667Z",
+          "regulation": "Standard"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-004",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/004",
+        "name": "スチームナイト イルクウ",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_004.png"
+      },
+      "en": {
+        "number": "G-TD06/004EN",
+        "name": "Steam Knight, Ilku",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/004", "G-TD06/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F004",
+          "fetchedAt": "2026-11-06T14:39:07.077Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/004EN",
+          "fetchedAt": "2026-11-06T14:39:29.893Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-005",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/005",
+        "name": "スチームファイター ジムダール",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_005.png"
+      },
+      "en": {
+        "number": "G-TD06/005EN",
+        "name": "Steam Fighter, Zimudar",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/005", "G-TD06/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F005",
+          "fetchedAt": "2026-11-06T14:39:07.869Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/005EN",
+          "fetchedAt": "2026-11-06T14:39:30.983Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-006",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/006",
+        "name": "スチームメイデン メリアンナ",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが(R)に登場した時、そのターン中、このユニットのパワー＋4000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_006.png"
+      },
+      "en": {
+        "number": "G-TD06/006EN",
+        "name": "Steam Maiden, Merianna",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC), this unit gets [Power] +4000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/006", "G-TD06/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F006",
+          "fetchedAt": "2026-11-06T14:39:08.665Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/006EN",
+          "fetchedAt": "2026-11-06T14:39:32.037Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-007",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/007",
+        "name": "ヒストリーメーカー・ドラゴン",
+        "text": "時翔-【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、他のあなたのリアガードを１枚まで選び、タイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターンの終了時、コールしたユニットを山札の下に置き、バインドしたカードをコール）",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_007.png"
+      },
+      "en": {
+        "number": "G-TD06/007EN",
+        "name": "History-maker Dragon",
+        "text": "Time Leap-[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, choose up to one of your other rear-guards, and time leap it. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/007", "G-TD06/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F007",
+          "fetchedAt": "2026-11-06T14:39:09.943Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/007EN",
+          "fetchedAt": "2026-11-06T14:39:34.395Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-008",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/008",
+        "name": "遺跡に佇むギアゴート",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_008.png"
+      },
+      "en": {
+        "number": "G-TD06/008EN",
+        "name": "Gear Goat Loitering in Ruins",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/008", "G-TD06/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F008",
+          "fetchedAt": "2026-11-06T14:39:11.153Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/008EN",
+          "fetchedAt": "2026-11-06T14:39:35.610Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-009",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/009",
+        "name": "スチームバトラー ウル・ギル",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_009.png"
+      },
+      "en": {
+        "number": "G-TD06/009EN",
+        "name": "Steam Battler, Ul-gir",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/009", "G-TD06/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F009",
+          "fetchedAt": "2026-11-06T14:39:11.917Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/009EN",
+          "fetchedAt": "2026-11-06T14:39:36.784Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-010",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/010",
+        "name": "スチームメイデン ダーニッシュ",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが(R)に登場した時、相手のリアガードを１枚選び、相手はそのユニットを自分の山札に戻し、その山札からそのカードのグレード－１のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。（コールしたいカードがない時は見つからなかったことにできる）",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_010.png"
+      },
+      "en": {
+        "number": "G-TD06/010EN",
+        "name": "Steam Maiden, Danish",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC), choose one of your opponent's rear-guards, your opponent returns that unit to his or her deck, searches his or her deck for up to one card with grade -1 than that unit, calls it to (RC), and shuffles his or her deck. (Your opponent can choose not to find a card if there is none he or she wishes to call)",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/010", "G-TD06/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F010",
+          "fetchedAt": "2026-11-06T14:39:12.756Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/010EN",
+          "fetchedAt": "2026-11-06T14:39:39.135Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-011",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/011",
+        "name": "タイムブレイク・ドラゴン",
+        "text": "時翔-【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが手札から(R)に登場した時、他のあなたのリアガードを１枚まで選び、タイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターンの終了時、コールしたユニットを山札の下に置き、バインドしたカードをコール）",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_011.png"
+      },
+      "en": {
+        "number": "G-TD06/011EN",
+        "name": "Timebreak Dragon",
+        "text": "Time Leap-[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC) from hand, choose up to one of your other rear-guards, and time leap it. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/011", "G-TD06/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F011",
+          "fetchedAt": "2026-11-06T14:39:13.946Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/011EN",
+          "fetchedAt": "2026-11-06T14:39:40.416Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-012",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/012",
+        "name": "スチームメイデン サニラー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚まで選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_012.png"
+      },
+      "en": {
+        "number": "G-TD06/012EN",
+        "name": "Steam Maiden, Sanilar",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose up to one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD06/012", "G-TD06/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F012",
+          "fetchedAt": "2026-11-06T14:39:15.126Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/012EN",
+          "fetchedAt": "2026-11-06T14:39:41.743Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-013",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/013",
+        "name": "黄昏を知るギアポニー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがブーストした時、そのバトル中、ブーストされたユニットのパワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_013.png"
+      },
+      "en": {
+        "number": "G-TD06/013EN",
+        "name": "Gear Pony Aware of Twilight",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/013", "G-TD06/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F013",
+          "fetchedAt": "2026-11-06T14:39:15.885Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/013EN",
+          "fetchedAt": "2026-11-06T14:39:43.045Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-014",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/014",
+        "name": "クロノ・ドラン",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このカードをソウルに置く]このユニットが(R)からバインドゾーンに置かれた時、コストを払ってよい。払ったら、山札から「クロノジェット」を含むグレード３以上のカードを１枚まで探し、(R)にコールし、その山札をシャッフルし、そのターンの終了時、この効果でコールされたユニットを手札に戻す。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_014.png"
+      },
+      "en": {
+        "number": "G-TD06/014EN",
+        "name": "Chrono Dran",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this card into your soul] When this unit is placed in your bind zone from (RC), you may pay the cost. If you do, search your deck for up to one grade 3 or greater card with \"Chronojet\" in its card name, call it to (RC), shuffle your deck, and at the end of that turn, return the unit called with this effect to your hand.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon/Zodiac Time Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/014", "G-TD06/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F014",
+          "fetchedAt": "2026-11-06T14:39:16.670Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/014EN",
+          "fetchedAt": "2026-11-06T14:39:44.948Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-015",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/015",
+        "name": "スチームスカラー カー・ランマ",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_015.png"
+      },
+      "en": {
+        "number": "G-TD06/015EN",
+        "name": "Steam Scara, Ka-lanma",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/015", "G-TD06/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F015",
+          "fetchedAt": "2026-11-06T14:39:17.470Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/015EN",
+          "fetchedAt": "2026-11-06T14:39:46.563Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-016",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/016",
+        "name": "スチームスカラー ウドゥル",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_016.png"
+      },
+      "en": {
+        "number": "G-TD06/016EN",
+        "name": "Steam Scara, Udul",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/016", "G-TD06/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F016",
+          "fetchedAt": "2026-11-06T14:39:18.661Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/016EN",
+          "fetchedAt": "2026-11-06T14:39:47.500Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-017",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/017",
+        "name": "ワンツーパンチ・ドラコキッド",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_017.png"
+      },
+      "en": {
+        "number": "G-TD06/017EN",
+        "name": "One-two-punch Dracokid",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/017", "G-TD06/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F017",
+          "fetchedAt": "2026-11-06T14:39:19.836Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/017EN",
+          "fetchedAt": "2026-11-06T14:39:48.770Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-018",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/018",
+        "name": "キラキラ・ワーカー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ギアクロニクル",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_018.png"
+      },
+      "en": {
+        "number": "G-TD06/018EN",
+        "name": "Scintillating Worker",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Gear Chronicle",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/018", "G-TD06/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F018",
+          "fetchedAt": "2026-11-06T14:39:21.052Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/018EN",
+          "fetchedAt": "2026-11-06T14:39:50.066Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD06-019",
+      "set": "G-TD06",
+      "jp": {
+        "number": "G-TD06/019",
+        "name": "噛み合わせるギアキャット",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD06/gtd06_019.png"
+      },
+      "en": {
+        "number": "G-TD06/019EN",
+        "name": "Gear Cat Meshing Cogs",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd06/GTD06_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD06/019", "G-TD06/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD06%2F019",
+          "fetchedAt": "2026-11-06T14:39:21.823Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD06/019EN",
+          "fetchedAt": "2026-11-06T14:39:51.388Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 6: Rallying Call of the Interspectral Dragon",
+    "cards": [
+      {
+        "id": "G-TD06-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD06-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD06-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-017",
+        "count": 2
+      },
+      {
+        "id": "G-TD06-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD06-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170126050322/http://cardfight.wikia.com/wiki/G_Trial_Deck_6:_Rallying_Call_of_the_Interspectral_Dragon",
+      "fetchedAt": "2017-01-26T05:03:22.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -1,0 +1,968 @@
+{
+  "set": "G-TD07",
+  "importedAt": "2026-11-11T09:55:40.407Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD07-001",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/001",
+        "name": "熱情の神竜使い アマンダ",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n奇術-【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、【ソウルチャージ】(1)し、ソウルから１枚まで選び、(R)にコールし、そのターン中、そのユニットのパワー＋2000し、そのターンの終了時、この効果でコールされたユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_001.png"
+      },
+      "en": {
+        "number": "G-TD07/001EN",
+        "name": "Ardor Dragon Master, Amanda",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\nMagia-[AUTO](VC):When this unit's attack hits a vanguard, [Soul-Charge 1], choose up to one card from your soul, call it to (RC), that unit gets [Power] +2000 until end of turn, and at the end of that turn, put the unit called with this effect into your soul.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/001", "G-TD07/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F001",
+          "fetchedAt": "2026-11-06T14:39:57.127Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/001EN",
+          "fetchedAt": "2026-11-06T14:40:16.592Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-002",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/002",
+        "name": "ブリージング・コウアトル",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "キメラ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_002.png"
+      },
+      "en": {
+        "number": "G-TD07/002EN",
+        "name": "Breathing Coatl",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Chimera",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/002", "G-TD07/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F002",
+          "fetchedAt": "2026-11-06T14:39:58.327Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/002EN",
+          "fetchedAt": "2026-11-06T14:40:18.787Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-003",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/003",
+        "name": "仮面の奇術師 ハリー",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：このユニットがヴァンガードにアタックした時、ソウルから１枚まで選び、(R)にコールし、そのターン中、そのユニットとこのユニットのパワー＋3000。\n奇術-【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、ソウルから１枚まで選び、(R)にコールし、そのターン中、そのユニットのパワー＋5000し、そのターンの終了時、この効果でコールされたユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_003.png"
+      },
+      "en": {
+        "number": "G-TD07/003EN",
+        "name": "Masked Magician, Harri",
+        "text": "[AUTO](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, choose up to one card from your soul, call it to (RC), and that unit and this unit get [Power] +3000 until end of turn.\nMagia-[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, [Soul-Charge 1], choose up to one card from your soul, call it to (RC), that unit gets [Power] +5000 until end of turn, and at the end of that turn, put the unit called with this effect into your soul.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/003", "G-TD07/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F003",
+          "fetchedAt": "2026-11-06T14:39:59.518Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/003EN",
+          "fetchedAt": "2026-11-06T14:40:20.216Z",
+          "regulation": "Standard"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-004",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/004",
+        "name": "ミラージュソード ジュディ",
+        "text": "【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、ソウルからグレード２以下のカードを１枚まで選び、(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_004.png"
+      },
+      "en": {
+        "number": "G-TD07/004EN",
+        "name": "Mirage Sword, Judy",
+        "text": "[AUTO](VC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +60000 until end of that battle.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, [Soul-Charge 1], choose up to one grade 2 or less card from your soul, and call it to (RC).",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/004", "G-TD07/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F004",
+          "fetchedAt": "2026-11-06T14:40:00.710Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/004EN",
+          "fetchedAt": "2026-11-06T14:40:21.388Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-005",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/005",
+        "name": "星の奇術師 エレン",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_005.png"
+      },
+      "en": {
+        "number": "G-TD07/005EN",
+        "name": "Star Magician, Elen",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/005", "G-TD07/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F005",
+          "fetchedAt": "2026-11-06T14:40:02.051Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/005EN",
+          "fetchedAt": "2026-11-06T14:40:22.281Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-006",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/006",
+        "name": "シンハライト・ビーストテイマー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_006.png"
+      },
+      "en": {
+        "number": "G-TD07/006EN",
+        "name": "Sinhalite Beast Tamer",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/006", "G-TD07/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F006",
+          "fetchedAt": "2026-11-06T14:40:02.870Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/006EN",
+          "fetchedAt": "2026-11-06T14:40:23.450Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-007",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/007",
+        "name": "運命の配り手 ジャクリーン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットがブーストされているなら、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、ソウルからグレード２以下のカードを１枚まで選び、(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_007.png"
+      },
+      "en": {
+        "number": "G-TD07/007EN",
+        "name": "Card Dealer, Jacqueline",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, [Soul-Charge 1], choose up to one grade 2 or less card from your soul, and call it to (RC).",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/007", "G-TD07/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F007",
+          "fetchedAt": "2026-11-06T14:40:04.109Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/007EN",
+          "fetchedAt": "2026-11-06T14:40:24.649Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-008",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/008",
+        "name": "悪食ピエロ",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ペイルムーン",
+        "race": "オーガ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_008.png"
+      },
+      "en": {
+        "number": "G-TD07/008EN",
+        "name": "Bad Eater Clown",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Ogre",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/008", "G-TD07/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F008",
+          "fetchedAt": "2026-11-06T14:40:04.931Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/008EN",
+          "fetchedAt": "2026-11-06T14:40:25.995Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-009",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/009",
+        "name": "奇跡の業師 ランス",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_009.png"
+      },
+      "en": {
+        "number": "G-TD07/009EN",
+        "name": "Miracle Tumbler, Lance",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/009", "G-TD07/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F009",
+          "fetchedAt": "2026-11-06T14:40:05.719Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/009EN",
+          "fetchedAt": "2026-11-06T14:40:27.316Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-010",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/010",
+        "name": "オブシディアン・ビーストテイマー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_010.png"
+      },
+      "en": {
+        "number": "G-TD07/010EN",
+        "name": "Obsidian Beast Tamer",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/010", "G-TD07/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F010",
+          "fetchedAt": "2026-11-06T14:40:06.486Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/010EN",
+          "fetchedAt": "2026-11-06T14:40:28.204Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-011",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/011",
+        "name": "月光の旋律使い ベティ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがリアガードをブーストしたバトルの終了時、コストを払ってよい。払ったら、このユニットがブーストしたリアガードをソウルに置き、ソウルから奇術能力を持つカードを１枚まで選び、(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_011.png"
+      },
+      "en": {
+        "number": "G-TD07/011EN",
+        "name": "Moonlight Melody Tamer, Betty",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] At the end of the battle that this unit boosted ([Boost]) a rear-guard, you may pay the cost. If you do, put the rear-guard this unit boosted ([Boost]) into your soul, choose up to one card with the magia ability from your soul, and call it to (RC).",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/011", "G-TD07/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F011",
+          "fetchedAt": "2026-11-06T14:40:07.668Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/011EN",
+          "fetchedAt": "2026-11-06T14:40:29.259Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-012",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/012",
+        "name": "ウォーター・ジャグラー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚まで選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ペイルムーン",
+        "race": "ギルマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_012.png"
+      },
+      "en": {
+        "number": "G-TD07/012EN",
+        "name": "Water Juggler",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose up to one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Gillman",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD07/012", "G-TD07/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F012",
+          "fetchedAt": "2026-11-06T14:40:08.958Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/012EN",
+          "fetchedAt": "2026-11-06T14:40:30.301Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-013",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/013",
+        "name": "エッグ・ジャグラー",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットがソウルから(R)に登場した時、あなたの《ペイルムーン》のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_013.png"
+      },
+      "en": {
+        "number": "G-TD07/013EN",
+        "name": "Egg Juggler",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC) from your soul, if you have a <Pale Moon> vanguard, you may pay the cost. If you do, draw a card.",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/013", "G-TD07/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F013",
+          "fetchedAt": "2026-11-06T14:40:09.722Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/013EN",
+          "fetchedAt": "2026-11-06T14:40:31.274Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-014",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/014",
+        "name": "ハピネス・コレクター",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットをソウルに置く]他のあなたのユニットがソウルから(R)に登場した時、コストを払ってよい。払ったら、１枚引き、【ソウルチャージ】(1)。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_014.png"
+      },
+      "en": {
+        "number": "G-TD07/014EN",
+        "name": "Happiness Collector",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit into your soul] When your other unit is placed on (RC) from your soul, you may pay the cost. If you do, draw a card, and [Soul-Charge 1].",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/014", "G-TD07/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F014",
+          "fetchedAt": "2026-11-06T14:40:10.508Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/014EN",
+          "fetchedAt": "2026-11-06T14:40:32.343Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-015",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/015",
+        "name": "キトゥン・ジャグラー",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_015.png"
+      },
+      "en": {
+        "number": "G-TD07/015EN",
+        "name": "Kitten Juggler",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/015", "G-TD07/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F015",
+          "fetchedAt": "2026-11-06T14:40:11.308Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/015EN",
+          "fetchedAt": "2026-11-06T14:40:33.540Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-016",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/016",
+        "name": "びっくりピエロ",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_016.png"
+      },
+      "en": {
+        "number": "G-TD07/016EN",
+        "name": "Surprise Clown",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/016", "G-TD07/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F016",
+          "fetchedAt": "2026-11-06T14:40:12.088Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/016EN",
+          "fetchedAt": "2026-11-06T14:40:34.510Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-017",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/017",
+        "name": "テンダー・ブリーダー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_017.png"
+      },
+      "en": {
+        "number": "G-TD07/017EN",
+        "name": "Tender Breeder",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/017", "G-TD07/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F017",
+          "fetchedAt": "2026-11-06T14:40:12.853Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/017EN",
+          "fetchedAt": "2026-11-06T14:40:36.810Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-018",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/018",
+        "name": "ポイゾン・ジャグラー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ペイルムーン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "ゴブリン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_018.png"
+      },
+      "en": {
+        "number": "G-TD07/018EN",
+        "name": "Poison Juggler",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Pale Moon>, and that unit gets [Power] +3000 until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Goblin",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/018", "G-TD07/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F018",
+          "fetchedAt": "2026-11-06T14:40:14.021Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/018EN",
+          "fetchedAt": "2026-11-06T14:40:38.077Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD07-019",
+      "set": "G-TD07",
+      "jp": {
+        "number": "G-TD07/019",
+        "name": "アメジスト・ビーストテイマー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD07/gtd07_019.png"
+      },
+      "en": {
+        "number": "G-TD07/019EN",
+        "name": "Amethyst Beast Tamer",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd07/GTD07_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD07/019", "G-TD07/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD07%2F019",
+          "fetchedAt": "2026-11-06T14:40:15.208Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://en.cf-vanguard.com/cardlist/?cardno=G-TD07/019EN",
+          "fetchedAt": "2026-11-06T14:40:39.039Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 7: Illusionist of the Crescent Moon",
+    "cards": [
+      {
+        "id": "G-TD07-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD07-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD07-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-017",
+        "count": 2
+      },
+      {
+        "id": "G-TD07-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD07-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170611040816/http://cardfight.wikia.com/wiki/G_Trial_Deck_7:_Illusionist_of_the_Crescent_Moon",
+      "fetchedAt": "2017-06-11T04:08:16.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

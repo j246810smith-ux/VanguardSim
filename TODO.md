@@ -39,6 +39,7 @@ See CLAUDE.md "Next steps" for the ordered plan.
 - [x] G-TD03, G-TD04, G-TD05 (57 cards, playable as sold)
 - [x] G-TD06, G-TD07, G-TD08 (57 cards, playable as sold; Hollow)
 - [x] G-BT06 (104 cards; English text from Internet Archive copies, 19 cards from the card wiki)
+- [x] G-BT07, G-BT08, G-BT09 (312 cards; G guardians; English text gaps filled by tools/cardgen/wiki_english.py)
 - [x] G starter decks for the eleven clans of G-BT03 to G-BT05 without a G Trial Deck
 - [x] PR cards 2014 (66 cards, set PR14; 3 G-era cards wait for the Expanded Era's PR cards)
 - [x] PR cards 2013 and 2014 (sets PR13, PR14)

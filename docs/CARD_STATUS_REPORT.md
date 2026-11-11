@@ -836,3 +836,342 @@ All cards complete.
 - G-BT06-102 Tsukken Don — no art
 - G-BT06-103 Cosmos Pixy, Lizbeth — no art
 - G-BT06-104 Air Elemental, Twitterun — no art
+
+## G-BT07
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 67                  | 104                 | 0               | 0            | 104           | 0   | 0        |
+
+### Incomplete
+
+- G-BT07-001 Sunrise Ray Radiant Sword, Gurguit — no art
+- G-BT07-002 Supreme Heavenly Emperor Dragon, Defeat Flare Dragon — no art
+- G-BT07-003 Black Seraph, Gavrail — no art
+- G-BT07-004 Knight of Spring's Light, Perimore — no art
+- G-BT07-005 Supreme Heavenly Emperor Dragon, Dragonic Blademaster "Taiten" — no art
+- G-BT07-006 Super Cosmic Hero, X-gallop — no art
+- G-BT07-007 Cosmic Hero, Grandvolver — no art
+- G-BT07-008 Wings of Recurrence, Blade Wing Reijy — no art
+- G-BT07-009 Interdimensional Dragon, Bind Time Dragon — no art
+- G-BT07-010 Chronofang Tiger — no art
+- G-BT07-011 Holy Seraph, Suriel — no art
+- G-BT07-012 Doctroid Remnon — no art
+- G-BT07-013 Black Spark, Munkar — no art
+- G-BT07-014 Golden Beast, Sleimy Flare — no art
+- G-BT07-015 Scarface Lion — no art
+- G-BT07-016 Flame Wing Steel Beast, Denial Griffin — no art
+- G-BT07-017 Escort Dragon Attendant, Reas — no art
+- G-BT07-018 Super Cosmic Hero, X-carivou — no art
+- G-BT07-019 Cosmic Hero, Grandleaf — no art
+- G-BT07-020 Nighttime Gentleman, Saint-Germain — no art
+- G-BT07-021 One-eyed Succubus — no art
+- G-BT07-022 Highbrow Steam, Raphanna — no art
+- G-BT07-023 Retractor, Sarakiel — no art
+- G-BT07-024 Black Dream, Zabaniya — no art
+- G-BT07-025 Black Bomber, Maalik — no art
+- G-BT07-026 Nurse of Smash Heart — no art
+- G-BT07-027 Dawnngal — no art
+- G-BT07-028 Flame Wind Lion, Wonder Ezel — no art
+- G-BT07-029 Sunshine Knight, Jeffrey — no art
+- G-BT07-030 Holy Mage, Irena — data, no art
+- G-BT07-031 Spherical Lord Dragon — no art
+- G-BT07-032 Dragon Fang Chain-shots, Sutherland — data, no art
+- G-BT07-033 Radiant Dragon — no art
+- G-BT07-034 Dragon Knight, Roia — data, no art
+- G-BT07-035 Super Giant of Light, Enigman Crossray — data, no art
+- G-BT07-036 Great Cosmic Hero, Grandmantle — data, no art
+- G-BT07-037 Cosmic Hero, Grandrifter — data, no art
+- G-BT07-038 Mask of Demonic Frenzy, Ericrius — data, no art
+- G-BT07-039 Nine-break Hustler — no art
+- G-BT07-040 Doppel Vampir — no art
+- G-BT07-041 Doreen the Thruster — data, no art
+- G-BT07-042 Blade Wing Tyrwhitt — data, no art
+- G-BT07-043 Interdimensional Beast, Float-gear Hippogriff — no art
+- G-BT07-044 Steam Scalar, Emellanna — no art
+- G-BT07-045 Requiem Pegasus — no art
+- G-BT07-046 Treatment Nurse — data, no art
+- G-BT07-047 Frontal Celestial, Mel'ejal — data, no art
+- G-BT07-048 Laser Clutcher, Ke'el — no art
+- G-BT07-049 Rear Impetus Celestial, Armaiti — data, no art
+- G-BT07-050 Celestial, Emergency Pegasus — data, no art
+- G-BT07-051 Drill Motor Nurse — data, no art
+- G-BT07-052 Black Report, Ridwan — no art
+- G-BT07-053 Surgery Angel — no art
+- G-BT07-054 Knight of Compassionate Light, Bradott — no art
+- G-BT07-055 Bullrgal — no art
+- G-BT07-056 Knight of the Faint Sun, Marcia — no art
+- G-BT07-057 Crimson Lion Beast, Howell — no art
+- G-BT07-058 Holy Mage, Connor — data, no art
+- G-BT07-059 Aquamarine Lion, Shyte — data, no art
+- G-BT07-060 Bashhgal — data, no art
+- G-BT07-061 Player of the Holy Pipe, Gerrie — no art
+- G-BT07-062 Dragon Knight, Basuit — data, no art
+- G-BT07-063 Wyvern Strike, Galgi — data, no art
+- G-BT07-064 Dragon Knight, Nadim — no art
+- G-BT07-065 Seal Dragon, Barathea — data, no art
+- G-BT07-066 Apex Dragon Mage, Kinnara — data, no art
+- G-BT07-067 Dragon Dancer, Marcel — data, no art
+- G-BT07-068 Dragon Knight, Nadel — no art
+- G-BT07-069 Seal Dragon, Doskin — data, no art
+- G-BT07-070 Serrated Dracokid — data, no art
+- G-BT07-071 Spiritburn Dragon — no art
+- G-BT07-072 Inspire Yell Dragon — no art
+- G-BT07-073 Cosmic Hero, Grandgardy — no art
+- G-BT07-074 Elegance Feather — data, no art
+- G-BT07-075 Enigman Crescent — data, no art
+- G-BT07-076 Menacing Monster, Golmenas — data, no art
+- G-BT07-077 Enigman Squall — no art
+- G-BT07-078 Cosmic Hero, Grandvicle — data, no art
+- G-BT07-079 Foxy Charmy — data, no art
+- G-BT07-080 Magical Inspector Tolbe — data, no art
+- G-BT07-081 Cosmic Hero, Grandhop — data, no art
+- G-BT07-082 Justice Gold — no art
+- G-BT07-083 Enigman Warm — data, no art
+- G-BT07-084 Operator Girl, Erika — no art
+- G-BT07-085 Cosmic Hero, Grandscold — no art
+- G-BT07-086 Frosty Steeple — no art
+- G-BT07-087 Tragic Claw — no art
+- G-BT07-088 Blade Wing Sykes — no art
+- G-BT07-089 Three-in the Dark — no art
+- G-BT07-090 Combust Vampir — data, no art
+- G-BT07-091 Serpent Charmer — no art
+- G-BT07-092 Blade Wing Rodbiss — no art
+- G-BT07-093 Enigmatic Assassin — no art
+- G-BT07-094 Werbrummbar Soldat — no art
+- G-BT07-095 Square-one Dragon — no art
+- G-BT07-096 Steam Knight, Mudar — no art
+- G-BT07-097 Drain-valve Dragon — no art
+- G-BT07-098 Quiet Sleep-calling Gear Tapir — data, no art
+- G-BT07-099 Steam Fighter, Attab — no art
+- G-BT07-100 Parallel Barrel Dragon — data, no art
+- G-BT07-101 Steam Fighter, Nanneya — data, no art
+- G-BT07-102 Tooth-edge Dracokid — data, no art
+- G-BT07-103 Steam Scalar, Lange — no art
+- G-BT07-104 Snow Elemental, Hyakko — no art
+
+## G-BT08
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 61                  | 104                 | 0               | 0            | 104           | 0   | 0        |
+
+### Incomplete
+
+- G-BT08-001 Mythical Hellsky Beast, Fenrir — no art
+- G-BT08-002 One Steeped in Sin, Scharhrot — no art
+- G-BT08-003 Blazing Sword, Fides — no art
+- G-BT08-004 Golden Dragon, Glorious Reigning Dragon — no art
+- G-BT08-005 Prehistoric Regalia, Urth — no art
+- G-BT08-006 Genesis Dragon, Flageolet Messiah — no art
+- G-BT08-007 Glanzend Vampir — no art
+- G-BT08-008 Carnivorous Megatrick, Prana — no art
+- G-BT08-009 Tempest-calling Pirate King, Goauche — no art
+- G-BT08-010 Flower Princess of Balmy Breeze, Ilmatar — no art
+- G-BT08-011 Vivid Sacred Staff, Andragius — no art
+- G-BT08-012 Holy Mage, Lavinia — no art
+- G-BT08-013 Sky-dome Battle Maiden, Hanasatsuki — no art
+- G-BT08-014 Regalia of the Present Age, Verthandi — no art
+- G-BT08-015 Stake Fetter, Thviti — no art
+- G-BT08-016 Genesis Beast, Destiny Guardian — no art
+- G-BT08-017 Succubus of Avarice — no art
+- G-BT08-018 Doting Harlequin, Maja — no art
+- G-BT08-019 Great Witch Doctor of Banquets, Negrolily — no art
+- G-BT08-020 Rampage Shade — no art
+- G-BT08-021 Flower Princess of Autumn Scenery, Verna — no art
+- G-BT08-022 Arboros Dragon, Ain Soph Aur — no art
+- G-BT08-023 Knight of Persistence, Fulgenius — no art
+- G-BT08-024 Knight of Flight, Danius — no art
+- G-BT08-025 Stilling Jewel Knight, Estelle — no art
+- G-BT08-026 Knight of the Remaining Sun, Henrinus — no art
+- G-BT08-027 Knight of Morning Light, Horsa — no art
+- G-BT08-028 Ice Crest Goddess, Svava — no art
+- G-BT08-029 Boulder Fetter, Gjoll — no art
+- G-BT08-030 Secret Elsie — no art
+- G-BT08-031 Star-vader, Infinite Distarv — no art
+- G-BT08-032 Punishment Deletor, Gieron — data, no art
+- G-BT08-033 Reversal Star-vader, Nobelium — no art
+- G-BT08-034 Demonted Executioner — no art
+- G-BT08-035 Edge in the Darkness — data, no art
+- G-BT08-036 Barking Dragon Tamer — no art
+- G-BT08-037 Praised Evil Tamer, Mireille — no art
+- G-BT08-038 Nightmare Doll, Claris — no art
+- G-BT08-039 Great Skipper, Supreme Solger — data, no art
+- G-BT08-040 Rambling Shade — no art
+- G-BT08-041 Summer's Height Flower Maiden, Marjukka — data, no art
+- G-BT08-042 Warden of Arboros, Airi — data, no art
+- G-BT08-043 Sunwheel Maiden, Rauni — data, no art
+- G-BT08-044 Bulwark of Arboros, Sanelma — data, no art
+- G-BT08-045 Knight of Mastery, Glenus — no art
+- G-BT08-046 Escort Eagle — no art
+- G-BT08-047 Knight of Influence, Ornas — no art
+- G-BT08-048 Knight of Ceremonies, Pil — data, no art
+- G-BT08-049 Marinngal — data, no art
+- G-BT08-050 Sanctuary of Light, Shooting Ray — no art
+- G-BT08-051 Silent Sage, Sharon — data, no art
+- G-BT08-052 Knight of the Scorching Sun, Arvirarkus — data, no art
+- G-BT08-053 Knight of Autumn Light, Regan — data, no art
+- G-BT08-054 Dexxgal — data, no art
+- G-BT08-055 Riding Rookie — data, no art
+- G-BT08-056 Battle Maiden, Azusa — data, no art
+- G-BT08-057 Battle Maiden, Kotonoha — no art
+- G-BT08-058 Battle Maiden, Touka — no art
+- G-BT08-059 Shackle Fetter, Gelgja — no art
+- G-BT08-060 Next-era Regalia, Skuld — no art
+- G-BT08-061 Fetter Creator, Van — no art
+- G-BT08-062 Goddess of Extension, Auxesia — data, no art
+- G-BT08-063 Goddess of Fruition, Carpo — data, no art
+- G-BT08-064 Ringing Rabbit — no art
+- G-BT08-065 Goddess of Sound Sleep, Tahro — no art
+- G-BT08-066 Drill Monk of the Fierce Foot — no art
+- G-BT08-067 Lady Battler of the Black Dwarf — no art
+- G-BT08-068 Star-vader, Gemingar Dragon — data, no art
+- G-BT08-069 Overeat Deletor, Onagil — data, no art
+- G-BT08-070 Star-vader, Heliopause Dragon — data, no art
+- G-BT08-071 Proton Kicker, Proton-striker — data, no art
+- G-BT08-072 Queen of Nightmareland, Hartrud — data, no art
+- G-BT08-073 Dum of Nightmareland — data, no art
+- G-BT08-074 Blood Sacrifice, Ruthven — data, no art
+- G-BT08-075 Succubus of Desire — data, no art
+- G-BT08-076 Dormouse of Nightmareland — data, no art
+- G-BT08-077 Vroukalakas — data, no art
+- G-BT08-078 Spade Jack of Nightmareland — data, no art
+- G-BT08-079 Dee of Nightmareland — data, no art
+- G-BT08-080 Redstar Dualhorn — no art
+- G-BT08-081 Magical Boxtreamer — data, no art
+- G-BT08-082 Unicycle Tumbler — data, no art
+- G-BT08-083 Novelty Introductor — data, no art
+- G-BT08-084 Entertain Messenger — data, no art
+- G-BT08-085 Nightmare Doll, Pamela — data, no art
+- G-BT08-086 Nightmare Doll, Dory — no art
+- G-BT08-087 Seven Seas Pillager, Nightspinel — no art
+- G-BT08-088 Handsomeness, Gianmario — no art
+- G-BT08-089 Carl the Ghostie — no art
+- G-BT08-090 Bale the Ghostie — no art
+- G-BT08-091 Witch Doctor of the Seven Seas, Raistutor — no art
+- G-BT08-092 Skeleton Assault Soldier — no art
+- G-BT08-093 Rookie Pirate, Gina — no art
+- G-BT08-094 Cody the Ghostie — no art
+- G-BT08-095 Arboros Compost Dragon — no art
+- G-BT08-096 Battle Maiden of the Southern Wind, Plume — data, no art
+- G-BT08-097 Hydrangea Knight — data, no art
+- G-BT08-098 Screen of Arboros, Aila — data, no art
+- G-BT08-099 Pleasant-sound Maiden, Imarlute — data, no art
+- G-BT08-100 Bittergourd in Chanpuru — data, no art
+- G-BT08-101 Saladada Familia — data, no art
+- G-BT08-102 Maiden of Evolvulus — data, no art
+- G-BT08-103 Maiden of Zephyranthes — data, no art
+- G-BT08-104 Rain Elemental, Pichan — data, no art
+
+## G-BT09
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 59                  | 104                 | 0               | 0            | 104           | 0   | 0        |
+
+### Incomplete
+
+- G-BT09-001 Conquering Supreme Dragon, Dragonic Vanquisher "VMAX" — no art
+- G-BT09-002 Storm of Lament, Wailing Thavas — no art
+- G-BT09-003 Holy Seraph, Altiel — no art
+- G-BT09-004 True Revenger, Raging Rapt Dragon — no art
+- G-BT09-005 Dragdriver, Luard — no art
+- G-BT09-006 Dragwizard, Morfessa — no art
+- G-BT09-007 True Eradicator, Dragonic Descendant "Zillion" — no art
+- G-BT09-008 Great Hero, Rising Supernova — no art
+- G-BT09-009 Metapulsar, Split Pegasus — no art
+- G-BT09-010 Blue Storm Helical Dragon, Disaster Maelstrom — no art
+- G-BT09-011 Holy Celestial, Anafiel — no art
+- G-BT09-012 Black Devote, Phaleg — no art
+- G-BT09-013 Dark Dragon, Plotmaker Dragon — no art
+- G-BT09-014 Dragsaver, Esras — no art
+- G-BT09-015 Sky Guardian Supreme Dragon, Bulwark Dragon — no art
+- G-BT09-016 Wyvern Defender, Guld — no art
+- G-BT09-017 King of Sadism, Dudley Caligula — no art
+- G-BT09-018 Juggernaut Maximum Maximum — no art
+- G-BT09-019 Pulsar Tamer, Lugal-ure — no art
+- G-BT09-020 Blue Wave Brave General, Artiom — no art
+- G-BT09-021 Blue Storm Deterrence Dragon, Ice Barrier Dragon — no art
+- G-BT09-022 Battle Siren, Janka — no art
+- G-BT09-023 Excellence Celestial, Yophiel — no art
+- G-BT09-024 Absorb Celestial, Bahariya — data, no art
+- G-BT09-025 Black Mirage, Hageete — no art
+- G-BT09-026 Mage of Enticement, Ildona — data, no art
+- G-BT09-027 Revenger, Slay Hex Dragon — no art
+- G-BT09-028 Revenger, Detonate Heat Dragon — data, no art
+- G-BT09-029 Abyssal Owl — no art
+- G-BT09-030 Pole Star Eradicator, Zuitan — no art
+- G-BT09-031 Roaring Thunder Spear, Jalil — data, no art
+- G-BT09-032 Eradicator, Dragonic Deathscythe — data, no art
+- G-BT09-033 Trainee Monk Dragon — data, no art
+- G-BT09-034 Ascetic Dracokid — data, no art
+- G-BT09-035 Dudley Turborappler — data, no art
+- G-BT09-036 Lethal Forward — no art
+- G-BT09-037 Dudley Jetter — data, no art
+- G-BT09-038 Dudley Cheers, Linda — data, no art
+- G-BT09-039 Pulsar, Flarescent Dragon — data, no art
+- G-BT09-040 Pulsar, Stratos Falcon — no art
+- G-BT09-041 Marine General of Twin Bullets, Cretas — no art
+- G-BT09-042 Blue Wave Marine General, Iason — no art
+- G-BT09-043 Kelpie Rider, Nikitas — data, no art
+- G-BT09-044 Kelpie Rider, Vallas — data, no art
+- G-BT09-045 Elastic Bipolar, Rahtiel — data, no art
+- G-BT09-046 Artistic Celestial Machariel — data, no art
+- G-BT09-047 Black Relief, Aratoron — no art
+- G-BT09-048 Million Ray Pegasus — data, no art
+- G-BT09-049 Thousand Ray Pegasus — data, no art
+- G-BT09-050 First Aid Corgi — data, no art
+- G-BT09-051 Black Omen, Phul — data, no art
+- G-BT09-052 Doctoroid Felias — no art
+- G-BT09-053 Teardrop Phoenix — data, no art
+- G-BT09-054 High Treble Angel — data, no art
+- G-BT09-055 Knight of Serial Blade, Diarmud — no art
+- G-BT09-056 Ferocious Attack Revenger, Dylan — no art
+- G-BT09-057 Assist Owlner, Maighneis — no art
+- G-BT09-058 Revenger, Weitgore Dragon — no art
+- G-BT09-059 Detecting Revenger, Aife — no art
+- G-BT09-060 Leadbau — data, no art
+- G-BT09-061 Commanding Knight, Gnesa — no art
+- G-BT09-062 Lingering Night Revenger, Conrad — no art
+- G-BT09-063 Rabidmyu — no art
+- G-BT09-064 Knight of Ironcluster, Craiftine — no art
+- G-BT09-065 Groundbreaking General, Bisham — data, no art
+- G-BT09-066 Eradicator, Lightning Phoenix — data, no art
+- G-BT09-067 Martial Arts Dragon — data, no art
+- G-BT09-068 Zoomdive Dragoon — data, no art
+- G-BT09-069 Eradicator, Strike Slasher Dragon — data, no art
+- G-BT09-070 Grudge Toxin Eradicator, Seiobo — data, no art
+- G-BT09-071 Dragon Dancer, Fatine — no art
+- G-BT09-072 Eradicator, Ambitious Dragoon — no art
+- G-BT09-073 Honorable Monk Dragon — no art
+- G-BT09-074 Demonic Dragon Nymph, Cordo — data, no art
+- G-BT09-075 Djinn of Rainy Duststorm — data, no art
+- G-BT09-076 Serial Bomber — data, no art
+- G-BT09-077 Outrage Lineback — data, no art
+- G-BT09-078 Dudley Ingram — no art
+- G-BT09-079 Mayhem Tiger — no art
+- G-BT09-080 Airforce Eliza — no art
+- G-BT09-081 Fullspeed Specter — no art
+- G-BT09-082 Dudley Littleroad — no art
+- G-BT09-083 Mecha Coach — data, no art
+- G-BT09-084 Dandy Regista — data, no art
+- G-BT09-085 Cheer Girl, Sandra — data, no art
+- G-BT09-086 Silence Joker — no art
+- G-BT09-087 Pulsar, Speedy Bunny — no art
+- G-BT09-088 Pulsar Tamer, Nepada — no art
+- G-BT09-089 Heavy Wrench Dracokid — no art
+- G-BT09-090 Pulsar, Rush Boar — no art
+- G-BT09-091 Pulsar, Hypnosis Sheep — no art
+- G-BT09-092 Stragglefin Dragon — no art
+- G-BT09-093 Blue Wave Marine General, Damia — data, no art
+- G-BT09-094 Blue Wave Marine General, Lucianos — data, no art
+- G-BT09-095 Kelpie Rider, Paul — data, no art
+- G-BT09-096 Blue Wave Soldier, Cimon — data, no art
+- G-BT09-097 Blue Wave Dragon, Submerge Dragon — data, no art
+- G-BT09-098 Battle Siren, Cressida — data, no art
+- G-BT09-099 Blue Wave Recruit, Yiotis — data, no art
+- G-BT09-100 Harpoon Dracokid — data, no art
+- G-BT09-101 Flambe Sailor — data, no art
+- G-BT09-102 Battle Siren, Mallika — no art
+- G-BT09-103 Dolphin Soldier of Leaping Windy Seas — data, no art
+- G-BT09-104 Light Elemental, Honoly — no art

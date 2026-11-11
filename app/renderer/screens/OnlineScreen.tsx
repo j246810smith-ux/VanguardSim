@@ -2,7 +2,7 @@
  * Play Online (D-032): host a game for a friend, or join a friend's game, by room code (both
  * type the same code) or by address and port. This screen only starts the connection.
  */
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   DEFAULT_PORT,
   desktopOnline,
@@ -16,6 +16,10 @@ import { IS_ANDROID } from '../platform';
 import { codeProblem, makeCode } from '../online/roomCode';
 import { useSettings } from '../settings';
 import { deckEntries, DeckList } from './deckChoice';
+import { NO_HOUSE_RULES, roomRules, type HouseRulesChoice } from '../game/houseRules';
+import { PLAY_FORMATS } from '../../../src/engine';
+import type { RoomFormat } from '../../../src/net/protocol';
+import { HouseRulesPicker } from '../prompts/HouseRulesPicker';
 
 const remembered = (key: string, fallback: string) => {
   try {
@@ -47,14 +51,16 @@ export function OnlineScreen({
 }) {
   const desktop = desktopOnline();
   const settings = useSettings();
-  const [entries] = useState(deckEntries);
+  // the room's format (W3): the host chooses; the deck list shows what is legal in it
+  const [roomFormat, setRoomFormat] = useState<RoomFormat>('classic');
+  const entries = useMemo(() => deckEntries(roomFormat), [roomFormat]);
   const [deck, setDeck] = useState(0);
   const [name, setName] = useState(() => remembered('name', 'Player'));
   const [code, setCode] = useState(() => remembered('code', ''));
   const [byAddress, setByAddress] = useState(false);
   const [address, setAddress] = useState(() => remembered('address', ''));
   const [port, setPort] = useState(() => remembered('port', String(DEFAULT_PORT)));
-  const [delayedLegion, setDelayedLegion] = useState(false);
+  const [houseRules, setHouseRules] = useState<HouseRulesChoice>(NO_HOUSE_RULES);
   const [status, setStatus] = useState<string | null>(notice);
   const [hosting, setHosting] = useState<{ address: string; name: string }[] | null>(null);
   const [hostingCode, setHostingCode] = useState<string | null>(null);
@@ -78,6 +84,12 @@ export function OnlineScreen({
     );
   }
 
+  // your own deck must be legal in the room's format before you can host it
+  const chosen = entries[deck] ?? entries[0];
+  const hostDeckProblem =
+    chosen && !chosen.legal
+      ? `${chosen.name} is not legal in ${PLAY_FORMATS[roomFormat].label}`
+      : null;
   const portNumber = Number(port);
   const portOk = Number.isInteger(portNumber) && portNumber > 0 && portNumber < 65536;
   const codeError = codeProblem(code);
@@ -111,7 +123,7 @@ export function OnlineScreen({
     setBusy(true);
     setStatus(withCode ? 'Opening the room…' : null);
     try {
-      const addresses = await c.startHosting({ delayedLegion });
+      const addresses = await c.startHosting(roomRules(houseRules, roomFormat));
       if (withCode) setHostingCode(code.trim());
       else setHosting(addresses);
       setController(c);
@@ -177,17 +189,35 @@ export function OnlineScreen({
             />
           </label>
           <div className="row">
+            Format (host)
             <span className="seg">
-              <button
-                className={delayedLegion ? 'on' : ''}
-                onClick={() => setDelayedLegion((v) => !v)}
-                disabled={!!controller}
-                title="House rule: when you host, your choice applies to both players"
-              >
-                Delayed Legion: {delayedLegion ? 'ON' : 'OFF'}
-              </button>
+              {(['classic', 'classic_ou'] as const).map((f) => (
+                <button
+                  key={f}
+                  className={roomFormat === f ? 'on' : ''}
+                  disabled={!!controller}
+                  onClick={() => setRoomFormat(f)}
+                  data-testid={`online-format-${f}`}
+                  title="When you host, the room plays this format; the game checks your friend's deck against it"
+                >
+                  {PLAY_FORMATS[f].label}
+                </button>
+              ))}
             </span>
           </div>
+          {hostDeckProblem && (
+            <div className="hint bad" data-testid="online-deck-problem">
+              To host this format: {hostDeckProblem}
+            </div>
+          )}
+          {/* the same house rules as a local game (W4); when you host, they apply to both players */}
+          <HouseRulesPicker
+            value={houseRules}
+            onChange={setHouseRules}
+            format={roomFormat}
+            disabled={!!controller}
+            label="House rules (host)"
+          />
 
           <h2>ROOM CODE</h2>
           <div className="dim">
@@ -218,7 +248,7 @@ export function OnlineScreen({
           <div className="row">
             <button
               className="btn primary"
-              disabled={busy || !!controller || !!codeError}
+              disabled={busy || !!controller || !!codeError || !!hostDeckProblem}
               onClick={() => void host(true)}
               data-testid="online-host-code"
             >
@@ -264,7 +294,7 @@ export function OnlineScreen({
                 />
                 <button
                   className="btn primary"
-                  disabled={busy || !!controller || !portOk}
+                  disabled={busy || !!controller || !portOk || !!hostDeckProblem}
                   onClick={() => void host(false)}
                   data-testid="online-host"
                 >

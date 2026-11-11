@@ -94,6 +94,11 @@ export function toDefinition(
     trigger: r.trigger,
     skillIcon: r.skillIcon,
     sentinel: r.sentinel,
+    // CR 1.48.1 11.14: a G unit whose text starts with the [G Guardian] keyword (G-BT07 onward)
+    ...(r.cardType === 'g_unit' &&
+    (/^\[G Guardian\]/.test(r.en?.text ?? '') || /^【Ｇガーディアン】/.test(r.jp?.text ?? ''))
+      ? { gGuardian: true }
+      : {}),
     text: en.text,
     ...(translated ? { unofficialTranslation: true } : {}),
     abilities,

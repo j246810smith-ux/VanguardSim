@@ -1725,7 +1725,8 @@ export const G_BT06: SetAbilities = {
       text: text('G-BT06-009', 2),
     }),
   ],
-  // Witch Doctor of Languor, Negrolazy: its granted ability is read as "retired in the end phase" (UNRESOLVED_RULINGS)
+  // Witch Doctor of Languor, Negrolazy: its granted ability triggers on the hollow retire itself
+  // (CARD_MOVED.byHollow; it was read as "put into the drop zone in the end phase" before)
   'G-BT06-019': [
     hollow('G-BT06-019'),
     placed(
@@ -1741,8 +1742,7 @@ export const G_BT06: SetAbilities = {
           ab.auto({
             id: 'negrolazy',
             zones: ['any'],
-            trigger: ab.putIntoDropFrom('RC'),
-            triggerIf: { cond: 'phase', phase: 'end' } as Condition,
+            trigger: ab.putIntoDropByHollow(),
             effect: ccSc,
             text: '[AUTO]:When this unit is put into your drop zone due to the effect of a hollow ability, [Counter-Charge 1]/[Soul-Charge 1].',
           }),

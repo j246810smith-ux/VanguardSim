@@ -60,3 +60,7 @@ export const newDeckId = () =>
 /** A saved deck's format: as recorded, else the G era when it has a G deck. */
 export const formatOfSaved = (d: SavedDeck): FormatKey =>
   d.format ?? ((d.deck.gDeck?.length ?? 0) > 0 ? 'g' : 'classic');
+
+/** A remembered or saved format key; unknown values fall back to Original Era — Strict. */
+export const validFormatKey = (v: unknown): FormatKey =>
+  v === 'g' || v === 'classic_ou' || v === 'classic' ? v : 'classic';

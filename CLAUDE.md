@@ -59,7 +59,13 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-06): v0.31.0-alpha published
+## Latest (2026-11-11): v0.36.0-alpha published
+
+Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles; docs/design/BATTLEFIELD_2_AUDIT.md)
+and G-TD06–08, G-BT06. Read the top of `docs/NEXT_SESSION.md`. Git "Permission denied" on .git/objects:
+retry, or write the loose objects first (see the gotcha below).
+
+## Earlier (2026-11-06): v0.31.0-alpha published
 
 PR 2013, PR 2014, G-BT03–05, G-TD03–05 and G starter decks. The AI is the open work: read the top of
 `docs/NEXT_SESSION.md`, then `docs/ai/AI_AUDIT_AND_PLAN.md` section 4b.

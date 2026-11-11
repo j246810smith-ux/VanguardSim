@@ -163,7 +163,7 @@ export const boostedAttackHits = (
 });
 /** "When this unit is put into the drop zone from (RC)/(GC)" */
 export const putIntoDropFrom = (
-  from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC',
+  from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck',
   who: Subject = 'self',
   byYourEffect = false,
 ): TriggerCondition => ({
@@ -171,6 +171,13 @@ export const putIntoDropFrom = (
   who,
   from,
   ...(byYourEffect ? { byYourEffect: true } : {}),
+});
+/** "When this unit is put into the drop zone from (RC) due to the effect of the hollow ability" (CR 1.48.1 11.33.2). */
+export const putIntoDropByHollow = (who: Subject = 'self'): TriggerCondition => ({
+  on: 'put_into_drop',
+  who,
+  from: 'RC',
+  byHollow: true,
 });
 export const ridden = (by?: CardFilter, who: Subject = 'self'): TriggerCondition =>
   by ? { on: 'ridden', who, by } : { on: 'ridden', who };
@@ -383,6 +390,21 @@ export const grant = (
   duration,
 });
 export const timeLeap = (target: Selector): Step => ({ op: 'time_leap', target });
+/**
+ * Rescue n (G-BT07): "choose n cards from your damage zone, heal them, choose one of your vanguards,
+ * and deal n damage" (a damage check, triggers too).
+ */
+export const rescue = (n = 1): Step[] => [
+  choose('__rescue', cards('you', ['damage']), n),
+  { op: 'heal', target: bound('__rescue'), rescue: true },
+  { op: 'deal_damage', n, toSelf: true },
+];
+/** "heal it": the chosen damage-zone cards go to the drop zone. */
+export const heal = (target: Selector): Step => ({ op: 'heal', target });
+/** CR 1.48.1 11.29 Charge (G-BT09): the units become charging. */
+export const charge = (target: Selector): Step => ({ op: 'charge', target });
+/** Blaze (G-BT07): your vanguard becomes blazing if you have more rear-guards than your opponent. */
+export const blaze = (): Step => ({ op: 'blaze' });
 /** "move this unit to your (GC) as [Rest]": a guardian of the attacked vanguard. */
 export const toGuardian = (target: Selector): Step => ({ op: 'to_guardian', target });
 /** CR 1.48.1 11.33: hollowed until end of turn, then retired; `then` runs after that retire. */

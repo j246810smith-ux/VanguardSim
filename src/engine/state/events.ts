@@ -57,6 +57,8 @@ export type GameEvent =
       readonly by?: PlayerId;
       /** …and the card whose ability it was. */
       readonly cause?: InstanceId;
+      /** CR 1.48.1 11.33.2: moved to the drop zone because it was hollowed (it counts as retired). */
+      readonly byHollow?: true;
     }
   | { readonly type: 'MULLIGAN'; readonly player: PlayerId; readonly count: number }
   | { readonly type: 'VANGUARDS_STOOD_UP' }
@@ -189,6 +191,17 @@ export type GameEvent =
       readonly cause?: InstanceId;
     }
   | { readonly type: 'CARD_UNDELETED'; readonly player: PlayerId; readonly instanceId: InstanceId }
+  | {
+      /** CR 1.48.1 11.29 Charge (G-BT09): this unit became charging. */
+      readonly type: 'CHARGING';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+    }
+  | {
+      /** Blaze (G-BT07): this player's vanguard became blazing. */
+      readonly type: 'BLAZING';
+      readonly player: PlayerId;
+    }
   | {
       /** CR 1.48.1 10.28: a G unit strode onto (VC); `hearts` are the cards now under it. */
       readonly type: 'STRIDE';

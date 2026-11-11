@@ -8,7 +8,7 @@
  * the drop zone from (RC) due to the effect of the hollow ability" runs right after that retire.
  */
 import data from '../../data/cards/G-TD08.json';
-import { ab, type AbilityDefinition, type Condition, type Step } from '../engine';
+import { ab, type AbilityDefinition, type Step } from '../engine';
 import type { SetAbilities } from './load';
 import type { SetFile } from './record';
 import { attackPower } from './shapes';
@@ -28,11 +28,6 @@ const text = (id: string, n = 0): string => {
   return line;
 };
 
-/** Generation Break 1, checked when an effect resolves (one face up G unit on your (VC) or G zone). */
-const gb1: Condition = ab.any(
-  ab.exists(ab.units('you', ['VC'], { gUnit: true })),
-  ab.exists(ab.cards('you', ['gzone'], { faceUp: true })),
-);
 /** "choose up to one card from your drop zone, call it to (RC)(, and that unit gets [Power] +2000 until end of turn)" */
 const callFromDrop = (pump = 0): Step[] => [
   ab.choose('d', ab.cards('you', ['drop']), 1, { upTo: true }),
@@ -156,11 +151,20 @@ export const G_TD08: SetAbilities = {
   'G-TD08-012': [gPerfectGuardUpTo(text('G-TD08-012', 1))],
   // Lord's Shadow, Sultana
   'G-TD08-013': [gbBoostVanguard4000(text('G-TD08-013', 0))],
-  // Undying Departed, Grenache: its third ability ([Generation Break 1] Counter-Charge 2 when the
-  // hollow ability puts it into the drop zone) runs right after the hollow retire
+  // Undying Departed, Grenache: its third ability is an automatic ability of its own, triggered by
+  // the hollow retire (it stands by with the other abilities that retire triggers, and the player
+  // chooses their order; it used to run inside the retire)
   'G-TD08-014': [
     ab.forerunner(),
-    hollow(text('G-TD08-014', 1), 'hollow', [ab.if_(gb1, ab.counterCharge(2))]),
+    hollow(text('G-TD08-014', 1)),
+    ab.auto({
+      id: '3',
+      zones: ['any'],
+      generationBreak: 1,
+      trigger: ab.putIntoDropByHollow(),
+      effect: ab.counterCharge(2),
+      text: text('G-TD08-014', 2),
+    }),
   ],
   // triggers (the heal trigger's text is only the deck-limit reminder)
   'G-TD08-015': [],

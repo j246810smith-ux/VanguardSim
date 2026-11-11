@@ -4,6 +4,8 @@ import type { AudioCategory } from '../audio/catalog';
 import { RANDOM, useBattleTracks } from '../audio/playlist';
 import { IS_ANDROID } from '../platform';
 import type { Settings } from '../settings';
+import { useState } from 'react';
+import { MusicManager } from './MusicManager';
 
 type VolumeKey =
   'masterVolume' | 'cardVolume' | 'battleVolume' | 'uiVolume' | 'musicVolume' | 'ambientVolume';
@@ -40,8 +42,24 @@ export function AudioSettings({
         ? [...settings.mutedCategories.filter((x) => x !== c), c]
         : settings.mutedCategories.filter((x) => x !== c),
     });
+  const [manager, setManager] = useState(false);
   return (
     <div className="audio-settings" data-testid="audio-settings">
+      {/* W5: playlists, menu and battle music, and (Android) importing your own music */}
+      <div className="row">
+        <span style={{ width: 300 }}>
+          Your music
+          <div className="hint">
+            {IS_ANDROID ? 'Import music, make playlists' : 'Playlists from your music folder'}
+          </div>
+        </span>
+        <button className="btn" onClick={() => setManager(true)} data-testid="open-music-manager">
+          Music manager
+        </button>
+      </div>
+      {manager && (
+        <MusicManager settings={settings} onChange={onChange} onClose={() => setManager(false)} />
+      )}
       <div className="row">
         <span style={{ width: 300 }}>
           <b>Audio</b>
@@ -120,7 +138,7 @@ function BattleMusic({
         Battle music
         <div className="hint">
           {IS_ANDROID
-            ? 'Your own: put music files in the app folder music (npm run artwork:phone copies it)'
+            ? 'Your own: import them in the Music manager (above)'
             : 'Your own: put MP3, OGG, M4A or WAV files in the music folder next to cards'}
           {own > 0 ? ` (${own} found)` : ''}
         </div>

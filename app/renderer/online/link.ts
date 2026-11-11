@@ -8,6 +8,8 @@
  */
 import {
   getLegalActions,
+  OU_LIST,
+  PLAY_FORMATS,
   validateDeck,
   type Command,
   type DeckList,
@@ -18,15 +20,18 @@ import {
   parseGuestMessage,
   PROTOCOL_VERSION,
   versionMismatch,
+  roomFormatOf,
+  roomFormatProblem,
   type GameVersion,
   type GuestMessage,
   type HostMessage,
   type MatchRules,
 } from '../../../src/net/protocol';
 import { CARD_DATA_VERSION } from '../../../src/cards';
-import { ctx, setLocalSeat } from '../engine';
+import { ctx, setLocalSeat, setPlayFormat } from '../engine';
 import { shareableSleeve } from '../cosmetics';
 import { GameSession, GuestSession, type SessionConfig } from '../game/session';
+import { houseRulesConfig } from '../game/houseRules';
 
 /** Set by vite.config.ts from package.json (absent in unit tests). */
 declare const __APP_VERSION__: string | undefined;
@@ -142,8 +147,15 @@ export class HostLink {
     if (m.resume) return refuse('That game is no longer running.');
     const mismatch = versionMismatch(this.version, m.version);
     if (mismatch) return refuse(`Cannot play: ${mismatch}.`);
-    const issues = validateDeck(m.deck, ctx.registry, ctx.format);
-    if (issues.length > 0) return refuse(`Your deck is not legal: ${issues[0]!.message}`);
+    // the room's format decides (W3): the host checks the guest's deck against it, never the guest
+    const format = roomFormatOf(this.rules);
+    const formatProblem = roomFormatProblem(this.rules, m.ouListVersion);
+    if (formatProblem) return refuse(`Cannot play: ${formatProblem}.`);
+    const issues = validateDeck(m.deck, ctx.registry, PLAY_FORMATS[format].format);
+    if (issues.length > 0)
+      return refuse(
+        `Your deck is not legal in ${PLAY_FORMATS[format].label}: ${issues[0]!.message}`,
+      );
     const guest: Player = {
       name: m.name.trim() || 'Guest',
       deckName: m.deckName,
@@ -168,7 +180,16 @@ export class HostLink {
       aiDeckName: guest.deckName,
       aiLevel: 'basic',
       opponent: 'remote',
-      ...(this.rules.delayedLegion ? { delayedLegion: true } : {}),
+      format: roomFormatOf(this.rules),
+      // the room's house rules, as in a local game (online is Original Era only)
+      ...houseRulesConfig(
+        {
+          delayedLegion: this.rules.delayedLegion,
+          nineK: this.rules.nineKGrade3 ?? 0,
+          megaCheap: this.rules.megaBlastCheap === true,
+        },
+        roomFormatOf(this.rules),
+      ),
     };
     this.aliases = new Aliases(this.random);
     const session = new GameSession(config);
@@ -243,6 +264,7 @@ export class GuestLink {
       deckName,
       deck,
       sleeve: shareableSleeve(sleeve),
+      ouListVersion: OU_LIST.version,
       ...(this.welcome ? { resume: this.welcome.token } : {}),
     });
   }
@@ -280,6 +302,8 @@ export class GuestLink {
           const session = new GuestSession(m.view, (command: Command) =>
             this.send({ t: 'command', command }),
           );
+          // the room's format (W3): the guest's screens use its rules and card pool
+          setPlayFormat(roomFormatOf(this.welcome.rules));
           session.update(m.view, m.events, m.actions);
           this.session = session;
           this.onEvent({

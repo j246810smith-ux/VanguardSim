@@ -39,6 +39,8 @@ export interface CardFilter {
   readonly nameIn?: readonly string[];
   /** "other than a card named X" */
   readonly notName?: string;
+  /** "without X in its card name" (G-BT08 Cody the Ghostie). */
+  readonly notNameIncludes?: string;
   /** "a card with X in its card name" */
   readonly nameIncludes?: string;
   readonly clan?: string;
@@ -57,6 +59,10 @@ export interface CardFilter {
   readonly deleted?: boolean;
   /** A hollowed unit (CR 1.48.1 11.33): "if this unit is hollowed". */
   readonly hollowed?: boolean;
+  /** A charging unit (CR 1.48.1 11.29, G-BT09). */
+  readonly charging?: boolean;
+  /** Rescue (G-BT07): "it was put into the drop zone due to the effect of a rescue ability this turn". */
+  readonly rescued?: boolean;
   /** Is a Legion Mate (CR 10.1.24): "choose one of your opponent's legion mates". */
   readonly legionMate?: boolean;
   /** Is a unit being attacked in the current battle. */
@@ -199,11 +205,22 @@ export type Condition =
       readonly range: Range;
     }
   /** "if your card was put into the drop zone from your soul during this turn" (G-BT04 Gleipnir). */
-  | { readonly cond: 'dropped_from_soul_this_turn' }
+  /** `min`: "three or more of your cards were put into your drop zone from your soul" (G-BT08 Skuld). */
+  | { readonly cond: 'dropped_from_soul_this_turn'; readonly min?: number }
   /** "if you have a heart card with X in its card name" (G-BT04 Chronodragon Nextage). */
   | { readonly cond: 'heart_named'; readonly part: string }
+  /** "If you have a <race> heart card" (G-BT07 Bind Time Dragon: <Gear Beast>). */
+  | { readonly cond: 'heart_race'; readonly race: string }
   /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
   | { readonly cond: 'deck_shuffled_this_turn' }
+  /** CR 1.48.1 11.38 Unite: you called two or more cards to (RC) or (GC) this turn. */
+  | { readonly cond: 'unite' }
+  /** "if three or more cards were put into your damage zone during this turn" (G-BT08 Boxtreamer). */
+  | { readonly cond: 'damage_this_turn'; readonly min: number }
+  /** CR 1.48.1 11.30 Darkness: cards were put into your soul this turn other than by riding. */
+  | { readonly cond: 'darkness' }
+  /** Blaze (G-BT07): your vanguard is blazing. */
+  | { readonly cond: 'blazing' }
   /** A unit was placed on that player's (VC) during the ride phase of their latest turn (G-BT06 Twitterun). */
   | { readonly cond: 'placed_on_vc_in_ride_phase'; readonly player: 'you' | 'opponent' }
   | { readonly cond: 'not'; readonly c: Condition }
@@ -301,7 +318,8 @@ export type Step =
        */
       readonly onePerNameOf?: string;
     }
-  | { readonly op: 'retire'; readonly target: Selector }
+  /** `hollow`: the end-of-turn hollow retire (CR 1.48.1 11.33.2), marked on the move event. */
+  | { readonly op: 'retire'; readonly target: Selector; readonly hollow?: true }
   | { readonly op: 'move'; readonly target: Selector; readonly to: Destination }
   /**
    * Superior call (CR 10.1.6.1.3): each target goes to a rear-guard circle the master chooses.
@@ -338,6 +356,8 @@ export type Step =
   | {
       readonly op: 'deal_damage';
       readonly n: number;
+      /** Rescue (G-BT07): "choose one of your vanguards, and deal one damage" (your own damage check). */
+      readonly toSelf?: boolean;
       /** "during that damage check, all trigger effects are nullified" */
       readonly nullifyTriggers?: boolean;
     }
@@ -460,6 +480,12 @@ export type Step =
    * of the attacked vanguard, like an intercept.
    */
   | { readonly op: 'to_guardian'; readonly target: Selector }
+  /** "heal it": the damage-zone cards go to the drop zone (Rescue records them, G-BT07). */
+  | { readonly op: 'heal'; readonly target: Selector; readonly rescue?: boolean }
+  /** Blaze (G-BT07): if you have more rear-guards than your opponent, your vanguard becomes blazing. */
+  | { readonly op: 'blaze' }
+  /** CR 1.48.1 11.29 Charge: the units become charging (bottom of the deck at the end of their battle). */
+  | { readonly op: 'charge'; readonly target: Selector }
   | { readonly op: 'hollow'; readonly target: Selector; readonly then?: readonly Step[] }
   /** "place it on your (VC) as a heart" (G-BT04 Steam Fighter, Balih). */
   | { readonly op: 'place_heart'; readonly target: Selector; readonly replacing?: string }
@@ -674,9 +700,11 @@ export type TriggerCondition =
       readonly on: 'put_into_drop';
       readonly who: Subject;
       /** 'soul': "when this card is put into the drop zone from your soul"; 'front_RC': "rear-guard in the front row" */
-      readonly from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC';
+      readonly from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck';
       /** "due to an effect from one of your cards" */
       readonly byYourEffect?: boolean;
+      /** "due to the effect of the hollow ability" (CR 1.48.1 11.33.2, G-TD08 Grenache) */
+      readonly byHollow?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
       readonly causeFilter?: CardFilter;
       /** "… from one of your other cards": not this card's own effect. */
@@ -693,6 +721,8 @@ export type TriggerCondition =
       readonly on: 'put_into_soul';
       readonly who: Subject;
       readonly byYourEffect?: boolean;
+      /** "… due to the effect of your <X> ability": the card whose effect it was (G-BT08 Revelation). */
+      readonly causeFilter?: CardFilter;
       /** "from (RC)" */
       readonly fromRC?: boolean;
     }
@@ -714,6 +744,10 @@ export type TriggerCondition =
   | { readonly on: 'legion'; readonly who: Subject }
   /** CR 1.48.1 10.28: "when your G unit [Stride]s" / "when this unit [Stride]s" (who: the G unit). */
   | { readonly on: 'stride'; readonly who: Subject }
+  /** Charge (G-BT09): "When this unit / your other rear-guard becomes charging". */
+  | { readonly on: 'becomes_charging'; readonly who: Subject }
+  /** Blaze (G-BT07): "When your vanguard becomes blazing". */
+  | { readonly on: 'becomes_blazing' }
   /** "When this card is put into the drop zone from your hand for the cost of [Stride]" (G-BT06). */
   | { readonly on: 'stride_discarded'; readonly who: Subject }
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */

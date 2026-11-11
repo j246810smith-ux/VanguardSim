@@ -80,10 +80,18 @@ export class TrackPlayer {
     this.apply();
   }
 
+  /**
+   * What plays after the current track (a playlist, six-workstream brief W5): asked as the track
+   * nears its end; null or absent repeats the same track (the loop).
+   */
+  private next: (() => string | null) | null = null;
+
   /** Starts a track with a fade-in; the same track again carries on. */
-  play(url: string, fadeMs = 1200): void {
+  play(url: string, fadeMs = 1200, next: (() => string | null) | null = null): void {
+    this.next = next;
     if (this.url === url && this.voices.some((v) => v.target > 0)) return;
     this.stop(fadeMs * 0.6);
+    this.next = next;
     this.url = url;
     this.voices.push(this.voice(0, fadeMs));
     this.run();
@@ -92,6 +100,7 @@ export class TrackPlayer {
   /** Fades out whatever plays, then stops it. */
   stop(fadeMs = 800): void {
     this.url = null;
+    this.next = null;
     for (const v of this.voices) this.fadeTo(v, 0, fadeMs);
     this.run();
   }
@@ -143,7 +152,8 @@ export class TrackPlayer {
       current.el.duration > CROSSFADE_S * 3 &&
       current.el.duration - current.el.currentTime <= CROSSFADE_S
     ) {
-      // the loop: the next pass fades in while this one fades out
+      // the loop (or a playlist's next track): it fades in while this one fades out
+      this.url = this.next?.() ?? this.url;
       this.fadeTo(current, 0, CROSSFADE_S * 1000);
       this.voices.push(this.voice(0, CROSSFADE_S * 1000));
     }

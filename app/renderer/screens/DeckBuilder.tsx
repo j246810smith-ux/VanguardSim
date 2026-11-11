@@ -11,6 +11,10 @@ import { exportDeck, parseDeck } from '../../../src/decks/text';
 import {
   maxCopiesOf,
   PLAY_FORMATS,
+  cardLegalIn,
+  G_SETS,
+  OU_LIST,
+  ouEntryOf,
   validateDeck,
   type CardDefinition,
   type DeckList,
@@ -41,10 +45,10 @@ type Pool = { defs: CardDefinition[]; index: SearchEntry[] };
 /** The card pool of each format (Classic: BT01–BT17 and side sets; G era: those plus G sets). */
 const POOLS = Object.fromEntries(
   (Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => {
-    const legal = PLAY_FORMATS[key].format.legalSets;
+    const rules = PLAY_FORMATS[key].format;
     const defs = ctx.registry
       .all()
-      .filter((d) => legal.includes(d.set))
+      .filter((d) => cardLegalIn(d, rules))
       .sort((a, b) => a.id.localeCompare(b.id));
     return [key, { defs, index: buildIndex(defs) }];
   }),
@@ -77,8 +81,13 @@ const NO_FILTERS: Filters = {
   rarity: '',
 };
 
+/** The set filter's OU view (six-workstream brief W1): cards on the OU list, in any set. */
+export const OU_VIEW = '__OU__';
+
 function matches(d: CardDefinition, f: Filters): boolean {
-  if (f.set && d.set !== f.set) return false;
+  if (f.set === OU_VIEW) {
+    if (!ouEntryOf(d.id)) return false;
+  } else if (f.set && d.set !== f.set) return false;
   if (f.clan && d.clan !== f.clan) return false;
   if (f.grade && d.grade !== Number(f.grade)) return false;
   if (f.trigger === 'none' && d.trigger !== null) return false;
@@ -470,7 +479,7 @@ export function DeckBuilder({
         <div className="deck-issues" data-testid="deck-issues">
           {issues.length === 0 ? (
             <span className="ok">
-              ✓ Legal {PLAY_FORMATS[gEra ? 'g' : 'classic'].label} deck · starting vanguard{' '}
+              ✓ Legal {PLAY_FORMATS[format].label} deck · starting vanguard{' '}
               {startingVanguard && ctx.registry.get(startingVanguard).name}
             </span>
           ) : (
@@ -559,6 +568,9 @@ export function DeckBuilder({
         <div className="builder-filters">
           <select value={filters.set} onChange={set('set')}>
             <option value="">All sets</option>
+            {POOLS[format].defs.some((d) => ouEntryOf(d.id)) && (
+              <option value={OU_VIEW}>OU list v{OU_LIST.version} (Original Era Usable)</option>
+            )}
             {SETS.filter((x) => POOLS[format].defs.some((d) => d.set === x)).map((x) => (
               <option key={x}>{x}</option>
             ))}
@@ -951,6 +963,7 @@ function DefinitionDetails({
             </div>
           </dl>
           <div className="skill-text">{d.text || 'No abilities.'}</div>
+          <OuStatusLine id={id} set={d.set} />
           <div className="buttons" style={{ marginTop: 18, alignItems: 'center' }}>
             {list.length > 1 && at >= 0 && (
               <>
@@ -981,6 +994,28 @@ function DefinitionDetails({
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * A G era card's Original Era compatibility (six-workstream brief W1), read only: the OU list ships
+ * with the game and is changed only in the repository (`npm run ou`), never by players.
+ */
+export function OuStatusLine({ id, set }: { id: string; set: string }) {
+  if (!G_SETS.includes(set)) return null;
+  const e = ouEntryOf(id);
+  const text = !e
+    ? 'Not on the OU list: G Era only.'
+    : e.status === 'approved'
+      ? `On the OU list (since v${e.since}): legal in Original Era — Expanded.`
+      : e.status === 'proposed'
+        ? `Proposed for the OU list (v${e.since}), awaiting review: G Era only for now.`
+        : 'Reviewed and not on the OU list: G Era only.';
+  return (
+    <div className={`ou-status ${e?.status ?? 'none'}`} data-testid="ou-status">
+      <b>Original Era compatibility (OU list v{OU_LIST.version}):</b> {text}
+      {e?.notes && <div className="ou-notes">{e.notes}</div>}
     </div>
   );
 }

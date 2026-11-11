@@ -7,7 +7,7 @@
 import type { Command, DeckList, GameEvent, GameState, LegalAction, PlayerId } from '../engine';
 
 /** Bump when a message changes shape; both sides must match. */
-export const PROTOCOL_VERSION = 2;
+export const PROTOCOL_VERSION = 3;
 /** Larger messages are dropped (a deck list and a command are a few kB). */
 export const MAX_GUEST_MESSAGE_BYTES = 64 * 1024;
 /** The default TCP port the host listens on. */
@@ -31,14 +31,52 @@ export type GuestMessage =
       readonly sleeve?: string;
       /** Rejoining a game after a dropped connection: the token from `welcome`. */
       readonly resume?: string;
+      /** The OU list this guest's game has (protocol 3; checked for Original Era — Expanded). */
+      readonly ouListVersion?: string;
     }
   | { readonly t: 'command'; readonly command: Command }
   | { readonly t: 'rematch' }
   /** The guest leaves on purpose (the host stops waiting for a reconnect). */
   | { readonly t: 'leave' };
 
+/**
+ * The house rules of a room, chosen by the host (protocol 3: all three house rules; protocol 2
+ * carried Delayed Legion only). The host runs the game, so these are what both players play by.
+ */
 export interface MatchRules {
   readonly delayedLegion: boolean;
+  /** 9K Grade 3 (C1, Original Era only). */
+  readonly nineKGrade3?: 1000 | 2000;
+  /** Mega Blast for CB4 & SB6 (C2). */
+  readonly megaBlastCheap?: boolean;
+  /**
+   * The room's format (six-workstream brief W3): Original Era — Strict ('classic', also when
+   * absent) or Original Era — Expanded ('classic_ou'). The host checks the guest's deck against it.
+   */
+  readonly format?: RoomFormat;
+  /** Original Era — Expanded: the OU list version both players must have. */
+  readonly ouListVersion?: string;
+}
+
+/** The formats a room can be: online play has no G Era yet. */
+export type RoomFormat = 'classic' | 'classic_ou';
+
+/** A room format from the network (untrusted): anything else is Original Era — Strict. */
+export const roomFormatOf = (rules: Partial<MatchRules> | null | undefined): RoomFormat =>
+  rules?.format === 'classic_ou' ? 'classic_ou' : 'classic';
+
+/**
+ * Why a guest cannot join this room's format, or null. Original Era — Expanded needs the same OU
+ * list on both sides, or a card legal for one player could be illegal for the other.
+ */
+export function roomFormatProblem(
+  rules: MatchRules,
+  guestOuVersion: string | undefined,
+): string | null {
+  if (roomFormatOf(rules) !== 'classic_ou') return null;
+  if (guestOuVersion !== rules.ouListVersion)
+    return `the room plays Original Era — Expanded with OU list v${rules.ouListVersion ?? '?'}, you have ${guestOuVersion ? `v${guestOuVersion}` : 'no OU list'}`;
+  return null;
 }
 
 export type HostMessage =
@@ -109,7 +147,8 @@ export function parseGuestMessage(raw: string): GuestMessage | null {
         !isString(v.deckName, 80) ||
         !isDeck(v.deck) ||
         (v.sleeve !== undefined && !isString(v.sleeve, 40)) ||
-        (v.resume !== undefined && !isString(v.resume, 64))
+        (v.resume !== undefined && !isString(v.resume, 64)) ||
+        (v.ouListVersion !== undefined && !isString(v.ouListVersion, 20))
       )
         return null;
       return v as unknown as GuestMessage;

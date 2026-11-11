@@ -15,6 +15,57 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-11, later) — six-workstream brief: built on `six-workstreams`, to sort soon
+
+The user's "major development update" brief (OU cards, Original Era Strict / Expanded, online format
+validation, house rules everywhere, Android music manager, the 8000-power Granblue grade 3). Audit,
+plan and progress: `docs/design/SIX_WORKSTREAMS_AUDIT.md` (section 12). Branch `six-workstreams`
+(from master 539b450), full check green (3470 tests), **not merged, not released**.
+
+Done: W4 house rules in New Game / CPU demonstration / online (protocol 3); W1+W2 OU list v1.0
+(`data/ou/ou-list.json`, `npm run ou`), formats **Original Era — Strict / — Expanded / G Era**
+(was "Expanded Era"); W3 online rooms carry their format and OU list version, the host validates;
+W5 Music manager (Settings → Audio); W6 report `docs/design/GRANBLUE_8000_G3.md`.
+
+**Still to sort (the user asked for this to be noted and done soon):**
+
+1. **ON HOLD (user, 2026-11-11: "leave both of these decisions alone for now"): OU approvals (owner):** list v1.0 has no approved cards; three proposed (G-BT04-020,
+   G-BT03-001, G-BT10-022 — not in the pool yet). The parallel session is writing
+   `docs/design/OU_CANDIDATES.md` with recommendations. Approve with `npm run ou -- set <id> approved`.
+2. **ON HOLD (same): Granblue decision (owner):** recommendation is an off-by-default Original Era house rule,
+   +2000 on (VC) for a printed-8000 grade 3 (only BT02-012 Negromarl); nothing built.
+3. **Phone test of the Music manager:** opened on the Pixel; Import opens Android's system picker
+   (no permission) and cancelling returns cleanly. Not yet tried with a real music file (the only
+   one on the phone is the user's own audiobook, left alone): ask the user to import a song and
+   check playlists / menu and battle music.
+4. **Merge** `six-workstreams` and the parallel session's G-BT07–G-BT09 (`sets/g-td09`, engine
+   additions listed in its messages) into master, then a release (0.37.0-alpha).
+5. **Not built (needs a server):** ranked play / matchmaking with server-controlled formats.
+
+## ▶ Pick up here (2026-11-11, release) — v0.36.0-alpha published
+
+v0.36.0-alpha (dev tag at d831edf, public main ce95e17, pushed with the tag; GitHub pre-release with
+the zip, portable exe, signed update files and the Android APK; `release:verify` passed). The
+smoke test's first launch from a fresh unzip took 2 min 15 s on the loaded PC (its limit is 3 min
+including the unzip), so `dist:smoke` failed on time; its three checks were run by hand and passed.
+The user's phone was offline for adb at the end: it can update in-app (Settings → Updates).
+**Next:** the six-workstream brief (OU, Original Era Strict/Expanded, online validation, house rules,
+Android music, Granblue G3): docs/design/SIX_WORKSTREAMS_AUDIT.md. The parallel session is adding
+G-BT07–G-BT09 on `sets/g-td09` (merge when it says so).
+
+## ▶ Pick up here (2026-11-11, later) — G-BT07, G-BT08, G-BT09 done (branch `sets/g-td09`)
+
+The card-sets session (worktree `~/source/VanguardSim-sets2`, branch `sets/g-td09` from master d831edf)
+imported, scripted and tested G-BT07 to G-BT09 (`tests/cards/G-BT07.test.ts` … `G-BT09.test.ts`).
+New engine pieces: G guardians flagged in `src/cards/load.ts`; Unite, Darkness, Blaze, Rescue
+(`ab.rescue`, the `heal` step), Charge (`ab.charge`), heart race, damage this turn, "without X in its
+name", `put_into_soul` cause filters, `put_into_drop` from the damage zone or deck, and turn flags
+counted in `zones.ts` moveCard (calls, soul additions, rescued, damage). Importer: post-G-era
+"updated" Japanese cards pair with the G-era English card automatically, "Re:" printings are skipped,
+and `tools/cardgen/wiki_english.py <repo> <SET> <wiki set page>` fills English text for cards never
+archived (run it after the first import, then import again; find the wiki page name with the
+Internet Archive CDX search). Approximations: docs/UNRESOLVED_RULINGS.md. Next: G-BT10 onward the same way.
+
 ## ▶ Pick up here (2026-11-11, end) — Battlefield 2.0 and the new G sets merged into master (not released)
 
 At the user's request both branches are merged into master: `battlefield-2` (Battlefield 2.0,

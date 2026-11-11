@@ -20,6 +20,7 @@ import { bundledTracks, pickTrack, RANDOM, type MusicTrack } from './playlist';
 import { SampleBank, variationsOf } from './samples';
 import { Synth } from './synth';
 import { TrackPlayer } from './trackPlayer';
+import { firstTrack, nextTrack, NO_MUSIC_PREFS, playableOf, type MusicPrefs } from './musicLibrary';
 
 export interface AudioSettings {
   /** 0–100 each */
@@ -113,6 +114,10 @@ class AudioManager {
   private player: TrackPlayer | null = null;
   private tracks: readonly MusicTrack[] = bundledTracks();
   private lastTrack: string | null = null;
+  /** The player's playlists and their menu / battle assignment (W5, audio/musicLibrary.ts). */
+  private prefs: MusicPrefs = NO_MUSIC_PREFS;
+  /** Which screen's playlist is playing now (null: none). */
+  private listFor: Track | null = null;
 
   /** Creates the audio graph on first use (only where Web Audio exists). */
   private ensure(): boolean {
@@ -180,6 +185,21 @@ class AudioManager {
       return;
     }
     if (this.wanted === 'battle' && this.player?.playing) return;
+    if (this.listFor && this.listFor === this.wanted && this.player?.playing) return;
+    this.startMusic(this.wanted, 0.6);
+  }
+
+  /** The player's playlists changed (Music manager): the current screen's music follows. */
+  setMusicPrefs(prefs: MusicPrefs): void {
+    const before = this.prefs;
+    this.prefs = prefs;
+    const assigned = (p: MusicPrefs, t: Track | null) =>
+      t === 'menu' ? p.menu : t === 'battle' ? p.battle : null;
+    const changed =
+      assigned(before, this.wanted) !== assigned(prefs, this.wanted) ||
+      JSON.stringify(before.playlists) !== JSON.stringify(prefs.playlists);
+    if (!changed || !this.ctx || categoryLevel(this.settings, 'music') <= 0) return;
+    this.listFor = null;
     this.startMusic(this.wanted, 0.6);
   }
 
@@ -211,6 +231,25 @@ class AudioManager {
   }
 
   private startMusic(track: Track | null, fade?: number): void {
+    // a playlist assigned to this screen (W5) plays instead of the game's music; missing files
+    // are skipped, and an empty playlist falls back to the game's music
+    const listId =
+      track === 'menu' ? this.prefs.menu : track === 'battle' ? this.prefs.battle : null;
+    const list = this.player ? playableOf(this.prefs, listId, this.tracks) : [];
+    const first = firstTrack(list, this.prefs);
+    if (first && track) {
+      if (this.listFor === track && this.player!.playing) return;
+      this.listFor = track;
+      this.lastTrack = first.id;
+      this.music!.play(null, 0.5);
+      this.player!.play(first.url, 1200, () => {
+        const n = nextTrack(list, this.lastTrack, this.prefs);
+        this.lastTrack = n?.id ?? this.lastTrack;
+        return n?.url ?? null;
+      });
+      return;
+    }
+    this.listFor = null;
     const pick =
       track === 'battle' && this.player
         ? pickTrack(this.tracks, this.settings.battleMusic, this.lastTrack)

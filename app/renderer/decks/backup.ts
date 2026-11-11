@@ -53,7 +53,9 @@ function readDeck(raw: unknown): SavedDeck | null {
     id: r.id,
     name: r.name,
     deck: list,
-    ...(r.format === 'classic' || r.format === 'g' ? { format: r.format } : {}),
+    ...(r.format === 'classic' || r.format === 'classic_ou' || r.format === 'g'
+      ? { format: r.format }
+      : {}),
     ...(typeof r.sleeve === 'string' ? { sleeve: r.sleeve } : {}),
     ...(typeof r.playmat === 'string' ? { playmat: r.playmat } : {}),
     updated: typeof r.updated === 'number' ? r.updated : 0,

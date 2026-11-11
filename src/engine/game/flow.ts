@@ -91,6 +91,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       s.activePlayer = player;
       s.turnFlags = { normalRideUsed: s.players[s.activePlayer].noNormalRideNext === true };
       delete s.players[s.activePlayer].placedOnVCInRidePhase;
+      // blazing lasts until end of turn
+      for (const p of s.players) delete p.blazing;
       delete s.players[s.activePlayer].noNormalRideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });

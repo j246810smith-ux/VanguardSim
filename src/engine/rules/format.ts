@@ -3,7 +3,16 @@ import { verified, type RuleValue } from './ruleValue';
 /** Deck-construction rules for a format. Kept separate from gameplay rules (Ruleset). */
 export interface FormatDefinition {
   readonly id: string;
+  /** The player-facing name, for messages ("not legal in Original Era — Strict"). */
+  readonly name?: string;
   readonly legalSets: readonly string[];
+  /**
+   * Cards legal although their set is not (the OU list, six-workstream brief W1). Their records
+   * stay in their own sets.
+   */
+  readonly extraCards?: readonly string[];
+  /** The OU list version `extraCards` comes from (shown, and checked online). */
+  readonly ouListVersion?: string;
   readonly deckSize: RuleValue<number>;
   /** Copies allowed per card name (reprints with different IDs share the limit). */
   readonly maxCopiesPerName: RuleValue<number>;
@@ -43,6 +52,7 @@ const SIDE_SETS = [
 /** Deck rules from Comprehensive Rules ver. 1.29 (identical in ver. 1.19). */
 export const EARLY_BT01_BT17_FORMAT: FormatDefinition = {
   id: 'EARLY_BT01_BT17',
+  name: 'Original Era — Strict',
   legalSets: [...BT_SETS, ...TD_SETS, ...SIDE_SETS],
   deckSize: verified(50, 'CR 5.1.2.1'),
   maxCopiesPerName: verified(4, 'CR 5.1.2.2, 5.1.2.2.1'),
@@ -72,6 +82,9 @@ export const G_SETS: readonly string[] = [
   'G-TD07',
   'G-TD08',
   'G-BT06',
+  'G-BT07',
+  'G-BT08',
+  'G-BT09',
 ];
 
 /**
@@ -80,6 +93,7 @@ export const G_SETS: readonly string[] = [
  */
 export const G_ERA_FORMAT: FormatDefinition = {
   id: 'G_ERA',
+  name: 'G Era',
   legalSets: [...EARLY_BT01_BT17_FORMAT.legalSets, ...G_SETS],
   deckSize: verified(50, 'CR 1.48.1 5.2.2.1'),
   maxCopiesPerName: verified(4, 'CR 1.48.1 5.2.2.2, 5.3.2.1 (main deck and G deck each)'),
@@ -89,3 +103,26 @@ export const G_ERA_FORMAT: FormatDefinition = {
   firstVanguardGrade: verified(0, 'CR 1.48.1 5.4.3'),
   maxGDeckSize: verified(16, 'CR 1.48.1 5.3.2'),
 };
+
+/**
+ * Original Era — Expanded (six-workstream brief W2): the Original Era's sets and deck rules, plus
+ * the G era cards the OU list approves. Played under the Original Era ruleset (CR 1.29).
+ */
+export function originalExpandedFormat(
+  ouCards: readonly string[],
+  ouVersion: string,
+): FormatDefinition {
+  return {
+    ...EARLY_BT01_BT17_FORMAT,
+    id: 'ORIGINAL_EXPANDED',
+    name: 'Original Era — Expanded',
+    extraCards: ouCards,
+    ouListVersion: ouVersion,
+  };
+}
+
+/** Whether a card may be played in a format: its set is legal, or the format lists it. */
+export const cardLegalIn = (
+  card: { readonly id: string; readonly set: string },
+  format: FormatDefinition,
+) => format.legalSets.includes(card.set) || (format.extraCards ?? []).includes(card.id);

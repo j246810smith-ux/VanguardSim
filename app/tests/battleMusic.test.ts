@@ -158,6 +158,18 @@ describe('the track player', () => {
     expect(made[1]!.volume).toBeCloseTo(1);
   });
 
+  // six-workstream brief W5: a playlist moves on to its next track instead of looping
+  it('a playlist plays its next track, crossfading, when the current one ends', () => {
+    const { player, made, advance } = rig();
+    const queue = ['two.mp3', 'three.mp3'];
+    player.play('one.mp3', 200, () => queue.shift() ?? null);
+    advance(400);
+    made[0]!.currentTime = 170 - CROSSFADE_S + 0.1;
+    advance(50);
+    expect(made[1]!.src).toBe('two.mp3');
+    expect(player.playing).toBe('two.mp3');
+  });
+
   it('stopping fades out, then lets the track go', () => {
     const { player, made, advance, live } = rig();
     player.play('battle.mp3', 100);

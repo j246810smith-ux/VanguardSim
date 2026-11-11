@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.37.0-alpha — 2026-11-11
+
+- **Three formats:** **Original Era — Strict** (as before), **Original Era — Expanded** (the
+  Original Era plus G era cards approved on the new **OU — Original Era Usable** list, played with
+  the Original Era rules) and **G Era** (called "Expanded Era" before). The OU list v1.0 has no
+  approved cards yet: three are proposed for review. The Card Database shows each G era card's
+  Original Era compatibility and an "OU list" view.
+- **Online formats:** the host chooses Original Era — Strict or — Expanded for the room; the game
+  checks the friend's deck against it (with the reason when it is not legal) and both players must
+  have the same OU list.
+- **Music manager** (Settings → Audio): import your own music on Android (MP3, OGG, WAV, M4A,
+  through the phone's file picker), make playlists, choose the menu and battle music, shuffle and
+  repeat. On Windows the playlists use the music folder beside the game.
+- **House rules everywhere:** 9K Grade 3 and Mega Blast CB4 & SB6 can now be chosen for the CPU
+  demonstration and when hosting online (online had Delayed Legion only).
+- **Hollow (Granblue):** abilities that trigger when a unit is retired by Hollow (G-TD08 Grenache,
+  G-BT06 Negrolazy) are now ordinary triggered abilities: they wait with the others that retire
+  triggers and you choose their order, in that end phase.
+- **CPU demonstration:** the setup scrolls on a phone, so Start can be reached.
+- **G Era: G-BT07, G-BT08 and G-BT09** (312 cards) — "Glorious Bravery of Radiant Sword",
+  "Absolute Judgment" and "Divine Dragon Caper", with the first **G guardians**, **Unite**, **Rescue**,
+  **Blaze**, **Burst**, **Darkness**, **Revelation**, **Ritual**, **Wave** and **Charge**. English card
+  text comes from Internet Archive copies of the official pages, and from archived card-wiki pages for
+  the cards never archived there.
+
 ## 0.36.0-alpha — 2026-11-11
 
 ### Battlefield 2.0

@@ -4,6 +4,8 @@ import { DEFAULT_SLEEVE } from '../cosmetics';
 import { randomSeed, seedFrom } from '../game/seed';
 import type { AiLevel, DemoSpeed, SessionConfig } from '../game/session';
 import { useSettings } from '../settings';
+import { houseRulesConfig, validHouseRules, type HouseRulesChoice } from '../game/houseRules';
+import { HouseRulesPicker } from '../prompts/HouseRulesPicker';
 import { deckEntries, DeckList } from './deckChoice';
 
 const LEVELS: readonly (readonly [AiLevel, string])[] = [
@@ -26,6 +28,8 @@ export interface DemoChoice {
   readonly p2Level: AiLevel;
   readonly seed: string;
   readonly speed: DemoSpeed;
+  /** House rules for both CPUs (W4; older remembered choices have none: all off). */
+  readonly houseRules?: HouseRulesChoice;
 }
 
 const FIRST: DemoChoice = {
@@ -70,6 +74,8 @@ export function DemoSetup({
         aiLevel: c.p2Level,
         format: c.format,
         demo: { p1Level: c.p1Level, speed: c.speed },
+        // the same house rules as New Game and online (six-workstream brief W4)
+        ...houseRulesConfig(validHouseRules(c.houseRules), c.format),
         mySleeve: p1.sleeve ?? settings.defaultSleeve,
         aiSleeve: p2.sleeve ?? DEFAULT_SLEEVE,
         // the playmat of the battle's presentation profile (screens/Battle.tsx)
@@ -97,7 +103,11 @@ export function DemoSetup({
     </span>
   );
   return (
-    <div className="menu" style={{ justifyContent: 'flex-start', paddingTop: 40 }}>
+    <div
+      className="menu setup-screen"
+      style={{ justifyContent: 'flex-start', paddingTop: 40 }}
+      data-testid="demo-setup"
+    >
       <h1 className="title" style={{ fontSize: 52 }}>
         CPU DEMONSTRATION
       </h1>
@@ -146,6 +156,12 @@ export function DemoSetup({
           data-testid="demo-seed"
         />
       </div>
+      <HouseRulesPicker
+        value={validHouseRules(c.houseRules)}
+        onChange={(houseRules) => set({ houseRules })}
+        format={c.format}
+        label="House rules"
+      />
       <div className="hint" style={{ maxWidth: 900, textAlign: 'center' }}>
         {ready
           ? `${p1.name} vs ${p2.name} — ${PLAY_FORMATS[c.format].label}. You only watch: pause, change the speed or restart at any time.`

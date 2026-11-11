@@ -351,7 +351,7 @@ export class GameSession extends SessionBase {
         customRules: {
           ...(config.delayedLegion ? { delayedLegion: true } : {}),
           // the 9K bonus is an Original era rule
-          ...(config.nineKGrade3 && (config.format ?? 'classic') === 'classic'
+          ...(config.nineKGrade3 && (config.format ?? 'classic') !== 'g'
             ? { nineKGrade3: config.nineKGrade3 }
             : {}),
           ...(config.megaBlastCheap ? { megaBlastCheap: true } : {}),

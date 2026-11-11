@@ -45,9 +45,13 @@ function checkRecord(r: CardRecord, set: string): void {
     else e(`JP/EN mismatch: ${r.checks.mismatches.join('; ')}`);
   }
   if (!Number.isInteger(r.grade) || r.grade < 0 || r.grade > 4) e(`grade ${r.grade} outside 0-4`);
-  if (r.power <= 0 || r.power % 1000 !== 0) e(`power ${r.power}`);
+  // a G guardian (G-BT07 onward) has no power or critical: it only guards
+  const gGuardian =
+    r.cardType === 'g_unit' &&
+    (/^\[G Guardian\]/.test(r.en?.text ?? '') || /^【Ｇガーディアン】/.test(r.jp?.text ?? ''));
+  if (!gGuardian && (r.power <= 0 || r.power % 1000 !== 0)) e(`power ${r.power}`);
   if (r.shield % 5000 !== 0) e(`shield ${r.shield}`);
-  if (r.critical < 1) e(`critical ${r.critical}`);
+  if (!gGuardian && r.critical < 1) e(`critical ${r.critical}`);
   if ((r.cardType === 'trigger_unit') !== (r.trigger !== null))
     e('trigger icon does not match card type');
   if (r.trigger !== null && r.grade !== 0) e('trigger unit not grade 0');

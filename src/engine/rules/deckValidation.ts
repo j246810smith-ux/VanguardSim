@@ -1,6 +1,6 @@
 import type { CardRegistry } from '../cards/registry';
 import type { CardDefinition } from '../cards/types';
-import type { FormatDefinition } from './format';
+import { cardLegalIn, G_SETS, type FormatDefinition } from './format';
 
 /** A deck stores card IDs only, never copies of card definitions. */
 export interface DeckList {
@@ -16,6 +16,8 @@ export interface DeckIssue {
   readonly code:
     | 'UNKNOWN_CARD'
     | 'ILLEGAL_SET'
+    /** Original Era — Expanded: a G era card that is not approved on the OU list. */
+    | 'NOT_ON_OU_LIST'
     | 'DECK_SIZE'
     | 'TOO_MANY_COPIES'
     | 'TRIGGER_COUNT'
@@ -52,9 +54,27 @@ export function validateDeck(
   for (const id of unknown) issues.push({ code: 'UNKNOWN_CARD', message: `Unknown card ${id}` });
   const defs = deck.cards.filter((id) => registry.has(id)).map((id) => registry.get(id));
 
-  for (const set of new Set(defs.map((d) => d.set))) {
-    if (!format.legalSets.includes(set)) {
-      issues.push({ code: 'ILLEGAL_SET', message: `Set ${set} is not legal in ${format.id}` });
+  // a format may allow single cards from sets it does not (the OU list); say why a card is out
+  const name = format.name ?? format.id;
+  const reported = new Set<string>();
+  for (const d of defs) {
+    if (cardLegalIn(d, format) || reported.has(d.id)) continue;
+    reported.add(d.id);
+    if (format.extraCards && G_SETS.includes(d.set)) {
+      issues.push({
+        code: 'NOT_ON_OU_LIST',
+        message: `${d.name} (${d.id}) is a G era card that is not approved on the OU list v${format.ouListVersion ?? '?'}, so it is not legal in ${name}`,
+      });
+    } else if (G_SETS.includes(d.set)) {
+      issues.push({
+        code: 'ILLEGAL_SET',
+        message: `${d.name} (${d.id}) is a G era card: not legal in ${name}${format.id === 'EARLY_BT01_BT17' ? ' (approved OU cards are legal in Original Era — Expanded)' : ''}`,
+      });
+    } else {
+      issues.push({
+        code: 'ILLEGAL_SET',
+        message: `Set ${d.set} is not legal in ${name}`,
+      });
     }
   }
 
@@ -151,9 +171,27 @@ function validateGDeck(
   const unknown = [...new Set(gDeck.filter((id) => !registry.has(id)))];
   for (const id of unknown) issues.push({ code: 'UNKNOWN_CARD', message: `Unknown card ${id}` });
   const defs = gDeck.filter((id) => registry.has(id)).map((id) => registry.get(id));
-  for (const set of new Set(defs.map((d) => d.set))) {
-    if (!format.legalSets.includes(set)) {
-      issues.push({ code: 'ILLEGAL_SET', message: `Set ${set} is not legal in ${format.id}` });
+  // a format may allow single cards from sets it does not (the OU list); say why a card is out
+  const name = format.name ?? format.id;
+  const reported = new Set<string>();
+  for (const d of defs) {
+    if (cardLegalIn(d, format) || reported.has(d.id)) continue;
+    reported.add(d.id);
+    if (format.extraCards && G_SETS.includes(d.set)) {
+      issues.push({
+        code: 'NOT_ON_OU_LIST',
+        message: `${d.name} (${d.id}) is a G era card that is not approved on the OU list v${format.ouListVersion ?? '?'}, so it is not legal in ${name}`,
+      });
+    } else if (G_SETS.includes(d.set)) {
+      issues.push({
+        code: 'ILLEGAL_SET',
+        message: `${d.name} (${d.id}) is a G era card: not legal in ${name}${format.id === 'EARLY_BT01_BT17' ? ' (approved OU cards are legal in Original Era — Expanded)' : ''}`,
+      });
+    } else {
+      issues.push({
+        code: 'ILLEGAL_SET',
+        message: `Set ${d.set} is not legal in ${name}`,
+      });
     }
   }
   for (const name of new Set(defs.filter((d) => d.cardType !== 'g_unit').map((d) => d.name))) {

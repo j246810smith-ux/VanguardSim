@@ -32,8 +32,20 @@ export {
   EARLY_BT01_BT17_FORMAT,
   G_ERA_FORMAT,
   G_SETS,
+  cardLegalIn,
+  originalExpandedFormat,
   type FormatDefinition,
 } from './rules/format';
+export {
+  OU_LIST,
+  ouApproved,
+  ouBlockers,
+  ouEntryOf,
+  parseOuList,
+  type OuEntry,
+  type OuList,
+  type OuStatus,
+} from './rules/ouList';
 export { PLAY_FORMATS, playFormatOf, type FormatKey, type PlayFormat } from './rules/formats';
 export { maxCopiesOf, validateDeck, type DeckIssue, type DeckList } from './rules/deckValidation';
 export type { RuleValue } from './rules/ruleValue';

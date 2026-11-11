@@ -5634,3 +5634,77 @@ input.text {
 .table-wrap ~ .hand {
   left: 880px;
 }
+
+/* six-workstream brief W1: a G era card's Original Era compatibility in the card details */
+.ou-status {
+  margin-top: 12px;
+  padding: 8px 10px;
+  font: 500 15px/1.4 var(--font-body);
+  border-radius: 8px;
+  border: 1px solid var(--panel-edge);
+  background: rgba(255, 255, 255, 0.04);
+}
+.ou-status.approved {
+  border-color: var(--good);
+}
+.ou-status.proposed {
+  border-color: var(--gold);
+}
+.ou-status .ou-notes {
+  margin-top: 4px;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* six-workstream brief W5: the Music manager */
+.modal.music-manager {
+  width: min(1100px, 92%);
+  max-height: 86%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+.music-manager section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.music-manager .mm-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.music-manager .mm-tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.music-manager .mm-tracks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.music-manager .mm-title {
+  flex: 1;
+}
+.music-manager .mm-lists {
+  flex-wrap: wrap;
+}
+.music-manager .mm-report .bad,
+.music-manager .hint.bad {
+  color: #ff8c9c;
+}
+
+/* the Music manager's menus: big enough for a finger on the phone */
+.music-manager select {
+  min-height: 56px;
+  min-width: 320px;
+  padding: 6px 12px;
+  font: 600 20px var(--font-body);
+}

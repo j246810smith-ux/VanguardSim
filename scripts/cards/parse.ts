@@ -121,7 +121,11 @@ export function parseCardPage(html: string, site: 'en' | 'jp'): ParsedCard {
     clan: field(block, 'group'),
     race: field(block, 'race'),
     grade: number(field(block, 'grade'), 'grade'),
-    power: number(field(block, 'power'), 'power'),
+    // a G guardian has no power ("Power -"): read as 0, like the Japanese API
+    power:
+      type === 'g_unit' && !/\d/.test(field(block, 'power'))
+        ? 0
+        : number(field(block, 'power'), 'power'),
     // a few English pages print "Critical -" (missing data): read as 0, which then shows up as a
     // JP/EN mismatch to review
     critical: /\d/.test(field(block, 'critical'))
@@ -178,8 +182,9 @@ export function parseApiCard(c: ApiCard, expansions: readonly { id: string }[]):
     clan: clean(c.clan),
     race: clean(c.tribe ?? ''),
     grade: number(c.grade, 'grade'),
-    power: number(c.power, 'power'),
-    critical: number(c.critical, 'critical'),
+    // a G guardian has no power or critical (G-BT07 Defeat Flare Dragon: "-"); it only guards
+    power: type === 'g_unit' && c.power === '-' ? 0 : number(c.power, 'power'),
+    critical: type === 'g_unit' && c.critical === '-' ? 0 : number(c.critical, 'critical'),
     shield: /\d/.test(c.shield) ? number(c.shield, 'shield') : 0,
     skillIcon: skill(c.skill_icon),
     trigger: trigger(c.card_trigger),

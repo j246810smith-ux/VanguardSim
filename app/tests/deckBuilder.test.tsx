@@ -101,7 +101,7 @@ describe('Deck Builder (Dear Days-style)', () => {
       target: { value: exportDeck('Imported G', deck, ctx.registry) },
     });
     fireEvent.click(screen.getByText('Import'));
-    expect(screen.getByTestId('deck-issues').textContent).toContain('Legal Expanded Era deck');
+    expect(screen.getByTestId('deck-issues').textContent).toContain('Legal G Era deck');
     fireEvent.click(screen.getByTestId('save-deck'));
     const saved = loadDecks();
     expect(saved).toHaveLength(1);

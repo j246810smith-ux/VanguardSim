@@ -841,8 +841,9 @@ function group(site: Site, fetched: Fetched[], s: string = set!) {
       // Liberator is BT09's), and the English "ver.E" BT16/BT17 add "L" (Legend) printings of
       // cards from trial and Legend decks (BT16/L02EN Blaster Blade Seeker is TD14's); those
       // cards are imported with their own set (Japanese set membership is canonical)
-      // …and the G boosters' "SR" printings reprint earlier G sets' cards (G-BT04/SR01 is G-BT01/001)
-      if (/\/(S|L|SR)\d+/.test(f.card.number)) {
+      // …and the G boosters' "SR" printings reprint earlier G sets' cards (G-BT04/SR01 is G-BT01/001),
+      // and their "Re:" printings revive Classic-era cards (G-BT08/Re:01 Amnesty Messiah is BT11's)
+      if (/\/(S|L|SR|Re:)\d+/.test(f.card.number)) {
         if (s === set) {
           console.log(`  note: ${f.card.number} (${f.card.name}) is not a card of ${s}; skipped`);
         }
@@ -951,7 +952,13 @@ const wikiStamp = (url: string) => {
   const t = /web\/(\d{14})\//.exec(url)![1]!;
   return `${t.slice(0, 4)}-${t.slice(4, 6)}-${t.slice(6, 8)}T${t.slice(8, 10)}:${t.slice(10, 12)}:${t.slice(12, 14)}Z`;
 };
+/** G-BT07 onward: written by tools/cardgen/wiki_english.py (same shape as the G-BT06 entries below). */
+const WIKI_ENGLISH_FILE = join('scripts', 'cards', 'wiki-english.json');
+const WIKI_ENGLISH_GENERATED: Readonly<
+  Record<string, { name: string; text: string; url: string }>
+> = existsSync(WIKI_ENGLISH_FILE) ? JSON.parse(readFileSync(WIKI_ENGLISH_FILE, 'utf8')) : {};
 const WIKI_ENGLISH: Readonly<Record<string, { name: string; text: string; url: string }>> = {
+  ...WIKI_ENGLISH_GENERATED,
   'G-BT06-042': {
     name: 'Red-leaf Dragon',
     text: '[CONT]:You may have up to sixteen cards named "Red-leaf Dragon" in a deck.\n[AUTO](VC/RC)[Generation Break 1]:[Counter-Blast 1] At the beginning of your main phase, you may pay the cost. If you do, search your deck for up to one card named "Red-leaf Dragon", call it to (RC), shuffle your deck, and until end of turn, this unit gets "[CONT](VC/RC):This unit gets [Power] +1000 for each other unit named "Red-leaf Dragon" on (VC) or (RC).".',
@@ -1127,13 +1134,21 @@ async function downloadImage(
   writeFileSync(file, Buffer.from(await res.arrayBuffer()));
 }
 
+/**
+ * Race names no imported card had yet when they were needed: the plain English of the Japanese
+ * (no official English page gave it). G-BT08-083 Novelty Introductor is the only Dark Elf.
+ */
+const SEED_RACES: ReadonlyMap<string, string> = new Map([['ダークエルフ', 'Dark Elf']]);
+
 /** JP→EN clan and race names from the sets already imported. */
-function knownNames(): NameDictionary {
-  const names: NameDictionary = { clan: new Map(), race: new Map() };
+function knownNames(allSets = false): NameDictionary {
+  const names: NameDictionary = { clan: new Map(), race: new Map(SEED_RACES) };
   const dir = join('data', 'cards');
   if (!existsSync(dir)) return names;
   for (const f of readdirSync(dir).filter(
-    (n) => /^BT\d{2}\.json$/.test(n) && n !== `${set}.json`,
+    (n) =>
+      (allSets ? /^[A-Z][A-Z0-9-]*\d{2}(EN)?\.json$/ : /^BT\d{2}\.json$/).test(n) &&
+      n !== `${set}.json`,
   )) {
     const data = JSON.parse(readFileSync(join(dir, f), 'utf8')) as SetFile;
     for (const c of data.cards) {
@@ -1257,12 +1272,23 @@ async function main(): Promise<void> {
   }
   const card = <T extends { card: ParsedCard }>(m: Map<string, T>) =>
     new Map([...m].map(([no, f]) => [no, f.card]));
+  // D-034: a Japanese card updated after the G era (shield 15000 and new text, e.g. the G-BT06/07
+  // vanguard-attack critical triggers) pairs with the same English number when only the shield
+  // differs; the archived English page is the G-era card
+  const updatedPairs = Object.fromEntries(
+    [...jp.bases].flatMap(([no, j]) => {
+      const e = en.bases.get(no);
+      if (!e || !isUpdated(j.card.text)) return [];
+      const diff = crossCheck(j.card, e.card);
+      return diff.length > 0 && diff.every((d) => d.startsWith('shield:')) ? [[no, no]] : [];
+    }),
+  );
   // CARD_DATA policy §1/§8: Japanese set membership is canonical; English numbers may differ
   const pairing = pairPrintings(
     card(jp.bases),
     card(en.bases),
     knownNames(),
-    { ...PAIRING_OVERRIDES[set!], ...elsewhere, ...PR_PAIRS[set!] },
+    { ...updatedPairs, ...PAIRING_OVERRIDES[set!], ...elsewhere, ...PR_PAIRS[set!] },
     // the English ver.E sets reshuffled the Japanese ones: equal numbers mean nothing there
     !EN_SHARED_SETS[set!] && !isPr,
   );
@@ -1279,7 +1305,8 @@ async function main(): Promise<void> {
   const numbers = [...jp.bases.keys()].sort();
   const englishOf = NO_ENGLISH_SET.has(set!) ? englishByJapaneseName() : new Map();
   const cards: CardRecord[] = [];
-  const names = knownNames();
+  // clan and race names for card-wiki English records: learned from every imported set
+  const names = knownNames(true);
   for (const no of numbers) {
     const j = jp.bases.get(no);
     const enNo = pairing.pairs.get(no);
@@ -1289,6 +1316,12 @@ async function main(): Promise<void> {
     const reviewed =
       crossCheck(j?.card, e?.card).length > 0
         ? (REVIEWED_DIFFERENCES[`${set}-${no}`] ??
+          (updatedPairs[no] && e
+            ? {
+                reason: `The Japanese database shows the card as updated after the G era (shield ${j!.card.shield}, new text); the archived English page is the G-era card (shield ${e.card.shield}), which the game uses.`,
+                use: 'en' as const,
+              }
+            : undefined) ??
           (isPr && !e
             ? {
                 reason:

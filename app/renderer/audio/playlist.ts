@@ -84,13 +84,26 @@ export function battleTracks(): Promise<MusicTrack[]> {
   return loaded;
 }
 
+const listeners = new Set<() => void>();
+
+/** Reads the player's music folder again (after an import or a removal, W5) and tells the screens. */
+export function reloadTracks(): Promise<MusicTrack[]> {
+  loaded = null;
+  const p = battleTracks();
+  void p.then(() => listeners.forEach((l) => l()));
+  return p;
+}
+
 export function useBattleTracks(): readonly MusicTrack[] {
   const [tracks, setTracks] = useState<readonly MusicTrack[]>(bundledTracks);
   useEffect(() => {
     let live = true;
-    void battleTracks().then((t) => live && setTracks(t));
+    const read = () => void battleTracks().then((t) => live && setTracks(t));
+    read();
+    listeners.add(read);
     return () => {
       live = false;
+      listeners.delete(read);
     };
   }, []);
   return tracks;

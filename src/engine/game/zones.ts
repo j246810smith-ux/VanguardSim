@@ -35,6 +35,8 @@ export interface MoveOptions {
   readonly orientation?: RuntimeCard['orientation'];
   /** For moves by an ability's effect: the ability's master ("due to an effect from your card"). */
   readonly by?: PlayerId;
+  /** CR 1.48.1 11.33.2: the hollow retire ("put into the drop zone due to the hollow ability"). */
+  readonly byHollow?: true;
   /** …and the card whose ability it was. */
   readonly cause?: InstanceId;
 }
@@ -83,8 +85,28 @@ export function moveCard(
   const newCard = !(isCircle(from) && isCircle(to));
   if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
   if (!isCircle(to)) delete card.hollowed; // CR 1.48.1 11.33: a new card is not hollowed
+  if (!isCircle(to)) delete card.charging; // CR 1.48.1 11.29: nor charging
   if (to.zone === 'circle' && to.circle === 'vanguard' && s.phase === 'ride')
     s.players[to.player].placedOnVCInRidePhase = true;
+  // Unite: a call to (RC) or (GC) (normal, superior, guardian, G guardian), counted per player
+  if (
+    (reason === 'call' || reason === 'guard') &&
+    (to.zone === 'guardian' || (to.zone === 'circle' && to.circle !== 'vanguard'))
+  ) {
+    const c = s.turnFlags.calls ?? [0, 0];
+    const next: [number, number] = [c[0], c[1]];
+    next[to.player] += 1;
+    s.turnFlags.calls = next;
+  }
+  if (to.zone === 'damage') {
+    const c = s.turnFlags.damaged ?? [0, 0];
+    const next: [number, number] = [c[0], c[1]];
+    next[to.player] += 1;
+    s.turnFlags.damaged = next;
+  }
+  // Darkness: a card put into the soul other than by riding
+  if (to.zone === 'soul' && reason !== 'ride' && !(s.turnFlags.soulAdded ?? []).includes(to.player))
+    s.turnFlags.soulAdded = [...(s.turnFlags.soulAdded ?? []), to.player];
   if (newCard) {
     s.modifiers = s.modifiers.filter((m) => m.target !== id);
     s.restrictions = s.restrictions.filter((r) => r.target !== id);
@@ -106,6 +128,7 @@ export function moveCard(
     ...(to.zone === 'deck' && options.position ? { position: options.position } : {}),
     ...(options.by !== undefined ? { by: options.by } : {}),
     ...(options.cause !== undefined ? { cause: options.cause } : {}),
+    ...(options.byHollow ? { byHollow: true as const } : {}),
   });
   // granted abilities are lost only after the move's triggers are checked: "when this unit is put
   // into the drop zone" abilities look back at the unit as it was (CR 8.6.7)

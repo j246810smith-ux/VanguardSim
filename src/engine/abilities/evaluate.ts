@@ -159,6 +159,12 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.faceUp !== undefined && card.faceUp !== filter.faceUp) return false;
   if (filter.deleted !== undefined && (card.deleted === true) !== filter.deleted) return false;
   if (filter.hollowed !== undefined && (card.hollowed === true) !== filter.hollowed) return false;
+  if (filter.charging !== undefined && (card.charging === true) !== filter.charging) return false;
+  if (
+    filter.rescued !== undefined &&
+    (state.turnFlags.rescued ?? []).includes(id) !== filter.rescued
+  )
+    return false;
   if (
     filter.legionMate !== undefined &&
     state.players.some((p) => p.legion?.mate === id) !== filter.legionMate
@@ -276,6 +282,11 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.name !== undefined && !hasName(filter.name)) return false;
   if (filter.nameIn !== undefined && !filter.nameIn.some(hasName)) return false;
   if (filter.notName !== undefined && hasName(filter.notName)) return false;
+  if (
+    filter.notNameIncludes !== undefined &&
+    namesOf(state, ctx, id).some((n) => n.includes(filter.notNameIncludes!))
+  )
+    return false;
   // case-insensitive: English names write the Japanese part ライザー both as "Raizer" and as
   // "…raizer" (Cannonraizer); the text "with "Raizer" in its card name" means both
   if (
@@ -471,6 +482,14 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       const stood = ec.state.turnFlags.stood ?? [];
       return select(ec, condition.of).some((id) => stood.includes(id));
     }
+    case 'damage_this_turn':
+      return (ec.state.turnFlags.damaged ?? [0, 0])[ec.master] >= condition.min;
+    case 'unite':
+      return (ec.state.turnFlags.calls ?? [0, 0])[ec.master] >= 2;
+    case 'darkness':
+      return (ec.state.turnFlags.soulAdded ?? []).includes(ec.master);
+    case 'blazing':
+      return ec.state.players[ec.master].blazing === true;
     case 'placed_on_vc_in_ride_phase': {
       const p = condition.player === 'you' ? ec.master : other(ec.master);
       return ec.state.players[p].placedOnVCInRidePhase === true;
@@ -478,12 +497,18 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     case 'deck_shuffled_this_turn':
       return (ec.state.turnFlags.shuffledByEffect ?? []).includes(ec.master);
     case 'dropped_from_soul_this_turn':
-      return (ec.state.turnFlags.droppedFromSoul ?? []).some(
-        (id) => ec.state.cards[id]!.owner === ec.master,
+      return (
+        (ec.state.turnFlags.droppedFromSoul ?? []).filter(
+          (id) => ec.state.cards[id]!.owner === ec.master,
+        ).length >= (condition.min ?? 1)
       );
     case 'heart_named':
       return ec.state.players[ec.master].hearts.some((h) =>
         namesOf(ec.state, ec.ctx, h).some((n) => n.includes(condition.part)),
+      );
+    case 'heart_race':
+      return ec.state.players[ec.master].hearts.some(
+        (h) => ec.ctx.registry.get(ec.state.cards[h]!.definitionId).race === condition.race,
       );
     case 'dropped_from_rc_this_turn': {
       const dropped = (ec.state.turnFlags.droppedFromRC ?? []).filter(

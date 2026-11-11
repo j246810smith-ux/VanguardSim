@@ -181,14 +181,15 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'put_into_drop': {
       if (e.type !== 'CARD_MOVED' || e.to.zone !== 'drop') return null;
       const fromOk =
-        t.from === 'soul'
-          ? e.from.zone === 'soul'
+        t.from === 'soul' || t.from === 'damage' || t.from === 'deck'
+          ? e.from.zone === t.from
           : t.from === 'front_RC'
             ? e.from.zone === 'circle' &&
               (e.from.circle === 'front_left' || e.from.circle === 'front_right')
             : isFieldZone(e.from) && fieldZone(e.from) === t.from;
       if (!fromOk) return null;
       if (t.byYourEffect && !(e.reason === 'effect' && e.by === ec.master)) return null;
+      if (t.byHollow && !e.byHollow) return null;
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
       if (t.otherCause && e.cause === ec.source) return null;
@@ -209,6 +210,11 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (
         t.byYourEffect &&
         !(e.type === 'CARD_MOVED' && e.reason === 'effect' && e.by === ec.master)
+      )
+        return null;
+      if (
+        t.causeFilter &&
+        !(e.type === 'CARD_MOVED' && e.cause !== undefined && matches(ec, e.cause, t.causeFilter))
       )
         return null;
       if (
@@ -279,6 +285,12 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'stride':
       if (e.type !== 'STRIDE') return null;
       return subjectIs(ec, t.who, e.gUnit, e.player) ? { eventCard: e.gUnit } : null;
+    case 'becomes_charging':
+      return e.type === 'CHARGING' && subjectIs(ec, t.who, e.instanceId, e.player)
+        ? { eventCard: e.instanceId }
+        : null;
+    case 'becomes_blazing':
+      return e.type === 'BLAZING' && e.player === ec.master ? { eventCard: null } : null;
     case 'stride_discarded': {
       if (e.type !== 'STRIDE') return null;
       const hit = e.discarded.find((id) => subjectIs(ec, t.who, id, e.player));
@@ -313,6 +325,8 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'INTERCEPTED',
   'LEGION',
   'STRIDE',
+  'BLAZING',
+  'CHARGING',
 ]);
 
 export function detectTriggers(d: Draft, event: GameEvent): void {

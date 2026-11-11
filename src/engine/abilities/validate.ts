@@ -99,6 +99,7 @@ export function validateAbilities(
           case 'extra_drive_check':
           case 'win':
           case 'place_top_locked':
+          case 'blaze':
             break;
           case 'deal_damage':
           case 'drive_plus':

@@ -1,17 +1,23 @@
 /** Online play (D-032): a whole match between a HostLink and a GuestLink over an in-memory pipe. */
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { BasicController } from '../../src/ai/basicController';
 import { STARTER_DECKS } from '../../src/decks/starters';
 import type { LegalAction } from '../../src/engine';
-import { ctx } from '../renderer/engine';
+import { ctx, playFormat, setPlayFormat } from '../renderer/engine';
+import { OU_LIST } from '../../src/engine';
 import type { GameSession, GuestSession } from '../renderer/game/session';
 import { GuestLink, HostLink, type Player } from '../renderer/online/link';
+import type { MatchRules } from '../../src/net/protocol';
 
 const version = { protocol: 1, app: 'test', cardData: 'test' };
 const host: Player = { name: 'Host', deckName: 'A', deck: STARTER_DECKS[0]!.deck };
 const guest: Player = { name: 'Guest', deckName: 'B', deck: STARTER_DECKS[1]!.deck };
 
-function connect(guestPlayer: Player = guest, guestVersion = version) {
+function connect(
+  guestPlayer: Player = guest,
+  guestVersion = version,
+  rules: MatchRules = { delayedLegion: false },
+) {
   const toHost: string[] = [];
   const toGuest: string[] = [];
   let hostSession: GameSession | null = null;
@@ -22,7 +28,7 @@ function connect(guestPlayer: Player = guest, guestVersion = version) {
   const h = new HostLink(
     (l) => toGuest.push(l),
     host,
-    { delayedLegion: false },
+    rules,
     (e) => {
       if (e.kind === 'started') hostSession = e.session;
       else if (e.kind === 'refused') refused.push(e.reason);
@@ -200,5 +206,76 @@ describe('online match', () => {
     expect(c.host()!.view.status).toBe('finished');
     expect(c.host()!.ending?.winner).toBe(0);
     expect(c.guest()!.ending?.winner).toBe(0);
+  });
+
+  // six-workstream brief W4: every house rule reaches an online game, not only Delayed Legion
+  it("the host's house rules apply to the online game for both players", () => {
+    const c = connect(guest, version, {
+      delayedLegion: true,
+      nineKGrade3: 2000,
+      megaBlastCheap: true,
+    });
+    const s = c.host()!;
+    expect(s.state.customRules).toEqual({
+      delayedLegion: true,
+      nineKGrade3: 2000,
+      megaBlastCheap: true,
+    });
+  });
+
+  // six-workstream brief W3: the room's format is the host's, checked by the host
+  describe('room format', () => {
+    const gCard = ctx.registry
+      .all()
+      .find((d) => d.set === 'G-BT01' && d.cardType === 'normal_unit')!;
+    const withG: Player = {
+      ...guest,
+      deck: (() => {
+        const d = STARTER_DECKS[1]!.deck;
+        const i = d.cards.findIndex(
+          (c) => c !== d.firstVanguard && ctx.registry.get(c).trigger === null,
+        );
+        const cards = [...d.cards];
+        cards[i] = gCard.id;
+        return { ...d, cards };
+      })(),
+    };
+    afterEach(() => setPlayFormat('classic'));
+
+    it('Original Era — Strict refuses a G era card and says why', () => {
+      const c = connect(withG, version, { delayedLegion: false, format: 'classic' });
+      expect(c.refused[0]).toMatch(/not legal in Original Era — Strict/);
+      expect(c.host()).toBeNull();
+    });
+
+    it('Original Era — Expanded refuses a G card that is not approved on the OU list', () => {
+      const c = connect(withG, version, {
+        delayedLegion: false,
+        format: 'classic_ou',
+        ouListVersion: OU_LIST.version,
+      });
+      expect(c.refused[0]).toMatch(/not legal in Original Era — Expanded/);
+      expect(c.refused[0]).toMatch(/OU list/);
+    });
+
+    it('a guest with another OU list version cannot join an Expanded room', () => {
+      const c = connect(guest, version, {
+        delayedLegion: false,
+        format: 'classic_ou',
+        ouListVersion: '9.9',
+      });
+      expect(c.refused[0]).toMatch(/OU list v9\.9, you have v/);
+    });
+
+    it('an Expanded room plays the Expanded format for both players', () => {
+      const c = connect(guest, version, {
+        delayedLegion: false,
+        format: 'classic_ou',
+        ouListVersion: OU_LIST.version,
+      });
+      expect(c.refused).toEqual([]);
+      expect(c.host()!.config.format).toBe('classic_ou');
+      expect(playFormat).toBe('classic_ou'); // the guest switched to the room's format
+    });
   });
 });

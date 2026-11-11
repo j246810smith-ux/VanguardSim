@@ -68,6 +68,8 @@ export interface RuntimeCard {
   deleted?: boolean;
   /** CR 1.48.1 11.33: a hollowed unit (until end of turn; it goes to the drop zone then). Cleared off the field. */
   hollowed?: boolean;
+  /** CR 1.48.1 11.29 Charge: a charging unit goes to the bottom of the deck at the end of its battle. */
+  charging?: boolean;
   /** In the bind zone: the card whose effect bound it ("cards bound with this card's effect"). */
   boundBy?: InstanceId;
 }
@@ -101,6 +103,8 @@ export interface PlayerState {
    * opponent's preceding turn"). Cleared when their turn starts.
    */
   placedOnVCInRidePhase?: boolean;
+  /** Blaze (G-BT07): this player's vanguard is blazing until end of turn. Cleared when a turn starts. */
+  blazing?: boolean;
   /** CR 10.28.3.3: the heart whose name and power the G unit gained. */
   heartChosen: InstanceId | null;
   /**
@@ -142,6 +146,14 @@ export interface TurnFlags {
   droppedFromRC?: InstanceId[];
   /** Cards put into a drop zone from a soul this turn (either player's). */
   droppedFromSoul?: InstanceId[];
+  /** CR 1.48.1 11.38 Unite: cards each player called to (RC) or (GC) this turn ([player 0, player 1]). */
+  calls?: [number, number];
+  /** Cards put into each player's damage zone this turn ([player 0, player 1]). */
+  damaged?: [number, number];
+  /** CR 1.48.1 11.30 Darkness: players who had a card put into their soul this turn other than by riding. */
+  soulAdded?: PlayerId[];
+  /** Rescue (G-BT07): damage-zone cards healed by a rescue ability this turn. */
+  rescued?: InstanceId[];
   /** Legion Leaders that entered a legion this turn ("during the turn your vanguard [Legion]"). */
   legioned?: InstanceId[];
   /** Players whose deck was shuffled by an effect of their own card this turn. */

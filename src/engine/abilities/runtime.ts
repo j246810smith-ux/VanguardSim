@@ -732,7 +732,15 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
             isRestricted(s, d.ctx, id, 'cannot_be_retired_by_you')
           )
         ) {
-          moveTo(d, id, 'drop', 'effect', frame);
+          if (step.hollow) {
+            // the hollow retire is marked, for "put into the drop zone due to the hollow ability"
+            const owner = s.cards[id]!.owner;
+            moveCard(d, id, { player: owner, zone: 'drop' }, 'effect', {
+              by: frame.master,
+              cause: frame.source,
+              byHollow: true,
+            });
+          } else moveTo(d, id, 'drop', 'effect', frame);
         }
       }
       return true;
@@ -881,7 +889,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'deal_damage':
       s.tasks.unshift({
         kind: 'damage_check',
-        player: other(frame.master),
+        player: step.toSelf ? frame.master : other(frame.master),
         remaining: step.n,
         ...(step.nullifyTriggers ? { nullifyTriggers: true } : {}),
       });
@@ -1012,6 +1020,60 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'end_normal_ride':
       s.turnFlags.normalRideUsed = true;
       return true;
+    case 'heal':
+      for (const id of targets) {
+        const at = locate(s, id);
+        if (at.zone !== 'damage') continue;
+        moveCard(d, id, { player: at.player, zone: 'drop' }, 'effect', {
+          by: frame.master,
+          cause: frame.source,
+        });
+        if (step.rescue) s.turnFlags.rescued = [...(s.turnFlags.rescued ?? []), id];
+      }
+      return true;
+    case 'charge': {
+      // CR 1.48.1 11.29.2: at the end of the battle it takes part in, to the bottom of the deck
+      const steps: Step[] = [];
+      for (const id of targets) {
+        const card = s.cards[id];
+        const at = locate(s, id);
+        if (!card || at.zone !== 'circle' || at.circle === 'vanguard' || card.charging) continue;
+        card.charging = true;
+        emit(d, { type: 'CHARGING', player: at.player, instanceId: id });
+        steps.push({
+          op: 'grant',
+          target: { sel: 'card', id },
+          ability: {
+            kind: 'AUTO',
+            id: `charge_${id}`,
+            zones: ['RC'],
+            trigger: { on: 'step_start', step: 'close_step', whose: 'any' },
+            triggerIf: {
+              cond: 'any',
+              cs: [
+                { cond: 'is', of: { sel: 'self' }, filter: { attacking: true, charging: true } },
+                { cond: 'is', of: { sel: 'self' }, filter: { boosting: true, charging: true } },
+              ],
+            },
+            effect: [{ op: 'move', target: { sel: 'self' }, to: 'deck_bottom' }],
+            text: 'Charge: at the end of the battle this unit takes part in, put it on the bottom of your deck.',
+          },
+          duration: 'end_of_turn',
+        });
+      }
+      s.tasks.unshift(...stepTasks(frame.id, steps));
+      return true;
+    }
+    case 'blaze': {
+      const p = s.players[frame.master];
+      const rg = (q: typeof p) =>
+        REAR_GUARD_CIRCLES.reduce((n, c) => n + (q.circles[c].length > 0 ? 1 : 0), 0);
+      if (!p.blazing && rg(p) > rg(s.players[other(frame.master)])) {
+        p.blazing = true;
+        emit(d, { type: 'BLAZING', player: frame.master });
+      }
+      return true;
+    }
     case 'to_guardian': {
       // like an intercept (CR 10.2.2): the unit guards the attacked vanguard
       const b = s.battle;
@@ -1040,7 +1102,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
             zones: ['RC'],
             trigger: { on: 'step_start', step: 'end_phase', whose: 'any' },
             triggerIf: { cond: 'is', of: { sel: 'self' }, filter: { hollowed: true } },
-            effect: [{ op: 'retire', target: { sel: 'self' } }, ...(step.then ?? [])],
+            effect: [{ op: 'retire', target: { sel: 'self' }, hollow: true }, ...(step.then ?? [])],
             text: 'Hollow: at the end of the turn, retire this unit.',
           },
           duration: 'end_of_turn',

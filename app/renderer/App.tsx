@@ -8,13 +8,15 @@ import {
   type CSSProperties,
   type ReactNode,
 } from 'react';
-import type { FormatKey } from '../../src/engine';
+import { OU_LIST, type FormatKey } from '../../src/engine';
+import { validFormatKey } from './decks/storage';
 import { setPlayFormat } from './engine';
 import type { AiLevel, SessionConfig } from './game/session';
 import type { OnlineInfo } from './screens/BattleScreen';
 import { Battle as BattleScreen } from './screens/Battle';
 import { AudioSettings } from './screens/AudioSettings';
 import { useBattleTracks } from './audio/playlist';
+import { useMusicPrefs } from './audio/musicLibrary';
 import { THEMES, type ThemeId } from './themes';
 import { OnlineScreen } from './screens/OnlineScreen';
 import type { OnlineController } from './online/controller';
@@ -52,17 +54,17 @@ import { desktopUpdates, updateResultText, type UpdateCheck, type UpdateResult }
 import { CAN, IS_ANDROID } from './platform';
 import { phoneCardCount } from './android/phoneArt';
 import { InfoTip } from './ui/InfoTip';
+import { HouseRulesPicker } from './prompts/HouseRulesPicker';
+import { houseRulesConfig, NO_HOUSE_RULES, type HouseRulesChoice } from './game/houseRules';
 
 /** Game Setup help: a tooltip with a mouse, an info button on a touch screen (U5). */
 const G_ERA_HELP =
-  'Original Era cards plus the G era: G units, Stride, G guardians, Generation Break. In testing: please report problems.';
-const DELAYED_LEGION_HELP =
-  'Seek Mate returns four normal units without Sentinel. At the start of your next stand phase, the Legion Mate goes into your soul or drop zone.';
-
-export const NINE_K_HELP =
-  '9K Grade 3 (Original era): a vanguard whose printed grade is 3 and printed power exactly 9000 gets +1000 power on the vanguard circle (press again for +2000). Not on rear-guard circles, not for 10000-power grade 3s, and a unit lowered to 9000 by an effect does not count.';
-export const MEGA_BLAST_HELP =
-  'Mega Blast: an ability costing Counter Blast 5 & Soul Blast 8 may be paid with Counter Blast 4 & Soul Blast 6 instead (Vanguard ZERO style). When you could pay both, you choose.';
+  'G Era (called Expanded Era before v0.37): Original Era cards plus the G era: G units, Stride, G guardians, Generation Break. In testing: please report problems.';
+const STRICT_HELP =
+  'Original Era — Strict: BT01–BT17, the trial decks and side sets, no G era cards.';
+const EXPANDED_HELP =
+  'Original Era — Expanded: the Original Era plus the G era cards approved on the OU (Original Era Usable) list, played with the Original Era rules. Cards needing Stride, Generation Break or G guardians are never on it.';
+export { NINE_K_HELP, MEGA_BLAST_HELP } from './game/houseRules';
 
 const FEEDBACK_HINT =
   'Opens GitHub in your browser, where you can write and post it. Needs a free GitHub account. Posts are public.';
@@ -237,6 +239,9 @@ export function App() {
   // battle music: the game's tracks and the player's own music folder
   const tracks = useBattleTracks();
   useEffect(() => audio.setBattleTracks(tracks), [tracks]);
+  // the player's playlists for menu and battle music (W5, Settings → Audio → Music manager)
+  const musicPrefs = useMusicPrefs();
+  useEffect(() => audio.setMusicPrefs(musicPrefs), [musicPrefs]);
   // interface sounds for every button, from one place (docs/audio/AUDIO_PLAN.md)
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -434,9 +439,7 @@ function MainMenu({
 function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionConfig) => void }) {
   const settings = useSettings();
   // v0.28: Game Setup remembers the last format played
-  const [format, setFormat] = useState<FormatKey>(() =>
-    recall(SETUP_FORMAT_KEY) === 'g' ? 'g' : 'classic',
-  );
+  const [format, setFormat] = useState<FormatKey>(() => validFormatKey(recall(SETUP_FORMAT_KEY)));
   const entries = useMemo(() => deckEntries(format), [format]);
   const [mine, setMine] = useState(0);
   const [theirs, setTheirs] = useState(1);
@@ -448,9 +451,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
   const [ai, setAi] = useState<AiLevel>('smart');
   const [seed, setSeed] = useState('');
   const [seedHelp, setSeedHelp] = useState(false);
-  const [delayedLegion, setDelayedLegion] = useState(false);
-  const [nineK, setNineK] = useState<0 | 1000 | 2000>(0);
-  const [megaCheap, setMegaCheap] = useState(false);
+  const [houseRules, setHouseRules] = useState<HouseRulesChoice>(NO_HOUSE_RULES);
   const start = () => {
     const my = entries[mine]!;
     const their = entries[theirs]!;
@@ -462,9 +463,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       aiDeck: their.deck,
       aiDeckName: their.name,
       aiLevel: ai,
-      delayedLegion,
-      ...(nineK && format === 'classic' ? { nineKGrade3: nineK } : {}),
-      ...(megaCheap ? { megaBlastCheap: true } : {}),
+      ...houseRulesConfig(houseRules, format),
       format,
       // D-033: a deck's own sleeve and playmat, else the defaults from Settings (the playmat of
       // the battle's presentation profile, chosen when the battle screen opens)
@@ -489,8 +488,18 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
             className={format === 'classic' ? 'on' : ''}
             onClick={() => pickFormat('classic')}
             data-testid="format-classic"
+            title={STRICT_HELP}
           >
-            Original Era <small className="fmt-sub">BT01–BT17 · no G units</small>
+            Original Era — Strict <small className="fmt-sub">BT01–BT17 · no G cards</small>
+          </button>
+          <button
+            className={format === 'classic_ou' ? 'on' : ''}
+            onClick={() => pickFormat('classic_ou')}
+            data-testid="format-classic-ou"
+            title={EXPANDED_HELP}
+          >
+            Original Era — Expanded{' '}
+            <small className="fmt-sub">+ OU cards · list v{OU_LIST.version}</small>
           </button>
           <button
             className={format === 'g' ? 'on' : ''}
@@ -498,11 +507,21 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
             data-testid="format-g"
             title={G_ERA_HELP}
           >
-            Expanded Era <small className="fmt-sub">+ G era</small>{' '}
+            G Era <small className="fmt-sub">+ G units</small>{' '}
             <span className="testing-tag">IN TESTING</span>
           </button>
         </span>
-        <InfoTip label="What the Expanded Era is" testId="format-help" text={G_ERA_HELP} />
+        <InfoTip
+          label="What the formats are"
+          testId="format-help"
+          text={
+            <>
+              <span style={{ display: 'block' }}>{STRICT_HELP}</span>
+              <span style={{ display: 'block' }}>{EXPANDED_HELP}</span>
+              <span style={{ display: 'block' }}>{G_ERA_HELP}</span>
+            </>
+          }
+        />
       </div>
       <div className="setup">
         <div>
@@ -554,52 +573,7 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
           its log.
         </div>
       )}
-      <div className="row">
-        Custom rules
-        <span className="seg">
-          <button
-            className={delayedLegion ? 'on' : ''}
-            onClick={() => setDelayedLegion((v) => !v)}
-            data-testid="rule-delayed-legion"
-            title={DELAYED_LEGION_HELP}
-          >
-            Delayed Legion: {delayedLegion ? 'ON' : 'OFF'}
-          </button>
-        </span>
-        <InfoTip label="What Delayed Legion does" testId="legion-help" text={DELAYED_LEGION_HELP} />
-      </div>
-      <div className="row">
-        <span style={{ width: 160 }} />
-        <span className="seg">
-          <button
-            className={nineK && format === 'classic' ? 'on' : ''}
-            disabled={format !== 'classic'}
-            onClick={() => setNineK((v) => (v === 0 ? 1000 : v === 1000 ? 2000 : 0))}
-            data-testid="rule-nine-k"
-            title={NINE_K_HELP}
-          >
-            9K Grade 3: {format !== 'classic' ? 'Original era only' : nineK ? `+${nineK}` : 'OFF'}
-          </button>
-          <button
-            className={megaCheap ? 'on' : ''}
-            onClick={() => setMegaCheap((v) => !v)}
-            data-testid="rule-mega-blast"
-            title={MEGA_BLAST_HELP}
-          >
-            Mega Blast CB4 &amp; SB6: {megaCheap ? 'ON' : 'OFF'}
-          </button>
-        </span>
-        <InfoTip
-          label="What these rules do"
-          testId="house-rules-help"
-          text={
-            <>
-              <span style={{ display: 'block' }}>{NINE_K_HELP}</span>
-              <span style={{ display: 'block' }}>{MEGA_BLAST_HELP}</span>
-            </>
-          }
-        />
-      </div>
+      <HouseRulesPicker value={houseRules} onChange={setHouseRules} format={format} />
       <div className="row" style={{ marginTop: 10 }}>
         <button className="menu-btn" style={{ width: 300 }} onClick={onBack}>
           BACK
@@ -888,29 +862,33 @@ function SettingsScreen({
             />
           </div>
         </div>
-        <div className="row">
-          <span style={{ width: 300 }}>
-            Animated background
-            <div className="hint">
-              {PROFILES[editing].name}: themed playmats move gently (never with Reduced motion or
-              Low graphics)
-            </div>
-          </span>
-          <span className="seg">
-            {[true, false].map((v) => (
-              <button
-                key={String(v)}
-                className={settings.profiles[editing].animatedBackground === v ? 'on' : ''}
-                onClick={() =>
-                  onChange(setProfilePref(settings, editing, { animatedBackground: v }))
-                }
-                data-testid={`anim-bg-${v ? 'on' : 'off'}`}
-              >
-                {v ? 'On' : 'Off'}
-              </button>
-            ))}
-          </span>
-        </div>
+        {/* the phone layout (Mobile) never draws the moving layer (it broke Android's drawing,
+            2026-11-11): the switch is for the Desktop profile only */}
+        {editing === 'desktop' && (
+          <div className="row">
+            <span style={{ width: 300 }}>
+              Animated background
+              <div className="hint">
+                Desktop: themed playmats move gently (never with Reduced motion or Low graphics; not
+                on the phone layout)
+              </div>
+            </span>
+            <span className="seg">
+              {[true, false].map((v) => (
+                <button
+                  key={String(v)}
+                  className={settings.profiles[editing].animatedBackground === v ? 'on' : ''}
+                  onClick={() =>
+                    onChange(setProfilePref(settings, editing, { animatedBackground: v }))
+                  }
+                  data-testid={`anim-bg-${v ? 'on' : 'off'}`}
+                >
+                  {v ? 'On' : 'Off'}
+                </button>
+              ))}
+            </span>
+          </div>
+        )}
         <div className="row" style={{ alignItems: 'flex-start' }}>
           <span style={{ width: 300 }}>
             App icon

@@ -460,10 +460,23 @@ const homeShotsStep = `(() => {
     if (n === 2) return (q('[data-testid=start-battle]').click(), 'modes');
     if (n === 3) return (q('[data-testid=modes-back]').click(), 'back');
     if (n === 4) return (q('[data-testid=home-profile]').click(), 'profile');
-    if (n === 5) return (q('[data-testid=profile-editor] .btn').click(), 'closed');
+    if (n === 5) return (q('[data-testid=profile-back]').click(), 'closed');
     if (n === 6 && q('[data-testid=home-menu]')) return (q('[data-testid=home-menu]').click(), 'menu');
     if (n === 7) return (q('[data-testid=card-db]').click(), 'card database');
     if (n === 8) return (q('.pool-card')?.click(), 'card details');
+    return 'wait';
+  })()`;
+/** VANGUARD_SHOTS_SCREEN=profile: the Player Profile, its statistics, the editor and the banners. */
+const profileShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const n = (window.__n = (window.__n || 0) + 1);
+    if (n === 2) return (q('[data-testid=home-profile]').click(), 'profile');
+    if (n === 3) return (q('[data-testid=profile-tab-sync]').click(), 'sync');
+    if (n === 4) return (q('[data-testid=profile-tab-stats]').click(), 'statistics');
+    if (n === 5) return (q('[data-testid=profile-tab-profile]').click(), 'back to profile');
+    if (n === 6) return (q('[data-testid=profile-edit]').click(), 'edit');
+    if (n === 7) return (q('[data-testid=profile-banner-change]').click(), 'banners');
+    if (n === 8) return (q('[data-testid=banner-group-playmats]').click(), 'playmats');
     return 'wait';
   })()`;
 function runShots(win) {
@@ -475,7 +488,9 @@ function runShots(win) {
         ? updateShotsStep
         : screen === 'home'
           ? homeShotsStep
-          : shotsStep;
+          : screen === 'profile'
+            ? profileShotsStep
+            : shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);

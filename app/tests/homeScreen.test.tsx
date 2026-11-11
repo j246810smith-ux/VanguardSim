@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { App } from '../renderer/App';
 import { homeArtUrl } from '../renderer/home/art';
 import { cleanName, loadProfile, MAX_NAME, NAME_KEY } from '../renderer/home/profile';
+import { resetProfileCache } from '../renderer/profile/repository';
 
 describe('home screen (docs/design/HOME_SCREEN_PLAN.md)', () => {
   beforeEach(() => localStorage.clear());
@@ -54,26 +55,34 @@ describe('home screen (docs/design/HOME_SCREEN_PLAN.md)', () => {
     expect(screen.queryByTestId('save-deck')?.closest('.dd-deck')).toBeTruthy(); // hidden by CSS
   });
 
+  // 2026-11-11: the profile opens the Player Profile screen (profile/), edited there
   it('the profile shows the Play Online name and saves name and avatar on this device', () => {
     localStorage.setItem(NAME_KEY, 'Aichi Fan');
+    resetProfileCache();
     render(<App />);
     expect(screen.getByTestId('profile-name').textContent).toBe('Aichi Fan');
     fireEvent.click(screen.getByTestId('home-profile'));
-    fireEvent.change(screen.getByTestId('profile-name-input'), { target: { value: '  Kai  ' } });
-    fireEvent.click(screen.getByTestId('avatar-flame'));
-    fireEvent.click(screen.getByTestId('profile-save'));
+    expect(screen.getByTestId('player-profile')).toBeTruthy();
+    fireEvent.click(screen.getByTestId('profile-edit'));
+    fireEvent.change(screen.getByTestId('profile-name-field'), { target: { value: '  Kai  ' } });
+    fireEvent.click(screen.getByTestId('profile-avatar-flame'));
+    fireEvent.click(screen.getByTestId('profile-save-full'));
+    expect(screen.getByTestId('profile-display-name').textContent).toBe('Kai');
+    fireEvent.click(screen.getByTestId('profile-back'));
     expect(screen.getByTestId('profile-name').textContent).toBe('Kai');
     expect(loadProfile()).toEqual({ name: 'Kai', avatar: 'flame' });
     expect(localStorage.getItem(NAME_KEY)).toBe('Kai');
   });
 
   it('Cancel in the profile editor keeps the old name and avatar', () => {
+    resetProfileCache();
     render(<App />);
     fireEvent.click(screen.getByTestId('home-profile'));
-    fireEvent.change(screen.getByTestId('profile-name-input'), { target: { value: 'Other' } });
-    fireEvent.click(screen.getByTestId('avatar-crown'));
-    fireEvent.click(screen.getByText('Cancel'));
-    expect(screen.queryByTestId('profile-editor')).toBeNull();
+    fireEvent.click(screen.getByTestId('profile-edit'));
+    fireEvent.change(screen.getByTestId('profile-name-field'), { target: { value: 'Other' } });
+    fireEvent.click(screen.getByTestId('profile-avatar-crown'));
+    fireEvent.click(screen.getByTestId('profile-cancel'));
+    expect(screen.queryByTestId('profile-editor-full')).toBeNull();
     expect(loadProfile()).toEqual({ name: 'Player', avatar: 'blue' });
   });
 

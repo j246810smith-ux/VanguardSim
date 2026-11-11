@@ -15,6 +15,25 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-11, night) — v0.37.0-alpha published; next: the hybrid player profile
+
+v0.37.0-alpha (dev tag 5c120e4, public 0134085, pushed with the tag; GitHub pre-release with the zip,
+portable exe, signed update files and the Android APK; `release:verify` passed; smoke checks run by
+hand and passed; installed on the user's Pixel). Contents: the six-workstream work (formats, OU list,
+online formats, house rules everywhere, Music manager), the Hollow fix, G-BT07–G-BT09 (merged from the
+card-sets session's `sets/g-td09`), G-BT08-083 race "Dark Elf".
+
+**Next (user, 2026-11-11):** the **Hybrid Player Profile System** from the user's Desktop document
+"Vanguard_Hybrid_Player_Profile_System_Architecture_and_Claude_Code_Prompt (1).docx" — start with its
+phase 0 audit (read-only). Open questions for the user: titles (none exist; the brief says not to
+invent), banners (no art; playmats?), which games count for local stats (suggested: vs CPU and
+online, not CPU demonstrations).
+
+**Server:** none, and no money spent (user's decision); notes and free alternatives in
+`docs/design/SERVER_IDEAS.md`. Focus on the offline experience.
+
+**Still on hold:** OU approvals and the Granblue G3 decision (see below).
+
 ## ▶ Pick up here (2026-11-11, later) — six-workstream brief: built on `six-workstreams`, to sort soon
 
 The user's "major development update" brief (OU cards, Original Era Strict / Expanded, online format

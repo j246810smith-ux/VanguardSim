@@ -32,6 +32,7 @@ import { describe, type LogLine } from './describe';
 import { AiTimer } from './aiTiming';
 import { IS_ANDROID } from '../platform';
 import { buildBeats, type Beat } from '../presentation/queue';
+import { newLocalId } from '../profile/model';
 
 /** Easy (random), Basic (level 2) or Hard (deck-aware lookahead, D-021). */
 export type AiLevel = 'random' | 'basic' | 'smart';
@@ -141,6 +142,8 @@ export abstract class SessionBase {
   protected cues: Cue[] = [];
   /** The cards on the top and bottom of each deck this seat knows, for their pictures on the table. */
   readonly deckKnown = new DeckKnowledge(ME);
+  /** This game's own id: the player profile counts a finished game once by it (profile/). */
+  readonly matchId: string = newLocalId();
   /** Card moves since the board last took them, for movement animation (presentation only). */
   protected moves = new Map<string, Move>();
   readonly commands: Command[] = [];

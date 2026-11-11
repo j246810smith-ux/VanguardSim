@@ -26,6 +26,8 @@ export interface HomeActions {
   readonly updates: (() => void) | null;
   readonly feedback: (() => void) | null;
   readonly quit: (() => void) | null;
+  /** The Player Profile screen (absent: the small name-and-avatar editor, as before). */
+  readonly profile?: () => void;
 }
 
 const SKYLINE = homeArtUrl('skyline');
@@ -230,7 +232,7 @@ export function HomeScreen({ actions, children }: { actions: HomeActions; childr
 
       <button
         className="home-profile"
-        onClick={() => setEditing(true)}
+        onClick={() => (actions.profile ? actions.profile() : setEditing(true))}
         data-testid="home-profile"
         title="Your profile"
       >

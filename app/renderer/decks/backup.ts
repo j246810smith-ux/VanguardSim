@@ -35,7 +35,7 @@ export const backupFileName = (now: Date) =>
 const isStrings = (v: unknown): v is string[] =>
   Array.isArray(v) && v.every((x) => typeof x === 'string');
 
-function readDeck(raw: unknown): SavedDeck | null {
+export function readDeck(raw: unknown): SavedDeck | null {
   if (typeof raw !== 'object' || raw === null) return null;
   const r = raw as Record<string, unknown>;
   const deck = r.deck as Record<string, unknown> | undefined;

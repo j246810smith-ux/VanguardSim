@@ -5708,3 +5708,364 @@ input.text {
   padding: 6px 12px;
   font: 600 20px var(--font-body);
 }
+
+/* ---- Player Profile (profile/ProfileScreen.tsx; the user's asset pack, 2026-11-11) ------------- */
+.pp {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  padding: 28px 36px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(51, 209, 255, 0.14), transparent 55%),
+    radial-gradient(ellipse at 95% 100%, rgba(255, 74, 61, 0.12), transparent 50%),
+    linear-gradient(180deg, #070d22, #050916);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+.pp-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pp-nav .btn {
+  min-height: 64px;
+  font-size: 22px;
+}
+.pp-tab {
+  min-height: 76px;
+  padding: 0 22px;
+  text-align: left;
+  font: 700 24px var(--font-body);
+  color: var(--text);
+  background: rgba(10, 20, 44, 0.85);
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.pp-tab.on {
+  color: #fff;
+  border-color: var(--me);
+  background: linear-gradient(90deg, rgba(51, 209, 255, 0.35), rgba(10, 20, 44, 0.85));
+  box-shadow: 0 0 16px color-mix(in srgb, var(--me) 45%, transparent);
+}
+.pp-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  padding-right: 6px;
+  touch-action: pan-y;
+}
+.pp-header {
+  position: relative;
+  flex: none;
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 22px 28px;
+  border: 2px solid color-mix(in srgb, var(--me) 60%, transparent);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 28px rgba(51, 209, 255, 0.25);
+}
+.pp-header-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 9, 22, 0.85) 0%,
+    rgba(5, 9, 22, 0.45) 55%,
+    transparent
+  );
+  pointer-events: none;
+}
+.pp-header > :not(.pp-header-shade) {
+  position: relative;
+}
+.pp-who {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pp-name {
+  font: 800 44px var(--font-display);
+  color: #fff;
+  text-shadow: 0 2px 8px #000;
+}
+.pp-title {
+  font: 700 22px var(--font-body);
+  color: var(--gold);
+  min-height: 26px;
+}
+.pp-ids {
+  display: flex;
+  gap: 24px;
+  font-size: 17px;
+}
+.pp-dim {
+  opacity: 0.7;
+  font-weight: 500;
+}
+.pp-edit {
+  margin-left: auto;
+  min-height: 64px;
+  font-size: 22px;
+}
+.pp-card {
+  flex: none;
+  padding: 16px 22px 18px;
+  background: rgba(8, 14, 32, 0.88);
+  border: 1px solid var(--panel-edge);
+  border-radius: 14px;
+}
+.pp-card h3 {
+  margin: 0 0 12px;
+  font: 800 24px var(--font-display);
+  letter-spacing: 0.04em;
+}
+.pp-card p {
+  font-size: 18px;
+}
+.pp-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.pp-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 10px;
+  background: rgba(16, 32, 70, 0.6);
+  border: 1px solid rgba(51, 209, 255, 0.3);
+  border-radius: 12px;
+}
+.pp-tile-label {
+  font: 600 19px var(--font-body);
+  opacity: 0.85;
+}
+.pp-tile-value {
+  font: 800 36px var(--font-display);
+  color: #fff;
+  text-align: center;
+}
+.pp-favs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.pp-fav {
+  font: 700 28px var(--font-body);
+  color: #fff;
+}
+.pp-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.pp-row .seg button {
+  min-height: 52px;
+  font-size: 18px;
+}
+.pp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.pp-table th,
+.pp-table td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pp-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+}
+.pp-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pp-history li {
+  display: grid;
+  grid-template-columns: 80px 170px 100px 1.2fr 1.2fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px 6px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.pp-history .r-win b {
+  color: var(--good);
+}
+.pp-history .r-loss b {
+  color: #ff8c9c;
+}
+.modal.pp-editor {
+  width: min(1100px, 92%);
+  max-height: 90%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+.pp-banner-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 150px;
+  padding: 0 22px;
+  border-radius: 12px;
+  border: 2px solid color-mix(in srgb, var(--me) 60%, transparent);
+}
+.pp-field {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font: 700 20px var(--font-body);
+}
+.pp-field input,
+.pp-field select {
+  min-height: 56px;
+  min-width: 380px;
+  font: 600 20px var(--font-body);
+}
+.pp-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pp-avatar {
+  padding: 4px;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.pp-avatar.on {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.modal.pp-banners {
+  width: min(1300px, 94%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pp-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+.pp-banner-option {
+  position: relative;
+  height: 110px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 12px;
+  font: 700 18px var(--font-body);
+  color: #fff;
+  text-shadow: 0 1px 4px #000;
+}
+.pp-banner-option.on {
+  border-color: var(--me);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--me) 55%, transparent);
+}
+.pp-check {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-style: normal;
+  font-size: 26px;
+  color: var(--me);
+}
+
+.pp-tile.small .pp-tile-value {
+  font: 700 22px var(--font-body);
+  opacity: 0.8;
+}
+/* the editor's and banner picker's buttons: big enough for a finger */
+.pp-editor .buttons .btn,
+.pp-banners .buttons .btn,
+.pp-field .btn {
+  min-height: 60px;
+  min-width: 150px;
+  font-size: 20px;
+}
+.pp-banners .seg button {
+  min-height: 56px;
+  font-size: 20px;
+}
+
+/* level and EXP in the profile header */
+.pp-level {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;
+}
+.pp-lv {
+  font: 800 26px var(--font-display);
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+.pp-lvbar {
+  width: 300px;
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+.pp-lvbar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--me), var(--gold));
+}
+.pp-exp {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Sync devices (profile/SyncPanel.tsx) */
+.pp-sync h4 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  color: #cfe0ff;
+}
+.pp-sync-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.pp-sync-row input {
+  min-width: 0;
+  flex: 1 1 180px;
+  max-width: 260px;
+  padding: 6px 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.pp-sync-status {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(120, 170, 255, 0.12);
+}

@@ -21,6 +21,7 @@ import { THEMES, type ThemeId } from './themes';
 import { OnlineScreen } from './screens/OnlineScreen';
 import type { OnlineController } from './online/controller';
 import { DeckBuilder } from './screens/DeckBuilder';
+import { ProfileScreen } from './profile/ProfileScreen';
 import { HomeScreen } from './home/HomeScreen';
 import { PhoneArtDownload } from './android/PhoneArtDownload';
 import { PhoneUpdates } from './android/PhoneUpdates';
@@ -148,6 +149,7 @@ type Screen =
   | { name: 'updates'; from: 'menu' | 'settings' }
   | { name: 'decks' }
   | { name: 'cards' }
+  | { name: 'profile' }
   | { name: 'battle'; config: SessionConfig; key: number }
   | { name: 'demo-setup' }
   | { name: 'online'; notice: string | null }
@@ -292,6 +294,7 @@ export function App() {
           />
         )}
         {screen.name === 'decks' && <DeckBuilder onBack={() => setScreen({ name: 'menu' })} />}
+        {screen.name === 'profile' && <ProfileScreen onBack={() => setScreen({ name: 'menu' })} />}
         {screen.name === 'cards' && (
           <DeckBuilder mode="browse" onBack={() => setScreen({ name: 'menu' })} />
         )}
@@ -398,6 +401,7 @@ function MainMenu({
         updates: CAN.updateInPlace ? () => go({ name: 'updates', from: 'menu' }) : null,
         feedback: feedback ? () => void feedback() : null,
         quit: IS_ANDROID ? null : () => window.close(),
+        profile: () => go({ name: 'profile' }),
       }}
     >
       {dataNotice && (

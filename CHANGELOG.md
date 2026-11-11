@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.38.0-alpha — 2026-11-11
+
+- **Player Profile** (tap your name on the home screen): your name, avatar, one of nine titles and
+  a banner (five new banners, or any playmat); **Statistics** (overall, against the CPU, online; per
+  format), **Match History**, and an honest **Friends** page (friends and ranked play need online
+  accounts, which do not exist yet). Every finished CPU or online game counts once; CPU
+  demonstrations and games left before the end never count. Kept on this device with a backup copy.
+- **EXP and levels:** 25 EXP for every counted game, 50 more for winning on a turn you declared
+  **Final Turn!**; 100 EXP a level, up to level 50. Games played before this version count too.
+- **Sync devices** (Profile → Sync devices): the same profile and decks on your phone and your PC.
+  Live with a room code (both devices online), or with a sync file. Games from both devices are
+  counted once each; the newest look is kept; every deck is kept (a deck saved on both keeps its
+  newest edit). A deck deleted on one device comes back from the other: delete it on both.
+
 ## 0.37.0-alpha — 2026-11-11
 
 - **Three formats:** **Original Era — Strict** (as before), **Original Era — Expanded** (the

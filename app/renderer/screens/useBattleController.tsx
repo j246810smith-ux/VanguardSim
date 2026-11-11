@@ -29,6 +29,8 @@ import { paced, useSettings } from '../settings';
 import { type ConnectionWatch } from '../online/ConnectionBanner';
 import { useBackHandler } from '../android/back';
 import { useConfirm } from '../ui/ConfirmDialog';
+import { matchRecordOf } from '../profile/matchRecorder';
+import { countMatch } from '../profile/repository';
 import type { DropTarget } from '../ui/usePointerDrag';
 
 /** An online match (D-032): the session comes from the host or guest link. */
@@ -171,6 +173,8 @@ export function useBattleController(
   // B11: a cosmetic "Final Turn!" (never changes the game): who declared it, shown for a moment
   const [finalTurn, setFinalTurn] = useState<{ seat: PlayerId; key: number } | null>(null);
   const declaredTurn = useRef<string | null>(null);
+  /** The turn the player last declared Final Turn on ("<turn>-<seat>"). */
+  const myFinalTurn = useRef<string | null>(null);
   const cpuDeclared = useRef(false);
   // guardians marked in the hand, not yet called (B3); `guarding` holds those being called now
   const [staged, setStaged] = useState<readonly StagedGuard[]>([]);
@@ -250,6 +254,34 @@ export function useBattleController(
     );
     return () => clearTimeout(t);
   });
+
+  // the player profile counts a finished game once (profile/matchRecorder.ts): not demonstrations,
+  // not a game left before it ended
+  useEffect(() => {
+    const r = matchRecordOf(
+      {
+        matchId: session.matchId,
+        ending: session.ending,
+        mySeat: ME,
+        demo: demo !== null,
+        online: !!online,
+        format: playFormat,
+        clan: clanOf(myDeck),
+        deckName: online?.myDeckName ?? config?.myDeckName ?? '',
+        opponent: online
+          ? online.opponentName
+          : config
+            ? `CPU (${LEVEL_NAME[config.aiLevel]})`
+            : 'CPU',
+        // the game ended on the player's own turn, on which they declared Final Turn
+        finalTurnDeclared:
+          session.view.activePlayer === ME &&
+          myFinalTurn.current === `${session.view.turnNumber}-${ME}`,
+      },
+      new Date().toISOString(),
+    );
+    if (r) countMatch(r);
+  }, [session, session.ending]);
 
   // cards slide from where they were (presentation only; off at Instant speed / reduced motion)
   const slideMs =
@@ -493,6 +525,8 @@ export function useBattleController(
   }
   function declareFinalTurn(seat: PlayerId) {
     declaredTurn.current = `${view.turnNumber}-${view.activePlayer}`;
+    // the player's own declaration, for the profile's Final Turn EXP bonus
+    if (seat === ME) myFinalTurn.current = `${view.turnNumber}-${seat}`;
     setFinalTurn({ seat, key: Date.now() });
     audio.play(['finalTurn']);
   }

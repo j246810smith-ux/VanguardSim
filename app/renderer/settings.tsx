@@ -6,6 +6,7 @@ import { createContext, useContext } from 'react';
 import { IS_ANDROID } from './platform';
 import { DEFAULT_APP_ICON, validAppIcon } from './appIcons';
 import { seedProfiles, type ProfileId, type ProfilePrefs } from './presentation/profile';
+import type { Bindings } from './input/bindings';
 
 export type Speed = 'normal' | 'fast' | 'instant';
 /** Battle cut-ins (D-035): full-screen moments, quick ones, or only the small banners. */
@@ -78,7 +79,17 @@ export interface Settings {
   readonly profiles: Readonly<Record<ProfileId, ProfilePrefs>>;
   /** The playmat's moving layer: the battle's profile value (`forProfile`), like the view. */
   readonly animatedBackground: boolean;
+  /** Controller support (docs/CONTROLLER.md): on/off and the player's rebound buttons. */
+  readonly controller: ControllerSettings;
+  /** Digits roll to their new value (ui/Num.tsx, NumberFlow). Off with Reduced motion / Low. */
+  readonly animatedNumbers: boolean;
 }
+
+export interface ControllerSettings {
+  readonly enabled: boolean;
+  readonly bindings: Bindings;
+}
+export const DEFAULT_CONTROLLER: ControllerSettings = { enabled: true, bindings: {} };
 
 /**
  * Full on Windows. On Android, Reduced when the phone reports under 6 GB of memory
@@ -98,7 +109,14 @@ export function defaultGraphics(
  */
 export function effectiveSettings(s: Settings): Settings {
   return s.graphics === 'low'
-    ? { ...s, foil: false, cutIns: 'off', tableView: 'overhead', animatedBackground: false }
+    ? {
+        ...s,
+        foil: false,
+        cutIns: 'off',
+        tableView: 'overhead',
+        animatedBackground: false,
+        animatedNumbers: false,
+      }
     : s;
 }
 
@@ -124,6 +142,8 @@ export const DEFAULT_SETTINGS: Settings = {
   appIcon: DEFAULT_APP_ICON,
   profiles: seedProfiles({}),
   animatedBackground: true,
+  controller: DEFAULT_CONTROLLER,
+  animatedNumbers: true,
 };
 
 /** The settings a battle in profile `id` plays with: that profile's view and playmat. */
@@ -158,6 +178,7 @@ export function loadSettings(): Settings {
       theme: validTheme(s.theme),
       // settings saved before the profiles: both profiles start from the saved view and playmat
       profiles: seedProfiles(saved),
+      controller: { ...DEFAULT_CONTROLLER, ...(saved.controller ?? {}) },
     };
   } catch {
     return DEFAULT_SETTINGS;

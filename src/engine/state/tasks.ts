@@ -45,7 +45,8 @@ export type TaskBody =
    * "When this unit would choose a unit to attack, choose four of your opponent's units instead"
    * (BT17 Big Bang Knuckle Buster): the attacker picks the other three units it battles.
    */
-  | { readonly kind: 'choose_attack_targets'; selection?: string[] }
+  /** `upTo`: choose up to this many more targets (G-FC01 Big Bang Knuckle Turbo); default exactly three. */
+  | { readonly kind: 'choose_attack_targets'; readonly upTo?: number; selection?: string[] }
   | { readonly kind: 'guard_step_start' }
   /** CR 7.4.1.2: the defender's play timing (auto-pass if nothing can be done). */
   | { readonly kind: 'guard_play_timing' }
@@ -128,6 +129,8 @@ export type TaskBody =
       readonly frontRow?: true;
       /** Not the circle the ability's card is on. */
       readonly notSourceCircle?: true;
+      /** Only a circle that already has a unit ("to separate (RC) with a unit", G-FC01 Blueheart). */
+      readonly occupied?: true;
       selection?: string[];
     }
   | { readonly kind: 'end_frame'; readonly frame: number };

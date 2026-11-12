@@ -100,6 +100,51 @@ const REVIEWED_DIFFERENCES: Readonly<
       'Sphere Magus: the Japanese database calls it a trigger unit and its text limits it as [Heal], but its trigger field is empty; the English page shows the heal trigger.',
     use: 'en',
   },
+  'G-BT10-035': {
+    reason:
+      'Pressured Stealth Rogue, Sarashina-hime: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT10-047': {
+    reason:
+      'Plasgal: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT10-075': {
+    reason:
+      'Scheming Stealth Rogue, Taemahime: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT10-076': {
+    reason:
+      'Stealth Fiend, Murder Andon: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT11-031': {
+    reason:
+      'Witch of Fruit of Knowledge, Rooibos: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT11-061': {
+    reason:
+      'Transport Harpy: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT11-066': {
+    reason:
+      'Seal Dragon, Grograin: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT11-067': {
+    reason:
+      'Wyvern Strike, Heineger: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT11-068': {
+    reason:
+      'Dragon Knight, Tahir: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
   'TD07-004': {
     reason:
       'The Japanese database lists Tear Knight, Lazarus with no shield; every grade 2 [Intercept] unit has 5000 (the English page shows 5000).',
@@ -1190,6 +1235,15 @@ function cardsByJapaneseName(): Map<string, CardRecord> {
   return out;
 }
 
+/**
+ * Archived English pages lost the heart in "PR♥ISM" (shown as "?", G-FC01 Nectaria): put it back so
+ * the name matches the other PR♥ISM cards ("a heart card with PR♥ISM in its card name").
+ */
+function fixArchivedGlyphs<T extends { name: string; text: string }>(en: T): T {
+  const fix = (t: string) => t.replace(/PR\?ISM/g, 'PR♥ISM');
+  return { ...en, name: fix(en.name), text: fix(en.text) };
+}
+
 async function main(): Promise<void> {
   const isPr = isListProduct(set!);
   const jp = isPr ? groupPr('jp', await fetchSite('jp')) : group('jp', await fetchSite('jp'));
@@ -1364,7 +1418,10 @@ async function main(): Promise<void> {
       set: set!,
       jp: j ? localized(j.card) : null,
       en: e
-        ? { ...localized(e.card), ...(original ? { text: original.text } : {}) }
+        ? fixArchivedGlyphs({
+            ...localized(e.card),
+            ...(original ? { text: original.text } : {}),
+          })
         : wiki && j
           ? {
               number: `${set}/${no}EN`,

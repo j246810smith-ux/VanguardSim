@@ -1,5 +1,5 @@
 {
-  "note": "Unofficial English names and text for cards that were never printed in English (FC01, BT11-055 and PR cards; user's request, 2026-10-30). Used only when a card has no official English record; the game marks them as unofficial translations. Text follows the official English templates of the time (Nov 2014); the official Japanese text stays canonical.",
+  "note": "Unofficial English names and text for cards that were never printed in English (FC01, BT11-055, PR cards and G cards with no English source; user's request, 2026-10-30). Used only when a card has no official English record; the game marks them as unofficial translations. Text follows the official English templates of the time (Nov 2014); the official Japanese text stays canonical.",
   "cards": {
     "FC01-001": {
       "name": "Mighty Spear Liberator, Bleoberis",
@@ -280,6 +280,60 @@
       "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at up to five cards from the top of your deck, search for up to one grade 3 or greater card from among them, reveal it to your opponent, put it into your hand, and shuffle your deck.",
       "clan": "Royal Paladin",
       "race": "High Beast"
+    },
+    "G-BT10-035": {
+      "name": "Pressured Stealth Rogue, Sarashina-hime",
+      "text": "Shadowstitch-[AUTO](RC):At the end of the battle that this unit was boosted and attacked a vanguard, if the attack did not hit, [Soul-Charge 1].\n[AUTO][Generation Break 1]:When this unit is placed on (RC), you may choose another of your standing units, and that unit gets [Power]-5000 until end of turn. If you do, this unit gets [Power] +5000 until end of turn.",
+      "clan": "Murakumo",
+      "race": "Ghost"
+    },
+    "G-BT10-047": {
+      "name": "Plasgal",
+      "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] Choose one of your units, and until end of turn, it gets \"Boost\".",
+      "clan": "Royal Paladin",
+      "race": "High Beast"
+    },
+    "G-BT10-075": {
+      "name": "Scheming Stealth Rogue, Taemahime",
+      "text": "[AUTO](VC/RC)[Generation Break 1]:When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.\n[CONT](VC/RC):During your turn, if you have another \"Scheming Stealth Rogue, Taemahime\" on your (RC), this unit gets [Power] +2000.",
+      "clan": "Murakumo",
+      "race": "Demon"
+    },
+    "G-BT10-076": {
+      "name": "Stealth Fiend, Murder Andon",
+      "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC) due to the effect of a card, you may have this unit get [Power]-2000 until end of turn. If you do, until end of turn, this unit gets \"Boost\".",
+      "clan": "Murakumo",
+      "race": "Ghost"
+    },
+    "G-BT11-031": {
+      "name": "Witch of Fruit of Knowledge, Rooibos",
+      "text": "[CONT]:Sentinel\n[AUTO]:[Counter-Blast 1-card with \"Witch\" in its card name] When this unit is placed on (GC) from hand, you may pay the cost. If you do, call five cards from the top of your deck to (GC).\n[AUTO]:[Choose a card from your hand, and discard it] When this card is put into the drop zone from your soul, if you have a vanguard with \"Witch\" in its card name, you may pay the cost. If you do, return this card to your hand, and [Soul-Charge 2].",
+      "clan": "Genesis",
+      "race": "Human"
+    },
+    "G-BT11-061": {
+      "name": "Transport Harpy",
+      "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+      "clan": "Genesis",
+      "race": "Ghost"
+    },
+    "G-BT11-066": {
+      "name": "Seal Dragon, Grograin",
+      "text": "[CONT](RC):If you have a vanguard with \"Seal Dragon\" in its card name, all of your opponent's units in the same column as this unit cannot move. (They cannot intercept either)\n[AUTO](RC):When this unit attacks a vanguard, if you have a vanguard with \"Seal Dragon\" in its card name, this unit gets [Power] +2000 until end of that battle.",
+      "clan": "Kagero",
+      "race": "Flame Dragon"
+    },
+    "G-BT11-067": {
+      "name": "Wyvern Strike, Heineger",
+      "text": "[AUTO](VC/RC):Blaze (At the beginning of each of your attacks, if you have more rear-guards than your opponent, your vanguard becomes blazing until end of turn)\n[CONT](RC/GC)[Generation Break 1]:If your vanguard is blazing, or your opponent has three or less rear-guards, this unit gets [Power] +2000/[Shield] +5000.",
+      "clan": "Kagero",
+      "race": "Wing Dragon"
+    },
+    "G-BT11-068": {
+      "name": "Dragon Knight, Tahir",
+      "text": "[AUTO](VC/RC):Blaze (At the beginning of each of your attacks, if you have more rear-guards than your opponent, your vanguard becomes blazing until end of turn)\n[AUTO][Generation Break 1]:[Counter-Blast 1] When this unit is placed on (RC), if you have fewer rear-guards than your opponent, you may pay the cost. If you do, choose one of your opponent's rear-guards, and retire it.\n[CONT](RC)[Generation Break 1]:If your vanguard is blazing, this unit gets [Power] +2000.",
+      "clan": "Kagero",
+      "race": "Human"
     }
   }
 }

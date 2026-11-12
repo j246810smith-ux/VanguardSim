@@ -855,6 +855,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(circles ? { circles } : {}),
           ...(step.frontRow ? { frontRow: true as const } : {}),
           ...(step.notSourceCircle ? { notSourceCircle: true as const } : {}),
+          ...(step.occupied ? { occupied: true as const } : {}),
         })),
       );
       return true;
@@ -1064,6 +1065,31 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       s.tasks.unshift(...stepTasks(frame.id, steps));
       return true;
     }
+    case 'engorge': {
+      // CR 1.48.1 11.24.2: the retire is an effect, marked for "retired due to the effect of engorge"
+      let retired = step.retire === undefined;
+      if (step.retire !== undefined) {
+        for (const id of select(ec, step.retire)) {
+          if (!onField(s, id) || isRestricted(s, d.ctx, id, 'cannot_be_retired')) continue;
+          if (isRestricted(s, d.ctx, id, 'cannot_be_retired_by_you')) continue;
+          moveCard(d, id, { player: s.cards[id]!.owner, zone: 'drop' }, 'effect', {
+            by: frame.master,
+            cause: frame.source,
+            byEngorge: true,
+          });
+          retired = true;
+        }
+      }
+      if (!retired) return true;
+      for (const id of targets) {
+        const card = s.cards[id];
+        const at = locate(s, id);
+        if (!card || at.zone !== 'circle' || card.engorged) continue;
+        card.engorged = true;
+        emit(d, { type: 'ENGORGED', player: at.player, instanceId: id });
+      }
+      return true;
+    }
     case 'blaze': {
       const p = s.players[frame.master];
       const rg = (q: typeof p) =>
@@ -1174,7 +1200,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'stand':
     case 'rest':
       for (const id of targets.filter((t) => onField(s, t)))
-        setOrientation(d, id, step.op, frame.master);
+        setOrientation(d, id, step.op, frame.master, frame.source);
       return true;
     case 'reveal':
       emit(d, { type: 'CARDS_REVEALED', player: frame.master, instanceIds: targets });
@@ -1358,13 +1384,15 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       s.tasks.unshift(...stepTasks(frame.id, [{ op: 'pay', costs: use }]));
       return true;
     }
-    case 'grant':
+    case 'grant': {
+      const ability = step.freeze ? freezeBound(step.ability, frame.bindings) : step.ability;
       for (const target of targets) {
-        const grant = { id: s.nextId++, target, ability: step.ability, until: step.duration };
+        const grant = { id: s.nextId++, target, ability, until: step.duration };
         s.grants.push(grant);
         emit(d, { type: 'ABILITY_GRANTED', grant });
       }
       return true;
+    }
     case 'also_named_as': {
       const of = select(ec, step.of)[0];
       if (of === undefined) return true;
@@ -1439,6 +1467,7 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
       const here = d.state.players[frame.master].circles[c];
       if (here.some((id) => d.state.cards[id]!.locked)) return false;
       if (task.open && here.length > 0) return false;
+      if (task.occupied && here.length === 0) return false;
       if (task.sameColumn && CIRCLE_COLUMN[c] !== columnOf(d.state, frame.source)) return false;
       if (task.column && CIRCLE_COLUMN[c] !== task.column) return false;
       if (task.circles && !task.circles.includes(c)) return false;
@@ -1509,4 +1538,25 @@ export function chooseStandby(d: Draft, task: Extract<Task, { kind: 'choose_stan
   if (picked === null) return false;
   playStandby(d, Number(picked[0]));
   return true;
+}
+
+/** `grant` with `freeze`: every `bound` selector in the ability becomes the cards bound now. */
+function freezeBound(
+  ability: AbilityDefinition,
+  bindings: Readonly<Record<string, readonly InstanceId[]>>,
+): AbilityDefinition {
+  const walk = (v: unknown): unknown => {
+    if (Array.isArray(v)) return v.map(walk);
+    if (v === null || typeof v !== 'object') return v;
+    const o = v as Record<string, unknown>;
+    if (o.sel === 'bound' && typeof o.name === 'string' && bindings[o.name] !== undefined) {
+      return {
+        sel: 'ids',
+        ids: [...bindings[o.name]!],
+        ...(o.filter !== undefined ? { filter: o.filter } : {}),
+      };
+    }
+    return Object.fromEntries(Object.entries(o).map(([k, x]) => [k, walk(x)]));
+  };
+  return walk(ability) as AbilityDefinition;
 }

@@ -19,12 +19,13 @@ import {
   reportText,
   scanFolder,
 } from '../../src/artwork/files';
-import { checkImage } from '../../src/artwork/image';
+import { checkImage, fingerprint, isPlaceholderContent } from '../../src/artwork/image';
 import {
   buildManifest,
   cardIdFromFileName,
   englishNumbers,
   imagePath,
+  isPlaceholderImage,
   setsOf,
   type ArtworkManifest,
 } from '../../src/artwork/manifest';
@@ -148,6 +149,45 @@ describe('manifest', () => {
     expect(noImage).toEqual([]);
   });
 
+  it('never offers the official "SECRET" stand-in as a card image (Blaster Blade Seeker)', () => {
+    // BT16-009's English record is the Legion Rare printing BT16/L02EN, which has no image of
+    // its own on the English site: only the Japanese art is offered (feedback 2026-11-12)
+    const manifest = buildManifest(
+      SETS.map((s) => ({ set: s.file.set, cards: s.file.cards })),
+      'test',
+    );
+    const seeker = manifest.entries.find((e) => e.id === 'BT16-009')!;
+    expect(seeker.name).toBe('Blaster Blade Seeker');
+    expect(seeker.images.en).toBeUndefined();
+    expect(seeker.images.jp).toMatch(/\/BT16\/bt16_011\.png$/);
+    expect(seeker.enNumber).toBe('BT16/L02EN');
+    expect(manifest.entries.some((e) => isPlaceholderImage(e.images.en ?? e.images.jp))).toBe(
+      false,
+    );
+    // and a record that still carries the stand-in path loses it when the manifest is built
+    const stub = buildManifest(
+      [
+        {
+          set: 'TEST',
+          cards: [
+            {
+              ...SETS[0]!.file.cards[0]!,
+              id: 'TEST-001',
+              en: {
+                ...SETS[0]!.file.cards[0]!.en!,
+                number: 'TEST/001EN',
+                image: '/wordpress/wp-content/images/cardlist/s/vg_00.jpg',
+              },
+            },
+          ],
+        },
+      ],
+      'test',
+    );
+    expect(stub.entries[0]!.images.en).toBeUndefined();
+    expect(stub.entries[0]!.images.jp).toBeTruthy();
+  });
+
   it('lists the G-era sets last, with official image paths and G- folders (D-034)', () => {
     const manifest = buildManifest(
       SETS.map((s) => ({ set: s.file.set, cards: s.file.cards })),
@@ -238,6 +278,24 @@ describe('image checks', () => {
     expect(checkImage(j.subarray(0, j.length - 2)).ok).toBe(false);
     expect(checkImage(new TextEncoder().encode('<html>'.repeat(30))).ok).toBe(false);
     expect(checkImage(new Uint8Array(10)).ok).toBe(false);
+  });
+
+  it('rejects the official "SECRET" stand-in by content, though it is a complete JPEG', () => {
+    // FNV-1a reference values, so the fingerprint cannot drift silently
+    expect(fingerprint(new TextEncoder().encode(''))).toBe(0x811c9dc5);
+    expect(fingerprint(new TextEncoder().encode('a'))).toBe(0xe40c292c);
+    expect(isPlaceholderContent(jpeg())).toBeNull();
+    expect(checkImage(jpeg()).ok).toBe(true);
+    // the stand-in itself, when the dev tree has it (assets/cards is not in git)
+    const file = path.join('assets', 'cards', 'BT16', 'BT16-009.jpg');
+    if (existsSync(file)) {
+      const bytes = new Uint8Array(readFileSync(file));
+      if (bytes.length === 15597) {
+        const check = checkImage(bytes);
+        expect(check.ok).toBe(false);
+        expect(!check.ok && check.reason).toMatch(/SECRET/);
+      }
+    }
   });
 });
 

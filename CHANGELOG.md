@@ -1,5 +1,59 @@
 # Changelog
 
+## 0.39.0-alpha — 2026-11-12
+
+- **Animated numbers:** power plates, the ATTACK / DEFENCE display, attack preview totals, the
+  damage / deck / hand counters, Card Details' current stats, profile statistics and the Deck
+  Builder's counts roll their digits to the new value (NumberFlow). The value itself changes at
+  once, exactly as the rules say; only the digits move. Off with Reduced motion, Instant speed or
+  Low graphics, and by its own switch, Settings → **Animated numbers**.
+- Fixed: G guardians were offered for [Stride] (a 0-power G guardian could be stridden onto the
+  vanguard). A G guardian has [G Guardian], not [Stride].
+- Polish: the controller starts on START BATTLE (home), NEW GAME (modes) and the first hand card
+  (battle); the opponent's G zone viewer says how many G units are face down; Card Details describes
+  a unit's restrictions in words ("cannot intercept") instead of raw data; the Deck Builder's filters
+  are an area of their own for LB/RB; the phone's card art download fetches again a file that is
+  the official "SECRET" stand-in.
+
+- **G zone viewer:** opening your own G zone now shows every G unit face up, with a FACE DOWN tag
+  on the ones still face down (you may always look at your own G zone: CR 4.11.2). Nothing in the
+  game changes by looking. The opponent's G zone shows only their face-up G units, as before.
+  Card Details now names the G zone instead of "?".
+- **Blaster Blade Seeker (BT16) showed a "? SECRET" picture:** the official English card list has
+  no image for its Legion Rare printing and serves that stand-in instead, which the Artwork
+  Manager had downloaded. The card now uses its Japanese booster art; the stand-in counts as a
+  broken image, so **Download missing images** for BT16 replaces it (one file). The card's
+  rarity (RR) was always right. Card numbers shown in Card Details and the Deck Builder are the
+  base printing's (`BT16/009`, not `BT16/L02EN`).
+- **Controller support on Windows** (docs/CONTROLLER.md): play with an Xbox, PlayStation or other
+  pad. The D-pad or left stick moves a focus ring over cards, circles, piles and buttons; A selects
+  (what a click does), B cancels or goes back, X opens Card details, Y the skills menu, LB/RB jump
+  between areas (hand, field, piles, actions; deck and pool), LT/RT scroll, Menu opens the game menu
+  or Settings, View the battle history. Button hints follow the pad in hand. Every button but the
+  D-pad can be changed in Settings → Controller, which also shows the connected pads. The mouse,
+  keyboard and touch controls are unchanged; Android does not use the controller yet.
+
+- **G Era: G-FC02 "Fighter's Collection 2015 Winter"** (48 cards): G units and new support for the
+  Witches, Jewel Knights, Kaisers, Workeroids, "Rex", Seven Seas, Pacifica, Trans-core and more.
+  New: a card's grade while it is being checked (Dimensional Robo, Daibazooka), "your opponent may
+  discard … if he or she does not …", and G units that return themselves to the G zone. "Kaiser"
+  also matches Daikaiser and Meteokaiser, as the Japanese text does. Protector Lotus Maiden of
+  Yggdrasil (G-FC02-024) is the original printing of G-BT12-045.
+- **G Era: G-FC01 "Fighter's Collection 2015"** (50 cards): a G unit for each clan's leaders and
+  Light Elemental, Peaker. New: attacks against up to three units for each heart card (True
+  Brawler, Big Bang Knuckle Turbo), calling only onto a circle that already has a unit (Blueheart),
+  and effects that count or copy your heart cards. Fixed the PR♥ISM heart in the archived English
+  name of Legendary PR♥ISM-Duo, Nectaria.
+- **G Era: G-BT10 "Raging Clash of the Blade Fangs"** (104 cards; Shadow Paladin, Nova Grappler,
+  Royal Paladin, Gold Paladin, Tachikaze, Murakumo, Neo Nectar). New: **Engorge** (Tachikaze),
+  **Shadowstitch** (Murakumo), units that cannot attack a vanguard, rear-guards that intercept from
+  the back row, and G units called to (RC) from the G zone. Four cards that were never archived in
+  English use unofficial translations.
+- Fixed: printed "this card is also regarded as …" names (G-BT07 Enigman Wave and Ripple, G-BT08
+  Marjukka) never applied.
+- Fixed: a unit that can attack no one (e.g. it cannot attack a vanguard and the opponent has no
+  rear-guards) is no longer offered an attack.
+
 ## 0.38.0-alpha — 2026-11-11
 
 - **Player Profile** (tap your name on the home screen): your name, avatar, one of nine titles and

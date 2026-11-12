@@ -567,12 +567,32 @@ button {
 }
 .power-plate {
   animation: power-pop calc(0.35s * var(--anim)) ease-out;
+  font-variant-numeric: tabular-nums;
+}
+/* the power changed on a unit already there: the same pop again, while the digits roll (ui/Num) */
+.power-plate.changed {
+  animation: power-pop-again calc(0.35s * var(--anim)) ease-out;
 }
 @keyframes power-pop {
   from {
     scale: 1.35;
     filter: brightness(1.8);
   }
+}
+@keyframes power-pop-again {
+  from {
+    scale: 1.35;
+    filter: brightness(1.8);
+  }
+}
+/* rolling digits (NumberFlow) keep their width while they spin */
+.vs-plate .val,
+.counter,
+.ap-total,
+.g-shield,
+.pp-tile-value,
+.crit-badge {
+  font-variant-numeric: tabular-nums;
 }
 .power-plate.up {
   color: var(--gold);
@@ -1423,6 +1443,109 @@ button {
   width: 130px;
   height: 189px;
   cursor: pointer;
+}
+.zone-grid .zone-card {
+  position: relative;
+}
+/* a face-down card shown face up in the owner's own G zone (CR 1.48.1 4.11.2) */
+.zone-face-tag {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(40, 48, 70, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+/* ---- controller (docs/CONTROLLER.md) -------------------------------------------------------- */
+/* the focus cursor: a ring on whatever the pad would click next */
+.nav-focus {
+  outline: 4px solid var(--gold) !important;
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.6),
+    0 0 22px var(--gold-glow) !important;
+  border-radius: 8px;
+  z-index: 5;
+}
+.circle.nav-focus {
+  outline-offset: -2px;
+  border-radius: 50%;
+}
+.pad-hints {
+  position: absolute;
+  left: 18px;
+  bottom: 6px;
+  display: flex;
+  gap: 14px;
+  padding: 4px 12px;
+  border-radius: 10px;
+  background: rgba(8, 14, 36, 0.78);
+  border: 1px solid var(--panel-edge);
+  font-size: 15px;
+  color: var(--text-dim);
+  pointer-events: none;
+  z-index: 60;
+}
+.pad-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.pad-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 13px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1408;
+  background: var(--gold);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.pad-glyph.playstation {
+  background: #e6eefb;
+}
+.pad-toast {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: rgba(8, 14, 36, 0.9);
+  border: 1px solid var(--gold);
+  color: var(--text);
+  font-size: 18px;
+  z-index: 61;
+  pointer-events: none;
+}
+.pad-bindings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pad-binding {
+  display: grid;
+  grid-template-columns: 300px 60px auto;
+  align-items: center;
+  gap: 10px;
+}
+.pad-binding-label {
+  font-size: 17px;
 }
 
 /* ---- log ------------------------------------------------------------------------------------ */

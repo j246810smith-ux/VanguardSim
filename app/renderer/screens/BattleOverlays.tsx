@@ -215,6 +215,7 @@ export function BattleOverlays({
           view={view}
           title={zone.title}
           ids={zone.ids}
+          revealFaceDown={zone.reveal ?? false}
           onPick={(id) => setDetails(id)}
           onClose={() => setZone(null)}
         />

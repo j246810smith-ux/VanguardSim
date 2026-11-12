@@ -175,9 +175,10 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         ? { eventCard: e.instanceId }
         : null;
     case 'rests':
-      return e.type === 'UNIT_RESTED' && subjectIs(ec, t.who, e.instanceId, e.player)
-        ? { eventCard: e.instanceId }
-        : null;
+      if (e.type !== 'UNIT_RESTED' || !subjectIs(ec, t.who, e.instanceId, e.player)) return null;
+      if (t.byYourEffect && e.by !== ec.master) return null;
+      if (t.otherCause && e.cause === ec.source) return null;
+      return { eventCard: e.instanceId };
     case 'put_into_drop': {
       if (e.type !== 'CARD_MOVED' || e.to.zone !== 'drop') return null;
       const fromOk =
@@ -194,6 +195,9 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         return null;
       if (t.otherCause && e.cause === ec.source) return null;
       if (t.byCost && e.reason !== 'cost') return null;
+      if (t.byEngorge !== undefined && (e.byEngorge === true) !== t.byEngorge) return null;
+      if (t.wasEngorged && !e.wasEngorged) return null;
+      if (t.bySource && e.cause !== ec.source) return null;
       // the card is already in the drop zone: column filters use the circle it left
       const at =
         e.from.zone === 'circle'
@@ -289,6 +293,14 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return e.type === 'CHARGING' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
         : null;
+    case 'put_into_gzone':
+      if (e.type !== 'CARD_MOVED' || e.to.zone !== 'gzone') return null;
+      if (e.from.zone !== 'circle' || e.from.circle !== 'vanguard') return null;
+      return subjectIs(ec, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
+    case 'becomes_engorged':
+      return e.type === 'ENGORGED' && subjectIs(ec, t.who, e.instanceId, e.player)
+        ? { eventCard: e.instanceId }
+        : null;
     case 'becomes_blazing':
       return e.type === 'BLAZING' && e.player === ec.master ? { eventCard: null } : null;
     case 'stride_discarded': {
@@ -327,6 +339,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'STRIDE',
   'BLAZING',
   'CHARGING',
+  'ENGORGED',
 ]);
 
 export function detectTriggers(d: Draft, event: GameEvent): void {

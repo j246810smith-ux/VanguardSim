@@ -12,7 +12,7 @@ import { HIDDEN, type GameState, type InstanceId, type PlayerId } from '../../..
 import { RecentEvents } from '../board/Feedback';
 import { Field } from '../board/Field';
 import { Hand } from '../board/Hand';
-import { Pile } from '../board/Panels';
+import { gZoneTitle, Pile } from '../board/Panels';
 import {
   BANNER_Y,
   FIELD_H,
@@ -495,7 +495,7 @@ function MyPiles({ c }: { c: BattleController }) {
             ids={me.gzone}
             style={tile}
             big
-            onOpen={() => openZone('Your G zone', me.gzone)}
+            onOpen={() => openZone('Your G zone', me.gzone, true)}
           />
         )}
         {me.bind.length > 0 && (
@@ -569,7 +569,7 @@ function OppPiles({ c }: { c: BattleController }) {
             style={tile}
             onOpen={() =>
               openZone(
-                "Opponent's G zone",
+                gZoneTitle(view, opp.gzone),
                 opp.gzone.filter((id) => view.cards[id]!.faceUp),
               )
             }

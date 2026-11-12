@@ -8,7 +8,7 @@
  * on the phone are skipped, so pressing Download again carries on where it stopped.
  */
 import { SETS, CARD_DATA_VERSION } from '../../../src/cards';
-import { checkImage, MAX_IMAGE_BYTES } from '../../../src/artwork/image';
+import { checkImage, MAX_IMAGE_BYTES, PLACEHOLDER_SIZES } from '../../../src/artwork/image';
 import {
   buildManifest,
   imagePath,
@@ -75,7 +75,12 @@ async function present(fs: FilesystemPlugin, sets: readonly string[]): Promise<S
   for (const set of sets) {
     try {
       const { files } = await fs.readdir({ directory: 'EXTERNAL', path: `cards/${set}` });
-      for (const f of files) if (f.type !== 'directory') have.add(`${set}/${f.name}`);
+      for (const f of files) {
+        if (f.type === 'directory') continue;
+        // the official "SECRET" stand-in downloaded by older versions is not art: fetch it again
+        if (f.size !== undefined && PLACEHOLDER_SIZES.has(f.size)) continue;
+        have.add(`${set}/${f.name}`);
+      }
     } catch {
       // no folder for this set yet
     }

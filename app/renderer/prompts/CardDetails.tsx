@@ -5,15 +5,39 @@ import {
   currentShield,
   type GameState,
   type InstanceId,
+  type Restriction,
 } from '../../../src/engine';
 import { ctx, defOf, metaOf } from '../engine';
 import { CardView } from '../ui/CardView';
+import { Num } from '../ui/Num';
 
 const DURATION: Record<string, string> = {
   end_of_turn: 'until end of turn',
   end_of_battle: 'until end of battle',
   next_stand_phase: 'until your next stand phase',
+  next_end_phase: 'until the end of its owner’s next turn',
+  end_of_game: 'for the rest of the game',
 };
+
+/** A restriction in the words of the card text (polish item 4, 2026-11-12). */
+const RESTRICTION: Record<Restriction, string> = {
+  cannot_be_hit: 'cannot be hit',
+  cannot_attack: 'cannot attack',
+  cannot_normal_ride: 'cannot be normal ridden',
+  cannot_attack_rear_guard: 'cannot attack a rear-guard',
+  cannot_attack_vanguard: 'cannot attack a vanguard',
+  cannot_boost: 'cannot boost',
+  cannot_be_boosted: 'cannot be boosted',
+  cannot_intercept: 'cannot intercept',
+  cannot_stand: 'cannot stand',
+  cannot_unlock: 'is not unlocked in the end phase',
+  no_damage: 'deals no damage when its attack hits',
+  cannot_be_retired: 'cannot be retired by card effects',
+  cannot_be_retired_by_you: 'cannot be retired by its controller’s card effects',
+  resist: 'Resist: cannot be chosen by the opponent’s card effects',
+};
+export const restrictionText = (r: Restriction): string =>
+  RESTRICTION[r] ?? String(r).replace(/_/g, ' ');
 
 function zoneOf(s: GameState, id: InstanceId): string {
   for (const pl of s.players) {
@@ -31,6 +55,7 @@ function zoneOf(s: GameState, id: InstanceId): string {
     ] as const) {
       if (pl[z].includes(id)) return z;
     }
+    if (pl.gzone.includes(id)) return 'G zone';
   }
   return '?';
 }
@@ -61,7 +86,7 @@ export function CardDetails({
   const stat = (printed: number, now: number) =>
     onField && now !== printed ? (
       <>
-        {printed} → <span className="now">{now}</span>
+        {printed} → <Num value={now} className="now" />
       </>
     ) : (
       printed
@@ -72,7 +97,7 @@ export function CardDetails({
       .map((m) => `${m.stat} ${m.amount > 0 ? '+' : ''}${m.amount} ${DURATION[m.until] ?? ''}`),
     ...view.restrictions
       .filter((r) => r.target === id)
-      .map((r) => `${JSON.stringify(r.restriction)} ${DURATION[r.until] ?? ''}`),
+      .map((r) => `${restrictionText(r.restriction)} ${DURATION[r.until] ?? ''}`),
     ...view.grants
       .filter((g) => g.target === id)
       .map((g) => `gained: ${g.ability.text} ${DURATION[g.until] ?? ''}`),
@@ -153,32 +178,51 @@ export function CardDetails({
 }
 
 /** A face-up pile (soul, drop, damage, bind) opened as a grid. */
+/**
+ * The cards of a zone, face up when the viewer may see them. A face-down card is a back, except
+ * with `revealFaceDown`: the owner's own G zone (CR 1.48.1 4.11.2: a player may always look at the
+ * cards in their G zone, face up or down), where a face-down card shows its face with a FACE DOWN
+ * tag. Only the display changes: the card's state in the game is untouched. Cards the engine
+ * hides from this viewer (`HIDDEN`, e.g. the opponent's face-down G units) stay backs regardless.
+ */
 export function ZoneViewer({
   view,
   title,
   ids,
   onPick,
   onClose,
+  revealFaceDown = false,
 }: {
   view: GameState;
   title: string;
   ids: readonly InstanceId[];
   onPick: (id: InstanceId) => void;
   onClose: () => void;
+  revealFaceDown?: boolean;
 }) {
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal" onClick={(e) => e.stopPropagation()} data-testid="zone-viewer">
         <h2 style={{ marginTop: 0 }}>
           {title} ({ids.length})
         </h2>
         <div className="zone-grid">
           {ids.map((id) => {
             const c = view.cards[id]!;
-            const shown = c.faceUp && defOf(view, id) ? c.definitionId : null;
+            const known = defOf(view, id) !== null;
+            const shown = known && (c.faceUp || revealFaceDown) ? c.definitionId : null;
+            const tagged = shown !== null && !c.faceUp;
             return (
-              <div key={id} onClick={() => shown && onPick(id)}>
+              <div
+                key={id}
+                className="zone-card"
+                onClick={() => shown && onPick(id)}
+                data-testid={`zone-card-${id}`}
+                data-face={c.faceUp ? 'up' : 'down'}
+                {...(shown ? { 'data-nav': true, 'data-iid': id } : {})}
+              >
                 <CardView definitionId={shown} width={130} height={189} />
+                {tagged && <span className="zone-face-tag">FACE DOWN</span>}
               </div>
             );
           })}

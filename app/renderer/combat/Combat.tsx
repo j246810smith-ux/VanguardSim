@@ -15,6 +15,7 @@ import type { AttackPreview } from '../game/attackPreview';
 import type { Fx } from '../game/session';
 import { paced, useSettings } from '../settings';
 import { CardView } from '../ui/CardView';
+import { Num, NumGroup } from '../ui/Num';
 
 const isOn = (s: GameState, p: PlayerId, id: InstanceId) =>
   Object.values(s.players[p].circles).some((ids) => ids.includes(id));
@@ -118,7 +119,7 @@ export function BattleHud({
   const attack = (
     <div className={`vs-plate atk ${myAttack ? 'me' : 'opp'}`} key="atk">
       <span className="lbl">ATTACK</span>
-      <span className="val">{atk}</span>
+      <Num value={atk} className="val" testId="attack-value" />
       <span className="sub">
         {boost > 0 ? `boost +${boost} · ` : ''}★{crit}
       </span>
@@ -134,7 +135,7 @@ export function BattleHud({
       data-testid="defence-plate"
     >
       <span className="lbl">DEFENCE</span>
-      <span className="val">{preview ?? def}</span>
+      <Num value={preview ?? def} className="val" testId="defence-value" />
       <span className="sub">
         {preview !== null
           ? `marked +${marked} · ${previewGuards ? 'GUARDED' : `needs ${needs - marked}`}`
@@ -144,17 +145,19 @@ export function BattleHud({
   );
   return (
     <div className="battle-vs" style={{ top: centreY(tableView) }} data-testid="battle-hud">
-      {myAttack ? attack : defence}
-      <div className={`vs-mark ${attackFresh ? 'attack-call' : ''}`} data-testid="vs-mark">
-        {attackFresh ? 'ATTACK!' : 'VS'}
-      </div>
-      {myAttack ? defence : attack}
+      <NumGroup>
+        {myAttack ? attack : defence}
+        <div className={`vs-mark ${attackFresh ? 'attack-call' : ''}`} data-testid="vs-mark">
+          {attackFresh ? 'ATTACK!' : 'VS'}
+        </div>
+        {myAttack ? defence : attack}
+      </NumGroup>
       {guardians.length > 0 && (
         <div className="guardian-row">
           {guardians.map((id) => (
             <div key={id} style={{ position: 'relative' }}>
               <CardView definitionId={view.cards[id]!.definitionId} width={70} height={102} />
-              <span className="g-shield">{currentShield(view, ctx, id)}</span>
+              <Num value={currentShield(view, ctx, id)} className="g-shield" />
             </div>
           ))}
         </div>
@@ -171,7 +174,10 @@ export function AttackPreviewPanel({ preview }: { preview: AttackPreview }) {
       <div className="ap-head">
         <span>ATTACK POWER</span>
         <span className="ap-vs">
-          vs VG <b>{preview.targetPower}</b>
+          vs VG{' '}
+          <b>
+            <Num value={preview.targetPower} />
+          </b>
         </span>
       </div>
       {preview.columns.map((c) => (
@@ -192,7 +198,7 @@ export function AttackPreviewPanel({ preview }: { preview: AttackPreview }) {
                 {c.attack}
                 {c.boost > 0 ? ` + ${c.boost}` : ''}
               </span>
-              <span className={`ap-total ${c.needs > 0 ? 'hits' : ''}`}>{c.total}</span>
+              <Num value={c.total} className={`ap-total ${c.needs > 0 ? 'hits' : ''}`} />
               <span className="ap-crit">★{c.critical}</span>
               {c.note && <span className="ap-note">{c.note}</span>}
             </>

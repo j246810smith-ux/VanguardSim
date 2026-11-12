@@ -74,6 +74,30 @@ describe('downloading card art on the phone', () => {
     expect(phone.files.has(`${target}.part`)).toBe(false);
   });
 
+  it('fetches again a file that is the official "SECRET" stand-in (by its size)', async () => {
+    const [a] = entriesFor('g');
+    const phone = fakePhone([]);
+    const stub = `cards/${imagePath(a!.id, 'png')}`;
+    const fs: FilesystemPlugin = {
+      ...phone.fs,
+      readdir: async (o) => {
+        const r = await phone.fs.readdir(o);
+        return {
+          files: r.files.map((f) => ({
+            ...f,
+            size: `${o.path}/${f.name}` === stub ? 15597 : 300000,
+          })),
+        };
+      },
+    };
+    const http: HttpPlugin = {
+      request: async () => ({ status: 200, data: b64(png()), headers: {} }),
+    };
+    const r = await downloadPhoneArt({ choice: 'g', http, fs, sleep: noPause });
+    expect(r.downloaded).toBe(1);
+    expect(phone.ops).toContain(`rename ${stub}.part -> ${stub}`);
+  });
+
   it('tries the Japanese list after a 404, and never keeps something that is not a picture', async () => {
     const [a, b] = entriesFor('g').filter((e) => e.images.en && e.images.jp);
     const phone = fakePhone([a!.id, b!.id]);

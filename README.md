@@ -60,6 +60,13 @@ what they may see. If the connection drops, the guest reconnects by itself for u
 Online play is **still being tested**: please report anything that goes wrong. Full guide:
 [docs/PLAYING_ONLINE.md](docs/PLAYING_ONLINE.md).
 
+## Controller (Windows)
+
+Plug in or pair an Xbox, PlayStation or other game controller and press any button: a focus ring
+appears, the D-pad or left stick moves it, A selects, B goes back, X shows card details. The
+buttons can be changed in Settings → Controller. Mouse and keyboard keep working alongside. Full
+map: [docs/CONTROLLER.md](docs/CONTROLLER.md). (Not on Android yet.)
+
 ## Sleeves and playmats
 
 Each deck can have its own **sleeve** (card backs) and **playmat** (battle background): Deck

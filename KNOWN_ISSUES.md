@@ -12,6 +12,11 @@
 - **Test suite, one flaky test** (2026-11-08): `tests/artwork/artwork.test.ts` "an empty folder"
   failed once in a full run with 4 workers and passed on its own; it scans a fresh temp folder, which
   antivirus can slow on this PC. Rerun before suspecting a regression.
+- **Controller support is Windows-only and new** (docs/CONTROLLER.md, 2026-11-12): tested with
+  simulated pads in the test suite; real pads (Xbox, PlayStation, generic) still need a hands-on
+  check. A pad whose browser mapping is not "standard" may have its buttons in another order:
+  rebind them in Settings → Controller. Text fields (room codes, deck names, search) need the
+  keyboard. Android ignores controllers for now.
 - Card pool: MTD01 is not in the game yet (D-029). English-only printings of English
   EB03 (Dragonic Executioner, Marhaus, …) are not in the pool unless a Japanese product has them
   (the English-only BT16/BT17 cards are, by the user's choice: D-031).

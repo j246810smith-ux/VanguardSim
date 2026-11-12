@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 // Battles on the field (Battlefield 2.0 phase 5): ATTACK! in place of VS as an attack begins, the
 // marked guardians previewed on the defence plate, and the attacked unit's ring.
-import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { act, cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { STARTER_DECKS } from '../../src/decks/starters';
 import { currentPower, type GameState } from '../../src/engine';
 import { Field } from '../renderer/board/Field';
@@ -77,5 +77,57 @@ describe('the battle row', () => {
       />,
     );
     expect(document.querySelectorAll('.in-battle-target')).toHaveLength(1);
+  });
+
+  it('power plates show the engine power at once and flash on a change (animated numbers)', () => {
+    vi.useFakeTimers();
+    try {
+      const unit = view.players[ME].circles.vanguard[0]!;
+      const field = (v: GameState) => (
+        <Field
+          view={v}
+          player={ME}
+          stateOf={() => ({ mark: null, selected: null })}
+          onCircle={() => {}}
+          onDetails={() => {}}
+          battleAttacker={null}
+        />
+      );
+      const { rerender } = render(field(view));
+      const plate = () =>
+        document.querySelector(`[data-iid="${unit}"] [data-testid="power-plate"]`)!;
+      const before = currentPower(view, ctx, unit);
+      expect(plate().textContent).toBe(String(before));
+      expect(plate().className).not.toContain('changed');
+      const up: GameState = {
+        ...view,
+        modifiers: [
+          ...view.modifiers,
+          { target: unit, stat: 'power', amount: 5000, until: 'end_of_turn' },
+        ],
+      };
+      rerender(field(up));
+      // the new value is there immediately, with the flash; the flash ends by itself
+      expect(plate().textContent).toBe(String(currentPower(up, ctx, unit)));
+      expect(currentPower(up, ctx, unit)).toBe(before + 5000);
+      expect(plate().className).toContain('changed');
+      expect(plate().className).toContain('up');
+      act(() => vi.advanceTimersByTime(500));
+      expect(plate().className).not.toContain('changed');
+      // rapid consecutive changes: always the latest value
+      for (const amount of [1000, -3000, 2000]) {
+        const next: GameState = {
+          ...up,
+          modifiers: [
+            ...up.modifiers,
+            { target: unit, stat: 'power', amount, until: 'end_of_turn' },
+          ],
+        };
+        rerender(field(next));
+        expect(plate().textContent).toBe(String(currentPower(next, ctx, unit)));
+      }
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

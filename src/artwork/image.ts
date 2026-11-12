@@ -20,6 +20,29 @@ export type ImageCheck =
 const PNG_SIGNATURE = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
 
 const startsWith = (b: Uint8Array, sig: readonly number[]) => sig.every((x, i) => b[i] === x);
+
+/** FNV-1a (32-bit) of the content: a cheap, synchronous fingerprint for known stand-in files. */
+export function fingerprint(b: Uint8Array): number {
+  let h = 0x811c9dc5;
+  for (const x of b) {
+    h ^= x;
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h;
+}
+
+/**
+ * Files the official site serves instead of a card's art, by size and fingerprint: the black
+ * "? SECRET" stand-in (`/cardlist/s/vg_00.jpg`) that stood in for Blaster Blade Seeker (BT16-009)
+ * until 2026-11-12. A complete JPEG, so the format checks accept it; the Artwork Manager must not.
+ */
+const PLACEHOLDERS: readonly { size: number; hash: number; reason: string }[] = [
+  { size: 15597, hash: 0xd3fd4daf, reason: 'the official site’s "SECRET" stand-in, not the art' },
+];
+/** Sizes of the known stand-ins: a file of such a size is worth checking (the phone lists sizes). */
+export const PLACEHOLDER_SIZES: ReadonlySet<number> = new Set(PLACEHOLDERS.map((p) => p.size));
+export const isPlaceholderContent = (b: Uint8Array): string | null =>
+  PLACEHOLDERS.find((p) => p.size === b.length && p.hash === fingerprint(b))?.reason ?? null;
 const u32 = (b: Uint8Array, at: number) =>
   ((b[at]! << 24) | (b[at + 1]! << 16) | (b[at + 2]! << 8) | b[at + 3]!) >>> 0;
 const u16 = (b: Uint8Array, at: number) => (b[at]! << 8) | b[at + 1]!;
@@ -70,6 +93,8 @@ export function checkImage(bytes: Uint8Array): ImageCheck {
     if (!size || size.width === 0 || size.height === 0) {
       return { ok: false, reason: 'damaged JPEG (no frame header)' };
     }
+    const placeholder = isPlaceholderContent(bytes);
+    if (placeholder) return { ok: false, reason: placeholder };
     return { ok: true, ext: 'jpg', ...size };
   }
   return { ok: false, reason: 'not a PNG or JPEG image' };

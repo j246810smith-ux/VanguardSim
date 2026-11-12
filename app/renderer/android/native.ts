@@ -37,7 +37,9 @@ export interface FilesystemPlugin {
   readdir(options: {
     directory: 'EXTERNAL';
     path: string;
-  }): Promise<{ files: readonly { name: string; type?: 'file' | 'directory' }[] }>;
+  }): Promise<{
+    files: readonly { name: string; type?: 'file' | 'directory'; size?: number }[];
+  }>;
 }
 
 export interface SharePlugin {

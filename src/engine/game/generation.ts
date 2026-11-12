@@ -63,9 +63,11 @@ export function strideOptions(
   if (!ctx.ruleset.generationRules.value || state.phase !== 'stride') return [];
   if (state.turnFlags.normalStrideUsed || !bothVanguardsGrade3(state, ctx)) return [];
   if (!strideCostPayable(state, ctx, player, state.players[player].hand)) return [];
+  // a G guardian has [G Guardian] instead of [Stride]: it is called to (GC), never stridden
   return state.players[player].gzone.filter((id) => {
     const card = state.cards[id]!;
-    return !card.faceUp && isG(ctx.registry.get(card.definitionId));
+    const def = ctx.registry.get(card.definitionId);
+    return !card.faceUp && isG(def) && !hasGGuardian(def);
   });
 }
 
@@ -84,6 +86,15 @@ export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId
         e.vanguardNameIncludes !== undefined &&
         !owner?.circles.vanguard.some((v) =>
           namesOf(state, ctx, v).some((n) => n.includes(e.vanguardNameIncludes!)),
+        )
+      )
+        continue;
+      if (
+        e.soulGrade3NameIncludes !== undefined &&
+        !owner?.soul.some(
+          (c) =>
+            definitionOf(state, ctx, c).grade === 3 &&
+            namesOf(state, ctx, c).some((n) => n.includes(e.soulGrade3NameIncludes!)),
         )
       )
         continue;

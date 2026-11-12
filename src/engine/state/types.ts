@@ -70,6 +70,8 @@ export interface RuntimeCard {
   hollowed?: boolean;
   /** CR 1.48.1 11.29 Charge: a charging unit goes to the bottom of the deck at the end of its battle. */
   charging?: boolean;
+  /** CR 1.48.1 11.24 Engorge: engorged until end of turn (G-BT10). Cleared off the field and when a turn starts. */
+  engorged?: boolean;
   /** In the bind zone: the card whose effect bound it ("cards bound with this card's effect"). */
   boundBy?: InstanceId;
 }

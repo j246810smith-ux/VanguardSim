@@ -279,7 +279,12 @@ export function HomeScreen({ actions, children }: { actions: HomeActions; childr
       )}
 
       {!modes && (
-        <button className="home-start" onClick={() => setModes(true)} data-testid="start-battle">
+        <button
+          className="home-start"
+          onClick={() => setModes(true)}
+          data-testid="start-battle"
+          data-nav-first
+        >
           <span className="home-start-emblem">
             <Icon name="swords" />
           </span>
@@ -291,7 +296,12 @@ export function HomeScreen({ actions, children }: { actions: HomeActions; childr
         <div className="home-modes" data-testid="mode-select">
           <div className="home-modes-title">CHOOSE A BATTLE</div>
           <div className="home-modes-row">
-            <button className="home-mode blue" onClick={actions.newGame} data-testid="new-game">
+            <button
+              className="home-mode blue"
+              onClick={actions.newGame}
+              data-testid="new-game"
+              data-nav-first
+            >
               <b>NEW GAME</b>
               <small>Your deck against the CPU</small>
             </button>
@@ -318,6 +328,7 @@ export function HomeScreen({ actions, children }: { actions: HomeActions; childr
             className="home-modes-back"
             onClick={() => setModes(false)}
             data-testid="modes-back"
+            data-nav-back
           >
             <Icon name="back" /> Back
           </button>
@@ -337,7 +348,12 @@ export function HomeScreen({ actions, children }: { actions: HomeActions; childr
             DATABASE
           </span>
         </button>
-        <button className="home-nav-btn" onClick={actions.settings} data-testid="settings">
+        <button
+          className="home-nav-btn"
+          onClick={actions.settings}
+          data-testid="settings"
+          data-nav-menu
+        >
           <Icon name="gear" />
           <span>SETTINGS</span>
         </button>

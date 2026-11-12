@@ -93,6 +93,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       delete s.players[s.activePlayer].placedOnVCInRidePhase;
       // blazing lasts until end of turn
       for (const p of s.players) delete p.blazing;
+      // engorged lasts until end of turn (CR 1.48.1 11.24.1)
+      for (const c of Object.values(s.cards)) delete c.engorged;
       delete s.players[s.activePlayer].noNormalRideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });

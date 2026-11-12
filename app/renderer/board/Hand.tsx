@@ -116,6 +116,9 @@ export function Hand({
             )}
             data-testid={`hand-${i}`}
             data-iid={id}
+            data-nav
+            data-nav-group="hand"
+            {...(i === 0 ? { 'data-nav-first': true } : {})}
           >
             {legal.guard.has(id) && def && <div className="shield-tag">🛡 {def.shield}</div>}
             <CardView

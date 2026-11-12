@@ -11,6 +11,7 @@ import { Avatar, avatarLabel } from '../home/Avatars';
 import { AVATARS, MAX_NAME } from '../home/profile';
 import { useBackHandler } from '../android/back';
 import { useConfirm } from '../ui/ConfirmDialog';
+import { Num } from '../ui/Num';
 import {
   DEFAULT_BANNER,
   EXP_PER_LEVEL,
@@ -149,7 +150,13 @@ function LevelBar({ p }: { p: Profile }) {
         <i style={{ width: `${l.max ? 100 : l.into}%` }} />
       </span>
       <span className="pp-dim">
-        {l.max ? `Level ${MAX_LEVEL} reached` : `${l.into} / ${EXP_PER_LEVEL} EXP`}
+        {l.max ? (
+          `Level ${MAX_LEVEL} reached`
+        ) : (
+          <>
+            <Num value={l.into} /> / {EXP_PER_LEVEL} EXP
+          </>
+        )}
       </span>
     </div>
   );
@@ -162,14 +169,19 @@ function Tile({
   small = false,
 }: {
   label: string;
-  value: string;
+  /** A number rolls to a new value (after a sync); text is shown as it is. */
+  value: string | number;
   id: string;
   small?: boolean;
 }) {
   return (
     <div className={`pp-tile ${small ? 'small' : ''}`} data-testid={id}>
       <span className="pp-tile-label">{label}</span>
-      <span className="pp-tile-value">{value}</span>
+      {typeof value === 'number' ? (
+        <Num value={value} className="pp-tile-value" />
+      ) : (
+        <span className="pp-tile-value">{value}</span>
+      )}
     </div>
   );
 }
@@ -191,9 +203,9 @@ function Overview({ p }: { p: Profile }) {
           Player stats <small className="pp-dim">on this device</small>
         </h3>
         <div className="pp-tiles">
-          <Tile label="Games played" value={String(all.games)} id="stat-games" />
-          <Tile label="Wins" value={String(all.win)} id="stat-wins" />
-          <Tile label="Losses" value={String(all.loss)} id="stat-losses" />
+          <Tile label="Games played" value={all.games} id="stat-games" />
+          <Tile label="Wins" value={all.win} id="stat-wins" />
+          <Tile label="Losses" value={all.loss} id="stat-losses" />
           <Tile label="Win rate" value={rate(all)} id="stat-rate" />
         </div>
       </section>

@@ -121,11 +121,17 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
         : [{ id: backTarget, circle: opposite! }];
     const allowed = [...targets, ...backRow];
     const onlyVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_rear_guard');
+    const noVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_vanguard');
+    const legalTargets = allowed.filter(
+      (t) => !(onlyVanguard && t.circle !== 'vanguard') && !(noVanguard && t.circle === 'vanguard'),
+    );
+    // e.g. Gigant Flame (cannot attack a vanguard) facing no rear-guards: no attack at all
+    if (legalTargets.length === 0) return [];
     return [
       {
         attacker,
         attackerCircle: circle,
-        targets: onlyVanguard ? allowed.filter((t) => t.circle === 'vanguard') : allowed,
+        targets: legalTargets,
         boosters: canBoost && backCircle !== undefined ? [{ id: back, circle: backCircle }] : [],
       },
     ];
@@ -153,13 +159,22 @@ export function guardableCards(
 export function interceptors(state: GameState, ctx: EngineContext, player: PlayerId): InstanceId[] {
   const b = state.battle;
   const p = state.players[player];
-  return (['front_left', 'front_right'] as const).flatMap((circle) => {
-    const id = unitOn(state, p, circle);
-    if (id === null || id === b?.target || b?.extraTargets.some((t) => t.id === id)) return [];
-    if (isRestricted(state, ctx, id, 'cannot_intercept')) return [];
-    return def(state, ctx, id).skillIcon === 'intercept' ||
-      hasPermission(state, ctx, id, 'intercept')
-      ? [id]
-      : [];
-  });
+  // G-BT10 Gurguit: "during the battle that your vanguard was attacked, … from the back row"
+  const vanguardAttacked = b !== null && b !== undefined && b.target === vanguardOf(p);
+  return (['front_left', 'front_right', 'back_left', 'back_center', 'back_right'] as const).flatMap(
+    (circle) => {
+      const id = unitOn(state, p, circle);
+      if (id === null || id === b?.target || b?.extraTargets.some((t) => t.id === id)) return [];
+      if (
+        circle.startsWith('back') &&
+        !(vanguardAttacked && hasPermission(state, ctx, id, 'intercept_from_back_row'))
+      )
+        return [];
+      if (isRestricted(state, ctx, id, 'cannot_intercept')) return [];
+      return def(state, ctx, id).skillIcon === 'intercept' ||
+        hasPermission(state, ctx, id, 'intercept')
+        ? [id]
+        : [];
+    },
+  );
 }

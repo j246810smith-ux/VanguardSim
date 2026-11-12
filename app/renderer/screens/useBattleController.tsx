@@ -28,6 +28,7 @@ import { type BarAction } from '../prompts/Prompts';
 import { paced, useSettings } from '../settings';
 import { type ConnectionWatch } from '../online/ConnectionBanner';
 import { useBackHandler } from '../android/back';
+import { PAD_INSPECT_EVENT, type PadInspectDetail } from '../input/ControllerLayer';
 import { useConfirm } from '../ui/ConfirmDialog';
 import { matchRecordOf } from '../profile/matchRecorder';
 import { countMatch } from '../profile/repository';
@@ -163,7 +164,12 @@ export function useBattleController(
   const [selection, setSelection] = useState<Selection>(null);
   const [picked, setPicked] = useState<string[]>([]);
   const [details, setDetails] = useState<InstanceId | null>(null);
-  const [zone, setZone] = useState<{ title: string; ids: readonly InstanceId[] } | null>(null);
+  const [zone, setZone] = useState<{
+    title: string;
+    ids: readonly InstanceId[];
+    /** Show face-down cards face up (the player's own G zone, CR 1.48.1 4.11.2). */
+    reveal?: boolean;
+  } | null>(null);
   const [inspect, setInspect] = useState(false);
   const [logOpen, setLogOpen] = useState(false);
   const [menu, setMenu] = useState<'skills' | 'swap' | 'game' | 'stride' | 'gguard' | null>(null);
@@ -322,6 +328,15 @@ export function useBattleController(
     setInspect(false);
     setLogOpen(false);
   };
+  // controller (docs/CONTROLLER.md): "Card details" on the focused card
+  useEffect(() => {
+    const onInspect = (e: Event) => {
+      const iid = (e as CustomEvent<PadInspectDetail>).detail?.iid;
+      if (iid) setDetails(iid);
+    };
+    window.addEventListener(PAD_INSPECT_EVENT, onInspect);
+    return () => window.removeEventListener(PAD_INSPECT_EVENT, onInspect);
+  }, []);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeOverlays();
@@ -668,7 +683,8 @@ export function useBattleController(
       : null;
   const opp = view.players[AI];
   const me = view.players[ME];
-  const openZone = (title: string, ids: readonly InstanceId[]) => setZone({ title, ids });
+  const openZone = (title: string, ids: readonly InstanceId[], reveal = false) =>
+    setZone({ title, ids, reveal });
   const menuCard =
     selection && (selection.kind === 'hand' || selection.kind === 'unit') ? selection.id : null;
   const winner = view.winner;

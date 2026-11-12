@@ -1,6 +1,7 @@
 import type { CardDefinition } from '../cards/types';
 import type { Circle, GameState, InstanceId } from '../state/types';
 import type { EngineContext } from './context';
+import { locate } from './locate';
 
 /**
  * Non-numeric characteristics (CR 8.7.1.2: applied before numeric changes). Printed values for
@@ -34,12 +35,49 @@ export function namesOf(state: GameState, ctx: EngineContext, id: InstanceId): r
   const heart = chosenHeartOf(state, id);
   const names = [own];
   if (heart !== null) names.push(definitionOf(state, ctx, heart).name);
+  // printed "[CONT](zones):This card is also regarded as <name>" (G-BT07 Enigman, G-BT10 Hyakki Zora)
+  for (const a of definitionOf(state, ctx, id).abilities) {
+    if (a.kind !== 'CONT' || !a.effects.some((e) => e.ce === 'also_named')) continue;
+    if (!printedZoneActive(state, id, a.zones)) continue;
+    for (const e of a.effects) if (e.ce === 'also_named') names.push(e.name);
+  }
   for (const g of state.grants) {
     if (g.target !== id || g.ability.kind !== 'CONT') continue;
     for (const e of g.ability.effects) if (e.ce === 'also_named') names.push(e.name);
   }
   return names.length === 1 ? names : [...new Set(names)];
 }
+
+/** Is the card in one of these ability zones (unconditional printed name abilities only)? */
+function printedZoneActive(
+  state: GameState,
+  id: InstanceId,
+  zones: readonly import('../abilities/types').ActiveZone[],
+): boolean {
+  if (zones.includes('any')) return true;
+  if (isHeartCard(state, id)) return false;
+  const at = locate(state, id);
+  switch (at.zone) {
+    case 'circle':
+      return zones.includes(at.circle === 'vanguard' ? 'VC' : 'RC');
+    case 'guardian':
+      return zones.includes('GC');
+    case 'gzone':
+      return zones.includes('GZ');
+    case 'hand':
+    case 'soul':
+    case 'drop':
+    case 'damage':
+    case 'bind':
+    case 'deck':
+      return zones.includes(at.zone);
+    default:
+      return false;
+  }
+}
+/** A card under a strided G unit (CR 1.48.1 10.27.3: a heart has only its name and power). */
+const isHeartCard = (state: GameState, id: InstanceId): boolean =>
+  state.players.some((p) => p.hearts.includes(id));
 
 /** Do two cards have a card name in common? */
 export const shareName = (state: GameState, ctx: EngineContext, a: InstanceId, b: InstanceId) =>
@@ -54,11 +92,18 @@ export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceI
   if (deckGrade.length === 0) return def.grade;
   const card = state.cards[id];
   const owner = card ? state.players[card.owner] : undefined;
-  if (!owner || !owner.deck.includes(id)) return def.grade;
+  if (!owner) return def.grade;
+  const inDeck = owner.deck.includes(id);
+  const inTrigger = owner.trigger.includes(id);
+  if (!inDeck && !inTrigger) return def.grade;
   const vanguardNames = owner.circles.vanguard.flatMap((v) => namesOf(state, ctx, v));
   let grade = def.grade;
   for (const e of deckGrade)
-    if (e.ce === 'deck_grade' && vanguardNames.some((n) => n.includes(e.vanguardNameIncludes)))
+    if (
+      e.ce === 'deck_grade' &&
+      ((e.zone ?? 'deck') === 'trigger' ? inTrigger : inDeck) &&
+      vanguardNames.some((n) => n.includes(e.vanguardNameIncludes))
+    )
       grade += e.amount;
   return grade;
 }

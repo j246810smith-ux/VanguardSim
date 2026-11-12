@@ -15,6 +15,121 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-12) — G zone, Blaster Blade Seeker, controller done; NumberFlow awaits approval
+
+Done on master (unreleased, next version 0.39.0-alpha; full suite 3552 green, `npm run check` clean
+apart from the known intermittent updater-build lock):
+
+- 19305d0 **G zone viewer**: your own G zone shows every G unit face up with a FACE DOWN tag
+  (`ZoneViewer revealFaceDown`, CR 1.48.1 4.11.2); the opponent's shows only face-up ones.
+- 2340435 **Blaster Blade Seeker**: BT16-009's English image was the official "? SECRET" stand-in
+  (`vg_00.jpg`, Legion Rare BT16/L02EN); English image cleared, manifest ignores the stand-in,
+  `checkImage` rejects it by fingerprint so "Download missing images" replaces it. Repaired in
+  `assets/cards` and in the user's installed copy (both have the real art now). **The phone still
+  has the stand-in** (its download skips files that exist): Settings → Download card art → BT16
+  after deleting it, or add a fingerprint check there (polish item 2 in NUMBERFLOW_AUDIT.md).
+  Shown card numbers are now the base printing (`metaOf` / `displayNumber`).
+- 678f8ba **Controller support (Windows only, user's choice)**: `app/renderer/input/`,
+  `docs/CONTROLLER.md`, Settings → Controller. Not yet tried with a real pad: ask the user to
+  plug one in and check the home screen, a CPU game and the Deck Builder. Android inert.
+- Audit docs: `docs/design/CONTROLLER_SEEKER_GZONE_AUDIT.md`,
+  `docs/design/NUMBERFLOW_AUDIT.md` (NumberFlow audit + plan, **waiting for the user's approval**;
+  `@number-flow/react` 0.6.2 is compatible, nothing installed yet).
+
+The card-sets session works in `..\VanguardSim-sets2` on `sets/g-bt10` (G-FC01/02, G-BT11+): merge
+when it reports done, before releasing 0.39.
+
+## ▶ Pick up here (2026-11-11, late night) — v0.38.0-alpha published (Player Profile, EXP, Sync)
+
+**Released:** v0.38.0-alpha (dev tag `v0.38.0-alpha` at 3b305e9 on master — builds were made from
+f11de36, the tag moved one commit for a test-only change (a sample name); public mirror 7eddf22
+pushed with the tag; GitHub pre-release with the zip, portable exe, signed update files and the APK;
+`dist:smoke` passed; `release:verify` passed; installed on the user's Pixel, versionName
+0.38.0-alpha). Release notes: CHANGELOG.md. Note: the public mirror's `git add` hit the
+permission glitch mid-way and left everything staged as deleted — always check
+`git status --porcelain | cut -c1-2 | sort | uniq -c` there before committing.
+
+**What 0.38 has** (design: `docs/design/PLAYER_PROFILE_AUDIT.md`, incl. the 2026-11-11 update):
+
+- Player Profile (`app/renderer/profile/`): name, avatar, nine fixed titles, banners (five pack
+  WebPs or any playmat), Statistics per mode/format, Match History, honest Friends page, Local ID.
+  History is the single source of statistics/EXP/level (each game once by id, max 10,000).
+- EXP (user's choices): 25 per counted game, +50 for a win on a turn the player declared Final Turn
+  (`useBattleController` `myFinalTurn` → `finalTurnDeclared` → `finalTurnWin`); 100 EXP a level,
+  1–50; older games count without the bonus.
+- Sync devices (Profile → Sync devices; `profile/sync.ts`, `profile/SyncPanel.tsx`): live via
+  PeerJS room code (room `SYNC`+code, 32 KB chunks, `sync-done` handshake) or a sync file. Union of
+  games/decks, newest look, symmetric tie-breaks. **Limit:** deletions are not synced (deck comes
+  back) — a tombstone list would fix it if the user wants.
+- Tests: `app/tests/playerProfile.test.tsx`, `app/tests/profileSync.test.tsx`; full suite 3569 green.
+
+**Not yet checked on a real device:** the Profile screens and a live phone↔PC sync (the phone was
+not unlocked by us). Ask the user to try: Profile → Sync devices → Start sync on the PC, Join sync on
+the phone; and a CPU game with Final Turn declared (should show "+75 EXP · Final Turn").
+
+**Next, in order:**
+
+1. **Merge G-BT10** from the card-sets session: branch `sets/g-bt10`, commit cd61b79 (worktree
+   `..\VanguardSim-sets2`, based on master b721b3e; master has moved since — expect to merge, not
+   fast-forward). It adds Engorge, cannot_attack_vanguard, intercept_from_back_row, put_into_gzone
+   trigger, stride_grade.soulGrade3NameIncludes, rests trigger with byYourEffect/otherCause
+   (UNIT_RESTED by/cause); fixes printed "also_named" CONTs (G-BT07-075/077, G-BT08-043) and drops
+   attack options with no legal target (crashed BasicController). Its suite: 3561 passed (2 updater
+   timeouts under load). G-BT11/G-BT12 data imported but not scripted/registered. Its notes are at
+   the top of NEXT_SESSION.md on that branch — merge them into this file. Then full check, release
+   0.39.0-alpha.
+2. User phone checks: Profile/Sync (above), Music manager import with a real song.
+3. Still ON HOLD (user): OU approvals, Granblue G3 decision. No server / no money.
+4. Known: online host/guest stepping difference (F3, KNOWN_ISSUES); ranked needs a server.
+
+## ▶ Pick up here (2026-11-12) — card sets: G-FC01, G-FC02 done; next G-BT11 with Dominate
+
+Same worktree/branch (`source\VanguardSim-sets2`, `sets/g-bt10`), not merged or released. The user
+asked for "FC sets 1 and 2, then carry on with the G-BT sets" (FC01/FC02 of 2012/13 were already in,
+so this is G-FC01/G-FC02).
+
+- **G-FC01** (c55007a, 50 cards) and **G-FC02** (0d3e63a, 48 cards) scripted and tested, in G Era
+  (format.ts after G-BT03 / G-BT05). Full suite 3589 green. Engine added: `hearts` area,
+  `attack_three_per_heart`, call `occupied`, `grant` `freeze` + `ids` selector, filters
+  `originalPower`/`notBound`/`isSource`/`originalNameIncludes`, `original_power_sum`, trigger-zone
+  `deck_grade` (`zone: 'trigger'`). Importer fixes archived "PR?ISM" → "PR♥ISM".
+- G-BT12-045 = G-FC02-024 (script it as `{ sameAs: 'G-FC02-024' }`).
+- "Kaiser" in G-FC02 matches 'aiser' (Daikaiser, Meteokaiser: Japanese カイザー).
+- **User decision 2026-11-12: build Dominate properly** (CR 1.48.1 10.35) for G-BT11. Plan:
+  `CardState.dominatedBy`; `controllerOf()` used for trigger/continuous masters and `cardsIn`
+  (dominated units count as the dominating player's rear-guards); filter `dominated`; step
+  `dominate_attack` (modes: vanguard / back-row rear-guard / other unit, optional retire after)
+  that queues `effect_attack` tasks + `end_domination`; `BattleState.byEffect` (end_battle does not
+  queue start_step); task runner stops while `battle.step === 'guard'`; callGuardian/intercept/
+  passGuard/G guardian must `unshift` (not push) their tasks; dominated units cannot intercept/boost;
+  guardians retire to their owner's drop. Gehourakan: dominate + move to your (GC).
+- Then G-BT11 scripts (95 new texts: Revelation, Brave, Darkness, Blaze, Legion 20000, Zodiac Time
+  Beast binds), then G-BT12. The game was opened for G-FC01 but closed by the system (low memory).
+
+## ▶ Pick up here (2026-11-11, late night) — card sets: G-BT10 done; G-BT11/G-BT12 imported
+
+Card-sets session, worktree `source\VanguardSim-sets2`, branch **`sets/g-bt10`** (from master b721b3e;
+git there needs `git -c core.fscache=false`). Not merged, not released.
+
+- **G-BT10 done:** `src/cards/G-BT10.ts`, `tests/cards/G-BT10.test.ts` (21 pass), legal in G Era.
+  Engine: Engorge (`ab.engorgeKeyword`, `ab.engorge`, `engorged` filter, `becomes_engorged`,
+  `byEngorge`/`wasEngorged`/`bySource` on put_into_drop), `cannot_attack_vanguard`,
+  `intercept_from_back_row`, `put_into_gzone` trigger, `stride_grade.soulGrade3NameIncludes`, printed
+  `also_named` in its zones (incl. `deck`), `rests` trigger `byYourEffect`/`otherCause`. Full suite:
+  3561 pass; 2 updater tests timed out under load (retest alone).
+- **G-BT11 and G-BT12:** card data imported with English (`data/cards/G-BT11.json`, `G-BT12.json`;
+  G-BT11's five never-archived cards have unofficial translations and reviewed entries). **Not
+  scripted, not in the index.** G-BT11's script design is ready in my notes: Revelation (helper:
+  look at top, may soul it, then rest a standing rear-guard), Blaze reused from G-BT07, Darkness; reprints
+  074 = BT11-074, 079 = BT13-053, 091 = BT07-092.
+- **Decision for the user:** G-BT11's **Dominate** (Nubatama: you take control of an opponent's
+  rear-guard and it attacks for you, CR 1.48.1 10.35) needs a real engine change. Proposal: script
+  those cards (G-BT11-008, 017, 018, 077's first ability, 020/078/080 parts) as "does nothing" for
+  now, or build Dominate first.
+- Next: G-BT11 scripts + tests, then G-BT12 (wiki page title is "Dragon King's Awakening";
+  G-BT12-043 and -097 still need unofficial translations), docs, commit, ask the Battlefield 2.0
+  session to merge.
+
 ## ▶ Pick up here (2026-11-11, night) — v0.37.0-alpha published; next: the hybrid player profile
 
 v0.37.0-alpha (dev tag 5c120e4, public 0134085, pushed with the tag; GitHub pre-release with the zip,

@@ -33,12 +33,14 @@ import { applyMerge, backupFileName, backupText, planMerge, readBackup } from '.
 import { buildIndex, search, type SearchEntry } from '../decks/search';
 import { clanColor, ctx, metaOf } from '../engine';
 import { CardView } from '../ui/CardView';
+import { Num } from '../ui/Num';
 import { playmatOf, sleeveLook } from '../cosmetics';
 import { useSettings } from '../settings';
 import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
 import { useConfirm } from '../ui/ConfirmDialog';
 import { useBackHandler } from '../android/back';
 import { nativeFiles } from '../android/native';
+import { PAD_INSPECT_EVENT, type PadInspectDetail } from '../input/ControllerLayer';
 import { isCoarsePointer, useLongPress } from '../ui/useLongPress';
 
 type Pool = { defs: CardDefinition[]; index: SearchEntry[] };
@@ -345,6 +347,15 @@ export function DeckBuilder({
   /** Right-click (mouse) or long press (touch): the card's details. */
   const details = (id: string, list: readonly string[]) =>
     press(() => setModal({ kind: 'details', id, list }));
+  // controller (docs/CONTROLLER.md): "Card details" on the focused pool or deck card
+  useEffect(() => {
+    const onInspect = (e: Event) => {
+      const defId = (e as CustomEvent<PadInspectDetail>).detail?.defId;
+      if (defId) setModal({ kind: 'details', id: defId, list: shownIds });
+    };
+    window.addEventListener(PAD_INSPECT_EVENT, onInspect);
+    return () => window.removeEventListener(PAD_INSPECT_EVENT, onInspect);
+  }, [shownIds]);
   const set = (k: keyof Filters) => (e: { target: { value: string } }) => {
     setFilters({ ...filters, [k]: e.target.value });
     setLimit(PAGE);
@@ -395,7 +406,7 @@ export function DeckBuilder({
         <div className="dd-label">
           <b>MAIN DECK</b>
           <span className={cards.length === rules.deckSize.value ? 'ok' : 'bad'}>
-            {cards.length}/{rules.deckSize.value}
+            <Num value={cards.length} />/{rules.deckSize.value}
           </span>
           <span className={triggerTotal === rules.triggerCount.value ? 'ok' : 'bad'}>
             {triggerTotal}/{rules.triggerCount.value} triggers
@@ -413,7 +424,11 @@ export function DeckBuilder({
             G3 {ofGrade(3)} · G2 {ofGrade(2)} · G1 {ofGrade(1)} · G0 {ofGrade(0)}
           </span>
         </div>
-        <div className={`dd-main ${gEra ? '' : 'tall'}`} data-testid="deck-list">
+        <div
+          className={`dd-main ${gEra ? '' : 'tall'}`}
+          data-testid="deck-list"
+          data-nav-group="deck"
+        >
           {sortedMain.map((id, i) => {
             const d = ctx.registry.get(id);
             const isFirst = id === startingVanguard && sortedMain.indexOf(id) === i;
@@ -426,6 +441,8 @@ export function DeckBuilder({
                 {...details(id, uniqueMain)}
                 title={`${d.name} (click to remove)`}
                 data-testid={`deck-card-${id}`}
+                data-nav
+                data-nav-inspect={id}
               >
                 <CardView definitionId={id} width={84} height={122} />
                 {d.grade === 0 && !d.trigger && (
@@ -453,11 +470,11 @@ export function DeckBuilder({
             <div className="dd-label">
               <b>G DECK</b>
               <span>
-                {gDeck.length}/{rules.maxGDeckSize.value}
+                <Num value={gDeck.length} />/{rules.maxGDeckSize.value}
               </span>
               <span className="hint">G units you click in the pool go here</span>
             </div>
-            <div className="dd-g" data-testid="g-deck">
+            <div className="dd-g" data-testid="g-deck" data-nav-group="g-deck">
               {sortedG.map((id, i) => (
                 <div
                   key={`${id}-${i}`}
@@ -466,6 +483,8 @@ export function DeckBuilder({
                   {...details(id, uniqueG)}
                   title={`${ctx.registry.get(id).name} (click to remove)`}
                   data-testid={`g-card-${id}`}
+                  data-nav
+                  data-nav-inspect={id}
                 >
                   <CardView definitionId={id} width={54} height={79} />
                 </div>
@@ -562,10 +581,10 @@ export function DeckBuilder({
             </button>
           )}
           <span className="hint" data-testid="pool-count">
-            {shown.length} cards
+            <Num value={shown.length} /> cards
           </span>
         </div>
-        <div className="builder-filters">
+        <div className="builder-filters" data-nav-group="filters">
           <select value={filters.set} onChange={set('set')}>
             <option value="">All sets</option>
             {POOLS[format].defs.some((d) => ouEntryOf(d.id)) && (
@@ -629,7 +648,7 @@ export function DeckBuilder({
             Clear
           </button>
         </div>
-        <div className="builder-pool" data-testid="card-pool">
+        <div className="builder-pool" data-testid="card-pool" data-nav-group="pool">
           {shown.slice(0, limit).map(({ def: d }) => (
             <div
               key={d.id}
@@ -639,6 +658,8 @@ export function DeckBuilder({
               }
               {...details(d.id, shownIds)}
               data-testid={`pool-${d.id}`}
+              data-nav
+              data-nav-inspect={d.id}
             >
               <CardView definitionId={d.id} width={112} height={163} />
               {counts.has(d.id) && <span className="count-badge">{counts.get(d.id)}</span>}

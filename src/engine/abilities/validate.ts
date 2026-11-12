@@ -8,6 +8,8 @@ import type { AbilityDefinition, Condition, Cost, Selector, Step } from './types
 export function validateAbilities(
   cardId: string,
   abilities: readonly AbilityDefinition[],
+  /** Names already bound outside (a `grant` with `freeze` keeps the granting effect's bindings). */
+  outer: ReadonlySet<string> = new Set(),
 ): string[] {
   const problems: string[] = [];
   const seen = new Set<string>();
@@ -24,7 +26,7 @@ export function validateAbilities(
     }
 
     const isAuto = a.kind === 'AUTO';
-    const bound = new Set<string>();
+    const bound = new Set<string>(outer);
 
     const checkSelector = (sel: Selector, context: string) => {
       if (sel.sel === 'bound' && !bound.has(sel.name)) {
@@ -135,7 +137,8 @@ export function validateAbilities(
             break;
           case 'grant':
             checkSelector(st.target, here);
-            for (const p of validateAbilities(where, [st.ability])) report(`granted: ${p}`);
+            for (const p of validateAbilities(where, [st.ability], st.freeze ? bound : new Set()))
+              report(`granted: ${p}`);
             break;
           case 'also_named_as':
             checkSelector(st.target, here);

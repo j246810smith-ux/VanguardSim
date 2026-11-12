@@ -59,6 +59,10 @@ export type GameEvent =
       readonly cause?: InstanceId;
       /** CR 1.48.1 11.33.2: moved to the drop zone because it was hollowed (it counts as retired). */
       readonly byHollow?: true;
+      /** CR 1.48.1 11.24.2: retired by the effect of an engorge ability (G-BT10). */
+      readonly byEngorge?: true;
+      /** The unit was engorged when it left its circle ("when this unit is engorged and retired"). */
+      readonly wasEngorged?: true;
     }
   | { readonly type: 'MULLIGAN'; readonly player: PlayerId; readonly count: number }
   | { readonly type: 'VANGUARDS_STOOD_UP' }
@@ -124,7 +128,14 @@ export type GameEvent =
       readonly count: number;
     }
   | { readonly type: 'RESTRICTION_ADDED'; readonly restriction: TemporaryRestriction }
-  | { readonly type: 'UNIT_RESTED'; readonly player: PlayerId; readonly instanceId: InstanceId }
+  | {
+      readonly type: 'UNIT_RESTED';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+      /** Rested by an ability's effect: that ability's master, and the card whose ability it was. */
+      readonly by?: PlayerId;
+      readonly cause?: InstanceId;
+    }
   | {
       readonly type: 'CARD_TURNED';
       readonly instanceId: InstanceId;
@@ -194,6 +205,12 @@ export type GameEvent =
   | {
       /** CR 1.48.1 11.29 Charge (G-BT09): this unit became charging. */
       readonly type: 'CHARGING';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+    }
+  | {
+      /** CR 1.48.1 11.24 Engorge (G-BT10): this unit became engorged. */
+      readonly type: 'ENGORGED';
       readonly player: PlayerId;
       readonly instanceId: InstanceId;
     }

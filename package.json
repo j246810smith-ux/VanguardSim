@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.38.0-alpha",
+  "version": "0.39.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -119,5 +119,8 @@
     "portable": {
       "artifactName": "VanguardSim-${version}-portable.exe"
     }
+  },
+  "dependencies": {
+    "@number-flow/react": "^0.6.2"
   }
 }

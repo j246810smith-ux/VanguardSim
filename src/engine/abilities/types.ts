@@ -25,7 +25,9 @@ export type Area =
   | 'bind'
   | 'locked'
   /** G era: the G zone (CR 1.48.1 4.11); face-down cards match `faceUp: false`. */
-  | 'gzone';
+  | 'gzone'
+  /** G era: the heart cards under the G unit on (VC) (CR 1.48.1 10.27): "for each of your heart cards". */
+  | 'hearts';
 
 export interface Range {
   readonly min?: number;
@@ -61,6 +63,8 @@ export interface CardFilter {
   readonly hollowed?: boolean;
   /** A charging unit (CR 1.48.1 11.29, G-BT09). */
   readonly charging?: boolean;
+  /** An engorged unit (CR 1.48.1 11.24, G-BT10). */
+  readonly engorged?: boolean;
   /** Rescue (G-BT07): "it was put into the drop zone due to the effect of a rescue ability this turn". */
   readonly rescued?: boolean;
   /** Is a Legion Mate (CR 10.1.24): "choose one of your opponent's legion mates". */
@@ -72,10 +76,16 @@ export interface CardFilter {
   /** Is a vanguard (on VC; both units of a legion are vanguards, CR 10.1.24.3). */
   readonly isVanguard?: boolean;
   readonly excludeSelf?: boolean;
+  /** Is the ability's own card ("when your drive check reveals this card", G-FC02 Daibazooka). */
+  readonly isSource?: boolean;
+  /** "with X in its original card name": the printed name only (G-FC02 Dehtail, Magnus). */
+  readonly originalNameIncludes?: string;
   /** Same card name as the ability's source (e.g. Persona Blast). */
   readonly sameNameAsSource?: boolean;
   /** Same card name as a card bound earlier ("with the same name as that card"); '__event': the event card. */
   readonly sameNameAsBound?: string;
+  /** Not one of the cards bound as this name; '__event': not the event card ("your other units", G-FC01 Multivitamin Dragon). */
+  readonly notBound?: string;
   /** The card is (still) in this zone, e.g. looked-at cards that were not taken from the deck. */
   readonly zone?: 'deck' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind';
   /** On a circle in the same column as the ability's source (CR 4.6.2: VC is in the centre column). */
@@ -84,6 +94,8 @@ export interface CardFilter {
   readonly boundBySource?: boolean;
   /** Current power in range ("rear-guards with [Power] 5000 or less"). Not for CONT abilities. */
   readonly power?: Range;
+  /** Printed power in range ("a heart card with original [Power] 10000 or less", G-FC01 Madew). */
+  readonly originalPower?: Range;
   /** Is the boosting unit in the current battle. */
   readonly boosting?: boolean;
   /** Has a Limit Break n ability ("a <clan> with [Limit-Break 4]"); printed abilities. */
@@ -140,7 +152,9 @@ export type Selector =
   /** The card that caused this automatic ability to trigger (e.g. the unit that was placed). */
   | { readonly sel: 'event_card' }
   /** One specific card (a delayed effect made at resolution, e.g. the card a time leap bound). */
-  | { readonly sel: 'card'; readonly id: string };
+  | { readonly sel: 'card'; readonly id: string }
+  /** Specific cards, filtered: what a `bound` selector became when a `grant` with `freeze` was made. */
+  | { readonly sel: 'ids'; readonly ids: readonly string[]; readonly filter?: CardFilter };
 
 // ---------------------------------------------------------------------------------------------
 // Conditions
@@ -223,6 +237,8 @@ export type Condition =
   | { readonly cond: 'blazing' }
   /** A unit was placed on that player's (VC) during the ride phase of their latest turn (G-BT06 Twitterun). */
   | { readonly cond: 'placed_on_vc_in_ride_phase'; readonly player: 'you' | 'opponent' }
+  /** The printed power of the selected cards adds up to `range` ("if the [Power] increased with this effect is 20000 or greater", G-FC01 Pearly Titan). */
+  | { readonly cond: 'original_power_sum'; readonly of: Selector; readonly range: Range }
   | { readonly cond: 'not'; readonly c: Condition }
   | { readonly cond: 'all'; readonly cs: readonly Condition[] }
   | { readonly cond: 'any'; readonly cs: readonly Condition[] };
@@ -242,6 +258,8 @@ export type Restriction =
   | 'cannot_normal_ride'
   /** "This unit cannot attack a rear-guard" (e.g. the Djinn of TD06). */
   | 'cannot_attack_rear_guard'
+  /** "This unit cannot attack a vanguard" (G-BT10 Gigant Flame, Fudoublast). */
+  | 'cannot_attack_vanguard'
   | 'cannot_boost'
   | 'cannot_be_boosted'
   | 'cannot_intercept'
@@ -269,13 +287,21 @@ export type Permission =
   | 'attack_all_units'
   /** "When this unit would choose a unit to attack, choose four of your opponent's units instead" */
   | 'attack_four_units'
+  /**
+   * "When this unit would choose a unit to attack, for each of your heart cards, choose up to three of
+   * your opponent's units, and this unit battles all of the chosen units in one attack" (G-FC01 Big
+   * Bang Knuckle Turbo).
+   */
+  | 'attack_three_per_heart'
   /** "If this unit would attack, it may instead attack an opponent's unit in the back row" */
   | 'attack_back_row'
   /** "… get "Boost"([Boost])" / "… get "Intercept"([Intercept])": the skill without the icon. */
   | 'boost'
   | 'intercept'
   /** "This unit can attack from the back row" (G-BT02 Battle Siren, Stacia). */
-  | 'attack_from_back_row';
+  | 'attack_from_back_row'
+  /** "During the battle that your vanguard was attacked, this unit can intercept from the back row" (G-BT10 Gurguit). */
+  | 'intercept_from_back_row';
 /** What a "loses …" effect removes: an ability (by id) or a skill icon. */
 export type Losable =
   | { readonly ability: string }
@@ -347,6 +373,8 @@ export type Step =
       readonly frontRow?: boolean;
       /** "call it to a (RC) this unit is not on" (G-BT06 Mighty Rogue, Nightstorm). */
       readonly notSourceCircle?: boolean;
+      /** "call them to separate (RC) with a unit": only circles that already have a unit (G-FC01 Blueheart). */
+      readonly occupied?: boolean;
     }
   /** "Choose one of your open (RC), and move this unit to that circle" (its state does not change). */
   | { readonly op: 'move_to_circle'; readonly target: Selector }
@@ -486,6 +514,12 @@ export type Step =
   | { readonly op: 'blaze' }
   /** CR 1.48.1 11.29 Charge: the units become charging (bottom of the deck at the end of their battle). */
   | { readonly op: 'charge'; readonly target: Selector }
+  /**
+   * CR 1.48.1 11.24 Engorge: retire the `retire` units (marked as retired by engorge, 11.24.2); if one
+   * or more were retired, the targets become engorged until end of turn. Without `retire` the targets
+   * just become engorged (G-BT10 Fullfire Elk).
+   */
+  | { readonly op: 'engorge'; readonly target: Selector; readonly retire?: Selector }
   | { readonly op: 'hollow'; readonly target: Selector; readonly then?: readonly Step[] }
   /** "place it on your (VC) as a heart" (G-BT04 Steam Fighter, Balih). */
   | { readonly op: 'place_heart'; readonly target: Selector; readonly replacing?: string }
@@ -532,6 +566,11 @@ export type Step =
       readonly target: Selector;
       readonly ability: AbilityDefinition;
       readonly duration: Duration;
+      /**
+       * Replace the granted ability's `bound` selectors with the cards bound right now, so a delayed
+       * effect can name "the cards bound with this effect" (G-FC01 Epoch-maker Dragon, Jorurirakan).
+       */
+      readonly freeze?: boolean;
     }
   /**
    * "this unit will be regarded as a unit with the same card name" (PR13 Thousand Name Wyvern
@@ -692,7 +731,14 @@ export type TriggerCondition =
       readonly otherCause?: boolean;
     }
   /** "When … becomes [Rest]" */
-  | { readonly on: 'rests'; readonly who: Subject }
+  | {
+      readonly on: 'rests';
+      readonly who: Subject;
+      /** "[Rest] due to the effect of your card" (an ability's effect, not a cost or an attack). */
+      readonly byYourEffect?: boolean;
+      /** "… of your other card": not this card's own effect (G-BT11 Multitask Angel). */
+      readonly otherCause?: boolean;
+    }
   /** "When a card is put into your damage zone" */
   | { readonly on: 'put_into_damage'; readonly who: Subject }
   /** "When this unit is put into the drop zone from (RC)/(GC)". */
@@ -711,6 +757,12 @@ export type TriggerCondition =
       readonly otherCause?: boolean;
       /** "for the cost of your unit's ability" (G-BT04 Darkpride Dragon). */
       readonly byCost?: boolean;
+      /** true: "retired due to the effect of engorge"; false: by anything else (CR 1.48.1 11.24.2). */
+      readonly byEngorge?: boolean;
+      /** "When this unit is engorged and retired" (it was engorged as it left). */
+      readonly wasEngorged?: boolean;
+      /** "retired by this unit": the effect of an ability of the ability's own card. */
+      readonly bySource?: boolean;
     }
   /** "When this unit leaves the (RC)" (G-BT04 Dreamlight Unicorn): to any zone. */
   | { readonly on: 'leaves_rc'; readonly who: Subject }
@@ -746,6 +798,8 @@ export type TriggerCondition =
   | { readonly on: 'stride'; readonly who: Subject }
   /** Charge (G-BT09): "When this unit / your other rear-guard becomes charging". */
   | { readonly on: 'becomes_charging'; readonly who: Subject }
+  /** Engorge (G-BT10): "When this unit becomes engorged". */
+  | { readonly on: 'becomes_engorged'; readonly who: Subject }
   /** Blaze (G-BT07): "When your vanguard becomes blazing". */
   | { readonly on: 'becomes_blazing' }
   /** "When this card is put into the drop zone from your hand for the cost of [Stride]" (G-BT06). */
@@ -753,15 +807,18 @@ export type TriggerCondition =
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */
   | { readonly on: 'drawn'; readonly who: Subject }
   /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
-  | { readonly on: 'returned_to_hand'; readonly who: Subject };
+  | { readonly on: 'returned_to_hand'; readonly who: Subject }
+  /** "When this unit is put into your G zone from (VC)" (G-BT10 Build Peak Dragon). */
+  | { readonly on: 'put_into_gzone'; readonly who: Subject };
 
 // ---------------------------------------------------------------------------------------------
 // Abilities
 
 /** CR 3.1.1.3: where the card must be for the ability to be active. 'any' = no zone given. */
 /** `GZ`: the G zone (G era, CR 1.48.1 4.11), e.g. "[ACT](G zone)". */
+/** `deck`: only for printed card names ("[CONT](RC/Deck):This card is also regarded as …", G-BT10). */
 export type ActiveZone =
-  'VC' | 'RC' | 'GC' | 'GZ' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind' | 'any';
+  'VC' | 'RC' | 'GC' | 'GZ' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind' | 'deck' | 'any';
 
 interface AbilityBase {
   /** Unique within the card, e.g. "1". The full key is `${cardId}/${id}`. */
@@ -852,12 +909,20 @@ export type ContinuousEffect =
       readonly amount: number;
       /** "if you have a vanguard with X in its card name" (G-BT06 Maiden of Rambler). */
       readonly vanguardNameIncludes?: string;
+      /** "If you have a grade 3 card with X in its card name in your soul" (G-BT10 Neptune Blaukluger). */
+      readonly soulGrade3NameIncludes?: string;
     }
   /**
    * "[CONT]Deck:If you have a vanguard with <part> in its card name, this card gets grade +n" (G-BT06
    * Headwind Knight, Selim; Dark Saga Painter: -1). A characteristic read by currentGrade.
    */
-  | { readonly ce: 'deck_grade'; readonly amount: number; readonly vanguardNameIncludes: string }
+  | {
+      readonly ce: 'deck_grade';
+      readonly amount: number;
+      readonly vanguardNameIncludes: string;
+      /** `trigger`: "[CONT]Trigger Zone:… this card gets grade +1" (G-FC02 Daibazooka). Default the deck. */
+      readonly zone?: 'deck' | 'trigger';
+    }
   /** "[CONT]:This card is from all clans and nations." (Cray Elemental, G era) */
   | { readonly ce: 'all_clans' }
   /** "This unit gets drive -1" (Meteokaiser, Victoplasma): added to its drive checks. */

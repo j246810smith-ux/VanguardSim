@@ -42,13 +42,21 @@ export interface SetData {
   readonly cards: readonly CardRecord[];
 }
 
+/**
+ * The official site's "? SECRET" stand-in, served where a printing has no image of its own (the
+ * English Legion Rare BT16/L02EN of Blaster Blade Seeker, 2026-11-12). Never a card's art.
+ */
+export const PLACEHOLDER_IMAGE = /\/cardlist\/s\/vg_00\.jpg$/i;
+export const isPlaceholderImage = (path: string | null | undefined): boolean =>
+  !!path && PLACEHOLDER_IMAGE.test(path);
+
 export function buildManifest(sets: readonly SetData[], cardData: string): ArtworkManifest {
   const entries: ManifestEntry[] = [];
   for (const s of sets) {
     for (const c of s.cards) {
       const images: { en?: string; jp?: string } = {};
-      if (c.en?.image) images.en = c.en.image;
-      if (c.jp?.image) images.jp = c.jp.image;
+      if (c.en?.image && !isPlaceholderImage(c.en.image)) images.en = c.en.image;
+      if (c.jp?.image && !isPlaceholderImage(c.jp.image)) images.jp = c.jp.image;
       const enNumber = c.en?.number;
       entries.push({
         id: c.id,

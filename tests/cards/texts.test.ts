@@ -8,6 +8,9 @@ const KEYWORDS = new Set(['Restraint', 'Lord', 'Forerunner']);
 // typos in the official text that the ability text deliberately corrects
 const CORRECTED: Record<string, string> = {
   'BT01-004/2': 'the official text prints "Own(VC/RC)" for "[AUTO](VC/RC)"',
+  'G-BT10-004/1':
+    'the English text drops the race: "the number of <High Beast> revealed" (Japanese text)',
+  'G-BT10-004/3': 'the English text prints "also a >" for "also a <Royal Paladin>" (Japanese text)',
 };
 
 /**

@@ -65,6 +65,8 @@ function cardsIn(state: GameState, player: PlayerId, area: Area): readonly Insta
       .flatMap((c) => p.circles[c])
       .filter((id) => !state.cards[id]!.locked && !p.hearts.includes(id));
   switch (area) {
+    case 'hearts':
+      return p.hearts;
     case 'locked':
       return REAR_GUARD_CIRCLES.flatMap((c) => p.circles[c]).filter(
         (id) => state.cards[id]!.locked,
@@ -160,6 +162,7 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.deleted !== undefined && (card.deleted === true) !== filter.deleted) return false;
   if (filter.hollowed !== undefined && (card.hollowed === true) !== filter.hollowed) return false;
   if (filter.charging !== undefined && (card.charging === true) !== filter.charging) return false;
+  if (filter.engorged !== undefined && (card.engorged === true) !== filter.engorged) return false;
   if (
     filter.rescued !== undefined &&
     (state.turnFlags.rescued ?? []).includes(id) !== filter.rescued
@@ -187,6 +190,12 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     const ref = (ec.bindings[filter.gradeAboveOf] ?? [])[0];
     if (ref === undefined || currentGrade(state, ctx, id) <= currentGrade(state, ctx, ref))
       return false;
+  }
+  if (
+    filter.originalPower !== undefined &&
+    !inRange(ctx.registry.get(card.definitionId).power, filter.originalPower)
+  ) {
+    return false;
   }
   if (filter.power !== undefined && !inRange(currentPower(state, ctx, id), filter.power)) {
     return false;
@@ -233,6 +242,21 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   const names = namesOf(state, ctx, id);
   const hasName = (n: string) => names.includes(n);
   if (filter.sameNameAsSource && !shareName(state, ctx, id, ec.source)) return false;
+  if (filter.isSource !== undefined && (id === ec.source) !== filter.isSource) return false;
+  if (
+    filter.originalNameIncludes !== undefined &&
+    !ctx.registry.get(card.definitionId).name.includes(filter.originalNameIncludes)
+  )
+    return false;
+  if (filter.notBound !== undefined) {
+    const not =
+      filter.notBound === EVENT_CARD
+        ? ec.eventCard === null
+          ? []
+          : [ec.eventCard]
+        : (ec.bindings[filter.notBound] ?? []);
+    if (not.includes(id)) return false;
+  }
   if (filter.sameNameAsBound !== undefined) {
     // '__event': the card the trigger event was about ("the same card name as that unit")
     const of =
@@ -410,6 +434,10 @@ export function select(ec: EvalContext, selector: Selector): InstanceId[] {
       return ec.eventCard === null ? [] : [ec.eventCard];
     case 'card':
       return [selector.id];
+    case 'ids':
+      return selector.filter
+        ? selector.ids.filter((id) => matches(ec, id, selector.filter))
+        : [...selector.ids];
     case 'role': {
       // every unit being attacked (several in a multi-unit attack, CR 7.3.1.4.6)
       if (selector.role === 'attacked') return attackedIds(ec.state);
@@ -501,6 +529,14 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
         (ec.state.turnFlags.droppedFromSoul ?? []).filter(
           (id) => ec.state.cards[id]!.owner === ec.master,
         ).length >= (condition.min ?? 1)
+      );
+    case 'original_power_sum':
+      return inRange(
+        select(ec, condition.of).reduce(
+          (sum, id) => sum + ec.ctx.registry.get(ec.state.cards[id]!.definitionId).power,
+          0,
+        ),
+        condition.range,
       );
     case 'heart_named':
       return ec.state.players[ec.master].hearts.some((h) =>

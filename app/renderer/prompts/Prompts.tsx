@@ -240,6 +240,8 @@ export function ChoicePrompt({
                     key={id}
                     className={`pick ${picked.includes(id) ? 'selected' : ''}`}
                     onClick={() => onToggle(id)}
+                    data-nav
+                    data-iid={id}
                   >
                     <CardView
                       definitionId={d ? view.cards[id]!.definitionId : null}
@@ -460,7 +462,7 @@ export interface BarAction {
 
 export function ActionBar({ actions }: { actions: readonly BarAction[] }) {
   return (
-    <div className="action-bar">
+    <div className="action-bar" data-nav-group="actions">
       {actions.map((a) => (
         <button
           key={a.key}

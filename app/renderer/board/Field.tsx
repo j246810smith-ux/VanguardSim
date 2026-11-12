@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import {
   CIRCLES,
   basePower,
@@ -11,6 +12,7 @@ import {
 import { ctx, defOf, ME } from '../engine';
 import type { CircleState } from '../game/interaction';
 import { CardView } from '../ui/CardView';
+import { Num } from '../ui/Num';
 import { Ring } from '../ui/svg';
 import { useLongPress } from '../ui/useLongPress';
 import { CARD_RC, CARD_VC, circlePos, type Point } from './layout';
@@ -76,6 +78,7 @@ function UnitCard({
   }
   const power = currentPower(view, ctx, id);
   const crit = currentCritical(view, ctx, id);
+  const changed = useChanged(power);
   return (
     <div className="unit" data-iid={id}>
       {/* a deleted unit is face down but still a unit with power (CR 10.1.25) */}
@@ -86,16 +89,34 @@ function UnitCard({
         rested={card.orientation === 'rest'}
         deleted={card.deleted === true}
       />
-      {/* re-mounted when the power changes, so the change flashes */}
+      {/* the plate flashes when the power changes while the digits roll to the new value */}
       <div
-        key={power}
-        className={`power-plate ${power > def.power ? 'up' : power < def.power ? 'down' : ''}`}
+        className={`power-plate ${power > def.power ? 'up' : power < def.power ? 'down' : ''} ${changed ? 'changed' : ''}`}
+        data-testid="power-plate"
       >
-        {power}
+        <Num value={power} />
       </div>
-      {crit !== def.critical && <div className="crit-badge">★{crit}</div>}
+      {crit !== def.critical && (
+        <div className="crit-badge">
+          ★<Num value={crit} />
+        </div>
+      )}
     </div>
   );
+}
+
+/** True for a moment after `value` changes (not on the first render): drives the plate's flash. */
+function useChanged(value: number, ms = 400): boolean {
+  const [changed, setChanged] = useState(false);
+  const last = useRef(value);
+  useEffect(() => {
+    if (last.current === value) return;
+    last.current = value;
+    setChanged(true);
+    const t = setTimeout(() => setChanged(false), ms);
+    return () => clearTimeout(t);
+  }, [value, ms]);
+  return changed;
 }
 
 function CircleSlot({
@@ -145,6 +166,9 @@ function CircleSlot({
       onClick={() => onCircle(player, circle)}
       {...press(top ? () => onDetails(top) : null)}
       data-testid={`circle-${player}-${circle}`}
+      data-nav
+      data-nav-group={player === ME ? 'field-me' : 'field-opp'}
+      data-iid={top ?? undefined}
     >
       <div className="ring">
         <Ring strong={vc} />
@@ -162,7 +186,10 @@ function CircleSlot({
           <div className="legion-tag">
             LEGION{' '}
             <span title="Attack power (leader + mate)">
-              ⚔ {basePower(view, ctx, legion.leader) + basePower(view, ctx, legion.mate)}
+              ⚔{' '}
+              <Num
+                value={basePower(view, ctx, legion.leader) + basePower(view, ctx, legion.mate)}
+              />
             </span>
           </div>
         </>

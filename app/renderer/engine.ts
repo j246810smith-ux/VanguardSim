@@ -49,10 +49,25 @@ export interface CardMeta {
   readonly number: string;
   readonly rarity: string;
 }
+/**
+ * A special printing's number (letters after the slash: "BT16/L02EN" Legion Rare, "/S02" secret,
+ * "/SR01", "/Re:01"): not the number to show for the card. The game's card is the base printing.
+ */
+export const isSpecialPrinting = (number: string | undefined): boolean =>
+  !!number && /\/[A-Za-z]/.test(number);
+/** The number shown for a card: its English base number, else the Japanese one. */
+export const displayNumber = (c: {
+  readonly id: string;
+  readonly en?: { readonly number: string } | null;
+  readonly jp?: { readonly number: string } | null;
+}): string =>
+  (c.en && !isSpecialPrinting(c.en.number) ? c.en.number : null) ??
+  c.jp?.number ??
+  c.en?.number ??
+  c.id;
 const META = new Map<string, CardMeta>();
 for (const { file } of SETS) {
-  for (const c of file.cards)
-    META.set(c.id, { number: c.en?.number ?? c.jp?.number ?? c.id, rarity: c.rarity });
+  for (const c of file.cards) META.set(c.id, { number: displayNumber(c), rarity: c.rarity });
 }
 export const metaOf = (definitionId: string): CardMeta | null => META.get(definitionId) ?? null;
 

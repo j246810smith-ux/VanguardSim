@@ -15,6 +15,8 @@ import type { AiLevel, SessionConfig } from './game/session';
 import type { OnlineInfo } from './screens/BattleScreen';
 import { Battle as BattleScreen } from './screens/Battle';
 import { AudioSettings } from './screens/AudioSettings';
+import { ControllerLayer } from './input/ControllerLayer';
+import { ControllerSettings } from './input/ControllerSettings';
 import { useBattleTracks } from './audio/playlist';
 import { useMusicPrefs } from './audio/musicLibrary';
 import { THEMES, type ThemeId } from './themes';
@@ -266,6 +268,7 @@ export function App() {
         screenShake={settings.screenShake}
         graphics={settings.graphics}
       >
+        <ControllerLayer settings={settings} screen={screen.name} />
         {screen.name === 'menu' && (
           <MainMenu
             go={setScreen}
@@ -612,7 +615,7 @@ function SettingsScreen({
   ];
   const toggle = (
     label: string,
-    key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil' | 'stepByStep',
+    key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil' | 'stepByStep' | 'animatedNumbers',
     hint?: string,
   ) => (
     <div className="row">
@@ -837,9 +840,15 @@ function SettingsScreen({
         </div>
         {toggle('Screen shake when an attack hits', 'screenShake')}
         {toggle('Reduced motion', 'reducedMotion')}
+        {toggle(
+          'Animated numbers',
+          'animatedNumbers',
+          'Power, damage and other numbers roll to their new value (off with Reduced motion)',
+        )}
         {toggle('Show card art', 'showArt')}
         {toggle('Foil effect on rare cards', 'foil')}
         <AudioSettings settings={settings} onChange={onChange} />
+        {!IS_ANDROID && <ControllerSettings settings={settings} onChange={onChange} />}
         <div className="row" style={{ alignItems: 'flex-start' }}>
           <span style={{ width: 300 }}>
             Card sleeve
@@ -937,6 +946,7 @@ function SettingsScreen({
         style={{ width: 300 }}
         onClick={onBack}
         data-testid="settings-back"
+        data-nav-back
       >
         BACK
       </button>

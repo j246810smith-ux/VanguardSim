@@ -276,6 +276,7 @@ export const superiorCall = (
     circlesOf?: string;
     frontRow?: boolean;
     notSourceCircle?: boolean;
+    occupied?: boolean;
   } = {},
 ): Step => ({ op: 'call', target, ...opts });
 /** "Declare a <filter> card name, and reveal the top card of your deck": `as` = the top card if it has that name. */
@@ -405,6 +406,32 @@ export const heal = (target: Selector): Step => ({ op: 'heal', target });
 export const charge = (target: Selector): Step => ({ op: 'charge', target });
 /** Blaze (G-BT07): your vanguard becomes blazing if you have more rear-guards than your opponent. */
 export const blaze = (): Step => ({ op: 'blaze' });
+/** CR 1.48.1 11.24 Engorge: retire `retire`; if any were retired, `target` becomes engorged. */
+export const engorge = (target: Selector, retire?: Selector): Step =>
+  retire ? { op: 'engorge', target, retire } : { op: 'engorge', target };
+/**
+ * CR 1.48.1 11.24.1 Engorge: "When this unit attacks, choose one or more of your other rear-guards,
+ * and you may retire them. If one or more were retired, this unit becomes engorged until end of turn."
+ */
+export const engorgeKeyword = (text: string, id = 'engorge'): AbilityDefinition =>
+  auto({
+    id,
+    zones: ['VC', 'RC'],
+    trigger: attacks(),
+    effect: [
+      choose('__engorge', units('you', ['RC'], { excludeSelf: true }), 5, {
+        upTo: true,
+        prompt: 'Engorge: choose rear-guards to retire (none to skip)',
+      }),
+      engorge(self(), bound('__engorge')),
+    ],
+    text,
+  });
+/** Engorge (G-BT10): "When this unit becomes engorged" */
+export const becomesEngorged = (who: Subject = 'self'): TriggerCondition => ({
+  on: 'becomes_engorged',
+  who,
+});
 /** "move this unit to your (GC) as [Rest]": a guardian of the attacked vanguard. */
 export const toGuardian = (target: Selector): Step => ({ op: 'to_guardian', target });
 /** CR 1.48.1 11.33: hollowed until end of turn, then retired; `then` runs after that retire. */

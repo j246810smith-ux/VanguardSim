@@ -37,6 +37,8 @@ export interface MoveOptions {
   readonly by?: PlayerId;
   /** CR 1.48.1 11.33.2: the hollow retire ("put into the drop zone due to the hollow ability"). */
   readonly byHollow?: true;
+  /** CR 1.48.1 11.24.2: the engorge retire. */
+  readonly byEngorge?: true;
   /** …and the card whose ability it was. */
   readonly cause?: InstanceId;
 }
@@ -86,6 +88,8 @@ export function moveCard(
   if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
   if (!isCircle(to)) delete card.hollowed; // CR 1.48.1 11.33: a new card is not hollowed
   if (!isCircle(to)) delete card.charging; // CR 1.48.1 11.29: nor charging
+  const wasEngorged = card.engorged === true && !isCircle(to);
+  if (!isCircle(to)) delete card.engorged; // CR 1.48.1 11.24: nor engorged
   if (to.zone === 'circle' && to.circle === 'vanguard' && s.phase === 'ride')
     s.players[to.player].placedOnVCInRidePhase = true;
   // Unite: a call to (RC) or (GC) (normal, superior, guardian, G guardian), counted per player
@@ -129,6 +133,8 @@ export function moveCard(
     ...(options.by !== undefined ? { by: options.by } : {}),
     ...(options.cause !== undefined ? { cause: options.cause } : {}),
     ...(options.byHollow ? { byHollow: true as const } : {}),
+    ...(options.byEngorge ? { byEngorge: true as const } : {}),
+    ...(wasEngorged ? { wasEngorged: true as const } : {}),
   });
   // granted abilities are lost only after the move's triggers are checked: "when this unit is put
   // into the drop zone" abilities look back at the unit as it was (CR 8.6.7)
@@ -183,6 +189,8 @@ export function setOrientation(
   orientation: 'stand' | 'rest',
   /** The player whose card's effect does it ("due to an effect from one of your cards"). */
   by?: PlayerId,
+  /** …and the card whose ability it was. */
+  cause?: InstanceId,
 ): void {
   const partner = legionPartner(d, id);
   for (const unit of partner ? [id, partner] : [id]) {
@@ -198,7 +206,13 @@ export function setOrientation(
       d,
       orientation === 'stand'
         ? { type: 'UNIT_STOOD', player, instanceId: unit, ...(by === undefined ? {} : { by }) }
-        : { type: 'UNIT_RESTED', player, instanceId: unit },
+        : {
+            type: 'UNIT_RESTED',
+            player,
+            instanceId: unit,
+            ...(by === undefined ? {} : { by }),
+            ...(cause === undefined ? {} : { cause }),
+          },
     );
   }
 }

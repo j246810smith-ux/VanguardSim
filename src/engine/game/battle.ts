@@ -75,6 +75,10 @@ export function declareAttack(
   // the extra targets are chosen with the attack, before "when this unit attacks" abilities play
   if (hasPermission(s, d.ctx, attacker, 'attack_four_units')) {
     s.tasks.push({ kind: 'choose_attack_targets', atomic: true });
+  } else if (hasPermission(s, d.ctx, attacker, 'attack_three_per_heart')) {
+    // the declared target is one of the chosen units: up to 3 × hearts in all
+    const hearts = Math.max(1, s.players[s.activePlayer].hearts.length);
+    s.tasks.push({ kind: 'choose_attack_targets', upTo: 3 * hearts - 1, atomic: true });
   }
   s.tasks.push({ kind: 'guard_step_start' });
 }
@@ -84,18 +88,25 @@ export function declareAttack(
  * one attack": three more of the opponent's units (any circle) besides the declared target; all
  * of them if there are three or fewer (UNRESOLVED_RULINGS "BT17 notes").
  */
-export function chooseAttackTargets(d: Draft, task: { selection?: string[] }): boolean {
+export function chooseAttackTargets(
+  d: Draft,
+  task: { readonly upTo?: number; selection?: string[] },
+): boolean {
   const s = d.state;
   const b = s.battle;
   if (!b) return true;
   const options = unitsOf(s, other(s.activePlayer)).filter((id) => id !== b.target);
+  if (task.upTo !== undefined && (task.upTo <= 0 || options.length === 0)) return true;
   const picked = ask(d, task, {
     player: s.activePlayer,
     kind: 'select',
     options,
-    min: 3,
-    max: 3,
-    prompt: "Choose three more of your opponent's units to battle in this attack",
+    min: task.upTo === undefined ? 3 : 0,
+    max: task.upTo ?? 3,
+    prompt:
+      task.upTo === undefined
+        ? "Choose three more of your opponent's units to battle in this attack"
+        : `Choose up to ${task.upTo} more of your opponent's units to battle in this attack`,
   });
   if (picked === null) return false;
   (b as { extraTargets: typeof b.extraTargets }).extraTargets = picked.flatMap((id) => {

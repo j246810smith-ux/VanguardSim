@@ -11,6 +11,7 @@ import { AI, ME } from '../engine';
 import { circleState } from '../game/interaction';
 import { ActionBar } from '../prompts/Prompts';
 import { CardView } from '../ui/CardView';
+import { Num } from '../ui/Num';
 import { CentreEmblem, Icon } from '../ui/svg';
 
 import { BattleOverlays } from './BattleOverlays';
@@ -144,21 +145,23 @@ export function BattleScreen(props: Props) {
       <div className="counters">
         <div className="counter">
           <small>DAMAGE</small>
-          {opp.damage.length}/6
+          <Num value={opp.damage.length} testId="opp-damage" />
+          /6
         </div>
         <div className="counter">
           <small>DECK</small>
-          {opp.deck.length}
+          <Num value={opp.deck.length} testId="opp-deck" />
         </div>
         <div className="counter">
           <small>HAND</small>
-          {opp.hand.length}
+          <Num value={opp.hand.length} testId="opp-hand" />
         </div>
         <button
           className="icon-btn"
           style={{ position: 'relative', marginLeft: 10 }}
           onClick={() => setMenu(menu === 'game' ? null : 'game')}
           title="Game menu"
+          data-nav-menu
         >
           <Icon name="gear" />
         </button>

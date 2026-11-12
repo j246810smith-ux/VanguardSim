@@ -51,6 +51,7 @@ export function Pile({
       style={style}
       onClick={ids.length ? onOpen : undefined}
       data-zone={`${player}-${zone ?? title.toLowerCase()}`}
+      {...(onOpen && ids.length ? { 'data-nav': true, 'data-nav-group': 'piles' } : {})}
     >
       <div className="panel-title">{title}</div>
       <div className={`panel-body ${big ? 'big' : ''}`}>
@@ -133,6 +134,7 @@ export function DamageZone({
       style={style}
       onClick={ids.length ? onOpen : undefined}
       data-zone={`${player}-damage`}
+      {...(ids.length ? { 'data-nav': true, 'data-nav-group': 'piles' } : {})}
     >
       <div className="panel-title" style={{ display: 'flex' }}>
         DAMAGE
@@ -297,6 +299,12 @@ const box = (b: Box): CSSProperties => ({
 });
 
 /** Both players' zone tiles on the table (D-035), placed like a real mat (board/layout.ts). */
+/** "Opponent's G zone · 6 face down": the viewer shows only the face-up ones (CR 1.48.1 4.11.2). */
+export function gZoneTitle(view: GameState, gzone: readonly InstanceId[]): string {
+  const down = gzone.filter((id) => !view.cards[id]!.faceUp).length;
+  return down ? `Opponent's G zone · ${down} face down` : "Opponent's G zone";
+}
+
 export function TablePiles({
   view,
   onOpen,
@@ -304,7 +312,8 @@ export function TablePiles({
   deckEnds,
 }: {
   view: GameState;
-  onOpen: (title: string, ids: readonly InstanceId[]) => void;
+  /** `reveal`: show face-down cards too (only the player's own G zone, CR 1.48.1 4.11.2). */
+  onOpen: (title: string, ids: readonly InstanceId[], reveal?: boolean) => void;
   /** The deck cards this seat knows, shown on each deck pile. */
   deckEnds: (player: PlayerId) => DeckEnds;
   /** G era (D-034): show the G zones */
@@ -361,7 +370,15 @@ export function TablePiles({
                 ids={pl.gzone}
                 big
                 style={box(pileBox(p, 'gzone'))}
-                onOpen={() => onOpen(`${whose} G zone`, pl.gzone)}
+                // your own G zone shows every card; the opponent's only its face-up G units
+                onOpen={() =>
+                  p === ME
+                    ? onOpen('Your G zone', pl.gzone, true)
+                    : onOpen(
+                        gZoneTitle(view, pl.gzone),
+                        pl.gzone.filter((id) => view.cards[id]!.faceUp),
+                      )
+                }
               />
             )}
             {pl.bind.length > 0 && (

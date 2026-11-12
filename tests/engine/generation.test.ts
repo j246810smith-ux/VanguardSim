@@ -115,7 +115,7 @@ describe('stride (CR 1.48.1 6.5.1.2, 8.5.2.4, 10.27, 10.28)', () => {
     expect(action(atStride('TEST-010'), 0, 'STRIDE')).toBeUndefined();
     const stride = action(atStride(), 0, 'STRIDE')!;
     // face-down G units only (the G guardian has no stride skill restriction: it is a G unit too)
-    expect(stride.cardIds).toHaveLength(5);
+    expect(stride.cardIds).toHaveLength(3); // the two G guardians cannot stride
     expect(stride.suggestedDiscard).toHaveLength(1); // the grade 3 alone
   });
 
@@ -244,6 +244,17 @@ describe('stride (CR 1.48.1 6.5.1.2, 8.5.2.4, 10.27, 10.28)', () => {
     expect(s.activePlayer).toBe(0);
     expect(s.turnNumber).toBe(4);
     expect(s.extraTurn).toBeUndefined();
+  });
+});
+
+describe('stride options', () => {
+  it('a G guardian is never offered for [Stride] (it has [G Guardian], not [Stride])', () => {
+    let s = gScenario(grade3Board(), { circles: { vanguard: 'TEST-014' } });
+    s = run(s, { type: 'END_PHASE', player: 0 }); // ride step → stride step
+    const stride = action(s, 0, 'STRIDE')!;
+    expect(stride.cardIds.length).toBeGreaterThan(0);
+    for (const id of stride.cardIds)
+      expect(ctx.registry.get(s.cards[id]!.definitionId).gGuardian, id).not.toBe(true);
   });
 });
 

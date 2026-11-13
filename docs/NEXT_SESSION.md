@@ -15,6 +15,74 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-12, later) — G Era AI audit: two AI fixes on `ai/g-era`, ready to merge
+
+The user asked for a G Era audit of the Hard AI, then: "everything you have found so far that is worth
+adding i would add and do a hand over so the other session can update the game". Branch **`ai/g-era`**
+(worktree `source\VanguardSim-ai`, node_modules is a junction: remove it with `cmd /c rmdir`, never
+rm -rf), rebased onto master 12d42f9; merge it (fast-forward) and release as 0.40.0-alpha.
+
+- Already in v0.39.0-alpha: the engine fix "G guardians were offered for [Stride]" (563ac26).
+- **On now** (`SMART_DEFAULTS`; off in `SMART_V29`): `alwaysGAssist` (the lookahead declined G Assist or
+  took nothing, staying a grade behind) and `valueStrideDiscard` (`src/ai/strideDiscard.ts`: the stride
+  cost could throw away a perfect guard or heal). Plainly wrong plays, switched on without a long
+  benchmark; see docs/ai/AI_AUDIT_AND_PLAN.md **4c** (a short paired check is recorded there if it ran).
+- Tools: `ai:watch --g [--explain] [--trial]`, `ai:bench --g`, `scripts/g-audit-decks.ts`.
+- Checked, not a problem: unused G unit [ACT]s (their conditions are not met in the playout).
+- Open: rear-guard attacks, guards on stopped attacks, the one-turn lookahead (stage 6 search; AI off
+  the UI thread first). Keep benchmarks to one process while builds run (memory).
+
+## ▶ Pick up here (2026-11-13) — v0.40.0-alpha built but NOT published (session cut off)
+
+Master 0a562ab = "Release 0.40.0-alpha" commit (version bumped, CHANGELOG dated, RELEASING.md line).
+Contents: Hard AI G Era fixes (merge ebd72bb of `ai/g-era`), the draw animation and bigger deck pile
+(user's request), animated numbers polish. Full suite was green at ebd72bb (3652 tests); the draw /
+deck change passed motion, battleRow and tableView tests; the build chain
+(typecheck + lint + format + dist:win + dist:android --release + ui:shots 12) was started and its log
+is in the session scratchpad only, so **check `release/` for `VanguardSim-0.40.0-alpha-*` files**.
+
+**To publish 0.40 (user approved "publish 0.40 once the tests pass"):**
+
+1. `npm run check` (or at least `npx vitest run --maxWorkers=2`) on 0a562ab.
+2. If `release/VanguardSim-0.40.0-alpha-win-x64.zip`, `-portable.exe` and
+   `release/android/VanguardSim-0.40.0-alpha-android.apk` are missing or older than 0a562ab:
+   `npm run dist:win && npm run dist:android -- --release`.
+3. Look at `bench-results/ui-shots/*battle*.png`: the DECK tile (bottom right of my piles) must not
+   overlap DROP (left) or G ZONE (above).
+4. `npm run dist:smoke`; `npm run release:manifest -- --previous release/prev/manifest.json`
+   (release/prev already holds 0.39's manifest).
+5. `git tag v0.40.0-alpha`; mirror into `..\VanguardSim-public` (git rm -rq ., git -C ..\VanguardSim
+   archive --format=tar HEAD | tar -x, git add -A, commit, tag, push with
+   `-c credential.helper= -c "credential.helper=!gh auth git-credential"`).
+6. `gh release create v0.40.0-alpha --prerelease --title "Vanguard Sim v0.40.0-alpha" --notes-file <notes>`
+   with the six files; the notes draft text is in the Desktop handover
+   "VanguardSim HANDOVER 2026-11-13 (v0.39-0.40, controller, numbers).md" section headings and
+   CHANGELOG 0.40.0-alpha. Then `npm run release:verify 0.40.0-alpha`.
+
+Handover: OneDrive Desktop "VanguardSim HANDOVER 2026-11-13 (v0.39-0.40, controller, numbers).md".
+
+## ▶ Pick up here (2026-11-12, night) — v0.39.0-alpha published
+
+**Released:** v0.39.0-alpha (dev tag at 12d42f9 on master; public mirror c189223 pushed with the tag;
+GitHub pre-release with the zip, portable exe, signed update files and the APK; `dist:smoke` and
+`release:verify` passed). Contents: G zone viewer fix, Blaster Blade Seeker art fix, **controller
+support on Windows** (docs/CONTROLLER.md), **animated numbers** (NumberFlow, `ui/Num.tsx`,
+docs/design/NUMBERFLOW_AUDIT.md §7), the five polish items, the card-sets session's G-BT10 /
+G-FC01 / G-FC02 (merge 04de148), and the stride fix 563ac26 (cherry-picked from `ai/g-era`
+4a75214: that branch must be rebased onto master before merging).
+
+**Not yet checked by a human:** a real controller on Windows (home screen, a CPU game, the Deck
+Builder, Settings → Controller rebinding), the rolling digits by eye on Windows and the phone, the
+APK on the Pixel (adb was not reachable from this session: install
+`release/android/VanguardSim-0.39.0-alpha-android.apk` or update from inside the app). The phone
+still has the old Blaster Blade Seeker stand-in until Settings → Download card art runs for BT16.
+
+**Other sessions:** `ai/g-era` (worktree `..\VanguardSim-ai`): Hard AI G-era audit, for 0.40.
+`sets/g-bt10` is merged; G-BT11/G-BT12 data imported but not scripted; `wip/dominate` untested.
+
+**Next ideas:** controller on Android (native key-event plugin, see CONTROLLER_SEEKER_GZONE_AUDIT.md),
+NumberFlow on the hand shield tags if wanted, G-BT11 (Dominate) scripting.
+
 ## ▶ Pick up here (2026-11-12) — G zone, Blaster Blade Seeker, controller done; NumberFlow awaits approval
 
 Done on master (unreleased, next version 0.39.0-alpha; full suite 3552 green, `npm run check` clean

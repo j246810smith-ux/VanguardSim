@@ -20,6 +20,8 @@ interface PileProps {
   readonly face?: boolean;
   /** A larger card with the count over it (the decks, closer to the size of the units). */
   readonly big?: boolean;
+  /** The card's own size, when neither the small nor the big default fits (the deck). */
+  readonly size?: readonly [number, number];
   /** The engine's zone name, when the title is not it (motion.ts finds tiles by it). */
   readonly zone?: string;
   /** A deck's top and bottom cards this seat knows: shown as pictures on the pile. */
@@ -38,10 +40,11 @@ export function Pile({
   onOpen,
   face = true,
   big,
+  size,
   zone,
   known,
 }: PileProps) {
-  const [w, h] = big ? [64, 93] : [52, 75];
+  const [w, h] = size ?? (big ? [64, 93] : [52, 75]);
   const top = ids.at(face ? -1 : 0);
   const def = top && face ? view.cards[top]!.definitionId : null;
   const visible = def && def !== 'HIDDEN' ? def : null;
@@ -305,6 +308,9 @@ export function gZoneTitle(view: GameState, gzone: readonly InstanceId[]): strin
   return down ? `Opponent's G zone · ${down} face down` : "Opponent's G zone";
 }
 
+/** The deck pile's card (a little bigger than the other piles' 64×93; the tile grew with it). */
+const DECK_CARD = [82, 119] as const;
+
 export function TablePiles({
   view,
   onOpen,
@@ -333,6 +339,7 @@ export function TablePiles({
               ids={pl.deck}
               face={false}
               big
+              size={DECK_CARD}
               known={deckEnds(p)}
               style={box(pileBox(p, 'deck'))}
             />

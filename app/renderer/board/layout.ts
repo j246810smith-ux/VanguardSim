@@ -144,7 +144,8 @@ const MY_PILES: Record<PileSlot, Box> = {
   trigger: { left: 1340, top: 560, width: 130, height: 158 },
   soul: { left: 1480, top: 560, width: 130, height: 158 },
   drop: { left: 1340, top: 735, width: 130, height: 158 },
-  deck: { left: 1480, top: 735, width: 130, height: 158 },
+  /** A little larger than the other piles (user's request, 2026-11-13): the deck is the landmark */
+  deck: { left: 1476, top: 724, width: 144, height: 180 },
   bind: { left: 1620, top: 735, width: 130, height: 158 },
   /** G era (D-034): the G zone, beside the deck */
   gzone: { left: 1620, top: 560, width: 130, height: 158 },

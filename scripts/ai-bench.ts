@@ -1,5 +1,7 @@
 /**
- * AI benchmark: `npm run ai:bench -- [games] [--a smart] [--b basic] [--seed 1000] [--decks all|library|BT08|…]`
+ * AI benchmark: `npm run ai:bench -- [games] [--a smart] [--b basic] [--seed 1000] [--decks all|library|BT08|…] [--g]`
+ *
+ * `--g`: G Era rules on the G audit decks (scripts/g-audit-decks.ts) instead of the starter decks.
  *
  * Weight tuning: a controller named `smart-w:path=value,path=value` is the current Hard AI with
  * those evaluation weights changed (paths into `EvalWeights`, e.g. `smart-w:hand.sentinel=2000`).
@@ -19,7 +21,14 @@ import { cardRegistry } from '../src/cards';
 import { deckListOf, LIBRARY } from '../src/decks/library';
 import { profileForList } from '../src/decks/profiles';
 import { STARTER_DECKS } from '../src/decks/starters';
-import { EARLY_BT01_BT17_FORMAT, EARLY_VANGUARD_RULES, type EngineContext } from '../src/engine';
+import {
+  EARLY_BT01_BT17_FORMAT,
+  EARLY_VANGUARD_RULES,
+  G_ERA_FORMAT,
+  G_ERA_RULES,
+  type EngineContext,
+} from '../src/engine';
+import { gAuditDecks } from './g-audit-decks';
 import {
   formatReport,
   runBenchmark,
@@ -27,10 +36,11 @@ import {
   type NamedDeck,
 } from '../src/sim/benchmark';
 
+const gEra = process.argv.includes('--g');
 const ctx: EngineContext = {
   registry: cardRegistry(),
-  ruleset: EARLY_VANGUARD_RULES,
-  format: EARLY_BT01_BT17_FORMAT,
+  ruleset: gEra ? G_ERA_RULES : EARLY_VANGUARD_RULES,
+  format: gEra ? G_ERA_FORMAT : EARLY_BT01_BT17_FORMAT,
 };
 
 const CONTROLLERS: Record<string, ControllerFactory> = {
@@ -68,7 +78,11 @@ const flag = (name: string, fallback: string) => {
   const i = args.indexOf(`--${name}`);
   return i >= 0 && args[i + 1] ? args[i + 1]! : fallback;
 };
-const positional = args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('--'));
+const positional = args.find(
+  (a, i) =>
+    !a.startsWith('--') &&
+    !(args[i - 1]?.startsWith('--') && !['--g', '--paired'].includes(args[i - 1]!)),
+);
 const games = Number(positional ?? flag('games', '40'));
 const aName = flag('a', 'smart');
 const bName = flag('b', 'basic');
@@ -83,8 +97,9 @@ const setOf = (cards: readonly string[]) =>
     .filter((s) => s.startsWith('BT'))
     .sort()
     .at(-1) ?? 'TD';
-const pool: NamedDeck[] =
-  deckFilter === 'library'
+const pool: NamedDeck[] = gEra
+  ? gAuditDecks(ctx)
+  : deckFilter === 'library'
     ? LIBRARY.map((d) => ({ name: d.name, deck: deckListOf(d) }))
     : STARTER_DECKS.filter((d) => deckFilter === 'all' || setOf(d.deck.cards) === deckFilter).map(
         (d) => ({ name: d.name, deck: d.deck }),

@@ -29,6 +29,7 @@ import { BasicController } from './basicController';
 import type { PlayerController } from './controller';
 import { determinize } from './determinize';
 import { alreadySafe, isPerfectGuard, payableSentinel } from './guarding';
+import { bestStrideDiscard } from './strideDiscard';
 import { Evaluator, isFinisher, planFor } from './evaluate';
 import { WIN_CON_WEIGHTS, winConOf, type WinCon } from './winCon';
 import { PROFILE_WEIGHTS, profileBonus, profileMulligan, type DeckAi } from './profile';
@@ -71,6 +72,10 @@ export interface SmartOptions {
    * AI would rather lose than play it.
    */
   readonly lastGuardFix?: boolean;
+  /** G era: pay [Stride] with the fewest, then least valuable cards (`strideDiscard.ts`). */
+  readonly valueStrideDiscard?: boolean;
+  /** G era: always use G Assist and take the card it finds (the lookahead declined it). */
+  readonly alwaysGAssist?: boolean;
   /**
    * Never pass on a hit that loses the game while a guard is possible, even when the lookahead
    * sees the game lost either way: make the opponent find the win.
@@ -125,6 +130,8 @@ export const SMART_DEFAULTS: Required<SmartOptions> = {
   vanguardFocus: [0, 0, 100, 300, 800, 2000],
   alwaysBoost: true,
   rideFinisher: true,
+  valueStrideDiscard: true,
+  alwaysGAssist: true,
 };
 /** The Hard AI as released up to v0.29, frozen for head-to-head measurements. */
 export const SMART_V29: Required<SmartOptions> = {
@@ -141,6 +148,8 @@ export const SMART_V29: Required<SmartOptions> = {
   vanguardFocus: [0, 0, 0, 0, 0, 0],
   alwaysBoost: false,
   rideFinisher: false,
+  valueStrideDiscard: false,
+  alwaysGAssist: false,
 };
 /** The Hard AI as of 0.13.0 (the stage 1 baseline), for comparisons. */
 export const SMART_BASELINE: Required<SmartOptions> = {
@@ -289,7 +298,7 @@ export class SmartController implements PlayerController {
             const name = this.def(s, cardId)?.name ?? cardId;
             if (seen.has(name)) continue;
             seen.add(name);
-            out.push({ type: 'STRIDE', player: me, cardId, discard: a.suggestedDiscard });
+            out.push({ type: 'STRIDE', player: me, cardId, discard: this.strideDiscard(s, a) });
           }
           break;
         }
@@ -319,6 +328,18 @@ export class SmartController implements PlayerController {
       }
     }
     return out;
+  }
+
+  /** The stride cost: the fewest, then least valuable cards (`valueStrideDiscard`), else the engine's. */
+  private strideDiscard(
+    s: GameState,
+    a: Extract<LegalAction, { type: 'STRIDE' }>,
+  ): readonly InstanceId[] {
+    if (!this.options.valueStrideDiscard) return a.suggestedDiscard;
+    return (
+      bestStrideDiscard(a.discardable, a.discardGrades, (id) => this.def(s, id)) ??
+      a.suggestedDiscard
+    );
   }
 
   /** The candidate with the best lookahead score; ending the phase wins ties (no busywork). */
@@ -638,6 +659,17 @@ export class SmartController implements PlayerController {
 
   /** Choices: try every option when there are few; otherwise a sensible default. */
   private choose(s: GameState, me: PlayerId, c: Choose): Command {
+    // G Assist (CR 1.48.1 6.4.1.2): missing a grade costs more than the turn's lookahead can see
+    // (no grade 3, no stride on later turns), so take it whenever it is offered
+    if (this.options.alwaysGAssist && c.prompt.startsWith('G Assist')) {
+      const take =
+        c.kind === 'yes_no'
+          ? ['yes']
+          : c.kind === 'search' && c.options.length > 0
+            ? [c.options[0]!]
+            : null;
+      if (take) return { type: 'CHOOSE', player: me, choiceId: c.choiceId, selection: take };
+    }
     const selections: string[][] = [];
     if (c.max === 1 && c.options.length <= 14) {
       for (const o of c.options) selections.push([o]);

@@ -194,6 +194,38 @@ empty, and the mulligan).
 Next, in order: that plan work, then `competentOpponent`. The evaluation has no way to see a good position for a deck's own plan beyond these
 bonuses, so the larger step is still a real search over a turn (stage 6).
 
+## 4c. G Era audit (2026-11-12)
+
+The earlier measurements all used 2013–14 decks. `ai:watch --g` and `ai:bench --g` now play G Era
+games on one audit deck per clan (`scripts/g-audit-decks.ts`: newest G-era cards, 16 triggers and
+14/11/8 of grades 1/2/3, G units whose "heart card with X" condition a grade 3 in the deck meets,
+two G guardians). They are our own builds for measuring the AI, not real decklists. The first
+version of those decks had no grade 1s, so read only runs from commit db32e47 on.
+`ai:watch --explain` logs each evaluation term after a skipped G unit [ACT] against ending the phase.
+
+Found and fixed:
+
+- **Engine: G guardians were offered for [Stride]** (a 0-power G guardian could be stridden onto the
+  vanguard, by players too). Fixed in 4a75214 (cherry-picked into v0.39.0-alpha).
+- **G Assist declined, or taken and then nothing chosen**, leaving the AI a grade behind: the
+  lookahead counts the two hand cards it costs, but missing a grade (no grade 3, no stride) only
+  hurts after the turn it can see. `alwaysGAssist`, **on**.
+- **The stride cost ignored what the cards are worth** (fewest cards, lowest grades: it could discard
+  a perfect guard or a heal trigger while a plain grade 1 would do). `valueStrideDiscard`
+  (`src/ai/strideDiscard.ts`), **on**.
+
+Both options fix plays that are plainly wrong and were switched on without a long benchmark (the user
+asked for what was found to go into the game); a short paired check is recorded below when it ran.
+
+Checked and **not** a problem: the G unit [ACT]s the AI leaves unused. With `--explain`, almost every
+one changes nothing but its cost in the playout (its "heart card with X" or field condition is not met
+that turn), so skipping it is right. G guardians are used when available.
+
+Still open (symptoms, not proven mistakes): attacks on rear-guards (frequent), guards on attacks
+already stopped, rear-guard attacks below the target's power, and the one-turn lookahead's blind spot
+for abilities that pay off in later battles. The next step is the same as for the Original Era: a real
+search over a turn (stage 6), and the AI off the UI thread first.
+
 ## 5. Running the benchmark
 
 ```

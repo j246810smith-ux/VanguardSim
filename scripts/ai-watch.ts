@@ -1,5 +1,7 @@
 /**
- * Watch the AI play itself: `npm run ai:watch -- [games] [--seed 90000] [--a smart] [--b smart] [--logs 10]`
+ * Watch the AI play itself: `npm run ai:watch -- [games] [--seed 90000] [--a smart] [--b smart] [--logs 10] [--g]`
+ *
+ * `--g`: G Era rules with the G Trial Decks and G starter decks (otherwise the Original Era library).
  *
  * Plays the library's tournament decks through the real engine and writes the first `--logs` games
  * as readable turn-by-turn logs in bench-results/watch/ (git-ignored). Over all games it counts
@@ -9,9 +11,14 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { SMART_V29, SmartController, type SmartOptions } from '../src/ai/smartController';
+import { TERMS, type Evaluator } from '../src/ai/evaluate';
 import { alreadySafe, isPerfectGuard } from '../src/ai/guarding';
 import { cardRegistry } from '../src/cards';
 import { deckListOf, LIBRARY } from '../src/decks/library';
+import { G_STARTER_DECKS } from '../src/decks/gStarters';
+import { G_TRIAL_DECKS } from '../src/decks/trialDecks';
+import { gAuditDecks } from './g-audit-decks';
+
 import {
   actingPlayer,
   applyCommand,
@@ -21,6 +28,8 @@ import {
   currentShield,
   EARLY_BT01_BT17_FORMAT,
   EARLY_VANGUARD_RULES,
+  G_ERA_FORMAT,
+  G_ERA_RULES,
   getLegalActions,
   other,
   REAR_GUARD_CIRCLES,
@@ -35,18 +44,21 @@ import {
   type PlayerId,
 } from '../src/engine';
 
+const args = process.argv.slice(2);
+const gEra = args.includes('--g');
 const ctx: EngineContext = {
   registry: cardRegistry(),
-  ruleset: EARLY_VANGUARD_RULES,
-  format: EARLY_BT01_BT17_FORMAT,
+  ruleset: gEra ? G_ERA_RULES : EARLY_VANGUARD_RULES,
+  format: gEra ? G_ERA_FORMAT : EARLY_BT01_BT17_FORMAT,
 };
 
-const args = process.argv.slice(2);
 const flag = (name: string, fallback: string) => {
   const i = args.indexOf(`--${name}`);
   return i >= 0 && args[i + 1] ? args[i + 1]! : fallback;
 };
-const positional = args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('--'));
+const positional = args.find(
+  (a, i) => !a.startsWith('--') && !(args[i - 1]?.startsWith('--') && args[i - 1] !== '--g'),
+);
 const games = Number(positional ?? '20');
 const seedBase = Number(flag('seed', '90000'));
 const logs = Number(flag('logs', '10'));
@@ -93,7 +105,7 @@ function board(s: GameState, p: PlayerId): string {
     c(s.players[p].circles[circle].at(-1));
   const vg = vanguardOf(s.players[p]);
   return [
-    `    P${p} dmg ${s.players[p].damage.length} (${faceUp(s, p)} up) hand ${s.players[p].hand.length} soul ${s.players[p].soul.length} deck ${s.players[p].deck.length}`,
+    `    P${p} dmg ${s.players[p].damage.length} (${faceUp(s, p)} up) hand ${s.players[p].hand.length} soul ${s.players[p].soul.length} deck ${s.players[p].deck.length}${gEra ? ` G zone ${s.players[p].gzone.length} (${s.players[p].gzone.filter((id) => s.cards[id]!.faceUp).length} up)` : ''}`,
     `      front: ${at('front_left')} | VG ${c(vg ?? undefined)} | ${at('front_right')}`,
     `      back:  ${at('back_left')} | ${at('back_center')} | ${at('back_right')}`,
     `      hand:  ${s.players[p].hand
@@ -164,6 +176,7 @@ function narrate(s: GameState, e: GameEvent): string | null {
 function guardsLeft(s: GameState, p: PlayerId, actions: readonly LegalAction[]) {
   let shield = 0;
   let perfect = false;
+  let gGuardian = false;
   for (const a of actions) {
     if (a.type === 'GUARD') {
       for (const id of a.cardIds) {
@@ -172,8 +185,12 @@ function guardsLeft(s: GameState, p: PlayerId, actions: readonly LegalAction[]) 
       }
     }
     if (a.type === 'INTERCEPT') for (const id of a.unitIds) shield += currentShield(s, ctx, id);
+    if (a.type === 'G_GUARD' && a.cardIds.length > 0) {
+      shield += Math.max(...a.cardIds.map((id) => defOf(s, id).shield));
+      gGuardian = true;
+    }
   }
-  return { shield, perfect };
+  return { shield, perfect, gGuardian };
 }
 
 /** Note plays that look wrong. `s` is the true state before `c`. */
@@ -221,6 +238,10 @@ function audit(
         note('did not ride up', where);
     }
   }
+  if (c.type === 'END_PHASE' && actions.some((a) => a.type === 'STRIDE'))
+    note('did not stride when able', where);
+  if (c.type === 'G_GUARD') note('(info) used a G guardian', where);
+  if (c.type === 'STRIDE') note('(info) strode', where);
   if (c.type === 'END_PHASE' && s.phase === 'main') {
     const call = actions.find((a) => a.type === 'CALL');
     if (call?.type === 'CALL') {
@@ -274,12 +295,73 @@ function audit(
       const left = guardsLeft(s, p, actions);
       if (left.perfect || left.shield >= need)
         note('let a LETHAL hit through with guards left', where);
+      if (left.gGuardian) note('let a LETHAL hit through with a G guardian available', where);
+    }
+  }
+}
+
+/**
+ * `--explain`: when a G unit's [ACT] is left unused at the end of a main phase, log each evaluation
+ * term after ending the phase and after playing that [ACT] (true state, one playout each).
+ */
+function explainSkippedAct(
+  s: GameState,
+  p: PlayerId,
+  c: Command,
+  actions: readonly LegalAction[],
+  ai: SmartController,
+  log: string[],
+) {
+  if (c.type !== 'END_PHASE' || s.phase !== 'main') return;
+  const evaluator = (ai as unknown as { evaluator: Evaluator }).evaluator;
+  for (const a of actions) {
+    if (a.type !== 'ACTIVATE') continue;
+    for (const o of a.options) {
+      if (defOf(s, o.source).cardType !== 'g_unit') continue;
+      const act: Command = {
+        type: 'ACTIVATE',
+        player: p,
+        source: o.source,
+        abilityId: o.abilityId,
+      };
+      const end = ai.playOut(s, p, [c]);
+      const used = ai.playOut(s, p, [act]);
+      if (!end || !used) {
+        log.push(
+          `      EXPLAIN ${defOf(s, o.source).name}: playout failed (${!used ? 'act' : 'end'})`,
+        );
+        note('G unit [ACT] playout failed', `${s.turnNumber}`);
+        continue;
+      }
+      const e = evaluator.breakdown(end, p);
+      const u = evaluator.breakdown(used, p);
+      const diff = TERMS.map((t) => `${t} ${Math.round(u[t] - e[t])}`).join(', ');
+      log.push(`      EXPLAIN ${defOf(s, o.source).name} act-minus-end: ${diff}`);
+      for (const t of TERMS) {
+        const d = u[t] - e[t];
+        if (Math.abs(d) >= 300)
+          note(`(explain) G [ACT] ${t} ${d > 0 ? '+' : '-'}`, `${s.turnNumber}`);
+      }
     }
   }
 }
 
 mkdirSync(join('bench-results', 'watch'), { recursive: true });
-const pairs = LIBRARY.map((a, i) => [a, LIBRARY[(i * 7 + 3) % LIBRARY.length]!] as const);
+type Watched = { readonly name: string; readonly list: ReturnType<typeof deckListOf> };
+/**
+ * G audit decks: one per clan, built like the set tests' decks (newest G-era units first) with a
+ * G deck of the clan's newest G units, two G guardian names among them when the clan has them.
+ */
+const POOL: readonly Watched[] = gEra
+  ? [
+      ...gAuditDecks(ctx).map((d) => ({ name: d.name, list: d.deck })),
+      ...(args.includes('--trial')
+        ? [...G_TRIAL_DECKS, ...G_STARTER_DECKS].map((d) => ({ name: d.name, list: d.deck }))
+        : []),
+    ]
+  : LIBRARY.map((d) => ({ name: d.name, list: deckListOf(d) }));
+if (gEra) console.log(`G decks: ${POOL.map((d) => d.name).join(', ')}`);
+const pairs = POOL.map((a, i) => [a, POOL[(i * 7 + 3) % POOL.length]!] as const);
 let fallbacks = 0;
 let winsA = 0;
 let totalTurns = 0;
@@ -289,8 +371,8 @@ for (let g = 0; g < games; g++) {
   const seed = seedBase + g;
   const [deckA, deckB] = pairs[g % pairs.length]!;
   const firstPlayer = (Math.floor(g / 2) % 2) as PlayerId;
-  const listA = deckListOf(deckA);
-  const listB = deckListOf(deckB);
+  const listA = deckA.list;
+  const listB = deckB.list;
   const controllers = [
     new SmartController(ctx, listA, aOptions),
     new SmartController(ctx, listB, bOptions),
@@ -323,6 +405,8 @@ for (let g = 0; g < games; g++) {
     const actions = getLegalActions(state, p, ctx);
     decisionLines = [];
     const command = controllers[p]!.chooseCommand(viewFor(state, p), p, actions);
+    if (args.includes('--explain'))
+      explainSkippedAct(state, p, command, actions, controllers[p]!, log);
     const where = `seed ${seed} turn ${state.turnNumber} P${p} ${state.phase}`;
     audit(state, p, command, actions, where);
     const b = state.battle;

@@ -59,7 +59,18 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-11): v0.36.0-alpha published
+## Latest (2026-11-13): v0.40.0-alpha built, not yet published
+
+Master 0a562ab is the 0.40 release commit (AI G Era fixes, draw animation, bigger deck pile). Publish
+it per the top of `docs/NEXT_SESSION.md` (user approved). Then:
+
+## Earlier (2026-11-12): v0.39.0-alpha published
+
+Controller support on Windows (`app/renderer/input/`, docs/CONTROLLER.md), animated numbers
+(`ui/Num.tsx`, NumberFlow), G zone viewer and Blaster Blade Seeker fixes, G-BT10/G-FC01/G-FC02.
+Read the top of `docs/NEXT_SESSION.md`. Branch `ai/g-era` (Hard AI G-era audit) is for 0.40.
+
+## Earlier (2026-11-11): v0.36.0-alpha published
 
 Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles; docs/design/BATTLEFIELD_2_AUDIT.md)
 and G-TD06–08, G-BT06. Read the top of `docs/NEXT_SESSION.md`. Git "Permission denied" on .git/objects:

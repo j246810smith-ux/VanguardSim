@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.40.0-alpha — 2026-11-13
+
+- **Hard AI, G Era:** it now always uses G Assist and takes the grade it finds (it sometimes declined,
+  or looked and took nothing, and stayed a grade behind), and pays for [Stride] with the least
+  valuable cards (it could discard a perfect guard or a heal trigger while a plain grade 1 would do).
+- **Drawing a card** has its own animation: the card lifts off the deck as a back, turns over on
+  the way and settles into your hand (the opponent's draws lift and arc). Off with Reduced motion
+  or Instant speed, like the other card movement.
+- The **deck pile** on the desktop table is a little bigger than the other piles.
+- Developer tools: `npm run ai:watch -- --g` and `npm run ai:bench -- --g` play G Era games on one
+  audit deck per clan; `ai:watch --explain` shows why a G unit's [ACT] was left unused.
+
 ## 0.39.0-alpha — 2026-11-12
 
 - **Animated numbers:** power plates, the ATTACK / DEFENCE display, attack preview totals, the

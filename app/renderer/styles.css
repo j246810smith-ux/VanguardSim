@@ -2435,6 +2435,28 @@ input.text {
 }
 
 /* card movement ghosts (board/motion.ts): cards flying into a pile after leaving the board */
+/* a drawn card turns over on its way to the hand (board/motion.ts `draw`) */
+.motion-layer {
+  perspective: 1400px;
+}
+.motion-ghost.draw-ghost {
+  transform-style: preserve-3d;
+}
+.draw-ghost .draw-face,
+.draw-ghost .draw-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.draw-ghost .draw-back {
+  transform: rotateY(180deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+.draw-ghost .draw-face .card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
 .motion-layer {
   position: absolute;
   inset: 0;

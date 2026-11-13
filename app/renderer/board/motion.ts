@@ -120,49 +120,82 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
         me: stage.querySelector<HTMLElement>('.hand'),
         opp: stage.querySelector<HTMLElement>('.opp-hand'),
       };
-      const fly = (
-        iid: string,
-        card: Placed,
-        from: Spot,
-        to: Spot,
-        opts: { real?: HTMLElement; fadeIn?: boolean; duration: number },
-      ) => {
-        const ghost = card.el.cloneNode(true) as HTMLElement;
-        ghost.removeAttribute('data-iid');
-        ghost.removeAttribute('data-testid');
-        ghost.dataset.ghostOf = iid;
-        ghost.classList.add('motion-ghost');
-        const src = card.side ? sleeveSource[card.side] : null;
-        if (src) {
-          const cs = getComputedStyle(src);
-          for (const v of SLEEVE_VARS) ghost.style.setProperty(v, cs.getPropertyValue(v));
-        }
-        Object.assign(ghost.style, {
+      /** Takes a card copy out of its layout (hand fan rotation, circle offsets): a flat card. */
+      const flatten = (el: HTMLElement, lw: number, lh: number, at?: { x: number; y: number }) =>
+        Object.assign(el.style, {
           position: 'absolute',
-          left: `${to.cx - card.lw / 2}px`,
-          top: `${to.cy - card.lh / 2}px`,
+          left: `${at?.x ?? 0}px`,
+          top: `${at?.y ?? 0}px`,
           bottom: 'auto',
-          width: `${card.lw}px`,
-          height: `${card.lh}px`,
+          width: `${lw}px`,
+          height: `${lh}px`,
           margin: '0',
           transform: 'none',
           translate: 'none',
           rotate: 'none',
           scale: 'none',
         });
+      const fly = (
+        iid: string,
+        card: Placed,
+        from: Spot,
+        to: Spot,
+        opts: { real?: HTMLElement; fadeIn?: boolean; draw?: boolean; duration: number },
+      ) => {
+        const copy = card.el.cloneNode(true) as HTMLElement;
+        copy.removeAttribute('data-iid');
+        copy.removeAttribute('data-testid');
+        // a draw (user's request, 2026-11-13): the card lifts off the deck as a back, turns over
+        // on the way and settles into the hand. The copy rides inside a flipping frame with the
+        // sleeve on its reverse; the opponent's draw (a back already) only lifts and arcs.
+        const flips = !!opts.draw && !!copy.querySelector('.card:not(.back)');
+        const ghost = flips ? document.createElement('div') : copy;
+        ghost.dataset.ghostOf = iid;
+        ghost.classList.add('motion-ghost');
+        if (opts.draw) ghost.classList.add('draw-ghost');
+        const src = card.side ? sleeveSource[card.side] : null;
+        if (src) {
+          const cs = getComputedStyle(src);
+          for (const v of SLEEVE_VARS) ghost.style.setProperty(v, cs.getPropertyValue(v));
+        }
+        flatten(ghost, card.lw, card.lh, { x: to.cx - card.lw / 2, y: to.cy - card.lh / 2 });
+        if (flips) {
+          copy.classList.add('draw-face');
+          flatten(copy, card.lw, card.lh);
+          const back = document.createElement('div');
+          back.className = 'card back draw-back';
+          ghost.append(copy, back);
+        }
         layer!.appendChild(ghost);
-        const runs: Animation[] = [
-          ghost.animate(
-            [
+        const dx = from.cx - to.cx;
+        const dy = from.cy - to.cy;
+        const turn = (deg: number) => (flips ? ` rotateY(${deg}deg)` : '');
+        const frames: Keyframe[] = opts.draw
+          ? [
+              { transform: `translate(${dx}px, ${dy}px) scale(${from.s})${turn(180)}`, opacity: 1 },
               {
-                transform: `translate(${from.cx - to.cx}px, ${from.cy - to.cy}px) scale(${from.s})`,
+                // lifted off the table at mid-flight, turning over
+                transform: `translate(${dx * 0.45}px, ${dy * 0.45 - 90}px) scale(${((from.s + to.s) / 2) * 1.12})${turn(90)}`,
+                opacity: 1,
+                offset: 0.5,
+              },
+              { transform: `scale(${to.s})${turn(0)}`, opacity: 1, offset: 0.85 },
+              { transform: `scale(${to.s})${turn(0)}`, opacity: 0 },
+            ]
+          : [
+              {
+                transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
                 opacity: opts.fadeIn ? 0.4 : 1,
               },
               { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
               { transform: `scale(${to.s})`, opacity: 0 },
-            ],
-            { duration: opts.duration, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' },
-          ),
+            ];
+        const runs: Animation[] = [
+          ghost.animate(frames, {
+            duration: opts.duration,
+            easing: 'cubic-bezier(.2,.8,.2,1)',
+            fill: 'forwards',
+          }),
         ];
         // the real card waits under the ghost and fades in as it lands
         if (opts.real)
@@ -188,8 +221,13 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
           fly(iid, cur, was, cur, { real: cur.el, duration: ms });
           continue;
         }
-        const from = tile(moves.get(iid)?.from ?? null, cur);
-        if (from) fly(iid, cur, from, cur, { real: cur.el, fadeIn: true, duration: ms });
+        const fromKey = moves.get(iid)?.from ?? null;
+        const from = tile(fromKey, cur);
+        if (!from) continue;
+        // drawn into a hand: the draw flourish; anything else fades in from its tile
+        if (fromKey?.endsWith('-deck') && cur.el.classList.contains('hand-card'))
+          fly(iid, cur, from, cur, { real: cur.el, draw: true, duration: ms * 1.35 });
+        else fly(iid, cur, from, cur, { real: cur.el, fadeIn: true, duration: ms });
       }
       // cards that left the screen fly into the tile of their new zone
       for (const [iid, gone] of prev.current) {

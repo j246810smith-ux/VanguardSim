@@ -85,4 +85,44 @@ describe('card movement animation', () => {
     expect(flights()).toBe(1);
     expect(document.querySelector('.motion-ghost')).toBeNull();
   });
+
+  // the draw flourish (user's request, 2026-11-13): deck → hand lifts, turns over and lands
+  it('a card drawn into the hand turns over on its way; other arrivals just fade in', () => {
+    function Table({ view, cards }: { view: object; cards: readonly string[] }) {
+      const moves = new Map<string, Move>([
+        ['d1', { from: '0-deck', to: null }],
+        ['x1', { from: '0-drop', to: null }],
+      ]);
+      useCardMotion(() => moves, 300, view);
+      return (
+        <div className="stage">
+          <div data-zone="0-deck" />
+          <div data-zone="0-drop" />
+          <div className="hand">
+            {cards.map((id) => (
+              <div key={id} className="hand-card" data-iid={id}>
+                <div className="card" />
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    boxes.set('d1', { x: 600, y: 900 }).set('x1', { x: 700, y: 900 });
+    const { rerender } = render(<Table view={{}} cards={[]} />);
+    rerender(<Table view={{}} cards={['d1', 'x1']} />);
+    const ghosts = animate.mock.contexts.filter((el) =>
+      (el as HTMLElement).classList.contains('motion-ghost'),
+    ) as HTMLElement[];
+    expect(ghosts).toHaveLength(2);
+    const draw = ghosts.find((g) => g.classList.contains('draw-ghost'))!;
+    expect(draw).toBeTruthy();
+    expect(draw.querySelector('.draw-back')).not.toBeNull();
+    expect(draw.querySelector('.draw-face .card')).not.toBeNull();
+    const frames = animate.mock.calls[animate.mock.contexts.indexOf(draw)]![0] as Keyframe[];
+    expect(String(frames[0]!.transform)).toContain('rotateY(180deg)');
+    expect(String(frames[frames.length - 1]!.transform)).toContain('rotateY(0deg)');
+    const plain = ghosts.find((g) => !g.classList.contains('draw-ghost'))!;
+    expect(plain.querySelector('.draw-back')).toBeNull();
+  });
 });

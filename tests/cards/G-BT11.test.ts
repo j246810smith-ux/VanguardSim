@@ -34,7 +34,11 @@ import { interceptors } from '../../src/engine/game/combat';
 
 const ctx: EngineContext = {
   ...gCtx,
-  format: { ...G_ERA_FORMAT, legalSets: [...G_ERA_FORMAT.legalSets, 'G-BT11'] },
+  // the pool up to G-BT11: later sets change the clan decks these scenes and playouts are built from
+  format: {
+    ...G_ERA_FORMAT,
+    legalSets: [...G_ERA_FORMAT.legalSets.slice(0, G_ERA_FORMAT.legalSets.indexOf('G-BT11') + 1)],
+  },
 };
 const NB = (g: string[]): Maker => maker('Nubatama', g, ctx);
 const KG = maker('Kagero', ['G-BT01-005'], ctx);

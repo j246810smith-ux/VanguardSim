@@ -212,6 +212,15 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
           },
         );
       }
+      // a rear-guard that performs Twin Drive!! by an effect (G-LD03 Alfred Holy Saver: drive +2)
+      else if (b.attackerCircle !== 'vanguard' && isOnCircle(s, b.attacker, b.attackerCircle)) {
+        const drive = continuousDrive(s, d.ctx, b.attacker) + (b.driveBonus ?? 0);
+        if (drive > 0)
+          next.push(
+            { kind: 'step_start', step: 'drive' },
+            { kind: 'drive_step', remaining: drive },
+          );
+      }
       next.push(
         { kind: 'step_start', step: 'damage' },
         { kind: 'damage_step' },
@@ -257,6 +266,7 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       if (b?.retireAttacker && isOnCircle(s, b.attacker, b.attackerCircle)) {
         moveCard(d, b.attacker, { player: s.cards[b.attacker]!.owner, zone: 'drop' }, 'retire');
       }
+      if (b) s.turnFlags.battled = [...(s.turnFlags.battled ?? []), b.attacker];
       // CR 7.7.1.2: the battle ends and "until end of battle" effects cease.
       expire(d, 'end_of_battle');
       s.battle = null;

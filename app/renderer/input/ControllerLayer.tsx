@@ -25,6 +25,7 @@ import {
   firstOf,
   groupOf,
   groupsOf,
+  MODAL_SELECTOR,
   nearestTo,
   nextInDirection,
   type Candidate,
@@ -58,6 +59,9 @@ const box = (el: HTMLElement) => {
   const r = el.getBoundingClientRect();
   return { left: r.left, top: r.top, right: r.right, bottom: r.bottom };
 };
+/** A UI kit dropdown (role combobox) or one of its options: Enter opens it or chooses the option. */
+const opensWithKeys = (el: HTMLElement) =>
+  el.getAttribute('role') === 'combobox' || el.getAttribute('role') === 'option';
 const isFormControl = (el: HTMLElement) =>
   el instanceof HTMLInputElement ||
   el instanceof HTMLSelectElement ||
@@ -142,7 +146,11 @@ export function ControllerLayer({ settings, screen }: { settings: Settings; scre
         return;
       }
       if (isFormControl(cur)) cur.focus();
-      else cur.click();
+      else if (opensWithKeys(cur)) {
+        // UI kit dropdowns open, and their options are chosen, with Enter (a click does nothing)
+        cur.focus();
+        cur.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+      } else cur.click();
     };
     const clickFirst = (selector: string): boolean => {
       const el = collectCandidates().find((c) => c.el.matches(selector))?.el;
@@ -154,14 +162,18 @@ export function ControllerLayer({ settings, screen }: { settings: Settings; scre
       // 1. what the Android back button would do (overlays, confirmations, leaving a screen)
       if (handleBack()) return;
       // 2. Escape, which Settings, Updates and the battle screen already listen for
-      const openBefore = document.querySelectorAll('.modal-backdrop, .popover').length;
+      const openBefore = document.querySelectorAll(`${MODAL_SELECTOR}, .popover`).length;
       synthesizing = true;
       try {
-        window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        // sent from the focused element so it reaches document listeners (UI kit dropdowns) too;
+        // it bubbles on to the window, where the game's screens listen
+        const from =
+          document.activeElement instanceof HTMLElement ? document.activeElement : document.body;
+        from.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
       } finally {
         synthesizing = false;
       }
-      if (document.querySelectorAll('.modal-backdrop, .popover').length !== openBefore) return;
+      if (document.querySelectorAll(`${MODAL_SELECTOR}, .popover`).length !== openBefore) return;
       // 3. the screen's own Back / Close button
       if (clickFirst('[data-nav-back]')) return;
       const closer = collectCandidates().find(

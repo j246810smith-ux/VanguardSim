@@ -38,11 +38,25 @@ function withCard(id: string): DeckList {
 }
 
 describe('the OU list', () => {
-  it('ships as v1.0 with no approved cards: the brief examples are only proposed', () => {
-    expect(OU_LIST.version).toBe('1.0');
-    expect(ouApproved()).toEqual([]);
+  it('v1.1: the G-BT01 playtest pool is approved, seven cards are held, the brief examples only proposed', () => {
+    expect(OU_LIST.version).toBe('1.1');
     expect(OU_LIST.cards.map((c) => c.id)).toEqual(
       expect.arrayContaining(['G-BT04-020', 'G-BT03-001', 'G-BT10-022']),
+    );
+    expect(OU_LIST.cards.filter((c) => c.status === 'proposed').map((c) => c.id)).toEqual([
+      'G-BT04-020',
+      'G-BT03-001',
+      'G-BT10-022',
+    ]);
+    const approved = ouApproved();
+    expect(approved).toHaveLength(42);
+    expect(approved.every((id) => id.startsWith('G-BT01-'))).toBe(true);
+    const held = ['G-BT01-011', 'G-BT01-013', 'G-BT01-016', 'G-BT01-018', 'G-BT01-021'];
+    held.push('G-BT01-031', 'G-BT01-074');
+    expect(OU_LIST.cards.filter((c) => c.status === 'held').map((c) => c.id)).toEqual(held);
+    for (const id of held) expect(approved).not.toContain(id);
+    expect(ouApproved(OU_LIST, { includeHeld: true })).toEqual(
+      expect.arrayContaining([...approved, ...held]),
     );
   });
 

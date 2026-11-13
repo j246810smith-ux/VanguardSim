@@ -87,6 +87,8 @@ export interface CardFilter {
   readonly sameNameAsSource?: boolean;
   /** Same card name as a card bound earlier ("with the same name as that card"); '__event': the event card. */
   readonly sameNameAsBound?: string;
+  /** A different grade from every card bound earlier ("two cards with different grades", G-BT12 Brahma). */
+  readonly notSameGradeAsBound?: string;
   /** Not one of the cards bound as this name; '__event': not the event card ("your other units", G-FC01 Multivitamin Dragon). */
   readonly notBound?: string;
   /** The card is (still) in this zone, e.g. looked-at cards that were not taken from the deck; `circle`: on (VC) or (RC). */
@@ -238,6 +240,14 @@ export type Condition =
   | { readonly cond: 'darkness' }
   /** Blaze (G-BT07): your vanguard is blazing. */
   | { readonly cond: 'blazing' }
+  /** The sum of the selected cards' grades (G-TD14 Clenes: "the sum of their grades being 3 or greater"). */
+  | { readonly cond: 'grade_sum'; readonly of: Selector; readonly range: Range }
+  /** "the brave abilities of your cards are active until end of turn" was used (G-TD11 Alectos). */
+  | { readonly cond: 'brave_active' }
+  /** "if a locked card was unlocked during that turn due to the effect of your card" (G-TD15 Neo Messiah). */
+  | { readonly cond: 'unlocked_by_your_effect' }
+  /** "During this unit's first battle of this turn": it has not attacked before this turn (G-LD03). */
+  | { readonly cond: 'first_battle'; readonly of: Selector }
   /** "for each of your opponent's open (RC) (in the back row)": the number of empty rear-guard circles (G-BT11). */
   | {
       readonly cond: 'open_rc';
@@ -256,7 +266,7 @@ export type Condition =
 // ---------------------------------------------------------------------------------------------
 // Effects and costs
 
-export type Stat = 'power' | 'critical' | 'shield';
+export type Stat = 'power' | 'critical' | 'shield' | 'grade';
 /** `next_stand_phase`: until the end of the target's controller's next stand phase. */
 /** `next_end_phase`: until the end phase of the target's owner's next turn (after its unlocks). */
 export type Duration =
@@ -291,7 +301,14 @@ export type Restriction =
    * "When your units would be chosen by any fighter due to the effect of your opponent's card,
    * choose units including this unit as much as possible" (G-BT11 Earth Elemental, Connell).
    */
-  | 'must_be_chosen';
+  | 'must_be_chosen'
+  /**
+   * "When you choose several units at once with the effect of your card, this unit may be chosen
+   * as a different unit up to five times" (G-BT12 Ritel Benefit Dragon).
+   */
+  | 'chosen_five_times'
+  /** "This unit cannot be locked by card effects" (G-TD15 Metallia Messiah). */
+  | 'cannot_be_locked';
 /** Rule permissions a continuous ability can give. */
 export type Permission =
   | 'attack_back_row_same_column'
@@ -531,14 +548,36 @@ export type Step =
   | {
       readonly op: 'dominate_attack';
       readonly target: Selector;
-      readonly attack: 'vanguard' | 'back_row' | 'other_unit';
+      /** `all_rear_guards`: it battles all of the opponent's rear-guards in one attack (G-BT12 Mukuro). */
+      readonly attack: 'vanguard' | 'back_row' | 'other_unit' | 'all_rear_guards';
       readonly retireAfter?: true;
+      /** The opponent's vanguards may be dominated too (G-BT12 Mukuro); otherwise rear-guards only. */
+      readonly vanguards?: true;
     }
+  /**
+   * "Reveal cards from the top of your deck until n <filter> cards have been revealed" (G-BT12 Dragon
+   * Revolt): `as` = every card revealed, `found` = the matching ones. They stay in the deck.
+   */
+  | {
+      readonly op: 'reveal_until';
+      readonly as: string;
+      readonly found: string;
+      readonly filter: CardFilter;
+      readonly n: number;
+    }
+  /** "until end of turn, you may [Stride] without paying the cost the next time you [Stride]" (G-TD10 Dragheart, Luard) */
+  | { readonly op: 'free_stride' }
+  /** "the brave abilities of your cards are active until end of turn" (G-TD11 Alectos) */
+  | { readonly op: 'brave_active' }
+  /** "The [Power] of those units increase or decrease to n until end of turn" (G-BT12 Ungai). */
+  | { readonly op: 'power_to'; readonly target: Selector; readonly value: number }
   /**
    * "dominate it, and move it to your (GC). (It is regarded as your guardian until end of that
    * battle)" (G-BT11 Gehourakan): it guards the attacked unit.
    */
   | { readonly op: 'dominate_to_guardian'; readonly target: Selector }
+  /** "… it battles the vanguard and all of the units on the chosen (RC)" (G-BT12 Grizel): more attacked units. */
+  | { readonly op: 'battle_also'; readonly target: Selector }
   /** "heal it": the damage-zone cards go to the drop zone (Rescue records them, G-BT07). */
   | { readonly op: 'heal'; readonly target: Selector; readonly rescue?: boolean }
   /** Blaze (G-BT07): if you have more rear-guards than your opponent, your vanguard becomes blazing. */
@@ -698,6 +737,8 @@ export type TriggerCondition =
       readonly circle: 'VC' | 'RC' | 'GC' | readonly ('VC' | 'RC' | 'GC')[];
       /** Only when placed from this zone ("placed on (RC) from the drop zone"). */
       readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage' | 'bind';
+      /** "placed on (RC) other than from your hand" (G-TD09 Chrono Dran G) */
+      readonly notFrom?: 'hand';
       /** "placed on (RC) due to an effect from one of your cards" (a superior call by you). */
       readonly byYourEffect?: boolean;
       /**
@@ -730,6 +771,12 @@ export type TriggerCondition =
     }
   /** "When an attack did not hit" (G-BT11 Werkatze Rekrut, on (GC)): an attacked unit was not hit. */
   | { readonly on: 'attack_not_hit' }
+  /** Afterimage (G-BT12): "When your opponent puts a bound card into his or her hand". */
+  | { readonly on: 'bound_to_hand'; readonly who: Subject }
+  /** "When your opponent's deck is shuffled due to the effect of one of your opponent's cards" (G-BT12 Bluroon). */
+  | { readonly on: 'opponent_shuffles' }
+  /** "When it is chosen by the effect of an opponent's card" (G-BT12 Grizel). */
+  | { readonly on: 'chosen_by_opponent'; readonly who: Subject }
   /** CR 10.1.3: moved from the field to the drop zone. */
   | { readonly on: 'retired'; readonly who: Subject }
   /** "At the beginning of …" (whose = whose turn it must be). */
@@ -826,6 +873,8 @@ export type TriggerCondition =
       readonly on: 'put_into_bind';
       readonly who: Subject;
       readonly byYourEffect?: boolean;
+      /** "bound face up not from your deck" (G-BT12 Forward-pressing Gear Tiger) */
+      readonly notFromDeck?: boolean;
       /** "from (RC)" */
       readonly fromRC?: boolean;
     }
@@ -850,7 +899,8 @@ export type TriggerCondition =
   /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
   | { readonly on: 'returned_to_hand'; readonly who: Subject }
   /** "When this unit is put into your G zone from (VC)" (G-BT10 Build Peak Dragon). */
-  | { readonly on: 'put_into_gzone'; readonly who: Subject };
+  /** `from: 'GC'`: a G guardian returned face up to the G zone after the battle (G-BT12 Rainbow Cycle Dragon). */
+  | { readonly on: 'put_into_gzone'; readonly who: Subject; readonly from?: 'VC' | 'GC' };
 
 // ---------------------------------------------------------------------------------------------
 // Abilities
@@ -939,6 +989,26 @@ export type ContinuousEffect =
   /** "it becomes [Limit-Break 4] as long as this unit is on the field" (G-BT04 Dark Elemental, Doxic). */
   | { readonly ce: 'limit_break_five_as_four' }
   /**
+   * "[CONT](VC):During your ride phase, if the number of your rear-guards is n or less, you may
+   * [Stride] without paying the [Stride] cost" (G-TD14 Tirua): read by freeStride.
+   */
+  | { readonly ce: 'free_stride'; readonly maxRearGuards: number }
+  /**
+   * "[CONT](VC):While you are paying the cost for [Stride], if the G unit you [Stride] has X in its
+   * card name, the cards in your hand get grade +n" (G-LD01 Blaster Dark "Diablo").
+   */
+  | {
+      readonly ce: 'stride_hand_grade';
+      readonly amount: number;
+      readonly gUnitNameIncludes: string;
+    }
+  /**
+   * "[CONT](RC):While you are paying the cost for Stride, if you have a vanguard with X in its card
+   * name, you may pay "[Counter-Blast 1 & Choose one of your <this card> on (RC), and retire it]" as
+   * the cost" (G-BT12 Blue Espada Dragon): read by strideRetireCost.
+   */
+  | { readonly ce: 'stride_retire_cost'; readonly vanguardNameIncludes: string }
+  /**
    * "[CONT](VC):You may pay "[Soul-Blast n]-cards with the <keyword> ability" as the cost for
    * [Stride]" (G-BT11 Amaruda): read by strideSoulCost while this unit is your vanguard.
    */
@@ -977,7 +1047,14 @@ export type ContinuousEffect =
   | {
       readonly ce: 'deck_grade';
       readonly amount: number;
+      /** Empty: no vanguard needed. */
       readonly vanguardNameIncludes: string;
+      /** "[Generation Break n]" on the deck ability (G-BT12 Morion Spear Dragon). */
+      readonly generationBreak?: number;
+      /** "a grade n or greater vanguard with X in its card name" */
+      readonly vanguardMinGrade?: number;
+      /** Brave: only while its owner has three or less cards in hand (G-TD11 Knight of Tomahawk). */
+      readonly brave?: boolean;
       /** `trigger`: "[CONT]Trigger Zone:… this card gets grade +1" (G-FC02 Daibazooka). Default the deck. */
       readonly zone?: 'deck' | 'trigger';
     }

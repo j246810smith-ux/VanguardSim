@@ -85,7 +85,13 @@ export function firstOf<T>(
  * `data-nav="skip"` opts out. Disabled controls and things without a size (hidden) are left out.
  */
 export const NAV_SELECTOR =
-  '[data-nav], button, a[href], input, select, textarea, [role="button"], [role="menuitem"]';
+  '[data-nav], button, a[href], input, select, textarea, [role="button"], [role="menuitem"], [role="option"], [role="slider"]';
+
+/**
+ * What counts as an open dialog for the controller: the game's own modals, the UI kit's dialogs and
+ * an open kit dropdown list (docs/design/UI_COMPONENT_SYSTEM.md). The last one in the page is on top.
+ */
+export const MODAL_SELECTOR = '.modal-backdrop, .ui-dialog, .ui-select-content';
 
 export interface Candidate {
   readonly el: HTMLElement;
@@ -96,11 +102,11 @@ const visible = (el: HTMLElement, box: Box) =>
   box.right - box.left > 0 && box.bottom - box.top > 0 && el.getAttribute('aria-hidden') !== 'true';
 
 /**
- * The elements the controller may focus now. Dialogs win: when a modal is open (`.modal-backdrop`),
+ * The elements the controller may focus now. Dialogs win: when a modal is open (MODAL_SELECTOR),
  * only its contents count, so the focus cannot slip behind it. The topmost modal is the last one.
  */
 export function collectCandidates(root: Document | HTMLElement = document): Candidate[] {
-  const modals = root.querySelectorAll<HTMLElement>('.modal-backdrop');
+  const modals = root.querySelectorAll<HTMLElement>(MODAL_SELECTOR);
   const scope: ParentNode = modals.length ? modals[modals.length - 1]! : root;
   const out: Candidate[] = [];
   for (const el of scope.querySelectorAll<HTMLElement>(NAV_SELECTOR)) {

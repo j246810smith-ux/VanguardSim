@@ -16,6 +16,9 @@ import {
   gGuardianOptions,
   strideCostPayable,
   strideOptions,
+  bestStrideUnit,
+  freeStride,
+  strideRetireCost,
   strideSoulCost,
 } from '../game/generation';
 import {
@@ -78,6 +81,10 @@ export type LegalAction =
        * (a soul blast), sent as the command's `discard`.
        */
       readonly soulCost?: { readonly n: number; readonly cards: readonly InstanceId[] };
+      /** Blue Espada Dragon (G-BT12): retire one of these rear-guards (+ [Counter-Blast 1]) instead. */
+      readonly retireCost?: readonly InstanceId[];
+      /** The stride may be made without paying its cost (send an empty `discard`). */
+      readonly free?: true;
     }
   /** Call one of `cardIds` as a G guardian, discarding one of `costCards` (heal triggers). */
   | {
@@ -179,11 +186,18 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const hand = state.players[player].hand;
     const alt = strideSoulCost(state, ctx, player);
     const soulCost = alt && alt.cards.length >= alt.n ? alt : null;
-    const suggestedDiscard =
-      cheapestStrideDiscard(state, ctx, hand) ??
-      (soulCost ? soulCost.cards.slice(0, soulCost.n) : null);
+    const retireCost = strideRetireCost(state, ctx, player);
+    const free = freeStride(state, ctx, player);
+    const suggestedDiscard = free
+      ? []
+      : (cheapestStrideDiscard(state, ctx, hand, bestStrideUnit(state, ctx, player, cardIds)) ??
+        (soulCost ? soulCost.cards.slice(0, soulCost.n) : null) ??
+        (retireCost.length > 0 ? [retireCost[0]!] : null));
     if (cardIds.length > 0 && suggestedDiscard) {
-      const discardGrades = Object.fromEntries(hand.map((id) => [id, strideGrade(state, ctx, id)]));
+      const best = bestStrideUnit(state, ctx, player, cardIds);
+      const discardGrades = Object.fromEntries(
+        hand.map((id) => [id, strideGrade(state, ctx, id, best)]),
+      );
       actions.push({
         type: 'STRIDE',
         cardIds,
@@ -191,6 +205,8 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         suggestedDiscard,
         discardGrades,
         ...(soulCost ? { soulCost } : {}),
+        ...(retireCost.length > 0 ? { retireCost } : {}),
+        ...(free ? { free: true as const } : {}),
       });
     }
   }
@@ -320,7 +336,7 @@ export function whyIllegal(state: GameState, command: Command, ctx: EngineContex
       if (!action) return `${who} cannot stride now`;
       if (!action.cardIds.includes(command.cardId))
         return `${command.cardId} cannot stride (a face-down G unit in your G zone)`;
-      return strideCostPayable(state, ctx, command.player, command.discard)
+      return strideCostPayable(state, ctx, command.player, command.discard, command.cardId)
         ? null
         : 'Stride cost: discard one or more cards from your hand with grades totalling 3 or greater';
     }

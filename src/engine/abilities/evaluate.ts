@@ -283,6 +283,13 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
         : (ec.bindings[filter.notBound] ?? []);
     if (not.includes(id)) return false;
   }
+  if (
+    filter.notSameGradeAsBound !== undefined &&
+    (ec.bindings[filter.notSameGradeAsBound] ?? []).some(
+      (b) => currentGrade(state, ctx, b) === currentGrade(state, ctx, id),
+    )
+  )
+    return false;
   if (filter.sameNameAsBound !== undefined) {
     // '__event': the card the trigger event was about ("the same card name as that unit")
     const of =
@@ -541,6 +548,20 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       return (ec.state.turnFlags.soulAdded ?? []).includes(ec.master);
     case 'blazing':
       return ec.state.players[ec.master].blazing === true;
+    case 'grade_sum':
+      return inRange(
+        select(ec, condition.of).reduce((n, id) => n + currentGrade(ec.state, ec.ctx, id), 0),
+        condition.range,
+      );
+    case 'brave_active':
+      return (ec.state.turnFlags.braveActive ?? []).includes(ec.master);
+    case 'first_battle': {
+      const done = ec.state.turnFlags.battled ?? [];
+      const ids = select(ec, condition.of);
+      return ids.length > 0 && ids.every((id) => !done.includes(id));
+    }
+    case 'unlocked_by_your_effect':
+      return (ec.state.turnFlags.unlockedByEffect ?? []).includes(ec.master);
     case 'open_rc': {
       const p = ec.state.players[condition.player === 'you' ? ec.master : other(ec.master)];
       const open = REAR_GUARD_CIRCLES.filter(

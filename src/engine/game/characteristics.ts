@@ -125,7 +125,11 @@ export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceI
   const deckGrade = def.abilities.flatMap((a) =>
     a.kind === 'CONT' ? a.effects.filter((e) => e.ce === 'deck_grade') : [],
   );
-  if (deckGrade.length === 0) return def.grade;
+  // "this unit gets grade -2 until end of turn" (G-TD09 Imi): grade modifiers on the field
+  const modified = state.modifiers
+    .filter((m) => m.target === id && m.stat === 'grade')
+    .reduce((n, m) => n + m.amount, 0);
+  if (deckGrade.length === 0) return def.grade + modified;
   const card = state.cards[id];
   const owner = card ? state.players[card.owner] : undefined;
   if (!owner) return def.grade;
@@ -134,11 +138,23 @@ export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceI
   if (!inDeck && !inTrigger) return def.grade;
   const vanguardNames = owner.circles.vanguard.flatMap((v) => namesOf(state, ctx, v));
   let grade = def.grade;
+  const vanguardGrade = Math.max(
+    -1,
+    ...owner.circles.vanguard.map((v) => definitionOf(state, ctx, v).grade),
+  );
+  const generation =
+    owner.gzone.filter((g) => state.cards[g]!.faceUp).length +
+    owner.circles.vanguard.filter(
+      (v) => state.cards[v]!.faceUp && definitionOf(state, ctx, v).cardType === 'g_unit',
+    ).length;
   for (const e of deckGrade)
     if (
       e.ce === 'deck_grade' &&
       ((e.zone ?? 'deck') === 'trigger' ? inTrigger : inDeck) &&
-      vanguardNames.some((n) => n.includes(e.vanguardNameIncludes))
+      vanguardNames.some((n) => n.includes(e.vanguardNameIncludes)) &&
+      (e.vanguardMinGrade === undefined || vanguardGrade >= e.vanguardMinGrade) &&
+      (e.generationBreak === undefined || generation >= e.generationBreak) &&
+      (!e.brave || owner.hand.length <= 3)
     )
       grade += e.amount;
   return grade;

@@ -4,6 +4,7 @@
  * away) and Decks / Card Database / Settings. Presentation only: every button calls one of the
  * screens App.tsx already had, and the button sounds come from App.tsx's one click listener.
  */
+import { Button, Dialog, TextField } from '../ui/kit';
 import { useEffect, useState, type ReactNode } from 'react';
 import { useBackHandler } from '../android/back';
 import { Avatar, avatarLabel } from './Avatars';
@@ -123,53 +124,48 @@ function ProfileEditor({ profile, onClose }: { profile: Profile; onClose: (p?: P
   const [name, setName] = useState(profile.name);
   const [avatar, setAvatar] = useState(profile.avatar);
   return (
-    <div className="modal-backdrop" onClick={() => onClose()}>
-      <div
-        className="modal home-profile-editor"
-        onClick={(e) => e.stopPropagation()}
-        data-testid="profile-editor"
-      >
-        <h2>Your profile</h2>
-        <div className="hint">
-          Kept on this device only. The name is also the one Play Online shows your opponent.
-        </div>
-        <label className="home-profile-name">
-          Name
-          <input
-            className="text"
-            value={name}
-            maxLength={MAX_NAME}
-            onChange={(e) => setName(e.target.value)}
-            data-testid="profile-name-input"
-          />
-        </label>
-        <div className="home-avatar-grid">
-          {AVATARS.map((id) => (
-            <button
-              key={id}
-              className={`home-avatar-choice ${id === avatar ? 'on' : ''}`}
-              onClick={() => setAvatar(id)}
-              title={avatarLabel(id)}
-              data-testid={`avatar-${id}`}
-            >
-              <Avatar id={id} size={84} />
-            </button>
-          ))}
-        </div>
-        <div className="buttons">
-          <button className="btn" onClick={() => onClose()}>
-            Cancel
-          </button>
-          <button
-            className="btn gold"
+    <Dialog
+      open
+      onClose={() => onClose()}
+      title="Your profile"
+      description="Kept on this device only. The name is also the one Play Online shows your opponent."
+      className="home-profile-editor"
+      testId="profile-editor"
+      actions={
+        <>
+          <Button onClick={() => onClose()}>Cancel</Button>
+          <Button
+            variant="gold"
             onClick={() => onClose(saveProfile({ name, avatar }))}
             data-testid="profile-save"
           >
             Save
+          </Button>
+        </>
+      }
+    >
+      <TextField
+        label="Name"
+        className="home-profile-name"
+        value={name}
+        maxLength={MAX_NAME}
+        onChange={(e) => setName(e.target.value)}
+        data-testid="profile-name-input"
+      />
+      <div className="home-avatar-grid">
+        {AVATARS.map((id) => (
+          <button
+            key={id}
+            className={`home-avatar-choice ${id === avatar ? 'on' : ''}`}
+            onClick={() => setAvatar(id)}
+            title={avatarLabel(id)}
+            data-testid={`avatar-${id}`}
+          >
+            <Avatar id={id} size={84} />
           </button>
-        </div>
+        ))}
       </div>
-    </div>
+    </Dialog>
   );
 }
 

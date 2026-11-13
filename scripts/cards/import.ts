@@ -18,6 +18,34 @@ import { parseApiCard, parseCardPage, parseListPage, type ApiCard, type ParsedCa
 const IMPORTER_VERSION = 2;
 
 /**
+ * English texts the official pages damaged (race names in angle brackets and [Rest] icons lost),
+ * repaired from the Japanese text: [card id, damaged text, repaired text].
+ */
+export const EN_TEXT_FIXES: readonly (readonly [string, string, string])[] = [
+  ['G-LD03-009', 'if you have a  vanguard', 'if you have a <Royal Paladin> vanguard'],
+  ['G-LD03-018', 'Choose up to one of your , and', 'Choose up to one of your <Royal Paladin>, and'],
+  ['G-TD15-002', 'if your vanguard is a , this unit', 'if your vanguard is a <Messiah>, this unit'],
+  ['G-TD15-003', 'When your  G unit [Stride]', 'When your <Messiah> G unit [Stride]'],
+  ['G-TD15-014', 'if your vanguard is a , you may', 'if your vanguard is a <Messiah>, you may'],
+  [
+    'G-BT12-009',
+    'if your heart card is , reveal up to three  in total',
+    'if your heart card is <Gear Dragon>, reveal up to three <Zodiac Time Beast> in total',
+  ],
+  ['G-BT12-020', 'If your heart card is , choose', 'If your heart card is <Gear Beast>, choose'],
+  [
+    'G-BT12-021',
+    'as the number of your  units, call up to one  with',
+    'as the number of your <Zodiac Time Beast> units, call up to one <Zodiac Time Beast> with',
+  ],
+  ['G-BT12-022', 'grade 3 or greater  vanguard', 'grade 3 or greater <Zodiac Time Beast> vanguard'],
+  ['G-BT12-022', 'if that card is a , choose', 'if that card is a <Zodiac Time Beast>, choose'],
+  ['G-BT12-074', 'this unit boosted a , if', 'this unit boosted a <Nubatama>, if'],
+  ['G-BT12-037', "<img src='../jsp-material/img/Rest] this unit]", '[[Rest] this unit]'],
+  ['G-BT12-075', "<img src='../jsp-material/img/Rest] this unit]", '[[Rest] this unit]'],
+];
+
+/**
  * JP/EN differences that are real regional printing differences, checked by hand, and which
  * printing's stats the game uses. Japanese stats are canonical (CARD_DATA policy §1) unless the
  * user chose the English printing (`use: 'en'`, DECISIONS D-020). Both values stay recorded.
@@ -312,6 +340,8 @@ const PAIRING_OVERRIDES: Readonly<Record<string, Readonly<Record<string, string>
   // Burnout and 星輝兵 スパークドール Star-vader, Sparkdoll, matched by name
   BT15: { '014': '014', '074': '074' },
   TD07: { '004': '004' },
+  // ダークハート・トランペッター = Dark Heart Trumpeter: identity pairing fails on a stat difference
+  'G-LD01': { '007': '007' },
 };
 /**
  * English "ver.E" boosters that share Japanese cards with each other: English BT16 has the
@@ -765,8 +795,12 @@ function groupPr(site: Site, fetched: Fetched[]): ReturnType<typeof group> {
  * of the set; each card takes its newest pre-2020 copy with a card detail block (the G-era text),
  * else its newest copy of any date. Cached in data/raw/archive/<SET>/.
  */
-const enFromArchive = (s: string) =>
-  /^G-/.test(s) && !existsSync(join('data', 'raw', 'en', s)) && !isListProduct(s);
+/** A live-site English cache for the set: pages other than the product page (which any import saves). */
+const hasLiveEnCache = (s: string) => {
+  const dir = join('data', 'raw', 'en', s);
+  return existsSync(dir) && readdirSync(dir).some((f) => !f.startsWith('product.html'));
+};
+const enFromArchive = (s: string) => /^G-/.test(s) && !hasLiveEnCache(s) && !isListProduct(s);
 
 async function archiveGet(url: string, file: string): Promise<string> {
   if (!refresh && existsSync(file) && statSync(file).size > 0) return readFileSync(file, 'utf8');
@@ -1513,7 +1547,14 @@ async function main(): Promise<void> {
       await downloadImage(id, e.card, 'en');
     }
   }
-  const product = /^(G-)?TD\d{2}$/.test(set!) ? await productDeck(pairing.pairs) : undefined;
+  cards.forEach((card, i) => {
+    for (const [id, damaged, repaired] of EN_TEXT_FIXES) {
+      const en = cards[i]!.en;
+      if (card.id !== id || !en || !en.text.includes(damaged)) continue;
+      cards[i] = { ...cards[i]!, en: { ...en, text: en.text.replace(damaged, repaired) } };
+    }
+  });
+  const product = /^(G-)?(TD|LD)\d{2}$/.test(set!) ? await productDeck(pairing.pairs) : undefined;
   const file: SetFile = {
     set: set!,
     importedAt: new Date().toISOString(),
@@ -1588,6 +1629,253 @@ const PRODUCT_LISTS: Readonly<
     url: 'https://web.archive.org/web/20170324101434/http://cardfight.wikia.com/wiki/G_Trial_Deck_8:_Vampire_Princess_of_the_Nether_Hour',
     stamp: '2017-03-24T10:14:34.000Z',
   },
+  // data/sources/g-td09-15-wiki-lists.json (52 cards)
+  'G-TD09': {
+    counts: {
+      '001': 2,
+      '002': 2,
+      '003': 2,
+      '004': 4,
+      '005': 2,
+      '006': 2,
+      '007': 4,
+      '008': 2,
+      '009': 4,
+      '010': 4,
+      '011': 3,
+      '012': 2,
+      '013': 2,
+      '014': 1,
+      '015': 4,
+      '016': 2,
+      '017': 4,
+      '018': 4,
+      '019': 2,
+    },
+    url: 'https://web.archive.org/web/20170917104132/http://cardfight.wikia.com/wiki/G_Trial_Deck_9:_True_Zodiac_Time_Beasts?oldid=2177482',
+    stamp: '2017-09-17T10:41:32.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (52 cards)
+  'G-TD10': {
+    counts: {
+      '001': 2,
+      '002': 4,
+      '003': 2,
+      '004': 2,
+      '005': 2,
+      '006': 4,
+      '007': 2,
+      '008': 2,
+      '009': 4,
+      '010': 3,
+      '011': 4,
+      '012': 4,
+      '013': 1,
+      '014': 4,
+      '015': 2,
+      '016': 4,
+      '017': 4,
+      '018': 2,
+    },
+    url: 'https://web.archive.org/web/20170917082943/http://cardfight.wikia.com/wiki/G_Trial_Deck_10:_Ritual_of_Dragon_Sorcery?oldid=2179540',
+    stamp: '2017-09-17T08:29:43.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (52 cards)
+  'G-TD11': {
+    counts: {
+      '001': 2,
+      '002': 4,
+      '003': 2,
+      '004': 2,
+      '005': 3,
+      '006': 2,
+      '007': 4,
+      '008': 2,
+      '009': 4,
+      '010': 2,
+      '011': 4,
+      '012': 4,
+      '013': 1,
+      '014': 4,
+      '015': 2,
+      '016': 4,
+      '017': 4,
+      '018': 2,
+    },
+    url: 'https://web.archive.org/web/20170918105350/http://cardfight.wikia.com/wiki/G_Trial_Deck_11:_Divine_Knight_of_Heavenly_Decree?oldid=2243934',
+    stamp: '2017-09-18T10:53:50.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (52 cards)
+  'G-TD12': {
+    counts: {
+      '001': 2,
+      '002': 4,
+      '003': 2,
+      '004': 2,
+      '005': 3,
+      '006': 4,
+      '007': 2,
+      '008': 2,
+      '009': 4,
+      '010': 4,
+      '011': 4,
+      '012': 2,
+      '013': 1,
+      '014': 4,
+      '015': 4,
+      '016': 2,
+      '017': 4,
+      '018': 2,
+    },
+    url: 'https://web.archive.org/web/20170919071407/http://cardfight.wikia.com/wiki/G_Trial_Deck_12:_Flower_Princess_of_Abundant_Blooming?oldid=2320593',
+    stamp: '2017-09-19T07:14:07.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (54 cards)
+  'G-TD13': {
+    counts: {
+      '001': 2,
+      '002': 2,
+      '003': 4,
+      '004': 2,
+      '005': 2,
+      '006': 4,
+      '007': 2,
+      '008': 3,
+      '009': 2,
+      '010': 4,
+      '011': 2,
+      '012': 4,
+      '013': 4,
+      '014': 1,
+      '015': 4,
+      '016': 4,
+      '017': 4,
+      '018': 4,
+    },
+    url: 'https://web.archive.org/web/20171015011417/http://cardfight.wikia.com/wiki/G_Trial_Deck_13:_Evil_Eye_Sovereign?oldid=2335372',
+    stamp: '2017-10-15T01:14:17.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (54 cards)
+  'G-TD14': {
+    counts: {
+      '001': 2,
+      '002': 2,
+      '003': 2,
+      '004': 3,
+      '005': 3,
+      '006': 4,
+      '007': 2,
+      '008': 2,
+      '009': 2,
+      '010': 3,
+      '011': 4,
+      '012': 2,
+      '013': 4,
+      '014': 2,
+      '015': 1,
+      '016': 4,
+      '017': 4,
+      '018': 4,
+      '019': 4,
+    },
+    url: 'https://web.archive.org/web/20181028145903/http://cardfight.wikia.com:80/wiki/G_Trial_Deck_14:_Debut_of_the_Divas',
+    stamp: '2018-10-28T14:59:03.000Z',
+  },
+  // data/sources/g-td09-15-wiki-lists.json (54 cards)
+  'G-TD15': {
+    counts: {
+      '001': 2,
+      '002': 2,
+      '003': 2,
+      '004': 2,
+      '005': 4,
+      '006': 4,
+      '007': 2,
+      '008': 3,
+      '009': 2,
+      '010': 4,
+      '011': 4,
+      '012': 4,
+      '013': 2,
+      '014': 1,
+      '015': 4,
+      '016': 4,
+      '017': 4,
+      '018': 4,
+    },
+    url: 'https://web.archive.org/web/20180627065718/http://cardfight.wikia.com:80/wiki/G_Trial_Deck_15:_Messiah_Dragon_of_Rebirth',
+    stamp: '2018-06-27T06:57:18.000Z',
+  },
+  // data/sources/g-ld01-03-wiki-lists.json (54 cards, English product)
+  'G-LD01': {
+    counts: {
+      '001': 4,
+      '002': 4,
+      '003': 4,
+      '004': 4,
+      '005': 4,
+      '006': 2,
+      '007': 3,
+      '008': 4,
+      '009': 4,
+      '010': 4,
+      '011': 1,
+      '012': 4,
+      '013': 4,
+      '014': 4,
+      '015': 4,
+    },
+    url: 'https://web.archive.org/web/20180714093029/http://cardfight.wikia.com:80/wiki/G_Legend_Deck_1:_The_Dark_%22Ren_Suzugamori%22',
+    stamp: '2018-07-14T09:30:29.000Z',
+  },
+  // data/sources/g-ld01-03-wiki-lists.json (56 cards, English product)
+  'G-LD02': {
+    counts: {
+      '001': 4,
+      '002': 2,
+      '003': 4,
+      '004': 4,
+      '005': 3,
+      '006': 4,
+      '007': 4,
+      '008': 4,
+      '009': 2,
+      '010': 4,
+      '011': 4,
+      '012': 1,
+      '013': 4,
+      '014': 4,
+      '015': 4,
+      '016': 4,
+    },
+    url: 'https://web.archive.org/web/20180521223511/http://cardfight.wikia.com:80/wiki/G_Legend_Deck_2:_The_Overlord_blaze_%22Toshiki_Kai%22',
+    stamp: '2018-05-21T22:35:11.000Z',
+  },
+  // data/sources/g-ld01-03-wiki-lists.json (58 cards, English product)
+  'G-LD03': {
+    counts: {
+      '001': 2,
+      '002': 4,
+      '003': 2,
+      '004': 4,
+      '005': 4,
+      '006': 2,
+      '007': 4,
+      '008': 4,
+      '009': 1,
+      '010': 4,
+      '011': 3,
+      '012': 3,
+      '013': 4,
+      '014': 1,
+      '015': 4,
+      '016': 4,
+      '017': 4,
+      '018': 4,
+    },
+    url: 'https://web.archive.org/web/20180819121704/http://cardfight.wikia.com:80/wiki/G_Legend_Deck_3:_The_Blaster_%22Aichi_Sendou%22',
+    stamp: '2018-08-19T12:17:04.000Z',
+  },
 };
 
 /** 001…019 counts of G-TD06, G-TD07 and G-TD08 (52 cards each). */
@@ -1606,8 +1894,10 @@ async function productDeck(
   // G-TD01 → /products/gtd01/
   const path = `/products/${set!.toLowerCase().replace('-', '')}/`;
   const { html, fetchedAt } = await page('en', path, 'product');
-  const name =
-    /<h1 class="title">(?:[^<]*<br\s*\/?>)?\s*([^<]+)<\/h1>/.exec(html)?.[1]?.trim() ?? set!;
+  // numeric entities (&#8220; …) decoded: G-LD01's title has curly quotes
+  const name = (
+    /<h1 class="title">(?:[^<]*<br\s*\/?>)?\s*([^<]+)<\/h1>/.exec(html)?.[1]?.trim() ?? set!
+  ).replace(/&#(\d+);/g, (_, n: string) => String.fromCodePoint(Number(n)));
   const enToJp = new Map([...pairs].map(([jp, en]) => [en, jp]));
   const cards: { id: string; count: number }[] = [];
   // "0?": the TD11 page prints "TD11/0002EN"; "G-?": the G-TD03 page prints "GTD03/001EN"

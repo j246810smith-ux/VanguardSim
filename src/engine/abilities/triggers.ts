@@ -79,6 +79,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       const circle = fieldZone(e.to);
       if (Array.isArray(t.circle) ? !t.circle.includes(circle) : circle !== t.circle) return null;
       if (t.from && e.from.zone !== t.from) return null;
+      if (t.notFrom && e.from.zone === t.notFrom) return null;
       if (t.byYourEffect && e.by !== ec.master) return null;
       if (t.byYourCard && (e.cause === undefined || s.cards[e.cause]?.owner !== ec.master))
         return null;
@@ -115,6 +116,24 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (!subjectIs(ec, t.who, e.booster, e.player)) return null;
       if (t.boosted && !matches(ec, e.attacker, t.boosted)) return null;
       return { eventCard: e.attacker };
+    }
+    case 'bound_to_hand':
+      return e.type === 'CARD_MOVED' &&
+        e.from.zone === 'bind' &&
+        e.to.zone === 'hand' &&
+        subjectIs(ec, t.who, e.instanceId, e.to.player)
+        ? { eventCard: e.instanceId }
+        : null;
+    case 'opponent_shuffles':
+      return e.type === 'DECK_SHUFFLED' && e.player !== ec.master && e.by === e.player
+        ? { eventCard: null }
+        : null;
+    case 'chosen_by_opponent': {
+      if (e.type !== 'CHOSEN') return null;
+      const id = e.instanceIds.find(
+        (x) => masterOf(x) !== e.master && subjectIs(ec, t.who, x, masterOf(x)),
+      );
+      return id === undefined ? null : { eventCard: id };
     }
     case 'attack_not_hit':
       return e.type === 'ATTACK_RESOLVED' && !e.hit ? { eventCard: e.target } : null;
@@ -248,6 +267,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         !(e.type === 'CARD_MOVED' && e.from.zone === 'circle' && e.from.circle !== 'vanguard')
       )
         return null;
+      if (t.notFromDeck && e.type === 'CARD_MOVED' && e.from.zone === 'deck') return null;
       return e.type === 'CARD_MOVED' &&
         e.to.zone === 'bind' &&
         e.from.zone !== 'bind' &&
@@ -300,7 +320,9 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         : null;
     case 'put_into_gzone':
       if (e.type !== 'CARD_MOVED' || e.to.zone !== 'gzone') return null;
-      if (e.from.zone !== 'circle' || e.from.circle !== 'vanguard') return null;
+      if (t.from === 'GC') {
+        if (e.from.zone !== 'guardian') return null;
+      } else if (e.from.zone !== 'circle' || e.from.circle !== 'vanguard') return null;
       return subjectIs(ec, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     case 'becomes_engorged':
       return e.type === 'ENGORGED' && subjectIs(ec, t.who, e.instanceId, e.player)
@@ -332,6 +354,8 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'ATTACK_DECLARED',
   'ATTACK_HIT',
   'ATTACK_RESOLVED',
+  'CHOSEN',
+  'DECK_SHUFFLED',
   'PHASE_CHANGED',
   'STEP_STARTED',
   'CARD_UNLOCKED',

@@ -31,6 +31,14 @@ describe('choosing a deck', () => {
     expect(deckEntries('classic').some((e) => e.section === 'gstarter')).toBe(false);
   });
 
+  it('Original Era — Expanded offers the G-BT01 playtest decks first; the other formats never do', () => {
+    const entries = deckEntries('classic_ou');
+    expect(entries.slice(0, 4).map((e) => e.section)).toEqual(Array(4).fill('ogplaytest'));
+    expect(entries.filter((e) => e.section === 'ogplaytest')).toHaveLength(4);
+    expect(deckEntries('classic').some((e) => e.section === 'ogplaytest')).toBe(false);
+    expect(deckEntries('g').some((e) => e.section === 'ogplaytest')).toBe(false);
+  });
+
   it('says what a source states, and never a result it does not', () => {
     const champion = LIBRARY.find((d) => d.id === 'jp-sp-raging-form-2013')!;
     expect(libraryDescription(champion)).toContain('National Champion');

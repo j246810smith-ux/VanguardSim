@@ -59,6 +59,7 @@ export function StridePrompt({
   );
   const toggle = (id: InstanceId) => {
     setSoulPick([]);
+    setRetirePick(null);
     setDiscard((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
   };
   // Amaruda (G-BT11): pay "[Soul-Blast n]-cards with the revelation ability" instead
@@ -66,9 +67,17 @@ export function StridePrompt({
   const [soulPick, setSoulPick] = useState<readonly InstanceId[]>([]);
   const toggleSoul = (id: InstanceId) => {
     setDiscard([]);
+    setRetirePick(null);
     setSoulPick((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
   };
   const paySoul = soulCost !== undefined && soulPick.length === soulCost.n;
+  // Blue Espada Dragon (G-BT12): retire it with [Counter-Blast 1] instead
+  const [retirePick, setRetirePick] = useState<InstanceId | null>(null);
+  const alternative: readonly InstanceId[] | null = paySoul
+    ? soulPick
+    : retirePick !== null
+      ? [retirePick]
+      : null;
   return (
     <div className="prompt g-prompt" data-testid="stride-prompt">
       <h3>
@@ -111,19 +120,39 @@ export function StridePrompt({
           </div>
         </>
       )}
+      {stride.retireCost && (
+        <>
+          <div className="hint">Or retire one of these with [Counter-Blast 1]:</div>
+          <div className="pick-grid">
+            {stride.retireCost.map((id) => (
+              <Pick
+                key={id}
+                view={view}
+                id={id}
+                on={retirePick === id}
+                onClick={() => {
+                  setDiscard([]);
+                  setSoulPick([]);
+                  setRetirePick(retirePick === id ? null : id);
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
       <div className="buttons">
         <button className="btn" onClick={onClose}>
           Cancel
         </button>
         <button
           className="btn primary"
-          disabled={!paySoul && grades < 3}
+          disabled={!alternative && !stride.free && grades < 3}
           onClick={() =>
             onSend({
               type: 'STRIDE',
               player: ME,
               cardId: unit,
-              discard: paySoul ? soulPick : discard,
+              discard: alternative ?? discard,
             })
           }
           data-testid="stride-go"

@@ -1,0 +1,968 @@
+{
+  "set": "G-TD09",
+  "importedAt": "2026-11-13T13:42:37.813Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD09-001",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/001",
+        "name": "超刻龍 ファンロン",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n【自】【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、バインドゾーンからグレード１以上の表のカードを１枚選び、手札に加えるか(R)にコールする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_001.png"
+      },
+      "en": {
+        "number": "G-TD09/001EN",
+        "name": "Metapulsar, Huang-long",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"(When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\"[AUTO](VC):[Counter-Blast 1] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose a grade 1 or greater face up card from your bind zone, and put it into your hand or call it to (RC).",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/001", "G-TD09/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F001",
+          "fetchedAt": "2026-11-13T13:41:55.550Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209163826/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/001EN",
+          "fetchedAt": "2019-12-09T16:38:26Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-002",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/002",
+        "name": "クロノジェット・ドラゴン・G",
+        "text": "【永】【(V)】：あなたのターン中、Ｇゾーンの表のカード２枚につき、このユニットのパワー＋5000し、あなたの〈十二支刻獣〉のリアガードすべてのパワー＋1000。\n時翔-【自】【(V)】：あなたのターン中、あなたの、〈ギアドラゴン〉か〈十二支刻獣〉のＧユニットが【超越】した時、手札から１枚まで選び、(R)にコールし、あなたのリアガードを１枚まで選び、タイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターン終了時、コールされたユニットを山札の下に置き、バインドされたカードをコール）",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_002.png"
+      },
+      "en": {
+        "number": "G-TD09/002EN",
+        "name": "Chronojet Dragon G",
+        "text": "[CONT](VC):During your turn, for every two face up cards in your G zone, this unit gets [Power] +5000, and all of your <Zodiac Time Beast> rear-guards get [Power] +1000.\nTime Leap-[AUTO](VC):During your turn, when your <Gear Dragon> or <Zodiac Time Beast> G unit [Stride], choose up to one card from your hand, call it to (RC), choose up to one of your rear-guards, and time leap it. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_002.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/002", "G-TD09/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F002",
+          "fetchedAt": "2026-11-13T13:41:56.717Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210123827/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/002EN",
+          "fetchedAt": "2019-12-10T12:38:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-003",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/003",
+        "name": "クロノファング・タイガー・G",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【ソウルブラスト】(1)，他のあなたのリアガードを１枚選び、表でバインドする]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、このユニットと同じ縦列にいる相手のリアガードを１枚選び、相手はそのユニットを自分の山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_003.png"
+      },
+      "en": {
+        "number": "G-TD09/003EN",
+        "name": "Chronofang Tiger G",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1 & Choose one of your other rear-guards, and bind it face up] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose one of your opponent's rear-guards in the same column as this unit, and your opponent puts that unit on the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_003.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/003", "G-TD09/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F003",
+          "fetchedAt": "2026-11-13T13:41:57.913Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216093707/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/003EN",
+          "fetchedAt": "2019-12-16T09:37:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-004",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/004",
+        "name": "スチームメイデン イミ",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n【自】：このユニットが(R)に登場した時、そのターン中、このユニットのグレード－２してよい。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_004.png"
+      },
+      "en": {
+        "number": "G-TD09/004EN",
+        "name": "Steam Maiden, Imi",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.\n[AUTO]:When this unit is placed on (RC), this unit may get grade -2 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_004.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/004", "G-TD09/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F004",
+          "fetchedAt": "2026-11-13T13:41:59.089Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211075922/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/004EN",
+          "fetchedAt": "2019-12-11T07:59:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-005",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/005",
+        "name": "クロノスピン・サーペント",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_005.png"
+      },
+      "en": {
+        "number": "G-TD09/005EN",
+        "name": "Chronospin Serpent",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_005.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/005", "G-TD09/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F005",
+          "fetchedAt": "2026-11-13T13:41:59.824Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209204554/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/005EN",
+          "fetchedAt": "2019-12-09T20:45:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-006",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/006",
+        "name": "クロノクロウ・モンキー",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたの(V)に〈十二支刻獣〉があるなら、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋5000。（ハーツカードの種族も含む）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_006.png"
+      },
+      "en": {
+        "number": "G-TD09/006EN",
+        "name": "Chronoclaw Monkey",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit is placed on (RC), if there is a <Zodiac Time Beast> on your (VC), you may pay the cost. If you do, this unit gets [Power] +5000 until end of turn. (Race of heart cards is included)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/006", "G-TD09/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F006",
+          "fetchedAt": "2026-11-13T13:42:00.586Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250325221336/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/006EN&expansion=82&view=image",
+          "fetchedAt": "2025-03-25T22:13:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-007",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/007",
+        "name": "クロノビート・バッファロー",
+        "text": "【永】【(R)】：あなたの(V)にグレード３以上の〈十二支刻獣〉があるなら、このユニットのパワー＋2000。（ハーツカードの種族も含む）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_007.png"
+      },
+      "en": {
+        "number": "G-TD09/007EN",
+        "name": "Chronobeat Buffalo",
+        "text": "[CONT](RC):If there is a grade 3 or greater <Zodiac Time Beast> on your (VC), this unit gets [Power] +2000. (Race of heart cards is included)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/007", "G-TD09/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F007",
+          "fetchedAt": "2026-11-13T13:42:01.338Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250429051342/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/007EN",
+          "fetchedAt": "2025-04-29T05:13:42Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-008",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/008",
+        "name": "鉄拳制裁の時空巨兵",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアコロッサス",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_008.png"
+      },
+      "en": {
+        "number": "G-TD09/008EN",
+        "name": "Iron Fist Sanction Colossus",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Colossus",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/008", "G-TD09/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F008",
+          "fetchedAt": "2026-11-13T13:42:02.489Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250320190510/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/008EN&expansion=82&view=image",
+          "fetchedAt": "2025-03-20T19:05:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-009",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/009",
+        "name": "クロノダッシュ・ペッカリー",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_009.png"
+      },
+      "en": {
+        "number": "G-TD09/009EN",
+        "name": "Chronodash Peccary",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_009.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/009", "G-TD09/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F009",
+          "fetchedAt": "2026-11-13T13:42:03.248Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018044822/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/009EN",
+          "fetchedAt": "2019-10-18T04:48:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-010",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/010",
+        "name": "クロノエトス・ジャッカル",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、あなたの(V)に〈十二支刻獣〉があるなら、そのバトル中、このユニットのパワー＋4000。（ハーツカードの種族も含む）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_010.png"
+      },
+      "en": {
+        "number": "G-TD09/010EN",
+        "name": "Chronoethos Jackal",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, if there is a <Zodiac Time Beast> on your (VC), this unit gets [Power] +4000 until end of that battle. (Race of heart cards is included)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/010", "G-TD09/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F010",
+          "fetchedAt": "2026-11-13T13:42:04.482Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191022185945/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/010EN",
+          "fetchedAt": "2019-10-22T18:59:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-011",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/011",
+        "name": "スチームスナイパー リシュマ",
+        "text": "時翔-【自】【(R)】：[【ソウルブラスト】(1)，手札から１枚選び、捨てる]このユニットがヴァンガードをブーストしたバトルの終了時、コストを払ってよい。払ったら、このユニットをタイムリープさせる。（バインドし、山札からグレード＋１をコールし、シャッフル。ターン終了時、コールされたユニットを山札の下に置き、バインドされたカードをコール）\n【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがバインドゾーンから(R)に登場した時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_011.png"
+      },
+      "en": {
+        "number": "G-TD09/011EN",
+        "name": "Steam Sniper, Lishma",
+        "text": "Time Leap-[AUTO](RC):[Soul-Blast 1 & Choose a card from your hand, and discard it] At the end of the battle that this unit boosted ([Boost]) a vanguard, you may pay the cost. If you do, time leap this unit. (Bind it, call a grade +1 card from your deck, and shuffle your deck. At the end of the turn, put the called unit on the bottom of your deck, and call the bound card)\n[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit is placed on (RC) from your bind zone, you may pay the cost. If you do, draw a card.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/011", "G-TD09/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F011",
+          "fetchedAt": "2026-11-13T13:42:05.664Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215210341/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/011EN",
+          "fetchedAt": "2019-12-15T21:03:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-012",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/012",
+        "name": "クロノチャージ・ユニコーン",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたの〈十二支刻獣〉のユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_012.png"
+      },
+      "en": {
+        "number": "G-TD09/012EN",
+        "name": "Chronocharge Unicorn",
+        "text": "[AUTO]:When this unit is placed on (RC), choose one of your other <Zodiac Time Beast> units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/012", "G-TD09/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F012",
+          "fetchedAt": "2026-11-13T13:42:06.841Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260418165943/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/012EN",
+          "fetchedAt": "2026-04-18T16:59:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-013",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/013",
+        "name": "リペルサーキット・ドラゴン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、そのユニットはヒットされない。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_013.png"
+      },
+      "en": {
+        "number": "G-TD09/013EN",
+        "name": "Repel-circuit Dragon",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD09/013", "G-TD09/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F013",
+          "fetchedAt": "2026-11-13T13:42:07.645Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260516023222/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/013EN",
+          "fetchedAt": "2026-05-16T02:32:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-014",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/014",
+        "name": "クロノ・ドラン・G",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[このユニットをソウルに置く]他のあなたのユニットが手札以外から(R)に登場した時、コストを払ってよい。払ったら、山札からそのユニットと同じグレードの〈十二支刻獣〉を１枚まで探し、(R)にコールし、山札をシャッフルする。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_014.png"
+      },
+      "en": {
+        "number": "G-TD09/014EN",
+        "name": "Chrono Dran G",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit into your soul] When your other unit is placed on (RC) other than from your hand, you may pay the cost. If you do, search your deck for up to one <Zodiac Time Beast> with the same grade as that unit, call it to (RC), and shuffle your deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_014.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/014", "G-TD09/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F014",
+          "fetchedAt": "2026-11-13T13:42:08.383Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018045453/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/014EN",
+          "fetchedAt": "2019-10-18T04:54:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-015",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/015",
+        "name": "クロノボレー・ラビット",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_015.png"
+      },
+      "en": {
+        "number": "G-TD09/015EN",
+        "name": "Chronovolley Rabbit",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_015.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/015", "G-TD09/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F015",
+          "fetchedAt": "2026-11-13T13:42:09.554Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207151019/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/015EN",
+          "fetchedAt": "2019-12-07T15:10:19Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-016",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/016",
+        "name": "クロノドーズ・シープ",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_016.png"
+      },
+      "en": {
+        "number": "G-TD09/016EN",
+        "name": "Chronodoze Sheep",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_016.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/016", "G-TD09/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F016",
+          "fetchedAt": "2026-11-13T13:42:10.296Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215201400/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/016EN",
+          "fetchedAt": "2019-12-15T20:14:00Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-017",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/017",
+        "name": "クロノタイマー・レグホン",
+        "text": "",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_017.png"
+      },
+      "en": {
+        "number": "G-TD09/017EN",
+        "name": "Chronotimer Leghorn",
+        "text": "",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/017", "G-TD09/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F017",
+          "fetchedAt": "2026-11-13T13:42:11.464Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260314193032/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/017EN",
+          "fetchedAt": "2026-03-14T19:30:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-018",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/018",
+        "name": "クロノセラピー・ハムスター",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ギアクロニクル",
+        "race": "ギアビースト/十二支刻獣",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_018.png"
+      },
+      "en": {
+        "number": "G-TD09/018EN",
+        "name": "Chronotherapy Hamster",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Gear Chronicle",
+        "race": "Gear Beast/Zodiac Time Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd09_018.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/018", "G-TD09/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F018",
+          "fetchedAt": "2026-11-13T13:42:12.232Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207184404/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/018EN",
+          "fetchedAt": "2019-12-07T18:44:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD09-019",
+      "set": "G-TD09",
+      "jp": {
+        "number": "G-TD09/019",
+        "name": "ラッキーポット・ドラコキッド",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ギアクロニクル》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD09/gtd09_019.png"
+      },
+      "en": {
+        "number": "G-TD09/019EN",
+        "name": "Luckypot Dracokid",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Gear Chronicle>, and it gets [Power] +3000 until end of turn.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd09/GTD09_019EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD09/019", "G-TD09/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD09%2F019",
+          "fetchedAt": "2026-11-13T13:42:13.462Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260421010158/https://en.cf-vanguard.com/cardlist/?cardno=G-TD09/019EN&expansion=82&view=image",
+          "fetchedAt": "2026-04-21T01:01:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 9: True Zodiac Time Beasts",
+    "cards": [
+      {
+        "id": "G-TD09-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-004",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-005",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-007",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-011",
+        "count": 3
+      },
+      {
+        "id": "G-TD09-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD09-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-016",
+        "count": 2
+      },
+      {
+        "id": "G-TD09-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-018",
+        "count": 4
+      },
+      {
+        "id": "G-TD09-019",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170917104132/http://cardfight.wikia.com/wiki/G_Trial_Deck_9:_True_Zodiac_Time_Beasts?oldid=2177482",
+      "fetchedAt": "2017-09-17T10:41:32.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

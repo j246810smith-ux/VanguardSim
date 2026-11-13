@@ -84,6 +84,10 @@ export function validateAbilities(
             checkSelector(st.from, here);
             bound.add(st.as);
             break;
+          case 'reveal_until':
+            bound.add(st.as);
+            bound.add(st.found);
+            break;
           case 'search':
             if (!Number.isInteger(st.upTo) || st.upTo < 1) report(`${here}: upTo must be ≥ 1`);
             bound.add(st.as);
@@ -95,6 +99,8 @@ export function validateAbilities(
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             if (st.as) bound.add(st.as);
             break;
+          case 'free_stride':
+          case 'brave_active':
           case 'shuffle':
           case 'extra_turn':
           case 'delay_legion_end':
@@ -183,7 +189,10 @@ export function validateAbilities(
             e.ce === 'deck_grade' ||
             e.ce === 'all_clans' ||
             e.ce === 'vanguard_copies_opponent' ||
-            e.ce === 'stride_soul_cost'
+            e.ce === 'stride_soul_cost' ||
+            e.ce === 'stride_retire_cost' ||
+            e.ce === 'free_stride' ||
+            e.ce === 'stride_hand_grade'
           )
             continue;
           checkSelector(e.target, 'effect');

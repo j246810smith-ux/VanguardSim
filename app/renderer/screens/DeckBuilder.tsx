@@ -38,6 +38,8 @@ import { playmatOf, sleeveLook } from '../cosmetics';
 import { useSettings } from '../settings';
 import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
 import { useConfirm } from '../ui/ConfirmDialog';
+import { Button, Dialog, IconButton, Segmented, Select, TextField } from '../ui/kit';
+import { Search, X } from 'lucide-react';
 import { useBackHandler } from '../android/back';
 import { nativeFiles } from '../android/native';
 import { PAD_INSPECT_EVENT, type PadInspectDetail } from '../input/ControllerLayer';
@@ -356,8 +358,8 @@ export function DeckBuilder({
     window.addEventListener(PAD_INSPECT_EVENT, onInspect);
     return () => window.removeEventListener(PAD_INSPECT_EVENT, onInspect);
   }, [shownIds]);
-  const set = (k: keyof Filters) => (e: { target: { value: string } }) => {
-    setFilters({ ...filters, [k]: e.target.value });
+  const pick = (k: keyof Filters) => (value: string) => {
+    setFilters({ ...filters, [k]: value });
     setLimit(PAGE);
   };
 
@@ -367,32 +369,32 @@ export function DeckBuilder({
       data-testid={browse ? 'card-database' : undefined}
     >
       <div className="builder-head">
-        <button className="btn" onClick={() => discardThen(onBack)}>
-          ← Menu
-        </button>
+        <Button onClick={() => discardThen(onBack)}>← Menu</Button>
         <h1>{browse ? 'CARD DATABASE' : 'DECK EDIT'}</h1>
         <div className="format-switch" data-testid="deck-format">
-          {(Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => (
-            <button
-              key={key}
-              className={`btn ${format === key ? 'primary' : ''}`}
-              onClick={() => changeFormat(key)}
-              data-testid={`deck-format-${key}`}
-            >
-              {PLAY_FORMATS[key].label}
-            </button>
-          ))}
+          <Segmented
+            ariaLabel="Format"
+            value={format}
+            onChange={(key) => changeFormat(key)}
+            options={(Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => ({
+              value: key,
+              label: PLAY_FORMATS[key].label,
+              testId: `deck-format-${key}`,
+            }))}
+          />
         </div>
-        <input
-          hidden={browse}
-          className="text deck-name"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            setDirty(true);
-          }}
-          data-testid="deck-name"
-        />
+        {!browse && (
+          <TextField
+            aria-label="Deck name"
+            className="deck-name-field"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              setDirty(true);
+            }}
+            data-testid="deck-name"
+          />
+        )}
         <span className="hint">
           {browse
             ? `${isCoarsePointer() ? 'Tap' : 'Click'} a card for its details`
@@ -506,17 +508,12 @@ export function DeckBuilder({
           )}
         </div>
         <div className="deck-buttons">
-          <button className="btn gold" onClick={() => save(false)} data-testid="save-deck">
+          <Button variant="gold" onClick={() => save(false)} data-testid="save-deck">
             Save
-          </button>
-          <button className="btn" onClick={() => save(true)}>
-            Save copy
-          </button>
-          <button className="btn" onClick={() => setModal({ kind: 'load' })}>
-            Load…
-          </button>
-          <button
-            className="btn"
+          </Button>
+          <Button onClick={() => save(true)}>Save copy</Button>
+          <Button onClick={() => setModal({ kind: 'load' })}>Load…</Button>
+          <Button
             onClick={() => setModal({ kind: 'sleeve' })}
             data-testid="deck-sleeve"
             title={`Sleeve: ${sleeve ? sleeveLook(sleeve).name : 'default'} · Playmat: ${
@@ -524,37 +521,32 @@ export function DeckBuilder({
             }`}
           >
             Sleeve &amp; mat…
-          </button>
-          <button className="btn" onClick={() => discardThen(() => loadInto(null))}>
-            New
-          </button>
-          <button
-            className="btn"
-            onClick={() => setModal({ kind: 'import', text: '', problems: [] })}
-          >
+          </Button>
+          <Button onClick={() => discardThen(() => loadInto(null))}>New</Button>
+          <Button onClick={() => setModal({ kind: 'import', text: '', problems: [] })}>
             Import…
-          </button>
-          <button
-            className="btn"
+          </Button>
+          <Button
             onClick={() => setModal({ kind: 'export', text: exportDeck(name, deck, ctx.registry) })}
           >
             Export…
-          </button>
-          <button
-            className="btn"
+          </Button>
+          <Button
             disabled={cards.length < 5}
             onClick={() => setModal({ kind: 'hand', order: shuffle(cards), drawn: 5 })}
           >
             Test hand
-          </button>
+          </Button>
         </div>
       </section>
 
       <section className="dd-pool">
         <div className="dd-search">
-          <input
+          <TextField
             ref={searchBox}
-            className="text"
+            className="dd-search-field"
+            icon={<Search size={20} />}
+            aria-label="Search cards"
             autoFocus
             placeholder="Search: name, number (BT01/001), clan, race or text…"
             value={query}
@@ -569,84 +561,113 @@ export function DeckBuilder({
             data-testid="card-search"
           />
           {query && (
-            <button
-              className="mini-btn"
-              title="Clear the search"
+            <IconButton
+              label="Clear the search"
+              variant="ghost"
               onClick={() => {
                 setQuery('');
                 searchBox.current?.focus();
               }}
             >
-              ×
-            </button>
+              <X size={18} />
+            </IconButton>
           )}
           <span className="hint" data-testid="pool-count">
             <Num value={shown.length} /> cards
           </span>
         </div>
         <div className="builder-filters" data-nav-group="filters">
-          <select value={filters.set} onChange={set('set')}>
-            <option value="">All sets</option>
-            {POOLS[format].defs.some((d) => ouEntryOf(d.id)) && (
-              <option value={OU_VIEW}>OU list v{OU_LIST.version} (Original Era Usable)</option>
-            )}
-            {SETS.filter((x) => POOLS[format].defs.some((d) => d.set === x)).map((x) => (
-              <option key={x}>{x}</option>
-            ))}
-          </select>
-          <select value={filters.clan} onChange={set('clan')}>
-            <option value="">All clans</option>
-            {CLANS.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
-          <select value={filters.grade} onChange={set('grade')}>
-            <option value="">Any grade</option>
-            {[0, 1, 2, 3, 4].map((g) => (
-              <option key={g} value={g}>
-                Grade {g}
-              </option>
-            ))}
-          </select>
-          <select value={filters.trigger} onChange={set('trigger')}>
-            <option value="">Any trigger</option>
-            <option value="none">No trigger</option>
-            {['critical', 'draw', 'stand', 'heal'].map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-          <select value={filters.type} onChange={set('type')}>
-            <option value="">Any type</option>
-            <option value="normal">Normal unit</option>
-            <option value="trigger">Trigger unit</option>
-            <option value="sentinel">Sentinel</option>
-            {gEra && <option value="g_unit">G unit</option>}
-          </select>
-          <select value={filters.power} onChange={set('power')}>
-            <option value="">Any power</option>
-            {[5000, 6000, 7000, 8000, 9000, 10000, 11000].map((p) => (
-              <option key={p} value={p}>
-                {p}+
-              </option>
-            ))}
-          </select>
-          <select value={filters.rarity} onChange={set('rarity')}>
-            <option value="">Any rarity</option>
-            {RARITIES.map((r) => (
-              <option key={r}>{r}</option>
-            ))}
-          </select>
-          <button
-            className="btn"
+          <Select
+            className="filter"
+            ariaLabel="Set"
+            value={filters.set}
+            onChange={pick('set')}
+            options={[
+              { value: '', label: 'All sets' },
+              ...(POOLS[format].defs.some((d) => ouEntryOf(d.id))
+                ? [{ value: OU_VIEW, label: `OU list v${OU_LIST.version} (Original Era Usable)` }]
+                : []),
+              ...SETS.filter((x) => POOLS[format].defs.some((d) => d.set === x)).map((x) => ({
+                value: x,
+                label: x,
+              })),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Clan"
+            value={filters.clan}
+            onChange={pick('clan')}
+            options={[
+              { value: '', label: 'All clans' },
+              ...CLANS.map((c) => ({ value: c, label: c })),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Grade"
+            value={filters.grade}
+            onChange={pick('grade')}
+            options={[
+              { value: '', label: 'Any grade' },
+              ...[0, 1, 2, 3, 4].map((g) => ({ value: String(g), label: `Grade ${g}` })),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Trigger"
+            value={filters.trigger}
+            onChange={pick('trigger')}
+            options={[
+              { value: '', label: 'Any trigger' },
+              { value: 'none', label: 'No trigger' },
+              ...['critical', 'draw', 'stand', 'heal'].map((t) => ({ value: t, label: t })),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Card type"
+            value={filters.type}
+            onChange={pick('type')}
+            options={[
+              { value: '', label: 'Any type' },
+              { value: 'normal', label: 'Normal unit' },
+              { value: 'trigger', label: 'Trigger unit' },
+              { value: 'sentinel', label: 'Sentinel' },
+              ...(gEra ? [{ value: 'g_unit', label: 'G unit' }] : []),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Power"
+            value={filters.power}
+            onChange={pick('power')}
+            options={[
+              { value: '', label: 'Any power' },
+              ...[5000, 6000, 7000, 8000, 9000, 10000, 11000].map((p) => ({
+                value: String(p),
+                label: `${p}+`,
+              })),
+            ]}
+          />
+          <Select
+            className="filter"
+            ariaLabel="Rarity"
+            value={filters.rarity}
+            onChange={pick('rarity')}
+            options={[
+              { value: '', label: 'Any rarity' },
+              ...RARITIES.map((r) => ({ value: r, label: r })),
+            ]}
+          />
+          <Button
             onClick={() => {
               setFilters(NO_FILTERS);
               setQuery('');
             }}
           >
             Clear
-          </button>
+          </Button>
         </div>
         <div className="builder-pool" data-testid="card-pool" data-nav-group="pool">
           {shown.slice(0, limit).map(({ def: d }) => (
@@ -668,9 +689,9 @@ export function DeckBuilder({
           ))}
           {shown.length === 0 && <div className="hint">No cards match.</div>}
           {shown.length > limit && (
-            <button className="btn more" onClick={() => setLimit(limit + PAGE)}>
+            <Button className="more" onClick={() => setLimit(limit + PAGE)}>
               Show more ({shown.length - limit} left)
-            </button>
+            </Button>
           )}
         </div>
       </section>
@@ -684,104 +705,75 @@ export function DeckBuilder({
         />
       )}
       {modal?.kind === 'sleeve' && (
-        <div className="modal-backdrop" onClick={() => setModal(null)}>
-          <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Sleeve</h2>
-            <div className="hint" style={{ marginBottom: 8 }}>
-              Your card backs when you play this deck. Built-in sleeves are shown to an online
-              opponent; your own images stay on this PC.
-            </div>
-            <button
-              className={`btn ${sleeve === null ? 'primary' : ''}`}
-              style={{ marginBottom: 8 }}
-              onClick={() => {
-                setSleeve(null);
-                setDirty(true);
-              }}
-            >
-              Use the default ({sleeveLook(settings.defaultSleeve).name})
-            </button>
-            <SleevePicker
-              value={sleeve ?? ''}
-              onChange={(id) => {
-                setSleeve(id);
-                setDirty(true);
-              }}
-            />
-            <h2 style={{ marginTop: 16 }}>Playmat</h2>
-            <button
-              className={`btn ${playmat === null ? 'primary' : ''}`}
-              style={{ marginBottom: 8 }}
-              onClick={() => {
-                setPlaymat(null);
-                setDirty(true);
-              }}
-            >
-              Use the default ({playmatOf(settings.playmat).name})
-            </button>
-            <PlaymatPicker
-              value={playmat ?? ''}
-              onChange={(id) => {
-                setPlaymat(id);
-                setDirty(true);
-              }}
-            />
-            <div className="buttons" style={{ marginTop: 12 }}>
-              <button className="btn gold" onClick={() => setModal(null)}>
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
+        <Dialog
+          open
+          onClose={() => setModal(null)}
+          title="Sleeve"
+          className="deck-dialog"
+          description="Your card backs when you play this deck. Built-in sleeves are shown to an online opponent; your own images stay on this PC."
+          actions={
+            <Button variant="gold" onClick={() => setModal(null)}>
+              Done
+            </Button>
+          }
+        >
+          <Button
+            variant={sleeve === null ? 'primary' : 'default'}
+            style={{ marginBottom: 8 }}
+            onClick={() => {
+              setSleeve(null);
+              setDirty(true);
+            }}
+          >
+            Use the default ({sleeveLook(settings.defaultSleeve).name})
+          </Button>
+          <SleevePicker
+            value={sleeve ?? ''}
+            onChange={(id) => {
+              setSleeve(id);
+              setDirty(true);
+            }}
+          />
+          <h2 className="ui-dialog-title" style={{ marginTop: 16 }}>
+            Playmat
+          </h2>
+          <Button
+            variant={playmat === null ? 'primary' : 'default'}
+            style={{ marginBottom: 8 }}
+            onClick={() => {
+              setPlaymat(null);
+              setDirty(true);
+            }}
+          >
+            Use the default ({playmatOf(settings.playmat).name})
+          </Button>
+          <PlaymatPicker
+            value={playmat ?? ''}
+            onChange={(id) => {
+              setPlaymat(id);
+              setDirty(true);
+            }}
+          />
+        </Dialog>
       )}
       {modal?.kind === 'load' && (
-        <div className="modal-backdrop" onClick={() => setModal(null)}>
-          <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Your decks</h2>
-            {saved.length === 0 && <div className="hint">No saved decks yet.</div>}
-            {saved.map((d) => {
-              const f = formatOfSaved(d);
-              const legal = validateDeck(d.deck, ctx.registry, PLAY_FORMATS[f].format).length === 0;
-              return (
-                <div key={d.id} className="saved-row">
-                  <b>{d.name}</b>
-                  <span className="hint">{PLAY_FORMATS[f].label}</span>
-                  <span className={legal ? 'ok' : 'bad'}>{legal ? 'legal' : 'not legal'}</span>
-                  <button className="btn" onClick={() => discardThen(() => loadInto(d))}>
-                    Load
-                  </button>
-                  <button
-                    className="btn"
-                    onClick={() =>
-                      ask(`Delete "${d.name}"?`, 'Delete', () => {
-                        deleteDeck(d.id);
-                        setSaved(loadDecks());
-                        if (d.id === deckId) setDeckId(null);
-                      })
-                    }
-                    data-testid={`delete-deck-${d.id}`}
-                  >
-                    Delete
-                  </button>
-                </div>
-              );
-            })}
-            <div className="buttons">
-              <button
-                className="btn"
+        <Dialog
+          open
+          onClose={() => setModal(null)}
+          title="Your decks"
+          className="deck-dialog"
+          actions={
+            <>
+              <Button
                 disabled={saved.length === 0}
                 onClick={() => void exportAll()}
                 data-testid="export-all-decks"
               >
                 Export all decks
-              </button>
-              <button
-                className="btn"
-                onClick={() => backupInput.current?.click()}
-                data-testid="import-decks"
-              >
+              </Button>
+              <Button onClick={() => backupInput.current?.click()} data-testid="import-decks">
                 Import decks
-              </button>
+              </Button>
               <input
                 ref={backupInput}
                 type="file"
@@ -794,34 +786,52 @@ export function DeckBuilder({
                 }}
                 data-testid="import-decks-file"
               />
-              <button className="btn" onClick={() => setModal(null)}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
+              <Button onClick={() => setModal(null)}>Close</Button>
+            </>
+          }
+        >
+          {saved.length === 0 && <div className="hint">No saved decks yet.</div>}
+          {saved.map((d) => {
+            const f = formatOfSaved(d);
+            const legal = validateDeck(d.deck, ctx.registry, PLAY_FORMATS[f].format).length === 0;
+            return (
+              <div key={d.id} className="saved-row">
+                <b>{d.name}</b>
+                <span className="hint">{PLAY_FORMATS[f].label}</span>
+                <span className={legal ? 'ok' : 'bad'}>{legal ? 'legal' : 'not legal'}</span>
+                <Button size="sm" onClick={() => discardThen(() => loadInto(d))}>
+                  Load
+                </Button>
+                <Button
+                  size="sm"
+                  variant="danger"
+                  onClick={() =>
+                    ask(`Delete "${d.name}"?`, 'Delete', () => {
+                      deleteDeck(d.id);
+                      setSaved(loadDecks());
+                      if (d.id === deckId) setDeckId(null);
+                    })
+                  }
+                  data-testid={`delete-deck-${d.id}`}
+                >
+                  Delete
+                </Button>
+              </div>
+            );
+          })}
+        </Dialog>
       )}
       {modal?.kind === 'import' && (
-        <div className="modal-backdrop" onClick={() => setModal(null)}>
-          <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Import a deck</h2>
-            <div className="hint">
-              Paste a deck list, one card per line, e.g. "4x BT01-001 Blaster Blade".
-            </div>
-            <textarea
-              className="deck-text"
-              value={modal.text}
-              onChange={(e) => setModal({ ...modal, text: e.target.value })}
-              data-testid="import-text"
-            />
-            {modal.problems.map((p) => (
-              <div key={p} className="bad">
-                {p}
-              </div>
-            ))}
-            <div className="buttons">
-              <button
-                className="btn gold"
+        <Dialog
+          open
+          onClose={() => setModal(null)}
+          title="Import a deck"
+          className="deck-dialog"
+          description={'Paste a deck list, one card per line, e.g. "4x BT01-001 Blaster Blade".'}
+          actions={
+            <>
+              <Button
+                variant="gold"
                 onClick={() => {
                   const parsed = parseDeck(modal.text, ctx.registry);
                   if (parsed.deck.cards.length === 0)
@@ -845,22 +855,35 @@ export function DeckBuilder({
                 }}
               >
                 Import
-              </button>
-              <button className="btn" onClick={() => setModal(null)}>
-                Close
-              </button>
+              </Button>
+              <Button onClick={() => setModal(null)}>Close</Button>
+            </>
+          }
+        >
+          <textarea
+            className="deck-text ui-textarea"
+            aria-label="Deck list"
+            value={modal.text}
+            onChange={(e) => setModal({ ...modal, text: e.target.value })}
+            data-testid="import-text"
+          />
+          {modal.problems.map((p) => (
+            <div key={p} className="bad">
+              {p}
             </div>
-          </div>
-        </div>
+          ))}
+        </Dialog>
       )}
       {modal?.kind === 'export' && (
-        <div className="modal-backdrop" onClick={() => setModal(null)}>
-          <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Export “{name}”</h2>
-            <textarea className="deck-text" readOnly value={modal.text} />
-            <div className="buttons">
-              <button
-                className="btn gold"
+        <Dialog
+          open
+          onClose={() => setModal(null)}
+          title={`Export “${name}”`}
+          className="deck-dialog"
+          actions={
+            <>
+              <Button
+                variant="gold"
                 onClick={() =>
                   navigator.clipboard
                     .writeText(modal.text)
@@ -869,50 +892,54 @@ export function DeckBuilder({
                 }
               >
                 Copy
-              </button>
+              </Button>
               <a
-                className="btn"
+                className="ui-btn"
                 download={`${name.replace(/[^\w -]+/g, '') || 'deck'}.txt`}
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(modal.text)}`}
               >
                 Save as file
               </a>
-              <button className="btn" onClick={() => setModal(null)}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
+              <Button onClick={() => setModal(null)}>Close</Button>
+            </>
+          }
+        >
+          <textarea
+            className="deck-text ui-textarea"
+            aria-label="Deck list"
+            readOnly
+            value={modal.text}
+          />
+        </Dialog>
       )}
       {modal?.kind === 'hand' && (
-        <div className="modal-backdrop" onClick={() => setModal(null)}>
-          <div className="modal deck-modal wide" onClick={(e) => e.stopPropagation()}>
-            <h2>Test hand ({modal.drawn} drawn)</h2>
-            <div className="test-hand">
-              {modal.order.slice(0, modal.drawn).map((id, i) => (
-                <CardView key={i} definitionId={id} width={130} height={189} />
-              ))}
-            </div>
-            <div className="buttons">
-              <button
-                className="btn gold"
+        <Dialog
+          open
+          onClose={() => setModal(null)}
+          title={`Test hand (${modal.drawn} drawn)`}
+          className="deck-dialog wide"
+          actions={
+            <>
+              <Button
+                variant="gold"
                 disabled={modal.drawn >= modal.order.length}
                 onClick={() => setModal({ ...modal, drawn: modal.drawn + 1 })}
               >
                 Draw
-              </button>
-              <button
-                className="btn"
-                onClick={() => setModal({ kind: 'hand', order: shuffle(cards), drawn: 5 })}
-              >
+              </Button>
+              <Button onClick={() => setModal({ kind: 'hand', order: shuffle(cards), drawn: 5 })}>
                 Shuffle again
-              </button>
-              <button className="btn" onClick={() => setModal(null)}>
-                Close
-              </button>
-            </div>
+              </Button>
+              <Button onClick={() => setModal(null)}>Close</Button>
+            </>
+          }
+        >
+          <div className="test-hand">
+            {modal.order.slice(0, modal.drawn).map((id, i) => (
+              <CardView key={i} definitionId={id} width={130} height={189} />
+            ))}
           </div>
-        </div>
+        </Dialog>
       )}
       {dialog}
       {toast && <div className="toast">{toast}</div>}
@@ -988,30 +1015,22 @@ function DefinitionDetails({
           <div className="buttons" style={{ marginTop: 18, alignItems: 'center' }}>
             {list.length > 1 && at >= 0 && (
               <>
-                <button
-                  className="btn"
+                <Button
                   onClick={() => step(-1)}
                   data-testid="details-prev"
                   aria-label="Previous card"
                 >
                   ◀ Previous
-                </button>
+                </Button>
                 <span className="details-position" data-testid="details-position">
                   {at + 1} / {list.length}
                 </span>
-                <button
-                  className="btn"
-                  onClick={() => step(1)}
-                  data-testid="details-next"
-                  aria-label="Next card"
-                >
+                <Button onClick={() => step(1)} data-testid="details-next" aria-label="Next card">
                   Next ▶
-                </button>
+                </Button>
               </>
             )}
-            <button className="btn" onClick={onClose}>
-              Close
-            </button>
+            <Button onClick={onClose}>Close</Button>
           </div>
         </div>
       </div>
@@ -1032,7 +1051,9 @@ export function OuStatusLine({ id, set }: { id: string; set: string }) {
       ? `On the OU list (since v${e.since}): legal in Original Era — Expanded.`
       : e.status === 'proposed'
         ? `Proposed for the OU list (v${e.since}), awaiting review: G Era only for now.`
-        : 'Reviewed and not on the OU list: G Era only.';
+        : e.status === 'held'
+          ? `Held out of the OU playtest pool (v${e.since}) for a later comparison test: G Era only for now.`
+          : 'Reviewed and not on the OU list: G Era only.';
   return (
     <div className={`ou-status ${e?.status ?? 'none'}`} data-testid="ou-status">
       <b>Original Era compatibility (OU list v{OU_LIST.version}):</b> {text}

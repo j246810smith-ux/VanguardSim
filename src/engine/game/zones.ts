@@ -293,7 +293,10 @@ export function drawCard(d: Draft, player: PlayerId): InstanceId | null {
   return top;
 }
 
-export function shuffleDeck(d: Draft, player: PlayerId): void {
+export function shuffleDeck(d: Draft, player: PlayerId, by?: PlayerId): void {
   shuffleInPlace(d.state.rng, d.state.players[player].deck);
-  emit(d, { type: 'DECK_SHUFFLED', player });
+  emit(
+    d,
+    by === undefined ? { type: 'DECK_SHUFFLED', player } : { type: 'DECK_SHUFFLED', player, by },
+  );
 }

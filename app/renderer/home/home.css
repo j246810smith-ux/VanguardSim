@@ -448,19 +448,26 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background: rgba(6, 12, 32, 0.97);
-  border: 2px solid var(--h-gold);
-  border-radius: 10px;
+  /* the UI kit's menu look (docs/design/UI_COMPONENT_SYSTEM.md) */
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius);
+  box-shadow: var(--ui-shadow), var(--ui-glow);
+  animation: ui-pop var(--ui-dur) var(--ui-ease);
 }
 .home-menu-item {
   padding: 18px 20px;
   text-align: left;
   font: 700 24px var(--font-body);
-  color: #fff;
+  color: var(--ui-text);
   background: none;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--ui-radius-sm);
   cursor: pointer;
+}
+.home-menu-item:focus-visible {
+  outline: none;
+  box-shadow: var(--ui-glow-strong);
 }
 
 /* START BATTLE */
@@ -673,7 +680,13 @@
   .home-hex-btn:hover {
     filter: brightness(1.25) drop-shadow(0 0 12px rgba(80, 180, 255, 0.7));
   }
-  .home-menu-item:hover,
+  .home-menu-item:hover {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ui-accent) 35%, transparent),
+      color-mix(in srgb, var(--ui-accent-2) 15%, transparent)
+    );
+  }
   .home-modes-back:hover {
     background: rgba(51, 209, 255, 0.18);
   }
@@ -700,8 +713,8 @@
 }
 
 /* profile editor */
-.home-profile-editor {
-  width: 640px;
+.ui-dialog.home-profile-editor {
+  width: min(640px, calc(100vw - 32px));
 }
 .home-profile-name {
   display: flex;
@@ -751,7 +764,8 @@
 }
 
 /* the old menu's notices, kept above the home screen */
-.home-notice {
+.home-notice,
+.ui-btn.home-notice {
   position: absolute;
   max-width: 560px;
   text-align: left;

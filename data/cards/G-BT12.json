@@ -385,7 +385,7 @@
       "en": {
         "number": "G-BT12/009EN",
         "name": "Chronodragon Gearnext",
-        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn][Generation Break 2]:[Soul-Blast 1 & Choose a face down card with the same card name as this unit from your G zone, and turn it face up] This unit gets \"[AUTO](VC)[1/turn]:At the end of the battle that this unit attacked, if your heart card is , reveal up to three  in total from (RC) or your hand, and put them on the bottom of your deck in any order. If you put three cards, [Stand] this unit, and it gets drive -2.\".\n[CONT](VC)[Generation Break 4]:During this unit's second battle, it gets [Power] +10000/drive +1.",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn][Generation Break 2]:[Soul-Blast 1 & Choose a face down card with the same card name as this unit from your G zone, and turn it face up] This unit gets \"[AUTO](VC)[1/turn]:At the end of the battle that this unit attacked, if your heart card is <Gear Dragon>, reveal up to three <Zodiac Time Beast> in total from (RC) or your hand, and put them on the bottom of your deck in any order. If you put three cards, [Stand] this unit, and it gets drive -2.\".\n[CONT](VC)[Generation Break 4]:During this unit's second battle, it gets [Power] +10000/drive +1.",
         "clan": "Gear Chronicle",
         "race": "Gear Dragon/Zodiac Time Beast",
         "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gbt12_009.png"
@@ -414,7 +414,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {
@@ -891,7 +892,7 @@
       "en": {
         "number": "G-BT12/020EN",
         "name": "Chronotiger Gear Glare",
-        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Soul-Blast 1 & Choose a face down card with the same card name as this unit from your G zone, and turn it face up] If your heart card is , choose any number of your opponent's rear-guards with the sum of their grades being less than or equal to the number of cards in your bind zone, and your opponent puts them on the bottom of his or her deck in any order.\n[CONT](VC)[Generation Break 3]:If the number of cards in your bind zone is five or more, this unit gets [Power] +10000, then, if it is seven or more, it gets [Critical] +1, then, if it is nine or more, it gets drive +1.",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Soul-Blast 1 & Choose a face down card with the same card name as this unit from your G zone, and turn it face up] If your heart card is <Gear Beast>, choose any number of your opponent's rear-guards with the sum of their grades being less than or equal to the number of cards in your bind zone, and your opponent puts them on the bottom of his or her deck in any order.\n[CONT](VC)[Generation Break 3]:If the number of cards in your bind zone is five or more, this unit gets [Power] +10000, then, if it is seven or more, it gets [Critical] +1, then, if it is nine or more, it gets drive +1.",
         "clan": "Gear Chronicle",
         "race": "Gear Beast/Zodiac Time Beast",
         "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gbt12_020.png"
@@ -920,7 +921,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {
@@ -937,7 +939,7 @@
       "en": {
         "number": "G-BT12/021EN",
         "name": "Pulsar, Spearhead Unicorn",
-        "text": "[CONT](RC)[Generation Break 1]:If you have a vanguard with \"Chronojet\" in its card name, this unit gets [Power] +2000, and \"[AUTO](RC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, look at the same number of cards from the top of your deck as the number of your  units, call up to one  with a different card name as this unit from among them to (RC), and put the rest on the bottom of your deck in any order.\".",
+        "text": "[CONT](RC)[Generation Break 1]:If you have a vanguard with \"Chronojet\" in its card name, this unit gets [Power] +2000, and \"[AUTO](RC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, look at the same number of cards from the top of your deck as the number of your <Zodiac Time Beast> units, call up to one <Zodiac Time Beast> with a different card name as this unit from among them to (RC), and put the rest on the bottom of your deck in any order.\".",
         "clan": "Gear Chronicle",
         "race": "Gear Beast/Zodiac Time Beast",
         "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gbt12_021.png"
@@ -966,7 +968,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {
@@ -983,7 +986,7 @@
       "en": {
         "number": "G-BT12/022EN",
         "name": "Pulsar, Duplex Dragon",
-        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a grade 3 or greater  vanguard, you may pay the cost. If you do, bind the top card of your deck face up, if that card is a , choose one of your opponent's rear-guards with grade less than or equal to that card, and your opponent puts that unit on the bottom of his or her deck.",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a grade 3 or greater <Zodiac Time Beast> vanguard, you may pay the cost. If you do, bind the top card of your deck face up, if that card is a <Zodiac Time Beast>, choose one of your opponent's rear-guards with grade less than or equal to that card, and your opponent puts that unit on the bottom of his or her deck.",
         "clan": "Gear Chronicle",
         "race": "Gear Dragon/Zodiac Time Beast",
         "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gbt12_022.png"
@@ -1012,7 +1015,11 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": [
+          "English text repaired from the Japanese text (lost race names / icons).",
+          "English text repaired from the Japanese text (lost race names / icons)."
+        ]
       }
     },
     {
@@ -1674,7 +1681,7 @@
       "en": {
         "number": "G-BT12/037EN",
         "name": "Stealth Beast, Gekisou Ookami",
-        "text": "[AUTO](RC):Afterimage (When your opponent puts a bound card into his or her hand, if your hand has six or less cards, you may return this unit to your hand)\n[ACT](RC)[Generation Break 1]:<img src='../jsp-material/img/Rest] this unit] Choose one of your units, it gets [Power] +2000 until end of turn, choose one of your opponent's rear-guards, bind it face up, and at the end of that turn, your opponent puts the card bound with this effect into his or her hand.",
+        "text": "[AUTO](RC):Afterimage (When your opponent puts a bound card into his or her hand, if your hand has six or less cards, you may return this unit to your hand)\n[ACT](RC)[Generation Break 1]:[[Rest] this unit] Choose one of your units, it gets [Power] +2000 until end of turn, choose one of your opponent's rear-guards, bind it face up, and at the end of that turn, your opponent puts the card bound with this effect into his or her hand.",
         "clan": "Nubatama",
         "race": "Warbeast",
         "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/gbt12/GBT12_037EN.jpg"
@@ -1703,7 +1710,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {
@@ -3377,7 +3385,7 @@
       "en": {
         "number": "G-BT12/074EN",
         "name": "Stealth Dragon, Dreadmaster",
-        "text": "[AUTO](RC):[Counter-Blast 1] When an attack hits during the battle that this unit boosted a , if the number of cards in your hand is less than your opponent's, you may pay the cost. If you do, your opponent chooses a card from his or her hand, and discards it.",
+        "text": "[AUTO](RC):[Counter-Blast 1] When an attack hits during the battle that this unit boosted a <Nubatama>, if the number of cards in your hand is less than your opponent's, you may pay the cost. If you do, your opponent chooses a card from his or her hand, and discards it.",
         "clan": "Nubatama",
         "race": "Shadow Dragon",
         "image": "/wordpress/wp-content/images/cardlist/gbt12/GBT12_074EN.jpg"
@@ -3406,7 +3414,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {
@@ -3423,7 +3432,7 @@
       "en": {
         "number": "G-BT12/075EN",
         "name": "Stealth Beast, Kazemomo",
-        "text": "[AUTO]:Forerunner\n[AUTO](RC):Afterimage (When your opponent puts a bound card into his or her hand, if your hand has six or less cards, you may return this unit to your hand)\n[ACT](RC)[Generation Break 1]:<img src='../jsp-material/img/Rest] this unit] Choose one of your opponent's rear-guards, bind it face up, and at the end of that turn, your opponent puts that card into his or her hand.",
+        "text": "[AUTO]:Forerunner\n[AUTO](RC):Afterimage (When your opponent puts a bound card into his or her hand, if your hand has six or less cards, you may return this unit to your hand)\n[ACT](RC)[Generation Break 1]:[[Rest] this unit] Choose one of your opponent's rear-guards, bind it face up, and at the end of that turn, your opponent puts that card into his or her hand.",
         "clan": "Nubatama",
         "race": "High Beast",
         "image": "/wordpress/wp-content/images/cardlist/gbt12/GBT12_075EN.jpg"
@@ -3452,7 +3461,8 @@
       },
       "checks": {
         "jpEnStatsMatch": true,
-        "mismatches": []
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
       }
     },
     {

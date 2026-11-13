@@ -1,0 +1,921 @@
+{
+  "set": "G-TD15",
+  "importedAt": "2026-11-13T13:41:19.445Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD15-001",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/001",
+        "name": "創世竜 ベアリング・メサイア",
+        "text": "（Ｇユニットはメインデッキに入れられない。お互いがグレード３以上なら超越でき、ハーツのパワーとカード名を得て、ターン終了時に表で戻る）\n【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、いずれかの後列のリアガードを１枚選び、呪縛し、呪縛カードを１枚選び、解呪する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに解呪され表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_001.png"
+      },
+      "en": {
+        "number": "G-TD15/001EN",
+        "name": "Genesis Dragon, Bearing Messiah",
+        "text": "(Ｇ units cannot be in your main deck. You can stride when both fighters' vanguards are grade 3 or greater, it gains the power and card name of one heart, and at the end of the turn, return it face up)\n[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, choose a rear-guard in any fighter's back row, lock it, choose a locked card, and unlock it. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/001", "G-TD15/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F001",
+          "fetchedAt": "2026-11-13T13:40:02.621Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210095507/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/001EN",
+          "fetchedAt": "2019-12-10T09:55:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-002",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/002",
+        "name": "綻びを閉じる光 レディヒーラー",
+        "text": "（Ｇユニットはメインデッキに入れられない。お互いがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）\n【Ｇガーディアン】-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【ソウルブラスト】(1)]このユニットが(G)に登場した時、呪縛カードがあるなら、コストを払ってよい。払ったら、このユニットのシールド＋5000。さらに、あなたのヴァンガードが〈メサイア〉なら、このユニットのシールド＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_002.png"
+      },
+      "en": {
+        "number": "G-TD15/002EN",
+        "name": "Light that Seals the Tear, Lady Healer",
+        "text": "(Ｇ units cannot be in your main deck. You can call when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)\n[G Guardian]-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Soul-Blast 1] When this unit is placed on (GC), if there is a locked card, you may pay the cost. If you do, this unit gets [Shield] +5000. Then, if your vanguard is a <Messiah>, this unit gets [Shield] +5000.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_002.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/002", "G-TD15/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F002",
+          "fetchedAt": "2026-11-13T13:40:03.821Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118105248/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/002EN",
+          "fetchedAt": "2019-11-18T10:52:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
+      }
+    },
+    {
+      "id": "G-TD15-003",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/003",
+        "name": "オルターエゴ・ネオ・メサイア",
+        "text": "【自】【(V)】：あなたの〈メサイア〉のＧユニットが【超越】した時、手札から１枚まで選び、(R)にコールし、すべてのファイターのリアガードをそれぞれ１枚まで選び、呪縛する。\n【自】【(V)】【Gブレイク】(2)：[【ソウルブラスト】(1)]あなたのターンの終了時、あなたのカードの効果で、そのターンに呪縛カードを解呪していたら、コストを払ってよい。払ったら、２枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_003.png"
+      },
+      "en": {
+        "number": "G-TD15/003EN",
+        "name": "Alter Ego Neo Messiah",
+        "text": "[AUTO](VC):When your <Messiah> G unit [Stride], choose up to one card from your hand, call it to (RC), choose up to one of each fighter's rear-guards, and lock them. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)\n[AUTO](VC)[Generation Break 2](Active if you have two or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] At the end of your turn, if a locked card was unlocked during that turn due to the effect of your card, you may pay the cost. If you do, draw two cards.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_003.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/003", "G-TD15/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F003",
+          "fetchedAt": "2026-11-13T13:40:04.602Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208023954/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/003EN",
+          "fetchedAt": "2019-12-08T02:39:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
+      }
+    },
+    {
+      "id": "G-TD15-004",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/004",
+        "name": "オルターエゴ・メサイア",
+        "text": "【自】【(V)】：[【カウンターブラスト】(1)，あなたのリアガードを１枚選び、呪縛する]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、相手のリアガードを１枚選び、呪縛し、あなたのヴァンガードを１枚選び、そのターン中、パワー＋5000。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに解呪され表に戻る）\n【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが合計２枚以上で有効）：[【ソウルブラスト】(1)]呪縛カードが解呪された時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_004.png"
+      },
+      "en": {
+        "number": "G-TD15/004EN",
+        "name": "Alter Ego Messiah",
+        "text": "[AUTO](VC):[Counter-Blast 1 & Choose one of your rear-guards, and lock it] When your G unit [Stride] during your turn, you may pay the cost. If you do, choose one of your opponent's rear-guards, lock it, choose one of your vanguards, and it gets [Power] +5000 until end of turn. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)\n[AUTO](VC)[Generation Break 2](Active if you have two or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] When a locked card is unlocked, you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_004.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/004", "G-TD15/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F004",
+          "fetchedAt": "2026-11-13T13:40:05.753Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191122175139/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/004EN",
+          "fetchedAt": "2019-11-22T17:51:39Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-005",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/005",
+        "name": "リストレイン・ドラゴン",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]呪縛カードが解呪された時、コストを払ってよい。払ったら、その解呪されたユニット１枚を呪縛する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに解呪され表に戻る）\n【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_005.png"
+      },
+      "en": {
+        "number": "G-TD15/005EN",
+        "name": "Restrain Dragon",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When a locked card is unlocked, you may pay the cost. If you do, lock that unlocked card. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)\n[AUTO](VC/RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/005", "G-TD15/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F005",
+          "fetchedAt": "2026-11-13T13:40:06.499Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251017014156/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/005EN",
+          "fetchedAt": "2025-10-17T01:41:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-006",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/006",
+        "name": "アルベド・コンドル",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_006.png"
+      },
+      "en": {
+        "number": "G-TD15/006EN",
+        "name": "Albedo Condor",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/006", "G-TD15/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F006",
+          "fetchedAt": "2026-11-13T13:40:07.687Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619150856/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/006EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T15:08:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-007",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/007",
+        "name": "アレスター・メサイア",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットが(R)に登場した時、あなたの「メサイア」を含むグレード３以上のヴァンガードがいるなら、そのターン中、このユニットのパワー＋2000し、『【自】【(R)】：[このユニットを呪縛する]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、いずれかの後列のリアガードを１枚まで選び、呪縛する。』を得る。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_007.png"
+      },
+      "en": {
+        "number": "G-TD15/007EN",
+        "name": "Arrester Messiah",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC), if you have a grade 3 or greater vanguard with \"Messiah\" in its card name, until end of turn, this unit gets [Power] +2000, and \"[AUTO](RC):[Lock this unit] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose up to one rear-guard in any fighter's back row, and lock it.\".",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/007", "G-TD15/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F007",
+          "fetchedAt": "2026-11-13T13:40:08.865Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619151850/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/007EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T15:18:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-008",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/008",
+        "name": "メタレイア・メサイア",
+        "text": "【永】【(R)】：カードの効果で、このユニットは呪縛されない。\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：他のカードが、呪縛された時か、解呪された時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_008.png"
+      },
+      "en": {
+        "number": "G-TD15/008EN",
+        "name": "Metallia Messiah",
+        "text": "[CONT](RC):This unit cannot be locked by card effects.\n[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When another card is locked or unlocked, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_008.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/008", "G-TD15/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F008",
+          "fetchedAt": "2026-11-13T13:40:09.764Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214031353/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/008EN",
+          "fetchedAt": "2019-12-14T03:13:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-009",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/009",
+        "name": "グレートウォール",
+        "text": "【自】：このユニットがインターセプトした時、呪縛カードがあるなら、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_009.png"
+      },
+      "en": {
+        "number": "G-TD15/009EN",
+        "name": "Great Wall",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if there is a locked card, this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/009", "G-TD15/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F009",
+          "fetchedAt": "2026-11-13T13:40:10.510Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619153924/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/009EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T15:39:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-010",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/010",
+        "name": "デスティニー・ディーラー",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「メサイア」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_010.png"
+      },
+      "en": {
+        "number": "G-TD15/010EN",
+        "name": "Destiny Dealer",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Messiah\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/010", "G-TD15/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F010",
+          "fetchedAt": "2026-11-13T13:40:11.257Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260615235529/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/010EN",
+          "fetchedAt": "2026-06-15T23:55:29Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-011",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/011",
+        "name": "デュナミス・メサイア",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【ソウルブラスト】(1)]このユニットがブーストしたバトルの終了時、コストを払ってよい。払ったら、呪縛カードを１枚まで選び、解呪し、このユニットを呪縛する。あなたのユニットを１枚選び、そのターン中、パワー＋4000。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに解呪され表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_011.png"
+      },
+      "en": {
+        "number": "G-TD15/011EN",
+        "name": "Dunamis Messiah",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] At the end of the battle that this unit boosted ([Boost]), you may pay the cost. If you do, choose up to one locked card, unlock it, and lock this unit. Choose one of your units, and it gets [Power] +4000 until end of turn. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/011", "G-TD15/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F011",
+          "fetchedAt": "2026-11-13T13:40:12.638Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207071037/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/011EN",
+          "fetchedAt": "2019-12-07T07:10:37Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-012",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/012",
+        "name": "オルバース・パンゴリン",
+        "text": "【永】：守護者（守護者を持つカードはデッキに合計で４枚まで入れられる）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのユニットを１枚選び、そのバトル中、ヒットされない。",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_012.png"
+      },
+      "en": {
+        "number": "G-TD15/012EN",
+        "name": "Allbirth Pangolin",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units, and it cannot be hit until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD15/012", "G-TD15/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F012",
+          "fetchedAt": "2026-11-13T13:40:13.785Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260418171955/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/012EN",
+          "fetchedAt": "2026-04-18T17:19:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-013",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/013",
+        "name": "緊縛の重星 クラスターマイン",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)]このユニットがブーストしたバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、すべてのファイターは自分のリアガードを１枚選び、呪縛する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに解呪され表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_013.png"
+      },
+      "en": {
+        "number": "G-TD15/013EN",
+        "name": "Multiple Star of Binding, Cluster Mine",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When an attack hits a vanguard during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, all fighters choose one of their rear-guards, and locks it. (The locked card is turned face down, and cannot do anything. It is unlocked and turns face up at end of the owner's turn)",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/013", "G-TD15/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F013",
+          "fetchedAt": "2026-11-13T13:40:14.947Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619153349/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/013EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T15:33:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-014",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/014",
+        "name": "ネオンメサイア・アウリオン",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】：[このユニットをソウルに置く]あなたのターン中、このユニットが解呪された時、あなたのヴァンガードが〈メサイア〉なら、コストを払ってよい。払ったら、１枚引き、あなたのユニットを１枚選び、そのターン中、パワー＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_014.png"
+      },
+      "en": {
+        "number": "G-TD15/014EN",
+        "name": "Neon Messiah Aurion",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO]:[Put this unit into your soul] When this unit is unlocked during your turn, if your vanguard is a <Messiah>, you may pay the cost. If you do, draw a card, choose one of your units, and it gets [Power] +5000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_014.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/014", "G-TD15/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F014",
+          "fetchedAt": "2026-11-13T13:40:16.120Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190916160055/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/014EN",
+          "fetchedAt": "2019-09-16T16:00:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "textFixes": ["English text repaired from the Japanese text (lost race names / icons)."]
+      }
+    },
+    {
+      "id": "G-TD15-015",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/015",
+        "name": "スピキュール・シャーク",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_015.png"
+      },
+      "en": {
+        "number": "G-TD15/015EN",
+        "name": "Spicule Shark",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyber Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd15_015.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/015", "G-TD15/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F015",
+          "fetchedAt": "2026-11-13T13:40:16.867Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919163646/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/015EN",
+          "fetchedAt": "2019-09-19T16:36:46Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-016",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/016",
+        "name": "原始星の長剣 プロトソード",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_016.png"
+      },
+      "en": {
+        "number": "G-TD15/016EN",
+        "name": "Long Sword of Protostar, Protosword",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/016", "G-TD15/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F016",
+          "fetchedAt": "2026-11-13T13:40:18.070Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619160818/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/016EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T16:08:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-017",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/017",
+        "name": "反作用の忌み子",
+        "text": "（【治】を持つカードはデッキに合計で４枚まで入れられる）",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_017.png"
+      },
+      "en": {
+        "number": "G-TD15/017EN",
+        "name": "Mourning Child of Reaction",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/017", "G-TD15/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F017",
+          "fetchedAt": "2026-11-13T13:40:18.806Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619161555/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/017EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T16:15:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD15-018",
+      "set": "G-TD15",
+      "jp": {
+        "number": "G-TD15/018",
+        "name": "超絃理論の愛し子",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD15/gtd15_018.png"
+      },
+      "en": {
+        "number": "G-TD15/018EN",
+        "name": "Beloved Child of Superstring Theory",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "/wordpress/wp-content/images/cardlist/gtd15/GTD15_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD15/018", "G-TD15/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD15%2F018",
+          "fetchedAt": "2026-11-13T13:40:19.550Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250619162633/https://en.cf-vanguard.com/cardlist/?cardno=G-TD15/018EN&expansion=102&view=image",
+          "fetchedAt": "2025-06-19T16:26:33Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 15: Messiah Dragon of Rebirth",
+    "cards": [
+      {
+        "id": "G-TD15-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-005",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-006",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-008",
+        "count": 3
+      },
+      {
+        "id": "G-TD15-009",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-011",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-012",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-013",
+        "count": 2
+      },
+      {
+        "id": "G-TD15-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD15-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD15-018",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20180627065718/http://cardfight.wikia.com:80/wiki/G_Trial_Deck_15:_Messiah_Dragon_of_Rebirth",
+      "fetchedAt": "2018-06-27T06:57:18.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

@@ -37,6 +37,10 @@ if (process.env.VANGUARD_JITTER)
 const onlineProbe = process.env.VANGUARD_ONLINE_PROBE; // 'host' | 'join'
 if (onlineProbe)
   app.setPath('userData', path.join(app.getPath('temp'), `vanguard-sim-online-${onlineProbe}`));
+// VANGUARD_SHOTS_TEMP=1 (with VANGUARD_SHOTS): screenshots in a throwaway profile, so settings
+// passed with VANGUARD_SHOTS_SET never touch the real installed copy's settings
+if (process.env.VANGUARD_SHOTS && process.env.VANGUARD_SHOTS_TEMP)
+  app.setPath('userData', path.join(app.getPath('temp'), 'vanguard-sim-shots'));
 
 // the menu music (synthesised in the renderer, roadmap phase 2) may start before the first click
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
@@ -441,6 +445,16 @@ const deckShotsStep = `(() => {
     if (n === 4) return addAll(4);
     if (n === 5) return typeIn('chrono');
     if (n === 6) return typeIn('');
+    if (n === 7) {
+      document.querySelectorAll('.ui-select-trigger')[1]?.dispatchEvent(
+        new PointerEvent('pointerdown', { bubbles: true, button: 0, pointerType: 'mouse' }),
+      );
+      return 'clan filter open';
+    }
+    if (n === 8)
+      return (document.activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })), 'closed');
+    if (n === 9)
+      return ([...document.querySelectorAll('.ui-btn')].find((b) => b.textContent === 'Test hand')?.click(), 'test hand');
     return 'wait';
   })()`;
 /** VANGUARD_SHOTS_SCREEN=updates: the Update Manager (D-037), a live check, the release notes. */
@@ -479,6 +493,21 @@ const profileShotsStep = `(() => {
     if (n === 8) return (q('[data-testid=banner-group-playmats]').click(), 'playmats');
     return 'wait';
   })()`;
+/** VANGUARD_SHOTS_SCREEN=showcase: the UI Component Showcase, a dropdown open, a dialog open. */
+const showcaseShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const n = (window.__n = (window.__n || 0) + 1);
+    if (n === 1) return (q('[data-testid=settings]').click(), 'settings');
+    if (n === 2) return (q('[data-testid=open-showcase]').click(), 'showcase');
+    if (n === 4) {
+      const t = q('.ui-select-trigger');
+      t.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, button: 0, pointerType: 'mouse' }));
+      return 'dropdown';
+    }
+    if (n === 5) return (document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })), 'closed');
+    if (n === 6) return ([...document.querySelectorAll('.ui-btn')].find((b) => b.textContent.includes('Delete deck')).click(), 'dialog');
+    return 'wait';
+  })()`;
 function runShots(win) {
   const screen = process.env.VANGUARD_SHOTS_SCREEN;
   const step =
@@ -490,7 +519,9 @@ function runShots(win) {
           ? homeShotsStep
           : screen === 'profile'
             ? profileShotsStep
-            : shotsStep;
+            : screen === 'showcase'
+              ? showcaseShotsStep
+              : shotsStep;
   const errors = [];
   win.webContents.on('console-message', (event) => {
     if (event.level === 'error' || event.level === 'warning') errors.push(event.message);

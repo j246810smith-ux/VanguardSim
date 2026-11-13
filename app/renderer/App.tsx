@@ -52,6 +52,9 @@ import { DEFAULT_SLEEVE } from './cosmetics';
 import { randomSeed, seedFrom } from './game/seed';
 import { DemoSetup, type DemoChoice } from './screens/DemoSetup';
 import { UpdateManager } from './screens/UpdateManager';
+import { UiShowcase } from './screens/UiShowcase';
+import { Button, IconButton, Segmented, TextField } from './ui/kit';
+import { HelpCircle, Play } from 'lucide-react';
 import { migrationNotice, startMigrationResult } from './migrations';
 import { desktopUpdates, updateResultText, type UpdateCheck, type UpdateResult } from './updates';
 import { CAN, IS_ANDROID } from './platform';
@@ -149,6 +152,7 @@ type Screen =
   | { name: 'setup' }
   | { name: 'settings' }
   | { name: 'updates'; from: 'menu' | 'settings' }
+  | { name: 'showcase' }
   | { name: 'decks' }
   | { name: 'cards' }
   | { name: 'profile' }
@@ -345,7 +349,11 @@ export function App() {
             onChange={setSettings}
             onBack={() => setScreen({ name: 'menu' })}
             onUpdates={() => setScreen({ name: 'updates', from: 'settings' })}
+            onShowcase={() => setScreen({ name: 'showcase' })}
           />
+        )}
+        {screen.name === 'showcase' && (
+          <UiShowcase onBack={() => setScreen({ name: 'settings' })} />
         )}
         {screen.name === 'battle' && (
           <BattleScreen
@@ -408,36 +416,37 @@ function MainMenu({
       }}
     >
       {dataNotice && (
-        <button
-          className="btn home-notice"
+        <Button
+          className="home-notice"
           onClick={onDismissData}
           data-testid="data-notice"
           title="Click to dismiss"
           style={{ bottom: 200, left: 24 }}
         >
           {dataNotice}
-        </button>
+        </Button>
       )}
       {updateResult && (
-        <button
-          className="btn update-result home-notice"
+        <Button
+          className="update-result home-notice"
           onClick={onDismissResult}
           data-testid="update-result"
           title="Click to dismiss"
           style={{ top: 150, left: 24 }}
         >
           {updateResultText(updateResult)}
-        </button>
+        </Button>
       )}
       {updateReady && (
-        <button
-          className="btn update-notice home-notice"
+        <Button
+          variant="gold"
+          className="update-notice home-notice"
           onClick={() => go({ name: 'updates', from: 'menu' })}
           data-testid="update-notice"
-          style={{ top: 130, right: 24, borderColor: '#ffd166' }}
+          style={{ top: 130, right: 24 }}
         >
           Update available: v{updateReady}
-        </button>
+        </Button>
       )}
     </HomeScreen>
   );
@@ -490,34 +499,45 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       </h1>
       <div className="row">
         Format
-        <span className="seg">
-          <button
-            className={format === 'classic' ? 'on' : ''}
-            onClick={() => pickFormat('classic')}
-            data-testid="format-classic"
-            title={STRICT_HELP}
-          >
-            Original Era — Strict <small className="fmt-sub">BT01–BT17 · no G cards</small>
-          </button>
-          <button
-            className={format === 'classic_ou' ? 'on' : ''}
-            onClick={() => pickFormat('classic_ou')}
-            data-testid="format-classic-ou"
-            title={EXPANDED_HELP}
-          >
-            Original Era — Expanded{' '}
-            <small className="fmt-sub">+ OU cards · list v{OU_LIST.version}</small>
-          </button>
-          <button
-            className={format === 'g' ? 'on' : ''}
-            onClick={() => pickFormat('g')}
-            data-testid="format-g"
-            title={G_ERA_HELP}
-          >
-            G Era <small className="fmt-sub">+ G units</small>{' '}
-            <span className="testing-tag">IN TESTING</span>
-          </button>
-        </span>
+        <Segmented
+          ariaLabel="Format"
+          value={format}
+          onChange={pickFormat}
+          options={[
+            {
+              value: 'classic',
+              testId: 'format-classic',
+              title: STRICT_HELP,
+              label: (
+                <>
+                  Original Era — Strict <small className="fmt-sub">BT01–BT17 · no G cards</small>
+                </>
+              ),
+            },
+            {
+              value: 'classic_ou',
+              testId: 'format-classic-ou',
+              title: EXPANDED_HELP,
+              label: (
+                <>
+                  Original Era — Expanded{' '}
+                  <small className="fmt-sub">+ OU cards · list v{OU_LIST.version}</small>
+                </>
+              ),
+            },
+            {
+              value: 'g',
+              testId: 'format-g',
+              title: G_ERA_HELP,
+              label: (
+                <>
+                  G Era <small className="fmt-sub">+ G units</small>{' '}
+                  <span className="testing-tag">IN TESTING</span>
+                </>
+              ),
+            },
+          ]}
+        />
         <InfoTip
           label="What the formats are"
           testId="format-help"
@@ -542,29 +562,32 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       </div>
       <div className="row">
         Opponent AI
-        <span className="seg">
-          {(['random', 'basic', 'smart'] as const).map((l) => (
-            <button key={l} className={ai === l ? 'on' : ''} onClick={() => setAi(l)}>
-              {AI_LABEL[l]}
-            </button>
-          ))}
-        </span>
+        <Segmented
+          ariaLabel="Opponent AI"
+          value={ai}
+          onChange={setAi}
+          options={(['random', 'basic', 'smart'] as const).map((l) => ({
+            value: l,
+            label: AI_LABEL[l],
+          }))}
+        />
         <span style={{ marginLeft: 30 }}>Seed</span>
-        <input
-          className="text"
+        <TextField
+          aria-label="Seed"
+          className="seed-field"
           placeholder="random"
           value={seed}
           onChange={(e) => setSeed(e.target.value)}
           data-testid="seed"
         />
-        <button
-          className={`btn info ${seedHelp ? 'on' : ''}`}
+        <IconButton
+          label="What is the seed?"
+          variant={seedHelp ? 'primary' : 'default'}
           onClick={() => setSeedHelp((v) => !v)}
-          title="What is the seed?"
           data-testid="seed-help-toggle"
         >
-          ?
-        </button>
+          <HelpCircle size={18} />
+        </IconButton>
       </div>
       {seedHelp && (
         <div className="seed-help" data-testid="seed-help">
@@ -582,12 +605,19 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       )}
       <HouseRulesPicker value={houseRules} onChange={setHouseRules} format={format} />
       <div className="row" style={{ marginTop: 10 }}>
-        <button className="menu-btn" style={{ width: 300 }} onClick={onBack}>
+        <Button size="lg" style={{ width: 300 }} onClick={onBack}>
           BACK
-        </button>
-        <button className="menu-btn" style={{ width: 300 }} onClick={start} data-testid="start">
+        </Button>
+        <Button
+          size="lg"
+          variant="primary"
+          icon={<Play size={18} />}
+          style={{ width: 300 }}
+          onClick={start}
+          data-testid="start"
+        >
           START
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -598,11 +628,14 @@ function SettingsScreen({
   onChange,
   onBack,
   onUpdates,
+  onShowcase,
 }: {
   settings: Settings;
   onChange: (s: Settings) => void;
   onBack: () => void;
   onUpdates: () => void;
+  /** The UI Component Showcase (a preview of the new controls, docs/design/UI_COMPONENT_SYSTEM.md). */
+  onShowcase: () => void;
 }) {
   // which profile's view and playmat the rows below edit: the one this device plays with
   const { phone } = useContext(StageInfo);
@@ -940,6 +973,15 @@ function SettingsScreen({
           </div>
         )}
         {IS_ANDROID && !CAN.updateInPlace && <PhoneUpdatesRow />}
+        <div className="row">
+          <span style={{ width: 300 }}>
+            UI Showcase (preview)
+            <div className="hint">The new buttons, dropdowns and switches, for review</div>
+          </span>
+          <button className="btn" onClick={onShowcase} data-testid="open-showcase">
+            Open showcase
+          </button>
+        </div>
       </div>
       <button
         className="menu-btn"

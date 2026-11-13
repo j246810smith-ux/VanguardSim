@@ -1,0 +1,906 @@
+{
+  "set": "G-TD11",
+  "importedAt": "2026-11-13T13:35:28.622Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD11-001",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/001",
+        "name": "伝承の聖騎士 セルフェス",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットはターンの終わりに表で戻る）\n【自】【(V)】：[【ソウルブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、あなたの手札から好きな枚数選び、裏でバインドし、あなたのリアガードを１枚選び、そのターン中、パワー＋5000。そのターンの終了時、この効果でバインドされたカードをあなたの手札に加える。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_001.png"
+      },
+      "en": {
+        "number": "G-TD11/001EN",
+        "name": "Divine Knight of Lore, Selfes",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[AUTO](VC):[Soul-Blast 1] When this unit attacks, you may pay the cost. If you do, choose any number of cards from your hand, bind them face down, choose one of your rear-guards, and it gets [Power] +5000 until end of turn. At the end of that turn, put the cards bound with this effect into your hand.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/001", "G-TD11/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F001",
+          "fetchedAt": "2026-11-13T13:34:06.061Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230606160259/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/001EN&expansion=89",
+          "fetchedAt": "2023-06-06T16:02:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-002",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/002",
+        "name": "異彩の騎士 コンティアヌス",
+        "text": "【自】【(V)/(R)】勇敢（あなたの手札が３枚以下で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_002.png"
+      },
+      "en": {
+        "number": "G-TD11/002EN",
+        "name": "Conspicuous Knight, Concianus",
+        "text": "[AUTO](VC/RC)Brave (Active when you have three or less cards in your hand):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, this unit gets [Power] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_002EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/002", "G-TD11/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F002",
+          "fetchedAt": "2026-11-13T13:34:07.265Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230204184124/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/002EN&expansion=89",
+          "fetchedAt": "2023-02-04T18:41:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-003",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/003",
+        "name": "青天の騎士 アルトマイル",
+        "text": "【永】【(V)】【Gブレイク】(2)（あなたの(V)とＧゾーンに表のＧユニットが合計２枚以上で有効）：あなたのターン中、あなたの前列のユニットすべてのパワー＋5000。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの手札から２枚まで選び、別々の(R)にコールし、あなたのユニットを２枚まで選び、そのターン中、パワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_003.png"
+      },
+      "en": {
+        "number": "G-TD11/003EN",
+        "name": "Blue Sky Knight, Altmile",
+        "text": "[CONT](VC)[Generation Break 2](Active if you have two or more face up G units in total on your (VC) or G zone):During your turn, all of the units in your front row get [Power] +5000.\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose up to two cards from your hand, call them to separate (RC), choose up to two of your units, and those units get [Power] +5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/003", "G-TD11/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F003",
+          "fetchedAt": "2026-11-13T13:34:08.028Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251112084150/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/003EN",
+          "fetchedAt": "2025-11-12T08:41:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-004",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/004",
+        "name": "ディバウトファルクス・ドラゴン",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：他のあなたのグレード２以上のユニットが(R)に登場した時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_004.png"
+      },
+      "en": {
+        "number": "G-TD11/004EN",
+        "name": "Devout Falx Dragon",
+        "text": "[AUTO](VC/RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When your other grade 2 or greater unit is placed on (RC), this unit gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/004", "G-TD11/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F004",
+          "fetchedAt": "2026-11-13T13:34:08.765Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250327135837/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/004EN",
+          "fetchedAt": "2025-03-27T13:58:37Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-005",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/005",
+        "name": "あっしゅがる",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_005.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/005"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F005",
+          "fetchedAt": "2026-11-13T13:34:09.940Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-TD11-006",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/006",
+        "name": "飛燕の騎士 クロウス",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットが(R)に登場した時、あなたの「アルトマイル」を含むヴァンガードがいるなら、他のあなたのユニットを１枚選び、そのターン中、そのユニットとこのユニットのパワー＋2000。\n【自】【(R)】勇敢（あなたの手札が３枚以下で有効）：このユニットのアタックがヴァンガードにヒットした時、このユニットを手札に戻してよい。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_006.png"
+      },
+      "en": {
+        "number": "G-TD11/006EN",
+        "name": "Flying Swallow Knight, Claus",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC), if you have a vanguard with \"Altmile\" in its card name, choose one of your other units, and until end of turn, that unit and this unit get [Power] +2000.\n[AUTO](RC)Brave (Active when you have three or less cards in your hand):When this unit's attack hits a vanguard, you may return this unit to your hand.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/006", "G-TD11/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F006",
+          "fetchedAt": "2026-11-13T13:34:10.686Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20240617050716/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/006EN&expansion=89",
+          "fetchedAt": "2024-06-17T05:07:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-007",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/007",
+        "name": "真直の騎士 カラウシウス",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(2)]このユニットがアタックした時、コストを払ってよい。払ったら、あなたの山札からグレード２のカードを１枚まで探し、(R)にコールし、山札をシャッフルし、そのユニットが勇敢能力を持つなら、そのターン中、そのユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_007.png"
+      },
+      "en": {
+        "number": "G-TD11/007EN",
+        "name": "Knight of Honesty, Carausius",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 2] When this unit attacks, you may pay the cost. If you do, search your deck for up to one grade 2 card, call it to (RC), shuffle your deck, and if that unit has the brave ability, that unit gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/007", "G-TD11/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F007",
+          "fetchedAt": "2026-11-13T13:34:11.845Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20231004142940/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/007EN&expansion=89",
+          "fetchedAt": "2023-10-04T14:29:40Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-008",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/008",
+        "name": "堅硬の騎士 バルドゥス",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_008.png"
+      },
+      "en": {
+        "number": "G-TD11/008EN",
+        "name": "Knight of Resilience, Baldus",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/008", "G-TD11/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F008",
+          "fetchedAt": "2026-11-13T13:34:13.019Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230207140912/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/008EN&expansion=89",
+          "fetchedAt": "2023-02-07T14:09:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-009",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/009",
+        "name": "敬忠の騎士 ディオティウス",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)，このユニットを退却させる]このユニットが勇敢能力を持つユニットをブーストしたバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札から勇敢能力を持つカードを１枚まで探し、(R)にコールし、山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_009.png"
+      },
+      "en": {
+        "number": "G-TD11/009EN",
+        "name": "Knight of Respect, Diotius",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Retire this unit] When an attack hits a vanguard during the battle that this unit boosted ([Boost]) a unit with the brave ability, you may pay the cost. If you do, search your deck for up to one card with the brave ability, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/009", "G-TD11/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F009",
+          "fetchedAt": "2026-11-13T13:34:13.768Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20240415181157/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/009EN&expansion=89",
+          "fetchedAt": "2024-04-15T18:11:57Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-010",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/010",
+        "name": "ダマスカスの支援術士",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）勇敢（あなたの手札が３枚以下で有効）：[このユニットを退却させる]あなたのターンの終了時、コストを払ってよい。払ったら、１枚引き、【カウンターチャージ】(2)。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_010.png"
+      },
+      "en": {
+        "number": "G-TD11/010EN",
+        "name": "Support Sorcerer of Damascus",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone)Brave (Active when you have three or less cards in your hand):[Retire this unit] At the end of your turn, you may pay the cost. If you do, draw a card, and [Counter-Charge 2].",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/010", "G-TD11/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F010",
+          "fetchedAt": "2026-11-13T13:34:14.542Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260216060541/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/010EN",
+          "fetchedAt": "2026-02-16T06:05:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-011",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/011",
+        "name": "ナイト・オブ・トマホーク",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットが(R)に登場した時、そのターン中、このユニットのパワー＋2000。\n【永】【山札】勇敢（あなたの手札が３枚以下で有効）：このカードのグレード＋１。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_011.png"
+      },
+      "en": {
+        "number": "G-TD11/011EN",
+        "name": "Knight of Tomahawk",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC), this unit gets [Power] +2000 until end of turn.\n[CONT](Deck)Brave (Active when you have three or less cards in your hand):This card gets grade +1.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/011", "G-TD11/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F011",
+          "fetchedAt": "2026-11-13T13:34:15.807Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230401052754/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/011EN",
+          "fetchedAt": "2023-04-01T05:27:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-012",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/012",
+        "name": "うぉーるがる",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_012.png"
+      },
+      "en": {
+        "number": "G-TD11/012EN",
+        "name": "Walgal",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD11/012", "G-TD11/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F012",
+          "fetchedAt": "2026-11-13T13:34:16.538Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230401033349/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/012EN",
+          "fetchedAt": "2023-04-01T03:33:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-013",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/013",
+        "name": "練磨の騎士 アレクトス",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]各バトルフェイズの開始時、コストを払ってよい。払ったら、１枚引き、そのターン中、あなたのカードの勇敢能力は常に有効になる。\n【起】【(R)】勇敢（あなたの手札が３枚以下で有効）：[このユニットを【レスト】する]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_013.png"
+      },
+      "en": {
+        "number": "G-TD11/013EN",
+        "name": "Knight of Discipline, Alectos",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] At the beginning of each battle phase, you may pay the cost. If you do, draw a card, and the brave abilities of your cards are active until end of turn.\n[ACT](RC)Brave (Active when you have three or less cards in your hand):[[Rest] this unit] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd11_013.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/013", "G-TD11/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F013",
+          "fetchedAt": "2026-11-13T13:34:17.287Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211212956/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/013EN",
+          "fetchedAt": "2019-12-11T21:29:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-014",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/014",
+        "name": "痛撃の騎士 グルギテス",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_014.png"
+      },
+      "en": {
+        "number": "G-TD11/014EN",
+        "name": "Painful Blow Knight, Gurgitus",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd11_014.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/014", "G-TD11/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F014",
+          "fetchedAt": "2026-11-13T13:34:18.471Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214071450/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/014EN",
+          "fetchedAt": "2019-12-14T07:14:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-015",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/015",
+        "name": "アダマントの増幅術士",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_015.png"
+      },
+      "en": {
+        "number": "G-TD11/015EN",
+        "name": "Augment Sorcerer of Adamant",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/015", "G-TD11/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F015",
+          "fetchedAt": "2026-11-13T13:34:19.215Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260411173414/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/015EN",
+          "fetchedAt": "2026-04-11T17:34:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-016",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/016",
+        "name": "爆砕の騎士 グレダウクス",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_016.png"
+      },
+      "en": {
+        "number": "G-TD11/016EN",
+        "name": "Blast Knight, Gradaucus",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/016", "G-TD11/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F016",
+          "fetchedAt": "2026-11-13T13:34:20.602Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20240526022953/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/016EN&expansion=89",
+          "fetchedAt": "2024-05-26T02:29:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-017",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/017",
+        "name": "ナイト・オブ・プリティソード",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_017.png"
+      },
+      "en": {
+        "number": "G-TD11/017EN",
+        "name": "Knight of Pretty Sword",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_017EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/017", "G-TD11/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F017",
+          "fetchedAt": "2026-11-13T13:34:21.405Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251112083638/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/017EN",
+          "fetchedAt": "2025-11-12T08:36:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD11-018",
+      "set": "G-TD11",
+      "jp": {
+        "number": "G-TD11/018",
+        "name": "グライディング・イーグル",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD11/gtd11_018.png"
+      },
+      "en": {
+        "number": "G-TD11/018EN",
+        "name": "Gliding Eagle",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and until end of turn, it gets [Power] +3000.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd11/GTD11_018EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD11/018", "G-TD11/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD11%2F018",
+          "fetchedAt": "2026-11-13T13:34:22.164Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230401045229/https://en.cf-vanguard.com/cardlist/?cardno=G-TD11/018EN",
+          "fetchedAt": "2023-04-01T04:52:29Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 11: Divine Knight of Heavenly Decree",
+    "cards": [
+      {
+        "id": "G-TD11-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-005",
+        "count": 3
+      },
+      {
+        "id": "G-TD11-006",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-007",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-010",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-011",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-012",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-013",
+        "count": 1
+      },
+      {
+        "id": "G-TD11-014",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-015",
+        "count": 2
+      },
+      {
+        "id": "G-TD11-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD11-018",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170918105350/http://cardfight.wikia.com/wiki/G_Trial_Deck_11:_Divine_Knight_of_Heavenly_Decree?oldid=2243934",
+      "fetchedAt": "2017-09-18T10:53:50.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

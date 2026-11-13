@@ -54,7 +54,7 @@ export type TaskBody =
   | {
       readonly kind: 'effect_attack';
       readonly attacker: InstanceId;
-      readonly target: 'vanguard' | 'back_row' | 'other_unit';
+      readonly target: 'vanguard' | 'back_row' | 'other_unit' | 'all_rear_guards';
       readonly retireAfter?: true;
       selection?: string[];
     }

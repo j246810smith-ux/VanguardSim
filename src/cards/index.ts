@@ -61,6 +61,17 @@ import gbt08Data from '../../data/cards/G-BT08.json';
 import gbt09Data from '../../data/cards/G-BT09.json';
 import gbt10Data from '../../data/cards/G-BT10.json';
 import gbt11Data from '../../data/cards/G-BT11.json';
+import gbt12Data from '../../data/cards/G-BT12.json';
+import gtd09Data from '../../data/cards/G-TD09.json';
+import gtd10Data from '../../data/cards/G-TD10.json';
+import gtd11Data from '../../data/cards/G-TD11.json';
+import gtd12Data from '../../data/cards/G-TD12.json';
+import gtd13Data from '../../data/cards/G-TD13.json';
+import gtd14Data from '../../data/cards/G-TD14.json';
+import gtd15Data from '../../data/cards/G-TD15.json';
+import gld01Data from '../../data/cards/G-LD01.json';
+import gld02Data from '../../data/cards/G-LD02.json';
+import gld03Data from '../../data/cards/G-LD03.json';
 import gfc01Data from '../../data/cards/G-FC01.json';
 import gfc02Data from '../../data/cards/G-FC02.json';
 import gbt01Data from '../../data/cards/G-BT01.json';
@@ -135,6 +146,9 @@ import { G_BT08 } from './G-BT08';
 import { G_BT09 } from './G-BT09';
 import { G_BT10 } from './G-BT10';
 import { G_BT11 } from './G-BT11';
+import { G_BT12 } from './G-BT12';
+import { G_TD09, G_TD10, G_TD11, G_TD12, G_TD13, G_TD14, G_TD15 } from './G-TD09-15';
+import { G_LD01, G_LD02, G_LD03 } from './G-LD01-03';
 import { G_FC01 } from './G-FC01';
 import { G_FC02 } from './G-FC02';
 import { G_BT01 } from './G-BT01';
@@ -224,11 +238,22 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gbt09Data as SetFile, abilities: G_BT09 },
   { file: gbt10Data as SetFile, abilities: G_BT10 },
   { file: gbt11Data as SetFile, abilities: G_BT11 },
+  { file: gbt12Data as SetFile, abilities: G_BT12 },
+  { file: gtd09Data as SetFile, abilities: G_TD09 },
+  { file: gtd10Data as SetFile, abilities: G_TD10 },
+  { file: gtd11Data as SetFile, abilities: G_TD11 },
+  { file: gtd12Data as SetFile, abilities: G_TD12 },
+  { file: gtd13Data as SetFile, abilities: G_TD13 },
+  { file: gtd14Data as SetFile, abilities: G_TD14 },
+  { file: gtd15Data as SetFile, abilities: G_TD15 },
+  { file: gld01Data as SetFile, abilities: G_LD01 },
+  { file: gld02Data as SetFile, abilities: G_LD02 },
+  { file: gld03Data as SetFile, abilities: G_LD03 },
   { file: gfc01Data as SetFile, abilities: G_FC01 },
   { file: gfc02Data as SetFile, abilities: G_FC02 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'g-bt11-1.0.0';
+export const CARD_DATA_VERSION = 'g-ld03-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

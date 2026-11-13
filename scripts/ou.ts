@@ -4,7 +4,7 @@
  *
  *   npm run ou -- list                        every entry, with blockers
  *   npm run ou -- check <id>                  what would stop a card being OU
- *   npm run ou -- set <id> <status> [notes]   status: approved | proposed | rejected
+ *   npm run ou -- set <id> <status> [notes]   status: approved | proposed | rejected | held
  *   npm run ou -- remove <id>
  *   npm run ou -- version <x.y>               a new list version (new entries record it)
  *
@@ -44,7 +44,7 @@ switch (cmd) {
   }
   case 'set': {
     const status = arg as OuStatus;
-    if (!['approved', 'proposed', 'rejected'].includes(status))
+    if (!['approved', 'proposed', 'rejected', 'held'].includes(status))
       throw new Error(`bad status ${arg}`);
     const b = blockersOf(id!);
     if (status === 'approved' && b.length) throw new Error(`${id} cannot be OU: ${b.join('; ')}`);

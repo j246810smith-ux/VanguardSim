@@ -1,0 +1,918 @@
+{
+  "set": "G-TD12",
+  "importedAt": "2026-11-13T13:36:40.184Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD12-001",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/001",
+        "name": "信念の花乙姫 セリーヌ",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットはターンの終わりに表で戻る）\n【自】：[【カウンターブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの手札から１枚まで選び、(R)にコールし、そのターン中、そのユニットのパワー＋5000。コールされたユニットが開花能力を持つなら、【カウンターチャージ】(1)/【ソウルチャージ】(1)。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_001.png"
+      },
+      "en": {
+        "number": "G-TD12/001EN",
+        "name": "Flower Princess of Faith, Celine",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[AUTO]:[Counter-Blast 1]］ When this unit is placed on (VC), you may pay the cost. If you do, choose up to one card from your hand, call it to (RC), and that unit gets [Power] +5000 until end of turn. If the called unit has the bloom ability, [Counter-Charge 1]/[Soul-Charge 1].",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/001", "G-TD12/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F001",
+          "fetchedAt": "2026-11-13T13:35:32.802Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190822133602/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/001EN&expansion=90",
+          "fetchedAt": "2019-08-22T13:36:02Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-002",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/002",
+        "name": "豊潤の花乙女 パトリシア",
+        "text": "開花-【自】【(V)/(R)】：このユニットと同名の他のあなたのユニットが(R)に登場した時、そのターン中、このユニットのパワー＋6000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_002.png"
+      },
+      "en": {
+        "number": "G-TD12/002EN",
+        "name": "Abundant Flower Maiden, Patricia",
+        "text": "Bloom-[AUTO](VC/RC):When your other unit with the same card name as this unit is placed on (RC), this unit gets [Power] +6000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_002.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/002", "G-TD12/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F002",
+          "fetchedAt": "2026-11-13T13:35:33.982Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190923091924/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/002EN&expansion=90",
+          "fetchedAt": "2019-09-23T09:19:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-003",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/003",
+        "name": "ラナンキュラスの花乙女 アーシャ",
+        "text": "【永】【(V)】【Gブレイク】(2)（あなたの(V)とＧゾーンに表のＧユニットが合計２枚以上で有効）：あなたのユニットすべてに『【永】【(V)/(R)】：あなたのターン中、このユニットと同名の他のあなたのユニットがいるなら、このユニットのパワー＋5000。』を与える。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたのリアガードを１枚選び、山札からそのユニットと同名のカードを１枚まで探し、(R)にコールし、山札をシャッフルし、そのターン中、この効果でコールされたユニットのパワー＋2000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_003.png"
+      },
+      "en": {
+        "number": "G-TD12/003EN",
+        "name": "Ranunculus Flower Maiden, Ahsha",
+        "text": "[CONT](VC)[Generation Break 2](Active if you have two or more face up G units in total on your (VC) or G zone):All of your units get \"[CONT](VC/RC):During your turn, if you have another unit with the same card name as this unit, this unit gets [Power] +5000.\".\n[AUTO](VC):[Counter-Blast 1] During your turn, when your G unit [Stride], you may pay the cost. If you do, choose one of your rear-guards, search for up to one card with the same card name as that unit from your deck, call it to (RC), shuffle your deck, and the unit called with this effect gets [Power] +2000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_003.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/003", "G-TD12/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F003",
+          "fetchedAt": "2026-11-13T13:35:35.156Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190918072706/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/003EN&expansion=90",
+          "fetchedAt": "2019-09-18T07:27:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-004",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/004",
+        "name": "フロルネウラ・ドラゴン",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：他のあなたのグレード２以上のユニットが(R)に登場した時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_004.png"
+      },
+      "en": {
+        "number": "G-TD12/004EN",
+        "name": "Floraneura Dragon",
+        "text": "[AUTO](VC/RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When your other grade 2 or greater unit is placed on (RC), this unit gets [Power] +3000 until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_004.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/004", "G-TD12/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F004",
+          "fetchedAt": "2026-11-13T13:35:36.312Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919024121/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/004EN&expansion=90",
+          "fetchedAt": "2019-09-19T02:41:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-005",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/005",
+        "name": "ヒラタケ・モンジロウ",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_005.png"
+      },
+      "en": {
+        "number": "G-TD12/005EN",
+        "name": "Hiratake Monjirou",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_005.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/005", "G-TD12/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F005",
+          "fetchedAt": "2026-11-13T13:35:37.680Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190918074410/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/005EN&expansion=90",
+          "fetchedAt": "2019-09-18T07:44:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-006",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/006",
+        "name": "佳花の乙女 アネルマ",
+        "text": "開花-【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットと同名の他のあなたのユニットが(R)に登場した時、あなたのユニットを３枚まで選び、そのターン中、パワー＋2000し、あなたの「ラナンキュラス」を含むヴァンガードがいるなら、そのターン中、このユニットは『ブースト』を得る。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_006.png"
+      },
+      "en": {
+        "number": "G-TD12/006EN",
+        "name": "Osmanthus Maiden, Anelma",
+        "text": "Bloom-[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When your other unit with the same card name as this unit is placed on (RC), choose up to three of your units, they get [Power] +2000 until end of turn, and if you have a vanguard with \"Ranunculus\" in its card name, this unit gets \"Boost ([Boost])\" until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/006", "G-TD12/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F006",
+          "fetchedAt": "2026-11-13T13:35:38.415Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190920190239/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/006EN&expansion=90",
+          "fetchedAt": "2019-09-20T19:02:39Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-007",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/007",
+        "name": "撒水の乙女 ラモーナ",
+        "text": "【永】【(R)】：あなたのターン中、他のあなたの開花能力を持つユニットが２枚以上なら、このユニットのパワー＋2000し、『【自】【(R)】【Gブレイク】(1)：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札の上から５枚見て、開花能力を持つカードを１枚まで探し、公開し、手札に加え、山札をシャッフルする。』を得る。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_007.png"
+      },
+      "en": {
+        "number": "G-TD12/007EN",
+        "name": "Irrigating Maiden, Ramona",
+        "text": "[CONT](RC):During your turn, if the number of your other units with the bloom ability is two or more, this unit gets [Power] +2000, and \"[AUTO](RC)[Generation Break 1]:[Counter-Blast 1]］ When this unit's attack hits a vanguard, you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with the bloom ability from among them, reveal it, put it into your hand, and shuffle your deck.\".",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_007.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/007", "G-TD12/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F007",
+          "fetchedAt": "2026-11-13T13:35:39.602Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919015714/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/007EN&expansion=90",
+          "fetchedAt": "2019-09-19T01:57:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-008",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/008",
+        "name": "モンステラナイト",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_008.png"
+      },
+      "en": {
+        "number": "G-TD12/008EN",
+        "name": "Monstera Knight",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_008.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/008", "G-TD12/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F008",
+          "fetchedAt": "2026-11-13T13:35:41.096Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919122348/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/008EN&expansion=90",
+          "fetchedAt": "2019-09-19T12:23:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-009",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/009",
+        "name": "光華の乙女 ペネロペ",
+        "text": "開花-【自】【(R)】：[【ソウルブラスト】(1)]このユニットと同名の他のあなたのユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたのリアガードを３枚まで選び、そのターン中、パワー＋2000し、『【自】【(R)】【Gブレイク】(1)：このユニットが開花能力を持つユニットをブーストした時、そのバトル中、このユニットのパワー＋2000。』を与える。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_009.png"
+      },
+      "en": {
+        "number": "G-TD12/009EN",
+        "name": "Ravishing Maiden, Penelope",
+        "text": "Bloom-[AUTO](RC):[Soul-Blast 1]When your other unit with the same card name as this unit is placed on (RC), you may pay the cost. If you do, choose up to three of your rear-guards, and until end of turn, they get [Power] +2000, and \"[AUTO](RC)[Generation Break 1]:When this unit boosts ([Boost]) a unit with the bloom ability, this unit gets [Power] +2000 until end of that battle.\".",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_009.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/009", "G-TD12/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F009",
+          "fetchedAt": "2026-11-13T13:35:42.271Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190822220410/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/009EN&expansion=90",
+          "fetchedAt": "2019-08-22T22:04:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-010",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/010",
+        "name": "朱鷺色の戦乙女 ネリー",
+        "text": "【永】【(R)】：あなたのターン中、他のあなたの(R)の「朱鷺色の戦乙女 ネリー」１枚につき、このユニットのパワー＋1000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_010.png"
+      },
+      "en": {
+        "number": "G-TD12/010EN",
+        "name": "Crested Ibis Color Valkyrie, Nelly",
+        "text": "[CONT](RC):During your turn, this unit gets [Power] +1000 for each of your other \"Crested Ibis Color Valkyrie, Nelly\" on (RC).",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/010", "G-TD12/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F010",
+          "fetchedAt": "2026-11-13T13:35:43.424Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190822142630/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/010EN&expansion=90",
+          "fetchedAt": "2019-08-22T14:26:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-011",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/011",
+        "name": "ピス・タテオ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_011.png"
+      },
+      "en": {
+        "number": "G-TD12/011EN",
+        "name": "Pis Tateo",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD12/011", "G-TD12/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F011",
+          "fetchedAt": "2026-11-13T13:35:44.628Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190917011043/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/011EN&expansion=90",
+          "fetchedAt": "2019-09-17T01:10:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-012",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/012",
+        "name": "メープルリーフ・スクワイア",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがブーストした時、そのバトル中、ブーストされたユニットのパワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_012.png"
+      },
+      "en": {
+        "number": "G-TD12/012EN",
+        "name": "Maple Leaf Squire",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]), the boosted ([Boost]) unit gets [Power] +3000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/012", "G-TD12/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F012",
+          "fetchedAt": "2026-11-13T13:35:46.027Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118045137/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/012EN",
+          "fetchedAt": "2019-11-18T04:51:37Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-013",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/013",
+        "name": "萌しの乙女 イーダ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたのドロップゾーンから１枚選び、山札の下に置き、そのカードが開花能力を持つなら、１枚引く。\n【起】【(R)】：[このユニットを【レスト】する]あなたのユニットを２枚選び、そのターン中、それらのユニットはそれぞれの同名カードとしても扱う。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_013.png"
+      },
+      "en": {
+        "number": "G-TD12/013EN",
+        "name": "Augury Maiden, Ida",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Choose a card from your drop zone, put it on the bottom of your deck, and if that card has the bloom ability, draw a card.\n[ACT](RC):[[Rest] this unit] Choose two of your units, and until end of turn, those units will be regarded as having each other's card names.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_013.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/013", "G-TD12/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F013",
+          "fetchedAt": "2026-11-13T13:35:47.194Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113013213/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/013EN",
+          "fetchedAt": "2019-11-13T01:32:13Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-014",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/014",
+        "name": "アガベーナイト",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_014.png"
+      },
+      "en": {
+        "number": "G-TD12/014EN",
+        "name": "Agave Knight",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_014.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/014", "G-TD12/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F014",
+          "fetchedAt": "2026-11-13T13:35:47.944Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118131754/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/014EN",
+          "fetchedAt": "2019-11-18T13:17:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-015",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/015",
+        "name": "オカワリンゴ",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "ドリアード",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_015.png"
+      },
+      "en": {
+        "number": "G-TD12/015EN",
+        "name": "Onemorapple",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Dryad",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_015.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/015", "G-TD12/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F015",
+          "fetchedAt": "2026-11-13T13:35:49.331Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919164048/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/015EN",
+          "fetchedAt": "2019-09-19T16:40:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-016",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/016",
+        "name": "追願の乙女 エルミール",
+        "text": "",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_016.png"
+      },
+      "en": {
+        "number": "G-TD12/016EN",
+        "name": "Pleading Maiden, Elmire",
+        "text": "",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_016.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/016", "G-TD12/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F016",
+          "fetchedAt": "2026-11-13T13:35:50.102Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191024044206/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/016EN&expansion=90",
+          "fetchedAt": "2019-10-24T04:42:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-017",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/017",
+        "name": "カラーの妖精 キトリー",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ネオネクタール",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_017.png"
+      },
+      "en": {
+        "number": "G-TD12/017EN",
+        "name": "Color Pixy, Quitterie",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Neo Nectar",
+        "race": "Sylph",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_017.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/017", "G-TD12/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F017",
+          "fetchedAt": "2026-11-13T13:35:51.267Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190917003901/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/017EN&expansion=90",
+          "fetchedAt": "2019-09-17T00:39:01Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD12-018",
+      "set": "G-TD12",
+      "jp": {
+        "number": "G-TD12/018",
+        "name": "モンキーポッド・ドラゴン",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD12/gtd12_018.png"
+      },
+      "en": {
+        "number": "G-TD12/018EN",
+        "name": "Monkeypod Dragon",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and until end of turn, it gets [Power] +3000.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd12_018.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD12/018", "G-TD12/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD12%2F018",
+          "fetchedAt": "2026-11-13T13:35:52.435Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190917004712/https://en.cf-vanguard.com/cardlist/?cardno=G-TD12/018EN&expansion=90",
+          "fetchedAt": "2019-09-17T00:47:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 12: Flower Princess of Abundant Blooming",
+    "cards": [
+      {
+        "id": "G-TD12-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-005",
+        "count": 3
+      },
+      {
+        "id": "G-TD12-006",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-011",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-012",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-013",
+        "count": 1
+      },
+      {
+        "id": "G-TD12-014",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-016",
+        "count": 2
+      },
+      {
+        "id": "G-TD12-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD12-018",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170919071407/http://cardfight.wikia.com/wiki/G_Trial_Deck_12:_Flower_Princess_of_Abundant_Blooming?oldid=2320593",
+      "fetchedAt": "2017-09-19T07:14:07.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

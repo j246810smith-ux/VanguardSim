@@ -37,7 +37,7 @@ import { abilitiesOf, holders } from './catalog';
 import { currentPower } from '../game/stats';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
 import { generationBreakMet } from '../game/generation';
-import { columnOf, evaluate, select, type EvalContext } from './evaluate';
+import { columnOf, evaluate, matches, select, type EvalContext } from './evaluate';
 import { currentGrade, currentName } from '../game/characteristics';
 import type {
   AbilityDefinition,
@@ -380,7 +380,8 @@ function retireCountsTwo(ec: EvalContext, id: InstanceId): boolean {
     (a) =>
       a.kind === 'CONT' &&
       a.effects.some((e) => e.ce === 'retire_counts_two') &&
-      generationBreakMet(ec.state, ec.ctx, ec.master, a.generationBreak),
+      generationBreakMet(ec.state, ec.ctx, ec.master, a.generationBreak) &&
+      (!a.condition || evaluate({ ...ec, source: id }, a.condition)),
   );
 }
 
@@ -661,19 +662,39 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         )
         .slice(0, count);
       const rest = count - forced.length;
-      const picked =
+      // Ritel Benefit Dragon (G-BT12): one of your units that may fill up to five of the places
+      const multi =
+        rest > 1 && step.chooser !== 'opponent'
+          ? options.find(
+              (id) =>
+                onField(s, id) &&
+                locate(s, id).player === frame.master &&
+                isRestricted(s, d.ctx, id, 'chosen_five_times'),
+            )
+          : undefined;
+      const picked0 =
         rest === 0
           ? []
           : ask(d, task, {
               player: step.chooser === 'opponent' ? other(frame.master) : frame.master,
               kind: 'select',
               options: options.filter((id) => !forced.includes(id)),
-              min: step.upTo ? 0 : rest,
+              min: step.upTo ? 0 : multi ? Math.max(1, rest - 4) : rest,
               max: rest,
               prompt: step.prompt ?? `Choose ${step.upTo ? 'up to ' : ''}${step.count}`,
             });
-      if (picked === null) return false;
+      if (picked0 === null) return false;
+      // it takes the places left over (as a different unit each time, five in all at most)
+      const extra =
+        multi !== undefined && picked0.includes(multi)
+          ? Math.min(4, (step.upTo ? rest : rest) - picked0.length)
+          : 0;
+      const picked = [...picked0, ...Array.from({ length: Math.max(0, extra) }, () => multi!)];
       frame.bindings[step.as] = [...kept, ...forced, ...picked];
+      // "when it is chosen by the effect of an opponent's card" (G-BT12 Grizel)
+      const chosenUnits = [...new Set([...forced, ...picked])].filter((id) => onField(s, id));
+      if (chosenUnits.length > 0)
+        emit(d, { type: 'CHOSEN', master: frame.master, instanceIds: chosenUnits });
       return true;
     }
     case 'choose_random': {
@@ -1138,7 +1159,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         const card = s.cards[id]!;
         return (
           at.zone === 'circle' &&
-          at.circle !== 'vanguard' &&
+          (at.circle !== 'vanguard' || step.vanguards === true) &&
           at.player === opp &&
           !card.locked &&
           card.dominatedBy === undefined
@@ -1156,6 +1177,58 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(step.retireAfter ? { retireAfter: true as const } : {}),
         })),
       );
+      return true;
+    }
+    case 'reveal_until': {
+      const deck = s.players[frame.master].deck;
+      const revealed: InstanceId[] = [];
+      const found: InstanceId[] = [];
+      for (const id of deck) {
+        if (found.length >= step.n) break;
+        revealed.push(id);
+        if (matches({ ...ec }, id, step.filter)) found.push(id);
+      }
+      if (revealed.length > 0)
+        emit(d, { type: 'CARDS_REVEALED', player: frame.master, instanceIds: revealed });
+      frame.bindings[step.as] = revealed;
+      frame.bindings[step.found] = found;
+      return true;
+    }
+    case 'free_stride': {
+      const f = s.turnFlags;
+      f.freeStride = [...new Set([...(f.freeStride ?? []), frame.master])];
+      return true;
+    }
+    case 'brave_active': {
+      const f = s.turnFlags;
+      f.braveActive = [...new Set([...(f.braveActive ?? []), frame.master])];
+      return true;
+    }
+    case 'power_to': {
+      for (const id of targets.filter((t) => onField(s, t))) {
+        const diff = step.value - currentPower(s, d.ctx, id);
+        if (diff === 0) continue;
+        const modifier = {
+          target: id,
+          stat: 'power' as const,
+          amount: diff,
+          until: 'end_of_turn' as const,
+        };
+        s.modifiers.push(modifier);
+        emit(d, { type: 'MODIFIER_ADDED', modifier });
+      }
+      return true;
+    }
+    case 'battle_also': {
+      const b = s.battle;
+      if (!b) return true;
+      const battle = b as { extraTargets: typeof b.extraTargets };
+      for (const id of targets) {
+        const at = locate(s, id);
+        if (at.zone !== 'circle' || id === b.target || b.extraTargets.some((t) => t.id === id))
+          continue;
+        battle.extraTargets = [...battle.extraTargets, { id, circle: at.circle }];
+      }
       return true;
     }
     case 'dominate_to_guardian': {
@@ -1403,7 +1476,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       emit(d, { type: 'EXTRA_TURN', player: frame.master });
       return true;
     case 'shuffle': {
-      shuffleDeck(d, frame.master);
+      shuffleDeck(d, frame.master, frame.master);
       const f = s.turnFlags;
       if (!(f.shuffledByEffect ?? []).includes(frame.master))
         f.shuffledByEffect = [...(f.shuffledByEffect ?? []), frame.master];
@@ -1462,16 +1535,16 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     }
     case 'also_named_as': {
-      const of = select(ec, step.of)[0];
-      if (of === undefined) return true;
-      const name = currentName(s, ec.ctx, of);
+      // every selected card's name (G-BT12 Lieta: "the card names of all cards in your soul")
+      const names = [...new Set(select(ec, step.of).map((of) => currentName(s, ec.ctx, of)))];
+      if (names.length === 0) return true;
       for (const target of targets) {
         const ability: AbilityDefinition = {
           kind: 'CONT',
           id: 'also_named',
           zones: ['VC', 'RC'],
-          effects: [{ ce: 'also_named', name }],
-          text: `This unit is regarded as a unit named "${name}" until end of turn.`,
+          effects: names.map((name) => ({ ce: 'also_named' as const, name })),
+          text: `This unit is regarded as a unit named ${names.map((n) => `"${n}"`).join(', ')} until end of turn.`,
         };
         const grant = { id: s.nextId++, target, ability, until: 'end_of_turn' as const };
         s.grants.push(grant);
@@ -1480,11 +1553,19 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     }
     case 'lock':
-      for (const id of targets) lockCard(d, id, { by: frame.master, card: frame.source });
+      // "This unit cannot be locked by card effects" (G-TD15 Metallia Messiah)
+      for (const id of targets.filter((t) => !isRestricted(s, d.ctx, t, 'cannot_be_locked')))
+        lockCard(d, id, { by: frame.master, card: frame.source });
       return true;
-    case 'unlock':
+    case 'unlock': {
       for (const id of targets) unlockCard(d, id);
+      // "if a locked card was unlocked during that turn due to the effect of your card" (G-TD15)
+      if (targets.length > 0) {
+        const f = s.turnFlags;
+        f.unlockedByEffect = [...new Set([...(f.unlockedByEffect ?? []), frame.master])];
+      }
       return true;
+    }
     case 'delete':
       for (const id of targets) deleteCard(d, id, { by: frame.master, card: frame.source });
       return true;

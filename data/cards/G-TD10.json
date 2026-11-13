@@ -1,0 +1,918 @@
+{
+  "set": "G-TD10",
+  "importedAt": "2026-11-13T13:34:01.540Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD10-001",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/001",
+        "name": "暗黒竜 カーニバル・ドラゴン",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットはターンの終わりに表で戻る）\n【起】【(V)】【ターン1回】：[あなたのリアガードを１枚選び、退却させる]相手は自分のリアガードを２枚選び、退却させる。相手が２枚退却させられなかったなら、あなたの前列のユニットを３枚まで選び、そのターン中、パワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_001.png"
+      },
+      "en": {
+        "number": "G-TD10/001EN",
+        "name": "Dark Dragon, Carnivore Dragon",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. (When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\n[ACT](VC)[1/turn]:[Choose one of your rear-guards, and retire it] Your opponent chooses two of his or her rear-guards, and retires them. If he or she could not retire two cards, choose up to three units in your front row, and they get [Power] +4000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/001", "G-TD10/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F001",
+          "fetchedAt": "2026-11-13T13:33:14.762Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210131511/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/001EN",
+          "fetchedAt": "2019-12-10T13:15:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-002",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/002",
+        "name": "クレストヴィシャス・ドラゴン",
+        "text": "【自】【(V)/(R)】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：このユニットがヴァンガードにアタックした時、このユニットがブーストされているなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_002.png"
+      },
+      "en": {
+        "number": "G-TD10/002EN",
+        "name": "Crest-vicious Dragon",
+        "text": "[AUTO](VC/RC)Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):When this unit attacks a vanguard, if this unit is boosted ([Boost]), this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_002.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/002", "G-TD10/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F002",
+          "fetchedAt": "2026-11-13T13:33:16.135Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191023182542/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/002EN",
+          "fetchedAt": "2019-10-23T18:25:42Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-003",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/003",
+        "name": "覚醒を待つ竜 ルアード",
+        "text": "【自】【(V)】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：[あなたのドロップゾーンからノーマルユニットを２枚選び、山札の下に好きな順番で置く]あなたのライドフェイズ開始時、コストを払ってよい。払ったら、そのターン中、あなたは次の【超越】のコストを払わずに【超越】できる。\n【自】【(V)】：[【カウンターブラスト】(1)，あなたのリアガードを１枚選び、退却させる]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの山札からグレード１以下のカードを２枚まで探し、別々の(R)にコールし、山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_003.png"
+      },
+      "en": {
+        "number": "G-TD10/003EN",
+        "name": "Dragheart, Luard",
+        "text": "[AUTO](VC)Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):[Choose two normal units from your drop zone, and put them on the bottom of your deck in any order] At the beginning of your ride phase, you may pay the cost. If you do, until end of turn, you may [Stride] without paying the cost the next time you [Stride].\n[AUTO](VC):[Counter-Blast 1 & Choose one of your rear-guards, and retire it] During your turn, when your G unit [Stride], you may pay the cost. If you do, search your deck for up to two grade 1 or less cards, call them to separate (RC), and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_003.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/003", "G-TD10/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F003",
+          "fetchedAt": "2026-11-13T13:33:17.311Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209212938/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/003EN",
+          "fetchedAt": "2019-12-09T21:29:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-004",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/004",
+        "name": "蒼棘の重断 ヴァルデマル",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n【起】【(V)/(R)】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：[あなたのリアガードを１枚選び、退却させる]そのターン中、このユニットのパワー＋4000。",
+        "clan": "シャドウパラディン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_004.png"
+      },
+      "en": {
+        "number": "G-TD10/004EN",
+        "name": "Blue Thorn Heavy-slash, Valdemar",
+        "text": "[AUTO](VC/RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.\n[ACT](VC/RC)Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):[Choose one of your rear-guards, and retire it] This unit gets [Power] +4000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_004.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/004", "G-TD10/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F004",
+          "fetchedAt": "2026-11-13T13:33:18.517Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216001459/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/004EN",
+          "fetchedAt": "2019-12-16T00:14:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-005",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/005",
+        "name": "魔界城 アインガング",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_005.png"
+      },
+      "en": {
+        "number": "G-TD10/005EN",
+        "name": "Demon World Castle, Eingang",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Golem",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_005.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/005", "G-TD10/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F005",
+          "fetchedAt": "2026-11-13T13:33:19.684Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190921140553/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/005EN",
+          "fetchedAt": "2019-09-21T14:05:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-006",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/006",
+        "name": "統率の梟匠 デビヒラ",
+        "text": "【自】：[あなたの手札から１枚選び、捨てる]このユニットが(R)に登場した時、あなたのリアガードの枚数が相手のリアガードの枚数以上なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_006.png"
+      },
+      "en": {
+        "number": "G-TD10/006EN",
+        "name": "Direct Owlner, Debihira",
+        "text": "[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (RC), if the number of your rear-guards is more than or equal to the number of your opponent's rear-guards, you may pay the cost. If you do, draw a card.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/006", "G-TD10/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F006",
+          "fetchedAt": "2026-11-13T13:33:20.428Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191023192006/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/006EN",
+          "fetchedAt": "2019-10-23T19:20:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-007",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/007",
+        "name": "竜刻魔道士 リア・ファル",
+        "text": "【起】【(R)】【ターン1回】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【ソウルブラスト】(1)，このユニットと同じ縦列にいる他のあなたのリアガードを１枚選び、退却させる]１枚引く。\n【自】【(R)】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_007.png"
+      },
+      "en": {
+        "number": "G-TD10/007EN",
+        "name": "Dragwizard, Liafail",
+        "text": "[ACT](RC)[1/turn][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1 & Choose one of your other rear-guards in the same column as this unit, and retire it] Draw a card.\n[AUTO](RC)Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_007.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/007", "G-TD10/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F007",
+          "fetchedAt": "2026-11-13T13:33:21.607Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118131424/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/007EN",
+          "fetchedAt": "2019-11-18T13:14:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-008",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/008",
+        "name": "防刃の騎士 ユーハル",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_008.png"
+      },
+      "en": {
+        "number": "G-TD10/008EN",
+        "name": "Blade-proof Knight, Youghal",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_008.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/008", "G-TD10/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F008",
+          "fetchedAt": "2026-11-13T13:33:22.379Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191122120147/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/008EN",
+          "fetchedAt": "2019-11-22T12:01:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-009",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/009",
+        "name": "竜刻魔道士 ニーズ",
+        "text": "【自】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：このユニットが山札から(R)に登場した時、そのターン中、このユニットのパワー＋2000。\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)，このユニットと同じ縦列にいる他のあなたのリアガードを１枚選び、退却させる]このユニットがブーストしたバトルの終了時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_009.png"
+      },
+      "en": {
+        "number": "G-TD10/009EN",
+        "name": "Dragwizard, Knies",
+        "text": "[AUTO]Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):When this unit is placed on (RC) from your deck, this unit gets [Power] +2000 until end of turn.\n[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Choose one of your other rear-guards in the same column as this unit, and retire it] At the end of the battle that this unit boosted ([Boost]), you may pay the cost. If you do, draw a card.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_009.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/009", "G-TD10/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F009",
+          "fetchedAt": "2026-11-13T13:33:23.131Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207060848/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/009EN",
+          "fetchedAt": "2019-12-07T06:08:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-010",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/010",
+        "name": "キラーミュー",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがブーストした時、そのバトル中、ブーストされたユニットのパワー＋4000してよい。パワー＋4000したら、そのバトルの終了時、このユニットを退却させる。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_010.png"
+      },
+      "en": {
+        "number": "G-TD10/010EN",
+        "name": "Killermyu",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit boosts ([Boost]), you may have the boosted ([Boost]) unit get [Power] +4000 until end of that battle. If you do, retire this unit at the end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/010", "G-TD10/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F010",
+          "fetchedAt": "2026-11-13T13:33:23.872Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191111205258/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/010EN",
+          "fetchedAt": "2019-11-11T20:52:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-011",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/011",
+        "name": "困惑の梟匠 クロトル",
+        "text": "【自】儀式３（あなたのドロップゾーンにグレード１が３枚以上で有効）：このユニットが(R)に登場した時、他のあなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_011.png"
+      },
+      "en": {
+        "number": "G-TD10/011EN",
+        "name": "Puzzled Owlner, Clothru",
+        "text": "[AUTO]Ritual 3 (Active if there are three or more grade 1 cards in your drop zone):When this unit is placed on (RC), choose one of your other units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/011", "G-TD10/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F011",
+          "fetchedAt": "2026-11-13T13:33:25.094Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190822220451/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/011EN&expansion=84",
+          "fetchedAt": "2019-08-22T22:04:51Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-012",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/012",
+        "name": "魔界城 フォーアボイゲン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。",
+        "clan": "シャドウパラディン",
+        "race": "ゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_012.png"
+      },
+      "en": {
+        "number": "G-TD10/012EN",
+        "name": "Demon World Castle, Vorbeugen",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Golem",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD10/012", "G-TD10/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F012",
+          "fetchedAt": "2026-11-13T13:33:26.321Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209145453/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/012EN",
+          "fetchedAt": "2019-12-09T14:54:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-013",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/013",
+        "name": "秘められし才気 ルート",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)，このカードをソウルに置く]あなたのカードの、効果かコストで、このユニットが(R)から退却した時、コストを払ってよい。払ったら、あなたのユニットを１枚選び、そのターン中、パワー＋5000。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_013.png"
+      },
+      "en": {
+        "number": "G-TD10/013EN",
+        "name": "Dragprince, Rute",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this card into your soul] When this unit is retired from (RC) for the effect or cost of your card, you may pay the cost. If you do, choose one of your units, and it gets [Power] +5000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_013.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/013", "G-TD10/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F013",
+          "fetchedAt": "2026-11-13T13:33:27.486Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191119223138/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/013EN",
+          "fetchedAt": "2019-11-19T22:31:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-014",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/014",
+        "name": "デッドクラッシュ・ドラゴン",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_014.png"
+      },
+      "en": {
+        "number": "G-TD10/014EN",
+        "name": "Deadcrash Dragon",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_014.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/014", "G-TD10/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F014",
+          "fetchedAt": "2026-11-13T13:33:28.232Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210101204/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/014EN",
+          "fetchedAt": "2019-12-10T10:12:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-015",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/015",
+        "name": "幼竜魔道士 ミアハ",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_015.png"
+      },
+      "en": {
+        "number": "G-TD10/015EN",
+        "name": "Dragprentice, Miach",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_015.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/015", "G-TD10/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F015",
+          "fetchedAt": "2026-11-13T13:33:29.018Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190916161507/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/015EN",
+          "fetchedAt": "2019-09-16T16:15:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-016",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/016",
+        "name": "渇望の騎士 ブリアン",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_016.png"
+      },
+      "en": {
+        "number": "G-TD10/016EN",
+        "name": "Knight of Craving, Brian",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_016.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/016", "G-TD10/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F016",
+          "fetchedAt": "2026-11-13T13:33:30.252Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190826055347/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/016EN&expansion=84",
+          "fetchedAt": "2019-08-26T05:53:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-017",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/017",
+        "name": "アビス・グラール",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_017.png"
+      },
+      "en": {
+        "number": "G-TD10/017EN",
+        "name": "Abyss Grail",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_017.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/017", "G-TD10/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F017",
+          "fetchedAt": "2026-11-13T13:33:31.042Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190919131523/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/017EN&expansion=84",
+          "fetchedAt": "2019-09-19T13:15:23Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD10-018",
+      "set": "G-TD10",
+      "jp": {
+        "number": "G-TD10/018",
+        "name": "ハウルオウル",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD10/gtd10_018.png"
+      },
+      "en": {
+        "number": "G-TD10/018EN",
+        "name": "Howl Owl",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd10_018.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD10/018", "G-TD10/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD10%2F018",
+          "fetchedAt": "2026-11-13T13:33:32.208Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211200156/https://en.cf-vanguard.com/cardlist/?cardno=G-TD10/018EN",
+          "fetchedAt": "2019-12-11T20:01:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 10: Ritual of Dragon Sorcery",
+    "cards": [
+      {
+        "id": "G-TD10-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-002",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-003",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-005",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-006",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-008",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-009",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-010",
+        "count": 3
+      },
+      {
+        "id": "G-TD10-011",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-012",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-013",
+        "count": 1
+      },
+      {
+        "id": "G-TD10-014",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-015",
+        "count": 2
+      },
+      {
+        "id": "G-TD10-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD10-018",
+        "count": 2
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20170917082943/http://cardfight.wikia.com/wiki/G_Trial_Deck_10:_Ritual_of_Dragon_Sorcery?oldid=2179540",
+      "fetchedAt": "2017-09-17T08:29:43.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

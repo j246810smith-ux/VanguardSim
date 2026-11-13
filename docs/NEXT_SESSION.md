@@ -15,6 +15,92 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Status 2026-11-13, late (branch `sets/g-bt12`)
+
+- Items 1–3 below are **done**: full verification green; G-TD09–G-TD15 scripted (43aeaa2); Legend
+  Decks G-LD01–G-LD03 scripted (2cffd8b, 3743/3743 tests at that commit).
+- Item 4 **started** (ffbba05): OU list v1.1 (42 approved, 7 `held`), four playtest decks in a
+  "G-BT01 PLAYTEST" section of Original Era — Expanded, `npm run og:playtest`, notes in
+  docs/playtest/GBT01_OG_EXPANDED.md. 3756/3756 tests at ffbba05. **Owner decision pending:** Gear
+  Chronicle cannot make a legal 50-card deck from its seven approved cards. Hard AI metrics and the
+  held-sentinel run are in (77e0fed); the owner said to leave the playtest there.
+- Item 5 **showcase built, awaiting approval**: UI kit (Radix UI + Lucide + own CSS tokens) in
+  app/renderer/ui/kit/, showcase in Settings → "UI Showcase (preview)", docs/design/UI_COMPONENT_SYSTEM.md
+  (audit, choices, questions). No game control replaced yet. 3762/3762 tests.
+
+## ▶ USER'S WORK QUEUE (2026-11-13, evening) — do in this order, easiest first, one at a time
+
+The user: "note everything down and start with the easiest thing and then once that's done move on to
+the next … any questions please ask". **Publish nothing until all the card work is in** ("lets wait
+until we get all the other cards then we will publish everything").
+
+1. **Verify:** rerun the FULL suite + typecheck + lint + format on `sets/g-bt12` after the last fixes
+   and record the exact totals (the user's brief asks for this explicitly).
+2. **G-TD09–G-TD15** (user approved archive fetching 2026-11-13): fetch only the seven archived wiki
+   pages listed below, cache them under data/raw/ (git-ignored) with original URL, archived URL,
+   capture timestamp, retrieval date and SHA-256; add the counts to `PRODUCT_LISTS` in
+   scripts/cards/import.ts; import each set (English text also comes from the Archive); script the new
+   cards; add the decks as official preconstructed decks. A list that cannot be fully verified is
+   PARTIAL / NOT SELECTABLE. Never guess counts or text. TD15 (Classic, Japanese only) is not in scope.
+3. **Legend Decks:** enumerate the G-era Legend Deck products (G-LD01–G-LD03), show the list, import
+   the missing ones the same way.
+4. **G-BT01 "OG Expanded" playtest** (Desktop: `Vanguard_OG_Expanded_GBT01_Playtest_and_Claude_Code_Prompt.docx`
+   and `Vanguard_GBT01_Playtest_and_Official_Trial_Legend_Decks_Claude_Code_Prompt.docx`): 42 G-BT01
+   cards marked Yes (list in the first docx; the workbook "OG expanded list G-Booster.xlsx" itself is
+   not on this PC), 7 marked No kept out (the five CC sentinels, Aethonic, Perdition Dancer Anna).
+   Classic stays untouched. The existing **Original Era — Expanded** format with the OU list
+   (src/engine/rules/format.ts `originalExpandedFormat`, data/ou/ou-list.json,
+   docs/design/OU_CANDIDATES.md) is the equivalent of the brief's `og_expanded_gbt01_test`: asked the
+   user whether to use it. Then: one validated playtest deck per clan (Gear Chronicle, Royal Paladin,
+   Oracle Think Tank, Kagero, Nova Grappler) in a "G-BT01 Playtest" category with provenance and a
+   strategy line; AI-vs-AI metrics; no rebalancing without asking.
+5. **UI component system** (user's pasted brief, 2026-11-13): audit first (React/Electron deps, CSS
+   architecture, every dropdown/button/tab/selector/switch/slider/dialog, duplicates, phone layouts),
+   then choose libraries (shadcn/ui, Radix or Base UI, React Aria, Motion, Lucide: no competing
+   libraries; no Tailwind just for shadcn without weighing it), design tokens (deep navy/charcoal,
+   electric blue/cyan, metallic borders, restrained glow), and **first a UI Component Showcase screen**
+   in the simulator with every variant, for the user to approve the look **before** any control in the
+   game is replaced. Then integrate in the brief's order (main menu, deck builder, deck selection,
+   match settings, collection, card search, settings, profiles, online). Never change rules, save data
+   or event handlers. Deliverables: library, tokens, docs per component, changed files, test results.
+6. **Card-effects polish** (on hold): branch `polish/card-motion` 4141fe0, docs/design/CARD_MOTION_POLISH.md.
+7. **Publish** everything as one release when the card work is done.
+
+## ▶ Pick up here (2026-11-13, evening) — G-BT12 complete on `sets/g-bt12`; next G trial decks, then Legend Decks
+
+Worktree `source\VanguardSim-sets2`, branch **`sets/g-bt12`** (from master 0832a96). Not merged,
+not released. **G-BT12 is fully scripted** (one commit per clan), in `G_SETS`,
+`CARD_DATA_VERSION` = `g-bt12-1.0.0`, CHANGELOG "Unreleased". Rulings: UNRESOLVED_RULINGS
+"G-BT12 notes". Data: seven English texts repaired (scripts/cards/import.ts `EN_TEXT_FIXES`, kept by
+re-imports), two unofficial translations (G-BT12-043 Adad-apla, G-BT12-097 Ritel Benefit Dragon).
+
+- Engine added: `chosen_by_opponent` + CHOSEN event, `battle_also`, `notSameGradeAsBound`,
+  `dominate_attack` `vanguards` / `all_rear_guards`, `bound_to_hand` (afterimage), `power_to`,
+  `reveal_until`, `deck_grade` `generationBreak` / `vanguardMinGrade`, `stride_retire_cost` (Blue
+  Espada; STRIDE `retireCost`, stride prompt), G guardians obey `forbid_guard`, `put_into_bind`
+  `notFromDeck`, `also_named_as` copies every selected name, `put_into_gzone` `from: 'GC'`,
+  `chosen_five_times`, DECK_SHUFFLED `by` + `opponent_shuffles`.
+- **User's queue (2026-11-13):** (1) the G trial decks G-TD09–G-TD15 ("add in the G TD"). Their
+  deck lists come from archived Cardfight wiki pages. Found: G-TD09 True_Zodiac_Time_Beasts
+  oldid=2177482 @20170917104132; G-TD10 Ritual_of_Dragon_Sorcery oldid=2179540 @20170917082943 (read:
+  001–018 = 2,4,2,2,2,4,2,2,4,3,4,4,1,4,2,4,4,2 = 52); G-TD11 Divine_Knight_of_Heavenly_Decree
+  oldid=2243934 @20170918105350; G-TD12 Flower_Princess_of_Abundant_Blooming oldid=2320593
+  @20170919071407; G-TD13 Evil_Eye_Sovereign @20170525094542; G-TD14 Debut_of_the_Divas
+  oldid=2327715 @20170620081256; G-TD15 Messiah_Dragon_of_Rebirth @20170822053721. **Fetching
+  web.archive.org was refused by the permission system** (WebFetch cannot reach it; a curl script
+  was blocked): the user must allow it or paste the lists. TD15 (Classic, Japanese only) was not
+  requested. (2) Then the Legend Decks ("look into adding the legend decks once you have finished
+  with the current ones").
+- The card-effects polish is on hold on branch `polish/card-motion` (4141fe0) in the main tree.
+
+## ▶ Pick up here (2026-11-13, later afternoon) — v0.41.0-alpha published; next: animation polish proposal
+
+**Released:** v0.41.0-alpha (dev tag at 0aac8ea on master; public mirror 347d61c pushed with the
+tag; GitHub pre-release with zip, portable exe, signed update files and the APK; dist:smoke and
+release:verify passed; release/prev holds 0.41's manifest). Contents: G-BT11 and the two-race fix.
+Next: the user asked for game polish (draw and placement animations, find assets): proposal in
+docs/design/CARD_MOTION_POLISH.md, waiting for the user's approval. Then G-BT12.
+
 ## ▶ Pick up here (2026-11-13, afternoon) — G-BT11 complete on `sets/g-bt11`; next G-BT12
 
 Worktree `source\VanguardSim-sets2`, branch **`sets/g-bt11`** (from master f8df856). Not merged,

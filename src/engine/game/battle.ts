@@ -113,6 +113,15 @@ export function effectAttack(d: Draft, task: Extract<Task, { kind: 'effect_attac
       return c.locked || c.dominatedBy !== undefined ? [] : [{ id, circle }];
     });
   const all: Circle[] = ['vanguard', 'front_left', 'front_right', ...BACK_ROW_CIRCLES];
+  // "that vanguard battles all of your opponent's rear-guards" (G-BT12 Mukuro): one attack
+  if (task.target === 'all_rear_guards') {
+    const rgs = isRestricted(s, d.ctx, attacker, 'cannot_attack_rear_guard')
+      ? []
+      : theirs(['front_left', 'front_right', ...BACK_ROW_CIRCLES]);
+    if (rgs.length === 0) return true;
+    startEffectBattle(d, task, at.circle, rgs[0]!, rgs.slice(1));
+    return true;
+  }
   const options = (
     task.target === 'vanguard'
       ? theirs(['vanguard'])
@@ -138,16 +147,29 @@ export function effectAttack(d: Draft, task: Extract<Task, { kind: 'effect_attac
         });
   if (picked === null) return false;
   const target = options.find((o) => o.id === picked[0])!;
+  startEffectBattle(d, task, at.circle, target, []);
+  return true;
+}
 
+/** Rest the attacker and start the battle of an attack made by an effect. */
+function startEffectBattle(
+  d: Draft,
+  task: Extract<Task, { kind: 'effect_attack' }>,
+  attackerCircle: Circle,
+  target: { id: InstanceId; circle: Circle },
+  extraTargets: readonly { id: InstanceId; circle: Circle }[],
+): void {
+  const s = d.state;
+  const attacker = task.attacker;
   emit(d, { type: 'STEP_STARTED', step: 'attack' });
   setOrientation(d, attacker, 'rest');
   s.battle = {
     attacker,
-    attackerCircle: at.circle,
+    attackerCircle,
     attackerMate: null,
     target: target.id,
     targetCircle: target.circle,
-    extraTargets: [],
+    extraTargets: [...extraTargets],
     guarding: {},
     booster: null,
     boosterCircle: null,
@@ -166,7 +188,6 @@ export function effectAttack(d: Draft, task: Extract<Task, { kind: 'effect_attac
     booster: null,
   });
   s.tasks.unshift({ kind: 'guard_step_start' });
-  return true;
 }
 
 /**

@@ -1,0 +1,918 @@
+{
+  "set": "G-TD13",
+  "importedAt": "2026-11-13T13:38:37.286Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-TD13-001",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/001",
+        "name": "閻魔忍竜 キンゴクテンブ",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n支配-【自】【(V)】：あなたのバトルフェイズ開始時、相手のリアガードを１枚まで選び、【スタンド】して支配し、相手の他のユニットにアタックする。（あなたがコストを払えば能力も使える）",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_001.png"
+      },
+      "en": {
+        "number": "G-TD13/001EN",
+        "name": "Enma Stealth Dragon, Kingoku Tenbu",
+        "text": "(This card cannot be in your main deck)\n[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n(When this card strides, it gains the power and card name of one heart. At the end of the turn, return it face up)\nDominate-[AUTO](VC):At the beginning of your battle phase, choose up to one of your opponent's rear-guards, [Stand] and dominate it, and attack your opponent's other unit. (You may use its abilities if you pay the cost)",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_001EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/001", "G-TD13/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F001",
+          "fetchedAt": "2026-11-13T13:36:44.663Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260422080232/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/001EN",
+          "fetchedAt": "2026-04-22T08:02:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-002",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/002",
+        "name": "密言忍仙 アブダタイシ",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたの手札の枚数が相手の手札の枚数以下なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ぬばたま",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_002.png"
+      },
+      "en": {
+        "number": "G-TD13/002EN",
+        "name": "Secret Message Stealth Hermit, Abudataishi",
+        "text": "(This card cannot be in your main deck)\n[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of cards in your hand is less than or equal to your opponent's, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_002EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/002", "G-TD13/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F002",
+          "fetchedAt": "2026-11-13T13:36:45.819Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250213191244/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/002EN",
+          "fetchedAt": "2025-02-13T19:12:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-003",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/003",
+        "name": "魔忍鬼 ゲンバ",
+        "text": "支配-【自】【(V)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【ソウルブラスト】(1)]あなたのバトルフェイズ開始時、コストを払ってよい。払ったら、相手の前列のリアガードを１枚選び、【スタンド】して支配し、相手の他のユニットにアタックする。（あなたがコストを払えば能力も使える）",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_003.png"
+      },
+      "en": {
+        "number": "G-TD13/003EN",
+        "name": "Demon Stealth Rogue, Genba",
+        "text": "Dominate-[AUTO](VC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] At the beginning of your battle phase, you may pay the cost. If you do, choose one of your opponent's rear-guards in the front row, [Stand] and dominate it, and attack your opponent's other unit. (You may use its abilities if you pay the cost)",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/003", "G-TD13/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F003",
+          "fetchedAt": "2026-11-13T13:36:47.048Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20241006154518/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/003EN&expansion=99",
+          "fetchedAt": "2024-10-06T15:45:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-004",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/004",
+        "name": "魔忍竜 ジャケンミョウオウ",
+        "text": "支配-【自】：あなたのターン中、このユニットが(V)に登場した時、相手のリアガードを１枚まで選び、【スタンド】して支配し、相手のヴァンガードにアタックする。（あなたがコストを払えば能力も使える）\n【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：あなたのターン中、他のいずれかのリアガードがヴァンガードにアタックした時、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_004.png"
+      },
+      "en": {
+        "number": "G-TD13/004EN",
+        "name": "Demon Stealth Dragon, Jaken Myouou",
+        "text": "Dominate-[AUTO]:When this unit is placed on (VC) during your turn, choose up to one of your opponent's rear-guards, [Stand] and dominate it, and attack your opponent's vanguard. (You may use its abilities if you pay the cost)\n[AUTO](VC/RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When any players' other rear-guard attacks a vanguard during your turn, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/004", "G-TD13/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F004",
+          "fetchedAt": "2026-11-13T13:36:47.808Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260216053523/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/004EN",
+          "fetchedAt": "2026-02-16T05:35:23Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-005",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/005",
+        "name": "魔忍竜 シラヌイ “朧”",
+        "text": "【自】【(V)】：あなたのライドフェイズ開始時、相手のドロップゾーンから１枚選んでよい。選んだら、相手はそのカードを(R)にコールし、そのターンの終了時、そのユニットを退却させる。\n支配-【自】【(V)】：あなたのＧユニットが【超越】した時、相手のリアガードを１枚まで選び、【スタンド】して支配し、そのターン中、パワー＋4000し、相手の他のユニットにアタックする。（あなたがコストを払えば能力も使える）",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_005.png"
+      },
+      "en": {
+        "number": "G-TD13/005EN",
+        "name": "Demon Stealth Dragon, Shiranui \"Oboro\"",
+        "text": "[AUTO](VC):At the beginning of your ride phase, you may choose a card from your opponent's drop zone. If you do, your opponent calls that card to (RC), and at the end of that turn, retire that unit.\nDominate-[AUTO](VC):When your G unit [Stride], choose up to one of your opponent's rear-guards, [Stand] and dominate it, and until end of turn, it gets [Power] +4000, and attack your opponent's other unit. (You may use its abilities if you pay the cost)",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd13_005.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/005", "G-TD13/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F005",
+          "fetchedAt": "2026-11-13T13:36:48.550Z",
+          "regulation": "D"
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214081229/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/005EN",
+          "fetchedAt": "2019-12-14T08:12:29Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-006",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/006",
+        "name": "忍竜 シバリクサリ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_006.png"
+      },
+      "en": {
+        "number": "G-TD13/006EN",
+        "name": "Stealth Dragon, Shibari Kusari",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd13_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/006", "G-TD13/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F006",
+          "fetchedAt": "2026-11-13T13:36:49.869Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018045255/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/006EN",
+          "fetchedAt": "2019-10-18T04:52:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-007",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/007",
+        "name": "忍竜 ゲンカイ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]あなたのターン中、支配されているユニットがアタックした時、あなたの「シラヌイ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引き、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_007.png"
+      },
+      "en": {
+        "number": "G-TD13/007EN",
+        "name": "Stealth Dragon, Genkai",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Soul-Blast 1] When a dominated unit attacks during your turn, if you have a vanguard with \"Shiranui\" in its card name, you may pay the cost. If you do, draw a card, and this unit gets [Power] +2000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/007", "G-TD13/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F007",
+          "fetchedAt": "2026-11-13T13:36:51.050Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250217020130/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/007EN",
+          "fetchedAt": "2025-02-17T02:01:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-008",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/008",
+        "name": "亡魂の忍鬼 トラナガ",
+        "text": "【起】【(R)】：[【ソウルブラスト】(1)]そのターン中、このユニットのパワー＋1000。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_008.png"
+      },
+      "en": {
+        "number": "G-TD13/008EN",
+        "name": "Stealth Rogue of Departed Soul, Toranaga",
+        "text": "[ACT](RC):[Soul-Blast 1] This unit gets [Power] +1000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/008", "G-TD13/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F008",
+          "fetchedAt": "2026-11-13T13:36:52.304Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230606160026/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/008EN&expansion=99&view=image",
+          "fetchedAt": "2023-06-06T16:00:26Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-009",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/009",
+        "name": "忍獣 カベイタチ",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_009.png"
+      },
+      "en": {
+        "number": "G-TD13/009EN",
+        "name": "Stealth Beast, Kabe Itachi",
+        "text": "[AUTO][Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When this unit intercepts ([Intercept]), this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/009", "G-TD13/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F009",
+          "fetchedAt": "2026-11-13T13:36:53.046Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20230606161453/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/009EN&expansion=99&view=image",
+          "fetchedAt": "2023-06-06T16:14:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-010",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/010",
+        "name": "忍竜 ゴウカ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_010.png"
+      },
+      "en": {
+        "number": "G-TD13/010EN",
+        "name": "Stealth Dragon, Gouka",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_010EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/010", "G-TD13/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F010",
+          "fetchedAt": "2026-11-13T13:36:53.816Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250625083349/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/010EN",
+          "fetchedAt": "2025-06-25T08:33:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-011",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/011",
+        "name": "忍竜 セイズイ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：あなたのターン中、支配されているユニットがアタックした時、そのターン中、このユニットのパワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_011.png"
+      },
+      "en": {
+        "number": "G-TD13/011EN",
+        "name": "Stealth Dragon, Seizui",
+        "text": "[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):When a dominated unit attacks during your turn, this unit gets [Power] +3000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_011EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/011", "G-TD13/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F011",
+          "fetchedAt": "2026-11-13T13:36:55.103Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20231130205236/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/011EN&expansion=99",
+          "fetchedAt": "2023-11-30T20:52:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-012",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/012",
+        "name": "忍獣 カタリギツネ",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「シラヌイ」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_012.png"
+      },
+      "en": {
+        "number": "G-TD13/012EN",
+        "name": "Stealth Beast, Katarigitsune",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Shiranui\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd13_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/012", "G-TD13/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F012",
+          "fetchedAt": "2026-11-13T13:36:56.279Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207203647/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/012EN",
+          "fetchedAt": "2019-12-07T20:36:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-013",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/013",
+        "name": "遮断の忍鬼 マツバ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_013.png"
+      },
+      "en": {
+        "number": "G-TD13/013EN",
+        "name": "Isolation Stealth Rogue, Matsuba",
+        "text": "[CONT]:Sentinel (You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "TD",
+      "printings": ["G-TD13/013", "G-TD13/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F013",
+          "fetchedAt": "2026-11-13T13:36:57.028Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260311183340/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/013EN",
+          "fetchedAt": "2026-03-11T18:33:40Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-014",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/014",
+        "name": "忍竜 マドイ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットがあるなら有効）：[このユニットをソウルに置く]あなたのターン中、支配されているユニットがアタックした時、コストを払ってよい。払ったら、１枚引き、いずれかのリアガードを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_014.png"
+      },
+      "en": {
+        "number": "G-TD13/014EN",
+        "name": "Stealth Dragon, Madoi",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[Generation Break 1](Active if you have one or more face up G units in total on your (VC) or G zone):[Put this unit into your soul] When a dominated unit attacks during your turn, you may pay the cost. If you do, draw a card, choose up to one of any players' rear-guards, and it gets [Power] +3000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/014", "G-TD13/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F014",
+          "fetchedAt": "2026-11-13T13:36:57.829Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260217172551/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/014EN",
+          "fetchedAt": "2026-02-17T17:25:51Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-015",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/015",
+        "name": "忍竜 コクシャ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_015.png"
+      },
+      "en": {
+        "number": "G-TD13/015EN",
+        "name": "Stealth Dragon, Kokusha",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_015EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/015", "G-TD13/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F015",
+          "fetchedAt": "2026-11-13T13:36:58.568Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260516014327/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/015EN",
+          "fetchedAt": "2026-05-16T01:43:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-016",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/016",
+        "name": "忍妖 カクレガマ",
+        "text": "",
+        "clan": "ぬばたま",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_016.png"
+      },
+      "en": {
+        "number": "G-TD13/016EN",
+        "name": "Stealth Fiend, Kakuregama",
+        "text": "",
+        "clan": "Nubatama",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gtd13/GTD13_016EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/016", "G-TD13/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F016",
+          "fetchedAt": "2026-11-13T13:36:59.318Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20240223032422/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/016EN",
+          "fetchedAt": "2024-02-23T03:24:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-017",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/017",
+        "name": "貪食の忍鬼 コソデ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_017.png"
+      },
+      "en": {
+        "number": "G-TD13/017EN",
+        "name": "Voracious Stealth Rogue, Kosode",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd13_017.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/017", "G-TD13/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F017",
+          "fetchedAt": "2026-11-13T13:37:00.061Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191112233516/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/017EN",
+          "fetchedAt": "2019-11-12T23:35:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-TD13-018",
+      "set": "G-TD13",
+      "jp": {
+        "number": "G-TD13/018",
+        "name": "喜捨の忍鬼 ジロキチ",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]いずれかのリアガードを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ぬばたま",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-TD13/gtd13_018.png"
+      },
+      "en": {
+        "number": "G-TD13/018EN",
+        "name": "Almsgiving Stealth Rogue, Jirokichi",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of any players' rear-guards, and it gets [Power] +3000 until end of turn.",
+        "clan": "Nubatama",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gtd13_018.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "TD",
+      "printings": ["G-TD13/018", "G-TD13/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-TD13%2F018",
+          "fetchedAt": "2026-11-13T13:37:01.237Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213103622/https://en.cf-vanguard.com/cardlist/?cardno=G-TD13/018EN",
+          "fetchedAt": "2019-12-13T10:36:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Trial Deck Vol. 13: Evil Eye Sovereign",
+    "cards": [
+      {
+        "id": "G-TD13-001",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-002",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-003",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-004",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-005",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-006",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-007",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-008",
+        "count": 3
+      },
+      {
+        "id": "G-TD13-009",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-010",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-011",
+        "count": 2
+      },
+      {
+        "id": "G-TD13-012",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-013",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-014",
+        "count": 1
+      },
+      {
+        "id": "G-TD13-015",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-016",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-017",
+        "count": 4
+      },
+      {
+        "id": "G-TD13-018",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20171015011417/http://cardfight.wikia.com/wiki/G_Trial_Deck_13:_Evil_Eye_Sovereign?oldid=2335372",
+      "fetchedAt": "2017-10-15T01:14:17.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

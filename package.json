@@ -1,6 +1,6 @@
 {
   "name": "vanguard-sim",
-  "version": "0.41.0-alpha",
+  "version": "0.42.0-alpha",
   "private": true,
   "description": "Unofficial offline Cardfight!! Vanguard simulator for the historical VG-BT01–BT17 card pool (fan project, not affiliated with Bushiroad)",
   "type": "module",
@@ -36,7 +36,8 @@
     "ui:shots": "npm run artwork:build && vite build && node scripts/ui-shots.mjs",
     "ui:jitter": "npm run artwork:build && vite build && node scripts/ui-jitter.mjs",
     "online:probe": "npm run artwork:build && vite build && node scripts/online-probe.mjs",
-    "ou": "tsx scripts/ou.ts"
+    "ou": "tsx scripts/ou.ts",
+    "og:playtest": "tsx scripts/og-playtest.ts"
   },
   "devDependencies": {
     "@capacitor/android": "^8.6.0",
@@ -59,8 +60,10 @@
     "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
     "jsdom": "^30.1.2",
+    "lucide-react": "^1.72.0",
     "peerjs": "1.5.5",
     "prettier": "^3.9.9",
+    "radix-ui": "^1.8.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tsx": "^4.23.15",

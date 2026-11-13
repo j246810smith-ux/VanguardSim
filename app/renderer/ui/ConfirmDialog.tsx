@@ -4,7 +4,7 @@
  * button, means "no".
  */
 import { useState } from 'react';
-import { useBackHandler } from '../android/back';
+import { Button, Dialog } from './kit';
 
 export interface Question {
   readonly message: string;
@@ -13,19 +13,18 @@ export interface Question {
   readonly onYes: () => void;
 }
 
+/** A UI kit dialog (docs/design/UI_COMPONENT_SYSTEM.md); Escape, outside and back mean "no". */
 export function ConfirmDialog({ question, onClose }: { question: Question; onClose: () => void }) {
-  useBackHandler(() => {
-    onClose();
-    return true;
-  });
   return (
-    <div className="modal-backdrop" onClick={onClose} data-testid="confirm-dialog">
-      <div className="modal deck-modal" onClick={(e) => e.stopPropagation()}>
-        <h2>{question.message}</h2>
-        <div className="buttons">
-          <button
-            className="btn gold"
-            autoFocus
+    <Dialog
+      open
+      onClose={onClose}
+      title={question.message}
+      testId="confirm-dialog"
+      actions={
+        <>
+          <Button
+            variant="gold"
             onClick={() => {
               onClose();
               question.onYes();
@@ -33,13 +32,13 @@ export function ConfirmDialog({ question, onClose }: { question: Question; onClo
             data-testid="confirm-yes"
           >
             {question.yes}
-          </button>
-          <button className="btn" onClick={onClose} data-testid="confirm-no">
+          </Button>
+          <Button onClick={onClose} data-testid="confirm-no">
             Cancel
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </>
+      }
+    />
   );
 }
 

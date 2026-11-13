@@ -1074,6 +1074,386 @@ All cards complete.
 - G-BT11-103 Pulsar Tamer, Mara — no test, no art
 - G-BT11-104 Earth Elemental, Connell — no art
 
+## G-BT12
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 70                  | 104                 | 0               | 0            | 54            | 0   | 0        |
+
+### Incomplete
+
+- G-BT12-001 Dragstrider, Luard — no art
+- G-BT12-002 Evil-eye Hades Emperor, Shiranui "Mukuro" — no art
+- G-BT12-003 Excite Battle Sister, Stollen — no art
+- G-BT12-004 Still Water Festival Deity, Ichikishima — no art
+- G-BT12-005 Supremacy True Dragon, Claret Sword Helheim — no art
+- G-BT12-006 Conquering Supreme Dragon, Dragonic Vanquisher "VBUSTER" — no art
+- G-BT12-007 Eradicator, Dragonic Descendant "Sigma" — no test, no art
+- G-BT12-008 Dragonic Vanquisher "SPARKING" — no art
+- G-BT12-009 Chronodragon Gearnext — no art
+- G-BT12-010 Midsummer Flower Princess, Lieta — no art
+- G-BT12-011 Plumeria Flower Maiden, Sharl — no test, no art
+- G-BT12-012 Battle Sister, Florentine — no art
+- G-BT12-013 Battle Sister, Marmalade — no test, no art
+- G-BT12-014 Supremacy Dragon, Claret Sword Dragon Revolt — no art
+- G-BT12-015 Dragwizard, Naoise — no art
+- G-BT12-016 Stealth Beast, Tamahagane "Metsu" — no art
+- G-BT12-017 True Eradicator, Aconitum Linchu — no art
+- G-BT12-018 Circular Blade of Strong Lightning, Grizel — no art
+- G-BT12-019 Summon Lightning Dancing Princess, Anastasia — no test, no art
+- G-BT12-020 Chronotiger Gear Glare — no art
+- G-BT12-021 Pulsar, Spearhead Unicorn — no art
+- G-BT12-022 Pulsar, Duplex Dragon — no art
+- G-BT12-023 Maiden of Fertility Governing Lily — no art
+- G-BT12-024 Prosperity Maiden, Diane — no test, no art
+- G-BT12-025 Excite Battle Sister, Bavarois — no art
+- G-BT12-026 One Advantage Miko, Nanase — no art
+- G-BT12-027 Battle Sister, Sable — no art
+- G-BT12-028 Rapport Miko, Nazuna — no test, no art
+- G-BT12-029 Battle Sister, Baumkuchen — no art
+- G-BT12-030 Dragwiser, Bronach — no art
+- G-BT12-031 Morion Spear Dragon — no art
+- G-BT12-032 Sweep Owlner, Cethlenn — data, no test, no art
+- G-BT12-033 Cherishing Knight, Branwen — no test, no art
+- G-BT12-034 Dragwizard, Semias — no test, no art
+- G-BT12-035 Stealth Dragon, Ungai — no art
+- G-BT12-036 Stealth Beast, Meimoudanuki — no art
+- G-BT12-037 Stealth Beast, Gekisou Ookami — no test, no art
+- G-BT12-038 Mystic Wisdom Creation, Brahma — no art
+- G-BT12-039 Plea Lightning, Helena — no art
+- G-BT12-040 Smash Boxer Dragon — no test, no art
+- G-BT12-041 Flame Column Eradicator, Castres — data, no test, no art
+- G-BT12-042 Mighty Bolt Dragoon — data, no test, no art
+- G-BT12-043 スチームリンクス アダドアプラ — data, no test, no art
+- G-BT12-044 Forward-pressing Gear Tiger — data, no test, no art
+- G-BT12-045 Protector Lotus Maiden of Yggdrasil — no art
+- G-BT12-046 Sacred Tree Dragon, Rainbow Cycle Dragon — no art
+- G-BT12-047 Maiden of Produce — no art
+- G-BT12-048 Resistant Lemone — data, no test, no art
+- G-BT12-049 Goddess of Congregation, Tagirihime — no art
+- G-BT12-050 Miko of the Morning Moon, Haruzuki — no test, no art
+- G-BT12-051 Miko of the Daybreak Moon, Akizuki — no test, no art
+- G-BT12-052 Elite Heath — no test, no art
+- G-BT12-053 Weather Girl, Shake — no art
+- G-BT12-054 Weather Girl, Lassi — no test, no art
+- G-BT12-055 Protective Cat — no test, no art
+- G-BT12-056 Battle Sister, Kipferl — no test, no art
+- G-BT12-057 Refined Prodigy, Asahiko — no test, no art
+- G-BT12-058 Houser Dario — no art
+- G-BT12-059 Battle Sister, Churros — no art
+- G-BT12-060 Battle Sister, Ganache — no test, no art
+- G-BT12-061 Efficient Carp — no test, no art
+- G-BT12-062 Gigantech Shutter — data, no art
+- G-BT12-063 Demon World Castle, VanGenbeze — data, no test, no art
+- G-BT12-064 Swift Owl — data, no test, no art
+- G-BT12-065 Dragwizard, Enid — data, no test, no art
+- G-BT12-066 Blue Espada Dragon — data, no art
+- G-BT12-067 Difarbau — data, no test, no art
+- G-BT12-068 Pedigree Knight, Tigresse — no test, no art
+- G-BT12-069 Dragwizard, Babd — no test, no art
+- G-BT12-070 Stealth Rogue of Repudiation, Yorihira — no test, no art
+- G-BT12-071 Stealth Dragon, Houjin — data, no test, no art
+- G-BT12-072 Stealth Rogue of Detonation, Teruyoshi — data, no test, no art
+- G-BT12-073 Fast Speed Stealth Rogue, Genzou — data, no art
+- G-BT12-074 Stealth Dragon, Dreadmaster — no test, no art
+- G-BT12-075 Stealth Beast, Kazemomo — no art
+- G-BT12-076 Electrobutcher Dragon — data, no art
+- G-BT12-077 Tracking Eradicator, Dokukakuji — data, no test, no art
+- G-BT12-078 Plasmatron Dragon — data, no art
+- G-BT12-079 Demonic Dragon Berserker, Chatura — data, no test, no art
+- G-BT12-080 Wyvern Strike, Timlars — data, no test, no art
+- G-BT12-081 Whistling Arrow Eradicator, Kosanjou — data, no test, no art
+- G-BT12-082 Hardrod Dracokid — no art
+- G-BT12-083 Eradicator, Drag Phoenix — no art
+- G-BT12-084 Soothing Eradicator, Gyokumen — data, no art
+- G-BT12-085 Force Wind Eradicator, Shiva — data, no test, no art
+- G-BT12-086 Eradicator, Sharp Impact Dragon — no test, no art
+- G-BT12-087 Pulsar, Obstinacy Ox — no art
+- G-BT12-088 Steam Knight, Shulgi — no test, no art
+- G-BT12-089 Steam Lynx, Nadine — no test, no art
+- G-BT12-090 Steam Lynx, Emme — no art
+- G-BT12-091 Pulsar Tamer, Hegald — no test, no art
+- G-BT12-092 Steam Gunner, Xuxin — no test, no art
+- G-BT12-093 Pulsar, Thruster Bison — no test, no art
+- G-BT12-094 Integrity Flower Maiden, Ritaleena — data, no art
+- G-BT12-095 Knight of Deliberation, Memoreem — data, no test, no art
+- G-BT12-096 Maiden of Glowshine — data, no art
+- G-BT12-097 リテルベネフィット・ドラゴン — data, no art
+- G-BT12-098 Mutual Love Maiden, Vallila — data, no art
+- G-BT12-099 Knight of Prudence, Memoreed — data, no art
+- G-BT12-100 Maiden of Breedrain — data, no art
+- G-BT12-101 Maiden of Corantos — data, no test, no art
+- G-BT12-102 Flowerpot Elf — data, no test, no art
+- G-BT12-103 Lupinus Knight — data, no test, no art
+- G-BT12-104 Air Elemental, Bluroon — data, no art
+
+## G-TD09
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 7             | 0   | 0        |
+
+### Incomplete
+
+- G-TD09-001 Metapulsar, Huang-long — no test, no art
+- G-TD09-002 Chronojet Dragon G — no test, no art
+- G-TD09-003 Chronofang Tiger G — no test, no art
+- G-TD09-004 Steam Maiden, Imi — no test, no art
+- G-TD09-005 Chronospin Serpent — no art
+- G-TD09-006 Chronoclaw Monkey — no test, no art
+- G-TD09-007 Chronobeat Buffalo — no test, no art
+- G-TD09-008 Iron Fist Sanction Colossus — no test, no art
+- G-TD09-009 Chronodash Peccary — no art
+- G-TD09-010 Chronoethos Jackal — no test, no art
+- G-TD09-011 Steam Sniper, Lishma — no test, no art
+- G-TD09-012 Chronocharge Unicorn — no test, no art
+- G-TD09-013 Repel-circuit Dragon — no test, no art
+- G-TD09-014 Chrono Dran G — no test, no art
+- G-TD09-015 Chronovolley Rabbit — no art
+- G-TD09-016 Chronodoze Sheep — no art
+- G-TD09-017 Chronotimer Leghorn — no art
+- G-TD09-018 Chronotherapy Hamster — no art
+- G-TD09-019 Luckypot Dracokid — no art
+
+## G-TD10
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 18                  | 18                  | 0               | 0            | 5             | 0   | 0        |
+
+### Incomplete
+
+- G-TD10-001 Dark Dragon, Carnivore Dragon — no test, no art
+- G-TD10-002 Crest-vicious Dragon — no test, no art
+- G-TD10-003 Dragheart, Luard — no test, no art
+- G-TD10-004 Blue Thorn Heavy-slash, Valdemar — no test, no art
+- G-TD10-005 Demon World Castle, Eingang — no art
+- G-TD10-006 Direct Owlner, Debihira — no test, no art
+- G-TD10-007 Dragwizard, Liafail — no test, no art
+- G-TD10-008 Blade-proof Knight, Youghal — no test, no art
+- G-TD10-009 Dragwizard, Knies — no test, no art
+- G-TD10-010 Killermyu — no test, no art
+- G-TD10-011 Puzzled Owlner, Clothru — no test, no art
+- G-TD10-012 Demon World Castle, Vorbeugen — no test, no art
+- G-TD10-013 Dragprince, Rute — no test, no art
+- G-TD10-014 Deadcrash Dragon — no art
+- G-TD10-015 Dragprentice, Miach — no art
+- G-TD10-016 Knight of Craving, Brian — no art
+- G-TD10-017 Abyss Grail — no art
+- G-TD10-018 Howl Owl — no test, no art
+
+## G-TD11
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 17                  | 18                  | 0               | 0            | 6             | 0   | 0        |
+
+### Incomplete
+
+- G-TD11-001 Divine Knight of Lore, Selfes — no test, no art
+- G-TD11-002 Conspicuous Knight, Concianus — no test, no art
+- G-TD11-003 Blue Sky Knight, Altmile — no art
+- G-TD11-004 Devout Falx Dragon — no test, no art
+- G-TD11-005 あっしゅがる — data, no art
+- G-TD11-006 Flying Swallow Knight, Claus — no test, no art
+- G-TD11-007 Knight of Honesty, Carausius — no test, no art
+- G-TD11-008 Knight of Resilience, Baldus — no test, no art
+- G-TD11-009 Knight of Respect, Diotius — no test, no art
+- G-TD11-010 Support Sorcerer of Damascus — no test, no art
+- G-TD11-011 Knight of Tomahawk — no test, no art
+- G-TD11-012 Walgal — no test, no art
+- G-TD11-013 Knight of Discipline, Alectos — no test, no art
+- G-TD11-014 Painful Blow Knight, Gurgitus — no art
+- G-TD11-015 Augment Sorcerer of Adamant — no art
+- G-TD11-016 Blast Knight, Gradaucus — no art
+- G-TD11-017 Knight of Pretty Sword — no art
+- G-TD11-018 Gliding Eagle — no test, no art
+
+## G-TD12
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 18                  | 18                  | 0               | 0            | 6             | 0   | 0        |
+
+### Incomplete
+
+- G-TD12-001 Flower Princess of Faith, Celine — no test, no art
+- G-TD12-002 Abundant Flower Maiden, Patricia — no test, no art
+- G-TD12-003 Ranunculus Flower Maiden, Ahsha — no art
+- G-TD12-004 Floraneura Dragon — no test, no art
+- G-TD12-005 Hiratake Monjirou — no art
+- G-TD12-006 Osmanthus Maiden, Anelma — no test, no art
+- G-TD12-007 Irrigating Maiden, Ramona — no test, no art
+- G-TD12-008 Monstera Knight — no test, no art
+- G-TD12-009 Ravishing Maiden, Penelope — no test, no art
+- G-TD12-010 Crested Ibis Color Valkyrie, Nelly — no test, no art
+- G-TD12-011 Pis Tateo — no test, no art
+- G-TD12-012 Maple Leaf Squire — no test, no art
+- G-TD12-013 Augury Maiden, Ida — no test, no art
+- G-TD12-014 Agave Knight — no art
+- G-TD12-015 Onemorapple — no art
+- G-TD12-016 Pleading Maiden, Elmire — no art
+- G-TD12-017 Color Pixy, Quitterie — no art
+- G-TD12-018 Monkeypod Dragon — no test, no art
+
+## G-TD13
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 18                  | 18                  | 0               | 0            | 5             | 0   | 0        |
+
+### Incomplete
+
+- G-TD13-001 Enma Stealth Dragon, Kingoku Tenbu — no test, no art
+- G-TD13-002 Secret Message Stealth Hermit, Abudataishi — no test, no art
+- G-TD13-003 Demon Stealth Rogue, Genba — no test, no art
+- G-TD13-004 Demon Stealth Dragon, Jaken Myouou — no test, no art
+- G-TD13-005 Demon Stealth Dragon, Shiranui "Oboro" — no test, no art
+- G-TD13-006 Stealth Dragon, Shibari Kusari — no art
+- G-TD13-007 Stealth Dragon, Genkai — no test, no art
+- G-TD13-008 Stealth Rogue of Departed Soul, Toranaga — no test, no art
+- G-TD13-009 Stealth Beast, Kabe Itachi — no test, no art
+- G-TD13-010 Stealth Dragon, Gouka — no art
+- G-TD13-011 Stealth Dragon, Seizui — no test, no art
+- G-TD13-012 Stealth Beast, Katarigitsune — no test, no art
+- G-TD13-013 Isolation Stealth Rogue, Matsuba — no test, no art
+- G-TD13-014 Stealth Dragon, Madoi — no test, no art
+- G-TD13-015 Stealth Dragon, Kokusha — no art
+- G-TD13-016 Stealth Fiend, Kakuregama — no art
+- G-TD13-017 Voracious Stealth Rogue, Kosode — no art
+- G-TD13-018 Almsgiving Stealth Rogue, Jirokichi — no test, no art
+
+## G-TD14
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 19    | 19                  | 19                  | 0               | 0            | 5             | 0   | 0        |
+
+### Incomplete
+
+- G-TD14-001 Chouchou, Lillinel — no test, no art
+- G-TD14-002 Chouchou, Palffy — no test, no art
+- G-TD14-003 Chouchou Debut Stage, Tirua — no test, no art
+- G-TD14-004 Chouchou, Pierine — no test, no art
+- G-TD14-005 Chouchou, Piorina — no test, no art
+- G-TD14-006 Chouchou, Torua — no art
+- G-TD14-007 Chouchou, Ayana — no test, no art
+- G-TD14-008 Chouchou, Listella — no test, no art
+- G-TD14-009 Chouchou, Milda — no test, no art
+- G-TD14-010 Chouchou, Sabrina — no art
+- G-TD14-011 Chouchou, Clenes — no test, no art
+- G-TD14-012 Chouchou, Marl — no test, no art
+- G-TD14-013 Chouchou, Corrin — no test, no art
+- G-TD14-014 Chouchou, Resaca — no test, no art
+- G-TD14-015 Chouchou, Sasha — no test, no art
+- G-TD14-016 Chouchou, Ietta — no art
+- G-TD14-017 Chouchou, Namig — no art
+- G-TD14-018 Chouchou, Richell — no art
+- G-TD14-019 Chouchou, Pitte — no test, no art
+
+## G-TD15
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 18                  | 18                  | 0               | 0            | 8             | 0   | 0        |
+
+### Incomplete
+
+- G-TD15-001 Genesis Dragon, Bearing Messiah — no test, no art
+- G-TD15-002 Light that Seals the Tear, Lady Healer — no test, no art
+- G-TD15-003 Alter Ego Neo Messiah — no test, no art
+- G-TD15-004 Alter Ego Messiah — no art
+- G-TD15-005 Restrain Dragon — no test, no art
+- G-TD15-006 Albedo Condor — no art
+- G-TD15-007 Arrester Messiah — no art
+- G-TD15-008 Metallia Messiah — no test, no art
+- G-TD15-009 Great Wall — no test, no art
+- G-TD15-010 Destiny Dealer — no art
+- G-TD15-011 Dunamis Messiah — no test, no art
+- G-TD15-012 Allbirth Pangolin — no test, no art
+- G-TD15-013 Multiple Star of Binding, Cluster Mine — no test, no art
+- G-TD15-014 Neon Messiah Aurion — no test, no art
+- G-TD15-015 Spicule Shark — no art
+- G-TD15-016 Long Sword of Protostar, Protosword — no art
+- G-TD15-017 Mourning Child of Reaction — no art
+- G-TD15-018 Beloved Child of Superstring Theory — no art
+
+## G-LD01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 15    | 15                  | 15                  | 0               | 0            | 4             | 0   | 0        |
+
+### Incomplete
+
+- G-LD01-001 Dark Dragon, Phantom Blaster "Diablo" — no test, no art
+- G-LD01-002 Dark Great Mage, Badhadh Caar — no test, no art
+- G-LD01-003 Blaster Dark "Diablo" — no test, no art
+- G-LD01-004 Bloodstained Battle Knight, Dorint — no test, no art
+- G-LD01-005 Dark Night Maiden, Macha — no test, no art
+- G-LD01-006 Unorthodox Shield, Mac Lir — no test, no art
+- G-LD01-007 Dark Heart Trumpeter — no test, no art
+- G-LD01-008 Pitch Black Sage, Charon — no test, no art
+- G-LD01-009 Arduous Battle Knight, Claudas — no test, no art
+- G-LD01-010 Little Skull Witch, Nemain — no test, no art
+- G-LD01-011 Fullbau Brave — no test, no art
+- G-LD01-012 Revenger, Undead Angel — no art
+- G-LD01-013 Leaping Knight, Ligan Lumna — no art
+- G-LD01-014 Flatbau — no art
+- G-LD01-015 Howl Owl — no art
+
+## G-LD02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 16    | 16                  | 16                  | 0               | 0            | 4             | 0   | 0        |
+
+### Incomplete
+
+- G-LD02-001 Transcendence Divine Dragon, Nouvelle Vague L'Express — no test, no art
+- G-LD02-002 Supreme Heavenly Emperor Dragon, Vortex Desire — no test, no art
+- G-LD02-003 Amber Dragon, Midnight — no test, no art
+- G-LD02-004 Dragonic Overlord "The Legend" — no test, no art
+- G-LD02-005 Armor of the Flame Dragon, Bahr — no test, no art
+- G-LD02-006 Emperor Dragon Knight, Nehalem — no test, no art
+- G-LD02-007 Berserk Lord Dragon — no test, no art
+- G-LD02-008 Spear of the Flame Dragon, Tahr — no test, no art
+- G-LD02-009 Dragon Partner, Monica — no test, no art
+- G-LD02-010 Lizard General, Conroe — no test, no art
+- G-LD02-011 Flame of Tranquility, Aermo — no test, no art
+- G-LD02-012 Lizard Hero, Undeux — no test, no art
+- G-LD02-013 Seiten Master, Goku — no art
+- G-LD02-014 Tenpou Master, Hakkai — no art
+- G-LD02-015 Kenren Master, Gojo — no art
+- G-LD02-016 Sanzou Master, Genjo — no art
+
+## G-LD03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 18    | 18                  | 18                  | 0               | 0            | 5             | 0   | 0        |
+
+### Incomplete
+
+- G-LD03-001 Holy Dragon, Myriad Soul Saver — no test, no art
+- G-LD03-002 Divine Knight King, Alfred Holy Saver — no test, no art
+- G-LD03-003 Great Flash, Iseult — no test, no art
+- G-LD03-004 Blaster Blade Exceed — no test, no art
+- G-LD03-005 Blazing Twin Blades, Palamedes — no test, no art
+- G-LD03-006 Champion of Silence, Gallatin — no test, no art
+- G-LD03-007 Knight of Virtue, Bedivere — no test, no art
+- G-LD03-008 Star Hope Trumpeter — no test, no art
+- G-LD03-009 Blaster Blade — no art
+- G-LD03-010 Wingal Youth — no test, no art
+- G-LD03-011 Knight of Benevolence, Kay — no test, no art
+- G-LD03-012 Little Tactician, Marron — no test, no art
+- G-LD03-013 Bringer of Divine Grace, Epona — no test, no art
+- G-LD03-014 Blue Scud, Barcgal — no test, no art
+- G-LD03-015 Nova Knight, Llew — no art
+- G-LD03-016 Pink Comet, Flogal — no art
+- G-LD03-017 Yggdrasil Inheritor, Elaine — no art
+- G-LD03-018 Margal — no art
+
 ## G-FC01
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |

@@ -12,6 +12,7 @@ import {
   type InstanceId,
   type PlayerId,
 } from '../state/types';
+import { guardForbidden } from '../abilities/continuous';
 import type { Task } from '../state/tasks';
 import { currentGrade, definitionOf, namesOf } from './characteristics';
 import { ask } from './choice';
@@ -63,22 +64,31 @@ export function strideOptions(
   if (!ctx.ruleset.generationRules.value || state.phase !== 'stride') return [];
   if (state.turnFlags.normalStrideUsed || !bothVanguardsGrade3(state, ctx)) return [];
   const alt = strideSoulCost(state, ctx, player);
-  const altPayable = alt !== null && alt.cards.length >= alt.n;
-  if (!altPayable && !strideCostPayable(state, ctx, player, state.players[player].hand)) return [];
+  const altPayable =
+    (alt !== null && alt.cards.length >= alt.n) ||
+    strideRetireCost(state, ctx, player).length > 0 ||
+    freeStride(state, ctx, player);
   // a G guardian has [G Guardian] instead of [Stride]: it is called to (GC), never stridden
-  return state.players[player].gzone.filter((id) => {
+  const units = state.players[player].gzone.filter((id) => {
     const card = state.cards[id]!;
     const def = ctx.registry.get(card.definitionId);
     return !card.faceUp && isG(def) && !hasGGuardian(def);
   });
+  const hand = state.players[player].hand;
+  return altPayable ? units : units.filter((g) => strideCostPayable(state, ctx, player, hand, g));
 }
 
 /**
  * A hand card's grade while it is paid for a stride cost: its grade plus "[CONT]Hand:While you
  * are paying the cost for [Stride], this card gets grade +2" (G-BT01's grade 1 "stride fodder").
  */
-export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId): number {
-  let bonus = 0;
+export function strideGrade(
+  state: GameState,
+  ctx: EngineContext,
+  id: InstanceId,
+  gUnit?: InstanceId,
+): number {
+  let bonus = gUnit === undefined ? 0 : handGradeBonus(state, ctx, id, gUnit);
   for (const a of definitionOf(state, ctx, id).abilities) {
     if (a.kind !== 'CONT' || !a.zones.includes('hand')) continue;
     for (const e of a.effects) {
@@ -115,9 +125,47 @@ export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId
   return currentGrade(state, ctx, id) + bonus;
 }
 
+/** Blaster Dark "Diablo" on its owner's (VC): grade +n for the stride of a G unit with the name part. */
+function handGradeBonus(
+  state: GameState,
+  ctx: EngineContext,
+  id: InstanceId,
+  gUnit: InstanceId,
+): number {
+  const owner = state.cards[id] ? state.players[state.cards[id]!.owner] : undefined;
+  if (!owner || !owner.hand.includes(id)) return 0;
+  const vg = vanguardOf(owner);
+  if (vg === null || state.cards[vg]!.locked) return 0;
+  const gName = definitionOf(state, ctx, gUnit).name;
+  let bonus = 0;
+  for (const a of definitionOf(state, ctx, vg).abilities) {
+    if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
+    if (!generationBreakMet(state, ctx, state.cards[id]!.owner, a.generationBreak)) continue;
+    for (const e of a.effects)
+      if (e.ce === 'stride_hand_grade' && gName.includes(e.gUnitNameIncludes)) bonus += e.amount;
+  }
+  return bonus;
+}
+
 /** Sum of the grades of the cards for the stride cost ("grades totalling 3 or greater"). */
-export const gradeSum = (state: GameState, ctx: EngineContext, ids: readonly InstanceId[]) =>
-  ids.reduce((sum, id) => sum + strideGrade(state, ctx, id), 0);
+export const gradeSum = (
+  state: GameState,
+  ctx: EngineContext,
+  ids: readonly InstanceId[],
+  gUnit?: InstanceId,
+) => ids.reduce((sum, id) => sum + strideGrade(state, ctx, id, gUnit), 0);
+
+/** The G unit whose stride makes the hand worth most (Blaster Dark "Diablo"), for defaults. */
+export function bestStrideUnit(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+  gUnits: readonly InstanceId[],
+): InstanceId | undefined {
+  const hand = state.players[player].hand;
+  const worth = (g: InstanceId) => gradeSum(state, ctx, hand, g);
+  return [...gUnits].sort((a, b) => worth(b) - worth(a))[0];
+}
 
 /**
  * "You may pay "[Soul-Blast n]-cards with the <keyword> ability" as the cost for [Stride]" (G-BT11
@@ -145,18 +193,74 @@ export function strideSoulCost(
 }
 
 /**
+ * A stride without paying its cost: the next stride after Dragheart, Luard's effect this turn, or
+ * Tirua's [CONT] on your (VC) (G-TD14: [Generation Break 1], your rear-guards n or less).
+ */
+export function freeStride(state: GameState, ctx: EngineContext, player: PlayerId): boolean {
+  if ((state.turnFlags.freeStride ?? []).includes(player)) return true;
+  const p = state.players[player];
+  const vg = vanguardOf(p);
+  if (vg === null || state.cards[vg]!.locked) return false;
+  const rearGuards = (
+    ['front_left', 'front_right', 'back_left', 'back_center', 'back_right'] as const
+  ).filter((c) => p.circles[c].length > 0).length;
+  return definitionOf(state, ctx, vg).abilities.some(
+    (a) =>
+      a.kind === 'CONT' &&
+      a.zones.includes('VC') &&
+      generationBreakMet(state, ctx, player, a.generationBreak) &&
+      a.effects.some((e) => e.ce === 'free_stride' && rearGuards <= e.maxRearGuards),
+  );
+}
+
+/**
+ * Blue Espada Dragon (G-BT12): its own units on (RC) that may be retired, with [Counter-Blast 1], as
+ * the stride cost (a face-up damage card is needed). Empty when none.
+ */
+export function strideRetireCost(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+): InstanceId[] {
+  const p = state.players[player];
+  if (!p.damage.some((id) => state.cards[id]!.faceUp)) return [];
+  const vg = vanguardOf(p);
+  const names = vg === null ? [] : namesOf(state, ctx, vg);
+  const rcs = ['front_left', 'front_right', 'back_left', 'back_center', 'back_right'] as const;
+  return rcs.flatMap((c) => {
+    const id = p.circles[c].at(-1);
+    if (id === undefined || state.cards[id]!.locked) return [];
+    const ok = definitionOf(state, ctx, id).abilities.some(
+      (a) =>
+        a.kind === 'CONT' &&
+        a.zones.includes('RC') &&
+        a.effects.some(
+          (e) =>
+            e.ce === 'stride_retire_cost' && names.some((n) => n.includes(e.vanguardNameIncludes)),
+        ),
+    );
+    return ok ? [id] : [];
+  });
+}
+
+/**
  * CR 1.48.1 11.11.2: one or more cards from hand whose grades total 3 or greater; or, with
- * Amaruda's alternative cost, exactly n soul cards with the named ability (a soul blast).
+ * Amaruda's alternative cost, exactly n soul cards with the named ability (a soul blast); or one
+ * Blue Espada Dragon on (RC) (retired, with [Counter-Blast 1]).
  */
 export function strideCostPayable(
   state: GameState,
   ctx: EngineContext,
   player: PlayerId,
   discard: readonly InstanceId[],
+  gUnit?: InstanceId,
 ): boolean {
   const hand = state.players[player].hand;
-  if (discard.length === 0 || new Set(discard).size !== discard.length) return false;
-  if (discard.every((id) => hand.includes(id))) return gradeSum(state, ctx, discard) >= 3;
+  if (discard.length === 0) return freeStride(state, ctx, player);
+  if (new Set(discard).size !== discard.length) return false;
+  if (discard.every((id) => hand.includes(id))) return gradeSum(state, ctx, discard, gUnit) >= 3;
+  if (discard.length === 1 && strideRetireCost(state, ctx, player).includes(discard[0]!))
+    return true;
   const alt = strideSoulCost(state, ctx, player);
   return alt !== null && discard.length === alt.n && discard.every((id) => alt.cards.includes(id));
 }
@@ -179,8 +283,18 @@ export function stride(
   const stridden = vanguardOf(p);
   const orientation = stridden === null ? 'stand' : s.cards[stridden]!.orientation;
   const soulPaid = discard.filter((id) => p.soul.includes(id));
+  // Blue Espada Dragon (G-BT12): retired from (RC) with [Counter-Blast 1] (the first face-up damage card)
+  const retired = discard.filter((id) => !p.hand.includes(id) && !p.soul.includes(id));
+  if (retired.length > 0) {
+    const cb = p.damage.find((id) => s.cards[id]!.faceUp);
+    if (cb !== undefined) {
+      s.cards[cb]!.faceUp = false;
+      emit(d, { type: 'CARD_TURNED', instanceId: cb, faceUp: false });
+    }
+  }
   moveCard(d, gUnit, { player, zone: 'circle', circle: 'vanguard' }, 'stride', { orientation });
-  for (const id of discard) moveCard(d, id, { player, zone: 'drop' }, 'cost');
+  for (const id of discard)
+    moveCard(d, id, { player, zone: 'drop' }, retired.includes(id) ? 'retire' : 'cost');
   for (const h of old) {
     s.cards[h]!.orientation = 'stand';
     s.cards[h]!.faceUp = true;
@@ -190,9 +304,12 @@ export function stride(
   // first). See UNRESOLVED_RULINGS "G era".
   p.heartChosen = old.find((h) => !isG(definitionOf(s, d.ctx, h))) ?? null;
   if (normal) s.turnFlags.normalStrideUsed = true;
+  // Dragheart, Luard's free stride is used up by the next stride (paid or not)
+  if (discard.length === 0 && s.turnFlags.freeStride?.includes(player))
+    s.turnFlags.freeStride = s.turnFlags.freeStride.filter((x) => x !== player);
   s.turnFlags.strode = [...(s.turnFlags.strode ?? []), gUnit];
   // a soul blast paid instead (Amaruda) is not a discard from hand
-  const fromHand = discard.filter((id) => !soulPaid.includes(id));
+  const fromHand = discard.filter((id) => !soulPaid.includes(id) && !retired.includes(id));
   emit(d, { type: 'STRIDE', player, gUnit, hearts: old, discarded: fromHand });
 }
 
@@ -213,7 +330,11 @@ export function gGuardianOptions(
   const faceUpGuardians = p.gzone.filter((id) => state.cards[id]!.faceUp && hasGGuardian(def(id)));
   if (faceUpGuardians.length > 3) return [];
   if (gGuardianCostOptions(state, ctx, player).length === 0) return [];
-  return p.gzone.filter((id) => !state.cards[id]!.faceUp && hasGGuardian(def(id)));
+  // "your opponent cannot call [G Guardian] … to (GC)" (G-BT12 Ichikishima: forbid_guard on G units)
+  return p.gzone.filter(
+    (id) =>
+      !state.cards[id]!.faceUp && hasGGuardian(def(id)) && !guardForbidden(state, ctx, player, id),
+  );
 }
 
 /** The G guardian cost (G-BT02 onward): "choose a card with [Heal] from your hand, and discard it". */
@@ -365,8 +486,9 @@ export function cheapestStrideDiscard(
   state: GameState,
   ctx: EngineContext,
   candidates: readonly InstanceId[],
+  gUnit?: InstanceId,
 ): InstanceId[] | null {
-  const graded = candidates.map((id) => ({ id, grade: strideGrade(state, ctx, id) }));
+  const graded = candidates.map((id) => ({ id, grade: strideGrade(state, ctx, id, gUnit) }));
   let best: { ids: InstanceId[]; total: number } | null = null;
   const consider = (ids: InstanceId[], total: number) => {
     if (total < 3) return;

@@ -1,5 +1,5 @@
 /**
- * The Trial Decks (TD01–TD17 except TD15) as ready-to-play decks (DECISIONS D-023), built from the
+ * The Trial Decks (TD01–TD17 except TD15, G-TD01–G-TD15) and G Legend Decks (G-LD01–G-LD03) as ready-to-play decks (DECISIONS D-023), built from the
  * fixed contents imported from the official product pages (`SetFile.product`).
  */
 import { cardRegistry, SETS } from '../cards';
@@ -28,8 +28,8 @@ const ALL_TRIAL_DECKS: readonly StarterDeck[] = SETS.flatMap(({ file }) => {
   const clans = [...new Set(cards.map((id) => def(id).clan))];
   return [
     {
-      name: product.name.replace(/^.*Trial Deck Vol\. ?\d+:\s*/, `${file.set} · `),
-      description: `${gEra ? 'G Trial Deck' : 'Trial Deck'} (${clans.join(', ')}), exactly as sold.`,
+      name: product.name.replace(/^.*(?:Trial|Legend) Deck Vol\. ?\d+:\s*/, `${file.set} · `),
+      description: `${gEra ? (/-LD\d/.test(file.set) ? 'G Legend Deck' : 'G Trial Deck') : 'Trial Deck'} (${clans.join(', ')}), exactly as sold.`,
       deck: { firstVanguard: first, cards, ...(gDeck.length > 0 ? { gDeck } : {}) },
       ...(gEra ? { format: 'g' as const } : {}),
     },

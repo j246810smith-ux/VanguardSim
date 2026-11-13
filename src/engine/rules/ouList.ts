@@ -7,7 +7,12 @@
  */
 import data from '../../../data/ou/ou-list.json';
 
-export type OuStatus = 'approved' | 'proposed' | 'rejected';
+/**
+ * `held`: chosen for a later comparison test and kept out of the default pool (G-BT01 playtest:
+ * the five Counter-Charge sentinels, Aethonic, Perdition Dancer Anna). Legal only when a test or
+ * developer configuration asks for held cards (`ouApproved(list, { includeHeld: true })`).
+ */
+export type OuStatus = 'approved' | 'proposed' | 'rejected' | 'held';
 
 export interface OuEntry {
   readonly id: string;
@@ -24,7 +29,7 @@ export interface OuList {
   readonly cards: readonly OuEntry[];
 }
 
-const STATUSES: readonly OuStatus[] = ['approved', 'proposed', 'rejected'];
+const STATUSES: readonly OuStatus[] = ['approved', 'proposed', 'rejected', 'held'];
 
 /** A list read from JSON, with anything malformed left out (never thrown at a player). */
 export function parseOuList(raw: unknown): OuList {
@@ -54,9 +59,14 @@ export function parseOuList(raw: unknown): OuList {
 /** The list this build ships with. */
 export const OU_LIST: OuList = parseOuList(data);
 
-/** The ids legal in Original Era — Expanded. */
-export const ouApproved = (list: OuList = OU_LIST): readonly string[] =>
-  list.cards.filter((c) => c.status === 'approved').map((c) => c.id);
+/** The ids legal in Original Era — Expanded (held cards too, for an A/B comparison test). */
+export const ouApproved = (
+  list: OuList = OU_LIST,
+  opts: { readonly includeHeld?: boolean } = {},
+): readonly string[] =>
+  list.cards
+    .filter((c) => c.status === 'approved' || (opts.includeHeld && c.status === 'held'))
+    .map((c) => c.id);
 
 /** A card's OU entry, if it has one. */
 export const ouEntryOf = (id: string, list: OuList = OU_LIST): OuEntry | undefined =>

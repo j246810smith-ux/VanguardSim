@@ -42,7 +42,8 @@ export type MoveReason =
 /** Everything that happens is an event. The event stream is the record of truth for UI, logs and replays. */
 export type GameEvent =
   | { readonly type: 'GAME_CREATED'; readonly seed: number; readonly firstPlayer: PlayerId }
-  | { readonly type: 'DECK_SHUFFLED'; readonly player: PlayerId }
+  /** `by`: the master of the ability whose effect shuffled it (none: a rule, e.g. G Assist). */
+  | { readonly type: 'DECK_SHUFFLED'; readonly player: PlayerId; readonly by?: PlayerId }
   /** "Look at the top card, put it on the top or bottom": it stayed on top, so no card moved. */
   | { readonly type: 'TOP_CARD_KEPT'; readonly player: PlayerId; readonly instanceId: InstanceId }
   | {
@@ -207,6 +208,12 @@ export type GameEvent =
       readonly type: 'CHARGING';
       readonly player: PlayerId;
       readonly instanceId: InstanceId;
+    }
+  | {
+      /** Units on the field chosen by a `choose` step of an ability whose master is `master`. */
+      readonly type: 'CHOSEN';
+      readonly master: PlayerId;
+      readonly instanceIds: readonly InstanceId[];
     }
   | {
       /** CR 1.48.1 10.35 Dominate (G-BT11): `player` dominates these units of the other player. */

@@ -164,6 +164,14 @@ export interface TurnFlags {
   legioned?: InstanceId[];
   /** Players whose deck was shuffled by an effect of their own card this turn. */
   shuffledByEffect?: PlayerId[];
+  /** "you may [Stride] without paying the cost the next time you [Stride]" (G-TD10 Dragheart, Luard). */
+  freeStride?: PlayerId[];
+  /** "the brave abilities of your cards are active until end of turn" (G-TD11 Alectos). */
+  braveActive?: PlayerId[];
+  /** Players whose card's effect unlocked a locked card this turn (G-TD15 Alter Ego Neo Messiah). */
+  unlockedByEffect?: PlayerId[];
+  /** Units whose battle has ended this turn ("this unit's first battle of this turn", G-LD03). */
+  battled?: InstanceId[];
 }
 
 /** `end_of_game`: never ends (it is still lost when the card changes zone, CR 4.1.4). */
@@ -176,7 +184,7 @@ export type EffectDuration =
  */
 export interface Modifier {
   readonly target: InstanceId;
-  readonly stat: 'power' | 'critical' | 'shield';
+  readonly stat: 'power' | 'critical' | 'shield' | 'grade';
   readonly amount: number;
   readonly until: EffectDuration;
 }

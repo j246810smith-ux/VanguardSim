@@ -2,6 +2,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { App } from '../renderer/App';
+import { HomeScreen } from '../renderer/home/HomeScreen';
 import { homeArtUrl } from '../renderer/home/art';
 import { cleanName, loadProfile, MAX_NAME, NAME_KEY } from '../renderer/home/profile';
 import { resetProfileCache } from '../renderer/profile/repository';
@@ -9,6 +10,34 @@ import { resetProfileCache } from '../renderer/profile/repository';
 describe('home screen (docs/design/HOME_SCREEN_PLAN.md)', () => {
   beforeEach(() => localStorage.clear());
   afterEach(cleanup);
+
+  it('without the Profile screen, the small editor (UI kit dialog) saves a name; Cancel keeps it', () => {
+    const noop = () => undefined;
+    const actions = {
+      newGame: noop,
+      demo: noop,
+      online: null,
+      onlineReady: false,
+      decks: noop,
+      cards: noop,
+      settings: noop,
+      updates: null,
+      feedback: null,
+      quit: null,
+    };
+    render(<HomeScreen actions={actions} />);
+    fireEvent.click(screen.getByTestId('home-profile'));
+    expect(screen.getByTestId('profile-editor')).toBeTruthy();
+    expect(screen.getByRole('dialog')).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Aichi' } });
+    fireEvent.click(screen.getByTestId('profile-save'));
+    expect(screen.queryByTestId('profile-editor')).toBeNull();
+    expect(screen.getByTestId('profile-name').textContent).toBe('Aichi');
+    fireEvent.click(screen.getByTestId('home-profile'));
+    fireEvent.change(screen.getByTestId('profile-name-input'), { target: { value: 'Kai' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    expect(screen.getByTestId('profile-name').textContent).toBe('Aichi');
+  });
 
   it('START BATTLE opens the game modes, never a match; Back closes them', () => {
     render(<App />);

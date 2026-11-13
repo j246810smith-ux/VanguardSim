@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.42.0-alpha — 2026-11-13
+
+- **New look for the menus:** buttons, option pickers, dropdowns, switches, text fields and dialogs
+  share one design (deep navy, electric blue and cyan, metallic edges) and follow all six colour
+  themes. Dropdowns and dialogs work with the mouse, touch, keyboard, a controller and Android's
+  back button. Settings → **UI Showcase (preview)** shows every control. The battle screen is
+  unchanged.
+- **G Era: the G Legend Decks G-LD01 to G-LD03** (The Dark "Ren Suzugamori", The Overlord blaze
+  "Toshiki Kai", The Blaster "Aichi Sendou"), playable as sold: Blaster Dark "Diablo" makes your
+  hand count as grade 3 for a "Blaster" G unit's stride, Alfred Holy Saver gives Blaster Blade
+  Twin Drive!!, and the rest of the three decks.
+- **Original Era — Expanded: G-BT01 playtest.** 42 G-BT01 cards are approved on the OU list
+  (v1.1); seven are held back for a later comparison test. Four playtest decks (Royal Paladin
+  Seekers, Kagero "The X", Oracle Think Tank Battle Sisters, Nova Grappler Raizers) come first in
+  that format's deck list. A provisional test, not a balance verdict.
+- **G Era: G-BT12 "Dragonic Vanquisher"** (104 cards): Shiranui "Mukuro" dominates your
+  opponent's vanguard to attack all of their rear-guards, afterimage (Nubatama), thunderstrike
+  Narukami (VBUSTER, Grizel), Claret Sword Shadow Paladins (Blue Espada Dragon can pay a stride
+  cost), Oracle Think Tank Battle Sisters, Gear Chronicle Zodiac Time Beasts, Neo Nectar maidens
+  (Ritel Benefit Dragon can be chosen up to five times), Air Elemental, Bluroon. Two cards never
+  printed in English use unofficial translations; seven English texts were repaired.
+- **G Era: the G Trial Decks G-TD09 to G-TD15** (True Zodiac Time Beasts, Ritual of Dragon
+  Sorcery, Divine Knight of Heavenly Decree, Flower Princess of Abundant Blooming, Evil Eye Sovereign,
+  Debut of the Divas, Messiah Dragon of Rebirth), playable as sold. Free strides (Dragheart, Luard;
+  Tirua), units that change grade, and Brave cards that change grade in the deck.
+- G-BT11 Tenrei now has a "Shiranui" vanguard to copy names for.
+
 ## 0.41.0-alpha — 2026-11-13
 
 - **G Era: G-BT11 "Demonic Advent"** (104 cards): Dominate (Nubatama: your opponent's rear-guards

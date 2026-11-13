@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import { deckListOf, LIBRARY, type LibraryDeck } from '../../../src/decks/library';
 import { STARTER_DECKS } from '../../../src/decks/starters';
 import { G_STARTER_DECKS } from '../../../src/decks/gStarters';
+import { OG_PLAYTEST_DECKS } from '../../../src/decks/ogPlaytest';
 import { G_TRIAL_DECKS, TRIAL_DECKS } from '../../../src/decks/trialDecks';
 import {
   PLAY_FORMATS,
@@ -18,13 +19,14 @@ export interface DeckEntry {
   readonly description: string;
   readonly deck: Deck;
   readonly legal: boolean;
-  readonly section: 'library' | 'gtrial' | 'gstarter' | 'starter' | 'trial' | 'mine';
+  readonly section: 'ogplaytest' | 'library' | 'gtrial' | 'gstarter' | 'starter' | 'trial' | 'mine';
   /** A saved deck's own sleeve (D-033). */
   readonly sleeve?: string;
   readonly playmat?: string;
 }
 
 const SECTION_TITLE = {
+  ogplaytest: 'G-BT01 PLAYTEST',
   library: 'TOURNAMENT DECKS',
   gtrial: 'G TRIAL DECKS',
   gstarter: 'G STARTER DECKS',
@@ -49,6 +51,10 @@ export function libraryDescription(d: LibraryDeck): string {
 export function deckEntries(format: FormatKey = 'classic'): DeckEntry[] {
   const rules = PLAY_FORMATS[format].format;
   return [
+    // Original Era — Expanded: the G-BT01 playtest decks first (OU list v1.1)
+    ...(format === 'classic_ou'
+      ? OG_PLAYTEST_DECKS.map((d) => ({ ...d, legal: true, section: 'ogplaytest' as const }))
+      : []),
     ...(format === 'g'
       ? G_TRIAL_DECKS.map((d) => ({ ...d, legal: true, section: 'gtrial' as const }))
       : []),

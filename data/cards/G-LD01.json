@@ -1,0 +1,768 @@
+{
+  "set": "G-LD01",
+  "importedAt": "2026-11-13T14:02:07.797Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-LD01-001",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/001",
+        "name": "暗黒竜 ファントム・ブラスター “Diablo”",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏の「暗黒竜 ファントム・ブラスター “Diablo”」を１枚選び、表にする]あなたのＧゾーンの表のカードが２枚以上なら、そのターン中、このユニットのパワー＋10000/クリティカル＋１し、『【自】【(V)】：[あなたのリアガードを３枚選び、退却させる]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、相手は自分のリアガードを２枚選び、退却させてよい。２枚退却させないなら、そのバトル中、相手はカードを手札から(G)にコールできない。』を得る。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_001.png"
+      },
+      "en": {
+        "number": "G-LD01/001EN",
+        "name": "Dark Dragon, Phantom Blaster \"Diablo\"",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card named \"Dark Dragon, Phantom Blaster \"Diablo\"\" from your G zone, and turn it face up] If the number of face up cards in your G zone is two or more, until end of turn, this unit gets [Power] +10000/[Critical] +1, and \"[AUTO](VC):[Choose three of your rear-guards, and retire them] When this unit attacks a vanguard, you may pay the cost. If you do, your opponent may choose two of his or her rear-guards, and retire them. If two rear-guards were not retired, your opponent cannot call cards from hand to (GC) until end of that battle.\".",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_001.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/001", "G-LD01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F001",
+          "fetchedAt": "2026-11-13T13:54:49.145Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208032632/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/001EN",
+          "fetchedAt": "2019-12-08T03:26:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-002",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/002",
+        "name": "暗黒大魔道士 バイヴ・カー",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札からグレード１以下のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_002.png"
+      },
+      "en": {
+        "number": "G-LD01/002EN",
+        "name": "Dark Great Mage, Badhadh Caar",
+        "text": "[AUTO](VC/RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, search your deck for up to one grade 1 or less card, call it to (RC), and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_002.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/002", "G-LD01/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F002",
+          "fetchedAt": "2026-11-13T13:54:50.286Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208034013/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/002EN",
+          "fetchedAt": "2019-12-08T03:40:13Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-003",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/003",
+        "name": "ブラスター・ダーク “Diablo”",
+        "text": "【永】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：あなたが【超越】のコストを払う際、カード名に「ブラスター」を含むＧユニットが【超越】するなら、あなたの手札のカードのグレードを＋３する。\n【自】【(V)】：あなたのターン中、あなたの「暗黒竜 ファントム・ブラスター “Diablo”」が【超越】した時、相手のリアガードを１枚選び、退却させる。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_003.png"
+      },
+      "en": {
+        "number": "G-LD01/003EN",
+        "name": "Blaster Dark \"Diablo\"",
+        "text": "[CONT](VC)[Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):While you are paying the cost for [Stride], if the G unit you [Stride] has \"Blaster\" in its card name, the cards in your hand get grade+3.\n[AUTO](VC):During your turn, when your \"Dark Dragon, Phantom Blaster \"Diablo\"\" [Stride], choose one of your opponent's rear-guards, and retire it.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_003.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/003", "G-LD01/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F003",
+          "fetchedAt": "2026-11-13T13:54:51.551Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207151308/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/003EN",
+          "fetchedAt": "2019-12-07T15:13:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-004",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/004",
+        "name": "血戦の騎士 ドリン",
+        "text": "【永】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのターン中、あなたのカード名に「ブラスター」を含むグレード３以上のヴァンガードがいるなら、このユニットのパワー＋2000し、『【自】【(R)】：このユニットがヴァンガードにアタックした時、このユニットがカード名に「クローダス」を含むユニットに【ブースト】されているなら、あなたのダメージゾーンから１枚選び、表にする。』を得る。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_004.png"
+      },
+      "en": {
+        "number": "G-LD01/004EN",
+        "name": "Bloodstained Battle Knight, Dorint",
+        "text": "[CONT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):During your turn, if you have a grade 3 or greater vanguard with \"Blaster\" in its card name, this unit gets [Power] +2000, and \"[AUTO](RC):When this unit attacks a vanguard, if this unit is boosted ([Boost]) by a unit with \"Claudas\" in its card name, choose a card from your damage zone, and turn it face up.\".",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gld01/GLD01_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/004", "G-LD01/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F004",
+          "fetchedAt": "2026-11-13T13:54:52.748Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250624233748/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/004EN&expansion=58&view=text",
+          "fetchedAt": "2025-06-24T23:37:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-005",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/005",
+        "name": "闇夜の乙女 マーハ",
+        "text": "【自】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、このユニットが【ブースト】されているなら、コストを払ってよい。払ったら、あなたの山札からグレード１のカードを１枚まで探し、 (R)にコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_005.png"
+      },
+      "en": {
+        "number": "G-LD01/005EN",
+        "name": "Dark Night Maiden, Macha",
+        "text": "[AUTO](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1] When this unit attacks a vanguard, if this unit is boosted ([Boost]), you may pay the cost. If you do, search your deck for up to one grade 1 card, call it to (RC), and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_005.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/005", "G-LD01/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F005",
+          "fetchedAt": "2026-11-13T13:54:53.924Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207133014/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/005EN",
+          "fetchedAt": "2019-12-07T13:30:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-006",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/006",
+        "name": "外道の盾 マクリール",
+        "text": "【自】：このユニットが【インターセプト】した時、あなたの後列のリアガードが１枚以下なら、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_006.png"
+      },
+      "en": {
+        "number": "G-LD01/006EN",
+        "name": "Unorthodox Shield, Mac Lir",
+        "text": "[AUTO]:When this unit intercepts ([Intercept]), if the number of rear-guards in your back row is one or less, this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gld01/GLD01_006EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/006", "G-LD01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F006",
+          "fetchedAt": "2026-11-13T13:54:55.082Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260217173717/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/006EN",
+          "fetchedAt": "2026-02-17T17:37:17Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-007",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/007",
+        "name": "ダークハート・トランペッター",
+        "text": "【自】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「ブラスター」を含むグレード３以上のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札から「ダークハート・トランペッター」以外のグレード１以下のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_007.png"
+      },
+      "en": {
+        "number": "G-LD01/007EN",
+        "name": "Dark Heart Trumpeter",
+        "text": "[AUTO][Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Soul-Blast 1] When this unit is placed on (RC), if you have a grade 3 or greater vanguard with \"Blaster\" in its card name, you may pay the cost. If you do, search your deck for up to one grade 1 or less card not named \"Dark Heart Trumpeter\", call it to (RC), and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_007.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/007", "G-LD01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F007",
+          "fetchedAt": "2026-11-13T13:54:55.828Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210044325/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/007EN",
+          "fetchedAt": "2019-12-10T04:43:25Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-008",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/008",
+        "name": "真黒の賢者 カロン",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からカード名に「ブラスター・ダーク」を含むグレード３のカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルし、あなたの手札から１枚選び、捨てる。\n【永】【(R)】：あなたのユニットの能力のコストであなたのリアガードを退却させる際、あなたのカード名に「ブラスター」を含むグレード３以上のヴァンガードがいるなら、このユニットを２枚分としてよい。",
+        "clan": "シャドウパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_008.png"
+      },
+      "en": {
+        "number": "G-LD01/008EN",
+        "name": "Pitch Black Sage, Charon",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Blaster Dark\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](RC):While you are retiring your rear-guards for the cost of your unit's ability, if you have a grade 3 or greater vanguard with \"Blaster\" in its card name, retiring this unit may be regarded as retiring two rear-guards.",
+        "clan": "Shadow Paladin",
+        "race": "Giant",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_008.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/008", "G-LD01/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F008",
+          "fetchedAt": "2026-11-13T13:54:56.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191021151721/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/008EN",
+          "fetchedAt": "2019-10-21T15:17:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-009",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/009",
+        "name": "力戦の騎士 クローダス",
+        "text": "【永】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：あなたのターン中、あなたのカード名に「ブラスター」を含むグレード３以上のヴァンガードがいるなら、このユニットのパワー＋2000し、『【自】【(R)】：このユニットがカード名に「ドリン」を含むユニットを【ブースト】した時、そのバトル中、【ブースト】されたユニットのパワー＋2000。』を得る。",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_009.png"
+      },
+      "en": {
+        "number": "G-LD01/009EN",
+        "name": "Arduous Battle Knight, Claudas",
+        "text": "[CONT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):During your turn, if you have a grade 3 or greater vanguard with \"Blaster\" in its card name, this unit gets [Power] +2000, and \"[AUTO](RC):When this unit boosts ([Boost]) a unit with \"Dorint\" in its card name, the boosted ([Boost]) unit gets [Power] +2000 until end of that battle.\".",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_009.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/009", "G-LD01/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F009",
+          "fetchedAt": "2026-11-13T13:54:57.732Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191115180745/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/009EN",
+          "fetchedAt": "2019-11-15T18:07:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-010",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/010",
+        "name": "髑髏の魔女っ娘 ネヴァン",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「髑髏の魔女っ娘 ネヴァン」があるなら、１枚引き、あなたの手札から１枚選び、捨てる。",
+        "clan": "シャドウパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_010.png"
+      },
+      "en": {
+        "number": "G-LD01/010EN",
+        "name": "Little Skull Witch, Nemain",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Little Skull Witch, Nemain\" in your drop zone, draw a card, choose a card from your hand, and discard it.",
+        "clan": "Shadow Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_010.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "LD",
+      "printings": ["G-LD01/010", "G-LD01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F010",
+          "fetchedAt": "2026-11-13T13:54:58.472Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209070036/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/010EN",
+          "fetchedAt": "2019-12-09T07:00:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-011",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/011",
+        "name": "フルバウ・ブレイブ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札からカード名に「ブラスター」を含むカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_011.png"
+      },
+      "en": {
+        "number": "G-LD01/011EN",
+        "name": "Fullbau Brave",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC)[Generation Break 1](This ability is active if you have one or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Put this unit into your soul] Search your deck for up to one card with \"Blaster\" in its card name, reveal it to your opponent, put it into your hand, and shuffle your deck.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_011.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/011", "G-LD01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F011",
+          "fetchedAt": "2026-11-13T13:54:59.730Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207134454/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/011EN",
+          "fetchedAt": "2019-12-07T13:44:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-012",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/012",
+        "name": "撃退者 ウーンデッド・エンジェル",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_012.png"
+      },
+      "en": {
+        "number": "G-LD01/012EN",
+        "name": "Revenger, Undead Angel",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Angel",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_012.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/012", "G-LD01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F012",
+          "fetchedAt": "2026-11-13T13:55:00.933Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209232906/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/012EN",
+          "fetchedAt": "2019-12-09T23:29:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-013",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/013",
+        "name": "跳躍の騎士 リガン・ルミナ",
+        "text": "",
+        "clan": "シャドウパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_013.png"
+      },
+      "en": {
+        "number": "G-LD01/013EN",
+        "name": "Leaping Knight, Ligan Lumna",
+        "text": "",
+        "clan": "Shadow Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_013.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/013", "G-LD01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F013",
+          "fetchedAt": "2026-11-13T13:55:01.738Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207141208/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/013EN",
+          "fetchedAt": "2019-12-07T14:12:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-014",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/014",
+        "name": "フラトバウ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_014.png"
+      },
+      "en": {
+        "number": "G-LD01/014EN",
+        "name": "Flatbau",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_014.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/014", "G-LD01/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F014",
+          "fetchedAt": "2026-11-13T13:55:02.494Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191019174204/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/014EN",
+          "fetchedAt": "2019-10-19T17:42:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-LD01-015",
+      "set": "G-LD01",
+      "jp": {
+        "number": "G-LD01/015",
+        "name": "ハウルオウル",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "シャドウパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-LD01/gld01_015.png"
+      },
+      "en": {
+        "number": "G-LD01/015EN",
+        "name": "Howl Owl",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gld01_015.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "LD",
+      "printings": ["G-LD01/015", "G-LD01/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-LD01%2F015",
+          "fetchedAt": "2026-11-13T13:55:03.655Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191019175423/https://en.cf-vanguard.com/cardlist/?cardno=G-LD01/015EN",
+          "fetchedAt": "2019-10-19T17:54:23Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "product": {
+    "name": "Cardfight!! Vanguard G Legend Deck Vol. 1: The Dark “Ren Suzugamori”",
+    "cards": [
+      {
+        "id": "G-LD01-001",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-002",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-003",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-004",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-005",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-006",
+        "count": 2
+      },
+      {
+        "id": "G-LD01-007",
+        "count": 3
+      },
+      {
+        "id": "G-LD01-008",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-009",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-010",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-011",
+        "count": 1
+      },
+      {
+        "id": "G-LD01-012",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-013",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-014",
+        "count": 4
+      },
+      {
+        "id": "G-LD01-015",
+        "count": 4
+      }
+    ],
+    "source": {
+      "url": "https://web.archive.org/web/20180714093029/http://cardfight.wikia.com:80/wiki/G_Legend_Deck_1:_The_Dark_%22Ren_Suzugamori%22",
+      "fetchedAt": "2018-07-14T09:30:29.000Z",
+      "regulation": ""
+    }
+  },
+  "enOnly": []
+}

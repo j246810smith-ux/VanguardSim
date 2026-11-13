@@ -3,7 +3,13 @@
  * legal decks with the cards a scene needs, stride and attack helpers.
  */
 import { SETS } from '../../src/cards';
-import { currentPower, validateDeck, type DeckList, type GameState } from '../../src/engine';
+import {
+  currentPower,
+  validateDeck,
+  type DeckList,
+  type EngineContext,
+  type GameState,
+} from '../../src/engine';
 import { gApply, gAttack, gCtx, gLegal, settle, type Run } from './gEra';
 import { battleScenario, unitAt, type SideSpec } from './scenario';
 
@@ -15,8 +21,13 @@ const POOL = SETS.flatMap((x) => x.file.cards.map((c) => ({ c, g: x.file.set.sta
  * units, then its Classic ones; 16 triggers (at most 4 heals), at most 4 sentinels; the G deck
  * is `g` (4 each).
  */
-export function clanDeck(clan: string, include: string[], g: string[]): DeckList {
-  const legal = new Set(gCtx.format.legalSets);
+export function clanDeck(
+  clan: string,
+  include: string[],
+  g: string[],
+  ctx: EngineContext = gCtx,
+): DeckList {
+  const legal = new Set(ctx.format.legalSets);
   const of = (pred: (c: (typeof POOL)[0]['c']) => boolean) =>
     [...POOL.filter((x) => x.g), ...POOL.filter((x) => !x.g)]
       .map((x) => x.c)
@@ -62,16 +73,16 @@ export function clanDeck(clan: string, include: string[], g: string[]): DeckList
   }
   const gDeck = g.flatMap((id) => [id, id, id, id]).slice(0, 16);
   const deck = { firstVanguard: first, cards: [...cards, ...triggers], gDeck };
-  const issues = validateDeck(deck, gCtx.registry, gCtx.format);
+  const issues = validateDeck(deck, ctx.registry, ctx.format);
   if (issues.length > 0) throw new Error(`${clan}: ${issues.map((i) => i.message).join('; ')}`);
   return deck;
 }
 
 export type Maker = (include: string[]) => DeckList;
 export const maker =
-  (clan: string, g: string[]): Maker =>
+  (clan: string, g: string[], ctx: EngineContext = gCtx): Maker =>
   (inc) =>
-    clanDeck(clan, inc, g);
+    clanDeck(clan, inc, g, ctx);
 
 export function cardsOf(side: SideSpec): string[] {
   const all = [
@@ -91,6 +102,8 @@ interface SceneOpts {
   battles?: number;
   /** Also put these in player 0's deck (e.g. a Legion Mate to search for). */
   also?: string[];
+  /** The context the game is created in (a set still being scripted, not yet in the format). */
+  ctx?: EngineContext;
 }
 
 /** A G-format scene (player 0's turn 3) with the given decks. */
@@ -109,7 +122,7 @@ export function scene(
     makers[0]([...cardsOf(attacker), ...(opts.also ?? [])]),
     makers[1](cardsOf(def)),
   ];
-  let s = battleScenario({ attacker, defender: def, decks, ctx: gCtx, at: 'main' });
+  let s = battleScenario({ attacker, defender: def, decks, ctx: opts.ctx ?? gCtx, at: 'main' });
   if (s.pendingChoice || s.tasks.length > 0) {
     s = structuredClone(s);
     s.pendingChoice = null;

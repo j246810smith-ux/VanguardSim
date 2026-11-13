@@ -961,6 +961,119 @@ All cards complete.
 - G-BT10-103 Maiden of Cucumber — data
 - G-BT10-104 Ringer Paprika — data
 
+## G-BT11
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 104   | 74                  | 104                 | 0               | 0            | 64            | 0   | 0        |
+
+### Incomplete
+
+- G-BT11-001 Holy Divine Knight, Gancelot Peace Saver — no art
+- G-BT11-002 Metapulsar, Mystery-freeze Dragon — no art
+- G-BT11-003 Divine Knight of Valor, Halbwachs — no art
+- G-BT11-004 Goddess of Investigation, Ishtar — no art
+- G-BT11-005 Prime Beauty, Amaruda — no art
+- G-BT11-006 Flare Arms, Ziegenburg — no art
+- G-BT11-007 Dragonic Blademaster "Kouen" — no art
+- G-BT11-008 Enma Stealth Rogue, Mujinlord — no art
+- G-BT11-009 One who Splits Darkness, Bledermaus — no art
+- G-BT11-010 One who Scatters Sin, Scharhrot — no art
+- G-BT11-011 Metapulsar, Avenir Phoenix — no art
+- G-BT11-012 Maiden of Divine Spring, Lien — no art
+- G-BT11-013 Witch Queen of Congratulation, Nasturtium — no art
+- G-BT11-014 Dark Wolf that Hunts Deities, Fenrir — no test, no art
+- G-BT11-015 Goddess of Fort, Kibitsuhime — no test, no art
+- G-BT11-016 Flare Trooper, Dumjid — no test, no art
+- G-BT11-017 Enma Stealth Dragon, Maguntenbu — no art
+- G-BT11-018 Rikudo Stealth Dragon, Gehourakan — no art
+- G-BT11-019 Stealth Dragon, Fuurai — no test, no art
+- G-BT11-020 Stealth Dragon, Utsuroi — no art
+- G-BT11-021 Amon's Red Eye, Forneus — no art
+- G-BT11-022 Closet Balloon — no test, no art
+- G-BT11-023 Pulsar, Drastic Colossus — no art
+- G-BT11-024 Pulsar, Cruising Dragon — no test, no art
+- G-BT11-025 Little Great Sage, Marron — no art
+- G-BT11-026 New Style Blaster, Llew — no art
+- G-BT11-027 Goddess of Twill, Tagwoot — data, no art
+- G-BT11-028 Witch of Pure Star, Anis — data, no art
+- G-BT11-029 Goddess of Favorable Wind, Ninnil — data, no test, no art
+- G-BT11-030 Witch of Aster, Star — data, no art
+- G-BT11-031 知恵の実の魔女 ルイボス — data, no test, no art
+- G-BT11-032 Helldeity Seal Dragon, Granitcross — no art
+- G-BT11-033 Divine Dragon Knight, Abd Salam — no art
+- G-BT11-034 Dragon Knight, Mbudi — no test, no art
+- G-BT11-035 Seal Dragon Prison Guard, Atar — no art
+- G-BT11-036 Rikudo Stealth Rogue, Kurehalord — no art
+- G-BT11-037 Stealth Dragon, Tenrei — no test, no art
+- G-BT11-038 Sorrowful Slice, Lujairus — no art
+- G-BT11-039 Cryptid Gnaw Liege, Sabnac — no art
+- G-BT11-040 Amon's Eye, Agares — no art
+- G-BT11-041 Covetous Succubus — no test, no art
+- G-BT11-042 Brennen Vampir — no test, no art
+- G-BT11-043 Wertiger Jaeger — no art
+- G-BT11-044 Amon's Vallation, Bufstare — no test, no art
+- G-BT11-045 Pulsar Tamer, Manish — no test, no art
+- G-BT11-046 Pulsar, Transit Dragon — no art
+- G-BT11-047 Pulsar, Revolver Dracokid — no art
+- G-BT11-048 Pulsar Tamer, Dagan — data, no art
+- G-BT11-049 Aspire Painter — no art
+- G-BT11-050 Knight of Pulsation, Starius — data, no art
+- G-BT11-051 Arongal — no test, no art
+- G-BT11-052 Battle Maiden, Senri — no art
+- G-BT11-053 Multitask Angel — no art
+- G-BT11-054 Goddess of Transitory, Awanami — data, no test, no art
+- G-BT11-055 Detect Angel — data, no art
+- G-BT11-056 Myth Guard, Markab — data, no art
+- G-BT11-057 Black-feathered Witch, Stevia — data, no test, no art
+- G-BT11-058 Goddess of Headwater, Nakisawame — data, no test, no art
+- G-BT11-059 Wraith Witch, Sorel — data, no art
+- G-BT11-060 Teabreak Angel — data, no art
+- G-BT11-061 トランスポート・ハービィ — data, no test, no art
+- G-BT11-062 Drip Witch, Rosemary — data, no test, no art
+- G-BT11-063 Seal Dragon, Seersucker — data, no art
+- G-BT11-064 Wyvern Strike, Jaugo — no art
+- G-BT11-065 Dragon Knight, Shakur — data, no art
+- G-BT11-066 封竜 グログラン — data, no test, no art
+- G-BT11-067 ワイバーンストライク ヘインガー — data, no test, no art
+- G-BT11-068 ドラゴンナイト ターヘル — data, no art
+- G-BT11-069 Dragon Monk, Shinsen — data, no test, no art
+- G-BT11-070 Seal Dragon, Birdseye — data, no art
+- G-BT11-071 Wyvernkid Deidda — data, no test, no art
+- G-BT11-072 Muzzle Flash Dragon — data, no art
+- G-BT11-073 Dragon Monk, Kikira — data, no art
+- G-BT11-074 Seal Dragon, Artpique — no test, no art
+- G-BT11-075 Dragon Dancer, Nilda — data, no test, no art
+- G-BT11-076 Remarkable Stealth Rogue, Morishige — no art
+- G-BT11-077 Demon Stealth Rogue, Kassen Myouou — no art
+- G-BT11-078 Stealth Beast, Uzuitachi — no art
+- G-BT11-079 Tempest Stealth Rogue, Fuuki — no test, no art
+- G-BT11-080 Stealth Dragon, Tengai — no art
+- G-BT11-081 Aggressive Stealth Rogue, Cheenah — no art
+- G-BT11-082 Hardworking Stealth Rogue, Torasada — no test, no art
+- G-BT11-083 Stealth Fiend, Daruma Collapse — no art
+- G-BT11-084 Spread Arson — data, no test, no art
+- G-BT11-085 Amon's Follower, Audios Thunder — data, no test, no art
+- G-BT11-086 Big Shaker — data, no test, no art
+- G-BT11-087 Amon's Follower, Hateful Cyclone — no art
+- G-BT11-088 Listig Vampir — no test, no art
+- G-BT11-089 Deranged Singular — no test, no art
+- G-BT11-090 Emotional Succubus — no art
+- G-BT11-091 Dark Knight of Nightmareland — no test, no art
+- G-BT11-092 Hysteric Shirley — no test, no art
+- G-BT11-093 Werkatze Rekrut — no art
+- G-BT11-094 Pulsar, Replenish Coatl — no art
+- G-BT11-095 Pulsar, Valve Laser Dragon — no test, no art
+- G-BT11-096 Pulsar, Rewind Tiger — no art
+- G-BT11-097 Pulsar, Nibble Rat — no test, no art
+- G-BT11-098 Pulsar, Bling Hawk — no test, no art
+- G-BT11-099 Pulsar, Sentry Dracokid — no test, no art
+- G-BT11-100 Pulsar, Slash Dog — no art
+- G-BT11-101 Pulsar, Fickle Monkey — no art
+- G-BT11-102 Pulsar Tamer, Annem — no art
+- G-BT11-103 Pulsar Tamer, Mara — no test, no art
+- G-BT11-104 Earth Elemental, Connell — no art
+
 ## G-FC01
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |

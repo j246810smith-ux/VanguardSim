@@ -209,6 +209,12 @@ export type GameEvent =
       readonly instanceId: InstanceId;
     }
   | {
+      /** CR 1.48.1 10.35 Dominate (G-BT11): `player` dominates these units of the other player. */
+      readonly type: 'DOMINATED';
+      readonly player: PlayerId;
+      readonly instanceIds: readonly InstanceId[];
+    }
+  | {
       /** CR 1.48.1 11.24 Engorge (G-BT10): this unit became engorged. */
       readonly type: 'ENGORGED';
       readonly player: PlayerId;

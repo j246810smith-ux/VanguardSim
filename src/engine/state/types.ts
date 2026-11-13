@@ -72,6 +72,10 @@ export interface RuntimeCard {
   charging?: boolean;
   /** CR 1.48.1 11.24 Engorge: engorged until end of turn (G-BT10). Cleared off the field and when a turn starts. */
   engorged?: boolean;
+  /** CR 1.48.1 10.35: the dominating player while this unit is dominated (its master for now). */
+  dominatedBy?: PlayerId;
+  /** The ability frame whose effect dominates it: domination ends when that effect has resolved (10.35.1.2). */
+  dominatedIn?: number;
   /** In the bind zone: the card whose effect bound it ("cards bound with this card's effect"). */
   boundBy?: InstanceId;
 }
@@ -258,6 +262,10 @@ export interface BattleState {
   hits: InstanceId[];
   /** "This unit gets drive check+1 until end of that battle": extra drive checks of the attacker. */
   driveBonus?: number;
+  /** An attack made by an effect (a dominated unit attacks, CR 1.48.1 10.35): no new start step after it. */
+  readonly byEffect?: boolean;
+  /** "At the end of that battle, retire the dominated unit" (G-BT11 Maguntenbu). */
+  readonly retireAttacker?: boolean;
 }
 
 /** A decision the engine is waiting for. Answered with a CHOOSE command. */

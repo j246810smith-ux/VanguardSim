@@ -45,7 +45,43 @@ export function namesOf(state: GameState, ctx: EngineContext, id: InstanceId): r
     if (g.target !== id || g.ability.kind !== 'CONT') continue;
     for (const e of g.ability.effects) if (e.ce === 'also_named') names.push(e.name);
   }
+  for (const vg of copiedVanguards(state, ctx, id)) names.push(...namesOf(state, ctx, vg));
   return names.length === 1 ? names : [...new Set(names)];
+}
+
+/**
+ * The opponent's vanguards whose names and clans this vanguard gets (G-BT11 Tenrei): during its
+ * player's turn, from a rear-guard of theirs with `vanguard_copies_opponent` whose Generation Break
+ * is met, if this vanguard's printed name has the part.
+ */
+function copiedVanguards(state: GameState, ctx: EngineContext, id: InstanceId): InstanceId[] {
+  const p = state.players[state.activePlayer];
+  if (!p.circles.vanguard.includes(id)) return [];
+  const own = definitionOf(state, ctx, id).name;
+  const generation =
+    p.gzone.filter((g) => state.cards[g]!.faceUp).length +
+    p.circles.vanguard.filter(
+      (v) => state.cards[v]!.faceUp && definitionOf(state, ctx, v).cardType === 'g_unit',
+    ).length;
+  const active = REAR_GUARD.some((c) =>
+    p.circles[c].some((rg) => {
+      const card = state.cards[rg]!;
+      if (card.locked || card.deleted) return false;
+      return definitionOf(state, ctx, rg).abilities.some(
+        (a) =>
+          a.kind === 'CONT' &&
+          a.effects.some(
+            (e) =>
+              e.ce === 'vanguard_copies_opponent' &&
+              own.includes(e.vanguardNameIncludes) &&
+              generation >= e.generationBreak,
+          ),
+      );
+    }),
+  );
+  if (!active) return [];
+  const opp = state.players[1 - state.activePlayer]!;
+  return [...opp.circles.vanguard];
 }
 
 /** Is the card in one of these ability zones (unconditional printed name abilities only)? */
@@ -147,7 +183,8 @@ export function clansOf(state: GameState, ctx: EngineContext, id: InstanceId): r
       }
     }
   }
-  return also.length === 0 ? [def.clan] : [def.clan, ...also];
+  for (const vg of copiedVanguards(state, ctx, id)) also.push(...clansOf(state, ctx, vg));
+  return also.length === 0 ? [def.clan] : [...new Set([def.clan, ...also])];
 }
 
 /** Do two cards share a clan? */

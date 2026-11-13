@@ -89,8 +89,11 @@ export function validateAbilities(
             bound.add(st.as);
             break;
           case 'draw':
+            if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
+            break;
           case 'soul_charge':
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
+            if (st.as) bound.add(st.as);
             break;
           case 'shuffle':
           case 'extra_turn':
@@ -178,7 +181,9 @@ export function validateAbilities(
             e.ce === 'nullify_triggers' ||
             e.ce === 'stride_grade' ||
             e.ce === 'deck_grade' ||
-            e.ce === 'all_clans'
+            e.ce === 'all_clans' ||
+            e.ce === 'vanguard_copies_opponent' ||
+            e.ce === 'stride_soul_cost'
           )
             continue;
           checkSelector(e.target, 'effect');

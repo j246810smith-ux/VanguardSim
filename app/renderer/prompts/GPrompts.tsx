@@ -57,8 +57,18 @@ export function StridePrompt({
     (sum, id) => sum + (stride.discardGrades?.[id] ?? defOf(view, id)?.grade ?? 0),
     0,
   );
-  const toggle = (id: InstanceId) =>
+  const toggle = (id: InstanceId) => {
+    setSoulPick([]);
     setDiscard((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
+  };
+  // Amaruda (G-BT11): pay "[Soul-Blast n]-cards with the revelation ability" instead
+  const soulCost = stride.soulCost;
+  const [soulPick, setSoulPick] = useState<readonly InstanceId[]>([]);
+  const toggleSoul = (id: InstanceId) => {
+    setDiscard([]);
+    setSoulPick((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
+  };
+  const paySoul = soulCost !== undefined && soulPick.length === soulCost.n;
   return (
     <div className="prompt g-prompt" data-testid="stride-prompt">
       <h3>
@@ -83,14 +93,39 @@ export function StridePrompt({
           <Pick key={id} view={view} id={id} on={discard.includes(id)} onClick={() => toggle(id)} />
         ))}
       </div>
+      {soulCost && (
+        <>
+          <div className="hint">
+            Or Soul-Blast {soulCost.n} cards with the revelation ability (chosen {soulPick.length}):
+          </div>
+          <div className="pick-grid">
+            {soulCost.cards.map((id) => (
+              <Pick
+                key={id}
+                view={view}
+                id={id}
+                on={soulPick.includes(id)}
+                onClick={() => toggleSoul(id)}
+              />
+            ))}
+          </div>
+        </>
+      )}
       <div className="buttons">
         <button className="btn" onClick={onClose}>
           Cancel
         </button>
         <button
           className="btn primary"
-          disabled={grades < 3}
-          onClick={() => onSend({ type: 'STRIDE', player: ME, cardId: unit, discard })}
+          disabled={!paySoul && grades < 3}
+          onClick={() =>
+            onSend({
+              type: 'STRIDE',
+              player: ME,
+              cardId: unit,
+              discard: paySoul ? soulPick : discard,
+            })
+          }
           data-testid="stride-go"
         >
           Stride {name(view, unit)}

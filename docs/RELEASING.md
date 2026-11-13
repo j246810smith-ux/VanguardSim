@@ -23,6 +23,7 @@ Releases are tagged `v<version>`:
 - `v0.38.0-alpha` — Player Profile (titles, banners, statistics, match history), EXP and levels, Sync devices (phone ↔ PC).
 - `v0.39.0-alpha` — G zone viewer fix, Blaster Blade Seeker art fix, controller support (Windows), animated numbers; G-BT10, G-FC01, G-FC02.
 - `v0.40.0-alpha` — Hard AI G Era fixes (G Assist, stride cost), draw animation, bigger deck pile.
+- `v0.41.0-alpha` — G-BT11 "Demonic Advent" (Dominate, Amaruda's soul-blast stride cost, Connell), two-race cards fix (G-BT09 Zodiac Time Beasts).
 - `v0.36.0-alpha` — Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles, drag by finger, backgrounds); G-TD06–08, G-BT06.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.

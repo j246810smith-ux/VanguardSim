@@ -88,7 +88,11 @@ export class BasicController implements PlayerController {
       const best = [...stride.cardIds].sort(
         (a, b) => (this.def(s, b)?.power ?? 0) - (this.def(s, a)?.power ?? 0),
       )[0]!;
-      return { type: 'STRIDE', player, cardId: best, discard: stride.suggestedDiscard };
+      // Amaruda's soul blast keeps the hand (G-BT11)
+      const discard = stride.soulCost
+        ? stride.soulCost.cards.slice(0, stride.soulCost.n)
+        : stride.suggestedDiscard;
+      return { type: 'STRIDE', player, cardId: best, discard };
     }
 
     const call = find('CALL');

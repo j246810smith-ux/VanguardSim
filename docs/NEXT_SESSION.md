@@ -15,6 +15,41 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ Pick up here (2026-11-13, afternoon) — G-BT11 complete on `sets/g-bt11`; next G-BT12
+
+Worktree `source\VanguardSim-sets2`, branch **`sets/g-bt11`** (from master f8df856). Not merged,
+not released. **G-BT11 is fully scripted** (104 cards, one commit per clan) and is in `G_SETS`;
+`CARD_DATA_VERSION` = `g-bt11-1.0.0`; CHANGELOG "Unreleased" lists it. Rulings: UNRESOLVED_RULINGS
+"G-BT11 notes".
+
+- Engine added on this branch: Dominate (CR 1.48.1 10.35: `dominate_attack`, `dominate_to_guardian`,
+  `effect_attack` battles, guard commands `unshift`, `runTasks` stops at the guard step), `open_rc`,
+  placed `byYourCard`, stands `byEffect`, `attack_not_hit`, `soul_charge` `as`, `stride_grade`
+  `soulWithAbility`, `stride_soul_cost` (Amaruda; STRIDE legal action `soulCost`, stride prompt and
+  AIs), `vanguard_copies_opponent` (Tenrei), `must_be_chosen` (Connell), `nameIncludes` /
+  `heart_named` / `race` lists, zone filter `circle`.
+- **Bug fix that also affects released sets:** race filters compared the whole race string, so the
+  G-BT09 <Zodiac Time Beast> abilities never matched ("Gear Beast/Zodiac Time Beast"). `hasRace`
+  in evaluate.ts splits on "/".
+- Not tested yet: Tenrei's name copy (needs a "Shiranui" vanguard: G-BT12-002), Mystery-freeze's
+  guard lock. The stride prompt's soul option was not looked at in the app.
+- **Next:** merge `sets/g-bt11` into master (fast-forward from f8df856 unless master moved), release
+  0.41.0-alpha with G-BT11, then G-BT12 (G-BT12-045 = `{ sameAs: 'G-FC02-024' }`; add a Tenrei test
+  with Shiranui "Mukuro").
+
+## ▶ Pick up here (2026-11-13, morning) — v0.40.0-alpha published; next: Dominate (G-BT11)
+
+**Released:** v0.40.0-alpha (dev tag at f5585b9 on master; public mirror 3307a1c pushed with the tag;
+GitHub pre-release with the zip, portable exe, signed update files and the APK). Full suite 3653
+green, `dist:smoke` passed, `release:verify` passed, ui:shots checked (DECK tile clear of DROP and
+G ZONE). `release/prev/manifest.json` now holds 0.40's manifest for the next release.
+The interrupted build had left a truncated 86 MB zip: always compare sizes with the last release.
+The public mirror's `git add` hit the permission glitch once; a retry worked.
+
+Not yet checked by a human: the APK on the Pixel (install or update in the app), the draw animation.
+Old drafts on GitHub (0.38, 0.39 duplicates from the Actions workflow) can be deleted.
+Next: finish Dominate on `wip/dominate` (7fbb506), then script G-BT11.
+
 ## ▶ Pick up here (2026-11-12, later) — G Era AI audit: two AI fixes on `ai/g-era`, ready to merge
 
 The user asked for a G Era audit of the Hard AI, then: "everything you have found so far that is worth

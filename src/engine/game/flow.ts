@@ -239,8 +239,9 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
           moveCard(d, t.id, { player: defender, zone: 'drop' }, 'retire');
         }
       }
+      // to its owner's drop zone: a dominated unit moved to (GC) (CR 1.48.1 10.35.4.1, Gehourakan)
       for (const g of [...s.players[defender].guardian]) {
-        moveCard(d, g, { player: defender, zone: 'drop' }, 'retire');
+        moveCard(d, g, { player: s.cards[g]!.owner, zone: 'drop' }, 'retire');
       }
       // CR 7.6.1.9: "when attack hits" abilities trigger after retirement (once per unit hit).
       for (const t of hitUnits) {
@@ -250,13 +251,20 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       return;
     }
 
-    case 'end_battle':
+    case 'end_battle': {
+      const b = s.battle;
+      // "at the end of that battle, retire the dominated unit" (G-BT11 Maguntenbu)
+      if (b?.retireAttacker && isOnCircle(s, b.attacker, b.attackerCircle)) {
+        moveCard(d, b.attacker, { player: s.cards[b.attacker]!.owner, zone: 'drop' }, 'retire');
+      }
       // CR 7.7.1.2: the battle ends and "until end of battle" effects cease.
       expire(d, 'end_of_battle');
       s.battle = null;
       emit(d, { type: 'BATTLE_ENDED' });
-      s.tasks.unshift({ kind: 'start_step' });
+      // an attack made during an effect goes back to that effect, not to the start step
+      if (!b?.byEffect) s.tasks.unshift({ kind: 'start_step' });
       return;
+    }
   }
 }
 

@@ -43,14 +43,15 @@ export interface CardFilter {
   readonly notName?: string;
   /** "without X in its card name" (G-BT08 Cody the Ghostie). */
   readonly notNameIncludes?: string;
-  /** "a card with X in its card name" */
-  readonly nameIncludes?: string;
+  /** "a card with X in its card name"; a list: "with X or Y in its card name" (G-BT11 "Alfred" or "Blaster") */
+  readonly nameIncludes?: string | readonly string[];
   readonly clan?: string;
   readonly notClan?: string;
   /** Same clan as the ability's source card (e.g. Forerunner, Lord). */
   readonly sameClanAsSource?: boolean;
   readonly differentClanFromSource?: boolean;
-  readonly race?: string;
+  /** A race; a list: "<Gear Colossus> or <Zodiac Time Beast>" (G-BT11). */
+  readonly race?: string | readonly string[];
   readonly grade?: Range;
   /** A specific trigger icon, any trigger, or no trigger. */
   readonly trigger?: TriggerType | 'any' | 'none';
@@ -76,6 +77,8 @@ export interface CardFilter {
   /** Is a vanguard (on VC; both units of a legion are vanguards, CR 10.1.24.3). */
   readonly isVanguard?: boolean;
   readonly excludeSelf?: boolean;
+  /** Is a dominated unit (CR 1.48.1 10.35): "when a dominated unit attacks" (G-BT11). */
+  readonly dominated?: boolean;
   /** Is the ability's own card ("when your drive check reveals this card", G-FC02 Daibazooka). */
   readonly isSource?: boolean;
   /** "with X in its original card name": the printed name only (G-FC02 Dehtail, Magnus). */
@@ -86,8 +89,8 @@ export interface CardFilter {
   readonly sameNameAsBound?: string;
   /** Not one of the cards bound as this name; '__event': not the event card ("your other units", G-FC01 Multivitamin Dragon). */
   readonly notBound?: string;
-  /** The card is (still) in this zone, e.g. looked-at cards that were not taken from the deck. */
-  readonly zone?: 'deck' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind';
+  /** The card is (still) in this zone, e.g. looked-at cards that were not taken from the deck; `circle`: on (VC) or (RC). */
+  readonly zone?: 'deck' | 'hand' | 'soul' | 'drop' | 'damage' | 'bind' | 'circle';
   /** On a circle in the same column as the ability's source (CR 4.6.2: VC is in the centre column). */
   readonly sameColumnAsSource?: boolean;
   /** Bound by an effect of the ability's source ("a card bound with this card's effect"). */
@@ -222,7 +225,7 @@ export type Condition =
   /** `min`: "three or more of your cards were put into your drop zone from your soul" (G-BT08 Skuld). */
   | { readonly cond: 'dropped_from_soul_this_turn'; readonly min?: number }
   /** "if you have a heart card with X in its card name" (G-BT04 Chronodragon Nextage). */
-  | { readonly cond: 'heart_named'; readonly part: string }
+  | { readonly cond: 'heart_named'; readonly part: string | readonly string[] }
   /** "If you have a <race> heart card" (G-BT07 Bind Time Dragon: <Gear Beast>). */
   | { readonly cond: 'heart_race'; readonly race: string }
   /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
@@ -235,6 +238,13 @@ export type Condition =
   | { readonly cond: 'darkness' }
   /** Blaze (G-BT07): your vanguard is blazing. */
   | { readonly cond: 'blazing' }
+  /** "for each of your opponent's open (RC) (in the back row)": the number of empty rear-guard circles (G-BT11). */
+  | {
+      readonly cond: 'open_rc';
+      readonly player: 'you' | 'opponent';
+      readonly row?: 'front' | 'back';
+      readonly range: Range;
+    }
   /** A unit was placed on that player's (VC) during the ride phase of their latest turn (G-BT06 Twitterun). */
   | { readonly cond: 'placed_on_vc_in_ride_phase'; readonly player: 'you' | 'opponent' }
   /** The printed power of the selected cards adds up to `range` ("if the [Power] increased with this effect is 20000 or greater", G-FC01 Pearly Titan). */
@@ -276,7 +286,12 @@ export type Restriction =
    * Resist (G era, CR 1.48.1 10.2.9): "this unit cannot be chosen by the effects of your
    * opponent's cards" (a `choose` step of an ability whose master is the other player).
    */
-  | 'resist';
+  | 'resist'
+  /**
+   * "When your units would be chosen by any fighter due to the effect of your opponent's card,
+   * choose units including this unit as much as possible" (G-BT11 Earth Elemental, Connell).
+   */
+  | 'must_be_chosen';
 /** Rule permissions a continuous ability can give. */
 export type Permission =
   | 'attack_back_row_same_column'
@@ -508,6 +523,22 @@ export type Step =
    * of the attacked vanguard, like an intercept.
    */
   | { readonly op: 'to_guardian'; readonly target: Selector }
+  /**
+   * Dominate (CR 1.48.1 10.35, G-BT11): [Stand] the opponent's rear-guards among the targets,
+   * dominate them, and each attacks (`attack`) one at a time while this effect resolves; with
+   * `retireAfter`, each is retired at the end of its battle (Maguntenbu).
+   */
+  | {
+      readonly op: 'dominate_attack';
+      readonly target: Selector;
+      readonly attack: 'vanguard' | 'back_row' | 'other_unit';
+      readonly retireAfter?: true;
+    }
+  /**
+   * "dominate it, and move it to your (GC). (It is regarded as your guardian until end of that
+   * battle)" (G-BT11 Gehourakan): it guards the attacked unit.
+   */
+  | { readonly op: 'dominate_to_guardian'; readonly target: Selector }
   /** "heal it": the damage-zone cards go to the drop zone (Rescue records them, G-BT07). */
   | { readonly op: 'heal'; readonly target: Selector; readonly rescue?: boolean }
   /** Blaze (G-BT07): if you have more rear-guards than your opponent, your vanguard becomes blazing. */
@@ -529,7 +560,8 @@ export type Step =
    */
   | { readonly op: 'put_on_vc'; readonly target: Selector }
   /** CR 10.1.17: top n cards of your deck into your soul. */
-  | { readonly op: 'soul_charge'; readonly n: number }
+  /** `as`: bind the cards put into the soul ("if the card [Soul-Charge] has …", G-BT11). */
+  | { readonly op: 'soul_charge'; readonly n: number; readonly as?: string }
   | { readonly op: 'shuffle' }
   /** "You get an additional turn" (G era): the master takes the next turn as well. */
   | { readonly op: 'extra_turn' }
@@ -668,6 +700,11 @@ export type TriggerCondition =
       readonly from?: 'hand' | 'deck' | 'drop' | 'soul' | 'damage' | 'bind';
       /** "placed on (RC) due to an effect from one of your cards" (a superior call by you). */
       readonly byYourEffect?: boolean;
+      /**
+       * "due to the effects of your card": the card whose effect it was is yours, even when the
+       * other player made the call (G-BT11 Atar: Seersucker makes your opponent call a grade 2).
+       */
+      readonly byYourCard?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
       readonly causeFilter?: CardFilter;
     }
@@ -691,6 +728,8 @@ export type TriggerCondition =
       readonly who: Subject;
       readonly target?: 'vanguard' | 'rear-guard';
     }
+  /** "When an attack did not hit" (G-BT11 Werkatze Rekrut, on (GC)): an attacked unit was not hit. */
+  | { readonly on: 'attack_not_hit' }
   /** CR 10.1.3: moved from the field to the drop zone. */
   | { readonly on: 'retired'; readonly who: Subject }
   /** "At the beginning of …" (whose = whose turn it must be). */
@@ -721,6 +760,8 @@ export type TriggerCondition =
       readonly who: Subject;
       /** "[Stand] due to an effect from one of your cards" (abilities and trigger effects). */
       readonly byYourEffect?: boolean;
+      /** "[Stand] due to the effect of a card" (anyone's; not the stand phase) (G-BT11 Daruma Collapse). */
+      readonly byEffect?: boolean;
     }
   /** "When your opponent's rear-guard is put into his or her deck due to an effect from one of your (other) cards" */
   | {
@@ -897,8 +938,23 @@ export type ContinuousEffect =
   | { readonly ce: 'retire_counts_two' }
   /** "it becomes [Limit-Break 4] as long as this unit is on the field" (G-BT04 Dark Elemental, Doxic). */
   | { readonly ce: 'limit_break_five_as_four' }
+  /**
+   * "[CONT](VC):You may pay "[Soul-Blast n]-cards with the <keyword> ability" as the cost for
+   * [Stride]" (G-BT11 Amaruda): read by strideSoulCost while this unit is your vanguard.
+   */
+  | { readonly ce: 'stride_soul_cost'; readonly n: number; readonly abilityText: string }
   /** A gained card name, granted by `also_named_as` and read by namesOf. */
   | { readonly ce: 'also_named'; readonly name: string }
+  /**
+   * "[CONT](RC)[Generation Break n]:During your turn, your vanguard with <part> in its card name gets
+   * all of your opponent's vanguards' card names, clans, races, and nations" (G-BT11 Tenrei). Read by
+   * namesOf and clansOf (races and nations are not modelled: no card reads them).
+   */
+  | {
+      readonly ce: 'vanguard_copies_opponent';
+      readonly vanguardNameIncludes: string;
+      readonly generationBreak: number;
+    }
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
   | { readonly ce: 'deck_limit'; readonly copies: number }
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
@@ -911,6 +967,8 @@ export type ContinuousEffect =
       readonly vanguardNameIncludes?: string;
       /** "If you have a grade 3 card with X in its card name in your soul" (G-BT10 Neptune Blaukluger). */
       readonly soulGrade3NameIncludes?: string;
+      /** "if the number of cards in your soul with the <keyword> ability is n or more" (G-BT11 Wertiger Jaeger). */
+      readonly soulWithAbility?: { readonly text: string; readonly min: number };
     }
   /**
    * "[CONT]Deck:If you have a vanguard with <part> in its card name, this card gets grade +n" (G-BT06

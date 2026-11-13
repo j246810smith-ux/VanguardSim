@@ -1,8 +1,8 @@
-import { isChoiceTask } from '../state/tasks';
-import { other, unitsOf, type InstanceId } from '../state/types';
+import { isChoiceTask, type Task } from '../state/tasks';
+import { other, unitsOf, vanguardOf, type Circle, type InstanceId } from '../state/types';
 import { ask } from './choice';
 import { locate } from './locate';
-import { hasPermission } from '../abilities/continuous';
+import { hasPermission, isRestricted } from '../abilities/continuous';
 import { attackOptions } from './combat';
 import { emit, type Draft } from './context';
 import { moveCard, setOrientation } from './zones';
@@ -73,14 +73,100 @@ export function declareAttack(
     booster: s.battle.booster,
   });
   // the extra targets are chosen with the attack, before "when this unit attacks" abilities play
+  const next: Task[] = [];
   if (hasPermission(s, d.ctx, attacker, 'attack_four_units')) {
-    s.tasks.push({ kind: 'choose_attack_targets', atomic: true });
+    next.push({ kind: 'choose_attack_targets', atomic: true });
   } else if (hasPermission(s, d.ctx, attacker, 'attack_three_per_heart')) {
     // the declared target is one of the chosen units: up to 3 × hearts in all
     const hearts = Math.max(1, s.players[s.activePlayer].hearts.length);
-    s.tasks.push({ kind: 'choose_attack_targets', upTo: 3 * hearts - 1, atomic: true });
+    next.push({ kind: 'choose_attack_targets', upTo: 3 * hearts - 1, atomic: true });
   }
-  s.tasks.push({ kind: 'guard_step_start' });
+  next.push({ kind: 'guard_step_start' });
+  // in front of anything still queued: an attack made during an effect (Dominate) has the rest of
+  // that effect behind it
+  s.tasks.unshift(...next);
+}
+
+const BACK_ROW_CIRCLES: readonly Circle[] = ['back_left', 'back_center', 'back_right'];
+
+/**
+ * A dominated unit attacks by an effect (CR 1.48.1 10.35, G-BT11): no booster, no start step after
+ * the battle. It does not attack if it has left its circle, is no longer dominated, is resting, or
+ * cannot attack any of the units the effect names.
+ */
+export function effectAttack(d: Draft, task: Extract<Task, { kind: 'effect_attack' }>): boolean {
+  const s = d.state;
+  const attacker = task.attacker;
+  const card = s.cards[attacker];
+  if (!card || card.dominatedBy !== s.activePlayer) return true;
+  const at = locate(s, attacker);
+  if (at.zone !== 'circle' || card.orientation !== 'stand') return true;
+  if (isRestricted(s, d.ctx, attacker, 'cannot_attack')) return true;
+  const defender = other(s.activePlayer);
+  const opp = s.players[defender];
+  // the opponent's units: a dominated unit is not one of them (10.35.1.1.1)
+  const theirs = (circles: readonly Circle[]) =>
+    circles.flatMap((circle) => {
+      const id = circle === 'vanguard' ? vanguardOf(opp) : opp.circles[circle].at(-1);
+      if (id === undefined || id === null || id === attacker) return [];
+      const c = s.cards[id]!;
+      return c.locked || c.dominatedBy !== undefined ? [] : [{ id, circle }];
+    });
+  const all: Circle[] = ['vanguard', 'front_left', 'front_right', ...BACK_ROW_CIRCLES];
+  const options = (
+    task.target === 'vanguard'
+      ? theirs(['vanguard'])
+      : task.target === 'back_row'
+        ? theirs(BACK_ROW_CIRCLES)
+        : theirs(all)
+  ).filter(
+    (t) =>
+      !(t.circle === 'vanguard' && isRestricted(s, d.ctx, attacker, 'cannot_attack_vanguard')) &&
+      !(t.circle !== 'vanguard' && isRestricted(s, d.ctx, attacker, 'cannot_attack_rear_guard')),
+  );
+  if (options.length === 0) return true;
+  const picked =
+    options.length === 1
+      ? [options[0]!.id]
+      : ask(d, task, {
+          player: s.activePlayer,
+          kind: 'select',
+          options: options.map((o) => o.id),
+          min: 1,
+          max: 1,
+          prompt: 'Choose the unit the dominated unit attacks',
+        });
+  if (picked === null) return false;
+  const target = options.find((o) => o.id === picked[0])!;
+
+  emit(d, { type: 'STEP_STARTED', step: 'attack' });
+  setOrientation(d, attacker, 'rest');
+  s.battle = {
+    attacker,
+    attackerCircle: at.circle,
+    attackerMate: null,
+    target: target.id,
+    targetCircle: target.circle,
+    extraTargets: [],
+    guarding: {},
+    booster: null,
+    boosterCircle: null,
+    step: 'resolving',
+    hit: null,
+    hits: [],
+    byEffect: true,
+    ...(task.retireAfter ? { retireAttacker: true } : {}),
+  };
+  s.turnFlags.battles = (s.turnFlags.battles ?? 0) + 1;
+  emit(d, {
+    type: 'ATTACK_DECLARED',
+    player: s.activePlayer,
+    attacker,
+    target: target.id,
+    booster: null,
+  });
+  s.tasks.unshift({ kind: 'guard_step_start' });
+  return true;
 }
 
 /**
@@ -123,7 +209,7 @@ export function callGuardian(d: Draft, cardId: InstanceId, guarding?: InstanceId
   if (guarding !== undefined) d.state.battle!.guarding[cardId] = guarding;
   moveCard(d, cardId, { player: defender, zone: 'guardian' }, 'guard', { orientation: 'rest' });
   emit(d, { type: 'GUARDIAN_CALLED', player: defender, instanceId: cardId });
-  d.state.tasks.push({ kind: 'guard_play_timing' });
+  d.state.tasks.unshift({ kind: 'guard_play_timing' });
 }
 
 /** CR 7.4.1.2.2 / 10.2.2: move a front-row rear-guard with Intercept to the guardian circle. */
@@ -135,13 +221,13 @@ export function intercept(d: Draft, unitId: InstanceId, guarding?: InstanceId): 
     orientation: 'rest',
   });
   emit(d, { type: 'INTERCEPTED', player: defender, instanceId: unitId });
-  d.state.tasks.push({ kind: 'guard_play_timing' });
+  d.state.tasks.unshift({ kind: 'guard_play_timing' });
 }
 
 /** CR 7.4.1.2.3: the defender stops guarding. */
 export function passGuard(d: Draft): void {
   d.state.battle!.step = 'resolving';
-  d.state.tasks.push({ kind: 'guard_step_end' });
+  d.state.tasks.unshift({ kind: 'guard_step_end' });
 }
 
 /** Answer the pending choice; the task that asked continues when the tasks run. */

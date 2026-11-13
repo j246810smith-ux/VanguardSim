@@ -88,7 +88,12 @@ function declarableNames(ctx: EngineContext, filter: CardFilter): string[] {
   const names = new Set<string>();
   for (const def of ctx.registry.all()) {
     if (filter.clan !== undefined && def.clan !== filter.clan) continue;
-    if (filter.nameIncludes !== undefined && !def.name.includes(filter.nameIncludes)) continue;
+    const parts = filter.nameIncludes;
+    if (
+      parts !== undefined &&
+      !(typeof parts === 'string' ? [parts] : parts).some((x) => def.name.includes(x))
+    )
+      continue;
     if (filter.grade?.min !== undefined && def.grade < filter.grade.min) continue;
     if (filter.grade?.max !== undefined && def.grade > filter.grade.max) continue;
     names.add(def.name);
@@ -646,16 +651,29 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         frame.bindings[step.as] = kept;
         return true;
       }
-      const picked = ask(d, task, {
-        player: step.chooser === 'opponent' ? other(frame.master) : frame.master,
-        kind: 'select',
-        options,
-        min: step.upTo ? 0 : count,
-        max: count,
-        prompt: step.prompt ?? `Choose ${step.upTo ? 'up to ' : ''}${step.count}`,
-      });
+      // Connell (G-BT11): the other player's units that must be chosen are chosen first
+      const forced = options
+        .filter(
+          (id) =>
+            onField(s, id) &&
+            locate(s, id).player !== frame.master &&
+            isRestricted(s, d.ctx, id, 'must_be_chosen'),
+        )
+        .slice(0, count);
+      const rest = count - forced.length;
+      const picked =
+        rest === 0
+          ? []
+          : ask(d, task, {
+              player: step.chooser === 'opponent' ? other(frame.master) : frame.master,
+              kind: 'select',
+              options: options.filter((id) => !forced.includes(id)),
+              min: step.upTo ? 0 : rest,
+              max: rest,
+              prompt: step.prompt ?? `Choose ${step.upTo ? 'up to ' : ''}${step.count}`,
+            });
       if (picked === null) return false;
-      frame.bindings[step.as] = [...kept, ...picked];
+      frame.bindings[step.as] = [...kept, ...forced, ...picked];
       return true;
     }
     case 'choose_random': {
@@ -1112,6 +1130,51 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       }
       return true;
     }
+    case 'dominate_attack': {
+      // CR 1.48.1 10.35: only the opponent's rear-guards, not already dominated (10.35.1.1.2)
+      const opp = other(frame.master);
+      const units = targets.filter((id) => {
+        const at = locate(s, id);
+        const card = s.cards[id]!;
+        return (
+          at.zone === 'circle' &&
+          at.circle !== 'vanguard' &&
+          at.player === opp &&
+          !card.locked &&
+          card.dominatedBy === undefined
+        );
+      });
+      if (units.length === 0) return true;
+      for (const id of units) setOrientation(d, id, 'stand', frame.master, frame.source);
+      dominate(d, units, frame);
+      // "each attacks … one at a time": the battles take place while this effect resolves
+      s.tasks.unshift(
+        ...units.map((attacker): Task => ({
+          kind: 'effect_attack',
+          attacker,
+          target: step.attack,
+          ...(step.retireAfter ? { retireAfter: true as const } : {}),
+        })),
+      );
+      return true;
+    }
+    case 'dominate_to_guardian': {
+      const b = s.battle;
+      const opp = other(frame.master);
+      for (const id of targets) {
+        const at = locate(s, id);
+        const card = s.cards[id]!;
+        if (at.zone !== 'circle' || at.circle === 'vanguard' || at.player !== opp) continue;
+        if (card.locked || card.dominatedBy !== undefined) continue;
+        dominate(d, [id], frame);
+        // a circle-to-circle move: it stays the same card (CR 4.1.4), now the master's guardian
+        moveCard(d, id, { player: frame.master, zone: 'guardian' }, 'effect', {
+          orientation: 'rest',
+        });
+        if (b) b.guarding[id] = b.target;
+      }
+      return true;
+    }
     case 'hollow': {
       // CR 1.48.1 11.33.2: at the end of the turn a hollowed unit goes to the drop zone (a retire)
       const steps: Step[] = [];
@@ -1323,13 +1386,18 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         s.suppressions.push({ target, what: step.what, until: step.duration });
       }
       return true;
-    case 'soul_charge':
+    case 'soul_charge': {
+      const charged: InstanceId[] = [];
       for (let i = 0; i < step.n; i++) {
         const top = s.players[frame.master].deck[0];
-        if (top !== undefined)
+        if (top !== undefined) {
           moveCard(d, top, { player: frame.master, zone: 'soul' }, 'soul_charge');
+          charged.push(top);
+        }
       }
+      if (step.as) frame.bindings[step.as] = [...(frame.bindings[step.as] ?? []), ...charged];
       return true;
+    }
     case 'extra_turn':
       s.extraTurn = frame.master;
       emit(d, { type: 'EXTRA_TURN', player: frame.master });
@@ -1519,7 +1587,24 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
   return true;
 }
 
+/** CR 1.48.1 10.35.1: the frame's master dominates `units` while the frame's effect resolves. */
+function dominate(d: Draft, units: readonly InstanceId[], frame: Frame): void {
+  for (const id of units) {
+    const card = d.state.cards[id]!;
+    card.dominatedBy = frame.master;
+    card.dominatedIn = frame.id;
+  }
+  emit(d, { type: 'DOMINATED', player: frame.master, instanceIds: units });
+}
+
 export function endFrame(d: Draft, frameId: number): void {
+  // CR 1.48.1 10.35.1.2: domination with no stated duration ends with the effect's resolution
+  for (const card of Object.values(d.state.cards)) {
+    if (card.dominatedIn === frameId) {
+      delete card.dominatedBy;
+      delete card.dominatedIn;
+    }
+  }
   d.state.frames = d.state.frames.filter((f) => f.id !== frameId);
   emit(d, { type: 'ABILITY_RESOLVED', frame: frameId });
 }

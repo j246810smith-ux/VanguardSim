@@ -60,10 +60,19 @@ function cardsIn(state: GameState, player: PlayerId, area: Area): readonly Insta
   const p = state.players[player];
   const circles = AREA_CIRCLES[area];
   // circle areas hold units; locked cards and hearts are not units (CR 3.8.1, 1.48.1 10.27.3)
-  if (circles)
-    return circles
-      .flatMap((c) => p.circles[c])
-      .filter((id) => !state.cards[id]!.locked && !p.hearts.includes(id));
+  if (circles) {
+    const unit = (id: InstanceId) => !state.cards[id]!.locked && !p.hearts.includes(id);
+    // CR 1.48.1 10.35.1.1.1, 10.35.2.1: a dominated unit is a unit of its dominating player
+    const theirs = state.players[other(player)];
+    return [
+      ...circles
+        .flatMap((c) => p.circles[c])
+        .filter((id) => unit(id) && (state.cards[id]!.dominatedBy ?? player) === player),
+      ...circles
+        .flatMap((c) => theirs.circles[c])
+        .filter((id) => state.cards[id]!.dominatedBy === player),
+    ];
+  }
   switch (area) {
     case 'hearts':
       return p.hearts;
@@ -110,6 +119,21 @@ function roleHolder(state: GameState, role: BattleRole): InstanceId | null {
       return roleHolder(state, 'booster') !== null ? roleHolder(state, 'attacker') : null;
   }
 }
+
+/** A card with two races is printed "Gear Beast/Zodiac Time Beast": it has each of them. */
+export const hasRace = (
+  race: string | null | undefined,
+  wanted: string | readonly string[],
+): boolean =>
+  race !== null &&
+  race !== undefined &&
+  race.split('/').some((r) => (typeof wanted === 'string' ? r === wanted : wanted.includes(r)));
+
+/** "with X (or Y) in its card name", ignoring case. */
+export const nameHasPart = (name: string, part: string | readonly string[]): boolean =>
+  (typeof part === 'string' ? [part] : part).some((p) =>
+    name.toLowerCase().includes(p.toLowerCase()),
+  );
 
 const CHARACTERISTIC_FILTERS: readonly (keyof CardFilter)[] = [
   'name',
@@ -242,6 +266,8 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   const names = namesOf(state, ctx, id);
   const hasName = (n: string) => names.includes(n);
   if (filter.sameNameAsSource && !shareName(state, ctx, id, ec.source)) return false;
+  if (filter.dominated !== undefined && (card.dominatedBy !== undefined) !== filter.dominated)
+    return false;
   if (filter.isSource !== undefined && (id === ec.source) !== filter.isSource) return false;
   if (
     filter.originalNameIncludes !== undefined &&
@@ -313,10 +339,7 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     return false;
   // case-insensitive: English names write the Japanese part ライザー both as "Raizer" and as
   // "…raizer" (Cannonraizer); the text "with "Raizer" in its card name" means both
-  if (
-    filter.nameIncludes !== undefined &&
-    !names.some((n) => n.toLowerCase().includes(filter.nameIncludes!.toLowerCase()))
-  )
+  if (filter.nameIncludes !== undefined && !names.some((n) => nameHasPart(n, filter.nameIncludes!)))
     return false;
   if (filter.clan !== undefined && !clansOf(state, ctx, id).includes(filter.clan)) return false;
   if (filter.notClan !== undefined && clansOf(state, ctx, id).includes(filter.notClan))
@@ -324,7 +347,7 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.sameClanAsSource && !shareClan(state, ctx, id, ec.source)) return false;
   if (filter.differentClanFromSource && shareClan(state, ctx, id, ec.source)) return false;
   const def = definitionOf(state, ctx, id);
-  if (filter.race !== undefined && def.race !== filter.race) return false;
+  if (filter.race !== undefined && !hasRace(def.race, filter.race)) return false;
   if (filter.grade !== undefined && !inRange(currentGrade(state, ctx, id), filter.grade))
     return false;
   if (filter.trigger !== undefined) {
@@ -518,6 +541,14 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       return (ec.state.turnFlags.soulAdded ?? []).includes(ec.master);
     case 'blazing':
       return ec.state.players[ec.master].blazing === true;
+    case 'open_rc': {
+      const p = ec.state.players[condition.player === 'you' ? ec.master : other(ec.master)];
+      const open = REAR_GUARD_CIRCLES.filter(
+        (c) =>
+          p.circles[c].length === 0 && (condition.row === undefined || c.startsWith(condition.row)),
+      ).length;
+      return inRange(open, condition.range);
+    }
     case 'placed_on_vc_in_ride_phase': {
       const p = condition.player === 'you' ? ec.master : other(ec.master);
       return ec.state.players[p].placedOnVCInRidePhase === true;
@@ -540,11 +571,15 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       );
     case 'heart_named':
       return ec.state.players[ec.master].hearts.some((h) =>
-        namesOf(ec.state, ec.ctx, h).some((n) => n.includes(condition.part)),
+        namesOf(ec.state, ec.ctx, h).some((n) =>
+          (typeof condition.part === 'string' ? [condition.part] : condition.part).some((x) =>
+            n.includes(x),
+          ),
+        ),
       );
     case 'heart_race':
-      return ec.state.players[ec.master].hearts.some(
-        (h) => ec.ctx.registry.get(ec.state.cards[h]!.definitionId).race === condition.race,
+      return ec.state.players[ec.master].hearts.some((h) =>
+        hasRace(ec.ctx.registry.get(ec.state.cards[h]!.definitionId).race, condition.race),
       );
     case 'dropped_from_rc_this_turn': {
       const dropped = (ec.state.turnFlags.droppedFromRC ?? []).filter(

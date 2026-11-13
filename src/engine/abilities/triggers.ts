@@ -4,7 +4,7 @@
  * entries; they are played at the next check timing (see game/tasks.ts).
  */
 import type { Draft } from '../game/context';
-import { locate } from '../game/locate';
+import { controllerOf, locate } from '../game/locate';
 import type { GameEvent } from '../state/events';
 import {
   isHeart,
@@ -71,7 +71,7 @@ const leftField = (who: Subject, e: Extract<GameEvent, { type: 'CARD_MOVED' }>):
 /** Does `event` satisfy trigger condition `t` for the ability in `ec`? */
 function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match | null {
   const s = ec.state;
-  const masterOf = (id: InstanceId): PlayerId => locate(s, id).player;
+  const masterOf = (id: InstanceId): PlayerId => controllerOf(s, id);
   switch (t.on) {
     case 'placed': {
       // CR 10.1.4: placed = moved from a non-circle zone onto a circle.
@@ -80,6 +80,8 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (Array.isArray(t.circle) ? !t.circle.includes(circle) : circle !== t.circle) return null;
       if (t.from && e.from.zone !== t.from) return null;
       if (t.byYourEffect && e.by !== ec.master) return null;
+      if (t.byYourCard && (e.cause === undefined || s.cards[e.cause]?.owner !== ec.master))
+        return null;
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
       return subjectIs(ec, t.who, e.instanceId, e.to.player) ? { eventCard: e.instanceId } : null;
@@ -114,6 +116,8 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (t.boosted && !matches(ec, e.attacker, t.boosted)) return null;
       return { eventCard: e.attacker };
     }
+    case 'attack_not_hit':
+      return e.type === 'ATTACK_RESOLVED' && !e.hit ? { eventCard: e.target } : null;
     case 'attack_hits': {
       if (e.type !== 'ATTACK_HIT' || !subjectIs(ec, t.who, e.attacker, s.activePlayer)) return null;
       if (t.target === 'vanguard' && !e.targetWasVanguard) return null;
@@ -157,6 +161,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'stands':
       if (e.type !== 'UNIT_STOOD' || !subjectIs(ec, t.who, e.instanceId, e.player)) return null;
       if (t.byYourEffect && e.by !== ec.master) return null;
+      if (t.byEffect && e.by === undefined) return null;
       return { eventCard: e.instanceId };
     case 'put_into_deck': {
       // a unit moved from (RC) to its owner's deck by an effect
@@ -326,6 +331,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'UNIT_RIDDEN',
   'ATTACK_DECLARED',
   'ATTACK_HIT',
+  'ATTACK_RESOLVED',
   'PHASE_CHANGED',
   'STEP_STARTED',
   'CARD_UNLOCKED',
@@ -349,10 +355,11 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
     const abilities = abilitiesOf(s, d.ctx, id);
     const where = locate(s, id);
     if (where.zone === 'deck') continue;
+    const master = controllerOf(s, id); // a dominated unit's abilities: CR 1.48.1 10.35.2.3
     const ec: EvalContext = {
       state: s,
       ctx: d.ctx,
-      master: where.player,
+      master,
       source: id,
       bindings: {},
       eventCard: null,
@@ -368,11 +375,11 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
       const heart =
         !m.sourceZone && isHeart(s, id) && !(event.type === 'STRIDE' && event.hearts.includes(id));
       if (!zoneAllows(a.zones, activeZoneOf(zone, heart))) continue;
-      if (!isUsable(d, id, a, where.player)) continue;
+      if (!isUsable(d, id, a, master)) continue;
       if (a.triggerIf && !evaluate({ ...ec, eventCard: m.eventCard }, a.triggerIf)) continue;
       const standby = {
         id: s.nextId++,
-        master: where.player,
+        master,
         source: id,
         abilityId: a.id,
         eventCard: m.eventCard,

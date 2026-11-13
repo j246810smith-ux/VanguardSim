@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.41.0-alpha — 2026-11-13
+
+- **G Era: G-BT11 "Demonic Advent"** (104 cards): Dominate (Nubatama: your opponent's rear-guards
+  attack for you), Amaruda's soul-blast stride cost (the stride window offers it), Tenrei, Connell,
+  "for each of your opponent's open (RC)", and the rest of the set's Royal Paladin, Kagero, Genesis,
+  Dark Irregulars and Gear Chronicle cards. Five cards never printed in English use unofficial
+  translations.
+- **Fixed:** <Zodiac Time Beast> abilities (G-BT09) never found their units: cards with two races
+  ("Gear Beast/Zodiac Time Beast") now count as both.
+
 ## 0.40.0-alpha — 2026-11-13
 
 - **Hard AI, G Era:** it now always uses G Assist and takes the grade it finds (it sometimes declined,

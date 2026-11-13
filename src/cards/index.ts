@@ -60,6 +60,7 @@ import gbt07Data from '../../data/cards/G-BT07.json';
 import gbt08Data from '../../data/cards/G-BT08.json';
 import gbt09Data from '../../data/cards/G-BT09.json';
 import gbt10Data from '../../data/cards/G-BT10.json';
+import gbt11Data from '../../data/cards/G-BT11.json';
 import gfc01Data from '../../data/cards/G-FC01.json';
 import gfc02Data from '../../data/cards/G-FC02.json';
 import gbt01Data from '../../data/cards/G-BT01.json';
@@ -133,6 +134,7 @@ import { G_BT07 } from './G-BT07';
 import { G_BT08 } from './G-BT08';
 import { G_BT09 } from './G-BT09';
 import { G_BT10 } from './G-BT10';
+import { G_BT11 } from './G-BT11';
 import { G_FC01 } from './G-FC01';
 import { G_FC02 } from './G-FC02';
 import { G_BT01 } from './G-BT01';
@@ -221,11 +223,12 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gbt08Data as SetFile, abilities: G_BT08 },
   { file: gbt09Data as SetFile, abilities: G_BT09 },
   { file: gbt10Data as SetFile, abilities: G_BT10 },
+  { file: gbt11Data as SetFile, abilities: G_BT11 },
   { file: gfc01Data as SetFile, abilities: G_FC01 },
   { file: gfc02Data as SetFile, abilities: G_FC02 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'g-fc02-1.0.0';
+export const CARD_DATA_VERSION = 'g-bt11-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

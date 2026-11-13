@@ -35,6 +35,7 @@ const RESTRICTION: Record<Restriction, string> = {
   cannot_be_retired: 'cannot be retired by card effects',
   cannot_be_retired_by_you: 'cannot be retired by its controller’s card effects',
   resist: 'Resist: cannot be chosen by the opponent’s card effects',
+  must_be_chosen: 'must be chosen when the opponent’s card effects choose your units',
 };
 export const restrictionText = (r: Restriction): string =>
   RESTRICTION[r] ?? String(r).replace(/_/g, ' ');

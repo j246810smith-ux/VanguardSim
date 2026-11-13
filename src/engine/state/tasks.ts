@@ -47,6 +47,17 @@ export type TaskBody =
    */
   /** `upTo`: choose up to this many more targets (G-FC01 Big Bang Knuckle Turbo); default exactly three. */
   | { readonly kind: 'choose_attack_targets'; readonly upTo?: number; selection?: string[] }
+  /**
+   * A dominated unit attacks by an effect (CR 1.48.1 10.35, G-BT11): `target` says which of the
+   * opponent's units it attacks; the dominating player picks one if there are several.
+   */
+  | {
+      readonly kind: 'effect_attack';
+      readonly attacker: InstanceId;
+      readonly target: 'vanguard' | 'back_row' | 'other_unit';
+      readonly retireAfter?: true;
+      selection?: string[];
+    }
   | { readonly kind: 'guard_step_start' }
   /** CR 7.4.1.2: the defender's play timing (auto-pass if nothing can be done). */
   | { readonly kind: 'guard_play_timing' }
@@ -148,6 +159,7 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'step',
   'call_one',
   'choose_attack_targets',
+  'effect_attack',
   'delayed_legion_end',
   'g_assist',
   'g_assist_search',

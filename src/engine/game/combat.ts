@@ -165,6 +165,8 @@ export function interceptors(state: GameState, ctx: EngineContext, player: Playe
     (circle) => {
       const id = unitOn(state, p, circle);
       if (id === null || id === b?.target || b?.extraTargets.some((t) => t.id === id)) return [];
+      // CR 1.48.1 10.35.6: a dominated rear-guard cannot intercept
+      if (state.cards[id]!.dominatedBy !== undefined) return [];
       if (
         circle.startsWith('back') &&
         !(vanguardAttacked && hasPermission(state, ctx, id, 'intercept_from_back_row'))

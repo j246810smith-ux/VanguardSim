@@ -4,7 +4,7 @@
  * "+2000 for each of your rear-guards" are always up to date.
  */
 import type { EngineContext } from '../game/context';
-import { locate } from '../game/locate';
+import { controllerOf, locate } from '../game/locate';
 import {
   isHeart,
   type GameState,
@@ -122,7 +122,7 @@ function activeContinuous(
       const ec: EvalContext = {
         state,
         ctx,
-        master: where.player,
+        master: controllerOf(state, id),
         source: id,
         bindings: {},
         eventCard: null,

@@ -5,6 +5,7 @@ import {
   type GameState,
   type InstanceId,
   type PileZone,
+  type PlayerId,
   type ZoneRef,
 } from '../state/types';
 
@@ -37,4 +38,12 @@ export function locate(state: GameState, id: InstanceId): ZoneRef {
     }
   }
   throw new InvalidZoneError(`Card ${id} is not in any zone`, { id });
+}
+
+/**
+ * The player who controls a card now: its dominating player while it is dominated (CR 1.48.1
+ * 10.35.1), otherwise the player whose zone it is in.
+ */
+export function controllerOf(state: GameState, id: InstanceId): PlayerId {
+  return state.cards[id]?.dominatedBy ?? locate(state, id).player;
 }

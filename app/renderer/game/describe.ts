@@ -141,6 +141,11 @@ export function describe(
       return { text: `${n(e.instanceId)} was deleted`, tone: tone(e.player) };
     case 'CARD_UNDELETED':
       return { text: `${n(e.instanceId)} is no longer deleted`, tone: tone(e.player) };
+    case 'DOMINATED':
+      return {
+        text: `${who(e.player)} dominated ${e.instanceIds.map(n).join(', ')}`,
+        tone: tone(e.player),
+      };
     case 'LEGION':
       return { text: `${who(e.player)}: LEGION! ${n(e.leader)} + ${n(e.mate)}`, tone: 'trigger' };
     case 'GAME_ENDED':

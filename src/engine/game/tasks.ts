@@ -1,6 +1,6 @@
 import { callOne, checkTiming, chooseStandby, endFrame, runStep } from '../abilities/runtime';
 import type { Task } from '../state/tasks';
-import { chooseAttackTargets } from './battle';
+import { chooseAttackTargets, effectAttack } from './battle';
 import { runCheckTask } from './checks';
 import { endDelayedLegion } from './delayedLegion';
 import { observeStep, type Draft } from './context';
@@ -26,6 +26,9 @@ export function runTasks(d: Draft): void {
         continue;
       }
     }
+    // the defender's play timing in the guard step (CR 7.4.1.2): with an attack made during an
+    // effect (Dominate), the rest of that effect waits behind it
+    if (s.battle?.step === 'guard') return;
     const task = s.tasks.shift();
     if (task === undefined) return; // nothing left: a player has a play timing
     if (!handle(d, task)) {
@@ -46,6 +49,8 @@ function handle(d: Draft, task: Task): boolean {
       return callOne(d, task);
     case 'choose_attack_targets':
       return chooseAttackTargets(d, task);
+    case 'effect_attack':
+      return effectAttack(d, task);
     case 'choose_standby':
       return chooseStandby(d, task);
     case 'delayed_legion_end':

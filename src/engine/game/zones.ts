@@ -88,6 +88,10 @@ export function moveCard(
   if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
   if (!isCircle(to)) delete card.hollowed; // CR 1.48.1 11.33: a new card is not hollowed
   if (!isCircle(to)) delete card.charging; // CR 1.48.1 11.29: nor charging
+  if (!isCircle(to)) {
+    delete card.dominatedBy; // CR 1.48.1 10.35: a new card is not dominated
+    delete card.dominatedIn;
+  }
   const wasEngorged = card.engorged === true && !isCircle(to);
   if (!isCircle(to)) delete card.engorged; // CR 1.48.1 11.24: nor engorged
   if (to.zone === 'circle' && to.circle === 'vanguard' && s.phase === 'ride')
@@ -228,6 +232,8 @@ export function lockCard(
   if (card.locked || locate(s, id).zone !== 'circle') return;
   card.locked = true;
   card.faceUp = false;
+  delete card.dominatedBy; // CR 1.48.1 10.35.2.4: a locked unit is no longer dominated
+  delete card.dominatedIn;
   s.modifiers = s.modifiers.filter((m) => m.target !== id);
   s.restrictions = s.restrictions.filter((r) => r.target !== id);
   s.grants = s.grants.filter((g) => g.target !== id);

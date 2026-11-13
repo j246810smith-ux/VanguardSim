@@ -16,6 +16,7 @@ import {
   gGuardianOptions,
   strideCostPayable,
   strideOptions,
+  strideSoulCost,
 } from '../game/generation';
 import {
   other,
@@ -72,6 +73,11 @@ export type LegalAction =
       readonly suggestedDiscard: readonly InstanceId[];
       /** Each discardable card's grade for the stride cost (grade +2 for "stride fodder"). */
       readonly discardGrades: Readonly<Record<InstanceId, number>>;
+      /**
+       * Amaruda's alternative cost (G-BT11): pay with exactly `n` of these soul cards instead
+       * (a soul blast), sent as the command's `discard`.
+       */
+      readonly soulCost?: { readonly n: number; readonly cards: readonly InstanceId[] };
     }
   /** Call one of `cardIds` as a G guardian, discarding one of `costCards` (heal triggers). */
   | {
@@ -171,7 +177,11 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
   if (state.phase === 'stride') {
     const cardIds = strideOptions(state, ctx, player);
     const hand = state.players[player].hand;
-    const suggestedDiscard = cheapestStrideDiscard(state, ctx, hand);
+    const alt = strideSoulCost(state, ctx, player);
+    const soulCost = alt && alt.cards.length >= alt.n ? alt : null;
+    const suggestedDiscard =
+      cheapestStrideDiscard(state, ctx, hand) ??
+      (soulCost ? soulCost.cards.slice(0, soulCost.n) : null);
     if (cardIds.length > 0 && suggestedDiscard) {
       const discardGrades = Object.fromEntries(hand.map((id) => [id, strideGrade(state, ctx, id)]));
       actions.push({
@@ -180,6 +190,7 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         discardable: [...hand],
         suggestedDiscard,
         discardGrades,
+        ...(soulCost ? { soulCost } : {}),
       });
     }
   }

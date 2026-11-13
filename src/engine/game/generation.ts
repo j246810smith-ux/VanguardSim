@@ -62,7 +62,9 @@ export function strideOptions(
 ): InstanceId[] {
   if (!ctx.ruleset.generationRules.value || state.phase !== 'stride') return [];
   if (state.turnFlags.normalStrideUsed || !bothVanguardsGrade3(state, ctx)) return [];
-  if (!strideCostPayable(state, ctx, player, state.players[player].hand)) return [];
+  const alt = strideSoulCost(state, ctx, player);
+  const altPayable = alt !== null && alt.cards.length >= alt.n;
+  if (!altPayable && !strideCostPayable(state, ctx, player, state.players[player].hand)) return [];
   // a G guardian has [G Guardian] instead of [Stride]: it is called to (GC), never stridden
   return state.players[player].gzone.filter((id) => {
     const card = state.cards[id]!;
@@ -98,6 +100,15 @@ export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId
         )
       )
         continue;
+      if (
+        e.soulWithAbility !== undefined &&
+        (owner?.soul.filter((c) =>
+          definitionOf(state, ctx, c).abilities.some((x) =>
+            x.text.includes(e.soulWithAbility!.text),
+          ),
+        ).length ?? 0) < e.soulWithAbility.min
+      )
+        continue;
       bonus += e.amount;
     }
   }
@@ -108,7 +119,35 @@ export function strideGrade(state: GameState, ctx: EngineContext, id: InstanceId
 export const gradeSum = (state: GameState, ctx: EngineContext, ids: readonly InstanceId[]) =>
   ids.reduce((sum, id) => sum + strideGrade(state, ctx, id), 0);
 
-/** CR 1.48.1 11.11.2: one or more cards from hand whose grades total 3 or greater. */
+/**
+ * "You may pay "[Soul-Blast n]-cards with the <keyword> ability" as the cost for [Stride]" (G-BT11
+ * Amaruda on your (VC)): how many soul cards, and which may be used. Null if no such ability.
+ */
+export function strideSoulCost(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+): { n: number; cards: InstanceId[] } | null {
+  const p = state.players[player];
+  const vg = vanguardOf(p);
+  if (vg === null || state.cards[vg]!.locked) return null;
+  for (const a of definitionOf(state, ctx, vg).abilities) {
+    if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
+    for (const e of a.effects) {
+      if (e.ce !== 'stride_soul_cost') continue;
+      const cards = p.soul.filter((id) =>
+        definitionOf(state, ctx, id).abilities.some((x) => x.text.includes(e.abilityText)),
+      );
+      return { n: e.n, cards };
+    }
+  }
+  return null;
+}
+
+/**
+ * CR 1.48.1 11.11.2: one or more cards from hand whose grades total 3 or greater; or, with
+ * Amaruda's alternative cost, exactly n soul cards with the named ability (a soul blast).
+ */
 export function strideCostPayable(
   state: GameState,
   ctx: EngineContext,
@@ -116,12 +155,10 @@ export function strideCostPayable(
   discard: readonly InstanceId[],
 ): boolean {
   const hand = state.players[player].hand;
-  return (
-    discard.length > 0 &&
-    new Set(discard).size === discard.length &&
-    discard.every((id) => hand.includes(id)) &&
-    gradeSum(state, ctx, discard) >= 3
-  );
+  if (discard.length === 0 || new Set(discard).size !== discard.length) return false;
+  if (discard.every((id) => hand.includes(id))) return gradeSum(state, ctx, discard) >= 3;
+  const alt = strideSoulCost(state, ctx, player);
+  return alt !== null && discard.length === alt.n && discard.every((id) => alt.cards.includes(id));
 }
 
 /**
@@ -141,6 +178,7 @@ export function stride(
   const old = [...p.circles.vanguard];
   const stridden = vanguardOf(p);
   const orientation = stridden === null ? 'stand' : s.cards[stridden]!.orientation;
+  const soulPaid = discard.filter((id) => p.soul.includes(id));
   moveCard(d, gUnit, { player, zone: 'circle', circle: 'vanguard' }, 'stride', { orientation });
   for (const id of discard) moveCard(d, id, { player, zone: 'drop' }, 'cost');
   for (const h of old) {
@@ -153,7 +191,9 @@ export function stride(
   p.heartChosen = old.find((h) => !isG(definitionOf(s, d.ctx, h))) ?? null;
   if (normal) s.turnFlags.normalStrideUsed = true;
   s.turnFlags.strode = [...(s.turnFlags.strode ?? []), gUnit];
-  emit(d, { type: 'STRIDE', player, gUnit, hearts: old, discarded: [...discard] });
+  // a soul blast paid instead (Amaruda) is not a discard from hand
+  const fromHand = discard.filter((id) => !soulPaid.includes(id));
+  emit(d, { type: 'STRIDE', player, gUnit, hearts: old, discarded: fromHand });
 }
 
 /**
@@ -200,7 +240,7 @@ export function callGGuardian(
   moveCard(d, discard, { player: defender, zone: 'drop' }, 'cost');
   moveCard(d, cardId, { player: defender, zone: 'guardian' }, 'guard', { orientation: 'rest' });
   emit(d, { type: 'G_GUARDIAN_CALLED', player: defender, instanceId: cardId });
-  d.state.tasks.push({ kind: 'guard_play_timing' });
+  d.state.tasks.unshift({ kind: 'guard_play_timing' });
 }
 
 /** CR 1.48.1 6.8.1.1.1: the turn player's G units on (VC) and (RC) go to the G zone face up. */

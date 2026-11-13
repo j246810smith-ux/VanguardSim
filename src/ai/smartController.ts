@@ -335,6 +335,8 @@ export class SmartController implements PlayerController {
     s: GameState,
     a: Extract<LegalAction, { type: 'STRIDE' }>,
   ): readonly InstanceId[] {
+    // Amaruda's alternative cost: a soul blast instead of hand cards (G-BT11)
+    if (a.soulCost) return a.soulCost.cards.slice(0, a.soulCost.n);
     if (!this.options.valueStrideDiscard) return a.suggestedDiscard;
     return (
       bestStrideDiscard(a.discardable, a.discardGrades, (id) => this.def(s, id)) ??

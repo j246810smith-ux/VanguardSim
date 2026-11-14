@@ -68,6 +68,8 @@ export function strideOptions(
     (alt !== null && alt.cards.length >= alt.n) ||
     strideRetireCost(state, ctx, player).length > 0 ||
     freeStride(state, ctx, player);
+  const freeFor = (g: InstanceId) =>
+    freeStride(state, ctx, player, g) || strideCbCost(state, ctx, player, g).length > 0;
   // a G guardian has [G Guardian] instead of [Stride]: it is called to (GC), never stridden
   const units = state.players[player].gzone.filter((id) => {
     const card = state.cards[id]!;
@@ -75,7 +77,12 @@ export function strideOptions(
     return !card.faceUp && isG(def) && !hasGGuardian(def);
   });
   const hand = state.players[player].hand;
-  return altPayable ? units : units.filter((g) => strideCostPayable(state, ctx, player, hand, g));
+  const released = ultimateDiscard(state, ctx, player).length > 0;
+  return units.filter((g) =>
+    isUltimate(definitionOf(state, ctx, g))
+      ? released || freeStride(state, ctx, player, g)
+      : altPayable || freeFor(g) || strideCostPayable(state, ctx, player, hand, g),
+  );
 }
 
 /**
@@ -192,12 +199,79 @@ export function strideSoulCost(
   return null;
 }
 
+/** Ultimate Stride (G-BT13): the G unit has "U[Stride]". */
+export const isUltimate = (def: CardDefinition): boolean =>
+  def.abilities.some((a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'ultimate_stride'));
+
+/**
+ * The cards that pay an Ultimate Stride: from hand, with the same card name as your vanguard; none
+ * while fewer than three cards in your G zone are face up (the stride is not released).
+ */
+export function ultimateDiscard(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+): InstanceId[] {
+  const p = state.players[player];
+  if (p.gzone.filter((id) => state.cards[id]!.faceUp).length < 3) return [];
+  const vg = vanguardOf(p);
+  if (vg === null) return [];
+  const names = namesOf(state, ctx, vg);
+  return p.hand.filter((id) => namesOf(state, ctx, id).some((n) => names.includes(n)));
+}
+
+/**
+ * The face-up damage cards that may pay a stride as "[Counter-Blast 1]-card with …" (G-BT13): Gavrail
+ * Prim's [CONT] on your (VC) for a G unit with its ability, or Easgal Liberator's next stride this turn.
+ * `gUnit` absent: for any G unit.
+ */
+export function strideCbCost(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+  gUnit?: InstanceId,
+): InstanceId[] {
+  const p = state.players[player];
+  const faceUp = p.damage.filter((id) => state.cards[id]!.faceUp);
+  const hasText = (id: InstanceId, t: string) =>
+    definitionOf(state, ctx, id).abilities.some((a) => a.text.includes(t));
+  const ok = new Set<InstanceId>();
+  for (const f of state.turnFlags.strideCbNext ?? [])
+    if (f.player === player)
+      for (const id of faceUp) if (definitionOf(state, ctx, id).name.includes(f.part)) ok.add(id);
+  const vg = vanguardOf(p);
+  if (vg !== null && !state.cards[vg]!.locked)
+    for (const a of definitionOf(state, ctx, vg).abilities) {
+      if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
+      if (!generationBreakMet(state, ctx, player, a.generationBreak)) continue;
+      for (const e of a.effects) {
+        if (e.ce !== 'stride_cb_cost') continue;
+        if (gUnit !== undefined && !hasText(gUnit, e.gUnitAbility)) continue;
+        for (const id of faceUp) if (hasText(id, e.cardAbility)) ok.add(id);
+      }
+    }
+  return [...ok];
+}
+
 /**
  * A stride without paying its cost: the next stride after Dragheart, Luard's effect this turn, or
  * Tirua's [CONT] on your (VC) (G-TD14: [Generation Break 1], your rear-guards n or less).
  */
-export function freeStride(state: GameState, ctx: EngineContext, player: PlayerId): boolean {
+export function freeStride(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+  gUnit?: InstanceId,
+): boolean {
   if ((state.turnFlags.freeStride ?? []).includes(player)) return true;
+  // Doom Bringer High Flame (G-BT13): only for a G unit with the name part
+  if (
+    gUnit !== undefined &&
+    (state.turnFlags.freeStrideNamed ?? []).some(
+      (f) => f.player === player && definitionOf(state, ctx, gUnit).name.includes(f.part),
+    )
+  )
+    return true;
   const p = state.players[player];
   const vg = vanguardOf(p);
   if (vg === null || state.cards[vg]!.locked) return false;
@@ -256,10 +330,17 @@ export function strideCostPayable(
   gUnit?: InstanceId,
 ): boolean {
   const hand = state.players[player].hand;
-  if (discard.length === 0) return freeStride(state, ctx, player);
+  // Ultimate Stride: only its own cost (one card named as your vanguard), or no cost when free
+  if (gUnit !== undefined && isUltimate(definitionOf(state, ctx, gUnit)))
+    return discard.length === 0
+      ? freeStride(state, ctx, player, gUnit)
+      : discard.length === 1 && ultimateDiscard(state, ctx, player).includes(discard[0]!);
+  if (discard.length === 0) return freeStride(state, ctx, player, gUnit);
   if (new Set(discard).size !== discard.length) return false;
   if (discard.every((id) => hand.includes(id))) return gradeSum(state, ctx, discard, gUnit) >= 3;
   if (discard.length === 1 && strideRetireCost(state, ctx, player).includes(discard[0]!))
+    return true;
+  if (discard.length === 1 && strideCbCost(state, ctx, player, gUnit).includes(discard[0]!))
     return true;
   const alt = strideSoulCost(state, ctx, player);
   return alt !== null && discard.length === alt.n && discard.every((id) => alt.cards.includes(id));
@@ -283,8 +364,16 @@ export function stride(
   const stridden = vanguardOf(p);
   const orientation = stridden === null ? 'stand' : s.cards[stridden]!.orientation;
   const soulPaid = discard.filter((id) => p.soul.includes(id));
+  // Gavrail Prim, Easgal Liberator (G-BT13): "[Counter-Blast 1]-card with …": turned face down
+  const cbPaid = discard.filter((id) => p.damage.includes(id));
+  for (const id of cbPaid) {
+    s.cards[id]!.faceUp = false;
+    emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: false });
+  }
   // Blue Espada Dragon (G-BT12): retired from (RC) with [Counter-Blast 1] (the first face-up damage card)
-  const retired = discard.filter((id) => !p.hand.includes(id) && !p.soul.includes(id));
+  const retired = discard.filter(
+    (id) => !p.hand.includes(id) && !p.soul.includes(id) && !cbPaid.includes(id),
+  );
   if (retired.length > 0) {
     const cb = p.damage.find((id) => s.cards[id]!.faceUp);
     if (cb !== undefined) {
@@ -294,7 +383,11 @@ export function stride(
   }
   moveCard(d, gUnit, { player, zone: 'circle', circle: 'vanguard' }, 'stride', { orientation });
   for (const id of discard)
-    moveCard(d, id, { player, zone: 'drop' }, retired.includes(id) ? 'retire' : 'cost');
+    if (!cbPaid.includes(id))
+      moveCard(d, id, { player, zone: 'drop' }, retired.includes(id) ? 'retire' : 'cost');
+  // Easgal Liberator's offer is for the next stride only
+  if (s.turnFlags.strideCbNext)
+    s.turnFlags.strideCbNext = s.turnFlags.strideCbNext.filter((f) => f.player !== player);
   for (const h of old) {
     s.cards[h]!.orientation = 'stand';
     s.cards[h]!.faceUp = true;
@@ -307,9 +400,18 @@ export function stride(
   // Dragheart, Luard's free stride is used up by the next stride (paid or not)
   if (discard.length === 0 && s.turnFlags.freeStride?.includes(player))
     s.turnFlags.freeStride = s.turnFlags.freeStride.filter((x) => x !== player);
+  else if (discard.length === 0 && s.turnFlags.freeStrideNamed) {
+    const name = definitionOf(s, d.ctx, gUnit).name;
+    const at = s.turnFlags.freeStrideNamed.findIndex(
+      (f) => f.player === player && name.includes(f.part),
+    );
+    if (at >= 0) s.turnFlags.freeStrideNamed.splice(at, 1);
+  }
   s.turnFlags.strode = [...(s.turnFlags.strode ?? []), gUnit];
   // a soul blast paid instead (Amaruda) is not a discard from hand
-  const fromHand = discard.filter((id) => !soulPaid.includes(id) && !retired.includes(id));
+  const fromHand = discard.filter(
+    (id) => !soulPaid.includes(id) && !retired.includes(id) && !cbPaid.includes(id),
+  );
   emit(d, { type: 'STRIDE', player, gUnit, hearts: old, discarded: fromHand });
 }
 
@@ -360,7 +462,7 @@ export function callGGuardian(
   if (guarding !== undefined) d.state.battle!.guarding[cardId] = guarding;
   moveCard(d, discard, { player: defender, zone: 'drop' }, 'cost');
   moveCard(d, cardId, { player: defender, zone: 'guardian' }, 'guard', { orientation: 'rest' });
-  emit(d, { type: 'G_GUARDIAN_CALLED', player: defender, instanceId: cardId });
+  emit(d, { type: 'G_GUARDIAN_CALLED', player: defender, instanceId: cardId, discarded: discard });
   d.state.tasks.unshift({ kind: 'guard_play_timing' });
 }
 

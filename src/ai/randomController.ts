@@ -68,7 +68,12 @@ export class RandomController implements PlayerController {
         return { type: 'INTERCEPT', player, unitId: this.pick(action.unitIds) };
       case 'STRIDE': {
         const cardId = this.pick(action.cardIds);
-        return { type: 'STRIDE', player, cardId, discard: action.suggestedDiscard };
+        return {
+          type: 'STRIDE',
+          player,
+          cardId,
+          discard: action.discardFor?.[cardId] ?? action.suggestedDiscard,
+        };
       }
       case 'G_GUARD':
         return {

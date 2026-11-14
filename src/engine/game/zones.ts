@@ -87,6 +87,9 @@ export function moveCard(
   const newCard = !(isCircle(from) && isCircle(to));
   if (!isCircle(to)) delete card.deleted; // CR 10.1.25.11: off the field it is a normal card
   if (!isCircle(to)) delete card.hollowed; // CR 1.48.1 11.33: a new card is not hollowed
+  if (from.zone === 'damage' && to.zone === 'drop')
+    s.turnFlags.damageToDrop = [...new Set([...(s.turnFlags.damageToDrop ?? []), from.player])];
+  const wasCharging = card.charging === true && !isCircle(to);
   if (!isCircle(to)) delete card.charging; // CR 1.48.1 11.29: nor charging
   if (!isCircle(to)) {
     delete card.dominatedBy; // CR 1.48.1 10.35: a new card is not dominated
@@ -139,7 +142,20 @@ export function moveCard(
     ...(options.byHollow ? { byHollow: true as const } : {}),
     ...(options.byEngorge ? { byEngorge: true as const } : {}),
     ...(wasEngorged ? { wasEngorged: true as const } : {}),
+    ...(wasCharging ? { wasCharging: true as const } : {}),
   });
+  // Ultimate Stride (G-BT13): "When it returns to the G zone, remove your G zone!"
+  if (
+    to.zone === 'gzone' &&
+    isCircle(from) &&
+    d.ctx.registry
+      .get(card.definitionId)
+      .abilities.some((a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'ultimate_stride'))
+  ) {
+    const zone = s.players[to.player].gzone;
+    for (const g of [...zone])
+      moveCard(d, g, { player: to.player, zone: 'removed' }, 'rule_action');
+  }
   // granted abilities are lost only after the move's triggers are checked: "when this unit is put
   // into the drop zone" abilities look back at the unit as it was (CR 8.6.7)
   if (newCard) s.grants = s.grants.filter((g) => g.target !== id);

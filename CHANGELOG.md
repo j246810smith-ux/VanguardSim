@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.43.0-alpha — 2026-11-14
+
+- **G Era: G-BT13 "Ultimate Stride"** (110 cards): the Zeroth Dragons Drachma and Megiddo with
+  **Ultimate Stride** (released with three face-up G zone cards; paid with a card named as your
+  vanguard; your G zone is removed when it returns), Angel Feather rescue, Gold Paladin Liberators
+  (stride by Counter-Blast), Kagero Overlords, Tachikaze engorge, Murakumo shadowstitch, Spike
+  Brothers charge, Aqua Force waves (Valeos fixes the opponent's vanguard at 11000), and heal
+  triggers that pay for a G guardian. Seven cards never archived in English use unofficial
+  translations.
+- **Grade 2 guarding checked** (2026-11-14 audit): grade 2 cards can already be called from the
+  hand to (GC) whenever your vanguard is grade 2 or higher, with no Intercept needed; under a
+  grade 1 vanguard they cannot (CR 8.5.2.1.1.2, a guardian's grade must not exceed the
+  vanguard's). New regression tests cover both eras, guard + Intercept in one battle, and the
+  CPUs' use of grade 2 guardians. Tapping a card that is too high a grade to guard now shows why
+  ("Can't guard: this card is grade 2, higher than your grade 1 vanguard").
+- **Card effects** are stronger: bigger, brighter rings and sparks on calls, rides and strides, a
+  flash on rides, and thicker dust when a unit is retired.
+
 ## 0.42.0-alpha — 2026-11-13
 
 - **New look for the menus:** buttons, option pickers, dropdowns, switches, text fields and dialogs

@@ -100,6 +100,7 @@ export function validateAbilities(
             if (st.as) bound.add(st.as);
             break;
           case 'free_stride':
+          case 'stride_cb_next':
           case 'brave_active':
           case 'shuffle':
           case 'extra_turn':
@@ -192,7 +193,9 @@ export function validateAbilities(
             e.ce === 'stride_soul_cost' ||
             e.ce === 'stride_retire_cost' ||
             e.ce === 'free_stride' ||
-            e.ce === 'stride_hand_grade'
+            e.ce === 'stride_hand_grade' ||
+            e.ce === 'stride_cb_cost' ||
+            e.ce === 'ultimate_stride'
           )
             continue;
           checkSelector(e.target, 'effect');

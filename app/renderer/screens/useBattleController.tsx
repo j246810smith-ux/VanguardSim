@@ -1,5 +1,6 @@
 import { audio } from '../audio/audio';
 import { useCardMotion } from '../board/motion';
+import type { FxLevel } from '../board/cardFx';
 import { useHoveredCard } from '../board/Feedback';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -15,6 +16,7 @@ import { tableCss } from '../board/layout';
 import { AI, ctx, defOf, ME, playFormat } from '../engine';
 import {
   guardCommand,
+  guardRefusal,
   stagedShield,
   nextGuard,
   stillLegal,
@@ -294,7 +296,14 @@ export function useBattleController(
     settings.speed === 'instant' || settings.reducedMotion || systemReducedMotion()
       ? 0
       : paced(settings, 360);
-  useCardMotion(() => session.takeMoves(), slideMs, view);
+  // landing rings, sparks, dust and the draw trail (board/cardFx.ts): fewer on Reduced graphics
+  const cardFx: FxLevel =
+    slideMs === 0 || !settings.cardEffects || settings.graphics === 'low'
+      ? 'off'
+      : settings.graphics === 'reduced'
+        ? 'reduced'
+        : 'full';
+  useCardMotion(() => session.takeMoves(), slideMs, view, cardFx);
 
   // sounds for what the engine just resolved (after it happened, never before); a placed card's
   // landing sound waits for its slide to arrive
@@ -434,6 +443,13 @@ export function useBattleController(
     }
     // a marked guardian: take it back
     if (staged.some((g) => g.id === id)) return setStaged((cur) => cur.filter((g) => g.id !== id));
+    // guard step: say why a card cannot guard (grade above the vanguard's) instead of opening it
+    const refusal = legal.choose ? null : guardRefusal(view, ctx, legal.guard, legal.passGuard, id);
+    if (refusal) {
+      setToast(refusal);
+      audio.ui('invalid');
+      return;
+    }
     handle(clickHand(legal, selection, id));
   };
   // Battlefield 2.0 phase 4: a hand card dragged onto a circle, with a mouse or a finger

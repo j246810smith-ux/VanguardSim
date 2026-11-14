@@ -2502,6 +2502,39 @@ input.text {
 .draw-ghost .draw-face .card {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
 }
+/* card effects (board/cardFx.ts): the light sweep on a drawn card's face, its trail echoes */
+.draw-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 65%
+  );
+  background-size: 260% 100%;
+  mix-blend-mode: screen;
+  animation: draw-sheen 0.6s 0.15s ease-out both;
+}
+@keyframes draw-sheen {
+  from {
+    background-position: 130% 0;
+  }
+  to {
+    background-position: -70% 0;
+  }
+}
+.draw-echo {
+  filter: blur(1px) brightness(1.4);
+}
+.land-ghost {
+  border-radius: 6px;
+}
+.fx {
+  will-change: transform, opacity;
+}
 .motion-layer {
   position: absolute;
   inset: 0;

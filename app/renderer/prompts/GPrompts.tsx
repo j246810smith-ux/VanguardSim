@@ -52,7 +52,9 @@ export function StridePrompt({
   onClose: () => void;
 }) {
   const [unit, setUnit] = useState<InstanceId>(stride.cardIds[0]!);
-  const [discard, setDiscard] = useState<readonly InstanceId[]>(stride.suggestedDiscard);
+  const [discard, setDiscard] = useState<readonly InstanceId[]>(
+    stride.discardFor?.[stride.cardIds[0]!] ?? stride.suggestedDiscard,
+  );
   const grades = discard.reduce(
     (sum, id) => sum + (stride.discardGrades?.[id] ?? defOf(view, id)?.grade ?? 0),
     0,
@@ -91,7 +93,16 @@ export function StridePrompt({
             view={view}
             id={id}
             on={unit === id}
-            onClick={() => setUnit(id)}
+            onClick={() => {
+              setUnit(id);
+              // Ultimate Stride (G-BT13): its own cost, one card named as your vanguard
+              const own = stride.discardFor?.[id];
+              if (own) {
+                setSoulPick([]);
+                setRetirePick(null);
+                setDiscard(own);
+              }
+            }}
             testId={`stride-unit-${i}`}
           />
         ))}
@@ -125,6 +136,26 @@ export function StridePrompt({
           <div className="hint">Or retire one of these with [Counter-Blast 1]:</div>
           <div className="pick-grid">
             {stride.retireCost.map((id) => (
+              <Pick
+                key={id}
+                view={view}
+                id={id}
+                on={retirePick === id}
+                onClick={() => {
+                  setDiscard([]);
+                  setSoulPick([]);
+                  setRetirePick(retirePick === id ? null : id);
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
+      {stride.cbCost && (
+        <>
+          <div className="hint">Or [Counter-Blast 1] with one of these damage cards:</div>
+          <div className="pick-grid">
+            {stride.cbCost.map((id) => (
               <Pick
                 key={id}
                 view={view}

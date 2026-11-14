@@ -83,6 +83,10 @@ export function nineKBonus(state: GameState, ctx: EngineContext, id: InstanceId)
  * - the unit being attacked adds the shield of its guardians (CR 7.4.1.3).
  */
 export function currentPower(state: GameState, ctx: EngineContext, id: InstanceId): number {
+  // G-BT13 Valeos: "increase or decrease its [Power] to 11000, and its [Power] cannot increase or
+  // decrease other than for this effect" until end of turn
+  const fixed = state.turnFlags.powerFixed?.[id];
+  if (fixed !== undefined) return fixed;
   let power = basePower(state, ctx, id);
   const b = state.battle;
   if (!b) return power;

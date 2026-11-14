@@ -83,6 +83,8 @@ export interface Settings {
   readonly controller: ControllerSettings;
   /** Digits roll to their new value (ui/Num.tsx, NumberFlow). Off with Reduced motion / Low. */
   readonly animatedNumbers: boolean;
+  /** Landing rings, sparks, dust and the draw trail (board/cardFx.ts). Off with Reduced motion / Low. */
+  readonly cardEffects: boolean;
 }
 
 export interface ControllerSettings {
@@ -116,6 +118,7 @@ export function effectiveSettings(s: Settings): Settings {
         tableView: 'overhead',
         animatedBackground: false,
         animatedNumbers: false,
+        cardEffects: false,
       }
     : s;
 }
@@ -144,6 +147,7 @@ export const DEFAULT_SETTINGS: Settings = {
   animatedBackground: true,
   controller: DEFAULT_CONTROLLER,
   animatedNumbers: true,
+  cardEffects: true,
 };
 
 /** The settings a battle in profile `id` plays with: that profile's view and playmat. */

@@ -566,8 +566,8 @@ function runShots(win) {
           `({ phone: !!document.querySelector('.m-battle'), stage: document.querySelector('.stage')?.className, set: JSON.parse(localStorage.getItem('vanguard-sim.settings.v1') || '{}').battleLayout, w: innerWidth, h: innerHeight })`,
         ),
       });
-      // one frame mid-animation, one after it has settled
-      await wait(120);
+      // one frame mid-animation (VANGUARD_SHOTS_MID_MS, default 120), one after it has settled
+      await wait(Number(process.env.VANGUARD_SHOTS_MID_MS || 120));
       const mid = await win.webContents.capturePage();
       fs.writeFileSync(path.join(shotsDir, `${String(i).padStart(3, '0')}-mid.png`), mid.toPNG());
       // an ability callout beside the G circle, if one is up
@@ -600,6 +600,26 @@ function runShots(win) {
       );
       await wait(500);
       if (did === 'turn-over') break;
+    }
+    // card effects (board/cardFx.ts), frozen part way: VANGUARD_SHOTS_FX=1, test builds only
+    if (process.env.VANGUARD_SHOTS_FX) {
+      for (const [kind, at] of [
+        ['call', 0.3],
+        ['ride', 0.35],
+        ['stride', 0.3],
+        ['guard', 0.45],
+        ['dust', 0.3],
+      ]) {
+        await win.webContents.executeJavaScript(
+          `window.__vanguardFx?.(${JSON.stringify(kind)}, ${at})`,
+        );
+        await wait(80);
+        fs.writeFileSync(
+          path.join(shotsDir, `fx-${kind}.png`),
+          (await win.webContents.capturePage()).toPNG(),
+        );
+        await win.webContents.executeJavaScript('window.__vanguardFx?.("clear", 0)');
+      }
     }
     // finally hover a card in the hand to show the card preview
     const [w, h] = win.getContentSize();

@@ -18,6 +18,9 @@ import {
   strideOptions,
   bestStrideUnit,
   freeStride,
+  strideCbCost,
+  isUltimate,
+  ultimateDiscard,
   strideRetireCost,
   strideSoulCost,
 } from '../game/generation';
@@ -83,6 +86,10 @@ export type LegalAction =
       readonly soulCost?: { readonly n: number; readonly cards: readonly InstanceId[] };
       /** Blue Espada Dragon (G-BT12): retire one of these rear-guards (+ [Counter-Blast 1]) instead. */
       readonly retireCost?: readonly InstanceId[];
+      /** Gavrail Prim, Easgal Liberator (G-BT13): [Counter-Blast 1] with one of these damage cards instead. */
+      readonly cbCost?: readonly InstanceId[];
+      /** The discard for a G unit with its own stride cost (Ultimate Stride, G-BT13): use it for that unit. */
+      readonly discardFor?: Readonly<Record<InstanceId, readonly InstanceId[]>>;
       /** The stride may be made without paying its cost (send an empty `discard`). */
       readonly free?: true;
     }
@@ -187,13 +194,23 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const alt = strideSoulCost(state, ctx, player);
     const soulCost = alt && alt.cards.length >= alt.n ? alt : null;
     const retireCost = strideRetireCost(state, ctx, player);
-    const free = freeStride(state, ctx, player);
+    const cbCost = [...new Set(cardIds.flatMap((g) => strideCbCost(state, ctx, player, g)))];
+    const ultimate = ultimateDiscard(state, ctx, player);
+    const discardFor = Object.fromEntries(
+      cardIds
+        .filter((g) => isUltimate(ctx.registry.get(state.cards[g]!.definitionId)))
+        .map((g) => [g, freeStride(state, ctx, player, g) ? [] : ultimate.slice(0, 1)]),
+    );
+    const free =
+      freeStride(state, ctx, player) ||
+      (cardIds.length > 0 && cardIds.every((g) => freeStride(state, ctx, player, g)));
     const suggestedDiscard = free
       ? []
       : (cheapestStrideDiscard(state, ctx, hand, bestStrideUnit(state, ctx, player, cardIds)) ??
         (soulCost ? soulCost.cards.slice(0, soulCost.n) : null) ??
-        (retireCost.length > 0 ? [retireCost[0]!] : null));
-    if (cardIds.length > 0 && suggestedDiscard) {
+        (retireCost.length > 0 ? [retireCost[0]!] : null) ??
+        (cbCost.length > 0 ? [cbCost[0]!] : null));
+    if (cardIds.length > 0 && (suggestedDiscard || Object.keys(discardFor).length > 0)) {
       const best = bestStrideUnit(state, ctx, player, cardIds);
       const discardGrades = Object.fromEntries(
         hand.map((id) => [id, strideGrade(state, ctx, id, best)]),
@@ -202,10 +219,12 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         type: 'STRIDE',
         cardIds,
         discardable: [...hand],
-        suggestedDiscard,
+        suggestedDiscard: suggestedDiscard ?? [],
         discardGrades,
         ...(soulCost ? { soulCost } : {}),
         ...(retireCost.length > 0 ? { retireCost } : {}),
+        ...(cbCost.length > 0 ? { cbCost } : {}),
+        ...(Object.keys(discardFor).length > 0 ? { discardFor } : {}),
         ...(free ? { free: true as const } : {}),
       });
     }

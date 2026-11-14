@@ -223,9 +223,9 @@ describe('card movement tracking (board/motion.ts)', () => {
       ev({ type: 'UNIT_RIDDEN', player: 0, instanceId: 'd' }),
     ]);
     expect(Object.fromEntries(moves)).toEqual({
-      a: { from: '0-deck', to: '0-hand' },
-      b: { from: null, to: '1-drop' },
-      c: { from: '0-deck', to: '0-hand' },
+      a: { from: '0-deck', to: '0-hand', reason: 'draw' },
+      b: { from: null, to: '1-drop', reason: 'retire' },
+      c: { from: '0-deck', to: '0-hand', reason: 'check' },
     });
   });
 });

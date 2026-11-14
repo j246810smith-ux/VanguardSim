@@ -188,6 +188,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       if (e.from.circle === 'vanguard') return null;
       if (t.byYourEffect && !(e.reason === 'effect' && e.by === ec.master)) return null;
       if (t.otherCause && e.cause === ec.source) return null;
+      if (t.wasCharging && !e.wasCharging) return null;
       const at = { ...ec, eventCard: e.instanceId, eventColumn: COLUMN_OF[e.from.circle] };
       return subjectIs(at, t.who, e.instanceId, e.from.player) ? leftField(t.who, e) : null;
     }
@@ -335,6 +336,12 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       const hit = e.discarded.find((id) => subjectIs(ec, t.who, id, e.player));
       return hit === undefined ? null : { eventCard: hit };
     }
+    case 'g_guardian_discarded':
+      return e.type === 'G_GUARDIAN_CALLED' &&
+        e.discarded !== undefined &&
+        subjectIs(ec, t.who, e.discarded, e.player)
+        ? { eventCard: e.discarded }
+        : null;
     case 'step_start': {
       let step: StepName | undefined;
       if (e.type === 'PHASE_CHANGED') step = PHASE_STEP[e.phase];
@@ -367,6 +374,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'INTERCEPTED',
   'LEGION',
   'STRIDE',
+  'G_GUARDIAN_CALLED',
   'BLAZING',
   'CHARGING',
   'ENGORGED',

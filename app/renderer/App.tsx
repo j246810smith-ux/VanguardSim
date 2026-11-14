@@ -648,7 +648,14 @@ function SettingsScreen({
   ];
   const toggle = (
     label: string,
-    key: 'reducedMotion' | 'screenShake' | 'showArt' | 'foil' | 'stepByStep' | 'animatedNumbers',
+    key:
+      | 'reducedMotion'
+      | 'screenShake'
+      | 'showArt'
+      | 'foil'
+      | 'stepByStep'
+      | 'animatedNumbers'
+      | 'cardEffects',
     hint?: string,
   ) => (
     <div className="row">
@@ -877,6 +884,11 @@ function SettingsScreen({
           'Animated numbers',
           'animatedNumbers',
           'Power, damage and other numbers roll to their new value (off with Reduced motion)',
+        )}
+        {toggle(
+          'Card effects',
+          'cardEffects',
+          'Rings and sparks when a card lands, dust when a unit is retired, a light trail on draws (off with Reduced motion or Low graphics)',
         )}
         {toggle('Show card art', 'showArt')}
         {toggle('Foil effect on rare cards', 'foil')}

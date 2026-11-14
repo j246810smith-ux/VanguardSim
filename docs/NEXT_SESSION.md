@@ -15,6 +15,26 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ G-BT13 done (2026-11-13, late) — merged to master, not published
+
+G-BT13 "Ultimate Stride" fully scripted (110 cards), in G_SETS, CARD_DATA_VERSION g-bt13-1.0.0,
+commits 8eaf30a…ad64268, fast-forwarded into master. 3781/3781 tests, typecheck/lint/format clean.
+Card effects (stronger) are on master too. CHANGELOG "Unreleased" lists both. New engine pieces:
+g_guardian_discarded trigger, wasCharging, notGrade/mine filters, discard cost by grade total,
+free stride limited by name, Counter-Blast stride cost (strideCbCost), damage_to_drop_this_turn,
+fix_power, Ultimate Stride (isUltimate, ultimateDiscard, discardFor in the stride offer).
+Rulings: UNRESOLVED_RULINGS "G-BT13 notes".
+**Next (owner):** more sets — G-BT14 onward and other G products; publish when the owner asks.
+
+## ▶ Published v0.42.0-alpha (2026-11-13, evening)
+
+Dev master 5755890 (tag v0.42.0-alpha), public a592e89 + tag, GitHub pre-release with the zip,
+portable exe, signed update files and APK; `release:verify` OK; release/prev holds 0.42's manifest.
+Contents: UI kit (approved; six themes), G-BT12, G-TD09–15, G-LD01–03, G-BT01 OG Expanded playtest.
+The "Release build" workflow may leave a draft release on GitHub: it can be deleted.
+**Owner's next queue:** stronger card effects (branch `polish/card-motion`, screenshots for
+approval), then more sets (G-BT13 onward).
+
 ## ▶ Status 2026-11-13, late (branch `sets/g-bt12`)
 
 - Items 1–3 below are **done**: full verification green; G-TD09–G-TD15 scripted (43aeaa2); Legend

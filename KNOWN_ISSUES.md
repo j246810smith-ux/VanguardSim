@@ -11,7 +11,9 @@
   timer, chat, emotes or spectators.
 - **Test suite, one flaky test** (2026-11-08): `tests/artwork/artwork.test.ts` "an empty folder"
   failed once in a full run with 4 workers and passed on its own; it scans a fresh temp folder, which
-  antivirus can slow on this PC. Rerun before suspecting a regression.
+  antivirus can slow on this PC. Rerun before suspecting a regression. The same happens to
+  `tests/updates/download.test.ts` and `updater.test.ts` (2026-11-14): a different test failed in
+  two full runs, then 6 runs of the two files alone passed. Both use temp files and a local server.
 - **Controller support is Windows-only and new** (docs/CONTROLLER.md, 2026-11-12): tested with
   simulated pads in the test suite; real pads (Xbox, PlayStation, generic) still need a hands-on
   check. A pad whose browser mapping is not "standard" may have its buttons in another order:

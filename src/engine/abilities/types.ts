@@ -52,6 +52,10 @@ export interface CardFilter {
   readonly differentClanFromSource?: boolean;
   /** A race; a list: "<Gear Colossus> or <Zodiac Time Beast>" (G-BT11). */
   readonly race?: string | readonly string[];
+  /** "non-grade n" (G-BT13 Laser Blackguard). */
+  /** The card is the ability's master's ("your cards" among cards of both players, G-BT13). */
+  readonly mine?: boolean;
+  readonly notGrade?: number;
   readonly grade?: Range;
   /** A specific trigger icon, any trigger, or no trigger. */
   readonly trigger?: TriggerType | 'any' | 'none';
@@ -82,7 +86,7 @@ export interface CardFilter {
   /** Is the ability's own card ("when your drive check reveals this card", G-FC02 Daibazooka). */
   readonly isSource?: boolean;
   /** "with X in its original card name": the printed name only (G-FC02 Dehtail, Magnus). */
-  readonly originalNameIncludes?: string;
+  readonly originalNameIncludes?: string | readonly string[];
   /** Same card name as the ability's source (e.g. Persona Blast). */
   readonly sameNameAsSource?: boolean;
   /** Same card name as a card bound earlier ("with the same name as that card"); '__event': the event card. */
@@ -246,6 +250,8 @@ export type Condition =
   | { readonly cond: 'brave_active' }
   /** "if a locked card was unlocked during that turn due to the effect of your card" (G-TD15 Neo Messiah). */
   | { readonly cond: 'unlocked_by_your_effect' }
+  /** "During the turn that your card is put into the drop zone from your damage zone" (G-BT13). */
+  | { readonly cond: 'damage_to_drop_this_turn' }
   /** "During this unit's first battle of this turn": it has not attacked before this turn (G-LD03). */
   | { readonly cond: 'first_battle'; readonly of: Selector }
   /** "for each of your opponent's open (RC) (in the back row)": the number of empty rear-guard circles (G-BT11). */
@@ -566,7 +572,11 @@ export type Step =
       readonly n: number;
     }
   /** "until end of turn, you may [Stride] without paying the cost the next time you [Stride]" (G-TD10 Dragheart, Luard) */
-  | { readonly op: 'free_stride' }
+  | { readonly op: 'free_stride'; readonly nameIncludes?: string }
+  /** "until end of turn, you may pay the cost for your next Stride with "[Counter-Blast 1]-card with X in its card name"" (G-BT13 Easgal Liberator) */
+  | { readonly op: 'stride_cb_next'; readonly nameIncludes: string }
+  /** "until end of turn, increase or decrease its [Power] to n, and its [Power] cannot increase or decrease other than for this effect" (G-BT13 Valeos) */
+  | { readonly op: 'fix_power'; readonly target: Selector; readonly value: number }
   /** "the brave abilities of your cards are active until end of turn" (G-TD11 Alectos) */
   | { readonly op: 'brave_active' }
   /** "The [Power] of those units increase or decrease to n until end of turn" (G-BT12 Ungai). */
@@ -676,7 +686,16 @@ export type Cost =
   /** Put n cards from your soul into your drop zone. */
   | { readonly cost: 'soul_blast'; readonly n: number; readonly filter?: CardFilter }
   /** Discard n cards from your hand. */
-  | { readonly cost: 'discard'; readonly n: number; readonly filter?: CardFilter }
+  /**
+   * `gradeSum`: "choose one or more cards with the sum of their grades being n or greater from your
+   * hand, and discard them" (G-BT13 Six Flowers of Phantasms, Shirayuki); `n` is then the minimum count.
+   */
+  | {
+      readonly cost: 'discard';
+      readonly n: number;
+      readonly filter?: CardFilter;
+      readonly gradeSum?: number;
+    }
   /** Retire n of the selected units (e.g. self, or "one of your rear-guards"). */
   | { readonly cost: 'retire'; readonly n: number; readonly from: Selector }
   /** Rest every selected unit (usually self); they must be standing. */
@@ -815,6 +834,8 @@ export type TriggerCondition =
       readonly on: 'put_into_deck';
       readonly who: Subject;
       readonly byYourEffect?: boolean;
+      /** "When this charging unit is put into your deck" (G-BT13). */
+      readonly wasCharging?: boolean;
       /** "… from one of your other cards": not this card's own effect. */
       readonly otherCause?: boolean;
     }
@@ -894,6 +915,8 @@ export type TriggerCondition =
   | { readonly on: 'becomes_blazing' }
   /** "When this card is put into the drop zone from your hand for the cost of [Stride]" (G-BT06). */
   | { readonly on: 'stride_discarded'; readonly who: Subject }
+  /** "When this card is discarded for the cost of calling a [G Guardian]" (G-BT13 heal triggers). */
+  | { readonly on: 'g_guardian_discarded'; readonly who: Subject }
   /** "When you draw a card" (who: the drawn card; a card moved deck→hand by a draw). */
   | { readonly on: 'drawn'; readonly who: Subject }
   /** "When this unit is returned to your hand from (RC)" (Bermuda Triangle). */
@@ -993,6 +1016,17 @@ export type ContinuousEffect =
    * [Stride] without paying the [Stride] cost" (G-TD14 Tirua): read by freeStride.
    */
   | { readonly ce: 'free_stride'; readonly maxRearGuards: number }
+  /**
+   * Ultimate Stride, "U[Stride]" (G-BT13 Zeroth Dragons): released when three or more cards in your
+   * G zone are face up; the cost is a card from hand with the same card name as your vanguard; when
+   * the G unit returns to the G zone, your G zone is removed from the game.
+   */
+  | { readonly ce: 'ultimate_stride' }
+  /**
+   * "You may pay "[Counter-Blast 1]-card with the X ability" as the cost for [Stride] of your G unit
+   * with the X ability" (G-BT13 Gavrail Prim): one face-up damage card with that ability text.
+   */
+  | { readonly ce: 'stride_cb_cost'; readonly cardAbility: string; readonly gUnitAbility: string }
   /**
    * "[CONT](VC):While you are paying the cost for [Stride], if the G unit you [Stride] has X in its
    * card name, the cards in your hand get grade +n" (G-LD01 Blaster Dark "Diablo").

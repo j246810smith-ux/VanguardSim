@@ -271,7 +271,11 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.isSource !== undefined && (id === ec.source) !== filter.isSource) return false;
   if (
     filter.originalNameIncludes !== undefined &&
-    !ctx.registry.get(card.definitionId).name.includes(filter.originalNameIncludes)
+    !(
+      typeof filter.originalNameIncludes === 'string'
+        ? [filter.originalNameIncludes]
+        : filter.originalNameIncludes
+    ).some((part) => ctx.registry.get(card.definitionId).name.includes(part))
   )
     return false;
   if (filter.notBound !== undefined) {
@@ -355,6 +359,10 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.differentClanFromSource && shareClan(state, ctx, id, ec.source)) return false;
   const def = definitionOf(state, ctx, id);
   if (filter.race !== undefined && !hasRace(def.race, filter.race)) return false;
+  if (filter.notGrade !== undefined && currentGrade(state, ctx, id) === filter.notGrade)
+    return false;
+  if (filter.mine !== undefined && (state.cards[id]?.owner === ec.master) !== filter.mine)
+    return false;
   if (filter.grade !== undefined && !inRange(currentGrade(state, ctx, id), filter.grade))
     return false;
   if (filter.trigger !== undefined) {
@@ -562,6 +570,8 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     }
     case 'unlocked_by_your_effect':
       return (ec.state.turnFlags.unlockedByEffect ?? []).includes(ec.master);
+    case 'damage_to_drop_this_turn':
+      return (ec.state.turnFlags.damageToDrop ?? []).includes(ec.master);
     case 'open_rc': {
       const p = ec.state.players[condition.player === 'you' ? ec.master : other(ec.master)];
       const open = REAR_GUARD_CIRCLES.filter(

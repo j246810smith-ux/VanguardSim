@@ -64,6 +64,8 @@ export type GameEvent =
       readonly byEngorge?: true;
       /** The unit was engorged when it left its circle ("when this unit is engorged and retired"). */
       readonly wasEngorged?: true;
+      /** The unit was charging when it left its circle (G-BT13 "when this charging unit is put into your deck"). */
+      readonly wasCharging?: true;
     }
   | { readonly type: 'MULLIGAN'; readonly player: PlayerId; readonly count: number }
   | { readonly type: 'VANGUARDS_STOOD_UP' }
@@ -250,6 +252,8 @@ export type GameEvent =
       readonly type: 'G_GUARDIAN_CALLED';
       readonly player: PlayerId;
       readonly instanceId: InstanceId;
+      /** The card discarded for the cost (G-BT13: "when this card is discarded for the cost …"). */
+      readonly discarded?: InstanceId;
     }
   /** "You get an additional turn": `player` takes the next turn as well. */
   | { readonly type: 'EXTRA_TURN'; readonly player: PlayerId }

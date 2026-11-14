@@ -160,12 +160,20 @@ export interface TurnFlags {
   soulAdded?: PlayerId[];
   /** Rescue (G-BT07): damage-zone cards healed by a rescue ability this turn. */
   rescued?: InstanceId[];
+  /** Players who had a card put into the drop zone from their damage zone this turn (G-BT13 Black Talent, Lyla). */
+  damageToDrop?: PlayerId[];
+  /** Units whose [Power] is fixed until end of turn (G-BT13 Blue Wave Marshal, Valeos). */
+  powerFixed?: Record<InstanceId, number>;
   /** Legion Leaders that entered a legion this turn ("during the turn your vanguard [Legion]"). */
   legioned?: InstanceId[];
   /** Players whose deck was shuffled by an effect of their own card this turn. */
   shuffledByEffect?: PlayerId[];
   /** "you may [Stride] without paying the cost the next time you [Stride]" (G-TD10 Dragheart, Luard). */
   freeStride?: PlayerId[];
+  /** "… the next time you [Stride] a G unit with X in its card name" (G-BT13 Doom Bringer High Flame). */
+  freeStrideNamed?: { readonly player: PlayerId; readonly part: string }[];
+  /** Easgal Liberator (G-BT13): the next stride may be paid with [Counter-Blast 1] of a card with the name part. */
+  strideCbNext?: { readonly player: PlayerId; readonly part: string }[];
   /** "the brave abilities of your cards are active until end of turn" (G-TD11 Alectos). */
   braveActive?: PlayerId[];
   /** Players whose card's effect unlocked a locked card this turn (G-TD15 Alter Ego Neo Messiah). */

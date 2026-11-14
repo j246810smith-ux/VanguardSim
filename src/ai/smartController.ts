@@ -298,7 +298,12 @@ export class SmartController implements PlayerController {
             const name = this.def(s, cardId)?.name ?? cardId;
             if (seen.has(name)) continue;
             seen.add(name);
-            out.push({ type: 'STRIDE', player: me, cardId, discard: this.strideDiscard(s, a) });
+            out.push({
+              type: 'STRIDE',
+              player: me,
+              cardId,
+              discard: a.discardFor?.[cardId] ?? this.strideDiscard(s, a),
+            });
           }
           break;
         }

@@ -166,7 +166,9 @@ export function costInstruction(cost: Cost, n: number): string {
     case 'soul_blast':
       return `Soul Blast ${n}: choose ${cards(n, 'card')} from your soul to put into your drop zone`;
     case 'discard':
-      return `Discard ${n}: choose ${cards(n, 'card')} from your hand to discard`;
+      return cost.gradeSum !== undefined
+        ? `Discard cards from your hand with grades totalling ${cost.gradeSum} or more`
+        : `Discard ${n}: choose ${cards(n, 'card')} from your hand to discard`;
     case 'retire':
       return `Retire ${n}: choose ${cards(n, 'unit')} to retire`;
     case 'lock':
@@ -464,9 +466,14 @@ function fixedCostPayable(ec: EvalContext, cost: Cost): boolean {
 export function canPay(ec: EvalContext, costs: readonly Cost[]): boolean {
   return costs.every((c) => {
     const choice = costChoice(ec, c);
+    if (choice && c.cost === 'discard' && c.gradeSum !== undefined)
+      return gradeTotal(ec, choice.options) >= c.gradeSum;
     return choice ? choice.options.length >= choice.n : fixedCostPayable(ec, c);
   });
 }
+
+const gradeTotal = (ec: EvalContext, ids: readonly InstanceId[]) =>
+  ids.reduce((sum, id) => sum + currentGrade(ec.state, ec.ctx, id), 0);
 
 function moveTo(
   d: Draft,
@@ -596,7 +603,8 @@ function pay(
       options,
       min: choice.n,
       max:
-        cost.cost === 'lock' && cost.orMore
+        (cost.cost === 'lock' && cost.orMore) ||
+        (cost.cost === 'discard' && cost.gradeSum !== undefined)
           ? options.length
           : twoFor.length > 0
             ? choice.n + 1
@@ -613,6 +621,14 @@ function pay(
     if (short) {
       const extra = twoFor.find((id) => options.includes(id));
       picks.push([...picked, ...(extra ? [extra] : [])]);
+    } else if (cost.cost === 'discard' && cost.gradeSum !== undefined) {
+      // grades short of the total: the highest-grade cards left are added until it is reached
+      const all = [...picked];
+      const rest = options
+        .filter((id) => !all.includes(id))
+        .sort((a, b) => currentGrade(d.state, d.ctx, b) - currentGrade(d.state, d.ctx, a));
+      while (gradeTotal(ec, all) < cost.gradeSum && rest.length > 0) all.push(rest.shift()!);
+      picks.push(all);
     } else picks.push(picked);
     delete task.selection;
   }
@@ -1196,7 +1212,26 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'free_stride': {
       const f = s.turnFlags;
-      f.freeStride = [...new Set([...(f.freeStride ?? []), frame.master])];
+      if (step.nameIncludes !== undefined)
+        f.freeStrideNamed = [
+          ...(f.freeStrideNamed ?? []),
+          { player: frame.master, part: step.nameIncludes },
+        ];
+      else f.freeStride = [...new Set([...(f.freeStride ?? []), frame.master])];
+      return true;
+    }
+    case 'fix_power': {
+      const f = s.turnFlags;
+      f.powerFixed = { ...(f.powerFixed ?? {}) };
+      for (const id of targets) f.powerFixed[id] = step.value;
+      return true;
+    }
+    case 'stride_cb_next': {
+      const f = s.turnFlags;
+      f.strideCbNext = [
+        ...(f.strideCbNext ?? []),
+        { player: frame.master, part: step.nameIncludes },
+      ];
       return true;
     }
     case 'brave_active': {

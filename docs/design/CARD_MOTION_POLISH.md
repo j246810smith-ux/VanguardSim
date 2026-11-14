@@ -1,7 +1,18 @@
 # Card motion polish: draw and placement (proposal, 2026-11-13)
 
 The user asked for game polish, "maybe a draw animation and maybe a placement animation", and for
-assets to use. **Nothing here is built yet: waiting for the user's approval.**
+assets to use. **Approved in full (2026-11-13). Built on branch `polish/card-motion`, then put on
+hold (user: "carry on with the sets").**
+
+**Status when paused:** the landing slam, rings, sparks (CSS streaks), glow, stride flash, guard
+shimmer, draw sheen, draw trail echoes, deck lift and retire dust are built (board/cardFx.ts,
+board/motion.ts), with a Settings switch **Card effects** (off on Low graphics), motion tests
+(app/tests/motion.test.tsx, 8 green). Kenney Particle Pack sprites in app/renderer/assets/fx
+(star_06, smoke_04, circle_02, CC0, licence file beside them). **Problem left:** in frozen screenshots
+(`VANGUARD_SHOTS_FX=1 npm run ui:shots`, files bench-results/ui-shots/fx-*.png) the effects are far
+too faint: the glint and stride flash do not show, the dust barely does. Next: find why (check the
+`.fx` elements' computed opacity and boxes in the screenshot run), make them clearly visible,
+add a licence manifest for the sprites, then merge.
 
 ## What the game does today
 

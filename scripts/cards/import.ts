@@ -148,6 +148,41 @@ const REVIEWED_DIFFERENCES: Readonly<
       'Stealth Fiend, Murder Andon: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
     use: 'jp',
   },
+  'G-BT13-039': {
+    reason:
+      'Heavy Bullet Dragon, Diablocannon: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-060': {
+    reason:
+      'Black Curse, Muriel: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-079': {
+    reason:
+      'Savage Ranger: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-086': {
+    reason:
+      'Stealth Rogue of Enmity, Sodehagi: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-091': {
+    reason:
+      'Stealth Rogue of Unhappiness, Shirasagi: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-092': {
+    reason:
+      'Power Flicker: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT13-095': {
+    reason:
+      'Jet Power Dusty: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
   'G-BT11-031': {
     reason:
       'Witch of Fruit of Knowledge, Rooibos: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',

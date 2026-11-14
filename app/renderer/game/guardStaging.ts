@@ -6,7 +6,15 @@
  * the rules: only cards still in the hand can be taken back. Presentation only: the engine sees
  * the same GUARD commands as before.
  */
-import type { Command, InstanceId } from '../../../src/engine';
+import {
+  currentGrade,
+  HIDDEN,
+  vanguardOf,
+  type Command,
+  type EngineContext,
+  type GameState,
+  type InstanceId,
+} from '../../../src/engine';
 import { ME } from '../engine';
 
 export interface StagedGuard {
@@ -60,4 +68,27 @@ export function nextGuard(
   if (waiting || queue.length === 0) return { next: null, rest: queue };
   const [next, ...rest] = stillLegal(queue, canGuard);
   return { next: next ?? null, rest };
+}
+
+/**
+ * Why a hand card cannot guard, for a hint when it is tapped in the guard step (2026-11-14): a
+ * guardian's grade must not be higher than the vanguard's (CR 8.5.2.1.1.2), so a grade 2 cannot
+ * guard under a grade 1 vanguard. `null` when the card can guard, the step is not a guard step,
+ * or the reason is something else (a card effect): the card's details open as before.
+ */
+export function guardRefusal(
+  view: GameState,
+  ctx: EngineContext,
+  canGuard: ReadonlySet<InstanceId>,
+  inGuardStep: boolean,
+  id: InstanceId,
+): string | null {
+  if (!inGuardStep || canGuard.has(id) || !view.players[ME].hand.includes(id)) return null;
+  const vg = vanguardOf(view.players[ME]);
+  if (vg === null || view.cards[id]?.definitionId === HIDDEN) return null;
+  const grade = currentGrade(view, ctx, id);
+  const vgGrade = currentGrade(view, ctx, vg);
+  return grade > vgGrade
+    ? `Can't guard: this card is grade ${grade}, higher than your grade ${vgGrade} vanguard`
+    : null;
 }

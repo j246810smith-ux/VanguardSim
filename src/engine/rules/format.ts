@@ -90,6 +90,7 @@ export const G_SETS: readonly string[] = [
   'G-BT10',
   'G-BT11',
   'G-BT12',
+  'G-BT13',
   'G-TD09',
   'G-TD10',
   'G-TD11',

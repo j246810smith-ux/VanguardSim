@@ -15,11 +15,33 @@
  */
 import { useLayoutEffect, useRef } from 'react';
 import type { GameEvent } from '../../../src/engine';
+import { deckLift, dustFx, landingFx, type FxLevel, type LandKind } from './cardFx';
 
 /** Where a card moved in the latest events: zone keys like "0-drop", or null for a circle. */
 export interface Move {
   readonly from: string | null;
   readonly to: string | null;
+  /** Why it last moved (the engine's MoveReason: 'ride', 'call', 'retire', ...). */
+  readonly reason?: string;
+}
+
+/** The landing effect of a card that arrived on a circle for this reason (null: none). */
+export function landKindOf(reason: string | undefined): LandKind | null {
+  switch (reason) {
+    case 'ride':
+      return 'ride';
+    case 'stride':
+    case 'legion':
+      return 'stride';
+    case 'guard':
+    case 'intercept':
+      return 'guard';
+    case 'call':
+    case 'effect':
+      return 'call';
+    default:
+      return null;
+  }
 }
 
 const zoneKey = (ref: { player: number; zone: string }): string | null =>
@@ -30,7 +52,11 @@ export function movesOf(events: readonly GameEvent[], into: Map<string, Move> = 
   for (const e of events) {
     if (e.type !== 'CARD_MOVED') continue;
     const before = into.get(e.instanceId);
-    into.set(e.instanceId, { from: before ? before.from : zoneKey(e.from), to: zoneKey(e.to) });
+    into.set(e.instanceId, {
+      from: before ? before.from : zoneKey(e.from),
+      to: zoneKey(e.to),
+      reason: e.reason,
+    });
   }
   return into;
 }
@@ -52,6 +78,8 @@ interface Placed extends Spot {
 interface Flight {
   readonly ghost: HTMLElement;
   readonly runs: Animation[];
+  /** Echoes of a drawn card (its light trail), removed with the ghost. */
+  readonly extras: HTMLElement[];
 }
 
 const SLEEVE_VARS = ['--sl-bg', '--sl-border', '--sl-emblem', '--sl-radius', '--sl-rotate'];
@@ -68,7 +96,12 @@ const THEIRS = '.side-opp, .panel.opp, .opp-hand';
  * where it was drawn. Measuring cards mid-flight or mid-hover made the next render start a new
  * slide, which moved cards under the mouse, which re-rendered … (v0.19 hand jitter).
  */
-export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, view: unknown): void {
+export function useCardMotion(
+  takeMoves: () => Map<string, Move>,
+  ms: number,
+  view: unknown,
+  fx: FxLevel = 'off',
+): void {
   const prev = useRef<Map<string, Placed>>(new Map());
   const flying = useRef<Map<string, Flight>>(new Map());
   useLayoutEffect(() => {
@@ -91,6 +124,7 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
       if (f.ghost.isConnected) drawn.set(iid, spot(f.ghost));
       for (const run of f.runs) run.cancel();
       f.ghost.remove();
+      for (const e of f.extras) e.remove();
     }
     flying.current.clear();
 
@@ -140,7 +174,14 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
         card: Placed,
         from: Spot,
         to: Spot,
-        opts: { real?: HTMLElement; fadeIn?: boolean; draw?: boolean; duration: number },
+        opts: {
+          real?: HTMLElement;
+          fadeIn?: boolean;
+          draw?: boolean;
+          land?: LandKind | null;
+          sink?: boolean;
+          duration: number;
+        },
       ) => {
         const copy = card.el.cloneNode(true) as HTMLElement;
         copy.removeAttribute('data-iid');
@@ -162,10 +203,18 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
         if (flips) {
           copy.classList.add('draw-face');
           flatten(copy, card.lw, card.lh);
+          // a light sweep crosses the face as it turns over (card effects)
+          if (fx !== 'off') {
+            const sheen = document.createElement('div');
+            sheen.className = 'draw-sheen';
+            copy.appendChild(sheen);
+          }
           const back = document.createElement('div');
           back.className = 'card back draw-back';
           ghost.append(copy, back);
         }
+        const land = fx !== 'off' ? (opts.land ?? null) : null;
+        if (land) ghost.classList.add('land-ghost');
         layer!.appendChild(ghost);
         const dx = from.cx - to.cx;
         const dy = from.cy - to.cy;
@@ -182,14 +231,49 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
               { transform: `scale(${to.s})${turn(0)}`, opacity: 1, offset: 0.85 },
               { transform: `scale(${to.s})${turn(0)}`, opacity: 0 },
             ]
-          : [
-              {
-                transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
-                opacity: opts.fadeIn ? 0.4 : 1,
-              },
-              { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
-              { transform: `scale(${to.s})`, opacity: 0 },
-            ];
+          : land
+            ? [
+                // the card comes down a little too big and settles: the "slam" (card effects)
+                {
+                  transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
+                  opacity: opts.fadeIn ? 0.4 : 1,
+                  boxShadow: '0 36px 44px rgba(0,0,0,0.45)',
+                },
+                {
+                  transform: `translate(${dx * 0.12}px, ${dy * 0.12 - 18}px) scale(${to.s * 1.1})`,
+                  opacity: 1,
+                  boxShadow: '0 28px 36px rgba(0,0,0,0.4)',
+                  offset: 0.62,
+                },
+                {
+                  transform: `scale(${to.s * 0.96})`,
+                  opacity: 1,
+                  boxShadow: '0 3px 6px rgba(0,0,0,0.35)',
+                  offset: 0.76,
+                },
+                { transform: `scale(${to.s})`, opacity: 1, offset: 0.88 },
+                { transform: `scale(${to.s})`, opacity: 0 },
+              ]
+            : opts.sink
+              ? [
+                  // a retired unit sinks into the table before it flies to the drop zone
+                  { transform: `translate(${dx}px, ${dy}px) scale(${from.s})`, opacity: 1 },
+                  {
+                    transform: `translate(${dx}px, ${dy + 10}px) scale(${from.s * 0.9})`,
+                    opacity: 0.85,
+                    offset: 0.25,
+                  },
+                  { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
+                  { transform: `scale(${to.s})`, opacity: 0 },
+                ]
+              : [
+                  {
+                    transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
+                    opacity: opts.fadeIn ? 0.4 : 1,
+                  },
+                  { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
+                  { transform: `scale(${to.s})`, opacity: 0 },
+                ];
         const runs: Animation[] = [
           ghost.animate(frames, {
             duration: opts.duration,
@@ -201,14 +285,52 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
         if (opts.real)
           runs.push(
             opts.real.animate(
-              [{ opacity: 0 }, { opacity: 0, offset: 0.8 }, { opacity: 1 }],
+              [{ opacity: 0 }, { opacity: 0, offset: land ? 0.86 : 0.8 }, { opacity: 1 }],
               opts.duration,
             ),
           );
-        const flight = { ghost, runs };
+        const extras: HTMLElement[] = [];
+        // a drawn card leaves a faint light trail: two fading echoes a moment behind it
+        if (opts.draw && fx === 'full') {
+          for (const [i, lag] of [55, 110].entries()) {
+            const echo = ghost.cloneNode(true) as HTMLElement;
+            echo.classList.add('draw-echo');
+            echo.style.opacity = '0';
+            layer!.insertBefore(echo, ghost);
+            extras.push(echo);
+            runs.push(
+              echo.animate(
+                frames.map((f, k) => ({
+                  ...f,
+                  opacity: k === 0 || k === frames.length - 1 ? 0 : 0.28 - 0.1 * i,
+                })),
+                {
+                  duration: opts.duration,
+                  delay: lag,
+                  easing: 'cubic-bezier(.2,.8,.2,1)',
+                  fill: 'both',
+                },
+              ),
+            );
+          }
+        }
+        if (land) {
+          runs.push(
+            ...landingFx(
+              layer!,
+              { cx: to.cx, cy: to.cy, w: card.lw * to.s, h: card.lh * to.s },
+              land,
+              card.side,
+              fx,
+              opts.duration * 0.72,
+            ),
+          );
+        }
+        const flight = { ghost, runs, extras };
         flying.current.set(iid, flight);
         runs[0]!.onfinish = () => {
           ghost.remove();
+          for (const e of extras) e.remove();
           if (flying.current.get(iid) === flight) flying.current.delete(iid);
         };
       };
@@ -218,22 +340,44 @@ export function useCardMotion(takeMoves: () => Map<string, Move>, ms: number, vi
         if (was) {
           if (Math.hypot(was.cx - cur.cx, was.cy - cur.cy) < 6 && Math.abs(was.s - cur.s) < 0.05)
             continue;
-          fly(iid, cur, was, cur, { real: cur.el, duration: ms });
+          const move = moves.get(iid);
+          // arrived on a circle (hand to circle): the landing slam and its effects
+          const land = move && move.to === null ? landKindOf(move.reason) : null;
+          fly(iid, cur, was, cur, { real: cur.el, land, duration: land ? ms * 1.25 : ms });
           continue;
         }
-        const fromKey = moves.get(iid)?.from ?? null;
+        const move = moves.get(iid);
+        const fromKey = move?.from ?? null;
         const from = tile(fromKey, cur);
         if (!from) continue;
         // drawn into a hand: the draw flourish; anything else fades in from its tile
-        if (fromKey?.endsWith('-deck') && cur.el.classList.contains('hand-card'))
+        if (fromKey?.endsWith('-deck') && cur.el.classList.contains('hand-card')) {
+          if (fx !== 'off') deckLift(stage.querySelector<HTMLElement>(`[data-zone="${fromKey}"]`));
           fly(iid, cur, from, cur, { real: cur.el, draw: true, duration: ms * 1.35 });
-        else fly(iid, cur, from, cur, { real: cur.el, fadeIn: true, duration: ms });
+        } else {
+          // called from the deck, drop zone, soul or G zone onto a circle: it lands as well
+          const land = move?.to === null ? landKindOf(move.reason) : null;
+          fly(iid, cur, from, cur, {
+            real: cur.el,
+            fadeIn: true,
+            land,
+            duration: land ? ms * 1.25 : ms,
+          });
+        }
       }
       // cards that left the screen fly into the tile of their new zone
       for (const [iid, gone] of prev.current) {
         if (now.has(iid)) continue;
-        const to = tile(moves.get(iid)?.to ?? null, gone);
-        if (to) fly(iid, gone, drawn.get(iid) ?? gone, to, { duration: ms * 1.1 });
+        const move = moves.get(iid);
+        const to = tile(move?.to ?? null, gone);
+        if (!to) continue;
+        // a unit retired from the field: it sinks with a dust puff, then flies to the drop zone
+        const retired =
+          fx !== 'off' && move?.reason === 'retire' && !!move.to?.endsWith('-drop') && !move.from;
+        const at = drawn.get(iid) ?? gone;
+        if (retired)
+          dustFx(layer, { cx: at.cx, cy: at.cy, w: gone.lw * at.s, h: gone.lh * at.s }, fx);
+        fly(iid, gone, at, to, { sink: retired, duration: ms * (retired ? 1.3 : 1.1) });
       }
     }
     prev.current = now;

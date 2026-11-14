@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { useCardMotion, type Move } from '../renderer/board/motion';
+import { landKindOf, useCardMotion, type Move } from '../renderer/board/motion';
+import type { FxLevel } from '../renderer/board/cardFx';
 
 // jsdom has no layout: each card's on-screen box comes from `boxes` (stage coordinates).
 const boxes = new Map<string, { x: number; y: number }>();
@@ -124,5 +125,102 @@ describe('card movement animation', () => {
     expect(String(frames[frames.length - 1]!.transform)).toContain('rotateY(0deg)');
     const plain = ghosts.find((g) => !g.classList.contains('draw-ghost'))!;
     expect(plain.querySelector('.draw-back')).toBeNull();
+  });
+
+  // card effects (docs/design/CARD_MOTION_POLISH.md, user-approved 2026-11-13)
+  describe('card effects', () => {
+    function Field({
+      view,
+      onCircle,
+      inDrop,
+      moves,
+      fx,
+    }: {
+      view: object;
+      onCircle: boolean;
+      inDrop?: boolean;
+      moves: Map<string, Move>;
+      fx: FxLevel;
+    }) {
+      useCardMotion(() => moves, 300, view, fx);
+      return (
+        <div className="stage">
+          <div data-zone="0-drop" />
+          <div className="side-me">
+            {onCircle ? (
+              <div className="circle" data-iid="u1">
+                <div className="card" />
+              </div>
+            ) : (
+              !inDrop && (
+                <div className="hand-card" data-iid="u1">
+                  <div className="card" />
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      );
+    }
+    const count = (sel: string) => document.querySelectorAll(`.motion-layer ${sel}`).length;
+
+    it('maps move reasons to landings', () => {
+      expect(landKindOf('ride')).toBe('ride');
+      expect(landKindOf('stride')).toBe('stride');
+      expect(landKindOf('legion')).toBe('stride');
+      expect(landKindOf('guard')).toBe('guard');
+      expect(landKindOf('call')).toBe('call');
+      expect(landKindOf('swap')).toBeNull();
+      expect(landKindOf(undefined)).toBeNull();
+    });
+
+    it('a ride lands with a slam, two rings and sparks; with effects off only the flight runs', () => {
+      for (const fx of ['full', 'off'] as const) {
+        cleanup();
+        animate.mockClear();
+        const moves = new Map<string, Move>([['u1', { from: '0-hand', to: null, reason: 'ride' }]]);
+        boxes.set('u1', { x: 100, y: 900 });
+        const { rerender } = render(<Field view={{}} onCircle={false} moves={moves} fx={fx} />);
+        boxes.set('u1', { x: 500, y: 400 });
+        rerender(<Field view={{}} onCircle moves={moves} fx={fx} />);
+        if (fx === 'full') {
+          expect(document.querySelector('.land-ghost')).not.toBeNull();
+          expect(count('.fx-ring')).toBe(2);
+          expect(count('.fx-spark')).toBe(12);
+          expect(count('.fx-glint')).toBe(1);
+        } else {
+          expect(document.querySelector('.land-ghost')).toBeNull();
+          expect(count('.fx')).toBe(0);
+        }
+      }
+    });
+
+    it('a stride gets three rings, more sparks and a flash; a call one ring and a few sparks', () => {
+      const land = (reason: string, fx: FxLevel = 'full') => {
+        cleanup();
+        const moves = new Map<string, Move>([['u1', { from: '0-hand', to: null, reason }]]);
+        boxes.set('u1', { x: 100, y: 900 });
+        const { rerender } = render(<Field view={{}} onCircle={false} moves={moves} fx={fx} />);
+        boxes.set('u1', { x: 500, y: 400 });
+        rerender(<Field view={{}} onCircle moves={moves} fx={fx} />);
+        return {
+          rings: count('.fx-ring'),
+          sparks: count('.fx-spark'),
+          flash: count('.fx-flash'),
+        };
+      };
+      expect(land('stride')).toEqual({ rings: 3, sparks: 18, flash: 1 });
+      expect(land('stride', 'reduced')).toEqual({ rings: 3, sparks: 9, flash: 0 });
+      expect(land('call')).toEqual({ rings: 1, sparks: 6, flash: 0 });
+    });
+
+    it('a retired unit leaves a dust puff', () => {
+      const moves = new Map<string, Move>([['u1', { from: null, to: '0-drop', reason: 'retire' }]]);
+      boxes.set('u1', { x: 500, y: 400 });
+      const { rerender } = render(<Field view={{}} onCircle moves={moves} fx="full" />);
+      rerender(<Field view={{}} onCircle={false} inDrop moves={moves} fx="full" />);
+      expect(count('.fx-dust')).toBe(6);
+      expect(count('.fx-debris')).toBe(8);
+    });
   });
 });

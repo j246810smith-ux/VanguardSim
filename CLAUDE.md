@@ -59,7 +59,19 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
+## Latest (2026-11-14 night): G-BT14 done; G-FTD01, G-FC03, G-FC04, G-CMB01 added (unpublished)
+
+Branch `sets/g-era-rest` (worktree VanguardSim-sets2), not merged to master yet. Read the
+"HANDOVER 2026-11-14 (night)" section at the top of `docs/NEXT_SESSION.md` first.
+
 ## Latest (2026-11-13): v0.40.0-alpha built, not yet published
+
+## Latest (2026-11-14): v0.43.0-alpha published
+
+G-BT13, card effects, guard hint. Read the top of `docs/NEXT_SESSION.md`; G-BT14 is in progress
+on `sets/g-bt14`.
+
+## Earlier (2026-11-13): v0.40.0-alpha built
 
 Master 0a562ab is the 0.40 release commit (AI G Era fixes, draw animation, bigger deck pile). Publish
 it per the top of `docs/NEXT_SESSION.md` (user approved). Then:

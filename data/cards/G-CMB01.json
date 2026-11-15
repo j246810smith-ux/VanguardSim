@@ -1,0 +1,2018 @@
+{
+  "set": "G-CMB01",
+  "importedAt": "2026-11-14T23:41:20.066Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-CMB01-001",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/001",
+        "name": "始源根絶者 ヱヰゴヲグ",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：[【カウンターブラスト】(1)，あなたのカード名に「根絶者」を含むリアガードを１枚選び、退却させる]あなたのカード名に「根絶者」を含むハーツカードがあるなら、相手のヴァンガードをすべてデリートし、相手の後列のリアガードを１枚まで選び、呪縛し、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。さらに、相手のダメージゾーンが４枚以上で、相手のバインドゾーンの裏のカードが13枚以上なら、あなたは勝利する。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_001.png"
+      },
+      "en": {
+        "number": "G-CMB01/001EN",
+        "name": "Original Deletor, Egorg",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn][Generation Break 2](This ability is active if you have two or more face up G units in total on your (VC) or G zone):[Counter-Blast 1 & Choose one of your rear-guards with \"Deletor\" in its card name, and retire it] If you have a heart card with \"Deletor\" in its card name, delete all of your opponent's vanguards, choose up to one rear-guard in your opponent's back row, lock it, your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete). Then, if the number of cards in your opponent's damage zone is four or more, and the number of face down cards in your opponent's bind zone is thirteen or more, you win the game.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CMB01/001", "G-CMB01/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F001",
+          "fetchedAt": "2026-11-14T23:39:14.741Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211002024/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/001EN",
+          "fetchedAt": "2019-12-11T00:20:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-002",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/002",
+        "name": "転生竜 ホーリースクワイヤ・ドラゴン",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏の「転生竜 ホーリースクワイヤ・ドラゴン」を１枚選び、表にする]あなたのカード名に「アルフレッド」を含むハーツカードがあるなら、あなたの呪縛カードをすべて解呪し、そのターン中、このユニットは『【永】【(V)】：あなたのターン中、あなたのリアガードすべてのパワー＋2000。』『【永】【(V)】【Gブレイク】(3)（あなたの(V)かＧゾーンに表のＧユニットが３枚以上で有効）：あなたのターン中、あなたのリアガード1枚につき、このユニットのパワー＋3000。』を得る。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_002.png"
+      },
+      "en": {
+        "number": "G-CMB01/002EN",
+        "name": "Transmigratory Dragon, Holy Squire Dragon",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card named \"Transmigratory Dragon, Holy Squire Dragon\" from your G zone, and turn it face up] If you have a heart card with \"Alfred\" in its card name, unlock all of your locked cards, and until end of turn, this unit gets \"[CONT](VC):During your turn, all of your rear-guards get [Power] +2000.\" and \"[CONT](VC)[Generation Break 3](This ability is active if you have three or more face up G units in total on your (VC) or G zone):During your turn, this unit gets [Power] +3000 for each of your rear-guards.\".",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_002.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CMB01/002", "G-CMB01/S01", "G-CMB01/002EN", "G-CMB01/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F002",
+          "fetchedAt": "2026-11-14T23:39:15.944Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209155750/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/002EN",
+          "fetchedAt": "2019-12-09T15:57:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-003",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/003",
+        "name": "王佐の騎士 ガルハール",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札からカード名に「アルフレッド」を含むカードを１枚まで探し、【スタンド】でライドし、その山札をシャッフルする。ライドしたら、あなたのソウルから「王佐の騎士 ガルハール」を１枚まで選び、(R)にコールする。\n【自】【(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、【カウンターチャージ】(1)。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_003.png"
+      },
+      "en": {
+        "number": "G-CMB01/003EN",
+        "name": "King's Adjutant Knight, Galehaut",
+        "text": "[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, search your deck for up to one card with \"Alfred\" in its card name, ride it as [Stand], and shuffle your deck. If you rode a card, choose up to one card named \"King's Adjutant Knight, Galehaut\" from your soul, and call it to (RC).\n[AUTO](RC):When this unit's attack hits a vanguard, if you have a vanguard with \"Alfred\" in its card name, [Counter-Charge 1].",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_003EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CMB01/003", "G-CMB01/S02", "G-CMB01/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F003",
+          "fetchedAt": "2026-11-14T23:39:16.683Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260720074033/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/003EN",
+          "fetchedAt": "2026-07-20T07:40:33Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-004",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/004",
+        "name": "光の剣士 アーメス",
+        "text": "【自】【(R)】：このユニットがアタックした時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。\n【自】【(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札からカード名に「ブラスター・ブレード」を含むカードを１枚まで探し、このユニットのいる(R)にコールし、その山札をシャッフルし、そのユニットの【自】を１つ選び、そのターン中、次にその能力のコストを払うまで、そのコストを[(0)]にする。（(0)は支払いを宣言することでコストを払える）",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_004.png"
+      },
+      "en": {
+        "number": "G-CMB01/004EN",
+        "name": "Swordsman of Light, Ahmes",
+        "text": "[AUTO](RC):When this unit attacks, if you have a vanguard with \"Alfred\" in its card name, this unit gets [Power] +2000 until end of that battle.\n[AUTO](RC):[Counter-Blast 1] When this unit's attack hits a vanguard, if you have a vanguard with \"Alfred\" in its card name, you may pay the cost. If you do, search your deck for up to one card with \"Blaster Blade\" in its card name, call it to the (RC) with this unit, shuffle your deck, choose one of that unit's [AUTO], and until end of turn, that ability's cost becomes [(0)] until the next time it is paid. (A (0) cost is paid by declaring that you are paying it)",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_004EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CMB01/004", "G-CMB01/S03", "G-CMB01/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F004",
+          "fetchedAt": "2026-11-14T23:39:17.653Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260716113529/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/004EN",
+          "fetchedAt": "2026-07-16T11:35:29Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-005",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/005",
+        "name": "絆の根絶者 グレイヲン",
+        "text": "【起】【(V)】：[【カウンターブラスト】(2)-カード名に「根絶者」を含むカード，あなたのカード名に「根絶者」を含むリアガードを１枚選び、退却させる]相手のヴァンガードをすべてデリートし、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。（デリートされたユニットは裏向きになり、パワーが０でテキストを失う。持ち主のターンの終わりに表に戻る）\n【自】：このユニットが(V)に登場した時、相手は自分のドロップゾーンから２枚選び、裏でバインド（バニッシュデリート）する。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_005.png"
+      },
+      "en": {
+        "number": "G-CMB01/005EN",
+        "name": "Docking Deletor, Greion",
+        "text": "[ACT](VC):[Counter-Blast 2]-cards with \"Deletor\" in its card name & Choose one of your rear-guards with \"Deletor\" in its card name, and retire it] Delete all of your opponent's vanguards, your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete). (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)\n[AUTO]:When this unit is placed on (VC), your opponent chooses two cards from his or her drop zone, and binds them face down (vanish delete).",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CMB01/005", "G-CMB01/S04", "G-CMB01/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F005",
+          "fetchedAt": "2026-11-14T23:39:18.850Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713054628/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/005EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T05:46:28Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-006",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/006",
+        "name": "光の剣士 ブラスター・ジャベリン ラルース",
+        "text": "【自】：[あなたの手札から２枚選び、ソウルに置く]このユニットが(R)に登場した時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの山札から〈ハイビースト〉を２枚まで探し、ユニットのいない別々の(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_006.png"
+      },
+      "en": {
+        "number": "G-CMB01/006EN",
+        "name": "Swordsman of Light, Blaster Javelin Larousse",
+        "text": "[AUTO]:[Choose two cards from your hand, and put them into your soul] When this unit is placed on (RC), if you have a vanguard with \"Alfred\" in its card name, you may pay the cost. If you do, search your deck for up to two <High Beast>, call them to separate open (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/006", "G-CMB01/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F006",
+          "fetchedAt": "2026-11-14T23:39:20.050Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209151016/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/006EN",
+          "fetchedAt": "2019-12-09T15:10:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-007",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/007",
+        "name": "光の剣士 ユーノス",
+        "text": "【自】【(R)】【ターン1回】：あなたのカードの効果で、他のあなたのユニットが(R)に登場した時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_007.png"
+      },
+      "en": {
+        "number": "G-CMB01/007EN",
+        "name": "Swordsman of Light, Junos",
+        "text": "[AUTO](RC)[1/turn]:When your other unit is placed on (RC) due to an effect from one of your cards, if you have a vanguard with \"Alfred\" in its card name, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_007EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/007", "G-CMB01/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F007",
+          "fetchedAt": "2026-11-14T23:39:21.227Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713061550/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/007EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T06:15:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-008",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/008",
+        "name": "並列する根絶者 ゼヰール",
+        "text": "【起】【(V)】：【双闘20000】「並列する根絶者 ゲヰール」\n【自】【(V)】：[【カウンターブラスト】(2)，あなたの手札から１枚選び、捨てる]このユニットが【双闘】した時、コストを払ってよい。払ったら、相手のヴァンガードをすべてデリートする。（デリートされたユニットは裏向きになり、パワーが０でテキストを失う。持ち主のターンの終わりに表に戻る）\n【自】【(V)】：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_008.png"
+      },
+      "en": {
+        "number": "G-CMB01/008EN",
+        "name": "Juxtapose Deletor, Zaele",
+        "text": "[ACT](VC):[Legion 20000]\"Juxtapose Deletor, Gaele\"\n[AUTO](VC):[Counter-Blast 2 & Choose a card from your hand, and discard it] When this unit [Legion], you may pay the cost. If you do, delete all of your opponent's vanguards. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's turn)\n[AUTO](VC):When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_008EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/008", "G-CMB01/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F008",
+          "fetchedAt": "2026-11-14T23:39:22.434Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713063243/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/008EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T06:32:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-009",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/009",
+        "name": "迅速な根絶者 ギアリ",
+        "text": "【自】：[他のあなたのカード名に「根絶者」を含むリアガードを１枚選び、退却させる]このユニットが(V)か(R)に登場した時、あなたのカード名に「根絶者」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手の前列のリアガードを１枚まで選び、退却させ、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）し、そのターン中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_009.png"
+      },
+      "en": {
+        "number": "G-CMB01/009EN",
+        "name": "Swift Deletor, Geali",
+        "text": "[AUTO]:[Choose one of your other rear-guards with \"Deletor\" in its card name, and retire it] When this unit is placed on (VC) or (RC), if you have a vanguard with \"Deletor\" in its card name, you may pay the cost. If you do, choose up to one of your opponent's rear-guards in the front row, retire it, your opponent chooses a card from his or her drop zone, binds it face down (vanish delete), and this unit gets [Power] +2000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/009", "G-CMB01/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F009",
+          "fetchedAt": "2026-11-14T23:39:23.185Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250614045743/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/009EN&expansion=65&view=image",
+          "fetchedAt": "2025-06-14T04:57:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-010",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/010",
+        "name": "欺く根絶者 ギヴン",
+        "text": "【自】：【(R)】[【カウンターブラスト】(1)-カード名に「根絶者」を含むカード，このユニットを退却させる，他のあなたのカード名に「根絶者」を含むリアガードを４枚選び、退却させる]このユニットがヴァンガードにアタックしたバトルの終了時、あなたのカード名に「グレイ」を含むグレード３のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのヴァンガードをすべて【スタンド】する。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_010.png"
+      },
+      "en": {
+        "number": "G-CMB01/010EN",
+        "name": "Lie-down Deletor, Given",
+        "text": "[AUTO](RC):[Counter-Blast 1]-card with \"Deletor\" in its card name & Retire this unit & Choose four of your other rear-guards with \"Deletor\" in its card name, and retire them] At the end of the battle that this unit attacked a vanguard, if you have a grade 3 vanguard with \"Grei\" in its card name, you may pay the cost. If you do, [Stand] all of your vanguards.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/010", "G-CMB01/S05", "G-CMB01/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F010",
+          "fetchedAt": "2026-11-14T23:39:24.014Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209182034/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/010EN",
+          "fetchedAt": "2019-12-09T18:20:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-011",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/011",
+        "name": "悪運の根絶者 ドロヲン",
+        "text": "【自】【(R)】：[このユニットをソウルに置く，あなたの手札から１枚選び、捨てる]このユニットがカード名に「根絶者」を含むヴァンガードを【ブースト】したバトルの終了時、コストを払ってよい。払ったら、２枚引き、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_011.png"
+      },
+      "en": {
+        "number": "G-CMB01/011EN",
+        "name": "Ill-fate Deletor, Drown",
+        "text": "[AUTO](RC):[Put this unit into your soul & Choose a card from your hand, and discard it] At the end of the battle that this unit boosted ([Boost]) a vanguard with \"Deletor\" in its card name, you may pay the cost. If you do, draw two cards, your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete).",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CMB01/011", "G-CMB01/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F011",
+          "fetchedAt": "2026-11-14T23:39:25.702Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214075741/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/011EN",
+          "fetchedAt": "2019-12-14T07:57:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-012",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/012",
+        "name": "染み渡る根絶者 ヱンダー",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているヴァンガードを１枚まで選び、そのバトル中、そのユニットは、ヒットされない。さらに、あなたのドロップゾーンに「染み渡る根絶者 ヱンダー」があり、相手のヴァンガードがデリートされているなら、そのターンの終了時、相手のヴァンガードをすべてデリートする。（デリートされたユニットは裏向きになり、パワーが０でテキストを失う。持ち主の次のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_012.png"
+      },
+      "en": {
+        "number": "G-CMB01/012EN",
+        "name": "Instill Deletor, Ender",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose up to one of your vanguards that is being attacked, and that unit cannot be hit until end of that battle. Then, if there is a card named \"Instill Deletor, Ender\" in your drop zone, and your opponent has a deleted vanguard, at the end of that turn, delete all of your opponent's vanguards. (The deleted unit is turned face down, its power becomes 0 and it loses all text. It turns face up at end of the owner's next turn)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_012EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CMB01/012", "G-CMB01/S06", "G-CMB01/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F012",
+          "fetchedAt": "2026-11-14T23:39:26.933Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713064614/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/012EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T06:46:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-013",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/013",
+        "name": "騎士王の先導者 エゼル",
+        "text": "【起】【(V)】：【双闘21000】「騎士王 アルフレッド」\n【起】【(V)】：[【ソウルブラスト】(2)，あなたの手札からあなたの(V)にいるユニットと同名のカードを１枚選び、捨てる]このユニットが【双闘】しているなら、あなたの山札から、グレード２とグレード１とグレード０の、カードをそれぞれ１枚まで探し、別々の(R)にコールし、その山札をシャッフルする。\n【永】【(V)】：このユニットが【双闘】しているなら、あなたのユニットはこのユニットを【ブースト】できない。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_013.png"
+      },
+      "en": {
+        "number": "G-CMB01/013EN",
+        "name": "King of Knights' Vanguard, Ezzell",
+        "text": "[ACT](VC):[Legion 21000]\"King of Knights, Alfred\"\n[ACT](VC):[Soul-Blast 2 & Choose a card from your hand with the same card name as a unit on your (VC), and discard it] If this unit is [Legion], search your deck for up to one grade 2, grade 1 and grade 0 card, call them to separate (RC), and shuffle your deck.\n[CONT](VC):If this unit is [Legion], your units cannot boost ([Boost]) this unit.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/013", "G-CMB01/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F013",
+          "fetchedAt": "2026-11-14T23:39:27.684Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260717180636/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/013EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-17T18:06:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-014",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/014",
+        "name": "騎士王 アルフレッド",
+        "text": "【永】【(V)】：あなたのユニットはこのユニットを【ブースト】できない。\n【永】【(V)】：あなたのターン中、あなたの《ロイヤルパラディン》のリアガード１枚につき、このユニットのパワー＋2000。\n【起】【(V)/(R)】：[【カウンターブラスト】(3)]あなたの山札からグレード２以下の《ロイヤルパラディン》を１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_014.png"
+      },
+      "en": {
+        "number": "G-CMB01/014EN",
+        "name": "King of Knights, Alfred",
+        "text": "[CONT](VC):Your units cannot boost ([Boost]) this unit.\n[CONT](VC):During your turn, this unit gets [Power] +2000 for each of your <Royal Paladin> rear-guards.\n[ACT](VC/RC):[Counter-Blast 3] Search your deck for up to one grade 2 or less <Royal Paladin>, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_014EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/014", "G-CMB01/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F014",
+          "fetchedAt": "2026-11-14T23:39:28.431Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260717181852/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/014EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-17T18:18:52Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-015",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/015",
+        "name": "光の剣士 ブラスター・アックス ゲラール",
+        "text": "【自】【(R)】【ターン1回】：あなたのカードの効果で、他のあなたのユニットが(R)に登場した時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_015.png"
+      },
+      "en": {
+        "number": "G-CMB01/015EN",
+        "name": "Swordsman of Light, Blaster Axe Grawl",
+        "text": "[AUTO](RC)[1/turn]:When your other unit is placed on (RC) due to an effect from one of your cards, if you have a vanguard with \"Alfred\" in its card name, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_015EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/015", "G-CMB01/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F015",
+          "fetchedAt": "2026-11-14T23:39:29.627Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713055044/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/015EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T05:50:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-016",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/016",
+        "name": "救国の賢者 ベノン",
+        "text": "【自】：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたの山札からパワー6000のカードを１枚まで探し、このユニットと同じ縦列の(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_016.png"
+      },
+      "en": {
+        "number": "G-CMB01/016EN",
+        "name": "Sage of Salvation, Benon",
+        "text": "[AUTO]:[Counter-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, search your deck for up to one card with [Power] 6000, call it to a (RC) in the same column as this unit, and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_016.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/016", "G-CMB01/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F016",
+          "fetchedAt": "2026-11-14T23:39:30.823Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207135936/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/016EN",
+          "fetchedAt": "2019-12-07T13:59:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-017",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/017",
+        "name": "光の剣士 ブラスター・レイピア ローラ",
+        "text": "【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）\n【永】【(R)】：このユニットと同じ縦列にいるあなたの「騎士王 アルフレッド」すべてのパワー＋1000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_017.png"
+      },
+      "en": {
+        "number": "G-CMB01/017EN",
+        "name": "Swordsman of Light, Blaster Rapier Laura",
+        "text": "[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)\n[CONT](RC):All of your \"King of Knights, Alfred\" in the same column as this unit get [Power] +1000.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_017.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/017", "G-CMB01/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F017",
+          "fetchedAt": "2026-11-14T23:39:32.183Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208030211/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/017EN",
+          "fetchedAt": "2019-12-08T03:02:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-018",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/018",
+        "name": "閃光の盾 イゾルデ",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[あなたの手札から《ロイヤルパラディン》を１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされている《ロイヤルパラディン》を１枚選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_018.png"
+      },
+      "en": {
+        "number": "G-CMB01/018EN",
+        "name": "Flash Shield, Iseult",
+        "text": "[CONT]:Sentinel(You may only have up to four cards with \"[CONT]:Sentinel\" in a deck.)\n[AUTO]:[Choose a <Royal Paladin> card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your <Royal Paladin> that is being attacked, and that unit cannot be hit until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_018.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "R",
+      "printings": ["G-CMB01/018", "G-CMB01/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F018",
+          "fetchedAt": "2026-11-14T23:39:32.940Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113000956/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/018EN",
+          "fetchedAt": "2019-11-13T00:09:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-019",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/019",
+        "name": "道標の賢者 エルロン",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、あなたの山札から「道標の賢者 エルロン」以外のグレード２以下のカードを１枚まで探し、ユニットのいない(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_019.png"
+      },
+      "en": {
+        "number": "G-CMB01/019EN",
+        "name": "Guidepost Sage, Elron",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] If you have a vanguard with \"Alfred\" in its card name, search your deck for up to one grade 2 or less card not named \"Guidepost Sage, Elron\", call it to an open (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_019.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/019", "G-CMB01/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F019",
+          "fetchedAt": "2026-11-14T23:39:33.732Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191019181805/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/019EN",
+          "fetchedAt": "2019-10-19T18:18:05Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-020",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/020",
+        "name": "剪断する根絶者 ヱヴォ",
+        "text": "【自】：[【カウンターブラスト】(2)]このユニットが(R)に登場した時、相手のヴァンガードがデリートされているなら、コストを払ってよい。払ったら、あなたの山札から「剪断する根絶者 ヱヴォ」以外のカード名に「根絶者」を含むカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_020.png"
+      },
+      "en": {
+        "number": "G-CMB01/020EN",
+        "name": "Clipping Deletor, Evo",
+        "text": "[AUTO]:[Counter-Blast 2] ]When this unit is placed on (RC), if your opponent has a deleted vanguard, you may pay the cost. If you do, search your deck for up to one card with \"Deletor\" in its card name not named \"Clipping Deletor, Evo\", call it to (RC), and shuffle your deck.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_020.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/020", "G-CMB01/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F020",
+          "fetchedAt": "2026-11-14T23:39:34.508Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214074948/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/020EN",
+          "fetchedAt": "2019-12-14T07:49:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-021",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/021",
+        "name": "並列する根絶者 ゲヰール",
+        "text": "【自】：このユニットが(R)に登場した時、相手のヴァンガードがデリートされているなら、相手の前列のリアガードを１枚選び、呪縛する。\n（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_021.png"
+      },
+      "en": {
+        "number": "G-CMB01/021EN",
+        "name": "Juxtapose Deletor, Gaele",
+        "text": "[AUTO]:When this unit is placed on (RC), if your opponent has a deleted vanguard, choose one of your opponent's rear-guards in the front row, and lock it. (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_021EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/021", "G-CMB01/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F021",
+          "fetchedAt": "2026-11-14T23:39:35.292Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260809165400/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/021EN",
+          "fetchedAt": "2026-08-09T16:54:00Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-022",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/022",
+        "name": "呼応する根絶者 アルバ",
+        "text": "【自】：このユニットが(R)に登場した時、相手のヴァンガードがデリートされているなら、あなたの山札から「呼応する根絶者 エルロ」を１枚まで選び、(R)にコールし、その山札をシャッフルする。コールしたら、相手は自分の山札の上から１枚を(R)にコールする。（カードは見てからコールする）\n【自】【右列の(R)】：このユニットがヴァンガードにアタックした時、あなたの左列の(R)に「呼応する根絶者 エルロ」がいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_022.png"
+      },
+      "en": {
+        "number": "G-CMB01/022EN",
+        "name": "Hailing Deletor, Alba",
+        "text": "[AUTO]:When this unit is placed on (RC), if your opponent has a deleted vanguard, search your deck for up to one card named \"Hailing Deletor, Elro\", call it to (RC), and shuffle your deck. If you called a card, your opponent calls the top card of his or her deck to (RC). (Call after looking at the card)\n[AUTO](RC) in the right column:When this unit attacks a vanguard, if you have a unit named \"Hailing Deletor, Elro\" in your left column (RC), this unit gets [Power] +3000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_022EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/022", "G-CMB01/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F022",
+          "fetchedAt": "2026-11-14T23:39:36.045Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260713065220/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/022EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-13T06:52:20Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-023",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/023",
+        "name": "醗酵する根絶者 ガヰアン",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]相手のヴァンガードがデリートされた時、あなたのカード名に「グレイ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）し、そのターン中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_023.png"
+      },
+      "en": {
+        "number": "G-CMB01/023EN",
+        "name": "Ferment Deletor, Gaen",
+        "text": "[AUTO](RC):[Soul-Blast 1] When your opponent's vanguard is deleted, if you have a vanguard with \"Grei\" in its card name, you may pay the cost. If you do, your opponent chooses a card from his or her drop zone, binds it face down (vanish delete), and this unit gets [Power] +3000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_023EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/023", "G-CMB01/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F023",
+          "fetchedAt": "2026-11-14T23:39:37.258Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260807224512/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/023EN",
+          "fetchedAt": "2026-08-07T22:45:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-024",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/024",
+        "name": "略奪する根絶者 ガノヱク",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_024.png"
+      },
+      "en": {
+        "number": "G-CMB01/024EN",
+        "name": "Looting Deletor, Gunec",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_024EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/024", "G-CMB01/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F024",
+          "fetchedAt": "2026-11-14T23:39:38.019Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260717165859/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/024EN&expansion=65&view=text",
+          "fetchedAt": "2026-07-17T16:58:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-025",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/025",
+        "name": "発芽する根絶者 ルチ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】：あなたのカード名に「根絶者」を含むヴァンガードの能力のコストで、このユニットが(R)からドロップゾーンに置かれた時、相手の後列のリアガードを１枚まで選び、呪縛し、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_025.png"
+      },
+      "en": {
+        "number": "G-CMB01/025EN",
+        "name": "Sprout Deletor, Luchi",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO]:When this unit is put into the drop zone from (RC) as the cost for the ability of your vanguard with \"Deletor\" in its card name, choose up to one of your opponent's rear-guards in the back row, lock it, your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete). (The locked card is turned face down, and cannot do anything. It turns face up at end of the owner's turn.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/025", "G-CMB01/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F025",
+          "fetchedAt": "2026-11-14T23:39:39.226Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260608141808/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/025EN",
+          "fetchedAt": "2026-06-08T14:18:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-026",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/026",
+        "name": "レインエレメント マデュー",
+        "text": "【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：このユニットが(V)に登場した時、あなたの元々のパワーが10000以下のハーツカードがあるなら、あなたのドロップゾーンからグレード３のカードを１枚選び、手札に加える。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_026.png"
+      },
+      "en": {
+        "number": "G-CMB01/026EN",
+        "name": "Rain Element, Madew",
+        "text": "[Stride](Released when both players' vanguards are grade 3 or greater!)-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:When this unit is placed on (VC), if you have a heart card with original [Power] 10000 or less, choose a grade 3 card from your drop zone, and put it into your hand.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_026.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CMB01/026", "G-CMB01/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F026",
+          "fetchedAt": "2026-11-14T23:39:40.416Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191122045657/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/026EN",
+          "fetchedAt": "2019-11-22T04:56:57Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-027",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/027",
+        "name": "旋動の賢者 ベルク",
+        "text": "【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたのカード名に「アルフレッド」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの呪縛カードを２枚まで選び、解呪し、あなたのユニットを２枚まで選び、そのターン中、パワー＋2000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_027.png"
+      },
+      "en": {
+        "number": "G-CMB01/027EN",
+        "name": "Rotary Sage, Belk",
+        "text": "[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Alfred\" in its card name, you may pay the cost. If you do, choose up to two of your locked cards, unlock them, choose up to two of your units, and they get [Power] +2000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/027", "G-CMB01/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F027",
+          "fetchedAt": "2026-11-14T23:39:41.633Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260418170857/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/027EN",
+          "fetchedAt": "2026-04-18T17:08:57Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-028",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/028",
+        "name": "波動の賢者 ターナ",
+        "text": "【自】：このユニットが(R)に登場した時、あなたのカード名に「アルフレッド」を含むグレード３のヴァンガードがいて、あなたのヴァンガードがすべて【スタンド】しているなら、あなたの山札からカード名に「アルフレッド」を含むカードを１枚まで探し、【スタンド】でライドし、その山札をシャッフルし、そのターン中、そのユニットのパワー＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_028.png"
+      },
+      "en": {
+        "number": "G-CMB01/028EN",
+        "name": "Undulatory Sage, Tarna",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a grade 3 vanguard with \"Alfred\" in its card name, and all of your vanguards are [Stand], search your deck for up to one card with \"Alfred\" in its card name, ride it as [Stand], shuffle your deck, and that unit gets [Power] +5000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "Giant",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_028.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/028", "G-CMB01/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F028",
+          "fetchedAt": "2026-11-14T23:39:42.829Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211201609/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/028EN",
+          "fetchedAt": "2019-12-11T20:16:09Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-029",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/029",
+        "name": "涼風の宝石騎士 アルトガロ",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、他のあなたのカード名に「宝石騎士」を含むリアガードが３枚以上なら、コストを払ってよい。払ったら、あなたの山札からカード名に「宝石騎士」を含むグレード１以下のカードを１枚まで探し、(R)にコールし、その山札をシャッフルする。",
+        "clan": "ロイヤルパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_029.png"
+      },
+      "en": {
+        "number": "G-CMB01/029EN",
+        "name": "Blowing Jewel Knight, Altgaro",
+        "text": "[AUTO](RC):[Soul-Blast 1] When this unit's attack hits a vanguard, if you have three or more other rear-guards with \"Jewel Knight\" in its card name, you may pay the cost. If you do, search your deck for up to one grade 1 or less card with \"Jewel Knight\" in its card name, call it to (RC), and shuffle your deck.",
+        "clan": "Royal Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_029.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/029", "G-CMB01/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F029",
+          "fetchedAt": "2026-11-14T23:39:43.576Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191111210252/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/029EN",
+          "fetchedAt": "2019-11-11T21:02:52Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-030",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/030",
+        "name": "烈風の騎士 フディブラス",
+        "text": "【自】【(R)】：[あなたの手札から１枚選び、捨てる]あなたのカード名に「アルフレッド」を含むヴァンガードがアタックされたバトルのガードステップ開始時、コストを払ってよい。払ったら、このユニットを(G)に【レスト】で移動し、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_030.png"
+      },
+      "en": {
+        "number": "G-CMB01/030EN",
+        "name": "Knight of the Gale, Hudiplus",
+        "text": "[AUTO](RC):[Choose a card from your hand, and discard it] At the beginning of the guard step that your vanguard with \"Alfred\" in its card name was attacked, you may pay the cost. If you do, move this unit to your (GC) as [Rest], and this unit gets [Shield] +10000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_030EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/030", "G-CMB01/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F030",
+          "fetchedAt": "2026-11-14T23:39:44.377Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250318011659/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/030EN",
+          "fetchedAt": "2025-03-18T01:16:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-031",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/031",
+        "name": "ぱっくがる",
+        "text": "【自】：[【ソウルブラスト】(2)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、【カウンターチャージ】(2)。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_031.png"
+      },
+      "en": {
+        "number": "G-CMB01/031EN",
+        "name": "Paccgal",
+        "text": "[AUTO]:[Soul-Blast 2] When this unit is placed on (RC), you may pay the cost. If you do, [Counter-Charge 2].",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_031.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/031", "G-CMB01/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F031",
+          "fetchedAt": "2026-11-14T23:39:45.143Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213163330/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/031EN",
+          "fetchedAt": "2019-12-13T16:33:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-032",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/032",
+        "name": "宝石騎士 れいずがる",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【自】【(R)】【ターン1回】：あなたのカードの効果で、他のあなたのユニットが(R)に登場した時、他のあなたのカード名に「宝石騎士」を含むリアガードが３枚以上なら、そのターン中、その登場したユニットのパワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_032.png"
+      },
+      "en": {
+        "number": "G-CMB01/032EN",
+        "name": "Jewel Knight, Leizgal",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC)[1/turn]:When your other unit is placed on (RC) due to an effect from one of your cards, if you have three or more other rear-guards with \"Jewel Knight\" in its card name, the unit that was placed gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_032EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/032", "G-CMB01/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F032",
+          "fetchedAt": "2026-11-14T23:39:46.336Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250328034012/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/032EN",
+          "fetchedAt": "2025-03-28T03:40:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-033",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/033",
+        "name": "ぴろろ",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_033.png"
+      },
+      "en": {
+        "number": "G-CMB01/033EN",
+        "name": "Pyrrolo",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_033.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/033", "G-CMB01/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F033",
+          "fetchedAt": "2026-11-14T23:39:47.540Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213095100/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/033EN",
+          "fetchedAt": "2019-12-13T09:51:00Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-034",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/034",
+        "name": "熱砂の騎士 ルッドフッド",
+        "text": "",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_034.png"
+      },
+      "en": {
+        "number": "G-CMB01/034EN",
+        "name": "Dunesand Knight, Radhud",
+        "text": "",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_034.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/034", "G-CMB01/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F034",
+          "fetchedAt": "2026-11-14T23:39:48.288Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191112231303/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/034EN",
+          "fetchedAt": "2019-11-12T23:13:03Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-035",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/035",
+        "name": "閃光の奏者 ニヴィアン",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_035.png"
+      },
+      "en": {
+        "number": "G-CMB01/035EN",
+        "name": "Flash Player, Niviane",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_035.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/035", "G-CMB01/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F035",
+          "fetchedAt": "2026-11-14T23:39:49.482Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207191543/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/035EN",
+          "fetchedAt": "2019-12-07T19:15:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-036",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/036",
+        "name": "まぁるがる",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ロイヤルパラディン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ロイヤルパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_036.png"
+      },
+      "en": {
+        "number": "G-CMB01/036EN",
+        "name": "Margal",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose up to one of your <Royal Paladin>, and it gets [Power] +3000 until end of turn.",
+        "clan": "Royal Paladin",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_036.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/036", "G-CMB01/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F036",
+          "fetchedAt": "2026-11-14T23:39:50.224Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207115241/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/036EN",
+          "fetchedAt": "2019-12-07T11:52:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-037",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/037",
+        "name": "突貫する根絶者 ヰギー",
+        "text": "【自】【(R)】：このユニットのアタックがヴァンガードにヒットした時、相手のヴァンガードがデリートされているなら、相手の前列のリアガードを１枚選び、呪縛する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_037.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/037"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F037",
+          "fetchedAt": "2026-11-14T23:39:50.989Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-CMB01-038",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/038",
+        "name": "貪り喰う根絶者 ジェヰル",
+        "text": "【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_038.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/038"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F038",
+          "fetchedAt": "2026-11-14T23:39:51.749Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-CMB01-039",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/039",
+        "name": "呼応する根絶者 エルロ",
+        "text": "【自】【(R)】【ターン1回】：カードの効果で、相手のユニットが(R)に登場した時、【カウンターチャージ】(1)し、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。\n【自】【左列の(R)】：このユニットがヴァンガードにアタックした時、あなたの右列の(R)に「呼応する根絶者 アルバ」がいるなら、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_039.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/039"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F039",
+          "fetchedAt": "2026-11-14T23:39:52.922Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-CMB01-040",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/040",
+        "name": "心酔する根絶者 グヰム",
+        "text": "【自】【(R)】：このユニットが【ブースト】したバトル中、アタックがヴァンガードにヒットした時、相手のヴァンガードがデリートされているなら、相手の前列のリアガードを１枚選び、呪縛する。（呪縛されたカードは裏向きになり何もできない。持ち主のターンの終わりに表に戻る）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_040.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/040"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F040",
+          "fetchedAt": "2026-11-14T23:39:54.109Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-CMB01-041",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/041",
+        "name": "遊泳する根絶者 ニヱ",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から５枚まで見て、グレード３以上のカードを１枚まで探し、相手に見せ、手札に加え、その山札をシャッフルする。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_041.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/041"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F041",
+          "fetchedAt": "2026-11-14T23:39:54.858Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-CMB01-042",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/042",
+        "name": "搾取する根絶者 ヰド",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_042.png"
+      },
+      "en": {
+        "number": "G-CMB01/042EN",
+        "name": "Squeezing Deletor, Id",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_042.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/042", "G-CMB01/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F042",
+          "fetchedAt": "2026-11-14T23:39:55.616Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20210509063722/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/042EN",
+          "fetchedAt": "2021-05-09T06:37:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-043",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/043",
+        "name": "多足の根絶者 ヲロロン",
+        "text": "",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_043.png"
+      },
+      "en": {
+        "number": "G-CMB01/043EN",
+        "name": "Polypod Deletor, Oloron",
+        "text": "",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_043EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/043", "G-CMB01/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F043",
+          "fetchedAt": "2026-11-14T23:39:56.363Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250422153838/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/043EN",
+          "fetchedAt": "2025-04-22T15:38:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-044",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/044",
+        "name": "責苛む根絶者 ゴヲト",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_044.png"
+      },
+      "en": {
+        "number": "G-CMB01/044EN",
+        "name": "Taunting Deletor, Gotho",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gcmb01_044.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/044", "G-CMB01/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F044",
+          "fetchedAt": "2026-11-14T23:39:57.114Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20210509073208/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/044EN",
+          "fetchedAt": "2021-05-09T07:32:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CMB01-045",
+      "set": "G-CMB01",
+      "jp": {
+        "number": "G-CMB01/045",
+        "name": "喰い千切る根絶者 ギヰバ",
+        "text": "【自】【(R)】：[このユニットを山札の上に置く]このユニットが【ブースト】したバトルの終了時、相手のヴァンガードがデリートされているなら、コストを払ってよい。払ったら、あなたの山札をシャッフルし、【カウンターチャージ】(1)し、相手は自分のドロップゾーンから１枚選び、裏でバインド（バニッシュデリート）する。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CMB01/gcmb01_045.png"
+      },
+      "en": {
+        "number": "G-CMB01/045EN",
+        "name": "Biting Deletor, Geeva",
+        "text": "[AUTO](RC):[Put this unit on the top of your deck] At the end of the battle that this unit boosted ([Boost]), if your opponent has a deleted vanguard, you may pay the cost. If you do, shuffle your deck, [Counter-Charge 1], your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete).",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gcmb01/GCMB01_045EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CMB01/045", "G-CMB01/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CMB01%2F045",
+          "fetchedAt": "2026-11-14T23:39:57.881Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250213193544/https://en.cf-vanguard.com/cardlist/?cardno=G-CMB01/045EN",
+          "fetchedAt": "2025-02-13T19:35:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

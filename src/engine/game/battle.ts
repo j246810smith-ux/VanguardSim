@@ -65,6 +65,8 @@ export function declareAttack(
     hits: [],
   };
   s.turnFlags.battles = (s.turnFlags.battles ?? 0) + 1;
+  if (s.players[s.activePlayer].circles.vanguard.includes(attacker))
+    s.turnFlags.vanguardAttacks = (s.turnFlags.vanguardAttacks ?? 0) + 1;
   emit(d, {
     type: 'ATTACK_DECLARED',
     player: s.activePlayer,
@@ -180,6 +182,8 @@ function startEffectBattle(
     ...(task.retireAfter ? { retireAttacker: true } : {}),
   };
   s.turnFlags.battles = (s.turnFlags.battles ?? 0) + 1;
+  if (s.players[s.activePlayer].circles.vanguard.includes(attacker))
+    s.turnFlags.vanguardAttacks = (s.turnFlags.vanguardAttacks ?? 0) + 1;
   emit(d, {
     type: 'ATTACK_DECLARED',
     player: s.activePlayer,

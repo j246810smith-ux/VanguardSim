@@ -72,6 +72,15 @@ export interface RuntimeCard {
   charging?: boolean;
   /** CR 1.48.1 11.24 Engorge: engorged until end of turn (G-BT10). Cleared off the field and when a turn starts. */
   engorged?: boolean;
+  /**
+   * Units retired during this turn due to the effect of this unit's engorge ability (G-TCB01
+   * Gluttony Dogma, Hammer Gewalt, Tyrannobrute). Cleared as `engorged` is.
+   */
+  engorgeRetired?: number;
+  /** Success (G-TCB02): successful until end of turn. Cleared off the field and when a turn starts. */
+  successful?: boolean;
+  /** Harmony (G-CB01): in harmony until end of turn. Cleared off the field and when a turn starts. */
+  inHarmony?: boolean;
   /** CR 1.48.1 10.35: the dominating player while this unit is dominated (its master for now). */
   dominatedBy?: PlayerId;
   /** The ability frame whose effect dominates it: domination ends when that effect has resolved (10.35.1.2). */
@@ -103,6 +112,17 @@ export interface PlayerState {
   hearts: InstanceId[];
   /** This player cannot normal ride in their next ride phase (G-BT04 Stun Beetle). */
   noNormalRideNext?: boolean;
+  /**
+   * "Your opponent cannot call his or her units to (RC) until end of your opponent's next turn"
+   * (G-TCB02 Obtirandus): no normal or superior call to (RC) through this turn number.
+   */
+  noRCCallsThrough?: number;
+  /**
+   * OG-assist house rule (game/ogAssist.ts): used this game (once per player, a try that found
+   * nothing included), and the card it took with the turn it was taken: protected from this
+   * player's own costs and guards until it is ridden by the end of their next ride phase.
+   */
+  ogAssist?: { readonly card: InstanceId | null; readonly turn: number };
   /**
    * A unit was placed on this player's (VC) during the ride phase of their latest turn (G-BT06 Air
    * Elemental, Twitterun: "no unit was placed on your opponent's (VC) during the ride phase of your
@@ -142,10 +162,16 @@ export interface TurnFlags {
   normalStrideUsed?: boolean;
   /** G units that strode this turn ("the turn your G unit strode"). */
   strode?: InstanceId[];
+  /** "you will perform an additional main phase and battle phase" (G-FC04 Beyond Order Dragon). */
+  extraPhases?: PlayerId[];
+  /** "Until end of turn, choose all of your units for your trigger effects" (G-BT14 Ultima). */
+  triggerAll?: PlayerId[];
   /** Cards the turn player called to (RC) this turn (normal and superior calls). */
   called?: InstanceId[];
   /** Battles (attacks) begun this turn, the current one included ("the third battle of that turn"). */
   battles?: number;
+  /** How many times the turn player's vanguard attacked this turn (G-BT14 Bikkun). */
+  vanguardAttacks?: number;
   /** Units stood by an effect this turn (not by the stand phase). */
   stood?: InstanceId[];
   /** Cards put into a drop zone from (RC) this turn (either player's). */
@@ -332,6 +358,11 @@ export interface PendingChoice {
    * triggered an automatic ability (e.g. the unit that unlocked, for Sulfur). The UI marks it.
    */
   readonly subject?: InstanceId;
+  /**
+   * The card whose ability asks (a step of an ability's effect or cost), so the UI can say which
+   * effect a prompt belongs to when several resolve in a row (prompt pack 2026-11-15, 3.6).
+   */
+  readonly source?: InstanceId;
 }
 
 /** Optional house rules, chosen when the game is created. Every rule is off unless set. */
@@ -352,6 +383,18 @@ export interface CustomRules {
    * [ACT]'s Counter Blast 5 & Soul Blast 8; the player chooses when both can be paid.
    */
   readonly megaBlastCheap?: boolean;
+  /**
+   * Negromarl (prompt pack 2026-11-15, 3.3; Original era and Original Era — Expanded): Witch
+   * Doctor of the Abyss, Negromarl (BT02-012, printed grade 3 / 8000) gets this much power as a
+   * unit on (VC) or (RC). Added to its original power, so every other effect stacks on top.
+   */
+  readonly negromarl?: 2000 | 3000;
+  /**
+   * OG-assist (prompt pack 2026-11-15, prompt 5; Original era and Original Era — Expanded): once
+   * per game, at the start of the Ride Phase, reveal the top seven cards and take one exactly one
+   * grade above the vanguard by discarding two other cards; it must be ridden next Ride Phase.
+   */
+  readonly ogAssist?: boolean;
 }
 
 /** Delayed Legion: a legion whose mate leaves at the start of `player`'s next stand phase. */
@@ -414,6 +457,8 @@ export interface GameState {
   losses: Partial<Record<PlayerId, LossReason>>;
   /** "You get an additional turn" (G-TD01 Mystery-flare Dragon): who takes the next turn. */
   extraTurn?: PlayerId;
+  /** Chronovisor Heritage (G-BT14): the G unit stridden at the beginning of that extra turn's main phase. */
+  extraTurnStride?: InstanceId;
 }
 
 export const other = (p: PlayerId): PlayerId => (p === 0 ? 1 : 0);

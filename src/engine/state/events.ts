@@ -37,7 +37,9 @@ export type MoveReason =
   | 'stride'
   | 'g_zone'
   /** CR 1.48.1 6.4.1.2.5: removed from the game by G Assist. */
-  | 'g_assist';
+  | 'g_assist'
+  /** OG-assist house rule (prompt pack 2026-11-15): discarded as its cost. */
+  | 'og_assist';
 
 /** Everything that happens is an event. The event stream is the record of truth for UI, logs and replays. */
 export type GameEvent =
@@ -230,6 +232,18 @@ export type GameEvent =
       readonly instanceId: InstanceId;
     }
   | {
+      /** Harmony (G-CB01): this unit became in harmony. */
+      readonly type: 'HARMONY';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+    }
+  | {
+      /** Success (G-TCB02): this unit became successful. */
+      readonly type: 'SUCCESSFUL';
+      readonly player: PlayerId;
+      readonly instanceId: InstanceId;
+    }
+  | {
       /** Blaze (G-BT07): this player's vanguard became blazing. */
       readonly type: 'BLAZING';
       readonly player: PlayerId;
@@ -247,6 +261,8 @@ export type GameEvent =
   | { readonly type: 'HEARTS_RELEASED'; readonly player: PlayerId; readonly gUnit: InstanceId }
   /** CR 1.48.1 6.4.1.2: the turn player used G Assist (`found`: the card put into the hand). */
   | { readonly type: 'G_ASSIST'; readonly player: PlayerId; readonly found: InstanceId | null }
+  /** OG-assist house rule: the card taken (null: nothing qualified; the try is used up anyway). */
+  | { readonly type: 'OG_ASSIST'; readonly player: PlayerId; readonly found: InstanceId | null }
   /** CR 1.48.1 7.5.1.2.3: a G guardian was called from the G zone. */
   | {
       readonly type: 'G_GUARDIAN_CALLED';

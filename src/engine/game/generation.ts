@@ -4,8 +4,10 @@
  * when the ruleset's `generationRules` is on (the G format); Classic games never reach this code.
  */
 import type { CardDefinition } from '../cards/types';
+import type { ContinuousEffect } from '../abilities/types';
 import {
   CIRCLES,
+  REAR_GUARD_CIRCLES,
   other,
   vanguardOf,
   type GameState,
@@ -18,6 +20,10 @@ import { currentGrade, definitionOf, namesOf } from './characteristics';
 import { ask } from './choice';
 import { emit, type Draft, type EngineContext } from './context';
 import { moveCard, shuffleDeck } from './zones';
+
+/** "Gear Beast/Zodiac Time Beast" has each race. */
+const raceOf = (race: string | null | undefined, wanted: string): boolean =>
+  (race ?? '').split('/').includes(wanted);
 
 const isG = (def: CardDefinition) => def.cardType === 'g_unit';
 
@@ -74,14 +80,19 @@ export function strideOptions(
   const units = state.players[player].gzone.filter((id) => {
     const card = state.cards[id]!;
     const def = ctx.registry.get(card.definitionId);
+    // Neon Gyze (G-BT14): not a G unit, face up in the G zone, with its own Ultimate Stride
+    if (gyzeEffect(def, 'stride')) return gyzeDiscard(state, ctx, player, id).length > 0;
     return !card.faceUp && isG(def) && !hasGGuardian(def);
   });
   const hand = state.players[player].hand;
   const released = ultimateDiscard(state, ctx, player).length > 0;
+  const ritual = strideRitualCost(state, ctx, player) !== null;
   return units.filter((g) =>
-    isUltimate(definitionOf(state, ctx, g))
-      ? released || freeStride(state, ctx, player, g)
-      : altPayable || freeFor(g) || strideCostPayable(state, ctx, player, hand, g),
+    gyzeEffect(definitionOf(state, ctx, g), 'stride')
+      ? true
+      : isUltimate(definitionOf(state, ctx, g))
+        ? released || ritual || freeStride(state, ctx, player, g)
+        : altPayable || ritual || freeFor(g) || strideCostPayable(state, ctx, player, hand, g),
   );
 }
 
@@ -203,6 +214,55 @@ export function strideSoulCost(
 export const isUltimate = (def: CardDefinition): boolean =>
   def.abilities.some((a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'ultimate_stride'));
 
+type GyzeEffect = Extract<ContinuousEffect, { ce: 'gyze' }>;
+/** A "gyze" effect of this part on the card's printed [CONT] abilities. */
+export function gyzeEffect(def: CardDefinition, part: GyzeEffect['part']): GyzeEffect | null {
+  for (const a of def.abilities)
+    if (a.kind === 'CONT')
+      for (const e of a.effects) if (e.ce === 'gyze' && e.part === part) return e;
+  return null;
+}
+/** A card of the player's in `zone` (G zone or vanguard) with this gyze part. */
+export function gyzeActive(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+  part: GyzeEffect['part'],
+): GyzeEffect | null {
+  const p = state.players[player];
+  const ids = part === 'field' ? p.circles.vanguard : p.gzone;
+  for (const id of ids) {
+    if (state.cards[id]!.locked) continue;
+    const e = gyzeEffect(ctx.registry.get(state.cards[id]!.definitionId), part);
+    if (e) return e;
+  }
+  return null;
+}
+/**
+ * Neon Gyze's Ultimate Stride: released while your vanguard is grade 3 and you have five
+ * different <Zeroth Dragon> in your bind zone; paid with a hand card named as your vanguard.
+ */
+export function gyzeDiscard(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+  gUnit: InstanceId,
+): InstanceId[] {
+  const e = gyzeEffect(definitionOf(state, ctx, gUnit), 'stride');
+  if (!e) return [];
+  const p = state.players[player];
+  const vg = vanguardOf(p);
+  if (vg === null || currentGrade(state, ctx, vg) !== 3) return [];
+  const names = new Set(
+    p.bind
+      .filter((id) => raceOf(definitionOf(state, ctx, id).race, e.race))
+      .map((id) => definitionOf(state, ctx, id).name),
+  );
+  if (names.size < 5) return [];
+  const vgNames = namesOf(state, ctx, vg);
+  return p.hand.filter((id) => namesOf(state, ctx, id).some((n) => vgNames.includes(n)));
+}
+
 /**
  * The cards that pay an Ultimate Stride: from hand, with the same card name as your vanguard; none
  * while fewer than three cards in your G zone are face up (the stride is not released).
@@ -297,9 +357,10 @@ export function strideRetireCost(
   player: PlayerId,
 ): InstanceId[] {
   const p = state.players[player];
-  if (!p.damage.some((id) => state.cards[id]!.faceUp)) return [];
+  const cb = p.damage.some((id) => state.cards[id]!.faceUp);
   const vg = vanguardOf(p);
   const names = vg === null ? [] : namesOf(state, ctx, vg);
+  const brave = p.hand.length <= 3 || (state.turnFlags.braveActive ?? []).includes(player);
   const rcs = ['front_left', 'front_right', 'back_left', 'back_center', 'back_right'] as const;
   return rcs.flatMap((c) => {
     const id = p.circles[c].at(-1);
@@ -310,11 +371,63 @@ export function strideRetireCost(
         a.zones.includes('RC') &&
         a.effects.some(
           (e) =>
-            e.ce === 'stride_retire_cost' && names.some((n) => n.includes(e.vanguardNameIncludes)),
+            e.ce === 'stride_retire_cost' &&
+            (e.noCounterBlast || cb) &&
+            (!e.brave || brave) &&
+            (e.vanguardNameIncludes === undefined ||
+              names.some((n) => n.includes(e.vanguardNameIncludes!))),
         ),
     );
     return ok ? [id] : [];
   });
+}
+
+/** A rear-guard retired for a stride also pays [Counter-Blast 1] (Blue Espada), unless it says not (Gyoonmy). */
+const retireNeedsCounterBlast = (state: GameState, ctx: EngineContext, id: InstanceId) =>
+  !definitionOf(state, ctx, id).abilities.some(
+    (a) =>
+      a.kind === 'CONT' && a.effects.some((e) => e.ce === 'stride_retire_cost' && e.noCounterBlast),
+  );
+
+/**
+ * Dragfall, Luard (G-BT14) on your (VC): the normal units in your drop zone that may pay a stride
+ * (one goes to the bottom of your deck) with [Counter-Blast 4] less one per grade 1 card there.
+ */
+export function strideRitualCost(
+  state: GameState,
+  ctx: EngineContext,
+  player: PlayerId,
+): { cb: number; cards: InstanceId[]; bind?: true } | null {
+  const p = state.players[player];
+  const vg = vanguardOf(p);
+  if (vg === null || state.cards[vg]!.locked) return null;
+  // Chronojet Dragon Z (G-BT14): a grade 3 <Zodiac Time Beast> from the drop zone, bound face up
+  for (const a of definitionOf(state, ctx, vg).abilities) {
+    if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
+    for (const e of a.effects) {
+      if (e.ce !== 'stride_drop_bind_cost') continue;
+      const cards = p.drop.filter((id) => {
+        const d = definitionOf(state, ctx, id);
+        return d.grade === e.grade && raceOf(d.race, e.race);
+      });
+      return cards.length > 0 ? { cb: 0, cards, bind: true } : null;
+    }
+  }
+  const has = definitionOf(state, ctx, vg).abilities.some(
+    (a) =>
+      a.kind === 'CONT' &&
+      a.zones.includes('VC') &&
+      a.effects.some((e) => e.ce === 'stride_ritual_cost'),
+  );
+  if (!has) return null;
+  const grade1 = p.drop.filter((id) => currentGrade(state, ctx, id) === 1).length;
+  const cb = Math.max(0, 4 - grade1);
+  if (p.damage.filter((id) => state.cards[id]!.faceUp).length < cb) return null;
+  const cards = p.drop.filter((id) => {
+    const d = definitionOf(state, ctx, id);
+    return d.cardType === 'normal_unit';
+  });
+  return cards.length > 0 ? { cb, cards } : null;
 }
 
 /**
@@ -331,6 +444,10 @@ export function strideCostPayable(
 ): boolean {
   const hand = state.players[player].hand;
   // Ultimate Stride: only its own cost (one card named as your vanguard), or no cost when free
+  const ritual = strideRitualCost(state, ctx, player);
+  if (discard.length === 1 && ritual?.cards.includes(discard[0]!)) return true;
+  if (gUnit !== undefined && gyzeEffect(definitionOf(state, ctx, gUnit), 'stride'))
+    return discard.length === 1 && gyzeDiscard(state, ctx, player, gUnit).includes(discard[0]!);
   if (gUnit !== undefined && isUltimate(definitionOf(state, ctx, gUnit)))
     return discard.length === 0
       ? freeStride(state, ctx, player, gUnit)
@@ -370,20 +487,50 @@ export function stride(
     s.cards[id]!.faceUp = false;
     emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: false });
   }
+  // Dragfall, Luard (G-BT14): a normal unit from the drop zone to the bottom of the deck, and the
+  // reduced Counter-Blast (the first face-up damage cards)
+  const ritualPaid = discard.filter((id) => p.drop.includes(id));
+  const bindPaid = ritualPaid.length > 0 && strideRitualCost(s, d.ctx, player)?.bind === true;
+  if (ritualPaid.length > 0 && !bindPaid) {
+    const n = strideRitualCost(s, d.ctx, player)?.cb ?? 0;
+    for (const id of p.damage.filter((x) => s.cards[x]!.faceUp).slice(0, n)) {
+      s.cards[id]!.faceUp = false;
+      emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: false });
+    }
+  }
   // Blue Espada Dragon (G-BT12): retired from (RC) with [Counter-Blast 1] (the first face-up damage card)
   const retired = discard.filter(
-    (id) => !p.hand.includes(id) && !p.soul.includes(id) && !cbPaid.includes(id),
+    (id) =>
+      !p.hand.includes(id) &&
+      !p.soul.includes(id) &&
+      !cbPaid.includes(id) &&
+      !ritualPaid.includes(id),
   );
-  if (retired.length > 0) {
+  if (retired.length > 0 && retired.some((id) => retireNeedsCounterBlast(s, d.ctx, id))) {
     const cb = p.damage.find((id) => s.cards[id]!.faceUp);
     if (cb !== undefined) {
       s.cards[cb]!.faceUp = false;
       emit(d, { type: 'CARD_TURNED', instanceId: cb, faceUp: false });
     }
   }
+  // Neon Gyze: "Remove all of your cards in your other circles, soul, and G zone, turn this card over"
+  const gyze = gyzeEffect(definitionOf(s, d.ctx, gUnit), 'stride');
+  if (gyze) {
+    const others = [
+      ...REAR_GUARD_CIRCLES.flatMap((c) => p.circles[c]),
+      ...p.guardian,
+      ...p.soul,
+      ...p.gzone.filter((id) => id !== gUnit),
+    ];
+    for (const id of others) moveCard(d, id, { player, zone: 'removed' }, 'rule_action');
+    if (gyze.face) (s.cards[gUnit] as { definitionId: string }).definitionId = gyze.face;
+  }
   moveCard(d, gUnit, { player, zone: 'circle', circle: 'vanguard' }, 'stride', { orientation });
   for (const id of discard)
-    if (!cbPaid.includes(id))
+    if (ritualPaid.includes(id) && bindPaid) moveCard(d, id, { player, zone: 'bind' }, 'cost');
+    else if (ritualPaid.includes(id))
+      moveCard(d, id, { player, zone: 'deck' }, 'cost', { position: 'bottom' });
+    else if (!cbPaid.includes(id))
       moveCard(d, id, { player, zone: 'drop' }, retired.includes(id) ? 'retire' : 'cost');
   // Easgal Liberator's offer is for the next stride only
   if (s.turnFlags.strideCbNext)
@@ -410,7 +557,11 @@ export function stride(
   s.turnFlags.strode = [...(s.turnFlags.strode ?? []), gUnit];
   // a soul blast paid instead (Amaruda) is not a discard from hand
   const fromHand = discard.filter(
-    (id) => !soulPaid.includes(id) && !retired.includes(id) && !cbPaid.includes(id),
+    (id) =>
+      !soulPaid.includes(id) &&
+      !retired.includes(id) &&
+      !cbPaid.includes(id) &&
+      !ritualPaid.includes(id),
   );
   emit(d, { type: 'STRIDE', player, gUnit, hearts: old, discarded: fromHand });
 }
@@ -470,6 +621,8 @@ export function callGGuardian(
 export function returnGUnits(d: Draft): void {
   const s = d.state;
   const player = s.activePlayer;
+  // Gyze (G-BT14): "All of your units do not return to the G zone"
+  if (gyzeActive(s, d.ctx, player, 'field')) return;
   // the vanguard last, so a G unit called to (RC) by an effect cannot end up on top of it
   for (const circle of [...CIRCLES].reverse()) {
     for (const id of [...s.players[player].circles[circle]]) {

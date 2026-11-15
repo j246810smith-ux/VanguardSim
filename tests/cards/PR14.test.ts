@@ -828,3 +828,19 @@ describe('PR14: Generation Break cards', () => {
     }
   });
 });
+
+describe('PR14 Generation Break cards are G era promos (prompt pack 2026-11-15, 3.4)', () => {
+  it('the five sit in G-PR: legal in the G era, not in the Original Era; ids (and art) unchanged', async () => {
+    const { cardRegistry } = await import('../../src/cards');
+    const { cardLegalIn, EARLY_BT01_BT17_FORMAT, G_ERA_FORMAT } = await import('../../src/engine');
+    const reg = cardRegistry();
+    for (const id of ['PR14-0265', 'PR14-0269', 'PR14-0270', 'PR14-0272', 'PR14-0273']) {
+      const d = reg.get(id);
+      expect(d.set).toBe('G-PR');
+      expect(cardLegalIn(d, EARLY_BT01_BT17_FORMAT)).toBe(false);
+      expect(cardLegalIn(d, G_ERA_FORMAT)).toBe(true);
+    }
+    // the rest of PR14 stays an Original Era set
+    expect(cardLegalIn(reg.get('PR14-0289'), EARLY_BT01_BT17_FORMAT)).toBe(true);
+  });
+});

@@ -16,6 +16,7 @@ export interface RuleLine {
 export function houseRules(view: GameState): RuleLine[] {
   const r = view.customRules ?? {};
   const original = view.formatId === EARLY_BT01_BT17_FORMAT.id;
+  const originalFormats = original || view.formatId === 'ORIGINAL_EXPANDED';
   return [
     {
       name: 'Delayed Legion',
@@ -34,6 +35,18 @@ export function houseRules(view: GameState): RuleLine[] {
       on: r.megaBlastCheap === true,
       value: r.megaBlastCheap ? 'Counter Blast 4 & Soul Blast 6 allowed' : 'Off (CB5 & SB8)',
       help: 'An ability costing Counter Blast 5 & Soul Blast 8 may be paid with Counter Blast 4 & Soul Blast 6.',
+    },
+    {
+      name: 'Negromarl',
+      on: !!r.negromarl && originalFormats,
+      value: !originalFormats ? 'Original era only' : r.negromarl ? `+${r.negromarl} power` : 'Off',
+      help: 'Witch Doctor of the Abyss, Negromarl (BT02) gets the bonus on the vanguard and rear-guard circles.',
+    },
+    {
+      name: 'OG-assist',
+      on: !!r.ogAssist && originalFormats,
+      value: !originalFormats ? 'Original era only' : r.ogAssist ? 'On (once per game)' : 'Off',
+      help: 'Once per game at the start of your Ride Phase: reveal seven, take a card one grade above your vanguard for two discards, ride it next Ride Phase.',
     },
   ];
 }

@@ -508,10 +508,27 @@ const showcaseShotsStep = `(() => {
     if (n === 6) return ([...document.querySelectorAll('.ui-btn')].find((b) => b.textContent.includes('Delete deck')).click(), 'dialog');
     return 'wait';
   })()`;
+/**
+ * VANGUARD_SHOTS_LAB=legion|guard1|guard3|guard6: start a game that is rearranged into a fixed
+ * board (app/renderer/game/devLab.ts) and just take pictures of it.
+ */
+const labShotsStep = `(() => {
+    const q = (s) => document.querySelector(s);
+    const click = (el) => (el ? (el.click(), el.textContent || el.dataset.testid || 'clicked') : null);
+    window.__vgLab = ${JSON.stringify(process.env.VANGUARD_SHOTS_LAB ?? '')};
+    return (
+      click(q('[data-testid=start-battle]')) ||
+      click(q('[data-testid=new-game]')) ||
+      (${JSON.stringify(process.env.VANGUARD_SHOTS_FORMAT === 'g')} && !window.__fmt && q('[data-testid=format-g]') && ((window.__fmt = 1), click(q('[data-testid=format-g]')))) ||
+      click(q('[data-testid=start]')) ||
+      'wait'
+    );
+  })()`;
 function runShots(win) {
   const screen = process.env.VANGUARD_SHOTS_SCREEN;
-  const step =
-    screen === 'decks'
+  const step = process.env.VANGUARD_SHOTS_LAB
+    ? labShotsStep
+    : screen === 'decks'
       ? deckShotsStep
       : screen === 'updates'
         ? updateShotsStep

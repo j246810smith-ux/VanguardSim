@@ -15,6 +15,115 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ HANDOVER 2026-11-14 (night, unattended session) — G-BT14 done, G-FTD01/G-FC03/G-FC04 added
+
+The owner asked for an unattended session: "finish everything on the list and all the sets that are
+left (TDs, G-FC, special/character sets, clan/technical/character/extra boosters, comic and revival
+collections, collaboration/title boosters), then hand over and shut down". Nothing was published.
+
+**Branches (worktree VanguardSim-sets2, master NOT updated — fast-forward it from the main checkout):**
+
+- Final check on `sets/g-era-rest`: typecheck, lint, format clean; **3816/3816 tests** (207 files).
+- `sets/g-bt14` → f7d5e6e "G-BT14 complete" (full suite 3794/3794 at that commit).
+- `sets/g-era-rest` (from f7d5e6e): 3b98bc8 G-FTD01, bb26d3f G-FC03, f2c5c78 G-FC04, 95cd409
+  data formatting, db238e7 G-CMB01, then an importer race fix and this handover. To merge: in the main checkout run
+  `git merge --ff-only sets/g-era-rest` (it contains sets/g-bt14).
+
+**Done this session**
+
+- G-BT14 finished: Nubatama, Dark Irregulars, Gear Chronicle, Ultima, Dust, Bikkun, Neon Gyze/Gyze.
+  New engine pieces: `call` `byOwner` (opponent calls to their own field), `lose` `{autos}`/`{all}`,
+  `copy_abilities` (Gastille), `g_face_down` cost + extra-turn stride (Chronovisor Heritage),
+  `stride_drop_bind_cost` (Chronojet Dragon Z, shown through `ritualCost.bind`), `trigger_all_units`
+  (Ultima), `power_to` `stat: 'grade'` (Dust), `vanguard_attacks` condition (Bikkun), the `gyze`
+  continuous effect family + `cannot_be_attacked` restriction (Neon Gyze → Gyze flips the card's
+  definition to G-BT14-001F). Gyze needs five different Zeroth Dragons in bind: only four exist so
+  far (G-BT13-001/002, G-BT14-002/003), so it is not reachable until later sets add more.
+- G-FTD01 "Knight of the Sun" (Japanese-only, unofficial English for 14 cards; reprints use sameAs).
+  Its deck list counts are not verified, so it is not a preconstructed deck.
+- G-FC03 (51 G units). Engine: `stride_self` (Sebreeze).
+- G-FC04 (75 cards). Engine: `extra_phases` (Beyond Order Dragon), `g_guardian_discarded.called`,
+  `gGuardian` card filter.
+- G-CMB01 "Vanguard & Deletor" (45 cards; five Japanese-only Deletors in unofficial English;
+  Larousse's lost "<High Beast>" repaired in EN_TEXT_FIXES).
+- Importer: English races drop a Japanese note in full-width brackets ("Gear Dragon（人型）").
+- Rulings: UNRESOLVED_RULINGS "G-BT14 notes", "G-FC03 notes", "G-FC04 notes", "G-CMB01 notes" (approximations listed
+  there: e.g. Tyrantis's continuous [AUTO] loss, Mandala Ryuou's granted shadowstitch, Ellise's
+  move-to-(RC) grant are not modelled).
+
+**Still to do (the owner's list), in this order**
+
+1. G-DG01 (Daigo special set), G-TCB01–02, G-CB01–07, G-CHB01–03,
+   G-EB01–03, and the Touken Ranbu products G-TB01, G-TB02, G-TTD01, G-THD01/02. Import with
+   `npm run cards:import -- <SET>`; Japanese-only cards need unofficial English
+   (data/translations/unofficial.json); write src/cards/<SET>.ts, register in src/cards/index.ts
+   and `G_SETS` (src/engine/rules/format.ts), bump CARD_DATA_VERSION, add tests/cards/<SET>.test.ts
+   ("every card scripted" + AI play-outs). Newly imported data/cards/*.json must be run through
+   prettier (format:check fails otherwise). Helper scripts used this session (recreate in %TEMP%):
+   a JP-name reprint matcher and a text dumper over data/cards/<SET>.json.
+2. "Revival Collection" (G-RC01/02) is not in the Japanese card list (checked the JP API products):
+   find out whether it was an English-only product before importing.
+3. Touken Ranbu is a separate title with its own rules: check the rules before scripting.
+4. Then: full `npm run check`, CHANGELOG, merge to master, publish only when the owner asks.
+
+## ▶ PAUSED 2026-11-14 (evening) — G-BT14 Genesis scripted; pick up with Nubatama
+
+Owner asked to put G-BT14 on hold and hand over. Branch `sets/g-bt14` (worktree VanguardSim-sets2),
+WIP commit "G-BT14: Genesis scripted (WIP)". Not merged, not in `G_SETS`.
+
+- **Done this session:** all 20 Genesis cards in src/cards/G-BT14.ts (009, 019–021, 035–040, 064–072,
+  074), with helpers `differentGrades`, `driveFor`, `fodder`, `restedByRevelation`; `revelation`
+  imported from G-BT11. Engine: `may` step got an optional `else` branch + builder `ab.either`
+  ("draw a card or [Counter-Charge 1]", Muspell). New tests/cards/G-BT14.test.ts: Muspell, Eir,
+  Inanna — 3/3 pass. Typecheck clean. **Full suite, lint and format NOT run yet.**
+- **Rulings to log** in UNRESOLVED_RULINGS "G-BT14 notes": "rested by the revelation ability of your
+  other unit" = rested by any effect of your other cards (068, 072); Expel Angel's "different card
+  names" among the three is not checked (069); Ningal's "put into your soul due to card effects" uses
+  the `darkness` condition (037); reveal costs reveal every matching hand card (existing behaviour).
+- **Next, in order:** Nubatama (010, 011, 041, 042, 075–082; Rinne = opponent calls two from hand
+  then dominate), Dark Irregulars (012, 013, 024, 025, 043–046, 083–089, 091, 092; Gastille copies
+  abilities), Gear Chronicle (005 extra turn, 014, 047–051, 093–099), 002/003/100, Neon Gyze/Gyze
+  (001/001F) last. Remaining card texts: run a throwaway dump of data/cards/G-BT14.json + unofficial.json
+  for ids not yet in G-BT14.ts. Then G_SETS + CARD_DATA_VERSION, "every card scripted" test, AI deck
+  play-outs, `npm run check`, CHANGELOG, merge to master. Publish only when the owner asks.
+
+## ▶ In progress: G-BT14 "Divine Dragon Apocrypha" (branch `sets/g-bt14`, worktree VanguardSim-sets2)
+
+Owner: "lets add in 14 for now". Data committed (17cd12e): 101 records = 100 cards + **G-BT14-001F**,
+the other face of Neon Gyze (importer: numbers like "G-BT14/001「…面」" become <nnn>F). English:
+archive 106 printings, wiki 6, unofficial 5 (001 Neon Gyze, 065, 083, 088, 095). Texts dump: run a
+throwaway tsx over data/cards/G-BT14.json + unofficial.json.
+**To do, in order:** (1) EN_TEXT_FIXES for lost race names (" " gaps: <Zeroth Dragon> in 001F,
+<Zodiac Time Beast> in 005, 014, 048, 049, 050, 094, 097, 098, 099 — check the JP text); (2) keep
+001F out of decks (it is not a deck card); (3) script clans: Royal Paladin brave (Altmile), Shadow
+Paladin ritual (Luard; Dragfall's reduced Counter-Blast stride cost), Genesis Regalia/revelation,
+Nubatama dominate (Rinne: opponent calls two from hand), Dark Irregulars darkness (Gastille copies
+abilities), Gear Chronicle Pulsar/bind zone (Chronovisor Heritage: extra turn, stride at main),
+heals (g_guardian_discarded), Ultima/Dust (Ultimate Stride exists; Dust: lose abilities,
+grade/power 1; Ultima: triggers choose all units), Bikkun; (4) Neon Gyze/Gyze subsystem last
+(Neon Gyze to G zone when ridden, trigger power → bind Zeroth Dragon, Gyze ultimate stride with 5
+different Zeroth Dragons in bind, Gyze face). Then G_SETS, tests, full suite, merge to master.
+**Progress (paused 2026-11-13 at the owner's request):** done (1) text fixes (a301ac9), (2) 001F not a
+deck card (a301ac9; artwork imagePath knows the F suffix), engine for Fides/Gyoonmy/Dragfall
+(b07c3f3), heals + Royal Paladin + Shadow Paladin scripted (4a7bdbd), deck_grade alsoDrop,
+look_bottom step, G-BT11 `revelation` exported for reuse. **Next:** Genesis (009, 019–021, 035–040,
+064–072, 074; use `revelation` from G-BT11, soul_charge `as` for Inanna, look_bottom for
+Ereshkigal, rests byYourEffect+otherCause for "rested by revelation"), then Nubatama, Dark
+Irregulars, Gear Chronicle, 002/003/100, Neon Gyze/Gyze; then G_SETS, tests, merge. G-BT14 is
+registered in index.ts but NOT in G_SETS (not playable yet).
+
+## ▶ Published v0.43.0-alpha (2026-11-14)
+
+Dev master 935348a (tag v0.43.0-alpha), public 8d770ac + tag, GitHub pre-release with zip, portable
+exe, signed update files and APK; dist:smoke and `release:verify` passed. release/prev holds 0.43's manifest for the next release. Installed copy updated in place (robocopy, art
+kept). Phone not updated from the PC (no adb in that session): it can update in the app.
+Contents: G-BT13, stronger card effects, and the guard hint (96eef7d): the user's "Grade 2 cannot
+guard" report was audited; the engine was already right (grade ≤ vanguard, CR 8.5.2.1.1.2), so only
+regression tests and a hint toast (`guardRefusal` in app/renderer/game/guardStaging.ts) were added.
+Possible follow-up: the Hard AI caps guard pieces at 10 without sorting by cost first
+(smartController `pieces.slice(0, 10)`). **Next:** G-BT14 on `sets/g-bt14` (worktree
+VanguardSim-sets2, in progress, not merged).
+
 ## ▶ G-BT13 done (2026-11-13, late) — merged to master, not published
 
 G-BT13 "Ultimate Stride" fully scripted (110 cards), in G_SETS, CARD_DATA_VERSION g-bt13-1.0.0,

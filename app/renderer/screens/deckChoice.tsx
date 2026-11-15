@@ -1,5 +1,6 @@
 /** Choosing a deck: the researched library, the starter decks, the Trial Decks and saved decks. */
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
+import { DeckInspect } from './DeckInspect';
 import { deckListOf, LIBRARY, type LibraryDeck } from '../../../src/decks/library';
 import { STARTER_DECKS } from '../../../src/decks/starters';
 import { G_STARTER_DECKS } from '../../../src/decks/gStarters';
@@ -89,13 +90,29 @@ export function DeckList({
   entries,
   selected,
   onSelect,
+  format = 'classic',
+  onEdit,
 }: {
   entries: readonly DeckEntry[];
   selected: number;
   onSelect: (i: number) => void;
+  /** The format being set up: the copy is saved for it (3.7). */
+  format?: FormatKey;
+  /** Open a saved copy of a ready-built deck in the Deck Builder. */
+  onEdit?: (deckId: string) => void;
 }) {
+  const [inspect, setInspect] = useState<DeckEntry | null>(null);
   return (
     <div className="deck-list">
+      {inspect && (
+        <DeckInspect
+          name={inspect.name}
+          deck={inspect.deck}
+          format={format}
+          onClose={() => setInspect(null)}
+          {...(onEdit ? { onEdit } : {})}
+        />
+      )}
       {entries.map((d, i) => {
         const clan = ctx.registry.has(d.deck.firstVanguard)
           ? ctx.registry.get(d.deck.firstVanguard).clan
@@ -105,15 +122,29 @@ export function DeckList({
             {d.section !== entries[i - 1]?.section && (
               <div className="deck-section">{SECTION_TITLE[d.section]}</div>
             )}
-            <button
-              className={`deck-option ${i === selected ? 'selected' : ''}`}
-              style={{ '--clan': clanColor(clan) } as CSSProperties}
-              disabled={!d.legal}
-              onClick={() => onSelect(i)}
-            >
-              <b>{d.name}</b>
-              <div style={{ color: 'var(--text-dim)' }}>{d.description}</div>
-            </button>
+            <div className="deck-option-row">
+              <button
+                className={`deck-option ${i === selected ? 'selected' : ''}`}
+                style={{ '--clan': clanColor(clan) } as CSSProperties}
+                disabled={!d.legal}
+                onClick={() => onSelect(i)}
+              >
+                <b>{d.name}</b>
+                <div style={{ color: 'var(--text-dim)' }}>{d.description}</div>
+              </button>
+              {/* ready-built decks: the full list, ratios and a copy to edit (3.7) */}
+              {d.section !== 'mine' && (
+                <button
+                  className="btn deck-inspect-btn"
+                  title="View the deck list"
+                  aria-label={`View the list of ${d.name}`}
+                  onClick={() => setInspect(d)}
+                  data-testid="deck-inspect-open"
+                >
+                  List
+                </button>
+              )}
+            </div>
           </div>
         );
       })}

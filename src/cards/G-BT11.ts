@@ -279,7 +279,7 @@ const FENRIR: Condition = ab.all(
   ab.exists(ab.units('you', ['VC'], { name: 'Mythical Hellsky Beast, Fenrir' })),
   faceUpGZone(1),
 );
-const revelation = (text_: string, circles: ('VC' | 'RC' | 'GC')[]): AbilityDefinition =>
+export const revelation = (text_: string, circles: ('VC' | 'RC' | 'GC')[]): AbilityDefinition =>
   ab.auto({
     id: 'revelation',
     zones: ['any'],

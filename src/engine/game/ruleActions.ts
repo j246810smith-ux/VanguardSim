@@ -1,6 +1,8 @@
 import { CIRCLES, other, type LossReason, type PlayerId } from '../state/types';
 import { emit, type Draft } from './context';
 import { moveCard } from './zones';
+import { abilitiesOf } from '../abilities/catalog';
+import { currentPower } from './stats';
 
 type Losses = Partial<Record<PlayerId, LossReason>>;
 
@@ -75,4 +77,39 @@ export function runRuleActions(d: Draft): void {
   }
   resolveOverloadedCircles(d);
   removeIllegalGuardians(d);
+  checkSuccess(d);
+}
+
+/**
+ * Success n (G-TCB02): a unit with the ability, on the circle the ability works from, becomes
+ * successful (until end of turn) once one of its owner's rear-guards has [Power] n or greater.
+ * Checked at check timing, so a power change made by any effect is seen before the next step.
+ */
+function checkSuccess(d: Draft): void {
+  const s = d.state;
+  for (const p of s.players) {
+    const rgs = CIRCLES.filter((c) => c !== 'vanguard').flatMap((c) => p.circles[c].slice(-1));
+    let best = -Infinity;
+    for (const circle of CIRCLES) {
+      for (const id of p.circles[circle].slice(-1)) {
+        const card = s.cards[id];
+        if (!card || card.successful || card.locked) continue;
+        const zone = circle === 'vanguard' ? 'VC' : 'RC';
+        const thresholds = abilitiesOf(s, d.ctx, id).flatMap((a) =>
+          a.kind === 'CONT' && a.zones.includes(zone)
+            ? a.effects.flatMap((e) => (e.ce === 'success' ? [e.threshold] : []))
+            : [],
+        );
+        if (thresholds.length === 0) continue;
+        if (best === -Infinity)
+          best = Math.max(
+            -1,
+            ...rgs.filter((r) => !s.cards[r]?.locked).map((r) => currentPower(s, d.ctx, r)),
+          );
+        if (best < Math.min(...thresholds)) continue;
+        card.successful = true;
+        emit(d, { type: 'SUCCESSFUL', player: p.id, instanceId: id });
+      }
+    }
+  }
 }

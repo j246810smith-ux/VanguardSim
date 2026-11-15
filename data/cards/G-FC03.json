@@ -1,0 +1,2354 @@
+{
+  "set": "G-FC03",
+  "importedAt": "2026-11-14T23:20:39.255Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-FC03-001",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/001",
+        "name": "錦虹の聖騎士 クロテニウス",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】勇敢（手札が３枚以下で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする]山札からグレード２のカードをＧゾーンの表の「錦虹の聖騎士 クロテニウス」と同じ枚数まで探し、別々の(R)にコールし、山札をシャッフルし、そのターン中、このユニットは『【永】【(V)】【Gブレイク】(3)：あなたのリアガードが５枚なら、このユニットのパワー＋10000/クリティカル＋１。』を得る。",
+        "clan": "ロイヤルパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_001.png"
+      },
+      "en": {
+        "number": "G-FC03/001EN",
+        "name": "Divine Knight of Rainbow Brocade, Clotenus",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]Brave (This ability is active when you have three or less cards in your hand):[Counter-Blast 1 & Soul-Blast 1 & Choose a face down card from your G zone, and turn it face up] Search your deck for up to the same number of grade 2 cards as the number of face up cards named \"Divine Knight of Rainbow Brocade, Clotenus\" in your G zone, call them to separate (RC), shuffle your deck, and until end of turn, this unit gets \"[CONT](VC)[Generation Break 3]:If you have five rear-guards, this unit gets [Power] +10000/[Critical] +1.\".",
+        "clan": "Royal Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/001", "G-FC03/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F001",
+          "fetchedAt": "2026-11-14T23:18:25.202Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210053621/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/001EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-10T05:36:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-002",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/002",
+        "name": "導きの天神 ワカヒルメ",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】【Gブレイク】(2)神託（手札が５枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)，Ｇゾーンから裏の「導きの天神 ワカヒルメ」を１枚選び、表にする]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、１枚引き、手札から１枚選び、山札の上に置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_002.png"
+      },
+      "en": {
+        "number": "G-FC03/002EN",
+        "name": "Lord of Guidance, Wakahirume",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)[Generation Break 2]Oracle (This ability is active when you have five or more cards in your hand):[Counter-Blast 1 & Soul-Blast 1 & Choose a face down card named \"Lord of Guidance, Wakahirume\" from your G zone, and turn it face up] When this unit attacks a vanguard, you may pay the cost. If you do, draw a card, choose a card from your hand, and put it on the top of your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_002.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/002", "G-FC03/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F002",
+          "fetchedAt": "2026-11-14T23:18:26.414Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208032758/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/002EN",
+          "fetchedAt": "2019-12-08T03:27:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-003",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/003",
+        "name": "メテオカイザー バスタード",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】【ターン１回】：[【カウンターブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする]このユニットがアタックした時、コストを払ってよい。払ったら、あなたのリアガードをＧゾーンの表の「メテオカイザー バスタード」と同じ枚数選び、【スタンド】する。２枚以上【スタンド】し、あなたのリアガードが５枚なら、そのバトル中、このユニットは『【自】【(V)】：[【カウンターブラスト】(1)，手札から２枚選び、捨てる]バトルの終了時、コストを払ってよい。払ったら、このユニットを【スタンド】し、そのターン中、ドライブ－２。』を得る。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_003.png"
+      },
+      "en": {
+        "number": "G-FC03/003EN",
+        "name": "Meteokaiser, Bustered",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] When this unit attacks, you may pay the cost. If you do, choose the same number of your rear-guards as the number of face up cards named “Meteokaiser, Bustered” in your G zone, and [Stand] them. If two or more units were [Stand], and you have five rear-guards, until end of that battle, this unit gets “[AUTO](VC):[Counter-Blast 1 & Choose two cards from your hand, and discard them] At the end of the battle, you may pay the cost. If you do, [Stand] this unit, and it gets drive -2 until end of turn.”.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_003.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/003", "G-FC03/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F003",
+          "fetchedAt": "2026-11-14T23:18:27.842Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210060550/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/003EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-10T06:05:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-004",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/004",
+        "name": "創世竜 トランスエルス・メサイア",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【Gブレイク】(2)：[【カウンターブラスト】(1)，Ｇゾーンから裏の「創世竜 トランスエルス・メサイア」を１枚選び、表にする]このユニットが(V)に登場した時、あなたの「メサイア」を含むハーツカードがあるなら、コストを払ってよい。払ったら、すべてのファイターのリアガードすべてを呪縛し、この効果で呪縛されたカード以外の呪縛カードすべてを解呪する。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_004.png"
+      },
+      "en": {
+        "number": "G-FC03/004EN",
+        "name": "Genesis Dragon, Trans-else Messiah",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO][Generation Break 2]:[Counter-Blast 1 & Choose a face down card named \"Genesis Dragon, Trans-else Messiah\" from your G zone, and turn it face up] When this unit is placed on (VC), if you have a heart card with \"Messiah\" in its card name, you may pay the cost. If you do, lock all rear-guards of all fighters, and unlock all locked cards other than those locked by this effect.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_004.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/004", "G-FC03/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F004",
+          "fetchedAt": "2026-11-14T23:18:28.595Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209065734/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/004EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-09T06:57:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-005",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/005",
+        "name": "夢踊る彩翼 ミルワード",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n奇術-【起】【(V)】【ターン１回】【Gブレイク】(2)：[【ソウルブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする]ソウルから２枚まで選び、別々の(R)にコールし、そのターン中、パワー＋4000し、そのターンの終了時、この効果でコールされたユニットをソウルに置く。あなたのユニットをＧゾーンの表の「夢踊る彩翼 ミルワード」と同じ枚数選び、そのターン中、『【自】【(V)/(R)】：このユニットのアタックがヴァンガードにヒットした時、ソウルから１枚まで選び、ユニットのいる(R)にコールする。』を与える。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_005.png"
+      },
+      "en": {
+        "number": "G-FC03/005EN",
+        "name": "Dreamiy Axel, Milward",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\nMagia-[ACT](VC)[1/turn][Generation Break 2]:[Soul-Blast 1 & Choose a face down card from your G zone, and turn it face up] Choose up to two cards from your soul, call them to separate (RC), they get [Power] +4000 until end of turn, and at the end of that turn, put the units called with this effect into your soul. Choose the same number of your units as the number of face up cards named \"Dreamiy Axel, Milward\" in your G zone, and until end of turn, they get \"[AUTO](VC/RC):When this unit's attack hits a vanguard, choose up to one card from your soul, and call it to a (RC) with a unit.\".",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_005.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/005", "G-FC03/005EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F005",
+          "fetchedAt": "2026-11-14T23:18:29.830Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208021239/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/005EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-08T02:12:39Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-006",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/006",
+        "name": "時空竜 ワープドライブ・ドラゴン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n時翔-【起】【(V)】【ターン１回】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]Ｇゾーンから裏のカードを１枚選び、表にしてよい。あなたのリアガードをＧゾーンの表の「時空竜 ワープドライブ・ドラゴン」と同じ枚数まで選び、タイムリープさせ、この効果でタイムリープさせたカードの枚数以下のグレードの、相手のリアガードを１枚選び、相手はそのユニットを自分の山札の下に置く。",
+        "clan": "ギアクロニクル",
+        "race": "ギアドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_006.png"
+      },
+      "en": {
+        "number": "G-FC03/006EN",
+        "name": "Interdimensional Dragon, Warp Drive Dragon",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\nTime Leap-[ACT](VC)[1/turn]:[Counter-Blast 1 & Soul-Blast 1] Choose a face down card from your G zone, and you may turn it face up. Choose up to the same number of your rear-guards as the number of face up cards named \"Interdimensional Dragon, Warp Drive Dragon\" in your G zone, time leap them, choose one of your opponent's rear-guards with grade less than or equal to the number of cards time leaped with this effect, and your opponent puts that unit to the bottom of his or her deck.",
+        "clan": "Gear Chronicle",
+        "race": "Gear Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_006.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/006", "G-FC03/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F006",
+          "fetchedAt": "2026-11-14T23:18:31.032Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210041959/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/006EN",
+          "fetchedAt": "2019-12-10T04:19:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-007",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/007",
+        "name": "魔海女帝 メアリード",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【カウンターブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする，手札から１枚選び、捨てる]ドロップゾーンから、ノーマルユニットを、グレードの合計が４以下になるように、Ｇゾーンの表の「魔海女帝 メアリード」と同じ枚数まで選び、別々の(R)にコールし、そのターン中、このユニットのパワーを増やす。増やす数値は、この効果でコールされたユニットの元々のパワーの合計である。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_007.png"
+      },
+      "en": {
+        "number": "G-FC03/007EN",
+        "name": "Demon Sea Queen, Maread",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up & Choose a card from your hand, and discard it] Choose up to the same number of normal units from your drop zone as the number of face up cards named \"Demon Sea Queen, Maread\" in your G zone with the sum of their grades being 4 or less, call them to separate (RC), and increase this unit's [Power] by the sum of the original [Power] of the units called with this effect until end of turn.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_007.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/007", "G-FC03/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F007",
+          "fetchedAt": "2026-11-14T23:18:31.954Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208023257/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/007EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-08T02:32:57Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-008",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/008",
+        "name": "常夏の花乙姫 ベラーノ",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：[【ソウルブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする，手札とドロップゾーンから１枚ずつ選び、山札に戻す]このユニットが(V)に登場した時、コストを払ってよい。払ったら、手札から２枚まで選び、別々の(R)にコールする。あなたのリアガードをＧゾーンの表の「常夏の花乙姫 ベラーノ」と同じ枚数選び、山札からそのユニットと同名のカードをそれぞれ１枚まで探し、別々の(R)にコールし、山札をシャッフルし、そのターン中、この効果で山札からコールされたユニットに『ブースト』を与える。",
+        "clan": "ネオネクタール",
+        "race": "バイオロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_008.png"
+      },
+      "en": {
+        "number": "G-FC03/008EN",
+        "name": "Flower Princess of Perpetual Summer, Verano",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:[Soul-Blast 1 & Choose a face down card from your G zone, and turn it face up & Choose a card from your hand and drop zone, and return them to your deck] When this unit is placed on (VC), you may pay the cost. If you do, choose up to two cards from your hand, and call them to separate (RC). Choose the same number of your rear-guards as the number of face up cards named \"Flower Princess of Perpetual Summer, Verano\" in your G zone, search your deck for up to one card with the same card name as each of those units, call them to separate (RC), shuffle your deck, and the units called from your deck with this effect get \"Boost\" ([Boost]) until end of turn.",
+        "clan": "Neo Nectar",
+        "race": "Bioroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_008.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-FC03/008", "G-FC03/008EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F008",
+          "fetchedAt": "2026-11-14T23:18:32.714Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191119224727/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/008EN",
+          "fetchedAt": "2019-11-19T22:47:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-009",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/009",
+        "name": "聖霊熾天使  ザカリエル",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【カウンターブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする]そのターン中、このユニットは『【永】【(V)】：あなたのダメージゾーンに表のカードがあるなら、あなたの前列のリアガードすべてのパワー＋3000。あなたのダメージゾーンが５枚なら、このユニットのパワー＋10000。』を得る。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_009.png"
+      },
+      "en": {
+        "number": "G-FC03/009EN",
+        "name": "Holy Seraph, Zachariel",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] Until end of turn, this unit gets \"[CONT](VC):If you have a face up card in your damage zone, all of the rear-guards in your front row get [Power] +3000. If the number of cards in your damage zone is five, this unit gets [Power] +10000.\".",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_009.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/009", "G-FC03/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F009",
+          "fetchedAt": "2026-11-14T23:18:33.941Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209073155/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/009EN",
+          "fetchedAt": "2019-12-09T07:31:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-010",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/010",
+        "name": "暗黒竜 ディストレス・ドラゴン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【カウンターブラスト】(3)，【ソウルブラスト】(3)，Ｇゾーンから裏のカードを１枚選び、表にする]あなたのリアガードを好きな枚数選び、退却させる。相手は自分のリアガードを、この効果で退却させたあなたのリアガードと同じ枚数選び、退却させる。この効果で合計６枚以上退却させたら、２枚引き、【カウンターチャージ】(1)/【ソウルチャージ】(1)し、そのターン中、このユニットのパワー＋20000。",
+        "clan": "シャドウパラディン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_010.png"
+      },
+      "en": {
+        "number": "G-FC03/010EN",
+        "name": "Dark Dragon, Distress Dragon",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 3 & Soul-Blast 3 & Choose a face down card from your G zone, and turn it face up] Choose any number of your rear-guards, and retire them. Your opponent chooses the same number of his or her rearguards as the number of your rear-guards retired with this effect, and retires them. If the total number retired with this effect is six or more, draw two cards, [Counter-Charge 1]/[Soul-Charge 1], and this unit gets [Power] +20000 until end of turn.",
+        "clan": "Shadow Paladin",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_010.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/010", "G-FC03/010EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F010",
+          "fetchedAt": "2026-11-14T23:18:34.699Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207110017/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/010EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-07T11:00:17Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-011",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/011",
+        "name": "白熱の黄金騎士 エブラウクス",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、山札の上から２枚見て、１枚まで探し、ユニットのいない(R)にコールし、残りのカードを山札の下に好きな順番で置く。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_011.png"
+      },
+      "en": {
+        "number": "G-FC03/011EN",
+        "name": "Golden Knight of Incandescence, Ebraucus",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (VC), you may pay the cost. If you do, look at two cards from the top of your deck, search for up to one card from among them, call it to an open (RC), and put the rest of the cards on the bottom of your deck in any order.",
+        "clan": "Gold Paladin",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_011.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/011", "G-FC03/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F011",
+          "fetchedAt": "2026-11-14T23:18:35.449Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209070927/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/011EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-09T07:09:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-012",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/012",
+        "name": "滅獣軍神 テュール",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【ソウルブラスト】(3)]山札の上から１枚見て、山札の上か下に置き、そのターン中、このユニットは『【自】【(V)】：あなたのドライブチェックでグレード１以上のカードがでた時、【ソウルチャージ】(3)してよい。』を得る。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_012.png"
+      },
+      "en": {
+        "number": "G-FC03/012EN",
+        "name": "Beast-Slayer Military Deity, Tyr",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Soul-Blast 3] Look at the top card of your deck, put it on the top or bottom of your deck, and until end of turn, this unit gets \"[AUTO](VC):When your drive check reveals a grade 1 or greater card, you may [Soul-Charge 3].\".",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_012.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/012", "G-FC03/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F012",
+          "fetchedAt": "2026-11-14T23:18:36.198Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216095237/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/012EN",
+          "fetchedAt": "2019-12-16T09:52:37Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-013",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/013",
+        "name": "炎帝龍王 イレジスト・ドラゴン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【ソウルブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、相手のユニットを１枚選び、そのユニットと同じ横列にいる相手のリアガードすべてを退却させる。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_013.png"
+      },
+      "en": {
+        "number": "G-FC03/013EN",
+        "name": "Flame Emperor Dragon King, Irresist Dragon",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Soul-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your opponent's units, and retire all of your opponent's rear-guards in the same row as that unit.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_013.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/013", "G-FC03/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F013",
+          "fetchedAt": "2026-11-14T23:18:37.386Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207113705/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/013EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-07T11:37:05Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-014",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/014",
+        "name": "六道忍竜 ゴウンラカン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：このユニットが(V)に登場した時、相手は自分のリアガードを２枚選び、そのユニット以外の自分のリアガードを表ですべてバインドする。３枚以上バインドしたら、相手は自分のバインドゾーンから２枚選び、ドロップゾーンに置く。そのターンの終了時、相手はこの効果でバインドされたカードを手札に加える。",
+        "clan": "ぬばたま",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_014.png"
+      },
+      "en": {
+        "number": "G-FC03/014EN",
+        "name": "Rikudo Stealth Dragon, Gounrakan",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:When this unit is placed on (VC), your opponent chooses two of his or her rear-guards, and binds all of his or her rear-guards other than those units face up. If three or more cards were bound, your opponent choose two cards from his or her bind zone, and puts them into the drop zone. At the end of the turn, your opponent puts the cards bound with this effect into his or her hand.",
+        "clan": "Nubatama",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_014.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/014", "G-FC03/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F014",
+          "fetchedAt": "2026-11-14T23:18:38.586Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210051602/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/014EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-10T05:16:02Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-015",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/015",
+        "name": "破壊暴君 グラドギガント",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)/(R)】：暴喰（アタック時、他のあなたのリアガードを１枚以上退却させてよい。退却させたら、そのターン中、暴喰状態になる）\n【自】【(V)】：このユニットが暴喰状態になった時、そのターン中、このユニットの暴喰能力の効果で、このターンに退却させたユニット１枚につき、このユニットのパワー＋5000。このユニットの暴喰能力の効果で、このターンに退却させたユニットが３枚以上なら、１枚引く。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_015.png"
+      },
+      "en": {
+        "number": "G-FC03/015EN",
+        "name": "Destruction Tyrant, Gradogigant",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC/RC):Engorge (When this unit attacks, you may retire one or more of your other rear-guards. If you do, it is engorged until end of turn)\n[AUTO](VC):When this unit becomes engorged, this unit gets [Power] +5000 until end of turn for each unit retired during this turn due to the effect of this unit's engorge ability. If the number of units retired during this turn due to the effect of this unit's engorge ability is three or more, draw a card.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_015.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/015", "G-FC03/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F015",
+          "fetchedAt": "2026-11-14T23:18:39.778Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207120201/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/015EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-07T12:02:01Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-016",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/016",
+        "name": "伏魔忍竜 オニビブレーダー",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：このユニットが(V)に登場した時、手札から１枚まで選び、(R)にコールする。あなたのリアガードを１枚選び、そのターン中、そのユニットのパワー＋2000し、『【永】【(R)】：このユニットは後列からヴァンガードにアタックできる。』を与える。",
+        "clan": "むらくも",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_016.png"
+      },
+      "en": {
+        "number": "G-FC03/016EN",
+        "name": "Ambush Demon Stealth Dragon, Onibibu Radar",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:When this unit is placed on (VC), choose up to one card from your hand, and call it to (RC). Choose one of your rear-guards, and until end of turn, that unit gets [Power] +2000, and \"[CONT](RC):This unit can attack a vanguard from the back row.\".",
+        "clan": "Murakumo",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_016.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/016", "G-FC03/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F016",
+          "fetchedAt": "2026-11-14T23:18:40.544Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207121442/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/016EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-07T12:14:42Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-017",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/017",
+        "name": "征天覇竜 ボルテックザッパー・ドラゴン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】雷激３（相手のバインドゾーンが３枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋10000し、『【自】【(V)】：[【カウンターブラスト】(1)]バトルの終了時、コストを払ってよい。払ったら、相手のバインドゾーンのカード２枚につき、相手は自分のリアガードを１枚選び、退却させ、そのカードを表でバインドする。』を得る。",
+        "clan": "なるかみ",
+        "race": "サンダードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_017.png"
+      },
+      "en": {
+        "number": "G-FC03/017EN",
+        "name": "Conquering Supreme Dragon, Voltechzapper Dragon",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)Thunderstrike 3 (This ability is active when your opponent's bind zone has three or more cards):When this unit attacks a vanguard, until end of that battle, this unit gets [Power] +10000, and \"[AUTO](VC):[Counter-Blast 1] At the end of the battle, you may pay the cost. If you do, for every two cards in your oponent's bind zone, your opponent chooses one of his or her rear-guards, retires it, and binds that card face up.\".",
+        "clan": "Narukami",
+        "race": "Thunder Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_017.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/017", "G-FC03/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F017",
+          "fetchedAt": "2026-11-14T23:18:41.308Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118104209/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/017EN&expansion=77&view=image",
+          "fetchedAt": "2019-11-18T10:42:09Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-018",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/018",
+        "name": "超宇宙勇機 エクスフェニックス",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックしたバトルの終了時、このユニットのパワーが35000以上で、そのバトル中、アタックがヒットしていなかったら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_018.png"
+      },
+      "en": {
+        "number": "G-FC03/018EN",
+        "name": "Super Cosmic Hero, X-phoenix",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 1] At the end of the battle that this unit attacked a vanguard, if this unit's [Power] is 35000 or greater, and if the attack did not hit during that battle, you may pay the cost. If you do, draw a card.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_018.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/018", "G-FC03/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F018",
+          "fetchedAt": "2026-11-14T23:18:42.499Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210060403/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/018EN",
+          "fetchedAt": "2019-12-10T06:04:03Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-019",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/019",
+        "name": "超重戦車 ティーガー・センチュリオン",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【カウンターブラスト】(1)]あなたの突撃能力を持つリアガードを好きな枚数選び、そのターン中、突撃状態にする。この効果で選んだユニット以外のあなたのリアガードを５枚まで選び、そのターン中、パワー＋2000。",
+        "clan": "スパイクブラザーズ",
+        "race": "ジャイアント",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_019.png"
+      },
+      "en": {
+        "number": "G-FC03/019EN",
+        "name": "Super Heavy Chariot, Tiger Centurion",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1] Choose any number of your rear-guards with the charge ability, and they become charging until end of turn. Choose up to five of your rear-guards other than the units chosen with this effect, and they get [Power] +2000 until end of turn.",
+        "clan": "Spike Brothers",
+        "race": "Giant",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_019.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/019", "G-FC03/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F019",
+          "fetchedAt": "2026-11-14T23:18:43.261Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191119223345/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/019EN&expansion=77&view=image",
+          "fetchedAt": "2019-11-19T22:33:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-020",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/020",
+        "name": "鮮血の叛臣 フレデリック",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】：[手札から１枚選び、ソウルに置く]そのターン中、ソウル１枚につき、このユニットのパワー＋1000。そのターンにこの効果で増やしたパワーの合計が10000以上なら、そのターン中、あなたの前列のリアガードすべてのパワー＋5000し、この能力は起動できなくなる。",
+        "clan": "ダークイレギュラーズ",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_020.png"
+      },
+      "en": {
+        "number": "G-FC03/020EN",
+        "name": "Rebellious Retainer of Fresh Blood, Frederick",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC):[Choose a card from your hand, and put it into your soul] This unit gets [Power] +1000 for each card in your soul until end of turn. If the total [Power] increased with this effect during this turn is 10000 or greater, all of the rear-guards in your front row get [Power] +5000 until end of turn, and this ability cannot be used for the rest of that turn.",
+        "clan": "Dark Irregulars",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_020.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/020", "G-FC03/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F020",
+          "fetchedAt": "2026-11-14T23:18:44.454Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209075440/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/020EN",
+          "fetchedAt": "2019-12-09T07:54:40Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-021",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/021",
+        "name": "赤丸急上昇 エルプリナ",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【ソウルブラスト】(1)]あなたのリアガードを２枚まで選び、手札に戻す。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_021.png"
+      },
+      "en": {
+        "number": "G-FC03/021EN",
+        "name": "Lucky Rise, Elprina",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Soul-Blast 1] Choose up to two of your rear-guards, and return them to your hand.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_021.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/021", "G-FC03/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F021",
+          "fetchedAt": "2026-11-14T23:18:45.633Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207121956/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/021EN&expansion=77&view=text",
+          "fetchedAt": "2019-12-07T12:19:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-022",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/022",
+        "name": "天羅水将 フリストス",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】連波-１回目のみ（各ターンの指定されたバトルで有効）：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのターン中、あなたの前列のリアガードすべてのパワー＋2000し、『【自】【(R)】連波-３～４回目：このユニットのアタックがヴァンガードにヒットした時、１枚引く。』を与える。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_022.png"
+      },
+      "en": {
+        "number": "G-FC03/022EN",
+        "name": "Marine General of Heavenly Silk, Christos",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)Wave-1st time only (This ability is active during the specified battles of each turn):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, until end of turn, all of the rear-guards in your front row get [Power] +2000, and \"[AUTO](RC)Wave-3rd or 4th time:When this unit's attack hits a vanguard, draw a card.\".",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_022.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/022", "G-FC03/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F022",
+          "fetchedAt": "2026-11-14T23:18:46.824Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210090803/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/022EN",
+          "fetchedAt": "2019-12-10T09:08:03Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-023",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/023",
+        "name": "乱撃怪神 スタッグルディッパー",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン１回】：[【カウンターブラスト】(1)，Ｇゾーンから裏のカードを１枚選び、表にする]あなたのユニットを３枚まで選び、そのターン中、相手の【レスト】しているユニット１枚につき、パワー＋1000。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_023.png"
+      },
+      "en": {
+        "number": "G-FC03/023EN",
+        "name": "Wild-fire Mutant Deity, Staggle Dipper",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] Choose up to three of your units, and until end of turn, they get [Power] +1000 for each of your opponent's units in [Rest].",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_023.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/023", "G-FC03/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F023",
+          "fetchedAt": "2026-11-14T23:18:47.574Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216111745/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/023EN",
+          "fetchedAt": "2019-12-16T11:17:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-024",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/024",
+        "name": "全智竜 フリムスルス",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【ソウルブラスト】(1)]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、あなたのリアガードを１枚選び、そのターン中、パワー＋4000。さらに、そのターン中、そのユニットのパワー＋4000してよい。そうしたら、そのターンの終了時、そのユニットを退却させる。この効果で選んだユニットのパワーが20000以上なら、１枚引く。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_024.png"
+      },
+      "en": {
+        "number": "G-FC03/024EN",
+        "name": "Omniscience Dragon, Hrimthurs",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Soul-Blast 1] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, choose one of your rear-guards, and it gets [Power] +4000 until end of turn. Then, you may have that unit get [Power] +4000. If you do, at the end of that turn, retire that unit. If the [Power] of the unit chosen with this effect is 20000 or greater, draw a card.",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_024.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-FC03/024", "G-FC03/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F024",
+          "fetchedAt": "2026-11-14T23:18:48.763Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210041940/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/024EN",
+          "fetchedAt": "2019-12-10T04:19:40Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-025",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/025",
+        "name": "神聖竜 レーザーガード・ドラゴン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのグレード２のリアガードが１枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ロイヤルパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_025.png"
+      },
+      "en": {
+        "number": "G-FC03/025EN",
+        "name": "Holy Dragon, Laserguard Dragon",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if you have one or more grade 2 rear-guards, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Royal Paladin",
+        "race": "Cosmo Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_025.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/025", "G-FC03/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F025",
+          "fetchedAt": "2026-11-14T23:18:49.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207183631/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/025EN",
+          "fetchedAt": "2019-12-07T18:36:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-026",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/026",
+        "name": "来光神鷹 一拍子",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたの手札が３枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ロイヤルビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_026.png"
+      },
+      "en": {
+        "number": "G-FC03/026EN",
+        "name": "Sunrise-on-high Godhawk, Ichibyoshi",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of cards in your hand is three or more, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Royal Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gfc03/gfc03_026.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/026", "G-FC03/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F026",
+          "fetchedAt": "2026-11-14T23:18:50.799Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260305140059/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/026EN",
+          "fetchedAt": "2026-03-05T14:00:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-027",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/027",
+        "name": "聖霊熾天使  オリフィエル",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【永】【(G)】：あなたのダメージゾーンが４枚以上なら、このユニットのシールド＋5000。",
+        "clan": "エンジェルフェザー",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_027.png"
+      },
+      "en": {
+        "number": "G-FC03/027EN",
+        "name": "Holy Seraph, Oriphiel",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[CONT](GC):If the number of cards in your damage zone is four or more, this unit gets [Shield] +5000.",
+        "clan": "Angel Feather",
+        "race": "Angel",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_027.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/027", "G-FC03/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F027",
+          "fetchedAt": "2026-11-14T23:18:51.557Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209071943/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/027EN",
+          "fetchedAt": "2019-12-09T07:19:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-028",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/028",
+        "name": "暗黒騎士 ルードヴィーク",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのグレード１以下のリアガードを１枚選び、(G)に移動させてよい。",
+        "clan": "シャドウパラディン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_028.png"
+      },
+      "en": {
+        "number": "G-FC03/028EN",
+        "name": "Dark Knight, Ludvik",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose one of your grade 1 or less rear-guards, and you may move it to your (GC).",
+        "clan": "Shadow Paladin",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_028.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/028", "G-FC03/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F028",
+          "fetchedAt": "2026-11-14T23:18:52.750Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207063416/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/028EN",
+          "fetchedAt": "2019-12-07T06:34:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-029",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/029",
+        "name": "聖天祈祷師 レイア",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのリアガードが２枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_029.png"
+      },
+      "en": {
+        "number": "G-FC03/029EN",
+        "name": "Sacred Heaven Prayer Master, Reia",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if you have two or more rear-guards, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Gold Paladin",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_029.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/029", "G-FC03/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F029",
+          "fetchedAt": "2026-11-14T23:18:54.025Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209211421/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/029EN",
+          "fetchedAt": "2019-12-09T21:14:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-030",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/030",
+        "name": "七色の女神 イーリス",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、ドロップゾーンから３枚まで選び、ソウルに置く。３枚置いたら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ジェネシス",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_030.png"
+      },
+      "en": {
+        "number": "G-FC03/030EN",
+        "name": "Goddess of Seven Colors, Iris",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose up to three cards from your drop zone, and put them into your soul. If three cards were put, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Genesis",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_030.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/030", "G-FC03/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F030",
+          "fetchedAt": "2026-11-14T23:18:54.787Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215201901/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/030EN",
+          "fetchedAt": "2019-12-15T20:19:01Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-031",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/031",
+        "name": "炎帝龍王 アジールオーブ・ドラゴン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、相手のリアガードが４枚以下なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "かげろう",
+        "race": "フレイムドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_031.png"
+      },
+      "en": {
+        "number": "G-FC03/031EN",
+        "name": "Flame Emperor Dragon King, Asyl Orb Dragon",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if your opponent has four or less rear-guards, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Kagero",
+        "race": "Flame Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_031.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/031", "G-FC03/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F031",
+          "fetchedAt": "2026-11-14T23:18:55.542Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191115173435/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/031EN",
+          "fetchedAt": "2019-11-15T17:34:35Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-032",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/032",
+        "name": "呪経忍仙 アブダタイシ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、相手の手札が６枚以下なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ぬばたま",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_032.png"
+      },
+      "en": {
+        "number": "G-FC03/032EN",
+        "name": "Jinx Stealth Hermit, Abudataishi",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of cards in your opponent's hand is six or less, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Nubatama",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_032.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/032", "G-FC03/032EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F032",
+          "fetchedAt": "2026-11-14T23:18:56.300Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191022185847/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/032EN",
+          "fetchedAt": "2019-10-22T18:58:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-033",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/033",
+        "name": "鉄甲宰相 ディモールファランクス",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【永】【(G)】：あなたのリアガードの枚数が相手のリアガードの枚数以下なら、このユニットのシールド＋5000。",
+        "clan": "たちかぜ",
+        "race": "ディノドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_033.png"
+      },
+      "en": {
+        "number": "G-FC03/033EN",
+        "name": "Iron-armored Chancellor, Dymorphalanx",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[CONT](GC):If the number of your rear-guards is less than or equal to the number of your opponent's rear-guards, this unit gets [Shield] +5000.",
+        "clan": "Tachikaze",
+        "race": "Dinodragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_033.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/033", "G-FC03/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F033",
+          "fetchedAt": "2026-11-14T23:18:57.060Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213155247/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/033EN",
+          "fetchedAt": "2019-12-13T15:52:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-034",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/034",
+        "name": "伏魔忍妖 ホウゲンウイング",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのグレード１以上のリアガードを１枚選ぶ。山札から選んだユニットと同名のカードを１枚まで探し、(G)にコールし、山札をシャッフルし、そのバトル中、そのユニットに『【自】：このユニットが(G)からドロップゾーンに置かれた時、このカードを山札の下に置く。』を与える。",
+        "clan": "むらくも",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_034.png"
+      },
+      "en": {
+        "number": "G-FC03/034EN",
+        "name": "Ambush Demon Stealth Fiend, Hougen Wing",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose one of your grade 1 or greater rear-guards. Search your deck for up to one card with the same card name as the chosen unit, call it to (GC), shuffle your deck, and until end of that battle, that unit gets \"[AUTO]:When this unit is put into the drop zone from (GC), put this card on the bottom of your deck.\".",
+        "clan": "Murakumo",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_034.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/034", "G-FC03/034EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F034",
+          "fetchedAt": "2026-11-14T23:18:57.828Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213160650/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/034EN",
+          "fetchedAt": "2019-12-13T16:06:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-035",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/035",
+        "name": "雷王霊帝 ヴリトラ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【永】【(G)】雷激１（相手のバインドゾーンが１枚以上で有効）：このユニットのシールド＋5000。",
+        "clan": "なるかみ",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_035.png"
+      },
+      "en": {
+        "number": "G-FC03/035EN",
+        "name": "Lightning King Spirit Emperor, Vritra",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[CONT](GC)Thunderstrike 1 (This ability is active when your opponent's bind zone has one or more cards):This unit gets [Shield] +5000.",
+        "clan": "Narukami",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/gfc03/gfc03_035.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/035", "G-FC03/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F035",
+          "fetchedAt": "2026-11-14T23:18:59.025Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250317120056/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/035EN",
+          "fetchedAt": "2025-03-17T12:00:56Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-036",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/036",
+        "name": "正義超人 ブルー・プリズン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのダメージゾーンの枚数が相手のダメージゾーンの枚数以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_036.png"
+      },
+      "en": {
+        "number": "G-FC03/036EN",
+        "name": "Righteous Superhuman, Blue Prison",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of cards in your damage zone is more than or equal to the number of cards in your opponent's damage zone, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_036.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/036", "G-FC03/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F036",
+          "fetchedAt": "2026-11-14T23:18:59.777Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212063631/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/036EN",
+          "fetchedAt": "2019-12-12T06:36:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-037",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/037",
+        "name": "イニグマン・パトリオット",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、相手のアタックしているユニットのパワーが20000以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_037.png"
+      },
+      "en": {
+        "number": "G-FC03/037EN",
+        "name": "Enigman Patriot",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if your opponent's attacking unit's [Power] is 20000 or greater, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gfc03/gfc03_037.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/037", "G-FC03/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F037",
+          "fetchedAt": "2026-11-14T23:19:00.558Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260305150251/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/037EN",
+          "fetchedAt": "2026-03-05T15:02:51Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-038",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/038",
+        "name": "滅星輝兵 デモンマクスウェル",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[あなたの後列のユニットを１枚選び、呪縛する]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_038.png"
+      },
+      "en": {
+        "number": "G-FC03/038EN",
+        "name": "Death Star-vader, Demon Maxwell",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Choose a unit in your back row, and lock it] When this unit is placed on (GC), you may pay the cost. If you do, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_038.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/038", "G-FC03/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F038",
+          "fetchedAt": "2026-11-14T23:19:01.334Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191120001128/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/038EN",
+          "fetchedAt": "2019-11-20T00:11:28Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-039",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/039",
+        "name": "エクセレントチアリーダー エイリー",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのリアガードが３枚以下なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "スパイクブラザーズ",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_039.png"
+      },
+      "en": {
+        "number": "G-FC03/039EN",
+        "name": "Excellent Cheer Leader, Aery",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if you have three or less rear-guards, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Spike Brothers",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_039.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/039", "G-FC03/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F039",
+          "fetchedAt": "2026-11-14T23:19:02.117Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215122325/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/039EN",
+          "fetchedAt": "2019-12-15T12:23:25Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-040",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/040",
+        "name": "偽りの闇翼 アグラト・バト・マラト",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、【ソウルチャージ】(2)し、あなたのソウルが６枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ダークイレギュラーズ",
+        "race": "サキュバス",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_040.png"
+      },
+      "en": {
+        "number": "G-FC03/040EN",
+        "name": "False Dark Wings, Agrat bat Mahlat",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), [Soul-Charge 2], and if the number of cards in your soul is six or more, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Dark Irregulars",
+        "race": "Succubus",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_040.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/040", "G-FC03/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F040",
+          "fetchedAt": "2026-11-14T23:19:03.376Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210054024/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/040EN",
+          "fetchedAt": "2019-12-10T05:40:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-041",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/041",
+        "name": "鎖鋸の大奇術 ファーニバル",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、山札の上から３枚見て、１枚探し、ソウルに置き、残りのカードを山札の下に好きな順番で置く。この効果でソウルに置いたカードがグレード１以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_041.png"
+      },
+      "en": {
+        "number": "G-FC03/041EN",
+        "name": "Chainsaw Megatrick, Furnival",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), look at three cards from the top of your deck, search for one card from among them, put it into your soul, and put the rest on the bottom of your deck in any order. If the card put into your soul with this effect is grade 1 or greater, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_041.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/041", "G-FC03/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F041",
+          "fetchedAt": "2026-11-14T23:19:04.580Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191114143812/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/041EN",
+          "fetchedAt": "2019-11-14T14:38:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-042",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/042",
+        "name": "遡る時乙女 ウルル",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、ドロップゾーンから、ノーマルユニットとトリガーユニットをそれぞれ１枚まで選び、山札の下に好きな順番で置く。合計２枚置いたら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ギアクロニクル",
+        "race": "ギアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_042.png"
+      },
+      "en": {
+        "number": "G-FC03/042EN",
+        "name": "Retroactive Time Maiden, Uluru",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose up to one normal unit and trigger unit from your drop zone, and put them on the bottom of your deck in any order. If a total of two cards were put, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Gear Chronicle",
+        "race": "Gearoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_042.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/042", "G-FC03/042EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F042",
+          "fetchedAt": "2026-11-14T23:19:05.801Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209221218/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/042EN",
+          "fetchedAt": "2019-12-09T22:12:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-043",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/043",
+        "name": "蝕骸竜 ディープコープス・ドラゴン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[山札の上から２枚をドロップゾーンに置く]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_043.png"
+      },
+      "en": {
+        "number": "G-FC03/043EN",
+        "name": "Eclipse Dragonhulk, Deep Corpse Dragon",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Put two cards from the top of your deck into your drop zone] When this unit is placed on (GC), you may pay the cost. If you do, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_043.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/043", "G-FC03/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F043",
+          "fetchedAt": "2026-11-14T23:19:06.563Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118131411/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/043EN",
+          "fetchedAt": "2019-11-18T13:14:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-044",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/044",
+        "name": "波間の美唱 ナージャ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、手札から１枚まで選び、公開し、そのカードと同じグレードのあなたのユニットがいるなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "バミューダ△",
+        "race": "マーメイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_044.png"
+      },
+      "en": {
+        "number": "G-FC03/044EN",
+        "name": "Sailor's Medley, Nasha",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose up to one card from your hand, reveal it, and if you have a unit with the same grade as that card, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Bermuda Triangle",
+        "race": "Mermaid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_044.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/044", "G-FC03/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F044",
+          "fetchedAt": "2026-11-14T23:19:07.758Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191019165307/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/044EN",
+          "fetchedAt": "2019-10-19T16:53:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-045",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/045",
+        "name": "天水護将 フィロテア",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、そのターンで、１回目か２回目のバトル中なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "アクアフォース",
+        "race": "アクアロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_045.png"
+      },
+      "en": {
+        "number": "G-FC03/045EN",
+        "name": "Guard Leader of Sky and Water, Flotia",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if it is the first or second battle of that turn, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Aqua Force",
+        "race": "Aquaroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_045.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/045", "G-FC03/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F045",
+          "fetchedAt": "2026-11-14T23:19:08.956Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191116205842/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/045EN",
+          "fetchedAt": "2019-11-16T20:58:42Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-046",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/046",
+        "name": "夢想怪神 スカラベガス",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、相手の【レスト】しているユニットが２枚以上なら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "メガコロニー",
+        "race": "インセクト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_046.png"
+      },
+      "en": {
+        "number": "G-FC03/046EN",
+        "name": "Dream Mutant Deity, Scarabgas",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of your opponent's units in [Rest] is two or more, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Megacolony",
+        "race": "Insect",
+        "image": "/wordpress/wp-content/images/cardlist/gfc03/gfc03_046.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/046", "G-FC03/046EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F046",
+          "fetchedAt": "2026-11-14T23:19:10.154Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260125090534/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/046EN",
+          "fetchedAt": "2026-01-25T09:05:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-047",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/047",
+        "name": "永世教授 クンダリーニ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたのリアガードを１枚選び、そのターン中、『【自】【(R)】：各ターンの終了時、このユニットを退却させ、【カウンターチャージ】(1)。』を与えてよい。与えたら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "グレートネイチャー",
+        "race": "ロイヤルビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_047.png"
+      },
+      "en": {
+        "number": "G-FC03/047EN",
+        "name": "Immortality Professor, Kundalini",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose one of your rear-guards, and you may have it get \"[AUTO](RC):At the end of each turn, retire this unit, and [Counter-Charge 1].\" until end of turn. If you do, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "Royal Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_047.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/047", "G-FC03/047EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F047",
+          "fetchedAt": "2026-11-14T23:19:10.947Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113144410/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/047EN",
+          "fetchedAt": "2019-11-13T14:44:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-048",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/048",
+        "name": "聖樹竜 レインブレス・ドラゴン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、手札から１枚まで選び、(R)にコールし、そのターン中、そのユニットに『【永】【(R)/(G)】：抵抗』を与える。１枚コールしたら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ネオネクタール",
+        "race": "フォレストドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_048.png"
+      },
+      "en": {
+        "number": "G-FC03/048EN",
+        "name": "Sacred Tree Dragon, Rain Breath Dragon",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), choose up to one card from your hand, call it to (RC), and until end of turn, that unit gets \"[CONT](RC)/(GC):Resist\". If you called a card, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Neo Nectar",
+        "race": "Forest Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_048.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/048", "G-FC03/048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F048",
+          "fetchedAt": "2026-11-14T23:19:12.231Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191114090206/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/048EN",
+          "fetchedAt": "2019-11-14T09:02:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-049",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/049",
+        "name": "エアーエレメント シブリーズ",
+        "text": "【超越】-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【Ｇゾーン】：[【カウンターブラスト】(2)，手札から１枚選び、捨てる]あなたのグレード３のヴァンガードがいて、Ｇゾーンの表のカードが０枚で、相手のグレード２のヴァンガードがいて、直前の相手のターンのライドフェイズに相手の(V)にユニットが登場していなかったら、裏のこのカードを(V)に【超越】する。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_049.png"
+      },
+      "en": {
+        "number": "G-FC03/049EN",
+        "name": "Air Element, Sebreeze",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT]G zone:[Counter-Blast 2 & Choose a card from your hand, and discard it] If you have a grade 3 vanguard, the number of face up cards in your G zone is 0, your opponent's vanguard is grade 2, and no unit was placed on your opponent's (VC) during the ride phase of your opponent's preceding turn, [Stride] this card on your (VC) from face down.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_049.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/049", "G-FC03/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F049",
+          "fetchedAt": "2026-11-14T23:19:13.716Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208031649/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/049EN",
+          "fetchedAt": "2019-12-08T03:16:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-050",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/050",
+        "name": "メタルエレメント スクリュー",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、あなたのＧゾーンの表のカードが１枚以上なら、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋10000。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_050.png"
+      },
+      "en": {
+        "number": "G-FC03/050EN",
+        "name": "Metal Element, Scryew",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), if the number of face up cards in your G zone is one or more, you may pay the cost. If you do, this unit gets [Shield] +10000 until end of that battle.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_050.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/050", "G-FC03/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F050",
+          "fetchedAt": "2026-11-14T23:19:15.201Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210154631/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/050EN",
+          "fetchedAt": "2019-12-10T15:46:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-FC03-051",
+      "set": "G-FC03",
+      "jp": {
+        "number": "G-FC03/051",
+        "name": "ダークエレメント ディズメル",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンの表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【永】【(G)】：抵抗（相手のカードの効果で選ばれない）\n【自】：このユニットが(G)に登場した時、あなたのリアガードを１枚選び、そのターン中、そのユニットは、ヒットされず、相手のカードの効果で選ばれない。\n【永】：このカードはすべての、国家とクランに属する。",
+        "clan": "クレイエレメンタル",
+        "race": "エレメンタル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FC03/gfc03_051.png"
+      },
+      "en": {
+        "number": "G-FC03/051EN",
+        "name": "Dark Element, Dizmel",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[CONT](GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)\n[AUTO]:When this unit is placed on (GC), choose one of your rear-guards, and until end of turn, that unit cannot be hit, and cannot be chosen by the effects of your opponent's cards.\n[CONT]:This card is from all clans and nations.",
+        "clan": "Cray Elemental",
+        "race": "Elemental",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gfc03_051.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-FC03/051", "G-FC03/051EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FC03%2F051",
+          "fetchedAt": "2026-11-14T23:19:15.997Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209233058/https://en.cf-vanguard.com/cardlist/?cardno=G-FC03/051EN",
+          "fetchedAt": "2019-12-09T23:30:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

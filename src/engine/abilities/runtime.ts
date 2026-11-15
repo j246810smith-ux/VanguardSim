@@ -33,12 +33,13 @@ import {
   type RearGuardCircle,
   type ZoneRef,
 } from '../state/types';
-import { abilitiesOf, holders } from './catalog';
+import { abilitiesOf, grantAbilityId, holders } from './catalog';
 import { currentPower } from '../game/stats';
 import { activeZoneOf, isRestricted, limitBreakMet, zoneAllows } from './continuous';
-import { generationBreakMet } from '../game/generation';
+import { generationBreakMet, gyzeActive, stride } from '../game/generation';
 import { columnOf, evaluate, matches, select, type EvalContext } from './evaluate';
 import { currentGrade, currentName } from '../game/characteristics';
+import { withoutOgAssist } from '../game/ogAssist';
 import type {
   AbilityDefinition,
   ActAbility,
@@ -148,6 +149,8 @@ export function costLabel(cost: Cost): string {
       return 'Face down';
     case 'g_face_up':
       return `G zone ${cost.n} face up`;
+    case 'g_face_down':
+      return `G zone ${cost.n} face down`;
     case 'top_to':
       return `Top ${cost.n} of your deck to your ${cost.to}`;
     case 'move':
@@ -177,6 +180,8 @@ export function costInstruction(cost: Cost, n: number): string {
       return `Rest: choose ${cards(n, 'standing unit')} to rest`;
     case 'g_face_up':
       return `Choose ${cards(n, 'face-down card')} in your G zone to turn face up`;
+    case 'g_face_down':
+      return `Choose ${cards(n, 'face-up card')} in your G zone to turn face down`;
     default:
       return `Pay the cost: choose ${cards(n, 'card')}`;
   }
@@ -405,7 +410,11 @@ function costChoice(
     case 'soul_blast':
       return { options: mine('soul', cost.filter), n: cost.n };
     case 'discard':
-      return { options: mine('hand', cost.filter), n: cost.n };
+      // OG-assist: its card cannot pay this player's costs before its ride
+      return {
+        options: withoutOgAssist(ec.state, ec.master, mine('hand', cost.filter)),
+        n: cost.n,
+      };
     case 'retire': {
       const options = select(ec, cost.from).filter((id) => onField(ec.state, id));
       // G-BT03 Promising Knight, David: one unit may pay for two rear-guards
@@ -419,6 +428,16 @@ function costChoice(
       };
     case 'move_chosen':
       return { options: select(ec, cost.from), n: cost.n };
+    case 'g_face_down':
+      return {
+        options: select(ec, {
+          sel: 'cards',
+          owner: 'you',
+          areas: ['gzone'],
+          filter: { ...cost.filter, faceUp: true, excludeSelf: true },
+        }),
+        n: cost.n,
+      };
     case 'g_face_up':
       return {
         options: select(ec, {
@@ -554,6 +573,12 @@ function applyCost(
       for (const id of picked) {
         s.cards[id]!.faceUp = true;
         emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: true });
+      }
+      return [...picked];
+    case 'g_face_down':
+      for (const id of picked) {
+        s.cards[id]!.faceUp = false;
+        emit(d, { type: 'CARD_TURNED', instanceId: id, faceUp: false });
       }
       return [...picked];
   }
@@ -884,6 +909,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         }
         return true;
       }
+      if ((s.players[frame.master].noRCCallsThrough ?? -1) >= s.turnNumber) return true;
       frame.bindings['__called_circles'] = [];
       const eventColumn =
         step.sameColumnAsEvent && frame.eventCard ? columnOf(s, frame.eventCard) : null;
@@ -911,6 +937,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(step.frontRow ? { frontRow: true as const } : {}),
           ...(step.notSourceCircle ? { notSourceCircle: true as const } : {}),
           ...(step.occupied ? { occupied: true as const } : {}),
+          ...(step.byOwner ? { byOwner: true as const } : {}),
         })),
       );
       return true;
@@ -937,6 +964,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'look_top':
       frame.bindings[step.as] = s.players[frame.master].deck.slice(0, step.n);
+      return true;
+    case 'look_bottom':
+      frame.bindings[step.as] = s.players[frame.master].deck.slice(-step.n);
       return true;
     case 'win':
       // CR 1.2.2 / 9.2: the opponent loses at the next rule-action check
@@ -1133,6 +1163,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
             byEngorge: true,
           });
           retired = true;
+          const src = s.cards[frame.source];
+          if (src) src.engorgeRetired = (src.engorgeRetired ?? 0) + 1;
         }
       }
       if (!retired) return true;
@@ -1241,11 +1273,13 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'power_to': {
       for (const id of targets.filter((t) => onField(s, t))) {
-        const diff = step.value - currentPower(s, d.ctx, id);
+        const stat = step.stat ?? 'power';
+        const diff =
+          step.value - (stat === 'grade' ? currentGrade(s, d.ctx, id) : currentPower(s, d.ctx, id));
         if (diff === 0) continue;
         const modifier = {
           target: id,
-          stat: 'power' as const,
+          stat,
           amount: diff,
           until: 'end_of_turn' as const,
         };
@@ -1339,6 +1373,22 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         );
       });
       s.tasks.unshift(...stepTasks(frame.id, steps));
+      return true;
+    }
+    case 'harmony': {
+      for (const id of targets) {
+        const card = s.cards[id];
+        const at = locate(s, id);
+        if (!card || at.zone !== 'circle' || card.inHarmony) continue;
+        card.inHarmony = true;
+        emit(d, { type: 'HARMONY', player: at.player, instanceId: id });
+      }
+      return true;
+    }
+    case 'forbid_rc_calls': {
+      // through the opponent's next turn: this turn if it is theirs, else the one after
+      const opp = other(frame.master);
+      s.players[opp].noRCCallsThrough = s.turnNumber + (s.activePlayer === opp ? 0 : 1);
       return true;
     }
     case 'no_normal_ride_next':
@@ -1493,6 +1543,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       for (const target of targets) {
         s.suppressions.push({ target, what: step.what, until: step.duration });
       }
+      // "cannot activate the [AUTO] abilities": their triggers already waiting are not played either
+      if ('autos' in step.what || 'all' in step.what)
+        s.standby = s.standby.filter((x) => !targets.includes(x.source));
       return true;
     case 'soul_charge': {
       const charged: InstanceId[] = [];
@@ -1506,8 +1559,24 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       if (step.as) frame.bindings[step.as] = [...(frame.bindings[step.as] ?? []), ...charged];
       return true;
     }
+    case 'extra_phases':
+      s.turnFlags.extraPhases = [...(s.turnFlags.extraPhases ?? []), frame.master];
+      return true;
+    case 'stride_self': {
+      const p = s.players[frame.master];
+      if (p.gzone.includes(frame.source) && p.circles.vanguard.length > 0)
+        stride(d, frame.master, frame.source, [], false);
+      return true;
+    }
+    case 'trigger_all_units': {
+      const f = s.turnFlags;
+      if (!(f.triggerAll ?? []).includes(frame.master))
+        f.triggerAll = [...(f.triggerAll ?? []), frame.master];
+      return true;
+    }
     case 'extra_turn':
       s.extraTurn = frame.master;
+      if (step.strideSelf) s.extraTurnStride = frame.source;
       emit(d, { type: 'EXTRA_TURN', player: frame.master });
       return true;
     case 'shuffle': {
@@ -1537,6 +1606,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       });
       if (answer === null) return false;
       if (answer[0] === 'yes') s.tasks.unshift(...stepTasks(frame.id, step.then));
+      else if (step.else) s.tasks.unshift(...stepTasks(frame.id, step.else));
       return true;
     }
     case 'pay':
@@ -1566,6 +1636,37 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         const grant = { id: s.nextId++, target, ability, until: step.duration };
         s.grants.push(grant);
         emit(d, { type: 'ABILITY_GRANTED', grant });
+      }
+      return true;
+    }
+    case 'copy_abilities': {
+      const copied = select(ec, step.from).flatMap(
+        (of) => d.ctx.registry.get(s.cards[of]!.definitionId).abilities,
+      );
+      for (const target of targets) {
+        for (const ability of copied) {
+          const grant = { id: s.nextId++, target, ability, until: step.duration };
+          s.grants.push(grant);
+          emit(d, { type: 'ABILITY_GRANTED', grant });
+          // "("When this card is placed" abilities will also activate)"
+          const t = ability.kind === 'AUTO' ? ability.trigger : null;
+          if (
+            step.firePlaced &&
+            t?.on === 'placed' &&
+            t.who === 'self' &&
+            (t.circle === 'RC' || (Array.isArray(t.circle) && t.circle.includes('RC')))
+          ) {
+            const live = { ...ability, id: grantAbilityId(grant.id) } as AutoAbility;
+            s.standby.push({
+              id: s.nextId++,
+              master: frame.master,
+              source: target,
+              abilityId: live.id,
+              eventCard: target,
+              granted: live,
+            });
+          }
+        }
       }
       return true;
     }
@@ -1642,13 +1743,24 @@ const CIRCLE_COLUMN: Record<RearGuardCircle, 'left' | 'centre' | 'right'> = {
 export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): boolean {
   const frame = frameOf(d, task.frame);
   if (!frame) return true;
+  // "your opponent calls them": the card's owner calls it to their own field (G-BT14 Rinne)
+  const caller = task.byOwner ? d.state.cards[task.card]!.owner : frame.master;
+  // Gyze (G-BT14): "You cannot … call any rear-guards other than <Zeroth Dragon>"
+  const gyze = gyzeActive(d.state, d.ctx, caller, 'field');
+  if (
+    gyze &&
+    !(d.ctx.registry.get(d.state.cards[task.card]!.definitionId).race ?? '')
+      .split('/')
+      .includes(gyze.race)
+  )
+    return true;
   const picked = ask(d, task, {
-    player: frame.master,
+    player: caller,
     kind: 'circle',
     // a circle with a locked card is a lock circle, not a rear-guard circle (CR 4.6.7);
     // "an open (RC)" = empty; "separate (RC)" = not one used earlier by this call
     options: REAR_GUARD_CIRCLES.filter((c) => {
-      const here = d.state.players[frame.master].circles[c];
+      const here = d.state.players[caller].circles[c];
       if (here.some((id) => d.state.cards[id]!.locked)) return false;
       if (task.open && here.length > 0) return false;
       if (task.occupied && here.length === 0) return false;
@@ -1676,18 +1788,18 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
   const circle = picked[0] as RearGuardCircle;
   if (task.move) {
     // a move between circles keeps the card's state (CR 4.1.4)
-    moveCard(d, task.card, { player: frame.master, zone: 'circle', circle }, 'effect');
+    moveCard(d, task.card, { player: caller, zone: 'circle', circle }, 'effect');
     return true;
   }
   frame.bindings['__called_circles'] = [...(frame.bindings['__called_circles'] ?? []), circle];
   moveCard(
     d,
     task.card,
-    { player: frame.master, zone: 'circle', circle },
+    { player: caller, zone: 'circle', circle },
     'call',
     // a superior call is "due to an effect" of the ability's card (Holly Musketeer, Elvira)
     {
-      by: frame.master,
+      by: caller,
       cause: frame.source,
       ...(task.rested ? { orientation: 'rest' as const } : {}),
     },
@@ -1695,7 +1807,7 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
   recordCall(d, task.card);
   emit(d, {
     type: 'UNIT_CALLED',
-    player: frame.master,
+    player: caller,
     instanceId: task.card,
     circle,
     superior: true,

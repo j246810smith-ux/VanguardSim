@@ -133,8 +133,11 @@ type Modal =
 export function DeckBuilder({
   onBack,
   mode = 'edit',
+  openDeck,
 }: {
   onBack: () => void;
+  /** A saved deck to open at once (a copy of a ready-built deck, prompt pack 2026-11-15, 3.7). */
+  openDeck?: string;
   /** 'browse': the Card Database from the home screen, the card pool only (no deck to edit). */
   mode?: 'edit' | 'browse';
 }) {
@@ -262,6 +265,14 @@ export function DeckBuilder({
     setDirty(false);
     setModal(null);
   };
+  // opened from a ready-built deck's "Edit the copy" (3.7): load that saved copy once
+  const opened = useRef(false);
+  useEffect(() => {
+    if (opened.current || !openDeck) return;
+    opened.current = true;
+    const d = saved.find((x) => x.id === openDeck);
+    if (d) loadInto(d);
+  }, [openDeck, saved]);
   const save = (asCopy: boolean) => {
     const id = asCopy || !deckId ? newDeckId() : deckId;
     const entry: SavedDeck = {
@@ -978,7 +989,7 @@ function DefinitionDetails({
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal details" onClick={(e) => e.stopPropagation()}>
-        <CardView definitionId={id} width={380} height={553} />
+        <CardView definitionId={id} width={350} height={511} />
         <div className="info">
           <h2>{d.name}</h2>
           <div className="num">

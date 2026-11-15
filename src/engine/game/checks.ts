@@ -6,6 +6,7 @@ import { shareClan } from './characteristics';
 import { ask } from './choice';
 import { emit, type Draft } from './context';
 import { locate } from './locate';
+import { gyzeActive } from './generation';
 import { drawCard, moveCard } from './zones';
 
 /** Puts the top card of `player`'s deck into the trigger zone and queues its resolution. */
@@ -125,6 +126,39 @@ export function runCheckTask(d: Draft, task: CheckTask): boolean {
       return true;
 
     case 'give_bonus': {
+      // Neon Gyze (G-BT14) in your G zone: the power increase becomes "choose up to one <Zeroth
+      // Dragon> from your G zone, and bind it face up"
+      const gyze = task.stat === 'power' ? gyzeActive(s, d.ctx, task.player, 'trigger_bind') : null;
+      if (gyze) {
+        const zeroth = s.players[task.player].gzone.filter((id) =>
+          (d.ctx.registry.get(s.cards[id]!.definitionId).race ?? '').split('/').includes(gyze.race),
+        );
+        const bind = ask(d, task, {
+          player: task.player,
+          kind: 'select',
+          options: zeroth,
+          min: 0,
+          max: 1,
+          prompt: `Choose up to one <${gyze.race}> from your G zone to bind face up`,
+        });
+        if (bind === null) return false;
+        for (const id of bind) moveCard(d, id, { player: task.player, zone: 'bind' }, 'effect');
+        return true;
+      }
+      // Ultima (G-BT14): "choose all of your units for your trigger effects"
+      if (s.turnFlags.triggerAll?.includes(task.player)) {
+        for (const target of [...unitsOf(s, task.player), ...s.players[task.player].guardian]) {
+          const modifier = {
+            target,
+            stat: task.stat,
+            amount: task.amount,
+            until: 'end_of_turn',
+          } as const;
+          s.modifiers.push(modifier);
+          emit(d, { type: 'MODIFIER_ADDED', modifier });
+        }
+        return true;
+      }
       const label = task.stat === 'power' ? `+${task.amount} power` : `+${task.amount} critical`;
       const picked = ask(d, task, {
         player: task.player,
@@ -154,6 +188,15 @@ export function runCheckTask(d: Draft, task: CheckTask): boolean {
       return true;
 
     case 'stand_rear_guard': {
+      // Ultima (G-BT14): "choose all of your units for your trigger effects"
+      if (s.turnFlags.triggerAll?.includes(task.player)) {
+        for (const id of REAR_GUARD_CIRCLES.flatMap((c) => s.players[task.player].circles[c]))
+          if (!s.cards[id]!.locked && s.cards[id]!.orientation === 'rest') {
+            s.cards[id]!.orientation = 'stand';
+            emit(d, { type: 'UNIT_STOOD', player: task.player, instanceId: id, by: task.player });
+          }
+        return true;
+      }
       const picked = ask(d, task, {
         player: task.player,
         kind: 'rear_guard_to_stand',

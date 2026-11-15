@@ -2,6 +2,7 @@ import { other, type GameState, type InstanceId, type Modifier } from '../state/
 import { continuousStat } from '../abilities/continuous';
 import { chosenHeartOf, definitionOf as definition, isOnCircle } from './characteristics';
 import type { EngineContext } from './context';
+import { locate } from './locate';
 import { EARLY_BT01_BT17_FORMAT } from '../rules/format';
 
 export { currentClan, currentGrade, isOnCircle } from './characteristics';
@@ -58,8 +59,34 @@ export function basePower(state: GameState, ctx: EngineContext, id: InstanceId):
   // CR 1.48.1 10.28.3.3: a strided G unit adds the power written on its chosen heart
   const heart = chosenHeartOf(state, id);
   const fromHeart = heart === null ? 0 : definition(state, ctx, heart).power;
-  return printed + fromHeart + nineKBonus(state, ctx, id) + modified(state, ctx, id, 'power');
+  return (
+    printed +
+    fromHeart +
+    nineKBonus(state, ctx, id) +
+    negromarlBonus(state, id) +
+    modified(state, ctx, id, 'power')
+  );
 }
+
+/** The card the Negromarl house rule is for (no reprints exist in the pool). */
+export const NEGROMARL = 'BT02-012';
+
+/**
+ * House rule Negromarl (`customRules.negromarl`, Original era and Original Era — Expanded): the
+ * unit BT02-012 on (VC) or (RC) gets the bonus (not a guardian: shield is unchanged).
+ */
+export function negromarlBonus(state: GameState, id: InstanceId): number {
+  const bonus = state.customRules?.negromarl;
+  if (!bonus || !originalRules(state)) return 0;
+  const card = state.cards[id];
+  if (!card || card.deleted || card.definitionId !== NEGROMARL) return 0;
+  const at = locate(state, id);
+  return at.zone === 'circle' ? bonus : 0;
+}
+
+/** The Original era's formats: Strict and Expanded (both are played under CR 1.29). */
+export const originalRules = (state: GameState): boolean =>
+  state.formatId === EARLY_BT01_BT17_FORMAT.id || state.formatId === 'ORIGINAL_EXPANDED';
 
 /**
  * House rule C1 (`customRules.nineKGrade3`, Original era only): the vanguard whose printed grade is

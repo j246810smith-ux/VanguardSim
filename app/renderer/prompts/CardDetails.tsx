@@ -38,6 +38,7 @@ const RESTRICTION: Record<Restriction, string> = {
   must_be_chosen: 'must be chosen when the opponent’s card effects choose your units',
   chosen_five_times: 'may be chosen up to five times by one of your card effects',
   cannot_be_locked: 'cannot be locked by card effects',
+  cannot_be_attacked: 'cannot be attacked',
 };
 export const restrictionText = (r: Restriction): string =>
   RESTRICTION[r] ?? String(r).replace(/_/g, ' ');
@@ -108,7 +109,7 @@ export function CardDetails({
   return (
     <div className="modal-backdrop" onClick={onClose} data-testid="card-details">
       <div className="modal details" onClick={(e) => e.stopPropagation()}>
-        <CardView definitionId={def.id} width={380} height={553} />
+        <CardView definitionId={def.id} width={350} height={511} />
         <div className="info">
           <h2>{def.name}</h2>
           <div className="num">

@@ -329,6 +329,14 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return e.type === 'ENGORGED' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
         : null;
+    case 'becomes_harmony':
+      return e.type === 'HARMONY' && subjectIs(ec, t.who, e.instanceId, e.player)
+        ? { eventCard: e.instanceId }
+        : null;
+    case 'becomes_successful':
+      return e.type === 'SUCCESSFUL' && subjectIs(ec, t.who, e.instanceId, e.player)
+        ? { eventCard: e.instanceId }
+        : null;
     case 'becomes_blazing':
       return e.type === 'BLAZING' && e.player === ec.master ? { eventCard: null } : null;
     case 'stride_discarded': {
@@ -339,7 +347,9 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'g_guardian_discarded':
       return e.type === 'G_GUARDIAN_CALLED' &&
         e.discarded !== undefined &&
-        subjectIs(ec, t.who, e.discarded, e.player)
+        subjectIs(ec, t.who, e.discarded, e.player) &&
+        (t.called === undefined ||
+          ec.ctx.registry.get(s.cards[e.instanceId]!.definitionId).name === t.called)
         ? { eventCard: e.discarded }
         : null;
     case 'step_start': {
@@ -378,6 +388,8 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'BLAZING',
   'CHARGING',
   'ENGORGED',
+  'SUCCESSFUL',
+  'HARMONY',
 ]);
 
 export function detectTriggers(d: Draft, event: GameEvent): void {
@@ -407,7 +419,8 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
       const heart =
         !m.sourceZone && isHeart(s, id) && !(event.type === 'STRIDE' && event.hearts.includes(id));
       if (!zoneAllows(a.zones, activeZoneOf(zone, heart))) continue;
-      if (!isUsable(d, id, a, master)) continue;
+      const wasVanguard = m.sourceZone?.zone === 'circle' && m.sourceZone.circle === 'vanguard';
+      if (!isUsable(d, id, a, master, wasVanguard)) continue;
       if (a.triggerIf && !evaluate({ ...ec, eventCard: m.eventCard }, a.triggerIf)) continue;
       const standby = {
         id: s.nextId++,
@@ -436,8 +449,14 @@ export function detectTriggers(d: Draft, event: GameEvent): void {
 }
 
 /** Limit Break (checked when the ability triggers, CR 10.2.5.3.2.1) and once-per-turn use. */
-function isUsable(d: Draft, source: InstanceId, a: AutoAbility, master: PlayerId): boolean {
-  if (!limitBreakMet(d.state, d.ctx, master, a.limitBreak, source)) return false;
+function isUsable(
+  d: Draft,
+  source: InstanceId,
+  a: AutoAbility,
+  master: PlayerId,
+  wasVanguard = false,
+): boolean {
+  if (!limitBreakMet(d.state, d.ctx, master, a.limitBreak, source, wasVanguard)) return false;
   // CR 1.48.1 11.12.3.2.1: Generation Break is checked when the ability would trigger
   if (!generationBreakMet(d.state, d.ctx, master, a.generationBreak)) return false;
   return !(a.oncePerTurn && d.state.usedThisTurn.includes(`${source}/${a.id}`));

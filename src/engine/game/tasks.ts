@@ -6,6 +6,7 @@ import { endDelayedLegion } from './delayedLegion';
 import { observeStep, type Draft } from './context';
 import { runFlowTask } from './flow';
 import { gAssistShuffle, returnGUnits, runGAssistTask } from './generation';
+import { runOgAssistTask } from './ogAssist';
 
 /**
  * Runs queued tasks front-first until the queue is empty, the game ends, or a player must make a
@@ -62,6 +63,10 @@ function handle(d: Draft, task: Task): boolean {
     case 'g_assist_search':
     case 'g_assist_remove':
       return runGAssistTask(d, task);
+    case 'og_assist':
+    case 'og_assist_take':
+    case 'og_assist_pay':
+      return runOgAssistTask(d, task);
     case 'g_assist_shuffle':
       gAssistShuffle(d);
       return true;

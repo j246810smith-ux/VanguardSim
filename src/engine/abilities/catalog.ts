@@ -21,9 +21,19 @@ export function abilitiesOf(
       ? printed
       : [...printed, ...granted.map((g) => ({ ...g.ability, id: grantAbilityId(g.id) }))];
   // CR 10.1.20.2: abilities the card has lost
-  const lost = state.suppressions.filter((x) => x.target === id && 'ability' in x.what);
+  const lost = state.suppressions.filter(
+    (x) => x.target === id && ('ability' in x.what || 'all' in x.what || 'autos' in x.what),
+  );
   if (lost.length === 0) return all;
-  return all.filter((a) => !lost.some((x) => 'ability' in x.what && x.what.ability === a.id));
+  return all.filter(
+    (a) =>
+      !lost.some(
+        (x) =>
+          'all' in x.what ||
+          ('autos' in x.what && a.kind === 'AUTO') ||
+          ('ability' in x.what && x.what.ability === a.id),
+      ),
+  );
 }
 
 /** Has the card lost this skill icon (e.g. "loses Twin Drive!!")? */

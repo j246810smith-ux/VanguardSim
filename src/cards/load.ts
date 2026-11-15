@@ -6,6 +6,7 @@ import type { AbilityDefinition } from '../engine/abilities/types';
 import { CardRegistry } from '../engine/cards/registry';
 import type { CardDefinition } from '../engine/cards/types';
 import type { CardRecord, SetFile } from './record';
+import { COLLECTION_OF } from './collections';
 import translationFile from '../../data/translations/unofficial.json';
 
 /**
@@ -83,7 +84,7 @@ export function toDefinition(
   return {
     id: r.id,
     name: en.name,
-    set: r.set,
+    set: COLLECTION_OF[r.id] ?? r.set,
     grade: r.grade,
     power: r.power,
     shield: r.shield,
@@ -101,6 +102,7 @@ export function toDefinition(
       : {}),
     text: en.text,
     ...(translated ? { unofficialTranslation: true } : {}),
+    ...(/-\d{3}F$/.test(r.id) ? { otherFace: true } : {}),
     abilities,
   };
 }

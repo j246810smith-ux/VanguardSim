@@ -40,7 +40,7 @@ export interface Settings {
   readonly theme: ThemeId;
   /** Phone layout text: Normal or Large (MobileBattleScreen). */
   readonly phoneText: 'normal' | 'large';
-  /** The table shakes when an attack hits (Full cut-ins). Off by default (v0.28 feedback). */
+  /** The vanguard that is hit shakes (prompt pack 2026-11-15, 3.9; was the whole table). Off by default (v0.28 feedback). */
   readonly screenShake: boolean;
   readonly showArt: boolean;
   /** Holographic foil on R/RR/RRR cards (ui/CardView.tsx `foilOf`). */

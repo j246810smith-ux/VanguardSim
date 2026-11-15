@@ -1,0 +1,654 @@
+{
+  "set": "G-FTD01",
+  "importedAt": "2026-11-14T23:10:06.142Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-FTD01-001",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/001",
+        "name": "黄金竜 レイブレス・ドラゴン",
+        "text": "（Ｇユニットはメインデッキに入れることができない）\n【超越】（お互いのヴァンガードがグレード３以上で解放！）-ストライドステップ-[手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。（超越した時、ハーツ１枚のパワーとカード名を得る。このユニットは、ターンの終わりに表で戻る）\n【永】【(V)】結束（このターン中、あなたが(R)か（G)に２枚以上コールしていれば有効）：このユニットのパワー＋5000。あなたの前列のリアガードすべてのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_001.png"
+      },
+      "en": null,
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/001"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F001",
+          "fetchedAt": "2026-11-14T23:08:51.087Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-002",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/002",
+        "name": "旭光の騎士 グルグウィント",
+        "text": "【自】【(V)】【Gブレイク】(2)（あなたの(V)かＧゾーンに表のＧユニットが２枚以上で有効）：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットがアタックされたバトルのガードステップ開始時、コストを払ってよい。払ったら、山札の上から４枚見て、１枚まで探し、(G)に【レスト】でコールし、山札をシャッフルする。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、山札の上から４枚見て、１枚まで探し、(R)にコールし、山札をシャッフルし、そのターン中、そのユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_002.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/002"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F002",
+          "fetchedAt": "2026-11-14T23:08:51.858Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-003",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/003",
+        "name": "ディヴィニティランサー・ドラゴン",
+        "text": "【自】【(V)/(R)】結束（このターン中、あなたが(R)か(G)に２枚以上コールしていれば有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "コスモドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_003.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/003"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F003",
+          "fetchedAt": "2026-11-14T23:08:53.046Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-004",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/004",
+        "name": "ブレードクロス・ライオン",
+        "text": "【自】【(V)】【Gブレイク】（1）（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋6000。\n【自】：[【カウンターブラスト】（2）]このユニットが(V)に登場した時、コストを払ってよい。払ったら、山札の上から４枚見て、１枚まで探し、(R)にコールし、残りのカードを山札の下に好きな順番で置く。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_004.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/004"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F004",
+          "fetchedAt": "2026-11-14T23:08:53.805Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-005",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/005",
+        "name": "暁光の騎士 イアゴー",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_005.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/005"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F005",
+          "fetchedAt": "2026-11-14T23:08:54.559Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-006",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/006",
+        "name": "神聖魔道士 エリオ",
+        "text": "【自】【(R)】：[【カウンターブラスト】（1），このユニットをソウルに置く]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、山札の上から３枚見て、１枚まで探し、ユニットのいない(R)にコールし、残りのカードを山札の下に好きな順番で置く。",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_006.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/006"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F006",
+          "fetchedAt": "2026-11-14T23:08:55.779Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-007",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/007",
+        "name": "新陽の騎士 カティルス",
+        "text": "【永】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）結束（このターン中、あなたが(R)か(G)に２枚以上コールしていれば有効）：このユニットのパワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_007.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/007"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F007",
+          "fetchedAt": "2026-11-14T23:08:56.585Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-008",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/008",
+        "name": "反照の騎士 カポイル",
+        "text": "【自】【Gブレイク】（1）（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋10000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_008.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/008"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F008",
+          "fetchedAt": "2026-11-14T23:08:57.433Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-009",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/009",
+        "name": "朝影の騎士 キマルクス",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_009.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/009"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F009",
+          "fetchedAt": "2026-11-14T23:08:58.183Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-010",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/010",
+        "name": "紅日の騎士 ルノー",
+        "text": "【自】【(R)】【Gブレイク】（1）（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）：このユニットが結束能力を持つユニットをブーストした時、そのバトル中、ブーストされたユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_010.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/010"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F010",
+          "fetchedAt": "2026-11-14T23:08:59.379Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-011",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/011",
+        "name": "曙光の騎士 ゴルボドゥク",
+        "text": "【自】：[手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、山札から「グルグウィント」を含むグレード３のカードを１枚まで探し、相手に見せ、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレードを＋２する。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_011.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/011"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F011",
+          "fetchedAt": "2026-11-14T23:09:00.512Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-012",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/012",
+        "name": "神聖魔道士 キャンディス",
+        "text": "【永】：守護者（守護者はデッキに４枚までしか入れることができない）\n【自】：[手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚まで選び、そのバトル中、そのユニットは、ヒットされない。",
+        "clan": "ゴールドパラディン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_012.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/012"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F012",
+          "fetchedAt": "2026-11-14T23:09:01.722Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-013",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/013",
+        "name": "くれすがる",
+        "text": "【自】：このユニットが(R)に登場した時、他のあなたのユニットを１枚選び、そのターン中、パワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_013.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/013"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F013",
+          "fetchedAt": "2026-11-14T23:09:02.919Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-014",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/014",
+        "name": "早天の騎士 コエル",
+        "text": "【自】：先駆（同じクランのユニットにライドされた時、(R)にコールできる）\n【起】【(R)】【Gブレイク】(1)（あなたの(V)かＧゾーンに表のＧユニットが１枚以上で有効）結束（このターン中、あなたが(R)か(G)に２枚以上コールしていれば有効）：[このユニットをソウルに置く]山札の上から３枚見て、１枚まで探し、(R)にコールし、山札をシャッフルし、そのターン中、そのユニットのパワー＋2000。",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_014.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/014"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F014",
+          "fetchedAt": "2026-11-14T23:09:03.669Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-015",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/015",
+        "name": "速撃のラストレスナイト",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_015.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/015"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F015",
+          "fetchedAt": "2026-11-14T23:09:04.428Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-016",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/016",
+        "name": "目利き鑑定人 ドナリー",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ノーム",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_016.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/016"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F016",
+          "fetchedAt": "2026-11-14T23:09:05.524Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-017",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/017",
+        "name": "インパーティブ・オウル",
+        "text": "",
+        "clan": "ゴールドパラディン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_017.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/017"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F017",
+          "fetchedAt": "2026-11-14T23:09:06.276Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-018",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/018",
+        "name": "キュアラブル・エンジェル",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ゴールドパラディン",
+        "race": "エンジェル",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_018.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/018"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F018",
+          "fetchedAt": "2026-11-14T23:09:07.037Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-FTD01-019",
+      "set": "G-FTD01",
+      "jp": {
+        "number": "G-FTD01/019",
+        "name": "フレイム・オブ・ビクトリー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ゴールドパラディン》を１枚まで選び、そのターン中、パワー＋3000。",
+        "clan": "ゴールドパラディン",
+        "race": "サラマンダー",
+        "image": "/wordpress/wp-content/images/cardlist/G-FTD01/gftd01_019.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "FTD",
+      "printings": ["G-FTD01/019"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-FTD01%2F019",
+          "fetchedAt": "2026-11-14T23:09:08.438Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    }
+  ],
+  "enOnly": []
+}

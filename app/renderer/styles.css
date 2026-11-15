@@ -613,36 +613,55 @@ button {
   padding: 2px 7px;
   box-shadow: 0 0 10px var(--gold-glow);
 }
-/* Legion: leader and mate side by side at full size, centred on the vanguard circle (D-028) */
+/* Legion (prompt pack 2026-11-15, 2B; was side by side, D-028): the Legion Leader stands on the
+   vanguard circle as the vanguard, and the Legion Mate directly behind it, offset towards its
+   owner's back row so its lower edge shows. Clicking the mate opens its details only. */
 .circle.legion > .unit {
-  translate: -68px 0;
+  z-index: 3;
 }
 .mate {
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: calc(-50% + 68px) -50%;
-  z-index: 2;
+  translate: calc(-50% + 26px) calc(-50% + 34px);
+  z-index: 1;
   cursor: pointer;
+  filter: brightness(0.82);
+}
+.side-opp .mate {
+  translate: calc(-50% - 26px) calc(-50% - 34px);
+}
+.mate:hover {
+  filter: none;
+}
+/* the mate's power is in the legion chip; its own plate would sit under the leader's */
+.mate .power-plate {
+  display: none;
 }
 .legion-bracket {
-  position: absolute;
-  inset: -6px -34px;
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  box-shadow: 0 0 14px var(--gold-glow);
-  pointer-events: none;
+  display: none;
 }
+/* combined attack power (leader + mate, CR 10.1.24.6): a small gold chip on the leader's corner
+   (2C: kept, as nothing else shows it outside the battle; it was a wide banner over the centre) */
 .legion-tag {
   position: absolute;
-  top: -26px;
+  top: -12px;
   left: 50%;
-  transform: translateX(-50%);
+  translate: calc(-50% - 30px) 0;
+  z-index: 6;
   white-space: nowrap;
-  font: 800 13px var(--font-display);
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  text-shadow: 0 0 8px var(--gold-glow);
+  font: 800 12px var(--font-display);
+  color: #1a1200;
+  background: var(--gold);
+  border-radius: 10px;
+  padding: 1px 7px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 6px var(--gold-glow);
+  pointer-events: auto;
+}
+.side-opp .legion-tag {
+  top: auto;
+  bottom: -12px;
 }
 
 /* ---- panels --------------------------------------------------------------------------------- */
@@ -1384,8 +1403,8 @@ button {
   gap: 28px;
 }
 .details .card {
-  width: 380px;
-  height: 553px;
+  width: 350px;
+  height: 511px;
   flex: none;
 }
 .details .info {
@@ -3031,9 +3050,6 @@ input.text {
     0 0 16px var(--gold-glow),
     0 0 4px #000;
 }
-.battle-vs:has(.guardian-row) .vs-mark {
-  display: none;
-}
 .battle-vs .guardian-row {
   top: 0;
 }
@@ -3464,9 +3480,12 @@ input.text {
     opacity: 0;
   }
 }
-/* a hit shakes the table (Full cut-ins, and only with Settings → Screen shake on) */
-.shake-on .stage:has(.fx-banner.hit.full) .table-wrap {
+/* a hit shakes the vanguard that took it (Settings → Shake on hit; prompt pack 2026-11-15, 3.9) */
+.hit-shake {
   animation: shake calc(0.45s * var(--anim)) ease-out;
+}
+.reduce-motion .hit-shake {
+  animation: none;
 }
 @keyframes shake {
   0%,
@@ -5465,10 +5484,18 @@ input.text {
 /* Attack and defence beside VS (or the guardians) on the centre line, between the two fields and
    clear of the zone tiles and the left column (they were out at the sides, over the piles) */
 .table-wrap ~ .battle-vs {
-  display: flex;
-  justify-content: center;
+  /* 1fr | middle | 1fr: VS or the guardians sit exactly on the centre line's middle (the Guardian
+     Circle), whatever the widths of the two plates (prompt pack 2026-11-15, 3.10/4) */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 18px;
+  column-gap: 18px;
+}
+.table-wrap ~ .battle-vs > .vs-plate:first-child {
+  justify-self: end;
+}
+.table-wrap ~ .battle-vs > .vs-plate:last-child {
+  justify-self: start;
 }
 .table-wrap ~ .battle-vs > .vs-plate {
   /* one compact row (about 60 px), so it fits the gap between the front rows at 45° */
@@ -6393,4 +6420,82 @@ input.text {
 .modal-backdrop {
   background: rgba(2, 5, 12, 0.7);
   backdrop-filter: blur(3px);
+}
+
+/* which ability asks, and the unit the prompt is about (prompt pack 2026-11-15, 3.6) */
+.prompt-origin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin: -2px 0 8px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.prompt-origin .prompt-subject {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.locked-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.locked-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+.locked-option.selected {
+  outline: 2px solid var(--gold);
+}
+
+/* ready-built deck inspection (prompt pack 2026-11-15, 3.7) */
+.deck-inspect {
+  width: min(1100px, 92vw);
+}
+.di-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+  max-height: 600px;
+  overflow: auto;
+}
+.di-row {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.di-grade {
+  display: inline-block;
+  min-width: 26px;
+  color: var(--text-dim);
+}
+.di-block h4,
+.di-list h4 {
+  margin: 8px 0 4px;
+  color: var(--gold);
+}
+.di-stat {
+  display: grid;
+  grid-template-columns: 1fr 40px 48px;
+  font-size: 14px;
+}
+.di-pct {
+  color: var(--text-dim);
+  text-align: right;
+}
+.deck-option-row {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+.deck-option-row .deck-option {
+  flex: 1;
+}
+.deck-inspect-btn {
+  min-width: 48px;
 }

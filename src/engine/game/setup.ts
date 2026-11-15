@@ -203,5 +203,7 @@ function activeRules(rules: CustomRules | undefined): CustomRules | null {
   if (rules.delayedLegion) on.delayedLegion = true;
   if (rules.nineKGrade3 === 1000 || rules.nineKGrade3 === 2000) on.nineKGrade3 = rules.nineKGrade3;
   if (rules.megaBlastCheap) on.megaBlastCheap = true;
+  if (rules.negromarl === 2000 || rules.negromarl === 3000) on.negromarl = rules.negromarl;
+  if (rules.ogAssist) on.ogAssist = true;
   return Object.keys(on).length ? on : null;
 }

@@ -11,6 +11,7 @@ export interface ChoiceSpec {
   readonly order?: DeckOrder;
   readonly shown?: readonly string[];
   readonly subject?: string;
+  readonly source?: string;
 }
 
 /**
@@ -36,7 +37,16 @@ export function ask(d: Draft, task: { selection?: string[] }, spec: ChoiceSpec):
     });
     return all;
   }
-  s.pendingChoice = { id, ...spec, options: [...spec.options], max };
+  // an ability's step: name the card whose ability asks (3.6, several prompts in a row)
+  const frameId = (task as { frame?: number }).frame;
+  const frame = frameId === undefined ? undefined : s.frames.find((f) => f.id === frameId);
+  s.pendingChoice = {
+    id,
+    ...spec,
+    options: [...spec.options],
+    max,
+    ...(frame && spec.source === undefined ? { source: frame.source } : {}),
+  };
   emit(d, { type: 'CHOICE_REQUESTED', choice: s.pendingChoice });
   return null;
 }

@@ -582,7 +582,8 @@ export function useBattleController(
     return () => clearTimeout(t);
   }, [finalTurn]);
 
-  // B11: once per turn, in your main or battle phase
+  // B11: once per game (prompt pack 2026-11-15, 3.2; was once per turn), in your main or battle
+  // phase. Cosmetic: it never changes the game (only the profile's Final Turn EXP bonus reads it).
   const turnKey = `${view.turnNumber}-${view.activePlayer}`;
   if (
     !demo &&
@@ -590,6 +591,7 @@ export function useBattleController(
     view.activePlayer === ME &&
     (view.phase === 'main' || view.phase === 'battle') &&
     declaredTurn.current !== turnKey &&
+    myFinalTurn.current === null &&
     !legal.choose
   )
     bar.push({

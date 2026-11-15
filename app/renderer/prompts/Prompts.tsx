@@ -19,6 +19,45 @@ const onBoard = (s: GameState, id: string) =>
       (pl.id === ME && pl.hand.includes(id)),
   );
 
+/** Where a unit is on the field, for prompts ("your opponent's front-left rear-guard"). */
+function fieldSpot(s: GameState, id: string): string | null {
+  for (const pl of s.players)
+    for (const [circle, ids] of Object.entries(pl.circles))
+      if (ids.includes(id))
+        return `${pl.id === ME ? 'your' : "your opponent's"} ${circleName(circle)}${
+          s.cards[id]?.locked ? ' (locked)' : ''
+        }`;
+  return null;
+}
+
+/**
+ * Which card's ability is asking, and the unit the prompt is about (prompt pack 2026-11-15, 3.6:
+ * several lock prompts in a row could not be told apart).
+ */
+function Origin({ view }: { view: GameState }) {
+  const pc = view.pendingChoice;
+  if (!pc?.source && !pc?.subject) return null;
+  const src = pc.source ? defOf(view, pc.source) : null;
+  const subject = pc.subject ? defOf(view, pc.subject) : null;
+  return (
+    <div className="prompt-origin" data-testid="prompt-origin">
+      {src && (
+        <span>
+          From <b>{src.name}</b>
+          {fieldSpot(view, pc.source!) ? ` (${fieldSpot(view, pc.source!)})` : ''}
+        </span>
+      )}
+      {subject && pc.subject && (
+        <span className="prompt-subject">
+          <CardView definitionId={view.cards[pc.subject]!.definitionId} width={44} height={64} />
+          For <b>{subject.name}</b>
+          {fieldSpot(view, pc.subject) ? `, ${fieldSpot(view, pc.subject)}` : ''}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export function abilityText(s: GameState, source: InstanceId, abilityId: string): string {
   const def = defOf(s, source);
   const ab = def?.abilities.find((a) => a.id === abilityId);
@@ -104,6 +143,7 @@ export function ChoicePrompt({
       return (
         <DockedPrompt>
           <h3>{choose.prompt}</h3>
+          <Origin view={view} />
           {buttons([
             ['yes', 'Yes'],
             ['no', 'No'],
@@ -220,9 +260,31 @@ export function ChoicePrompt({
     default: {
       const offBoard = choose.options.filter((o) => !onBoard(view, o));
       const single = choose.min === 1 && choose.max === 1;
+      // locked units are face down on the field: list them with their picture and place (3.6)
+      const locked = choose.options.filter((o) => view.cards[o]?.locked && fieldSpot(view, o));
       const body = (
         <>
           <h3>{choose.prompt}</h3>
+          <Origin view={view} />
+          {locked.length > 0 && (
+            <div className="locked-options" data-testid="locked-options">
+              {locked.map((id) => (
+                <button
+                  key={id}
+                  className={`btn locked-option ${picked.includes(id) ? 'selected' : ''}`}
+                  onClick={() => (single ? onSubmit([id]) : onToggle(id))}
+                  data-iid={id}
+                >
+                  <CardView definitionId={view.cards[id]!.definitionId} width={44} height={64} />
+                  <span>
+                    <b>{defOf(view, id)?.name ?? '?'}</b>
+                    <br />
+                    {fieldSpot(view, id)}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
           {choose.order && <DeckOrderStrip view={view} order={choose.order} />}
           <div className="hint">
             {range}

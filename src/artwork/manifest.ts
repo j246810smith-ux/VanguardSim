@@ -72,7 +72,8 @@ export function buildManifest(sets: readonly SetData[], cardData: string): Artwo
 
 /** The file of a card's image inside the artwork folder (forward slashes). */
 export const imagePath = (id: string, ext: ImageExtension): string =>
-  `${id.replace(/-(\d{3}(EN)?|\d{4}[A-Z]?)$/, '')}/${id}.${ext}`;
+  // `F`: the other face of a double-faced card (G-BT14-001F) lives with its set
+  `${id.replace(/-(\d{3}(EN|F)?|\d{4}[A-Z]?)$/, '')}/${id}.${ext}`;
 
 const SET_KINDS = ['BT', 'TD', 'EB', 'FC', 'DG', 'MBT', 'MTD', 'PR', 'VZ'];
 /** Classic kinds in order, then the G era's products (G-BT, G-TD, …, DECISIONS D-034). */

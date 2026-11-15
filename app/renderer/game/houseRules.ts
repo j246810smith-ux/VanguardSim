@@ -16,12 +16,18 @@ export interface HouseRulesChoice {
   readonly nineK: 0 | 1000 | 2000;
   /** Mega Blast for Counter Blast 4 & Soul Blast 6 ("Vanguard ZERO style", C2). */
   readonly megaCheap: boolean;
+  /** Negromarl: +2000 or +3000 power for BT02-012, 0 = off. Original era formats only. */
+  readonly negromarl: 0 | 2000 | 3000;
+  /** OG-assist: the once-per-game ride catch-up. Original era formats only. */
+  readonly ogAssist: boolean;
 }
 
 export const NO_HOUSE_RULES: HouseRulesChoice = {
   delayedLegion: false,
   nineK: 0,
   megaCheap: false,
+  negromarl: 0,
+  ogAssist: false,
 };
 
 /** Whether 9K Grade 3 can apply in this format (an Original Era rule). */
@@ -31,11 +37,16 @@ export const nineKAllowed = (format: FormatKey): boolean => format !== 'g';
 export function houseRulesConfig(
   choice: HouseRulesChoice,
   format: FormatKey,
-): Pick<SessionConfig, 'delayedLegion' | 'nineKGrade3' | 'megaBlastCheap'> {
+): Pick<
+  SessionConfig,
+  'delayedLegion' | 'nineKGrade3' | 'megaBlastCheap' | 'negromarl' | 'ogAssist'
+> {
   return {
     ...(choice.delayedLegion ? { delayedLegion: true } : {}),
     ...(choice.nineK && nineKAllowed(format) ? { nineKGrade3: choice.nineK } : {}),
     ...(choice.megaCheap ? { megaBlastCheap: true } : {}),
+    ...(choice.negromarl && nineKAllowed(format) ? { negromarl: choice.negromarl } : {}),
+    ...(choice.ogAssist && nineKAllowed(format) ? { ogAssist: true } : {}),
   };
 }
 
@@ -45,6 +56,8 @@ export function matchRulesOf(choice: HouseRulesChoice, format: FormatKey): Match
     delayedLegion: choice.delayedLegion,
     ...(choice.nineK && nineKAllowed(format) ? { nineKGrade3: choice.nineK } : {}),
     ...(choice.megaCheap ? { megaBlastCheap: true } : {}),
+    ...(choice.negromarl && nineKAllowed(format) ? { negromarl: choice.negromarl } : {}),
+    ...(choice.ogAssist && nineKAllowed(format) ? { ogAssist: true } : {}),
   };
 }
 
@@ -55,6 +68,8 @@ export function validHouseRules(v: unknown): HouseRulesChoice {
     delayedLegion: o.delayedLegion === true,
     nineK: o.nineK === 1000 || o.nineK === 2000 ? o.nineK : 0,
     megaCheap: o.megaCheap === true,
+    negromarl: o.negromarl === 2000 || o.negromarl === 3000 ? o.negromarl : 0,
+    ogAssist: o.ogAssist === true,
   };
 }
 
@@ -64,6 +79,11 @@ export const NINE_K_HELP =
   '9K Grade 3 (Original era): a vanguard whose printed grade is 3 and printed power exactly 9000 gets +1000 power on the vanguard circle (press again for +2000). Not on rear-guard circles, not for 10000-power grade 3s, and a unit lowered to 9000 by an effect does not count.';
 export const MEGA_BLAST_HELP =
   'Mega Blast: an ability costing Counter Blast 5 & Soul Blast 8 may be paid with Counter Blast 4 & Soul Blast 6 instead (Vanguard ZERO style). When you could pay both, you choose.';
+
+export const NEGROMARL_HELP =
+  'Negromarl (Original era): Witch Doctor of the Abyss, Negromarl (BT02) gets +2000 power on the vanguard and rear-guard circles (press again for +3000). Other power effects add on top as usual; its shield is unchanged.';
+export const OG_ASSIST_HELP =
+  'OG-assist (Original era): once per game, at the start of your Ride Phase, reveal the top seven cards of your deck. If one is exactly one grade above your vanguard you must take one by discarding two other cards, and ride it in your next Ride Phase. The others go to the bottom of your deck in the same order. A try that finds nothing still uses it up and costs nothing.';
 
 /**
  * An online room's rules: its format (W3: the OU list version too, for Original Era — Expanded)

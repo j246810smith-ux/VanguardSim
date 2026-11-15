@@ -33,6 +33,20 @@ export type TaskBody =
   /** G Assist: remove two cards from the hand / the G zone from the game. */
   | { readonly kind: 'g_assist_remove'; readonly from: 'hand' | 'gzone'; selection?: string[] }
   | { readonly kind: 'g_assist_shuffle' }
+  /** OG-assist house rule (game/ogAssist.ts): offer, choose the card, pay two discards. */
+  | { readonly kind: 'og_assist'; selection?: string[] }
+  | {
+      readonly kind: 'og_assist_take';
+      readonly grade: number;
+      readonly revealed: readonly InstanceId[];
+      selection?: string[];
+    }
+  | {
+      readonly kind: 'og_assist_pay';
+      readonly card: InstanceId;
+      readonly revealed: readonly InstanceId[];
+      selection?: string[];
+    }
   /** CR 1.48.1 6.8.1.1.1: the turn player's G units return to the G zone face up. */
   | { readonly kind: 'return_g_units' }
 
@@ -142,9 +156,13 @@ export type TaskBody =
       readonly notSourceCircle?: true;
       /** Only a circle that already has a unit ("to separate (RC) with a unit", G-FC01 Blueheart). */
       readonly occupied?: true;
+      /** The card's owner calls it to their own field (`call` with `byOwner`). */
+      readonly byOwner?: true;
       selection?: string[];
     }
-  | { readonly kind: 'end_frame'; readonly frame: number };
+  | { readonly kind: 'end_frame'; readonly frame: number }
+  /** Chronovisor Heritage (G-BT14): [Stride] this card on (VC) at the beginning of the main phase. */
+  | { readonly kind: 'extra_turn_stride'; readonly card: InstanceId };
 
 export type Task = TaskBody & { readonly atomic?: true };
 
@@ -164,6 +182,9 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'g_assist',
   'g_assist_search',
   'g_assist_remove',
+  'og_assist',
+  'og_assist_take',
+  'og_assist_pay',
 ]);
 
 export const isChoiceTask = (task: Task): task is ChoiceTask => CHOICE_TASKS.has(task.kind);

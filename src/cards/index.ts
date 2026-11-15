@@ -63,6 +63,15 @@ import gbt10Data from '../../data/cards/G-BT10.json';
 import gbt11Data from '../../data/cards/G-BT11.json';
 import gbt12Data from '../../data/cards/G-BT12.json';
 import gbt13Data from '../../data/cards/G-BT13.json';
+import gbt14Data from '../../data/cards/G-BT14.json';
+import gftd01Data from '../../data/cards/G-FTD01.json';
+import gfc03Data from '../../data/cards/G-FC03.json';
+import gfc04Data from '../../data/cards/G-FC04.json';
+import gcmb01Data from '../../data/cards/G-CMB01.json';
+import gdg01Data from '../../data/cards/G-DG01.json';
+import gtcb01Data from '../../data/cards/G-TCB01.json';
+import gtcb02Data from '../../data/cards/G-TCB02.json';
+import gcb01Data from '../../data/cards/G-CB01.json';
 import gtd09Data from '../../data/cards/G-TD09.json';
 import gtd10Data from '../../data/cards/G-TD10.json';
 import gtd11Data from '../../data/cards/G-TD11.json';
@@ -149,6 +158,15 @@ import { G_BT10 } from './G-BT10';
 import { G_BT11 } from './G-BT11';
 import { G_BT12 } from './G-BT12';
 import { G_BT13 } from './G-BT13';
+import { G_BT14 } from './G-BT14';
+import { G_FTD01 } from './G-FTD01';
+import { G_FC03 } from './G-FC03';
+import { G_FC04 } from './G-FC04';
+import { G_CMB01 } from './G-CMB01';
+import { G_DG01 } from './G-DG01';
+import { G_TCB01 } from './G-TCB01';
+import { G_TCB02 } from './G-TCB02';
+import { G_CB01 } from './G-CB01';
 import { G_TD09, G_TD10, G_TD11, G_TD12, G_TD13, G_TD14, G_TD15 } from './G-TD09-15';
 import { G_LD01, G_LD02, G_LD03 } from './G-LD01-03';
 import { G_FC01 } from './G-FC01';
@@ -242,6 +260,7 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gbt11Data as SetFile, abilities: G_BT11 },
   { file: gbt12Data as SetFile, abilities: G_BT12 },
   { file: gbt13Data as SetFile, abilities: G_BT13 },
+  { file: gbt14Data as SetFile, abilities: G_BT14 },
   { file: gtd09Data as SetFile, abilities: G_TD09 },
   { file: gtd10Data as SetFile, abilities: G_TD10 },
   { file: gtd11Data as SetFile, abilities: G_TD11 },
@@ -254,9 +273,17 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gld03Data as SetFile, abilities: G_LD03 },
   { file: gfc01Data as SetFile, abilities: G_FC01 },
   { file: gfc02Data as SetFile, abilities: G_FC02 },
+  { file: gftd01Data as SetFile, abilities: G_FTD01 },
+  { file: gfc03Data as SetFile, abilities: G_FC03 },
+  { file: gfc04Data as SetFile, abilities: G_FC04 },
+  { file: gcmb01Data as SetFile, abilities: G_CMB01 },
+  { file: gdg01Data as SetFile, abilities: G_DG01 },
+  { file: gtcb01Data as SetFile, abilities: G_TCB01 },
+  { file: gtcb02Data as SetFile, abilities: G_TCB02 },
+  { file: gcb01Data as SetFile, abilities: G_CB01 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'g-bt13-1.0.0';
+export const CARD_DATA_VERSION = 'g-cb01-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

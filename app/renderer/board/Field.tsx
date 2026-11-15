@@ -183,14 +183,13 @@ function CircleSlot({
         <>
           <div className="legion-bracket" />
           {/* a legion attacks with both units' power (CR 10.1.24.6); it defends with the leader's */}
-          <div className="legion-tag">
+          <div
+            className="legion-tag"
+            title="Legion: attack power of leader + mate"
+            data-testid={`legion-power-${player}`}
+          >
             LEGION{' '}
-            <span title="Attack power (leader + mate)">
-              ⚔{' '}
-              <Num
-                value={basePower(view, ctx, legion.leader) + basePower(view, ctx, legion.mate)}
-              />
-            </span>
+            <Num value={basePower(view, ctx, legion.leader) + basePower(view, ctx, legion.mate)} />
           </div>
         </>
       )}

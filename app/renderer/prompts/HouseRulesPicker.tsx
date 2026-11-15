@@ -7,7 +7,9 @@ import type { FormatKey } from '../../../src/engine';
 import {
   DELAYED_LEGION_HELP,
   MEGA_BLAST_HELP,
+  NEGROMARL_HELP,
   NINE_K_HELP,
+  OG_ASSIST_HELP,
   nineKAllowed,
   type HouseRulesChoice,
 } from '../game/houseRules';
@@ -69,6 +71,42 @@ export function HouseRulesPicker({
             <>
               <span style={{ display: 'block' }}>{NINE_K_HELP}</span>
               <span style={{ display: 'block' }}>{MEGA_BLAST_HELP}</span>
+            </>
+          }
+        />
+      </div>
+      <div className="row">
+        <span style={{ width: 160 }} />
+        {/* three steps (off, +2000, +3000): each press moves to the next */}
+        <Button
+          variant={value.negromarl && nineK ? 'primary' : 'default'}
+          disabled={disabled || !nineK}
+          onClick={() =>
+            set({
+              negromarl: value.negromarl === 0 ? 2000 : value.negromarl === 2000 ? 3000 : 0,
+            })
+          }
+          data-testid="rule-negromarl"
+          title={NEGROMARL_HELP}
+        >
+          Negromarl:{' '}
+          {!nineK ? 'Original era only' : value.negromarl ? `+${value.negromarl}` : 'OFF'}
+        </Button>
+        <Switch
+          checked={value.ogAssist && nineK}
+          onChange={(on) => set({ ogAssist: on })}
+          disabled={disabled || !nineK}
+          testId="rule-og-assist"
+          title={OG_ASSIST_HELP}
+          label="OG-assist"
+        />
+        <InfoTip
+          label="What Negromarl and OG-assist do"
+          testId="house-rules-help-2"
+          text={
+            <>
+              <span style={{ display: 'block' }}>{NEGROMARL_HELP}</span>
+              <span style={{ display: 'block' }}>{OG_ASSIST_HELP}</span>
             </>
           }
         />

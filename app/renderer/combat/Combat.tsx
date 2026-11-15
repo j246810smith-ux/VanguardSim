@@ -143,25 +143,35 @@ export function BattleHud({
       </span>
     </div>
   );
+  // the guardians stand centred on the Guardian Circle, between the two plates (prompt pack
+  // 2026-11-15, 3.10/4); a longer row closes its gaps before the cards shrink
+  const n = guardians.length;
+  const gap = n <= 2 ? 10 : n <= 4 ? 6 : 2;
+  // the row stays within about 300 px so the plates keep clear of the zone tiles
+  const cardW = n <= 4 ? 70 : Math.max(44, Math.floor((300 - gap * (n - 1)) / n));
+  const cardH = Math.round((cardW * 102) / 70);
+  const middle =
+    n > 0 ? (
+      <div className="guardian-row" style={{ gap }} data-testid="guardian-row" key="gc">
+        {guardians.map((id) => (
+          <div key={id} style={{ position: 'relative' }}>
+            <CardView definitionId={view.cards[id]!.definitionId} width={cardW} height={cardH} />
+            <Num value={currentShield(view, ctx, id)} className="g-shield" />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div className={`vs-mark ${attackFresh ? 'attack-call' : ''}`} data-testid="vs-mark" key="vs">
+        {attackFresh ? 'ATTACK!' : 'VS'}
+      </div>
+    );
   return (
     <div className="battle-vs" style={{ top: centreY(tableView) }} data-testid="battle-hud">
       <NumGroup>
         {myAttack ? attack : defence}
-        <div className={`vs-mark ${attackFresh ? 'attack-call' : ''}`} data-testid="vs-mark">
-          {attackFresh ? 'ATTACK!' : 'VS'}
-        </div>
+        {middle}
         {myAttack ? defence : attack}
       </NumGroup>
-      {guardians.length > 0 && (
-        <div className="guardian-row">
-          {guardians.map((id) => (
-            <div key={id} style={{ position: 'relative' }}>
-              <CardView definitionId={view.cards[id]!.definitionId} width={70} height={102} />
-              <Num value={currentShield(view, ctx, id)} className="g-shield" />
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -271,6 +281,29 @@ export function FxLayer({ fx, onDone }: { fx: Fx | undefined; onDone: (id: numbe
     const t = setTimeout(() => onDone(fx.id), paced(settings, hold));
     return () => clearTimeout(t);
   }, [fx, settings, onDone, hold]);
+  // a hit shakes the vanguard that took it, not the whole table (prompt pack 2026-11-15, 3.9);
+  // a rear-guard that is hit keeps its retire animation. Presentation only.
+  const shakeTarget =
+    fx?.kind === 'result' && fx.hit && settings.screenShake && settings.speed !== 'instant'
+      ? fx.target
+      : undefined;
+  useEffect(() => {
+    if (shakeTarget === undefined) return;
+    const circle = document.querySelector<HTMLElement>(
+      `[data-testid^="circle-"][data-testid$="-vanguard"][data-iid="${shakeTarget}"]`,
+    );
+    // the card, not its circle: the ring stays put
+    const el = circle?.querySelector<HTMLElement>(`.unit[data-iid="${shakeTarget}"]`) ?? circle;
+    if (!el) return;
+    el.classList.remove('hit-shake');
+    void el.offsetWidth; // restart the animation for back-to-back hits
+    el.classList.add('hit-shake');
+    const t = setTimeout(() => el.classList.remove('hit-shake'), 700);
+    return () => {
+      clearTimeout(t);
+      el.classList.remove('hit-shake');
+    };
+  }, [shakeTarget, fx?.id]);
   // abilities are drawn beside the G circle (board/AbilityCallout); only their timing is here
   if (!fx || fx.kind === 'ability' || settings.speed === 'instant' || hold === 0) return null;
   const ms = `${paced(settings, hold)}ms`;

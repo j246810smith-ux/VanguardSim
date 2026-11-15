@@ -22,6 +22,53 @@ const IMPORTER_VERSION = 2;
  * repaired from the Japanese text: [card id, damaged text, repaired text].
  */
 export const EN_TEXT_FIXES: readonly (readonly [string, string, string])[] = [
+  [
+    'G-CMB01-006',
+    'search your deck for up to two , call them',
+    'search your deck for up to two <High Beast>, call them',
+  ],
+  [
+    'G-BT14-001F',
+    'choose five  from your bind zone',
+    'choose five <Zeroth Dragon> from your bind zone',
+  ],
+  ['G-BT14-001F', 'any rear-guards other than .', 'any rear-guards other than <Zeroth Dragon>.'],
+  ['G-BT14-001F', 'for each  on your (RC)', 'for each <Zeroth Dragon> on your (RC)'],
+  [
+    'G-BT14-005',
+    'four other face up  from your G zone',
+    'four other face up <Zodiac Time Beast> from your G zone',
+  ],
+  [
+    'G-BT14-014',
+    'Choose a grade 3  from your drop zone',
+    'Choose a grade 3 <Zodiac Time Beast> from your drop zone',
+  ],
+  ['G-BT14-014', 'up to one  with grade +1', 'up to one <Zodiac Time Beast> with grade +1'],
+  [
+    'G-BT14-048',
+    'grade 3 and grade 1  from your bind zone',
+    'grade 3 and grade 1 <Zodiac Time Beast> from your bind zone',
+  ],
+  ['G-BT14-049', 'for each of your other .', 'for each of your other <Zodiac Time Beast>.'],
+  [
+    'G-BT14-050',
+    'Choose a grade 3  from your hand',
+    'Choose a grade 3 <Zodiac Time Beast> from your hand',
+  ],
+  [
+    'G-BT14-050',
+    'up to one grade 3 , reveal it',
+    'up to one grade 3 <Zodiac Time Beast>, reveal it',
+  ],
+  ['G-BT14-094', 'When your other  is placed', 'When your other <Zodiac Time Beast> is placed'],
+  ['G-BT14-097', 'your other  on your (RC)', 'your other <Zodiac Time Beast> on your (RC)'],
+  [
+    'G-BT14-098',
+    'grade 2 or greater  is placed',
+    'grade 2 or greater <Zodiac Time Beast> is placed',
+  ],
+  ['G-BT14-099', 'one of your  rear-guards', 'one of your <Zodiac Time Beast> rear-guards'],
   ['G-LD03-009', 'if you have a  vanguard', 'if you have a <Royal Paladin> vanguard'],
   ['G-LD03-018', 'Choose up to one of your , and', 'Choose up to one of your <Royal Paladin>, and'],
   ['G-TD15-002', 'if your vanguard is a , this unit', 'if your vanguard is a <Messiah>, this unit'],
@@ -146,6 +193,31 @@ const REVIEWED_DIFFERENCES: Readonly<
   'G-BT10-076': {
     reason:
       'Stealth Fiend, Murder Andon: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT14-001': {
+    reason:
+      'Neon Gyze: its English page was never archived (the archived G-BT14/001EN page shows the other face, Dragon Deity of Destruction, Gyze, imported as G-BT14-001F). Japanese text and stats are used; the English text is an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT14-065': {
+    reason:
+      'Goddess of the Abyss, Ereshkigal: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT14-083': {
+    reason:
+      'Forschung Vampir: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT14-088': {
+    reason:
+      'Whitefang Wielder: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
+    use: 'jp',
+  },
+  'G-BT14-095': {
+    reason:
+      'Pulsar, Crash Monkey: neither its official English page nor its card-wiki page was archived. Japanese text and stats are used; the English name and text are an unofficial translation (data/translations/unofficial.json).',
     use: 'jp',
   },
   'G-BT13-039': {
@@ -938,6 +1010,10 @@ function group(site: Site, fetched: Fetched[], s: string = set!) {
   for (const f of fetched) {
     const m = baseRe(site, s).exec(f.card.number);
     if (m) bases.set(m[1]!, f);
+    // a double-faced card's other face (G-BT14/001「破壊の竜神 ギーゼ面」, the back of Neon Gyze):
+    // a card of its own, numbered <nnn>F
+    const face = new RegExp(`^${s}/(\\d{3})(?:EN)?「.+」$`).exec(f.card.number);
+    if (face) bases.set(`${face[1]!}F`, f);
   }
   const printings = new Map<string, string[]>();
   for (const [no, f] of bases) printings.set(no, [f.card.number]);
@@ -945,6 +1021,7 @@ function group(site: Site, fetched: Fetched[], s: string = set!) {
   const specials = new Map<string, Fetched>();
   for (const f of fetched) {
     if (baseRe(site, s).test(f.card.number)) continue;
+    if (new RegExp(`^${s}/\\d{3}(?:EN)?「.+」$`).test(f.card.number)) continue;
     // exact name first; the official data sometimes differs in punctuation between printings
     const loose = (n: string) => n.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
     const base =
@@ -1222,7 +1299,8 @@ const localized = (c: ParsedCard): Localized => ({
   name: c.name,
   text: c.text,
   clan: c.clan,
-  race: c.race,
+  // "Gear Dragon（人型）" (G-FC04-018): drop a Japanese note in full-width brackets
+  race: c.race.replace(/（[^）]*）/g, '').trim(),
   image: c.image,
 });
 

@@ -1,7 +1,9 @@
 /**
  * PR14: the official 【2014年度】PRカード list (docs/design/ORIGINAL_ERA_ROADMAP.md); ids use the Japanese PR number.
  * Reprints in the list are not repeated: they are recorded as `reprints` in the data file. Its three G-era
- * cards (PR/0250, 0258, 0271) wait for the Expanded Era's PR cards. Generation Break never activates in the Original Era. (DECISIONS D-023): ability scripts. Reprints use the
+ * cards (PR/0250, 0258, 0271) wait for the Expanded Era's PR cards. The five with Generation Break (0265,
+ * 0269, 0270, 0272, 0273) are scripted here but shown in the G era's promo collection G-PR
+ * (src/cards/collections.ts), so they are G Era cards, not Original Era ones. (DECISIONS D-023): ability scripts. Reprints use the
  * original's abilities (`sameAs`); the trial-exclusive cards are scripted here.
  */
 import { ab, type Step } from '../engine';

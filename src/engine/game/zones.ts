@@ -55,6 +55,26 @@ export function moveCard(
   const card = s.cards[id];
   if (!card) throw new InvalidZoneError(`Unknown card instance ${id}`, { id });
   const from = locate(s, id);
+  // Neon Gyze (G-BT14) in its owner's G zone: "<Zeroth Dragon> in your bind zone cannot move to other areas"
+  if (from.zone === 'bind' && destination.zone !== 'bind') {
+    const owner = s.players[card.owner];
+    const race = d.ctx.registry.get(card.definitionId).race;
+    const locks = owner.gzone.some((g) =>
+      d.ctx.registry
+        .get(s.cards[g]!.definitionId)
+        .abilities.some(
+          (a) =>
+            a.kind === 'CONT' &&
+            a.effects.some(
+              (e) =>
+                e.ce === 'gyze' &&
+                e.part === 'bind_lock' &&
+                (race ?? '').split('/').includes(e.race),
+            ),
+        ),
+    );
+    if (locks) return;
+  }
   // CR 1.48.1 4.6.9, 11.14.3: a G unit leaving the field for anywhere but a circle goes back to
   // its owner's G zone face up instead (retired, bounced, ridden over, …)
   const gUnit = d.ctx.registry.get(card.definitionId).cardType === 'g_unit';
@@ -96,7 +116,12 @@ export function moveCard(
     delete card.dominatedIn;
   }
   const wasEngorged = card.engorged === true && !isCircle(to);
-  if (!isCircle(to)) delete card.engorged; // CR 1.48.1 11.24: nor engorged
+  if (!isCircle(to)) {
+    delete card.engorged; // CR 1.48.1 11.24: nor engorged
+    delete card.engorgeRetired;
+    delete card.successful; // Success: a new card is not successful
+    delete card.inHarmony;
+  }
   if (to.zone === 'circle' && to.circle === 'vanguard' && s.phase === 'ride')
     s.players[to.player].placedOnVCInRidePhase = true;
   // Unite: a call to (RC) or (GC) (normal, superior, guardian, G guardian), counted per player

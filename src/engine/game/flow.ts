@@ -4,13 +4,14 @@
  * triggered by "at the beginning of …" and similar events resolve.
  */
 import { lostIcon } from '../abilities/catalog';
-import { continuousDrive, isRestricted } from '../abilities/continuous';
+import { continuousDrive, hasPermission, isRestricted } from '../abilities/continuous';
 import type { Task } from '../state/tasks';
 import {
   type BattleState,
   circleCards,
   other,
   unitsOf,
+  vanguardOf,
   type EffectDuration,
   type PlayerId,
 } from '../state/types';
@@ -20,7 +21,24 @@ import { emit, type Draft } from './context';
 import { currentCritical, currentPower } from './stats';
 import { locate } from './locate';
 import { drawCard, moveCard, undeleteCard, unlockCard } from './zones';
-import { gGuardianOptions } from './generation';
+import { gGuardianOptions, stride } from './generation';
+
+/**
+ * After the battle phase: "you will perform an additional main phase and battle phase" (G-FC04
+ * Beyond Order Dragon) once, otherwise the end of the turn.
+ */
+function afterBattlePhase(s: {
+  turnFlags: { extraPhases?: PlayerId[] };
+  activePlayer: PlayerId;
+}): Task[] {
+  const extra = s.turnFlags.extraPhases ?? [];
+  if (extra.includes(s.activePlayer)) {
+    const at = extra.indexOf(s.activePlayer);
+    s.turnFlags.extraPhases = [...extra.slice(0, at), ...extra.slice(at + 1)];
+    return [{ kind: 'enter_phase', phase: 'main' }];
+  }
+  return endOfTurnTasks(s.activePlayer);
+}
 
 /** Tasks that end the turn and start the opponent's (CR 6.8). */
 export const endOfTurnTasks = (current: PlayerId): Task[] => [
@@ -55,7 +73,7 @@ export function advancePhase(d: Draft): void {
     s.tasks.push({ kind: 'enter_phase', phase: 'main' });
   else if (s.phase === 'main')
     s.tasks.push({ kind: 'enter_phase', phase: 'battle' }, { kind: 'start_step' });
-  else s.tasks.push(...endOfTurnTasks(s.activePlayer)); // CR 7.2.1.2.1: chose not to attack
+  else s.tasks.push(...afterBattlePhase(s)); // CR 7.2.1.2.1: chose not to attack
 }
 
 type FlowTask = Extract<
@@ -76,7 +94,8 @@ type FlowTask = Extract<
       | 'step_start'
       | 'damage_step'
       | 'retire_after_damage'
-      | 'end_battle';
+      | 'end_battle'
+      | 'extra_turn_stride';
   }
 >;
 
@@ -86,7 +105,10 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
     case 'begin_turn': {
       // "you get an additional turn" (G-TD01 Mystery-flare Dragon)
       const player = s.extraTurn ?? task.player;
+      // Chronovisor Heritage: skip the ride phase, stride at the beginning of the main phase
+      const heritage = s.extraTurn !== undefined ? s.extraTurnStride : undefined;
       delete s.extraTurn;
+      delete s.extraTurnStride;
       s.turnNumber += 1;
       s.activePlayer = player;
       s.turnFlags = { normalRideUsed: s.players[s.activePlayer].noNormalRideNext === true };
@@ -94,7 +116,12 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       // blazing lasts until end of turn
       for (const p of s.players) delete p.blazing;
       // engorged lasts until end of turn (CR 1.48.1 11.24.1)
-      for (const c of Object.values(s.cards)) delete c.engorged;
+      for (const c of Object.values(s.cards)) {
+        delete c.engorged;
+        delete c.engorgeRetired;
+        delete c.successful;
+        delete c.inHarmony;
+      }
       delete s.players[s.activePlayer].noNormalRideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });
@@ -109,8 +136,25 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
         { kind: 'turn_draw' },
         // CR 1.48.1 6.4.1.2: the G Assist step (G format only)
         ...(d.ctx.ruleset.generationRules.value ? [{ kind: 'g_assist' as const }] : []),
-        { kind: 'enter_phase', phase: 'ride' },
+        ...(heritage === undefined
+          ? [
+              { kind: 'enter_phase' as const, phase: 'ride' as const },
+              // OG-assist house rule: at the start of the ride phase, before riding
+              ...(s.customRules?.ogAssist ? [{ kind: 'og_assist' as const }] : []),
+            ]
+          : [
+              { kind: 'enter_phase' as const, phase: 'main' as const },
+              { kind: 'extra_turn_stride' as const, card: heritage },
+            ]),
       );
+      return;
+    }
+
+    case 'extra_turn_stride': {
+      // only from the G zone (it may have moved since)
+      const p = s.players[s.activePlayer];
+      if (!p.gzone.includes(task.card) || vanguardOf(p) === null) return;
+      stride(d, s.activePlayer, task.card, [], false);
       return;
     }
 
@@ -170,7 +214,7 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
 
     case 'start_step_decision':
       // CR 7.2.1.3: if no attack can take place, the turn player is regarded as not attacking.
-      if (attackOptions(s, d.ctx).length === 0) s.tasks.unshift(...endOfTurnTasks(s.activePlayer));
+      if (attackOptions(s, d.ctx).length === 0) s.tasks.unshift(...afterBattlePhase(s));
       return; // otherwise the turn player decides (ATTACK or END_PHASE)
 
     case 'guard_step_start':
@@ -299,7 +343,8 @@ function damageStep(d: Draft): void {
     const hit =
       attackerThere &&
       targetThere &&
-      defensePower <= attackPower &&
+      (defensePower <= attackPower ||
+        hasPermission(s, d.ctx, b.attacker, 'hit_regardless_of_power')) &&
       !isRestricted(s, d.ctx, t.id, 'cannot_be_hit');
     if (hit) b.hits.push(t.id);
     emit(d, { type: 'ATTACK_RESOLVED', target: t.id, hit, attackPower, defensePower });

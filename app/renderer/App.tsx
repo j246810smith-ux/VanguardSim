@@ -153,7 +153,7 @@ type Screen =
   | { name: 'settings' }
   | { name: 'updates'; from: 'menu' | 'settings' }
   | { name: 'showcase' }
-  | { name: 'decks' }
+  | { name: 'decks'; open?: string }
   | { name: 'cards' }
   | { name: 'profile' }
   | { name: 'battle'; config: SessionConfig; key: number }
@@ -298,9 +298,15 @@ export function App() {
           <Setup
             onBack={() => setScreen({ name: 'menu' })}
             onStart={(config) => setScreen({ name: 'battle', config, key: Date.now() })}
+            onEditDeck={(open) => setScreen({ name: 'decks', open })}
           />
         )}
-        {screen.name === 'decks' && <DeckBuilder onBack={() => setScreen({ name: 'menu' })} />}
+        {screen.name === 'decks' && (
+          <DeckBuilder
+            onBack={() => setScreen({ name: 'menu' })}
+            {...(screen.open ? { openDeck: screen.open } : {})}
+          />
+        )}
         {screen.name === 'profile' && <ProfileScreen onBack={() => setScreen({ name: 'menu' })} />}
         {screen.name === 'cards' && (
           <DeckBuilder mode="browse" onBack={() => setScreen({ name: 'menu' })} />
@@ -452,7 +458,16 @@ function MainMenu({
   );
 }
 
-function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionConfig) => void }) {
+function Setup({
+  onBack,
+  onStart,
+  onEditDeck,
+}: {
+  onBack: () => void;
+  onStart: (c: SessionConfig) => void;
+  /** Open a saved copy of a ready-built deck in the Deck Builder (3.7). */
+  onEditDeck: (deckId: string) => void;
+}) {
   const settings = useSettings();
   // v0.28: Game Setup remembers the last format played
   const [format, setFormat] = useState<FormatKey>(() => validFormatKey(recall(SETUP_FORMAT_KEY)));
@@ -553,11 +568,23 @@ function Setup({ onBack, onStart }: { onBack: () => void; onStart: (c: SessionCo
       <div className="setup">
         <div>
           <h2 style={{ color: 'var(--me)' }}>YOUR DECK</h2>
-          <DeckList entries={entries} selected={mine} onSelect={setMine} />
+          <DeckList
+            entries={entries}
+            selected={mine}
+            onSelect={setMine}
+            format={format}
+            onEdit={onEditDeck}
+          />
         </div>
         <div>
           <h2 style={{ color: 'var(--opp)' }}>OPPONENT DECK</h2>
-          <DeckList entries={entries} selected={theirs} onSelect={setTheirs} />
+          <DeckList
+            entries={entries}
+            selected={theirs}
+            onSelect={setTheirs}
+            format={format}
+            onEdit={onEditDeck}
+          />
         </div>
       </div>
       <div className="row">
@@ -878,7 +905,7 @@ function SettingsScreen({
             ))}
           </span>
         </div>
-        {toggle('Screen shake when an attack hits', 'screenShake')}
+        {toggle('Shake the vanguard when an attack hits it', 'screenShake')}
         {toggle('Reduced motion', 'reducedMotion')}
         {toggle(
           'Animated numbers',

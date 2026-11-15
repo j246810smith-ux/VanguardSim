@@ -135,7 +135,7 @@ export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceI
   if (!owner) return def.grade;
   const inDeck = owner.deck.includes(id);
   const inTrigger = owner.trigger.includes(id);
-  if (!inDeck && !inTrigger) return def.grade;
+  if (!inDeck && !inTrigger && !owner.drop.includes(id)) return def.grade;
   const vanguardNames = owner.circles.vanguard.flatMap((v) => namesOf(state, ctx, v));
   let grade = def.grade;
   const vanguardGrade = Math.max(
@@ -150,7 +150,9 @@ export function currentGrade(state: GameState, ctx: EngineContext, id: InstanceI
   for (const e of deckGrade)
     if (
       e.ce === 'deck_grade' &&
-      ((e.zone ?? 'deck') === 'trigger' ? inTrigger : inDeck) &&
+      ((e.zone ?? 'deck') === 'trigger'
+        ? inTrigger
+        : inDeck || (e.alsoDrop === true && owner.drop.includes(id))) &&
       vanguardNames.some((n) => n.includes(e.vanguardNameIncludes)) &&
       (e.vanguardMinGrade === undefined || vanguardGrade >= e.vanguardMinGrade) &&
       (e.generationBreak === undefined || generation >= e.generationBreak) &&

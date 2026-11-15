@@ -22,7 +22,13 @@ afterEach(cleanup);
 describe('house rules in a game', () => {
   it('a plain game has every rule off', () => {
     const lines = houseRules(new GameSession(config).view);
-    expect(lines.map((l) => l.name)).toEqual(['Delayed Legion', '9K Grade 3', 'Mega Blast cost']);
+    expect(lines.map((l) => l.name)).toEqual([
+      'Delayed Legion',
+      '9K Grade 3',
+      'Mega Blast cost',
+      'Negromarl',
+      'OG-assist',
+    ]);
     expect(lines.every((l) => !l.on)).toBe(true);
   });
 
@@ -60,6 +66,6 @@ describe('house rules in a game', () => {
     fireEvent.click(open);
     expect(screen.getByTestId('house-rules')).toBeTruthy();
     expect(screen.getAllByTestId('house-rule-on')).toHaveLength(1);
-    expect(screen.getAllByTestId('house-rule-off')).toHaveLength(2);
+    expect(screen.getAllByTestId('house-rule-off')).toHaveLength(4);
   });
 });

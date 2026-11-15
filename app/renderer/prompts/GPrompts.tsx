@@ -80,6 +80,10 @@ export function StridePrompt({
     : retirePick !== null
       ? [retirePick]
       : null;
+  // the unit's own cost (Ultimate Stride, Gyze) or none at all (High Flame's free stride)
+  const own = stride.discardFor?.[unit];
+  const ownCost =
+    own !== undefined && own.length === discard.length && own.every((id) => discard.includes(id));
   return (
     <div className="prompt g-prompt" data-testid="stride-prompt">
       <h3>
@@ -101,13 +105,17 @@ export function StridePrompt({
                 setSoulPick([]);
                 setRetirePick(null);
                 setDiscard(own);
-              }
+              } else if (stride.discardFor?.[unit]) setDiscard(stride.suggestedDiscard);
             }}
             testId={`stride-unit-${i}`}
           />
         ))}
       </div>
-      <div className="hint">Discard from your hand, grades totalling 3 or more (now {grades}):</div>
+      <div className="hint">
+        {own !== undefined && own.length === 0
+          ? 'This stride is free: no cost to pay (or choose cards to discard anyway).'
+          : `Discard from your hand, grades totalling 3 or more (now ${grades}):`}
+      </div>
       <div className="pick-grid">
         {stride.discardable.map((id) => (
           <Pick key={id} view={view} id={id} on={discard.includes(id)} onClick={() => toggle(id)} />
@@ -151,6 +159,30 @@ export function StridePrompt({
           </div>
         </>
       )}
+      {stride.ritualCost && (
+        <>
+          <div className="hint">
+            {stride.ritualCost.bind
+              ? 'Or bind one of these cards from your drop zone face up:'
+              : `Or [Counter-Blast ${stride.ritualCost.cb}] and put one of these normal units from your drop zone on the bottom of your deck:`}
+          </div>
+          <div className="pick-grid">
+            {stride.ritualCost.cards.map((id) => (
+              <Pick
+                key={id}
+                view={view}
+                id={id}
+                on={retirePick === id}
+                onClick={() => {
+                  setDiscard([]);
+                  setSoulPick([]);
+                  setRetirePick(retirePick === id ? null : id);
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
       {stride.cbCost && (
         <>
           <div className="hint">Or [Counter-Blast 1] with one of these damage cards:</div>
@@ -177,7 +209,7 @@ export function StridePrompt({
         </button>
         <button
           className="btn primary"
-          disabled={!alternative && !stride.free && grades < 3}
+          disabled={!alternative && !stride.free && !ownCost && grades < 3}
           onClick={() =>
             onSend({
               type: 'STRIDE',

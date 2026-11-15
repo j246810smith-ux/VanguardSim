@@ -277,6 +277,7 @@ export const superiorCall = (
     frontRow?: boolean;
     notSourceCircle?: boolean;
     occupied?: boolean;
+    byOwner?: boolean;
   } = {},
 ): Step => ({ op: 'call', target, ...opts });
 /** "Declare a <filter> card name, and reveal the top card of your deck": `as` = the top card if it has that name. */
@@ -368,6 +369,13 @@ export const if_ = (cond: Condition, then: Step[], otherwise?: Step[]): Step =>
   otherwise ? { op: 'if', cond, then, else: otherwise } : { op: 'if', cond, then };
 export const may = (prompt: string, then: Step[], player?: 'opponent'): Step =>
   player ? { op: 'may', prompt, then, player } : { op: 'may', prompt, then };
+/** "<A> or <B>": the master picks one; "yes" runs `a`, "no" runs `b` (G-BT14 Muspell). */
+export const either = (prompt: string, a: Step[], b: Step[]): Step => ({
+  op: 'may',
+  prompt,
+  then: a,
+  else: b,
+});
 /** "Each player may draw a card": you, then your opponent. */
 export const eachMayDraw = (): Step[] => [
   may('Draw a card?', [draw(1)]),
@@ -438,6 +446,26 @@ export const toGuardian = (target: Selector): Step => ({ op: 'to_guardian', targ
 export const hollow = (target: Selector, then?: readonly Step[]): Step =>
   then ? { op: 'hollow', target, then } : { op: 'hollow', target };
 export const noNormalRideNext = (): Step => ({ op: 'no_normal_ride_next' });
+/** "Your opponent cannot call his or her units to (RC) until end of your opponent's next turn" */
+export const forbidRCCalls = (): Step => ({ op: 'forbid_rc_calls' });
+/**
+ * Harmony (G-CB01): "When your other unit is placed in the same column as this unit, both units
+ * become in harmony until end of turn".
+ */
+export const harmonyKeyword = (text: string): AbilityDefinition =>
+  auto({
+    id: 'harmony',
+    zones: ['VC', 'RC'],
+    trigger: placedOn(['VC', 'RC'], {
+      owner: 'you',
+      filter: { sameColumnAsSource: true, excludeSelf: true },
+    }),
+    effect: [
+      { op: 'harmony', target: self() },
+      { op: 'harmony', target: eventCard() },
+    ],
+    text,
+  });
 export const placeHeart = (target: Selector, replacing?: string): Step =>
   replacing ? { op: 'place_heart', target, replacing } : { op: 'place_heart', target };
 export const alsoNamedAs = (target: Selector, of: Selector): Step => ({

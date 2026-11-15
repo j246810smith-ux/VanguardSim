@@ -56,3 +56,37 @@ describe('Break Ride outside the ride phase', () => {
     expect(dauntlessGrants(r)).toBe(0);
   });
 });
+
+/**
+ * Prompt pack 2026-11-15, 3.1: "[CONT](RC):Your vanguard's [Limit-Break 4] is active even when you
+ * have three or less damage" (BT17 Jewel Knight, Sabremy) also covers a Break Ride, which triggers
+ * as the ridden unit leaves (VC) for the soul (look-back, UNRESOLVED_RULINGS "Limit Break enablers").
+ */
+describe('Break Ride with a Limit Break enabler', () => {
+  const ASHLEI = 'BT10-001'; // Royal Paladin Break Ride: +10000/[Critical] +1
+  const SABREMY = 'BT17-044';
+  function rideOntoAshlei(rearGuard: string | null, damage: number) {
+    const s = scene({
+      at: 'ride',
+      attacker: {
+        circles: { vanguard: ASHLEI, ...(rearGuard ? { front_left: rearGuard } : {}) },
+        hand: [ASHLEI],
+        damage: vanilla(damage),
+      },
+      defender: { circles: { vanguard: OPP } },
+    });
+    const r = drain(apply(s, { type: 'RIDE', player: 0, cardId: inHand(s, 0, ASHLEI) }));
+    return { r, vg: r.state.players[0].circles.vanguard.at(-1)! };
+  }
+
+  it('the Break Ride resolves with two damage when the enabler is on (RC)', () => {
+    const { r, vg } = rideOntoAshlei(SABREMY, 2);
+    expect(boosts(r, vg, 10000)).toBe(1);
+  });
+
+  it('without the enabler it still needs four damage', () => {
+    expect(boosts(rideOntoAshlei(null, 2).r, rideOntoAshlei(null, 2).vg, 10000)).toBe(0);
+    const { r, vg } = rideOntoAshlei(null, 4);
+    expect(boosts(r, vg, 10000)).toBe(1);
+  });
+});

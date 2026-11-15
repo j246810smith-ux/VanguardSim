@@ -49,6 +49,10 @@ export interface MatchRules {
   readonly nineKGrade3?: 1000 | 2000;
   /** Mega Blast for CB4 & SB6 (C2). */
   readonly megaBlastCheap?: boolean;
+  /** Negromarl +2000/+3000 (Original era formats). Older hosts never send it. */
+  readonly negromarl?: 2000 | 3000;
+  /** OG-assist (Original era formats). Older hosts never send it. */
+  readonly ogAssist?: boolean;
   /**
    * The room's format (six-workstream brief W3): Original Era — Strict ('classic', also when
    * absent) or Original Era — Expanded ('classic_ou'). The host checks the guest's deck against it.

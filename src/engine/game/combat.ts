@@ -16,6 +16,7 @@ import {
 } from '../abilities/continuous';
 import type { EngineContext } from './context';
 import { currentGrade } from './characteristics';
+import { withoutOgAssist } from './ogAssist';
 
 /** Front-row circles (CR 4.6.3). */
 export const FRONT_ROW: readonly Circle[] = ['front_left', 'vanguard', 'front_right'];
@@ -123,7 +124,10 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
     const onlyVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_rear_guard');
     const noVanguard = isRestricted(state, ctx, attacker, 'cannot_attack_vanguard');
     const legalTargets = allowed.filter(
-      (t) => !(onlyVanguard && t.circle !== 'vanguard') && !(noVanguard && t.circle === 'vanguard'),
+      (t) =>
+        !(onlyVanguard && t.circle !== 'vanguard') &&
+        !(noVanguard && t.circle === 'vanguard') &&
+        !isRestricted(state, ctx, t.id, 'cannot_be_attacked'),
     );
     // e.g. Gigant Flame (cannot attack a vanguard) facing no rear-guards: no attack at all
     if (legalTargets.length === 0) return [];
@@ -147,7 +151,8 @@ export function guardableCards(
   const vg = vanguardOf(state.players[player]);
   if (vg === null) return [];
   const vgGrade = currentGrade(state, ctx, vg);
-  return state.players[player].hand.filter(
+  // OG-assist: its card is kept for the ride (no guarding with it)
+  return withoutOgAssist(state, player, state.players[player].hand).filter(
     (id) => currentGrade(state, ctx, id) <= vgGrade && !guardForbidden(state, ctx, player, id),
   );
 }

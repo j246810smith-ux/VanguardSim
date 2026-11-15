@@ -19,8 +19,12 @@ import {
   bestStrideUnit,
   freeStride,
   strideCbCost,
+  strideRitualCost,
   isUltimate,
   ultimateDiscard,
+  gyzeActive,
+  gyzeDiscard,
+  gyzeEffect,
   strideRetireCost,
   strideSoulCost,
 } from '../game/generation';
@@ -39,6 +43,7 @@ import {
   type SwappableColumn,
 } from '../state/types';
 import type { Command } from './commands';
+import { ogAssistMustRide } from '../game/ogAssist';
 
 /** What a player may do now. UI and AI build Commands only from these. */
 export type LegalAction =
@@ -88,6 +93,13 @@ export type LegalAction =
       readonly retireCost?: readonly InstanceId[];
       /** Gavrail Prim, Easgal Liberator (G-BT13): [Counter-Blast 1] with one of these damage cards instead. */
       readonly cbCost?: readonly InstanceId[];
+      /** Dragfall, Luard (G-BT14): one of these drop-zone normal units to the bottom of the deck, with [Counter-Blast cb]. */
+      readonly ritualCost?: {
+        readonly cb: number;
+        readonly cards: readonly InstanceId[];
+        /** Chronojet Dragon Z (G-BT14): the card is bound face up instead. */
+        readonly bind?: boolean;
+      };
       /** The discard for a G unit with its own stride cost (Ultimate Stride, G-BT13): use it for that unit. */
       readonly discardFor?: Readonly<Record<InstanceId, readonly InstanceId[]>>;
       /** The stride may be made without paying its cost (send an empty `discard`). */
@@ -136,8 +148,15 @@ function vanguardGrade(state: GameState, ctx: EngineContext, player: PlayerId): 
 function rideableCards(state: GameState, ctx: EngineContext, player: PlayerId): InstanceId[] {
   const vg = vanguardGrade(state, ctx, player);
   if (vg === null) return [];
+  // Gyze (G-BT14): "You cannot ride nor call any rear-guards other than <Zeroth Dragon>"
+  const gyze = gyzeActive(state, ctx, player, 'field');
   return state.players[player].hand.filter((id) => {
     const g = currentGrade(state, ctx, id);
+    if (
+      gyze &&
+      !(ctx.registry.get(state.cards[id]!.definitionId).race ?? '').split('/').includes(gyze.race)
+    )
+      return false;
     return (g === vg || g === vg + 1) && !isRestricted(state, ctx, id, 'cannot_normal_ride');
   });
 }
@@ -146,7 +165,15 @@ function rideableCards(state: GameState, ctx: EngineContext, player: PlayerId): 
 function callableCards(state: GameState, ctx: EngineContext, player: PlayerId): InstanceId[] {
   const vg = vanguardGrade(state, ctx, player);
   if (vg === null) return [];
-  return state.players[player].hand.filter((id) => currentGrade(state, ctx, id) <= vg);
+  const gyze = gyzeActive(state, ctx, player, 'field');
+  return state.players[player].hand.filter(
+    (id) =>
+      currentGrade(state, ctx, id) <= vg &&
+      !(
+        gyze &&
+        !(ctx.registry.get(state.cards[id]!.definitionId).race ?? '').split('/').includes(gyze.race)
+      ),
+  );
 }
 
 /** Actions of the player the engine is waiting for, outside the mulligan. */
@@ -184,8 +211,16 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
   }
 
   const actions: LegalAction[] = [];
+  // OG-assist: in the next ride phase its card is the only ride, and the phase cannot end
+  // without it while it can be ridden (otherwise the duty lapses)
+  let mustRide: InstanceId | null = null;
   if (state.phase === 'ride' && !state.turnFlags.normalRideUsed) {
-    const cardIds = rideableCards(state, ctx, player);
+    let cardIds = rideableCards(state, ctx, player);
+    const forced = ogAssistMustRide(state, player);
+    if (forced !== null && cardIds.includes(forced)) {
+      cardIds = [forced];
+      mustRide = forced;
+    }
     if (cardIds.length > 0) actions.push({ type: 'RIDE', cardIds });
   }
   if (state.phase === 'stride') {
@@ -196,11 +231,28 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const retireCost = strideRetireCost(state, ctx, player);
     const cbCost = [...new Set(cardIds.flatMap((g) => strideCbCost(state, ctx, player, g)))];
     const ultimate = ultimateDiscard(state, ctx, player);
-    const discardFor = Object.fromEntries(
-      cardIds
+    const ritualCost = strideRitualCost(state, ctx, player);
+    const discardFor = Object.fromEntries([
+      ...cardIds
         .filter((g) => isUltimate(ctx.registry.get(state.cards[g]!.definitionId)))
         .map((g) => [g, freeStride(state, ctx, player, g) ? [] : ultimate.slice(0, 1)]),
-    );
+      // Neon Gyze (G-BT14): a hand card named as your vanguard
+      ...cardIds
+        .filter((g) => gyzeEffect(ctx.registry.get(state.cards[g]!.definitionId), 'stride'))
+        .map((g) => [g, gyzeDiscard(state, ctx, player, g).slice(0, 1)]),
+      // a free stride for some G units only (Doom Bringer High Flame, G-BT13: "Overlord"
+      // names): no discard for those, so the prompt and the AIs pay nothing
+      ...(freeStride(state, ctx, player)
+        ? []
+        : cardIds
+            .filter(
+              (g) =>
+                !isUltimate(ctx.registry.get(state.cards[g]!.definitionId)) &&
+                !gyzeEffect(ctx.registry.get(state.cards[g]!.definitionId), 'stride') &&
+                freeStride(state, ctx, player, g),
+            )
+            .map((g) => [g, []])),
+    ]);
     const free =
       freeStride(state, ctx, player) ||
       (cardIds.length > 0 && cardIds.every((g) => freeStride(state, ctx, player, g)));
@@ -209,7 +261,8 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
       : (cheapestStrideDiscard(state, ctx, hand, bestStrideUnit(state, ctx, player, cardIds)) ??
         (soulCost ? soulCost.cards.slice(0, soulCost.n) : null) ??
         (retireCost.length > 0 ? [retireCost[0]!] : null) ??
-        (cbCost.length > 0 ? [cbCost[0]!] : null));
+        (cbCost.length > 0 ? [cbCost[0]!] : null) ??
+        (ritualCost ? [ritualCost.cards[0]!] : null));
     if (cardIds.length > 0 && (suggestedDiscard || Object.keys(discardFor).length > 0)) {
       const best = bestStrideUnit(state, ctx, player, cardIds);
       const discardGrades = Object.fromEntries(
@@ -224,6 +277,7 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         ...(soulCost ? { soulCost } : {}),
         ...(retireCost.length > 0 ? { retireCost } : {}),
         ...(cbCost.length > 0 ? { cbCost } : {}),
+        ...(ritualCost ? { ritualCost } : {}),
         ...(Object.keys(discardFor).length > 0 ? { discardFor } : {}),
         ...(free ? { free: true as const } : {}),
       });
@@ -234,7 +288,8 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const circles = state.players[player].circles;
     const isLockCircle = (c: RearGuardCircle) => circles[c].some((id) => state.cards[id]!.locked);
     const callable = REAR_GUARD_CIRCLES.filter((c) => !isLockCircle(c));
-    if (cardIds.length > 0 && callable.length > 0) {
+    const noCalls = (state.players[player].noRCCallsThrough ?? -1) >= state.turnNumber;
+    if (cardIds.length > 0 && callable.length > 0 && !noCalls) {
       actions.push({ type: 'CALL', cardIds, circles: callable });
     }
     // CR 6.6.1.2.3: only a column of two rear-guard circles (no lock circle) can be swapped
@@ -251,7 +306,11 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const options = attackOptions(state, ctx);
     if (options.length > 0) actions.push({ type: 'ATTACK', options });
   }
-  if (['ride', 'stride', 'main', 'battle'].includes(state.phase) && state.battle === null) {
+  if (
+    ['ride', 'stride', 'main', 'battle'].includes(state.phase) &&
+    state.battle === null &&
+    mustRide === null
+  ) {
     actions.push({ type: 'END_PHASE', phase: state.phase });
   }
   return actions;

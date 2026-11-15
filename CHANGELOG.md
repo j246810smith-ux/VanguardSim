@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.44.0-alpha — 2026-11-15
+
+- **Prompt pack 2026-11-15 (player feedback):** Doom Bringer High Flame's free stride no longer
+  asks for a cost; a Break Ride works with a Limit Break enabler on (RC); the Legion Mate stands
+  behind its leader and the combined power is a small LEGION chip; Final Turn can be declared once
+  a game; the vanguard shakes when an attack hits it (Settings); guardians are centred on the
+  Guardian Circle; PR14's five Generation Break cards moved to the G era promo collection G-PR.
+  New house rules (off by default): **Negromarl** +2000/+3000 and **OG-assist**.
+
+- **Prompt pack 2026-11-15:** prompts inside an ability name their card and the unit they are
+  about, and list locked cards with their picture and circle (3.6); a List button beside every
+  ready-built deck shows its full list and ratios, with "Copy to my decks" for the Deck Builder
+  (3.7); enlarged card views draw the art pixel for pixel (3.8).
+- **G Era: G-CB01 "Academy of Divas"** (40 cards, Bermuda Triangle): **Harmony** (a unit placed in
+  the same column puts both units in harmony), returns to hand, and the "Duo" Legion Nemuel and
+  Vepar. Six Japanese-only "Duo" cards use unofficial translations.
+- **G Era: G-TCB02 "The GENIUS STRATEGY"** (75 cards): **Success** (Great Nature: a unit becomes
+  successful once one of your rear-guards reaches the power), **Dark Device** (Megacolony: no standing
+  opponent unit in the column) and Murakumo shadowstitch same-name calls; Obtirandus stops your
+  opponent calling to (RC) until the end of their next turn. 34 cards use English from the card wiki.
+- **G Era: G-TCB01 "The Reckless Rampage"** (75 cards): Tachikaze engorge (Gluttony Dogma, Hammer
+  Gewalt and Tyrannobrute count the units their engorge retired this turn), Nubatama afterimage and
+  hand binding (Tsukumorakan, Atagolord, Hokagecongo), Spike Brothers charge (Dirty Picaro, Miracle
+  Ace, Dhampir Lily). Nine cards use English text from the card wiki.
+- **G Era: G-DG01 "Legend of Sanctuary Guard"** (Japanese-only Daigo special set, 19 cards,
+  unofficial English): Sanctuary Guard Imperial, Ziron and Sanctuary Guard Ark; sixteen reprints.
+- **G Era: G-FTD01 "Knight of the Sun"** (Japanese-only Gold Paladin trial deck, unofficial
+  English) and **G-FC03 "Fighter's Collection 2016"** (51 G units: a G4 and a G guardian for every
+  clan, and the Cray Elementals Sebreeze, Scryew and Dizmel).
+- **G Era: G-FC04 "Fighter's Collection 2017"** (75 cards): a Generation Break 8 G unit, a G
+  guardian and its heal trigger for every clan (Beyond Order Dragon gives an extra main and battle
+  phase), and three Cray Elementals. Two heal triggers use unofficial translations.
+- **G Era: G-CMB01 "Vanguard & Deletor"** (45 cards): Deletors (delete, vanish delete, Egorg's win
+  condition) and "Alfred" Royal Paladins. Five Japanese-only Deletors use unofficial translations.
+- **G Era: G-BT14 "Divine Dragon Apocrypha"** (100 cards + the other face of Neon Gyze): Royal
+  Paladin brave, Shadow Paladin ritual, Genesis Regalia/revelation, Nubatama (Rinne makes your
+  opponent call two cards and attack their own vanguard), Dark Irregulars darkness (Gastille copies
+  abilities), Gear Chronicle Pulsar (Chronovisor Heritage's extra turn, Chronojet Dragon Z's
+  stride by binding), the Zeroth Dragons Ultima and Dust, Bikkun, and **Neon Gyze** (turns into
+  Gyze with five different Zeroth Dragons bound). Five cards use unofficial translations.
+
 ## 0.43.0-alpha — 2026-11-14
 
 - **G Era: G-BT13 "Ultimate Stride"** (110 cards): the Zeroth Dragons Drachma and Megiddo with

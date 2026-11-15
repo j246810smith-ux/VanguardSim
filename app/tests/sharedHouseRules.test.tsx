@@ -15,7 +15,13 @@ import { DemoSetup } from '../renderer/screens/DemoSetup';
 
 afterEach(cleanup);
 
-const all = { delayedLegion: true, nineK: 2000, megaCheap: true } as const;
+const all = {
+  delayedLegion: true,
+  nineK: 2000,
+  megaCheap: true,
+  negromarl: 3000,
+  ogAssist: true,
+} as const;
 
 describe('house rules choice', () => {
   it('turns into the same game settings everywhere; off rules are left out', () => {
@@ -24,17 +30,24 @@ describe('house rules choice', () => {
       delayedLegion: true,
       nineKGrade3: 2000,
       megaBlastCheap: true,
+      negromarl: 3000,
+      ogAssist: true,
     });
     expect(matchRulesOf(all, 'classic')).toEqual({
       delayedLegion: true,
       nineKGrade3: 2000,
       megaBlastCheap: true,
+      negromarl: 3000,
+      ogAssist: true,
     });
   });
 
-  it('9K Grade 3 is an Original Era rule: dropped in the G era', () => {
+  it('9K Grade 3, Negromarl and OG-assist are Original Era rules: dropped in the G era', () => {
     expect(houseRulesConfig(all, 'g')).toEqual({ delayedLegion: true, megaBlastCheap: true });
     expect(matchRulesOf(all, 'g').nineKGrade3).toBeUndefined();
+    expect(matchRulesOf(all, 'g').negromarl).toBeUndefined();
+    expect(matchRulesOf(all, 'g').ogAssist).toBeUndefined();
+    expect(houseRulesConfig(all, 'classic_ou')).toMatchObject({ negromarl: 3000, ogAssist: true });
   });
 
   it('a remembered choice with junk in it is read safely (all off)', () => {
@@ -58,6 +71,8 @@ describe('house rules choice', () => {
       delayedLegion: true,
       nineKGrade3: 2000,
       megaBlastCheap: true,
+      negromarl: 3000,
+      ogAssist: true,
     });
   });
 });

@@ -57,6 +57,11 @@ export function limitBreakMet(
   master: PlayerId,
   n: number | undefined,
   source: InstanceId,
+  /**
+   * The ability looks back at the source on (VC): a Break Ride ("when a <clan> rides this unit")
+   * triggers as the unit leaves (VC) for the soul (prompt pack 2026-11-15, 3.1).
+   */
+  wasVanguard = false,
 ): boolean {
   if (n === undefined || state.players[master].damage.length >= n) return true;
   // G-BT04 Doxic: [Limit-Break 5] plays as [Limit-Break 4]
@@ -68,7 +73,8 @@ export function limitBreakMet(
     return true;
   if (n !== 4) return false;
   const at = locate(state, source);
-  if (at.player !== master || at.zone !== 'circle' || at.circle !== 'vanguard') return false;
+  if (!wasVanguard && (at.player !== master || at.zone !== 'circle' || at.circle !== 'vanguard'))
+    return false;
   return Object.entries(state.players[master].circles).some(
     ([circle, stack]) =>
       circle !== 'vanguard' &&

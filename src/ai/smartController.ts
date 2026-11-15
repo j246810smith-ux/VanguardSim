@@ -668,7 +668,10 @@ export class SmartController implements PlayerController {
   private choose(s: GameState, me: PlayerId, c: Choose): Command {
     // G Assist (CR 1.48.1 6.4.1.2): missing a grade costs more than the turn's lookahead can see
     // (no grade 3, no stride on later turns), so take it whenever it is offered
-    if (this.options.alwaysGAssist && c.prompt.startsWith('G Assist')) {
+    if (
+      (this.options.alwaysGAssist && c.prompt.startsWith('G Assist')) ||
+      c.prompt.startsWith('OG-assist (once per game)')
+    ) {
       const take =
         c.kind === 'yes_no'
           ? ['yes']

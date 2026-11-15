@@ -4,6 +4,7 @@
  * state).
  */
 import { DeckKnowledge } from './deckKnowledge';
+import { labScene, stageLab } from './devLab';
 import { BasicController } from '../../../src/ai/basicController';
 import type { PlayerController } from '../../../src/ai/controller';
 import { RandomController } from '../../../src/ai/randomController';
@@ -55,6 +56,10 @@ export interface SessionConfig {
   readonly nineKGrade3?: 1000 | 2000;
   /** House rule C2: Mega Blast may be paid with Counter Blast 4 & Soul Blast 6. */
   readonly megaBlastCheap?: boolean;
+  /** House rule Negromarl: BT02-012 gets this much power on (VC)/(RC) (Original era formats). */
+  readonly negromarl?: 2000 | 3000;
+  /** House rule OG-assist (Original era formats): the once-per-game ride catch-up. */
+  readonly ogAssist?: boolean;
   /** Classic (default) or the G era (D-034, in testing; local games only). */
   readonly format?: FormatKey;
   /**
@@ -83,6 +88,8 @@ export type Fx =
       readonly id: number;
       readonly kind: 'result';
       readonly hit: boolean;
+      /** The attacked unit (its card shakes on a hit when it is a vanguard). */
+      readonly target?: string;
       readonly attackPower: number;
       readonly defensePower: number;
     }
@@ -253,6 +260,7 @@ export abstract class SessionBase {
           id,
           kind: 'result',
           hit: e.hit,
+          target: e.target,
           attackPower: e.attackPower,
           defensePower: e.defensePower,
         };
@@ -358,12 +366,18 @@ export class GameSession extends SessionBase {
             ? { nineKGrade3: config.nineKGrade3 }
             : {}),
           ...(config.megaBlastCheap ? { megaBlastCheap: true } : {}),
+          ...(config.negromarl && (config.format ?? 'classic') !== 'g'
+            ? { negromarl: config.negromarl }
+            : {}),
+          ...(config.ogAssist && (config.format ?? 'classic') !== 'g' ? { ogAssist: true } : {}),
         },
       },
       ctx,
     );
-    this.state = state;
-    this.view = viewFor(state, ME);
+    // development aid only (VANGUARD_SHOTS_LAB): a fixed board for layout screenshots
+    const lab = labScene();
+    this.state = lab ? stageLab(lab, state) : state;
+    this.view = viewFor(this.state, ME);
     this.ai =
       config.opponent === 'remote' ? null : makeAi(config.aiLevel, config.aiDeck, config.seed);
     if (config.demo) this.seats = ['CPU 1', 'CPU 2'];

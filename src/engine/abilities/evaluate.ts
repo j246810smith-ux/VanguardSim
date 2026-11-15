@@ -187,6 +187,15 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (filter.hollowed !== undefined && (card.hollowed === true) !== filter.hollowed) return false;
   if (filter.charging !== undefined && (card.charging === true) !== filter.charging) return false;
   if (filter.engorged !== undefined && (card.engorged === true) !== filter.engorged) return false;
+  if (filter.inHarmony !== undefined && (card.inHarmony === true) !== filter.inHarmony)
+    return false;
+  if (filter.successful !== undefined && (card.successful === true) !== filter.successful)
+    return false;
+  if (filter.engorgeRetired !== undefined) {
+    const n = card.engorgeRetired ?? 0;
+    if (n < (filter.engorgeRetired.min ?? 0) || n > (filter.engorgeRetired.max ?? Infinity))
+      return false;
+  }
   if (
     filter.rescued !== undefined &&
     (state.turnFlags.rescued ?? []).includes(id) !== filter.rescued
@@ -203,6 +212,11 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
   if (
     filter.gUnit !== undefined &&
     (definitionOf(state, ctx, id).cardType === 'g_unit') !== filter.gUnit
+  )
+    return false;
+  if (
+    filter.gGuardian !== undefined &&
+    (definitionOf(state, ctx, id).gGuardian === true) !== filter.gGuardian
   )
     return false;
   if (filter.powerAtMostOf !== undefined) {
@@ -539,6 +553,8 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
       return ec.state.customRules?.[condition.rule] === true;
     case 'battle_number':
       return inRange(ec.state.turnFlags.battles ?? 0, condition.range);
+    case 'vanguard_attacks':
+      return (ec.state.turnFlags.vanguardAttacks ?? 0) >= condition.min;
     case 'legioned_this_turn': {
       const leaders = ec.state.turnFlags.legioned ?? [];
       if (condition.of) return select(ec, condition.of).some((id) => leaders.includes(id));

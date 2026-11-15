@@ -101,6 +101,17 @@ export const G_SETS: readonly string[] = [
   'G-LD01',
   'G-LD02',
   'G-LD03',
+  'G-BT14',
+  'G-FTD01',
+  'G-FC03',
+  'G-FC04',
+  'G-CMB01',
+  'G-DG01',
+  'G-TCB01',
+  'G-TCB02',
+  'G-CB01',
+  // G era promotional cards moved out of a yearly PR list (src/cards/collections.ts)
+  'G-PR',
 ];
 
 /**
@@ -139,6 +150,8 @@ export function originalExpandedFormat(
 
 /** Whether a card may be played in a format: its set is legal, or the format lists it. */
 export const cardLegalIn = (
-  card: { readonly id: string; readonly set: string },
+  card: { readonly id: string; readonly set: string; readonly otherFace?: boolean },
   format: FormatDefinition,
-) => format.legalSets.includes(card.set) || (format.extraCards ?? []).includes(card.id);
+) =>
+  !card.otherFace &&
+  (format.legalSets.includes(card.set) || (format.extraCards ?? []).includes(card.id));

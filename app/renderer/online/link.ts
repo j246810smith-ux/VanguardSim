@@ -187,6 +187,8 @@ export class HostLink {
           delayedLegion: this.rules.delayedLegion,
           nineK: this.rules.nineKGrade3 ?? 0,
           megaCheap: this.rules.megaBlastCheap === true,
+          negromarl: this.rules.negromarl ?? 0,
+          ogAssist: this.rules.ogAssist === true,
         },
         roomFormatOf(this.rules),
       ),

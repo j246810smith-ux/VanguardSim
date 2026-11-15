@@ -15,6 +15,8 @@ export interface DeckList {
 export interface DeckIssue {
   readonly code:
     | 'UNKNOWN_CARD'
+    /** The other face of a double-faced card (G-BT14 Gyze): never a deck card. */
+    | 'NOT_A_DECK_CARD'
     | 'ILLEGAL_SET'
     /** Original Era — Expanded: a G era card that is not approved on the OU list. */
     | 'NOT_ON_OU_LIST'
@@ -57,6 +59,15 @@ export function validateDeck(
   // a format may allow single cards from sets it does not (the OU list); say why a card is out
   const name = format.name ?? format.id;
   const reported = new Set<string>();
+  const gDefs = (deck.gDeck ?? []).filter((id) => registry.has(id)).map((id) => registry.get(id));
+  for (const d of [...defs, ...gDefs]) {
+    if (!d.otherFace || reported.has(d.id)) continue;
+    reported.add(d.id);
+    issues.push({
+      code: 'NOT_A_DECK_CARD',
+      message: `${d.name} (${d.id}) is the other face of a double-faced card, not a card for a deck`,
+    });
+  }
   for (const d of defs) {
     if (cardLegalIn(d, format) || reported.has(d.id)) continue;
     reported.add(d.id);

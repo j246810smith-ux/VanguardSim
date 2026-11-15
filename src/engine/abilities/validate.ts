@@ -102,12 +102,16 @@ export function validateAbilities(
           case 'free_stride':
           case 'stride_cb_next':
           case 'brave_active':
+          case 'trigger_all_units':
+          case 'stride_self':
+          case 'extra_phases':
           case 'shuffle':
           case 'extra_turn':
           case 'delay_legion_end':
           case 'look_top_place':
           case 'end_normal_ride':
           case 'no_normal_ride_next':
+          case 'forbid_rc_calls':
           case 'extra_drive_check':
           case 'win':
           case 'place_top_locked':
@@ -124,6 +128,7 @@ export function validateAbilities(
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             break;
           case 'look_top':
+          case 'look_bottom':
             if (!Number.isInteger(st.n) || st.n < 1) report(`${here}: n must be ≥ 1`);
             bound.add(st.as);
             break;
@@ -135,6 +140,7 @@ export function validateAbilities(
           case 'may':
             if (st.payable) checkCosts(st.payable, here);
             checkSteps(st.then, here);
+            if (st.else) checkSteps(st.else, here);
             break;
           case 'pay':
             checkCosts(st.costs, here);
@@ -185,6 +191,7 @@ export function validateAbilities(
             e.ce === 'limit_break_five_as_four' ||
             e.ce === 'deck_limit' ||
             e.ce === 'limit_break_always' ||
+            e.ce === 'success' ||
             e.ce === 'nullify_triggers' ||
             e.ce === 'stride_grade' ||
             e.ce === 'deck_grade' ||
@@ -195,7 +202,10 @@ export function validateAbilities(
             e.ce === 'free_stride' ||
             e.ce === 'stride_hand_grade' ||
             e.ce === 'stride_cb_cost' ||
-            e.ce === 'ultimate_stride'
+            e.ce === 'ultimate_stride' ||
+            e.ce === 'stride_ritual_cost' ||
+            e.ce === 'stride_drop_bind_cost' ||
+            e.ce === 'gyze'
           )
             continue;
           checkSelector(e.target, 'effect');

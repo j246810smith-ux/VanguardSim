@@ -33,6 +33,8 @@ export interface CardDefinition {
   readonly text: string;
   /** Name and text are an unofficial English translation (never printed in English). */
   readonly unofficialTranslation?: boolean;
+  /** The other face of a double-faced card (G-BT14-001F, Gyze): it comes into play by its front, never from a deck. */
+  readonly otherFace?: boolean;
   /** The text's abilities as engine data (empty for vanilla units). */
   readonly abilities: readonly AbilityDefinition[];
 }

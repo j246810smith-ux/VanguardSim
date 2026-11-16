@@ -288,7 +288,11 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       const defender = other(s.activePlayer);
       const hitUnits = battleTargets(b).filter((t) => b.hits.includes(t.id));
       for (const t of hitUnits) {
-        if (t.circle !== 'vanguard' && isOnCircle(s, t.id, t.circle)) {
+        if (
+          t.circle !== 'vanguard' &&
+          isOnCircle(s, t.id, t.circle) &&
+          !isRestricted(s, d.ctx, t.id, 'no_retire_when_hit')
+        ) {
           moveCard(d, t.id, { player: defender, zone: 'drop' }, 'retire');
         }
       }

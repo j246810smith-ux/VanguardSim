@@ -27,7 +27,9 @@ export function declareAttack(
   // chosen in the same command).
   emit(d, { type: 'STEP_STARTED', step: 'attack' });
   // Resting the attacker: CR 1.19 7.3.1.3 and CR 1.46.4 7.4.1.5 (missing from CR 1.29).
-  setOrientation(d, attacker, 'rest'); // a legion rests both units (CR 10.1.24.5, 10.1.24.11)
+  // G-EB03 Stark: "this unit does not [Rest] when it attacks"
+  if (!hasPermission(s, d.ctx, attacker, 'attack_three_times_standing'))
+    setOrientation(d, attacker, 'rest'); // a legion rests both units (CR 10.1.24.5, 10.1.24.11)
   if (boosterOption) setOrientation(d, boosterOption.id, 'rest'); // CR 7.3.1.6
 
   s.battle = {

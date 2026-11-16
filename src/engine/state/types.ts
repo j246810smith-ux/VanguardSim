@@ -206,6 +206,8 @@ export interface TurnFlags {
   unlockedByEffect?: PlayerId[];
   /** Units whose battle has ended this turn ("this unit's first battle of this turn", G-LD03). */
   battled?: InstanceId[];
+  /** Players whose drive check revealed a trigger unit this turn (G-CB04 Unbounded Colossus). */
+  driveTriggers?: PlayerId[];
 }
 
 /** `end_of_game`: never ends (it is still lost when the card changes zone, CR 4.1.4). */

@@ -1,0 +1,3433 @@
+{
+  "set": "G-EB03",
+  "importedAt": "2026-11-16T19:45:24.842Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-EB03-001",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/001",
+        "name": "星葬のゼロスドラゴン スターク",
+        "text": "【究極超越】（あなたの表のＧゾーン３枚以上で解放！Ｇゾーンに戻る際、Ｇゾーンを除外！）-ストライドステップ-[あなたのヴァンガードと同名のカードを手札から１枚選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、そのターン中、このユニットのドライブ－２し、このユニットはアタックしても【レスト】せず、このターンに３回までアタックできる。",
+        "clan": "スターゲート",
+        "race": "ゼロスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_001.png"
+      },
+      "en": {
+        "number": "G-EB03/001EN",
+        "name": "Zeroth Dragon of Destroy Star, Stark",
+        "text": "[Ultimate Stride](Released when the number of face up cards in your G zone is three or more! When it returns to the G zone, remove your G zone!)-Stride Step-[Choose a card with the same card name as your vanguard from your hand, and discard it] [Stride] this card on your (VC) from face down.\n[AUTO]:[Counter-Blast 2] When this unit is placed on (VC), you may pay the cost. If you do, until end of turn, this unit gets drive -2, this unit does not [Rest] when it attacks, and this unit can attack up to three times.",
+        "clan": "Star Gate",
+        "race": "Zeroth Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 25000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "ZR",
+      "printings": ["G-EB03/001", "G-EB03/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F001",
+          "fetchedAt": "2026-11-16T19:29:36.083Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209083519/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/001EN",
+          "fetchedAt": "2019-12-09T08:35:19Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-002",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/002",
+        "name": "ウイニングチャンプ ビクトール",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【ソウルブラスト】(1)，あなたのＧゾーンから裏のカードを１枚選び、表にする]あなたのリアガードが【スタンド】した時、コストを払ってよい。払ったら、そのターン中、そのユニットとこのユニットのパワー＋5000。\n【自】【(V)】【Gブレイク】(3)：このユニットがアタックしたバトルの終了時、１枚引き、相手の最もパワーの低いリアガードから１枚選び、退却させる。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_002.png"
+      },
+      "en": {
+        "number": "G-EB03/002EN",
+        "name": "Winning Champ, Victor",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[AUTO](VC):[Soul-Blast 1 & Choose a face down card from your G zone, and turn it face up] When your rear-guard [Stand], you may pay the cost. If you do, that unit and this unit get [Power] +5000 until end of turn.\"[AUTO](VC)[Generation Break 3]:At the end of the battle that this unit attacked, draw a card, choose one of your opponent's rear-guards with the lowest [Power] , and retire it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_002.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-EB03/002", "G-EB03/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F002",
+          "fetchedAt": "2026-11-16T19:29:37.299Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209202039/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/002EN",
+          "fetchedAt": "2019-12-09T20:20:39Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-003",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/003",
+        "name": "天を射抜く超神機 エクスギャロップ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n超爆-【自】【(V)】【ターン1回】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏のカードを１枚選び、表にする]このユニットがアタックした時、このユニットのパワーが40000以上なら、コストを払ってよい。払ったら、このユニットのドライブ＋１。そのバトルの終了時、このユニットのパワーが80000以上なら、【スタンド】し、ドライブ－４。\n【永】【(V)】【Gブレイク】(3)：あなたのＧゾーンの表のカード１枚につき、このユニットのパワー＋10000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_003.png"
+      },
+      "en": {
+        "number": "G-EB03/003EN",
+        "name": "Bravest Peak, X-gallop",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"Burst-[AUTO](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] When this unit attacks, if this unit's [Power] is 40000 or greater, you may pay the cost. If you do, this unit gets drive +1. At the end of that battle, if this unit's [Power] is 80000 or greater, [Stand] it, and it gets drive -4.\"[CONT](VC)[Generation Break 3]:This unit gets [Power] +10000 for each face up card in your G zone.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_003.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-EB03/003", "G-EB03/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F003",
+          "fetchedAt": "2026-11-16T19:29:38.476Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118030413/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/003EN",
+          "fetchedAt": "2019-11-18T03:04:13Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-004",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/004",
+        "name": "創世竜 インテグラル・メサイア",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：このユニットが(V)に登場した時、あなたのＧゾーンに表の〈メサイア〉が３枚以上なら、すべてのファイターは手札すべてを山札に戻してシャッフルし、５枚引く。\n【自】【(V)】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏のカードを１枚選び、表にする]このユニットがアタックした時、コストを払ってよい。払ったら、あなたの呪縛カードすべてを解呪し、３枚以上解呪したら、【ソウルチャージ】(1)し、１枚引き、このユニットのパワー＋10000。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_004.png"
+      },
+      "en": {
+        "number": "G-EB03/004EN",
+        "name": "Genesis Dragon, Integral Messiah",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:When this unit is placed on (VC), if the number of face up  in your G zone is three or more, all fighters return all of the cards in their hands to their decks and shuffle them, and draw five cards.\n[AUTO](VC):[Counter-Blast 1 & Choose a face down card from your G zone, and turn it face up] When this unit attacks, you may pay the cost. If you do, unlock all of your locked cards, and if you unlocked three or more, [Soul-Charge 1], draw a card, and this unit gets [Power] +10000.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_004.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-EB03/004", "G-EB03/004EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F004",
+          "fetchedAt": "2026-11-16T19:29:39.231Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210072320/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/004EN",
+          "fetchedAt": "2019-12-10T07:23:20Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-005",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/005",
+        "name": "ズバットバトラー ビクトール",
+        "text": "【自】【(V)】：[【カウンターブラスト】(1)]あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、１枚引き、あなたの手札から１枚選び、(R)にコールし、あなたのユニットを１枚選び、そのターン中、『【自】【(V)/(R)】【ターン1回】：このユニットがアタックした時、あなたの他のリアガードを１枚選び、【スタンド】する。』を与える。\n【自】【(V)】：あなたのターンの終了時、あなたのダメージゾーンに表のカードが１枚以下なら、【カウンターチャージ】(1)。あなたのソウルが１枚以下なら、【ソウルチャージ】(1)。【カウンターチャージ】と【ソウルチャージ】したなら、１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_005.png"
+      },
+      "en": {
+        "number": "G-EB03/005EN",
+        "name": "Zubat Battler, Victor",
+        "text": "[AUTO](VC):[Counter-Blast 1] When your G unit [Stride], you may pay the cost. If you do, draw a card, choose a card from your hand, call it to (RC), choose one of your units, and until end of turn, it gets \"[AUTO](VC/RC)[1/turn]:When this unit attacks, choose one of your other rear-guards, and [Stand] it.\".\n[AUTO](VC):At the end of your turn, if the number of face up cards in your damage zone is one or less, [Counter-Charge 1]. If the number of cards in your soul is one or less, [Soul-Charge 1]. If you [Counter-Charge] and [Soul-Charge], draw a card.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_005.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/005", "G-EB03/S01", "G-EB03/005EN", "G-EB03/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F005",
+          "fetchedAt": "2026-11-16T19:29:40.404Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213101341/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/005EN",
+          "fetchedAt": "2019-12-13T10:13:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-006",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/006",
+        "name": "メチャバトラー ゴルシャーチ",
+        "text": "【永】【(R)】：あなたの「ビクトール」を含むヴァンガードがいるなら、このユニットは、『【永】【(R)】：抵抗』と『【自】【(R)】【ターン1回】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、あなたの他のリアガードを１枚選び、【スタンド】する。』を得る。\n闘魂-【自】【(R)】【ターン1回】【Gブレイク】(2)：あなたのカードの効果で、このユニットが【スタンド】した時、そのターン中、このユニットのパワー＋7000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_006.png"
+      },
+      "en": {
+        "number": "G-EB03/006EN",
+        "name": "Extreme Battler, Golshachi",
+        "text": "[CONT](RC):If you have a vanguard with \"Victor\" in its card name, this unit gets \"[CONT](RC):Resist\" and \"[AUTO](RC)[1/turn]:[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, choose one of your other rear-guards, and [Stand] it.\".\nRush-[AUTO](RC)[1/turn][Generation Break 2]:When this unit [Stand] due to the effect of your card, this unit gets [Power] +7000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/006", "G-EB03/S02", "G-EB03/006EN", "G-EB03/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F006",
+          "fetchedAt": "2026-11-16T19:29:41.141Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210131622/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/006EN",
+          "fetchedAt": "2019-12-10T13:16:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-007",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/007",
+        "name": "勝利を呼ぶ英機 グランギャロップ",
+        "text": "【永】【手札】：あなたの、(V)かＧゾーンに表の「ギャロップ」を含むグレード４のカードがないなら、このカードは(R)にノーマルコールできない。\n【自】【(V)】：[【ソウルブラスト】(1)]あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋12000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_007.png"
+      },
+      "en": {
+        "number": "G-EB03/007EN",
+        "name": "Bravest Viktor, Grandgallop",
+        "text": "[CONT](Hand):If you do not have a grade 4 face up card with \"Gallop\" in its card name on your (VC) or G zone, this card cannot be normal called to (RC).\n[AUTO](VC):[Soul-Blast 1] When your G unit [Stride], you may pay the cost. If you do, choose one of your vanguards, and it gets [Power] +12000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_007.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 13000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/007", "G-EB03/S03", "G-EB03/007EN", "G-EB03/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F007",
+          "fetchedAt": "2026-11-16T19:29:41.888Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191121032044/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/007EN",
+          "fetchedAt": "2019-11-21T03:20:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-008",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/008",
+        "name": "超次元ロボ ダイネクサス",
+        "text": "【自】【(V)】：[【カウンターブラスト】(1)，あなたのドロップゾーンから「次元ロボ」を含むグレード３のカードを１枚選び、山札の下に置く]あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの山札の上から４枚見て、「次元ロボ」を含むカードを１枚まで(R)にコールし、あなたのヴァンガードを１枚選び、そのターン中、コールされたユニットの元々のパワーを与え、山札をシャッフルする。\n【永】【(V)】【Gブレイク】(1)：あなたの「次元ロボ」を含むグレード３のユニットすべてのシールド＋10000し、『インターセプト』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_008.png"
+      },
+      "en": {
+        "number": "G-EB03/008EN",
+        "name": "Super Dimensional Robo, Dainexus",
+        "text": "[AUTO](VC):[Counter-Blast 1 & Choose a grade 3 card with \"Dimensional Robo\" in its card name from your drop zone, and put it on the bottom of your deck] When your G unit [Stride], you may pay the cost. If you do, look at four cards from the top of your deck, call up to one card with \"Dimensional Robo\" in its card name from among them to (RC), choose one of your vanguards, it gets the original [Power] of the called unit until end of turn, and shuffle your deck.\n[CONT](VC)[Generation Break 1]:All of your grade 3 units with \"Dimensional Robo\" in their card names get [Shield] +10000, and \"Intercept ([Intercept])\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_008.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/008", "G-EB03/S04", "G-EB03/008EN", "G-EB03/S04EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F008",
+          "fetchedAt": "2026-11-16T19:29:43.078Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207070223/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/008EN",
+          "fetchedAt": "2019-12-07T07:02:23Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-009",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/009",
+        "name": "イディアルエゴ・メサイア",
+        "text": "【自】【(V)】【ターン1回】：[あなたの手札から１枚選び、(R)に呪縛カードとして置く]このユニットが(V)に登場した時か、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、１枚引き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋5000。\n【自】【(R)】：[【ソウルブラスト】(1)，このユニットを呪縛する]このユニットがアタックしたバトルの終了時、あなたのヴァンガードがグレード３以上の〈メサイア〉なら、コストを払ってよい。払ったら、あなたの山札の上から３枚見て、１枚まで(R)に呪縛カードとして置き、山札をシャッフルする。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_009.png"
+      },
+      "en": {
+        "number": "G-EB03/009EN",
+        "name": "Ideal Ego Messiah",
+        "text": "[AUTO](VC)[1/turn]:[Choose a card from your hand, and put it on your (RC) as a locked card] When this unit is placed on (VC), or when your G unit [Stride], you may pay the cost. If you do, draw a card, choose one of your vanguards, and it gets [Power] +5000 until end of turn.\n[AUTO](RC):[Soul-Blast 1 & Lock this unit] At the end of the battle that this unit attacked, if your vanguard is a grade 3 or greater , you may pay the cost. If you do, look at three cards from the top of your deck, put up to one card from among them on your (RC) as a locked card, and shuffle your deck.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_009.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/009", "G-EB03/S05", "G-EB03/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F009",
+          "fetchedAt": "2026-11-16T19:29:43.832Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191114142851/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/009EN",
+          "fetchedAt": "2019-11-14T14:28:51Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-010",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/010",
+        "name": "星輝兵 カオスブレイカー・クローズ",
+        "text": "【自】【(V)】：[あなたの手札から「星輝兵」を含むカードを１枚選び、捨てる]このユニットが(V)に登場した時か、あなたの「星輝兵」を元々含むＧユニットが【超越】した時、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、相手のリアガードを１枚選び、呪縛する。\n【自】：[【ソウルブラスト】(1)]このカードを手札から捨てた時、あなたの「カオス」を含むハーツカードがあるなら、コストを払ってよい。払ったら、相手は自分の手札から１枚選び、(R)に呪縛カードとして置く。",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_010.png"
+      },
+      "en": {
+        "number": "G-EB03/010EN",
+        "name": "Star-vader, Chaos Breaker Close",
+        "text": "[AUTO](VC):[Choose a card with \"Star-vader\" in its card name from your hand, and discard it] When this unit is placed on (VC), or when your G unit with \"Star-vader\" in its original card name [Stride], you may pay the cost. If you do, [Soul-Charge 1], choose one of your opponent's rear-guards, and lock it.\n[AUTO]:[Soul-Blast 1] When this card is discarded from hand, if you have a heart card with \"Chaos\" in its card name, you may pay the cost. If you do, your opponent chooses a card from his or her hand, and puts it on his or her (RC) as a locked card.",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-EB03/010", "G-EB03/S06", "G-EB03/010EN", "G-EB03/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F010",
+          "fetchedAt": "2026-11-16T19:29:44.574Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018184910/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/010EN",
+          "fetchedAt": "2019-10-18T18:49:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-011",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/011",
+        "name": "ブレーザー・ブラウクリューガー",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】【リミットブレイク】(4)　：[【カウンターブラスト】(1)，あなたの手札から２枚選び、捨てる]このユニットがアタックしたバトルの終了時、あなたの「ブラウ」を含むハーツカードがあるなら、コストを払ってよい。払ったら、このユニットをＧゾーンに表で置き、あなたの手札から「ブラウ」を含むグレード３のカードを１枚まで選び、【スタンド】でライドする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_011.png"
+      },
+      "en": {
+        "number": "G-EB03/011EN",
+        "name": "Blazar Blaukluger",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)[Limit-Break 4]:[Counter-Blast 1 & Choose two cards from your hand, and discard them] At the end of the battle that this unit attacked, if you have a heart card with \"Blau\" in its card name, you may pay the cost. If you do, put this unit face up into your G zone, choose up to one grade 3 card with \"Blau\" in its card name from your hand, and ride it as [Stand].",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_011.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/011", "G-EB03/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F011",
+          "fetchedAt": "2026-11-16T19:29:45.734Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190922104336/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/011EN&expansion=106&view=image",
+          "fetchedAt": "2019-09-22T10:43:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-012",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/012",
+        "name": "ノイモーント・ブラウクリューガー",
+        "text": "【自】【(V)】：あなたの「ブラウ」を元々含むＧユニットが【超越】した時、あなたの「ブラウ」を含むユニットを１枚選び、そのターン中、パワー＋5000。\n【自】：[【カウンターブラスト】(1)]あなたの「ブラウ」を含むユニットがこのユニットにライドした時、コストを払ってよい。払ったら、あなたの「ブラウ」を含むユニットを４枚まで選び、【スタンド】し、そのターン中、パワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_012.png"
+      },
+      "en": {
+        "number": "G-EB03/012EN",
+        "name": "Neumond Blaukluger",
+        "text": "[AUTO](VC):When your G unit with \"Blau\" in its original card name [Stride], choose one of your units with \"Blau\" in its card name, and it gets [Power] +5000 until end of turn.\n[AUTO]:[Counter-Blast 1] When your unit with \"Blau\" in its card name rides this unit, you may pay the cost. If you do, choose up to four of your units with \"Blau\" in their card names, [Stand] them, and they get [Power] +5000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/012", "G-EB03/S07", "G-EB03/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F012",
+          "fetchedAt": "2026-11-16T19:29:46.896Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190920182011/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/012EN&expansion=106",
+          "fetchedAt": "2019-09-20T18:20:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-013",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/013",
+        "name": "メチャバトラー バリオン",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたの「ビクトール」を含むユニットを１枚選び、そのバトル中、ヒットされない。さらに、【カウンターブラスト】(1)してよい。そうしたら、１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_013.png"
+      },
+      "en": {
+        "number": "G-EB03/013EN",
+        "name": "Extreme Battler, Baryon",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units with \"Victor\" in its card name, and it cannot be hit until end of that battle. Then, you may [Counter-Blast 1]. If you do, draw a card.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_013.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-EB03/013", "G-EB03/S08", "G-EB03/013EN", "G-EB03/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F013",
+          "fetchedAt": "2026-11-16T19:29:47.644Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210135003/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/013EN",
+          "fetchedAt": "2019-12-10T13:50:03Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-014",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/014",
+        "name": "アラゴ・ブラウエナギー",
+        "text": "アップデート：シールド、トリガー\n【自】：[このカードを表でバインドする，あなたのドロップゾーンから他の【治】を１枚選び、表でバインドする]【Ｇガーディアン】をコールするコストで、このカードを手札から捨てた時、コストを払ってよい。払ったら、【カウンターチャージ】(1)か【ソウルチャージ】(1)。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/geb03_014up.png"
+      },
+      "en": {
+        "number": "G-EB03/014EN",
+        "name": "Arago Blauenergie",
+        "text": "[AUTO]:[Bind this card face up & Choose another card with \"[Heal] Heal\" from your drop zone, and bind it face up] When this card is discarded from hand for the cost of calling a [G Guardian], you may pay the cost. If you do, [Counter-Charge 1] or [Soul-Charge 1].",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_014.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/014", "G-EB03/014EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F014",
+          "fetchedAt": "2026-11-16T19:29:48.806Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191119234447/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/014EN",
+          "fetchedAt": "2019-11-19T23:44:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 15000 vs EN 10000"],
+        "reviewed": "The Japanese database shows the card as updated after the G era (shield 15000, new text); the archived English page is the G-era card (shield 10000), which the game uses.",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "G-EB03-015",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/015",
+        "name": "次元ロボ戦闘指揮官 マグナダイバード",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンからこのユニットと同名の裏のカードを１枚選び、表にする]このユニットは『【自】【(V)】：[【ソウルブラスト】(1)]相手のガーディアンが登場した時、コストを払ってよい。払ったら、あなたの山札の上から３枚公開し、それらすべてが「次元ロボ」を含むカードなら、その中からグレード３のカードを１枚まで手札に加え、加えたら、相手のガーディアンを１枚選び、退却させる。山札をシャッフルする。』を得る。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_015.png"
+      },
+      "en": {
+        "number": "G-EB03/015EN",
+        "name": "Dimensional Robo Battle Commander, Magna Daibird",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card with the same card name as this unit from your G zone, and turn it face up] This unit gets \"[AUTO](VC):[Soul-Blast 1] When your opponent places a guardian, you may pay the cost. If you do, reveal three cards from the top of your deck, if all of them are cards with \"Dimensional Robo\" in their card names, put up to one grade 3 card from among them into your hand, and if you do, choose one of your opponent's guardians, and retire it. Shuffle your deck.\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_015.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/015", "G-EB03/S09", "G-EB03/015EN", "G-EB03/S09EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F015",
+          "fetchedAt": "2026-11-16T19:29:49.985Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210173702/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/015EN",
+          "fetchedAt": "2019-12-10T17:37:02Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-016",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/016",
+        "name": "次元ロボ ダイバレスト",
+        "text": "【自】：このユニットが(R)に登場した時、あなたのヴァンガードを１枚選び、そのターン中、『自【(V)】：[【カウンターブラスト】(1)]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、１枚引く。』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_016.png"
+      },
+      "en": {
+        "number": "G-EB03/016EN",
+        "name": "Dimensional Robo, Daibalest",
+        "text": "[AUTO]:When this unit is placed on (RC), choose one of your vanguards, and until end of turn, it gets, \"[AUTO](VC):[Counter-Blast 1] When this unit attacks a vanguard, you may pay the cost. If you do, draw a card.\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_016.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/016", "G-EB03/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F016",
+          "fetchedAt": "2026-11-16T19:29:51.143Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191121023630/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/016EN",
+          "fetchedAt": "2019-11-21T02:36:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-017",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/017",
+        "name": "宇宙勇機 グランモンク",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのユニットを１枚選び、そのバトル中、ヒットされない。相手のパワー30000以上のユニットがいるなら、あなたは１枚引く。\n【起】【ドロップゾーン】【Gブレイク】(1)：[このカードを表でバインドする]あなたのユニットを６枚選び、そのターン中、『【永】【(V)/(R)】：抵抗』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_017.png"
+      },
+      "en": {
+        "number": "G-EB03/017EN",
+        "name": "Cosmic Hero, Grandmonk",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units, and it cannot be hit until end of that battle. If your opponent's unit's [Power] is 30000 or greater, you draw a card.\n[ACT](Drop zone)[Generation Break 1]:[Bind this card face up] Choose six of your units, and until end of turn, they get \"[CONT](VC/RC):Resist\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_017.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-EB03/017", "G-EB03/S10", "G-EB03/017EN", "G-EB03/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F017",
+          "fetchedAt": "2026-11-16T19:29:51.903Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210070706/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/017EN",
+          "fetchedAt": "2019-12-10T07:07:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-018",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/018",
+        "name": "次元ロボ整備員 キャシー",
+        "text": "アップデート：シールド、トリガー\n【自】：[このカードを表でバインドする，あなたのドロップゾーンから他の【治】を１枚選び、表でバインドする]【Ｇガーディアン】をコールするコストで、このカードを手札から捨てた時、コストを払ってよい。払ったら、【カウンターチャージ】(1)か【ソウルチャージ】(1)。",
+        "clan": "ディメンジョンポリス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/geb03_018up.png"
+      },
+      "en": {
+        "number": "G-EB03/018EN",
+        "name": "Dimensional Robo Outfitter, Cassie",
+        "text": "[AUTO]:[Bind this card face up & Choose another card with \"[Heal] Heal\" from your drop zone, and bind it face up] When this card is discarded from hand for the cost of calling a [G Guardian], you may pay the cost. If you do, [Counter-Charge 1] or [Soul-Charge 1].",
+        "clan": "Dimension Police",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_018.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/018", "G-EB03/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F018",
+          "fetchedAt": "2026-11-16T19:29:52.653Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208021953/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/018EN",
+          "fetchedAt": "2019-12-08T02:19:53Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 15000 vs EN 10000"],
+        "reviewed": "The Japanese database shows the card as updated after the G era (shield 15000, new text); the archived English page is the G-era card (shield 10000), which the game uses.",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "G-EB03-019",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/019",
+        "name": "始源根絶者 ガヲヰヱルド",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【永】：あなたの、「根絶者」を含むヴァンガードがいて、手札が１枚以下なら、このカードは【超越】のコストを払わずに【超越】できる。\n【起】【(V)】【ターン1回】：[あなたの、Ｇゾーンから裏の「根絶者」を含むカードを１枚選び、表にし、「根絶者」を含むリアガードを２枚選び、退却させる]あなたの「根絶者」を含むハーツカードがあるなら、相手のヴァンガードすべてをデリートする。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_019.png"
+      },
+      "en": {
+        "number": "G-EB03/019EN",
+        "name": "Original Deletor, Gaoield",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[CONT]:If you have a vanguard with \"Deletor\" in its card name, and the number of cards in your hand is one or less, this card may [Stride] without paying the [Stride] cost.\"[ACT](VC)[1/turn]:[Choose a face down card with \"Deletor\" in its card name from your G zone, turn it face up, choose two of your rear-guards with \"Deletor\" in their card names, and retire them] If you have a heart card with \"Deletor\" in its card name, delete all of your opponent's vanguards.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_019.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/019", "G-EB03/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F019",
+          "fetchedAt": "2026-11-16T19:29:53.805Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210155127/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/019EN",
+          "fetchedAt": "2019-12-10T15:51:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-020",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/020",
+        "name": "滅星輝兵 カオスユニバース・アルサーニ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：[【ソウルブラスト】(1)，あなたのＧゾーンから裏の「カオス」を含むカードを１枚選び、表にする]このユニットが(V)に登場した時、あなたの「カオス」を含むハーツカードがあるなら、コストを払ってよい。払ったら、相手は自分のリアガードを２枚選び、呪縛する。２枚呪縛できなかったら、あなたは２枚引き、あなたのユニットを２枚選び、そのターン中、パワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーゴーレム",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_020.png"
+      },
+      "en": {
+        "number": "G-EB03/020EN",
+        "name": "Death Star-vader, Chaos Universe Alththani",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:[Soul-Blast 1 & Choose a face down card with \"Chaos\" in its card name from your G zone, and turn it face up] When this unit is placed on (VC), if you have a heart card with \"Chaos\" in its card name, you may pay the cost. If you do, your opponent chooses two of his or her rear-guards, and lock them. If he or she could not lock two cards, you draw two cards, choose two of your units, and they get [Power] +2000 until end of turn.",
+        "clan": "Link Joker",
+        "race": "Cyber Golem",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_020.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/020", "G-EB03/S11", "G-EB03/020EN", "G-EB03/S11EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F020",
+          "fetchedAt": "2026-11-16T19:29:54.970Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191114223249/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/020EN",
+          "fetchedAt": "2019-11-14T22:32:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-021",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/021",
+        "name": "千断の根絶者 グレイギヰル",
+        "text": "【自】：[【ソウルブラスト】(2)-「根絶者」を含むカード]このユニットが(V)か(R)に登場した時、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋5000し、このユニットが(V)にいるなら、相手のヴァンガードすべてをデリートする。\n【自】：あなたの「根絶者」を含むカードの、効果かコストで、このユニットが(R)から退却した時、あなたの手札が３枚以下なら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_021.png"
+      },
+      "en": {
+        "number": "G-EB03/021EN",
+        "name": "Hack Deletor, Greigiil",
+        "text": "[AUTO]:[Soul-Blast 2]‐cards with \"Deletor\" in their card names] When this unit is placed on (VC) or (RC), you may pay the cost. If you do, until end of turn, this unit gets [Power] +5000, and if this unit is on your (VC), delete all of your opponent's vanguards.\n[AUTO]:When this unit is retired from (RC) for the effect or cost of your card with \"Deletor\" in its card name, if the number of cards in your hand is three or less, draw a card.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_021.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/021", "G-EB03/S12", "G-EB03/021EN", "G-EB03/S12EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F021",
+          "fetchedAt": "2026-11-16T19:29:56.159Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018181702/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/021EN",
+          "fetchedAt": "2019-10-18T18:17:02Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-022",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/022",
+        "name": "星輝兵 マゼラニックストリーム",
+        "text": "アップデート：シールド、トリガー\n【自】：[このカードを表でバインドする，あなたのドロップゾーンから他の【治】を１枚選び、表でバインドする]【Ｇガーディアン】をコールするコストで、このカードを手札から捨てた時、コストを払ってよい。払ったら、【カウンターチャージ】(1)か【ソウルチャージ】(1)。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/D-PV01UP/geb03_022up.png"
+      },
+      "en": {
+        "number": "G-EB03/022EN",
+        "name": "Star-vader, Magellanic Stream",
+        "text": "[AUTO]:[Bind this card face up & Choose another card with \"[Heal] Heal\" from your drop zone, and bind it face up] When this card is discarded from hand for the cost of calling a [G Guardian], you may pay the cost. If you do, [Counter-Charge 1] or [Soul-Charge 1].",
+        "clan": "Link Joker",
+        "race": "Cyber Fairy",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_022.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-EB03/022", "G-EB03/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F022",
+          "fetchedAt": "2026-11-16T19:29:56.899Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215225915/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/022EN",
+          "fetchedAt": "2019-12-15T22:59:15Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["shield: JP 15000 vs EN 10000"],
+        "reviewed": "The Japanese database shows the card as updated after the G era (shield 15000, new text); the archived English page is the G-era card (shield 10000), which the game uses.",
+        "statsFrom": "en"
+      }
+    },
+    {
+      "id": "G-EB03-023",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/023",
+        "name": "掃滅機獣 デモルザウラー",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのリアガードを２枚選び、【レスト】する]１枚引き、【ソウルチャージ】(1)し、そのターン中、このユニットは『【自】【(V)】：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、あなたのリアガードを１枚選び、【スタンド】し、そのターン中、パワー＋3000。』を得る。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_023.png"
+      },
+      "en": {
+        "number": "G-EB03/023EN",
+        "name": "Demolition Beast, Demolzaurus",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose two of your rear-guards, and [Rest] them] Draw a card, [Soul-Charge 1], and until end of turn, this unit gets \"[AUTO](VC):[Counter-Blast 1] When this unit attacks, you may pay the cost. If you do, choose one of your rear-guards, [Stand] it, and it gets [Power] +3000 until end of turn.\".",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_023.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/023", "G-EB03/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F023",
+          "fetchedAt": "2026-11-16T19:29:58.066Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113014222/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/023EN",
+          "fetchedAt": "2019-11-13T01:42:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-024",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/024",
+        "name": "メテオカイザー ドガンティタン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【永】【(G)】：あなたのリアガードが相手より少ないなら、このユニットのシールド＋10000。\n【起】【Ｇゾーン】：[【ソウルブラスト】(1)，表のこのカードを裏にする]あなたの、サークルかダメージゾーンのカードを１枚選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_024.png"
+      },
+      "en": {
+        "number": "G-EB03/024EN",
+        "name": "Meteokaiser, Dogantitan",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[CONT](GC):If the number of your rear-guards is less than your opponent's, this unit gets [Shield] +10000.\n[ACT]G zone:[Soul-Blast 1 & Turn this face up card face down] Choose a card on your circle or in your damage zone, and turn it face up.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_024.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/024", "G-EB03/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F024",
+          "fetchedAt": "2026-11-16T19:29:59.221Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209232628/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/024EN",
+          "fetchedAt": "2019-12-09T23:26:28Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-025",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/025",
+        "name": "メチャバトラー ブッタギル",
+        "text": "【自】【(R)】【Gブレイク】(1)：あなたのドライブチェックでグレード３のカードがでた時、このユニットのパワー以下のパワーの相手の前列のリアガードを１枚選び、退却させる。\n闘魂-【自】【(R)】【Gブレイク】(2)：あなたのカードの効果で、このユニットが【スタンド】した時、あなたの「ビクトール」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_025.png"
+      },
+      "en": {
+        "number": "G-EB03/025EN",
+        "name": "Extreme Battler, Sever-temper",
+        "text": "[AUTO](RC)[Generation Break 1]:When your drive check reveals a grade 3 card, choose one of your opponent's front row rear-guards with [Power] equal to or less than this unit's [Power] , and retire it.\nRush-[AUTO](RC)[Generation Break 2]:When this unit [Stand] due to the effect of your card, if you have a vanguard with \"Victor\" in its card name, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_025.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/025", "G-EB03/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F025",
+          "fetchedAt": "2026-11-16T19:30:00.049Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118033814/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/025EN",
+          "fetchedAt": "2019-11-18T03:38:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-026",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/026",
+        "name": "メチャバトラー アラシード",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「ビクトール」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_026.png"
+      },
+      "en": {
+        "number": "G-EB03/026EN",
+        "name": "Extreme Battler, Arashid",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Victor\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_026.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/026", "G-EB03/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F026",
+          "fetchedAt": "2026-11-16T19:30:01.247Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207193549/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/026EN",
+          "fetchedAt": "2019-12-07T19:35:49Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-027",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/027",
+        "name": "メチャバトラー ガンズドン",
+        "text": "【起】【(R)】【ターン1回】【Gブレイク】(1)：[このユニットを【レスト】する]あなたのリアガードを５枚まで選び、そのターン中、『【永】【(R)】：抵抗』を与える。\n闘魂-【自】【(R)】【ターン1回】：あなたのカードの効果で、このユニットが【スタンド】した時、あなたのＧゾーンの表のカード１枚につき、そのターン中、このユニットのパワー＋4000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_027.png"
+      },
+      "en": {
+        "number": "G-EB03/027EN",
+        "name": "Extreme Battler, Gunzdon",
+        "text": "[ACT](RC)[1/turn][Generation Break 1]:[[Rest] this unit] Choose up to five of your rear-guards, and until end of turn, they get \"[CONT](RC):Resist\".\nRush-[AUTO](RC)[1/turn]:When this unit [Stand] due to the effect of your card, this unit gets [Power] +4000 until end of turn for each face up card in your G zone.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_027.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/027", "G-EB03/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F027",
+          "fetchedAt": "2026-11-16T19:30:02.428Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216000227/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/027EN",
+          "fetchedAt": "2019-12-16T00:02:27Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-028",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/028",
+        "name": "メチャバトラー ジェロホーク",
+        "text": "【自】【(R)】【Gブレイク】(1)：[【カウンターブラスト】(1)，このユニットをソウルに置く]このユニットがリアガードをブーストしたバトルの終了時、あなたの「ビクトール」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引き、ブーストされたユニットを【スタンド】し、そのターン中、パワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_028.png"
+      },
+      "en": {
+        "number": "G-EB03/028EN",
+        "name": "Extreme Battler, Jerohawk",
+        "text": "[AUTO](RC)[Generation Break 1]:[Counter-Blast 1 & Put this unit into your soul] At the end of the battle that this unit boosted ([Boost]) a rear-guard, if you have a vanguard with \"Victor\" in its card name, you may pay the cost. If you do, draw a card, [Stand] the boosted ([Boost]) unit, and it gets [Power] +2000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_028.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/028", "G-EB03/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F028",
+          "fetchedAt": "2026-11-16T19:30:03.236Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210002238/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/028EN",
+          "fetchedAt": "2019-12-10T00:22:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-029",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/029",
+        "name": "ヴァルナ・ブラウヴァント",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたの「ブラウ」を含むユニットを１枚選び、そのバトル中、ヒットされない。あなたのドロップゾーンに守護者があるなら、あなたの「ブラウ」を含むリアガードを１枚まで選び、そのターン中、『【永】【(R)】：抵抗』と『【永】【(R)】：このユニットはヒットされない。』を与える。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_029.png"
+      },
+      "en": {
+        "number": "G-EB03/029EN",
+        "name": "Varuna Blauwand",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units with \"Blau\" in its card name, and it cannot be hit until end of that battle. If you have a sentinel in your drop zone, choose up to one of your rear-guards with \"Blau\" in its card name, and until end of turn, it gets \"[CONT](RC):Resist\" and \"[CONT](RC):This unit cannot be hit.\".",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_029.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "R",
+      "printings": ["G-EB03/029", "G-EB03/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F029",
+          "fetchedAt": "2026-11-16T19:30:04.000Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260609031906/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/029EN",
+          "fetchedAt": "2026-06-09T03:19:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-030",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/030",
+        "name": "天地合体 トライアース",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏のカードを１枚選び、表にする]そのターン中、このユニットのパワー＋10000し、『【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、このユニットのパワー20000につき、相手のリアガードを１枚選び、退却させる。』を得る。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_030.png"
+      },
+      "en": {
+        "number": "G-EB03/030EN",
+        "name": "Heaven and Earth Combination, Triearth",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card from your G zone, and turn it face up] Until end of turn, this unit gets [Power] +10000, and \"[AUTO](VC):When this unit's attack hits a vanguard, choose and retire one of your opponent's rear-guards for every [Power] 20000 of this unit.\".",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_030.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/030", "G-EB03/030EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F030",
+          "fetchedAt": "2026-11-16T19:30:04.750Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215210359/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/030EN",
+          "fetchedAt": "2019-12-15T21:03:59Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-031",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/031",
+        "name": "大銀河超獣 ズィール",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【ソウルブラスト】(1)]このユニットが(G)に登場した時、コストを払ってよい。払ったら、相手のユニットを１枚選び、そのバトル中、パワー－5000。あなたのダメージゾーンの枚数が相手のダメージゾーンの枚数以上なら、【カウンターブラスト】(1)してよい。そうしたら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋5000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_031.png"
+      },
+      "en": {
+        "number": "G-EB03/031EN",
+        "name": "Great Galactic Beast, Zeal",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Soul-Blast 1] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your opponent's units, and it gets [Power] -5000 until end of that battle. If the number of cards in your damage zone is more than or equal to the number of cards in your opponent's damage zone, you may [Counter-Blast 1]. If you do, choose one of your vanguards, and it gets [Power] +5000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_031.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/031", "G-EB03/031EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F031",
+          "fetchedAt": "2026-11-16T19:30:05.945Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215131710/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/031EN",
+          "fetchedAt": "2019-12-15T13:17:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-032",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/032",
+        "name": "次元ロボ ダイポール",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの手札から１枚まで選び、公開し、そのカードか、あなたのヴァンガードが「次元ロボ」を含むグレード３のカードでないなら、そのターン中、このユニットのパワー－5000。\n【永】【(R)】：あなたの「次元ロボ」を含むグレード４のヴァンガードがいるなら、このユニットと、あなたのグレード３のリアガードすべてのパワー＋5000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_032.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 10000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/032"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F032",
+          "fetchedAt": "2026-11-16T19:30:07.114Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-033",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/033",
+        "name": "宇宙勇機 グランホーガン",
+        "text": "超爆-【自】【Gブレイク】(1)：[【カウンターブラスト】(1)]このユニットが(R)に登場した時、あなたの「ギャロップ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引き、あなたのヴァンガードのパワーが40000以上なら、【カウンターチャージ】(1)し、そのターン中、このユニットのパワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_033.png"
+      },
+      "en": {
+        "number": "G-EB03/033EN",
+        "name": "Cosmic Hero, Grandhogan",
+        "text": "Burst-[AUTO][Generation Break 1]:[Counter-Blast 1] When this unit is placed on (RC), if you have a vanguard with \"Gallop\" in its card name, you may pay the cost. If you do, draw a card, and if your vanguard's [Power] is 40000 or greater, [Counter-Charge 1], and this unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_033.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/033", "G-EB03/033EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F033",
+          "fetchedAt": "2026-11-16T19:30:07.928Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191214082724/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/033EN",
+          "fetchedAt": "2019-12-14T08:27:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-034",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/034",
+        "name": "宇宙勇機 グランザイル",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「ギャロップ」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_034.png"
+      },
+      "en": {
+        "number": "G-EB03/034EN",
+        "name": "Cosmic Hero, Grandrope",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Gallop\" in its card name, reveal it to your opponent, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for Stride, this card gets grade+2.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_034.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/034"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F034",
+          "fetchedAt": "2026-11-16T19:30:08.696Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180123002442/http://cardfight.wikia.com/wiki/Cosmic_Hero,_Grandrope",
+          "fetchedAt": "2018-01-23T00:24:42Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-035",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/035",
+        "name": "次元ロボ ダイサポーター",
+        "text": "【永】：あなたが「次元ロボ」を元々含むカードの、【超越】のコストを手札から払う際と、能力のコストをドロップゾーンから選ぶ際、このカードはグレード３としても選べる。\n【自】：【超越】のコストで、このカードを手札から捨てた時、あなたの「次元ロボ」を含むユニットを１枚選び、そのターン中、パワー＋4000し、ドロップゾーンから「次元ロボ」を含むカードを１枚まで選び、ソウルに置く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_035.png"
+      },
+      "en": {
+        "number": "G-EB03/035EN",
+        "name": "Dimensional Robo, Daisupporter",
+        "text": "[CONT]:While you are paying the cost for [Stride] of your card with \"Dimensional Robo\" in its original card name, and while you are choosing a card from your drop zone for the cost of your card's ability, this card may be chosen as a grade 3.\n[AUTO]:When this card is discarded from hand for the cost of [Stride], choose one of your units with \"Dimensional Robo\" in its card name, it gets [Power] +4000 until end of turn, choose up to one card with \"Dimensional Robo\" from your drop zone, and put it into your soul.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_035.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/035", "G-EB03/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F035",
+          "fetchedAt": "2026-11-16T19:30:09.451Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210233531/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/035EN",
+          "fetchedAt": "2019-12-10T23:35:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-036",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/036",
+        "name": "次元ロボ ダイマグネル",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたの「次元ロボ」を含むユニットを１枚選び、そのバトル中、ヒットされない。\n【自】：このユニットが(G)に登場した時、あなたの「次元ロボ」を含むヴァンガードを１枚選び、あなたのソウルの「次元ロボ」を含むカード１枚につき、そのバトル中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_036.png"
+      },
+      "en": {
+        "number": "G-EB03/036EN",
+        "name": "Dimensional Robo, Daimagnel",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC), you may pay the cost. If you do, choose one of your units with \"Dimensional Robo\" in its card name, and it cannot be hit until end of that battle.\n[AUTO]:When this unit is placed on (GC), choose one of your vanguards with \"Dimensional Robo\" in its card name, and it gets [Power] +4000 until end of that battle for each card with \"Dimensional Robo\" in its card name in your soul.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_036.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "R",
+      "printings": ["G-EB03/036", "G-EB03/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F036",
+          "fetchedAt": "2026-11-16T19:30:10.644Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260609020822/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/036EN",
+          "fetchedAt": "2026-06-09T02:08:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-037",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/037",
+        "name": "宇宙の大輪 コスモリース",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【カウンターブラスト】(1)]このユニットが(G)に登場した時、コストを払ってよい。払ったら、相手は自分の後列のリアガードを１枚選び、呪縛する。呪縛したら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_037.png"
+      },
+      "en": {
+        "number": "G-EB03/037EN",
+        "name": "Large Wheel of the Cosmos, Cosmo Wreath",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Counter-Blast 1] When this unit is placed on (GC), you may pay the cost. If you do, your opponent chooses a rear-guard in his or her back row, and locks it. If he or she does, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_037.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/037", "G-EB03/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F037",
+          "fetchedAt": "2026-11-16T19:30:11.832Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209150135/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/037EN",
+          "fetchedAt": "2019-12-09T15:01:35Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-038",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/038",
+        "name": "ミィーガー・メサイア",
+        "text": "【自】【(R)】【Gブレイク】(1)：[【カウンターブラスト】(1)，このユニットを呪縛する]このユニットがアタックしたバトルの終了時、あなたのヴァンガードが〈メサイア〉なら、コストを払ってよい。払ったら、あなたの山札の上から３枚見て、１枚まで(R)に呪縛カードとして置き、山札をシャッフルする。\n【永】【(R)】【Gブレイク】(2)：あなたの呪縛カード１枚につき、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_038.png"
+      },
+      "en": {
+        "number": "G-EB03/038EN",
+        "name": "Myga Messiah",
+        "text": "[AUTO](RC)[Generation Break 1]:[Counter-Blast 1 & Lock this unit] At the end of the battle that this unit attacked, if your vanguard is a , you may pay the cost. If you do, look at three cards from the top of your deck, put up to one card from among them on your (RC) as a locked card, and shuffle your deck.\n[CONT](RC)[Generation Break 2]:This unit gets [Power] +2000 for each of your locked cards.",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_038.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/038", "G-EB03/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F038",
+          "fetchedAt": "2026-11-16T19:30:13.018Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190823085608/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/038EN",
+          "fetchedAt": "2019-08-23T08:56:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-039",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/039",
+        "name": "猛攻の星輝兵 ドブニウム",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)，このユニットを退却させる]あなたのターンの終了時、コストを払ってよい。払ったら、相手は自分のリアガードを１枚選び、呪縛する。\n【自】【(R)】【Gブレイク】(2)：[【カウンターブラスト】(1)]このユニットがアタックした時、あなたの「カオス」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、相手は自分の手札から１枚選び、(R)に呪縛カードとして置いてよい。置かないなら、あなたは１枚引き、そのバトル中、このユニットのパワー＋10000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_039.png"
+      },
+      "en": {
+        "number": "G-EB03/039EN",
+        "name": "Fierce Attack Star-vader, Dubnium",
+        "text": "[AUTO](RC):[Soul-Blast 1 & Retire this unit] At the end of your turn, you may pay the cost. If you do, your opponent chooses one of his or her rear-guards, and locks it.\n[AUTO](RC)[Generation Break 2]:[Counter-Blast 1] When this unit attacks, if you have a vanguard with \"Chaos\" in its card name, you may pay the cost. If you do, your opponent chooses a card from his or her hand, and he or she may put it on his or her (RC) as a locked card. If he or she did not, you draw a card, and this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_039.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/039", "G-EB03/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F039",
+          "fetchedAt": "2026-11-16T19:30:13.771Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212133507/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/039EN",
+          "fetchedAt": "2019-12-12T13:35:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-040",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/040",
+        "name": "走破する根絶者 バヰルド",
+        "text": "【自】【(R)】：あなたの「根絶者」を含むカードの、効果かコストで、あなたの「根絶者」を含むリアガードが退却した時、そのターン中、このユニットのパワー＋2000。\n【永】【(R)】：あなたの「グレイ」を含むグレード３以上のヴァンガードがいるなら、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_040.png"
+      },
+      "en": {
+        "number": "G-EB03/040EN",
+        "name": "Racer Deletor, Baird",
+        "text": "[AUTO](RC):When your rear-guard with \"Deletor\" in its card name is retired for the effect or cost of your card with \"Deletor\" in its card name, this unit gets [Power] +2000 until end of turn.\n[CONT](RC):If you have a grade 3 or greater vanguard with \"Grei\" in its card name, this unit gets [Power] +2000.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_040.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/040", "G-EB03/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F040",
+          "fetchedAt": "2026-11-16T19:30:14.611Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260311183830/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/040EN",
+          "fetchedAt": "2026-03-11T18:38:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-041",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/041",
+        "name": "ヴィラストス・メサイア",
+        "text": "【自】【Gブレイク】(1)：このユニットが、(R)に登場した時か、解呪された時、あなたのヴァンガードが〈メサイア〉なら、そのターン中、このユニットのパワー＋4000。\n【自】【(R)】【Gブレイク】(2)：[【カウンターブラスト】(1)，このユニットを呪縛する]このユニットがアタックかブーストしたバトルの終了時、コストを払ってよい。払ったら、【ソウルチャージ】(1)。",
+        "clan": "リンクジョーカー",
+        "race": "メサイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_041.png"
+      },
+      "en": {
+        "number": "G-EB03/041EN",
+        "name": "Vlastos Messiah",
+        "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC) or unlocked, if your vanguard is a , this unit gets [Power] +4000 until end of turn.\n[AUTO](RC)[Generation Break 2]:[Counter-Blast 1 & Lock this unit] At the end of the battle that this unit attacked or boosted ([Boost]), you may pay the cost. If you do, [Soul-Charge 1].",
+        "clan": "Link Joker",
+        "race": "Messiah",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_041.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/041", "G-EB03/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F041",
+          "fetchedAt": "2026-11-16T19:30:15.373Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250325145438/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/041EN",
+          "fetchedAt": "2025-03-25T14:54:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-042",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/042",
+        "name": "強圧の星輝兵 アメリシウム",
+        "text": "【自】【Gブレイク】(1)：このユニットが(R)に登場した時、あなたの「カオス」を含むヴァンガードがいて、相手の呪縛カードがあるなら、そのターン中、このユニットのパワー＋5000し、さらに、相手の呪縛カードが３枚以上なら、このユニットのパワー＋5000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_042.png"
+      },
+      "en": {
+        "number": "G-EB03/042EN",
+        "name": "High Pressure Star-vader, Americium",
+        "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC), if you have a vanguard with \"Chaos\" in its card name, and your opponent has a locked card, until end of turn, this unit gets [Power] +5000, then, if the number of your opponent's locked cards is three or more, this unit gets [Power] +5000.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_042.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/042"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F042",
+          "fetchedAt": "2026-11-16T19:30:16.115Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171225203134/http://cardfight.wikia.com/wiki/High_Pressure_Star-vader,_Americium",
+          "fetchedAt": "2017-12-25T20:31:34Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-043",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/043",
+        "name": "籠り潜む根絶者 ヱリンゲ",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの「グレイ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。\n【自】：あなたの「根絶者」を含むカードの、効果かコストで、このユニットが(R)から退却した時、このカードをソウルに置いてよい。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_043.png"
+      },
+      "en": {
+        "number": "G-EB03/043EN",
+        "name": "Lurk Deletor, Elinge",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, if you have a vanguard with \"Grei\" in its card name, this unit gets [Power] +2000 until end of that battle.\n[AUTO]:When this unit is retired from (RC) for the effect or cost of your card with \"Deletor\" in its card name, you may put this card into your soul.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/geb03/geb03_043.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-EB03/043", "G-EB03/043EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F043",
+          "fetchedAt": "2026-11-16T19:30:16.856Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20220120194725/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/043EN",
+          "fetchedAt": "2022-01-20T19:47:25Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-044",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/044",
+        "name": "Dr. オングストローム",
+        "text": "【自】【(V)/(R)】【ターン1回】【Gブレイク】(1)：[【カウンターブラスト】(1)，あなたの手札から３枚選び、捨てる]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたのリアガードすべてを【スタンド】する。\n闘魂-【自】【(V)/(R)】【ターン1回】【Gブレイク】(1)：あなたのカードの効果で、このユニットが【スタンド】した時、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_044.png"
+      },
+      "en": {
+        "number": "G-EB03/044EN",
+        "name": "Dr. Angstrom",
+        "text": "[AUTO](VC/RC)[1/turn][Generation Break 1]:[Counter-Blast 1 & Choose three cards from your hand, and discard them] When this unit's attack hits a vanguard, you may pay the cost. If you do, [Stand] all of your rear-guards.\nRush-[AUTO](VC/RC)[1/turn][Generation Break 1]:When this unit [Stand] due to the effect of your card, this unit gets [Power] +5000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_044.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/044", "G-EB03/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F044",
+          "fetchedAt": "2026-11-16T19:30:18.031Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215125908/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/044EN",
+          "fetchedAt": "2019-12-15T12:59:08Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-045",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/045",
+        "name": "バーデ・ブラウカノーネ",
+        "text": "【永】【(R)】：あなたのダメージゾーンの枚数が相手のダメージゾーンの枚数以上なら、このユニットのパワー＋2000。\n【起】【(R)】【ターン1回】【Gブレイク】(1)：[【カウンターブラスト】(1)]あなたの山札の上から１枚公開し、ダメージゾーンに裏で置く。「ブラウ」を含むカードを置いたら、そのターン中、このユニットのパワー＋5000し、そのターンの終了時、あなたのダメージゾーンから１枚選び、回復する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_045.png"
+      },
+      "en": {
+        "number": "G-EB03/045EN",
+        "name": "Baade Blaukanone",
+        "text": "[CONT](RC):If the number of cards in your damage zone is more than or equal to the number of cards in your opponent's damage zone, this unit gets [Power] +2000.\n[ACT](RC)[1/turn][Generation Break 1]:[Counter-Blast 1] Reveal the top card of your deck, and put it into your damage zone face down. If you put a card with \"Blau\" in its card name, this unit gets [Power] +5000 until end of turn, and at the end of that turn, choose a card from your damage zone, and heal it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/geb03/geb03_045.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/045", "G-EB03/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F045",
+          "fetchedAt": "2026-11-16T19:30:18.784Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20220120201518/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/045EN",
+          "fetchedAt": "2022-01-20T20:15:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-046",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/046",
+        "name": "マジカル・パフォーマー",
+        "text": "闘魂-【自】【(R)】【ターン1回】：あなたのカードの効果で、このユニットが【スタンド】した時、あなたのＧゾーンの表のカード１枚につき、そのターン中、このユニットのパワー＋5000。",
+        "clan": "ノヴァグラップラー",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_046.png"
+      },
+      "en": {
+        "number": "G-EB03/046EN",
+        "name": "Magical Performer",
+        "text": "Rush-[AUTO](RC)[1/turn]:When this unit [Stand] due to the effect of your card, this unit gets [Power] +5000 until end of turn for each face up card in your G zone.",
+        "clan": "Nova Grappler",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_046.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/046", "G-EB03/046EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F046",
+          "fetchedAt": "2026-11-16T19:30:19.547Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216000237/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/046EN",
+          "fetchedAt": "2019-12-16T00:02:37Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-047",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/047",
+        "name": "メチャバトラー ニンジャード",
+        "text": "【自】【(R)】【ターン1回】【Gブレイク】(1)：[【カウンターブラスト】(1)]このユニットがアタックした時、あなたの「ビクトール」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたの他のリアガードを１枚選び、【スタンド】し、あなたのＧゾーンの表のカード１枚につき、そのターン中、そのユニットとこのユニットのパワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_047.png"
+      },
+      "en": {
+        "number": "G-EB03/047EN",
+        "name": "Extreme Battler, Ninjaad",
+        "text": "[AUTO](RC)[1/turn][Generation Break 1]:[Counter-Blast 1] When this unit attacks, if you have a vanguard with \"Victor\" in its card name, you may pay the cost. If you do, choose one of your other rear-guards, [Stand] it, and that unit and this unit get [Power] +2000 until end of turn for each face up card in your G zone.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_047.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/047", "G-EB03/047EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F047",
+          "fetchedAt": "2026-11-16T19:30:20.714Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216001631/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/047EN",
+          "fetchedAt": "2019-12-16T00:16:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-048",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/048",
+        "name": "レギア・ブラウランツェ",
+        "text": "【自】【(R)】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]あなたの「ブラウ」を含むグレード３以上のヴァンガードがアタックした時、コストを払ってよい。払ったら、このユニットを【スタンド】し、そのターン中、パワー＋2000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_048.png"
+      },
+      "en": {
+        "number": "G-EB03/048EN",
+        "name": "Regia Blaulanze",
+        "text": "[AUTO](RC):[Counter-Blast 1 & Soul-Blast 1] When your grade 3 or greater vanguard with \"Blau\" in its card name attacks, you may pay the cost. If you do, [Stand] this unit, and it gets [Power] +2000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_048.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/048", "G-EB03/048EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F048",
+          "fetchedAt": "2026-11-16T19:30:21.788Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20241108060547/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/048EN",
+          "fetchedAt": "2024-11-08T06:05:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-049",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/049",
+        "name": "オーダ・ブラウシュライフェ",
+        "text": "【起】【(R)】【ターン1回】：[【カウンターブラスト】(1)]あなたの「ブラウ」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋4000し、さらに、あなたの、(V)かＧゾーンの表の「ブラウ」を含むグレード４のカード１枚につき、このユニットのパワー＋4000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_049.png"
+      },
+      "en": {
+        "number": "G-EB03/049EN",
+        "name": "Oda Blauschleife",
+        "text": "[ACT](RC)[1/turn]:[Counter-Blast 1] If you have a vanguard with \"Blau\" in its card name, until end of turn, this unit gets [Power] +4000, then, this unit gets [Power] +4000 for each grade 4 face up card with \"Blau\" in its card name on your (VC) and G zone.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_049.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/049", "G-EB03/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F049",
+          "fetchedAt": "2026-11-16T19:30:23.223Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250907024846/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/049EN",
+          "fetchedAt": "2025-09-07T02:48:46Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-050",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/050",
+        "name": "ベスタ・ブラウクリンゲ",
+        "text": "【永】【(R)】：あなたのターン中、あなたのダメージゾーンの枚数が相手のダメージゾーンの枚数以上なら、このユニットのパワー＋2000。\n【起】【(R)】【ターン1回】【Gブレイク】(1)：[【カウンターブラスト】(1)]あなたの山札の上から１枚公開し、ダメージゾーンに裏で置く。「ブラウ」を含むカードを置いたら、そのターン中、このユニットのパワー＋5000し、そのターンの終了時、あなたのダメージゾーンから１枚選び、回復する。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_050.png"
+      },
+      "en": {
+        "number": "G-EB03/050EN",
+        "name": "Vesta Blauklinge",
+        "text": "[CONT](RC):During your turn, if the number of cards in your damage zone is more than or equal to the number of cards in your opponent's damage zone, this unit gets [Power] +2000.\n[ACT](RC)[1/turn][Generation Break 1]:[Counter-Blast 1] Reveal the top card of your deck, and put it into your damage zone face down. If you put a card with \"Blau\" in its card name, this unit gets [Power] +5000 until end of turn, and at the end of that turn, choose a card from your damage zone, and heal it.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_050.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/050", "G-EB03/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F050",
+          "fetchedAt": "2026-11-16T19:30:24.420Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20241108053058/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/050EN",
+          "fetchedAt": "2024-11-08T05:30:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-051",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/051",
+        "name": "リーマ・ブラウラケーテ",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの「ブラウ」を含むヴァンガードがいて、あなたのダメージゾーンの枚数が相手のダメージゾーンの枚数以上なら、【カウンターチャージ】(1)/【ソウルチャージ】(1)。\n【自】【(R)】【Gブレイク】(1)：[このユニットをソウルに置く]あなたの「ブラウ」を含むヴァンガードのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_051.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/051"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F051",
+          "fetchedAt": "2026-11-16T19:30:25.580Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-052",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/052",
+        "name": "メチャバトラー ビクトヘッド",
+        "text": "【自】：先駆\n【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]カードの効果で、あなたのユニットが【スタンド】した時、コストを払ってよい。払ったら、１枚引き、あなたのユニットを１枚選び、そのターン中、パワー＋2000。あなたのダメージゾーンに表のカードがないなら、【カウンターチャージ】(1)。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_052.png"
+      },
+      "en": {
+        "number": "G-EB03/052EN",
+        "name": "Extreme Battler, Victhead",
+        "text": "[AUTO]:Forerunner\n[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When your unit [Stand] due to the effect of your card, you may pay the cost. If you do, draw a card, choose one of your units, and it gets [Power] +2000 until end of turn. If you have no face up cards in your damage zone, [Counter-Charge 1].",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_052.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/052", "G-EB03/052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F052",
+          "fetchedAt": "2026-11-16T19:30:26.330Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20210621044412/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/052EN",
+          "fetchedAt": "2021-06-21T04:44:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-053",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/053",
+        "name": "ヤング・ブラウフェヒター",
+        "text": "【自】：先駆\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの「ブラウ」を含むヴァンガードがいるなら、山札の上から４枚公開し、その中から「ブラウ」を含むグレード１以上のカードを１枚まで手札に加え、山札をシャッフルする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_053.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/053"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F053",
+          "fetchedAt": "2026-11-16T19:30:27.079Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-054",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/054",
+        "name": "オテロ・ブラウフリーゲン",
+        "text": "",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_054.png"
+      },
+      "en": {
+        "number": "G-EB03/054EN",
+        "name": "Otero Blaufliegen",
+        "text": "",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_054.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/054", "G-EB03/054EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F054",
+          "fetchedAt": "2026-11-16T19:30:27.901Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250320170133/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/054EN",
+          "fetchedAt": "2025-03-20T17:01:33Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-055",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/055",
+        "name": "ザール・ブラウグランツ",
+        "text": "【起】【(R)】【Gブレイク】(1)：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの、サークルとダメージゾーンのカードを合計２枚まで選び、表にする。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_055.png"
+      },
+      "en": {
+        "number": "G-EB03/055EN",
+        "name": "Saar Blauglanz",
+        "text": "[ACT](RC)[Generation Break 1]:[Counter-Blast 1 & Put this unit into your soul] Choose up to two cards in total from your circle and damage zone, and turn them face up.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_055.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/055", "G-EB03/055EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F055",
+          "fetchedAt": "2026-11-16T19:30:28.662Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215122344/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/055EN",
+          "fetchedAt": "2019-12-15T12:23:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-056",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/056",
+        "name": "オルキス・ブラウクロイツァ",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ノヴァグラップラー",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_056.png"
+      },
+      "en": {
+        "number": "G-EB03/056EN",
+        "name": "Orchis Blaukreuzer",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Nova Grappler",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_056.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/056", "G-EB03/056EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F056",
+          "fetchedAt": "2026-11-16T19:30:29.867Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215122943/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/056EN",
+          "fetchedAt": "2019-12-15T12:29:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-057",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/057",
+        "name": "大宇宙勇機 グランアボット",
+        "text": "超爆-【自】【(R)】：このユニットがアタックした時、あなたのヴァンガードのパワーが40000以上なら、そのバトル中、このユニットのパワー＋10000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_057.png"
+      },
+      "en": {
+        "number": "G-EB03/057EN",
+        "name": "Great Cosmic Hero, Grandabbot",
+        "text": "Burst-[AUTO](RC):When this unit attacks, if your vanguard's [Power] is 40000 or greater, this unit gets [Power] +10000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_057.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/057", "G-EB03/057EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F057",
+          "fetchedAt": "2026-11-16T19:30:30.620Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20220926055934/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/057EN",
+          "fetchedAt": "2022-09-26T05:59:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-058",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/058",
+        "name": "宇宙勇機 グランウィズダム",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたのグレード３以上のヴァンガードがいるなら、そのバトル中、このユニットのパワー＋4000してよい。そうしたら、そのターンの終了時、このユニットをソウルに置き、【カウンターチャージ】(1)。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_058.png"
+      },
+      "en": {
+        "number": "G-EB03/058EN",
+        "name": "Cosmic Hero, Grandwisdom",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, if you have a grade 3 or greater vanguard, you may have this unit get [Power] +4000 until end of that battle. If you do, at the end of that turn, put this unit into your soul, and [Counter-Charge 1].",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_058.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/058", "G-EB03/058EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F058",
+          "fetchedAt": "2026-11-16T19:30:31.811Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250625080711/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/058EN",
+          "fetchedAt": "2025-06-25T08:07:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-059",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/059",
+        "name": "宇宙勇機 グランバルゲル",
+        "text": "【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）\n超爆-【自】【(R)】【Gブレイク】(1)：このユニットがアタックした時、あなたのヴァンガードのパワーが40000以上なら、そのバトル中、このユニットのパワー＋8000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_059.png"
+      },
+      "en": {
+        "number": "G-EB03/059EN",
+        "name": "Cosmic Hero, Grandbalger",
+        "text": "[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)\nBurst-[AUTO](RC)[Generation Break 1]:When this unit attacks, if your vanguard's [Power] is 40000 or greater, this unit gets [Power] +8000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_059.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/059", "G-EB03/059EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F059",
+          "fetchedAt": "2026-11-16T19:30:32.992Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212060021/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/059EN",
+          "fetchedAt": "2019-12-12T06:00:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-060",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/060",
+        "name": "次元ロボ ダイクラッシャー",
+        "text": "【自】：このユニットが(R)に登場した時、あなたのグレード３以上のヴァンガードがいるなら、【ソウルチャージ】(1)し、【ソウルチャージ】されたカードが「次元ロボ」を含むカードなら、そのターン中、このユニットのパワー＋2000。\n【自】【(R)】【ターン1回】【Gブレイク】(1)：あなたのドライブチェックで「次元ロボ」を含むグレード３のカードがでた時、そのターン中、このユニットのパワー＋10000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_060.png"
+      },
+      "en": {
+        "number": "G-EB03/060EN",
+        "name": "Dimensional Robo, Daicrusher",
+        "text": "[AUTO]:When this unit is placed on (RC), if you have a grade 3 or greater vanguard, [Soul-Charge 1], and if the Soul Charge card is a card with \"Dimensional Robo\" in its card name, this unit gets [Power] +2000 until end of turn.\n[AUTO](RC)[1/Turn] [Generation Break 1]:When your drive check reveals a grade 3 card with \"Dimensional Robo\" in its card name, this unit gets [Power] +10000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_060.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/060"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F060",
+          "fetchedAt": "2026-11-16T19:30:33.737Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171217093111/http://cardfight.wikia.com/wiki/Dimensional_Robo,_Daicrusher",
+          "fetchedAt": "2017-12-17T09:31:11Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-061",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/061",
+        "name": "宇宙勇機 グランガンナー",
+        "text": "超爆-【永】【(R)】：あなたのターン中、あなたのヴァンガードのパワーが40000以上なら、このユニットのパワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_061.png"
+      },
+      "en": {
+        "number": "G-EB03/061EN",
+        "name": "Cosmic Hero, Grandgunner",
+        "text": "Burst-[CONT](RC):During your turn, if your vanguard's [Power] is 40000 or greater, this unit gets [Power] +4000.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_061.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/061"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F061",
+          "fetchedAt": "2026-11-16T19:30:34.912Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180122160933/http://cardfight.wikia.com/wiki/Cosmic_Hero,_Grandgunner",
+          "fetchedAt": "2018-01-22T16:09:33Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-062",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/062",
+        "name": "宇宙勇機 グランスカウト",
+        "text": "【自】【Gブレイク】(2)：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたの「ギャロップ」を含むヴァンガードを１枚選び、そのターン中、パワーを２倍に増やす。そのターンの終了時、このユニットを退却させ、【ソウルチャージ】(1)。（選んだ時のパワー分、増加する）",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_062.png"
+      },
+      "en": {
+        "number": "G-EB03/062EN",
+        "name": "Cosmic Hero, Grandscout",
+        "text": "[AUTO][Generation Break 2]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, choose one of your vanguards with \"Gallop\" in its card name, and double its [Power] until end of turn. At the end of that turn, retire this unit, and [Soul-Charge 1]. （Increase by its [Power] when it is chosen）",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_062.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/062", "G-EB03/062EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F062",
+          "fetchedAt": "2026-11-16T19:30:36.095Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191216100218/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/062EN",
+          "fetchedAt": "2019-12-16T10:02:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-063",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/063",
+        "name": "次元ロボ ダイカッター",
+        "text": "【自】【(R)】：あなたの「次元ロボ」を含むユニットが(V)に登場した時、そのターン中、このユニットのパワー＋2000。さらに、登場したユニットがグレード４以上なら、【ソウルチャージ】(1)し、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_063.png"
+      },
+      "en": {
+        "number": "G-EB03/063EN",
+        "name": "Dimensional Robo, Daicutter",
+        "text": "[AUTO](RC):When your unit with \"Dimensional Robo\" in its card name is placed on (VC), this unit gets [Power] +2000 until end of turn. Then, if the unit that was placed is grade 4 or greater, [Soul-Charge 1], and this unit gets [Power] +2000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_063.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/063"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F063",
+          "fetchedAt": "2026-11-16T19:30:37.274Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180215011706/http://cardfight.wikia.com/wiki/Dimensional_Robo,_Daicutter",
+          "fetchedAt": "2018-02-15T01:17:06Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-064",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/064",
+        "name": "次元ロボ ダイラプター",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの「次元ロボ」を含むヴァンガードがいるなら、あなたの山札の上から５枚見て、「次元ロボ」を含むグレード３のカードを２枚までドロップゾーンに置き、山札をシャッフルする。１枚以上置いたら、そのターン中、このユニットのパワー＋4000。２枚置いたら、１枚引く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_064.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/064"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F064",
+          "fetchedAt": "2026-11-16T19:30:38.025Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-065",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/065",
+        "name": "次元ロボパイロット マシュー",
+        "text": "【自】：先駆\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から３枚公開し、それらすべてが「次元ロボ」を含むカードなら、最もパワーの高いカードから１枚を手札に加え、そのカードがグレード３なら、【カウンターチャージ】(1)。残りの公開されたカードをあなたのドロップゾーンに置く。",
+        "clan": "ディメンジョンポリス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_065.png"
+      },
+      "en": {
+        "number": "G-EB03/065EN",
+        "name": "Dimensional Robo Pilot, Matthew",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Reveal three cards from the top of your deck, if all of those cards have \"Dimensional Robo\" in their card names, put one card with the greatest [Power] from among them into your hand, and if that card is grade 3, [Counter-Charge 1]. Put the rest of the revealed cards into your drop zone.",
+        "clan": "Dimension Police",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_065.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/065"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F065",
+          "fetchedAt": "2026-11-16T19:30:38.780Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171211170740/http://cardfight.wikia.com/wiki/Dimensional_Robo_Pilot,_Matthew",
+          "fetchedAt": "2017-12-11T17:07:40Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-066",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/066",
+        "name": "ビルド・スタンダード",
+        "text": "【自】：先駆\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]１枚引き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_066.png"
+      },
+      "en": {
+        "number": "G-EB03/066EN",
+        "name": "Build Standard",
+        "text": "[AUTO]:Forerunner\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Draw a card, choose one of your vanguards, and it gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_066.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/066", "G-EB03/066EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F066",
+          "fetchedAt": "2026-11-16T19:30:39.533Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209192219/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/066EN",
+          "fetchedAt": "2019-12-09T19:22:19Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-067",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/067",
+        "name": "次元ロボ ダイムーン",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_067.png"
+      },
+      "en": {
+        "number": "G-EB03/067EN",
+        "name": "Dimensional Robo, Daimoon",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/geb03_067.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/067", "G-EB03/067EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F067",
+          "fetchedAt": "2026-11-16T19:30:40.290Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209162750/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/067EN",
+          "fetchedAt": "2019-12-09T16:27:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-068",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/068",
+        "name": "次元ロボ ダイブルーム",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_068.png"
+      },
+      "en": null,
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/068"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F068",
+          "fetchedAt": "2026-11-16T19:30:41.478Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-069",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/069",
+        "name": "次元ロボ ダイドラフト",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのヴァンガードがグレード４以上なら、１枚引き、あなたのヴァンガードを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_069.png"
+      },
+      "en": {
+        "number": "G-EB03/069EN",
+        "name": "Dimensional Robo, Daidraft",
+        "text": "[ACT](RC):[Put this unit into your soul] If your vanguard is grade 4 or greater, draw a card, choose one of your vanguards, and it gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_069.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/069", "G-EB03/069EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F069",
+          "fetchedAt": "2026-11-16T19:30:42.258Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260512055212/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/069EN",
+          "fetchedAt": "2026-05-12T05:52:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-070",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/070",
+        "name": "磁気嵐のレディボンバー",
+        "text": "【自】：[あなたの手札からグレード１以上のカードを１枚選び、(R)に呪縛カードとして置く]このユニットが(R)に登場した時、あなたのヴァンガードが〈メサイア〉なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_070.png"
+      },
+      "en": {
+        "number": "G-EB03/070EN",
+        "name": "Lady Bomber of the Magnetic Storm",
+        "text": "[AUTO]:[Choose a grade 1 or greater card from your hand, and put it onto your (RC) as a locked card] When this unit is placed on (RC), if your vanguard is a , you may pay the cost. If you do, draw a card.",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_070.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/070", "G-EB03/070EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F070",
+          "fetchedAt": "2026-11-16T19:30:43.439Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260608175032/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/070EN",
+          "fetchedAt": "2026-06-08T17:50:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-071",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/071",
+        "name": "星輝兵 ベラジュニア・ドラゴン",
+        "text": "【自】【(R)】：このユニットがアタックした時、相手の呪縛カードが２枚以上なら、そのバトル中、相手は自分の手札からグレード０のカードを(G)にコールできない。\n【永】【(R)】【Gブレイク】(1)：相手は、自分の呪縛カードと同じ縦列にいるユニットではインターセプトできない。",
+        "clan": "リンクジョーカー",
+        "race": "サイバードラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_071.png"
+      },
+      "en": {
+        "number": "G-EB03/071EN",
+        "name": "Star-vader, Vela Junior Dragon",
+        "text": "[AUTO](RC):When this unit attacks, if the number of your opponent's locked cards is two or more, your opponent cannot call grade 0 cards from his or her hand to (GC) until end of that battle.\n[CONT](RC)[Generation Break 1]:Your opponent's units in the same columns as his or her locked cards cannot intercept ([Intercept]).",
+        "clan": "Link Joker",
+        "race": "Cyber Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/geb03/geb03_071.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/071", "G-EB03/071EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F071",
+          "fetchedAt": "2026-11-16T19:30:44.630Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260512070848/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/071EN",
+          "fetchedAt": "2026-05-12T07:08:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-072",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/072",
+        "name": "追い落とす根絶者 ゲルヲラ",
+        "text": "【自】：このユニットが(R)に登場した時、相手のヴァンガードがデリートされているなら、あなたの他の「根絶者」を含むユニット１枚につき、そのターン中、このユニットのパワー＋2000。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_072.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/072"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F072",
+          "fetchedAt": "2026-11-16T19:30:45.811Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-073",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/073",
+        "name": "抗戦の星輝兵 ポロニウム",
+        "text": "【永】【(G)】：呪縛カードが２枚以上なら、このユニットのシールド＋5000。\n【自】【(R)】：[【ソウルブラスト】(1)]あなたの「カオス」を含むヴァンガードがアタックされたバトルのガードステップ開始時、コストを払ってよい。払ったら、このユニットを(G)に移動する。",
+        "clan": "リンクジョーカー",
+        "race": "サイバロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_073.png"
+      },
+      "en": {
+        "number": "G-EB03/073EN",
+        "name": "Resistance Star-vader, Polonium",
+        "text": "[CONT](GC):If there are two or more locked cards, this unit gets [Shield] +5000.\n[AUTO](RC):[Soul-Blast 1] At the beginning of the guard step that your vanguard with \"Chaos\" in its card name is attacked, you may pay the cost. If you do, move this unit to (GC).",
+        "clan": "Link Joker",
+        "race": "Cyberoid",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_073.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/073"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F073",
+          "fetchedAt": "2026-11-16T19:30:46.975Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180122122123/http://cardfight.wikia.com/wiki/Resistance_Star-vader,_Polonium",
+          "fetchedAt": "2018-01-22T12:21:23Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-EB03-074",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/074",
+        "name": "多世界解釈の鬼子",
+        "text": "【永】【(R)】【Gブレイク】(1)：あなたの呪縛カード１枚につき、このユニットのパワー＋4000。",
+        "clan": "リンクジョーカー",
+        "race": "サイバーフェアリー",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_074.png"
+      },
+      "en": null,
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/074"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F074",
+          "fetchedAt": "2026-11-16T19:30:48.161Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": false,
+        "mismatches": ["only on the Japanese site"]
+      }
+    },
+    {
+      "id": "G-EB03-075",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/075",
+        "name": "悪計の根絶者 ザヰグ",
+        "text": "【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く，あなたの他の「根絶者」を含むリアガードを１枚選び、退却させる]あなたのユニットを２枚選び、そのターン中、パワー＋3000し、相手のヴァンガードがデリートされているなら、１枚引く。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_075.png"
+      },
+      "en": {
+        "number": "G-EB03/075EN",
+        "name": "Trick Deletor, Zaog",
+        "text": "[ACT](RC):[Counter-Blast 1 & Put this unit into your soul & Choose one of your other rear-guards with \"Deletor\" in its card name, and retire it] Choose two of your units, they get [Power] +3000 until end of turn, and if your opponent has a deleted vanguard, draw a card.",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/geb03/geb03_075.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/075", "G-EB03/075EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F075",
+          "fetchedAt": "2026-11-16T19:30:49.344Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20220525031825/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/075EN",
+          "fetchedAt": "2022-05-25T03:18:25Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-EB03-076",
+      "set": "G-EB03",
+      "jp": {
+        "number": "G-EB03/076",
+        "name": "喰い千切る根絶者 ギヰバ",
+        "text": "【自】【(R)】：[このユニットを山札の上に置く]このユニットがブーストしたバトルの終了時、相手のヴァンガードがデリートされているなら、コストを払ってよい。払ったら、あなたの山札をシャッフルし、【カウンターチャージ】(1)し、相手は自分のドロップゾーンから１枚選び、裏でバインドする。",
+        "clan": "リンクジョーカー",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-EB03/geb03_076.png"
+      },
+      "en": {
+        "number": "G-EB03/076EN",
+        "name": "Biting Deletor, Geeva",
+        "text": "[AUTO](RC):[Put this unit on the top of your deck] At the end of the battle that this unit boosted ([Boost]), if your opponent has a deleted vanguard, you may pay the cost. If you do, shuffle your deck, [Counter-Charge 1], your opponent chooses a card from his or her drop zone, and binds it face down (vanish delete).",
+        "clan": "Link Joker",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/geb03/geb03_076.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-EB03/076", "G-EB03/076EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-EB03%2F076",
+          "fetchedAt": "2026-11-16T19:30:50.500Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20220120194247/https://en.cf-vanguard.com/cardlist/?cardno=G-EB03/076EN",
+          "fetchedAt": "2022-01-20T19:42:47Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

@@ -810,7 +810,7 @@ async function fetchJpApi(s: string): Promise<Fetched[]> {
   );
   const year = prYear(s);
   const productName = year ? `【20${year}年度】PRカード` : s === 'VZ01' ? '【VZ】' : `【${s}】`;
-  const product = products.data.items.find((p) => p.name.startsWith(productName));
+  const product = products.data.items.find((p) => p.name.trim().startsWith(productName));
   if (!product) throw new Error(`jp: no product named ${productName} in the card list`);
   const numbers: string[] = [];
   for (let p = 1; p < 50; p++) {
@@ -1000,9 +1000,9 @@ async function fetchSite(site: Site, s: string = set!): Promise<Fetched[]> {
 }
 
 // EB10 prints every card twice ('EB10/001B' / 'EB10/001EN-B' black, '…W' white art): the B
-// printing is the base, the W one an alternate printing found by name
+// printing is the base, the W one an alternate printing found by name (G-CB03 writes 'G-CB03/024 B')
 const baseRe = (site: Site, s: string) =>
-  new RegExp(`^${s}/(\\d{3})${site === 'en' ? 'EN(?:-B)?' : 'B?'}$`);
+  new RegExp(`^${s}/(\\d{3})${site === 'en' ? 'EN(?:[- ]?B)?' : '(?: ?B)?'}$`);
 
 /** Base printings by 3-digit number, and every printing grouped under its base by card name. */
 function group(site: Site, fetched: Fetched[], s: string = set!) {

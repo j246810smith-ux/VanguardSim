@@ -602,6 +602,8 @@ export function evaluate(ec: EvalContext, condition: Condition): boolean {
     }
     case 'deck_shuffled_this_turn':
       return (ec.state.turnFlags.shuffledByEffect ?? []).includes(ec.master);
+    case 'drive_trigger_this_turn':
+      return (ec.state.turnFlags.driveTriggers ?? []).includes(ec.master);
     case 'dropped_from_soul_this_turn':
       return (
         (ec.state.turnFlags.droppedFromSoul ?? []).filter(

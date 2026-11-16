@@ -152,3 +152,10 @@ and the Japanese card lists serve this one size; there is no larger official ass
 What helps further: the Artwork Manager's "Import a folder" already takes your own higher-resolution
 images (PNG or JPEG up to 10 MB, any size) and installs them under the right names; the game shows
 them at full quality with no extra memory cost beyond the file itself.
+
+## Wiki pages (for tools/cardgen/wiki_english.py)
+
+Archived card-wiki set pages: `G_Clan_Booster_2:_Commander_of_the_Incessant_Waves`,
+`G_Clan_Booster_3:_Blessing_of_Divas`, `G_Clan_Booster_4:_Gear_of_Fate`,
+`G_Clan_Booster_5:_Prismatic_Divas`, `G_Clan_Booster_6:_Rondo_of_Chaos_&_Salvation`,
+`G_Clan_Booster_7:_Festa_of_Divas` (older names of the same pages also archived).

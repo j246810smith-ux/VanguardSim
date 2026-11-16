@@ -163,7 +163,7 @@ export const boostedAttackHits = (
 });
 /** "When this unit is put into the drop zone from (RC)/(GC)" */
 export const putIntoDropFrom = (
-  from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck',
+  from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck' | 'hand',
   who: Subject = 'self',
   byYourEffect = false,
 ): TriggerCondition => ({

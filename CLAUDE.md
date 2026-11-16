@@ -59,22 +59,28 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-14 night): G-BT14 done; G-FTD01, G-FC03, G-FC04, G-CMB01 added (unpublished)
+## Latest (2026-11-16): v0.45.0-alpha published
 
-Branch `sets/g-era-rest` (worktree VanguardSim-sets2), not merged to master yet. Read the
-"HANDOVER 2026-11-14 (night)" section at the top of `docs/NEXT_SESSION.md` first.
+G-CB02–07, G-CHB01–03, G-EB01–03 (the rest of the G Clan, Character and Extra Boosters; G-CB05,
+G-CB06, G-EB01, G-EB02 by a helper session working from `docs/HELPER_QUEUE.md`). Read the
+"HANDOVER 2026-11-16" section at the top of `docs/NEXT_SESSION.md`: engine gaps, Touken Ranbu,
+G-RC, and the owner's new Desktop file (not started).
 
-## Latest (2026-11-13): v0.40.0-alpha built, not yet published
+## Earlier (2026-11-15): v0.44.0-alpha published
 
-## Latest (2026-11-14): v0.43.0-alpha published
+G-BT14, G-FTD01, G-FC03/04, G-CMB01, G-DG01, G-TCB01/02, G-CB01 and the 2026-11-15 prompt pack.
+Engine pieces new in this batch: `engorgeRetired`, Success (`ce: 'success'`, checked in
+`game/ruleActions.ts`), Dark Device (a condition), `forbidRCCalls`, Harmony (`ab.harmonyKeyword`).
+Read the "HANDOVER 2026-11-15" section at the top of `docs/NEXT_SESSION.md` first: remaining G sets,
+Android portrait mode, open prompt-pack items.
 
-G-BT13, card effects, guard hint. Read the top of `docs/NEXT_SESSION.md`; G-BT14 is in progress
-on `sets/g-bt14`.
+## Earlier (2026-11-14): v0.43.0-alpha published
 
-## Earlier (2026-11-13): v0.40.0-alpha built
+G-BT13, card effects, guard hint.
 
-Master 0a562ab is the 0.40 release commit (AI G Era fixes, draw animation, bigger deck pile). Publish
-it per the top of `docs/NEXT_SESSION.md` (user approved). Then:
+## Earlier (2026-11-13): v0.40.0-alpha published
+
+AI G Era fixes, draw animation, bigger deck pile.
 
 ## Earlier (2026-11-12): v0.39.0-alpha published
 

@@ -27,6 +27,7 @@ Releases are tagged `v<version>`:
 - `v0.42.0-alpha` — UI kit and six themes, G-BT12, G-TD09–15, G-LD01–03.
 - `v0.43.0-alpha` — G-BT13 (Ultimate Stride), stronger card effects, guarding hint.
 - `v0.44.0-alpha` — G-BT14, G-FTD01, G-FC03, G-FC04, G-CMB01, G-DG01, G-TCB01, G-TCB02, G-CB01 (Success, Dark Device, Harmony) and the 2026-11-15 prompt pack.
+- `v0.45.0-alpha` — the rest of the G Clan, Character and Extra Boosters: G-CB02–07, G-CHB01–03, G-EB01–03.
 - `v0.36.0-alpha` — Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles, drag by finger, backgrounds); G-TD06–08, G-BT06.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.

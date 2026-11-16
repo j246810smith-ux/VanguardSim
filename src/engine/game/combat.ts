@@ -91,6 +91,12 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
     const fromBack = (BACK_ROW as readonly Circle[]).includes(circle);
     if (fromBack && !hasPermission(state, ctx, attacker, 'attack_from_back_row')) return [];
     if (isRestricted(state, ctx, attacker, 'cannot_attack')) return []; // Restraint, Lord, effects
+    // G-EB03 Stark: "can attack up to three times" (it does not rest when it attacks)
+    if (
+      hasPermission(state, ctx, attacker, 'attack_three_times_standing') &&
+      (state.turnFlags.battled ?? []).filter((b) => b === attacker).length >= 3
+    )
+      return [];
     // CR 10.1.24.5: a legion attacks as both units; the mate cannot attack alone
     const mate = circle === 'vanguard' ? (me.legion?.mate ?? null) : null;
     if (mate !== null && isRestricted(state, ctx, mate, 'cannot_attack')) return [];

@@ -503,6 +503,20 @@ function moveTo(
 ): void {
   const owner = d.state.cards[id]!.owner; // CR 4.1.6: to the owner's zone
   const opts = frame ? { by: frame.master, cause: frame.source } : {};
+  if (
+    (to === 'deck_top' || to === 'deck_bottom') &&
+    reason === 'effect' &&
+    onField(d.state, id) &&
+    isRestricted(d.state, d.ctx, id, 'cannot_be_put_into_deck')
+  )
+    return;
+  if (
+    to === 'soul' &&
+    reason === 'effect' &&
+    onField(d.state, id) &&
+    isRestricted(d.state, d.ctx, id, 'cannot_be_put_into_soul')
+  )
+    return;
   if (to === 'deck_top' || to === 'deck_bottom') {
     moveCard(d, id, { player: owner, zone: 'deck' }, reason, {
       ...opts,
@@ -938,6 +952,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
           ...(step.notSourceCircle ? { notSourceCircle: true as const } : {}),
           ...(step.occupied ? { occupied: true as const } : {}),
           ...(step.byOwner ? { byOwner: true as const } : {}),
+          ...(step.timeLeap ? { timeLeap: true as const } : {}),
         })),
       );
       return true;
@@ -1362,7 +1377,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         };
         steps.push(
           { op: 'search', as, filter: { grade: { min: grade + 1, max: grade + 1 } }, upTo: 1 },
-          { op: 'call', target: { sel: 'bound', name: as } },
+          { op: 'call', target: { sel: 'bound', name: as }, timeLeap: true },
           { op: 'shuffle' },
           {
             op: 'grant',
@@ -1373,6 +1388,16 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         );
       });
       s.tasks.unshift(...stepTasks(frame.id, steps));
+      return true;
+    }
+    case 'become_successful': {
+      for (const id of targets) {
+        const card = s.cards[id];
+        const at = locate(s, id);
+        if (!card || at.zone !== 'circle' || card.successful) continue;
+        card.successful = true;
+        emit(d, { type: 'SUCCESSFUL', player: at.player, instanceId: id });
+      }
       return true;
     }
     case 'harmony': {
@@ -1564,8 +1589,14 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     case 'stride_self': {
       const p = s.players[frame.master];
-      if (p.gzone.includes(frame.source) && p.circles.vanguard.length > 0)
-        stride(d, frame.master, frame.source, [], false);
+      const g = step.target ? targets[0] : frame.source;
+      if (
+        g !== undefined &&
+        p.gzone.includes(g) &&
+        !s.cards[g]!.faceUp &&
+        p.circles.vanguard.length > 0
+      )
+        stride(d, frame.master, g, [], false);
       return true;
     }
     case 'trigger_all_units': {
@@ -1640,9 +1671,9 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       return true;
     }
     case 'copy_abilities': {
-      const copied = select(ec, step.from).flatMap(
-        (of) => d.ctx.registry.get(s.cards[of]!.definitionId).abilities,
-      );
+      const copied = select(ec, step.from)
+        .flatMap((of) => d.ctx.registry.get(s.cards[of]!.definitionId).abilities)
+        .filter((a) => !step.onlyAuto || a.kind === 'AUTO');
       for (const target of targets) {
         for (const ability of copied) {
           const grant = { id: s.nextId++, target, ability, until: step.duration };
@@ -1802,6 +1833,7 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
       by: caller,
       cause: frame.source,
       ...(task.rested ? { orientation: 'rest' as const } : {}),
+      ...(task.timeLeap ? { byTimeLeap: true as const } : {}),
     },
   );
   recordCall(d, task.card);

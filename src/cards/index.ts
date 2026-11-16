@@ -72,6 +72,18 @@ import gdg01Data from '../../data/cards/G-DG01.json';
 import gtcb01Data from '../../data/cards/G-TCB01.json';
 import gtcb02Data from '../../data/cards/G-TCB02.json';
 import gcb01Data from '../../data/cards/G-CB01.json';
+import gcb02Data from '../../data/cards/G-CB02.json';
+import gcb03Data from '../../data/cards/G-CB03.json';
+import gcb04Data from '../../data/cards/G-CB04.json';
+import gcb05Data from '../../data/cards/G-CB05.json';
+import gcb07Data from '../../data/cards/G-CB07.json';
+import gcb06Data from '../../data/cards/G-CB06.json';
+import gchb03Data from '../../data/cards/G-CHB03.json';
+import gchb01Data from '../../data/cards/G-CHB01.json';
+import gchb02Data from '../../data/cards/G-CHB02.json';
+import geb01Data from '../../data/cards/G-EB01.json';
+import geb03Data from '../../data/cards/G-EB03.json';
+import geb02Data from '../../data/cards/G-EB02.json';
 import gtd09Data from '../../data/cards/G-TD09.json';
 import gtd10Data from '../../data/cards/G-TD10.json';
 import gtd11Data from '../../data/cards/G-TD11.json';
@@ -167,6 +179,18 @@ import { G_DG01 } from './G-DG01';
 import { G_TCB01 } from './G-TCB01';
 import { G_TCB02 } from './G-TCB02';
 import { G_CB01 } from './G-CB01';
+import { G_CB02 } from './G-CB02';
+import { G_CB03 } from './G-CB03';
+import { G_CB04 } from './G-CB04';
+import { G_CB05 } from './G-CB05';
+import { G_CB07 } from './G-CB07';
+import { G_CB06 } from './G-CB06';
+import { G_CHB01 } from './G-CHB01';
+import { G_CHB02 } from './G-CHB02';
+import { G_CHB03 } from './G-CHB03';
+import { G_EB01 } from './G-EB01';
+import { G_EB03 } from './G-EB03';
+import { G_EB02 } from './G-EB02';
 import { G_TD09, G_TD10, G_TD11, G_TD12, G_TD13, G_TD14, G_TD15 } from './G-TD09-15';
 import { G_LD01, G_LD02, G_LD03 } from './G-LD01-03';
 import { G_FC01 } from './G-FC01';
@@ -281,9 +305,21 @@ export const SETS: readonly { readonly file: SetFile; readonly abilities: SetAbi
   { file: gtcb01Data as SetFile, abilities: G_TCB01 },
   { file: gtcb02Data as SetFile, abilities: G_TCB02 },
   { file: gcb01Data as SetFile, abilities: G_CB01 },
+  { file: gcb02Data as SetFile, abilities: G_CB02 },
+  { file: gcb03Data as SetFile, abilities: G_CB03 },
+  { file: gcb04Data as SetFile, abilities: G_CB04 },
+  { file: gcb05Data as SetFile, abilities: G_CB05 },
+  { file: gcb07Data as SetFile, abilities: G_CB07 },
+  { file: gcb06Data as SetFile, abilities: G_CB06 },
+  { file: gchb01Data as SetFile, abilities: G_CHB01 },
+  { file: gchb02Data as SetFile, abilities: G_CHB02 },
+  { file: gchb03Data as SetFile, abilities: G_CHB03 },
+  { file: geb01Data as SetFile, abilities: G_EB01 },
+  { file: geb02Data as SetFile, abilities: G_EB02 },
+  { file: geb03Data as SetFile, abilities: G_EB03 },
 ];
 
 /** Bump whenever card data or ability scripts change (recorded in saves and replays). */
-export const CARD_DATA_VERSION = 'g-cb01-1.0.0';
+export const CARD_DATA_VERSION = 'g-eb03-1.0.0';
 
 export const cardRegistry = () => registryFor(SETS, CARD_DATA_VERSION);

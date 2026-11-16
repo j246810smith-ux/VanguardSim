@@ -39,6 +39,8 @@ export interface MoveOptions {
   readonly byHollow?: true;
   /** CR 1.48.1 11.24.2: the engorge retire. */
   readonly byEngorge?: true;
+  /** CR 1.48.1 10.31.2: the call of a time leap. */
+  readonly byTimeLeap?: true;
   /** …and the card whose ability it was. */
   readonly cause?: InstanceId;
 }
@@ -166,6 +168,7 @@ export function moveCard(
     ...(options.cause !== undefined ? { cause: options.cause } : {}),
     ...(options.byHollow ? { byHollow: true as const } : {}),
     ...(options.byEngorge ? { byEngorge: true as const } : {}),
+    ...(options.byTimeLeap ? { byTimeLeap: true as const } : {}),
     ...(wasEngorged ? { wasEngorged: true as const } : {}),
     ...(wasCharging ? { wasCharging: true as const } : {}),
   });

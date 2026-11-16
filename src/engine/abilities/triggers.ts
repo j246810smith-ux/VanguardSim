@@ -85,6 +85,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
         return null;
       if (t.causeFilter && !(e.cause !== undefined && matches(ec, e.cause, t.causeFilter)))
         return null;
+      if (t.byTimeLeap && !e.byTimeLeap) return null;
       return subjectIs(ec, t.who, e.instanceId, e.to.player) ? { eventCard: e.instanceId } : null;
     }
     case 'ridden': {
@@ -207,7 +208,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
     case 'put_into_drop': {
       if (e.type !== 'CARD_MOVED' || e.to.zone !== 'drop') return null;
       const fromOk =
-        t.from === 'soul' || t.from === 'damage' || t.from === 'deck'
+        t.from === 'soul' || t.from === 'damage' || t.from === 'deck' || t.from === 'hand'
           ? e.from.zone === t.from
           : t.from === 'front_RC'
             ? e.from.zone === 'circle' &&
@@ -269,6 +270,7 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       )
         return null;
       if (t.notFromDeck && e.type === 'CARD_MOVED' && e.from.zone === 'deck') return null;
+      if (t.fromDrop && !(e.type === 'CARD_MOVED' && e.from.zone === 'drop')) return null;
       return e.type === 'CARD_MOVED' &&
         e.to.zone === 'bind' &&
         e.from.zone !== 'bind' &&
@@ -333,6 +335,14 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return e.type === 'HARMONY' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
         : null;
+    // "When this unit's [Power] is increased due to an effect from one of your cards" (G-EB01):
+    // boosting and guarding add no modifier, so they never count
+    case 'power_increased': {
+      if (e.type !== 'MODIFIER_ADDED') return null;
+      const m = e.modifier;
+      if (m.stat !== 'power' || m.amount <= 0 || !s.cards[m.target]) return null;
+      return subjectIs(ec, t.who, m.target, masterOf(m.target)) ? { eventCard: m.target } : null;
+    }
     case 'becomes_successful':
       return e.type === 'SUCCESSFUL' && subjectIs(ec, t.who, e.instanceId, e.player)
         ? { eventCard: e.instanceId }
@@ -390,6 +400,7 @@ const TRIGGERING = new Set<GameEvent['type']>([
   'ENGORGED',
   'SUCCESSFUL',
   'HARMONY',
+  'MODIFIER_ADDED',
 ]);
 
 export function detectTriggers(d: Draft, event: GameEvent): void {

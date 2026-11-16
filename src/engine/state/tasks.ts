@@ -158,6 +158,8 @@ export type TaskBody =
       readonly occupied?: true;
       /** The card's owner calls it to their own field (`call` with `byOwner`). */
       readonly byOwner?: true;
+      /** The call of a time leap (`call` with `timeLeap`). */
+      readonly timeLeap?: true;
       selection?: string[];
     }
   | { readonly kind: 'end_frame'; readonly frame: number }

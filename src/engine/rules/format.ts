@@ -110,6 +110,18 @@ export const G_SETS: readonly string[] = [
   'G-TCB01',
   'G-TCB02',
   'G-CB01',
+  'G-CB02',
+  'G-CB03',
+  'G-CB04',
+  'G-CB05',
+  'G-CB07',
+  'G-CB06',
+  'G-CHB01',
+  'G-CHB02',
+  'G-CHB03',
+  'G-EB01',
+  'G-EB02',
+  'G-EB03',
   // G era promotional cards moved out of a yearly PR list (src/cards/collections.ts)
   'G-PR',
 ];

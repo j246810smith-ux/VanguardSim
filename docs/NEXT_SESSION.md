@@ -15,6 +15,94 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ HANDOVER 2026-11-16 — v0.45.0-alpha published; G boosters done
+
+The owner asked to keep adding the remaining sets, then (evening) to finish what the helper
+session could, publish and shut the PC down. A helper Claude session worked in its own worktrees
+from `docs/HELPER_QUEUE.md` (sets2 worktree, untracked; read it for its notes).
+
+**Published:** v0.45.0-alpha (Windows zip, portable exe, signed update files, Android APK). The
+release commit, tag and public mirror commit are recorded at the end of this section.
+
+**Done (all on `sets/g-era-rest`, fast-forwarded into master for the release):**
+
+| Set                            | By     | Notes                                                                                  |
+| ------------------------------ | ------ | -------------------------------------------------------------------------------------- |
+| G-CB02, G-CB03, G-CB04, G-CB07 | main   | wave; harmony/Raindear trigger grade; time-leap calls; Chouchou, Sandy heal substitute |
+| G-CB05, G-CB06                 | helper | merged a312bf3, d55ba97                                                                |
+| G-CHB01, G-CHB02, G-CHB03      | main   | brave/bloom; oracle/burst/success; magia/hollow                                        |
+| G-EB01, G-EB02                 | helper | merged add6c21, 04efa23                                                                |
+| G-EB03                         | main   | Stark attacks three times without resting                                              |
+| validator reprint fix          | helper | merged e28412f                                                                         |
+
+Engine pieces added: `byTimeLeap` on placed triggers, `put_into_bind` `fromDrop`,
+`drive_trigger_this_turn`, `copy_abilities onlyAuto`, `stride_self` with a target,
+`heal_for_g_guardian`, restrictions `cannot_be_put_into_deck`, `no_retire_when_hit`,
+`cannot_be_put_into_soul`, step `become_successful`, permission `attack_three_times_standing`,
+`put_into_drop` from `hand`, trigger `power_increased` (helper). Importer: product names with a
+leading space, `nnn B` art printings. Each set has a "notes" table in UNRESOLVED_RULINGS.
+
+**Still to do, in order:**
+
+1. Engine gaps (HELPER_QUEUE Task 6 and the "not modelled" rows in UNRESOLVED_RULINGS): G-CB05
+   Shizuku granted deck grade; G-CB06 Glendios self-damage, Zakuelad stride lock; G-CHB01 Smart
+   Fender grade +1 on (RC); G-CB07 Aqua "up to six"; G-EB02 Silk Sleeper, Trickle British, Rachele,
+   Gredora line 1, Rozeeta line 2; G-EB03 Gaoield free stride, Grandgallop normal-call ban, Vela
+   Junior's column intercept ban.
+2. Touken Ranbu (G-TB01/02, G-TTD01, G-THD01/02; a separate title, check its rules first) and
+   G-RC01/02 (find out whether English-only).
+3. Prompt pack: Android portrait mode (2D), Final Turn animation (3.2), monthly PR cards and
+   Special Half Decks (3.5).
+4. The owner's new Desktop file "Cardfight_Simulator_New_Issues_and_Expanded_Era_Update (1).docx"
+   — NOT started: read it first and plan with the owner.
+
+Release notes for the next version: download 0.45's manifest into release/prev first
+(`gh release download v0.45.0-alpha -p manifest.json -D release/prev`).
+
+## ▶ HANDOVER 2026-11-15 (unattended evening session) — v0.44.0-alpha published
+
+The owner asked to finish as much as possible, publish everything near the end, write a handover
+and shut the PC down; before leaving they chose: **0.44.0-alpha with Windows + Android**, **card
+sets before Android portrait mode**, and **keep** the Negromarl (VC)+(RC) and OG-assist "no card
+one grade higher" details as built.
+
+**Published:** dev master 91f41d0 (tag v0.44.0-alpha; `sets/g-era-rest` fast-forwarded into it),
+public 2a8ea84 + tag, GitHub pre-release with zip, portable exe, signed update files and APK;
+`dist:smoke` and `release:verify` passed ("can be installed from inside the game"). release/prev in
+the **sets2 worktree** holds 0.43's manifest; for the next release download 0.44's
+(`gh release download v0.44.0-alpha -p manifest.json -D release/prev`). The installed Windows copy
+was updated in place (card art kept). The phone was not updated from the PC: it can update in the app.
+Full suite before release: 3884/3884, typecheck/lint/format clean.
+
+**Done in 0.44 (this session and the previous night):**
+
+| Area                   | What                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sets                   | G-BT14, G-FTD01, G-FC03, G-FC04, G-CMB01 (night of 11-14); **G-DG01** (JP-only, unofficial English), **G-TCB01**, **G-TCB02**, **G-CB01** (11-15)                                                                                                                                                                                                                                                                |
+| Engine                 | `engorgeRetired` (units retired by a unit's engorge this turn); **Success n** (`ce: 'success'`, checked at check timing in `game/ruleActions.ts`, `successful` filter, `becomes_successful`); **Dark Device** (condition: no standing opponent unit in the column); `forbidRCCalls` (Obtirandus, `PlayerState.noRCCallsThrough`); **Harmony** (`ab.harmonyKeyword`, `inHarmony`, `becomes_harmony`)              |
+| Prompt pack 2026-11-15 | 2A High Flame free stride, 2B/2C Legion layout + LEGION chip, 3.1 Break Ride + LB enabler, 3.2 Final Turn once a game, 3.3 Negromarl rule, 3.4 PR14 GB cards → G-PR, 3.6 lock prompts name card/unit, 3.7 ready-built deck List + "Copy to my decks", 3.8 art at 350×511 (investigation in the tracker), 3.9 hit shake, 3.10/4 Guardian Circle, 5 OG-assist rule. Tracker: docs/design/PROMPT_PACK_2026-11-15.md |
+| Data                   | English for G-TCB01/02 and G-CB01 cards with no official page from archived card-wiki pages (`tools/cardgen/wiki_english.py`, scripts/cards/wiki-english.json); G-CB01's six "Duo" cards and all of G-DG01 in data/translations/unofficial.json                                                                                                                                                                  |
+
+**Still to do, in order:**
+
+1. **Remaining G products:** G-CB02 to G-CB07, G-CHB01 to G-CHB03, G-EB01 to G-EB03, Touken Ranbu
+   (G-TB01/02, G-TTD01, G-THD01/02: a separate title, check its rules first); G-RC01/02 (not in the
+   JP list: find out whether English-only). Per set: `npm run cards:import -- <SET>`; for cards with
+   no English, `python tools/cardgen/wiki_english.py . <SET> "<wiki set page>"` (archived page names
+   for G-CB02–07 are listed in docs/design/PROMPT_PACK_2026-11-15.md → "Wiki pages"), re-import,
+   else unofficial.json; `npm run cards:reprints -- <SET>` and `python tools/cardgen/newtexts.py . <SET>`;
+   write src/cards/<SET>.ts, register in src/cards/index.ts + `G_SETS` (src/engine/rules/format.ts),
+   bump CARD_DATA_VERSION, tests/cards/<SET>.test.ts, prettier the new data files, CHANGELOG and
+   UNRESOLVED_RULINGS notes. Keyword check first: grep src/engine for the set's new keywords.
+2. **Prompt pack 2D: Android portrait mode** (a real portrait layout, not a rotation;
+   AndroidManifest has `sensorLandscape`). Big job: plan it before building.
+3. **Prompt pack 3.2:** the Final Turn animation (Psyqualia-style) needs a proposal + screenshots.
+4. **Prompt pack 3.5:** monthly PR cards and Special Half Decks still missing.
+5. Gaps listed in UNRESOLVED_RULINGS "G-TCB01/G-TCB02/G-CB01 notes" (e.g. "cannot be chosen by
+   your card effects", Leyte's normal-call limit, Waspy Tail's row).
+6. The validator reports "not the same card" for Japanese-only reprints (it compares a Japanese name
+   with an English one): known noise since G-FTD01, worth fixing in scripts/cards/validate.ts.
+
 ## ▶ HANDOVER 2026-11-14 (night, unattended session) — G-BT14 done, G-FTD01/G-FC03/G-FC04 added
 
 The owner asked for an unattended session: "finish everything on the list and all the sets that are

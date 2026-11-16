@@ -2269,3 +2269,793 @@ All cards complete.
 - G-CB01-038 Southern Harmony, Melvy — no art
 - G-CB01-039 Cold Eye, Sara — no art
 - G-CB01-040 Lover of Hearts, Penelotta — effect missing, no art
+
+## G-CB02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 40    | 39                  | 40                  | 0               | 0            | 17            | 0   | 0        |
+
+### Incomplete
+
+- G-CB02-001 Storm Dominator, Commander Thavas — no art
+- G-CB02-002 Blue Wave Marshal Dragon, Tetra-boil Dragon — no art
+- G-CB02-003 Blue Wave Dragon, Anger-boil Dragon — no art
+- G-CB02-004 Blue Storm Dragon, Maelstrom — no art
+- G-CB02-005 Jockey of the Great Sea, Skyros — no art
+- G-CB02-006 Surging Ripple, Prodromos — no test, no art
+- G-CB02-007 Blue Wave Marine General, Foivos — no art
+- G-CB02-008 Battle Siren, Adelaide — no test, no art
+- G-CB02-009 Blue Wave Soldier, Bright Shooter — no test, no art
+- G-CB02-010 Blue Storm Battle Princess, Theta — no art
+- G-CB02-011 Blue Storm Shield, Homerus — no test, no art
+- G-CB02-012 Kelpie Rider, Petros — no test, no art
+- G-CB02-013 Rolling Ripple, Miltiadis — no test, no art
+- G-CB02-014 Titan of the Trench Patrol — no art
+- G-CB02-015 Wavehunt Sailor — no test, no art
+- G-CB02-016 Marine General of Sonic Speed, Nektarios — no art
+- G-CB02-017 Couple Dagger Sailor — no test, no art
+- G-CB02-018 Blue Storm Battle Princess, Lynpia — no test, no art
+- G-CB02-019 Penguin Soldier of the Blue Storm Fleet — no test, no art
+- G-CB02-020 Battle Siren, Melania — no test, no art
+- G-CB02-021 Flash Ripple, Odysseus — no test, no art
+- G-CB02-022 Battle Siren, Cloris — no art
+- G-CB02-023 Blue Wave Dragon, Dagger Master Dracokid — no test, no art
+- G-CB02-024 Blue Wave Soldier, Brutal Trooper — no art
+- G-CB02-025 Cobalt Neon Dragon — no test, no art
+- G-CB02-026 Blue Storm Marine General, Sebastian — no test, no art
+- G-CB02-027 Unruly Ripple, Lapis — no test, no art
+- G-CB02-028 Tear Knight, Timos — no test, no art
+- G-CB02-029 Battle Siren, Nicoletta — no art
+- G-CB02-030 Recon-in-force Orca Soldier — no test, no art
+- G-CB02-031 Dispatch Mission Seagull Soldier — no test, no art
+- G-CB02-032 Violent Shooter — no art
+- G-CB02-033 Mind-eye Sailor — no test, no art
+- G-CB02-034 Flash-roll Commando — data, no test, no art
+- G-CB02-035 Kelpie Rider, Mitros — no test, no art
+- G-CB02-036 Blue Storm Battleship, "Wadatsumi" — no art
+- G-CB02-037 Sea Otter Soldier of the Blue Storm Fleet — no art
+- G-CB02-038 Medical Officer of the Blue Storm Fleet — no art
+- G-CB02-039 Ripple of Demise, Orest — no test, no art
+- G-CB02-040 Blue Storm Battle Princess, Doris — no art
+
+## G-CB03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 45    | 28                  | 44                  | 1               | 0            | 23            | 0   | 0        |
+
+### Incomplete
+
+- G-CB03-001 Celebrate Voice, Lauris — no art
+- G-CB03-002 PR♥ISM-Image, Sunshine Vert — no test, no art
+- G-CB03-003 Frontier Star, Coral — no test, no art
+- G-CB03-004 Peaceful Voice, Raindear — no art
+- G-CB03-005 Sparkle in Her Heart, Spica — no art
+- G-CB03-006 Prestige, Cetia — no test, no art
+- G-CB03-007 Hand in Hand, Leona — no test, no art
+- G-CB03-008 Great Ascent, Liddy — no art
+- G-CB03-009 Brand-New-PR♥ISM, Garnet — no art
+- G-CB03-010 Magical Charge, Vita — no test, no art
+- G-CB03-011 Brilliant Ocean, Elly — no test, no art
+- G-CB03-012 Garland Blossom, Ayna — no art
+- G-CB03-013 Miracle Twintail, Wyz — no test, no art
+- G-CB03-014 Flying Mermaid, Frederica — no art
+- G-CB03-015 Whitely Noble, Fantine — no test, no art
+- G-CB03-016 Active Pink, Larana — no test, no art
+- G-CB03-017 Inspect Sisters, Robel — no art
+- G-CB03-018 PR♥ISM-Image, Sunshine Rosa — no art
+- G-CB03-019 Artless Charmy, Wakana — no test, no art
+- G-CB03-020 Admire Successor, Lyrica — no test, no art
+- G-CB03-021 Monotone Innocence, Yuka — no art
+- G-CB03-022 Dash Sisters, Rabel — no art
+- G-CB03-023 Brand-New-PR♥ISM, Emeral — no art
+- G-CB03-024 Duo Create Quill, Ilya — data, no test, no art
+- G-CB03-025 Wholehearted Dream, Meruru — no art
+- G-CB03-026 PR♥ISM-Image, Sunshine Clear — no art
+- G-CB03-027 Jump on the Water! Amelie — no test, no art
+- G-CB03-028 Skillful Performer, Minori — no test, no art
+- G-CB03-029 Splash Daughter, Rachel — data, no test, no art
+- G-CB03-030 Shyness Laguna, Lapla — data, no art
+- G-CB03-031 Duo Creamy Caramel, Cornet — data, no test, no art
+- G-CB03-032 One-stroke Art, Carla — data, no test, no art
+- G-CB03-033 Intellect Polish, Sena — data, no test, no art
+- G-CB03-034 Duo Caprice Cats, Marjona — data, no test, no art
+- G-CB03-035 Piping Hot, Suifa — data, no art
+- G-CB03-036 Tidal Art, Marie — data, no art
+- G-CB03-037 New Song Debut, Altey — data, no test, no art
+- G-CB03-038 Colorful Smiling, Fratte — data, no art
+- G-CB03-039 Duo Cotton Sleeper, Ichika — data, no test, no art
+- G-CB03-040 Brand-New-PR♥ISM, Sapphire — data, no art
+- G-CB03-041 Tiny Precious, May — data, no test, no art
+- G-CB03-042 Impact Punch! Michiru — data, no art
+- G-CB03-043 Voice of Fate, Kasumi — data, no art
+- G-CB03-044 Sweet Allure, Riko — data, effect missing, no art
+- G-CB03-045 Heartful Ale, Fundy — no art
+
+## G-CB04
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 45    | 25                  | 45                  | 0               | 0            | 29            | 0   | 0        |
+
+### Incomplete
+
+- G-CB04-001 Deus Ex Machina, Demiurge — no test, no art
+- G-CB04-002 Chronotiger Rebellion — no art
+- G-CB04-003 Chronodragon Gear Groovy — no art
+- G-CB04-004 Ephemeral Wand Dragon — no art
+- G-CB04-005 Prospatheia Idea-drone — no art
+- G-CB04-006 Delayed Blazer Dragon — no art
+- G-CB04-007 Interdimensional Beast, Pandora Chimera — no test, no art
+- G-CB04-008 Interdimensional Dragon, Heteroround Dragon — no test, no art
+- G-CB04-009 Steam Tamer, Nanni — no art
+- G-CB04-010 Diaperno Idea-drone — no art
+- G-CB04-011 Steam Maiden, Mesh-kia — no art
+- G-CB04-012 Steam Keeper, La-ba'shim — no art
+- G-CB04-013 Night-barking Gear Tabby — no art
+- G-CB04-014 Deus Ex Machina, Ergos — no test, no art
+- G-CB04-015 Ergasia Idea-drone — no art
+- G-CB04-016 Slow Divider Dragon — no art
+- G-CB04-017 Extend Magne Dragon — no art
+- G-CB04-018 Kaigomai Idea-drone — no test, no art
+- G-CB04-019 Steam Knight, Puzur-Ili — no art
+- G-CB04-020 Steam Maiden, Shag-kusa — no art
+- G-CB04-021 Causality Dragon — no art
+- G-CB04-022 Steam Maiden, Lasina-bel — no test, no art
+- G-CB04-023 Tick-away Dragon — no art
+- G-CB04-024 Chanomai Idea-drone — no test, no art
+- G-CB04-025 Steam Maiden, Ishme — data, no test, no art
+- G-CB04-026 Chrono Tigar — data, no art
+- G-CB04-027 Anarchia Idea-drone — data, no test, no art
+- G-CB04-028 Unbounded Colossus — data, no art
+- G-CB04-029 Everchanging Gear Peacock — data, no art
+- G-CB04-030 Steam Maiden, Limer — data, no test, no art
+- G-CB04-031 Prompturret Dragon — data, no test, no art
+- G-CB04-032 Steam Soldier, Ur-zi — data, no art
+- G-CB04-033 Faceless Knight, Starda — data, no art
+- G-CB04-034 Alithinos Idea-drone — data, no art
+- G-CB04-035 Steam Hunter, Emen-bara — data, no test, no art
+- G-CB04-036 Steam Fighter, Agar — data, no art
+- G-CB04-037 Steam Maiden, Muti — data, no test, no art
+- G-CB04-038 Gear Owl Perching at Nightfall — data, no test, no art
+- G-CB04-039 Trumpeting Worker — data, no test, no art
+- G-CB04-040 Progress Second Dragon — data, no art
+- G-CB04-041 Voltaro Idea-drone — data, no art
+- G-CB04-042 Meow Meow Worker — data, no art
+- G-CB04-043 Faceless Maiden, Iter — data, no test, no art
+- G-CB04-044 Steam Maiden, Sadum — data, no art
+- G-CB04-045 Steam Maiden, Magala — no art
+
+## G-CB05
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 60    | 27                  | 59                  | 1               | 0            | 35            | 0   | 0        |
+
+### Incomplete
+
+- G-CB05-001 Perfect Performance, Ange — no art
+- G-CB05-002 Fantastic Passion☆, Pacifica — no test, no art
+- G-CB05-003 Arcadia Star, Coral — no test, no art
+- G-CB05-004 Orient-PR♥ISM, Kaname — no test, no art
+- G-CB05-005 Chouchou Headliner, Lapria — no test, no art
+- G-CB05-006 Song of Gracious, Raindear — no test, no art
+- G-CB05-007 Duo Everlasting, Reit — no test, no art
+- G-CB05-008 Legendary Idol, Riviere — no art
+- G-CB05-009 Full Bright Wish, Shizuku — no test, no art
+- G-CB05-010 Chouchou Engage Lead, Platy — no test, no art
+- G-CB05-011 Highest Society, Citron — no test, no art
+- G-CB05-012 Wonderful Voice, Lauris — no art
+- G-CB05-013 Duo Sprinkle Light, Priani — data, no art
+- G-CB05-014 Chouchou, Blanche — no test, no art
+- G-CB05-015 Love Collect, Eleanor — no art
+- G-CB05-016 Limpid Chorus, Maylene — no test, no art
+- G-CB05-017 Image Master, Kukuri — no art
+- G-CB05-018 Chouchou, Tino — no test, no art
+- G-CB05-019 Chouchou, Serah — no test, no art
+- G-CB05-020 Duo Idol Emperal, Kuna — data, no test, no art
+- G-CB05-021 Maximum Rapture, Lucia — no test, no art
+- G-CB05-022 Orient-PR♥ISM, Karina — no art
+- G-CB05-023 Chouchou, Muritz — data, no art
+- G-CB05-024 Eager Envy, Marronnier — no art
+- G-CB05-025 Orient-PR♥ISM, Ayari — data, no art
+- G-CB05-026 Chouchou, Suguri — data, no art
+- G-CB05-027 Tsundere Rival, Ruruka — data, no art
+- G-CB05-028 Duo Stream Showtime, Paytonia — data, no art
+- G-CB05-029 Friend of the Moon, Marina — data, no art
+- G-CB05-030 Talent of Perseverance, Shandee — no art
+- G-CB05-031 Chouchou, Praire — data, no test, no art
+- G-CB05-032 Sweet-PR♥ISM, Rupina — data, no art
+- G-CB05-033 Ambient Silence, Etosha — data, no art
+- G-CB05-034 Duo Happy Diary, Sheryl — data, no art
+- G-CB05-035 Friend of the Star, Mimosa — data, no test, no art
+- G-CB05-036 Sweet-PR♥ISM, Tytis — data, no art
+- G-CB05-037 Sweet-PR♥ISM, Nelum — data, no art
+- G-CB05-038 Traditional Fighter, Ku-nyan — data, no test, no art
+- G-CB05-039 Chouchou, Melviz — data, no art
+- G-CB05-040 Dual Oculus, Lumisia — data, no art
+- G-CB05-041 Applause Flower, Palche — data, no test, no art
+- G-CB05-042 激音の洗礼 リンウェル — data, no art
+- G-CB05-043 Happy Ears, Melovil — data, no test, no art
+- G-CB05-044 Inactive Pretty, Yuyuka — data, no art
+- G-CB05-045 Chouchou, Selviz — no art
+- G-CB05-046 Impressed Tear, Subaru — no art
+- G-CB05-047 Chouchou, Melare — no test, no art
+- G-CB05-048 Slow Tempo, Lorbia — data, no art
+- G-CB05-049 Hearty Dancer, Courage — data, no test, no art
+- G-CB05-050 Faithful Follower, Lauroca — no art
+- G-CB05-051 Lunch Maker, Aika — data, no test, no art
+- G-CB05-052 Chouchou, Malviz — data, no art
+- G-CB05-053 Chouchou, Hulala — data, no test, no art
+- G-CB05-054 Mystical Motion, La Theta — data, no art
+- G-CB05-055 うつむきの快感 ヴィレッタ — data, no test, no art
+- G-CB05-056 Chouchou, Putilna — data, no art
+- G-CB05-057 Togetoge Beat, Arty — data, no art
+- G-CB05-058 Punpun Bulge, Mahaka — data, no art
+- G-CB05-059 Teacup Fairy, Ruhuna — data, effect missing, no art
+- G-CB05-060 Dancing Designer, Lauren — no art
+
+## G-CB07
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 50    | 45                  | 50                  | 0               | 0            | 29            | 0   | 0        |
+
+### Incomplete
+
+- G-CB07-001 Zeroth Dragon of Distant Sea, Megiddo — no art
+- G-CB07-002 Chouchou Popular Favor, Tirua — no art
+- G-CB07-003 School Student Council President, Alk — no test, no art
+- G-CB07-004 Splendid Fortune, Shizuku — no test, no art
+- G-CB07-005 Duo Amazing Sister, Meer — no test, no art
+- G-CB07-006 Brand-New-PR♥ISM, Shining Garnet — no test, no art
+- G-CB07-007 Aurora Star, Coral — no art
+- G-CB07-008 Spirited Star, Trois — no test, no art
+- G-CB07-009 Delight Genius, Ange — no test, no art
+- G-CB07-010 Velvet Voice, Raindear — no art
+- G-CB07-011 Chouchou Cradle Lullaby, Milena — no test, no art
+- G-CB07-012 Luxury Wave, Elly — no test, no art
+- G-CB07-013 Brand-New-PR♥ISM, Glister Emeral — no test, no art
+- G-CB07-014 Magical Center, Nina — no art
+- G-CB07-015 Attractive Glow, Sandy — no art
+- G-CB07-016 Chouchou, Darina — no art
+- G-CB07-017 Bermuda Triangle — data, no art
+- G-CB07-018 Transcend Idol, Aqua — no test, no art
+- G-CB07-019 Brand-New-PR♥ISM, Flash Sapphire — no test, no art
+- G-CB07-020 Chouchou, Milena — no test, no art
+- G-CB07-021 Chouchou Lively Icon, Ilya — no art
+- G-CB07-022 Bermuda Triangle — data, no art
+- G-CB07-023 Chouchou, Ranfa — no art
+- G-CB07-024 Gift of Effort, Shandee — no art
+- G-CB07-025 Maturity Talent, Salena — no test, no art
+- G-CB07-026 Light Blue Heartbeat, Myrtoa — no art
+- G-CB07-027 Bermuda Triangle — data, no art
+- G-CB07-028 Abundant Pink, Sedna — no art
+- G-CB07-029 Immaculate Symbol, Fria — no test, no art
+- G-CB07-030 Chouchou, Irune — no art
+- G-CB07-031 Chouchou, Schera — no art
+- G-CB07-032 Dinky Echoes, Parra — no art
+- G-CB07-033 Little Pride, Honoka — no test, no art
+- G-CB07-034 Epochal Model, Shibuki — no art
+- G-CB07-035 Chouchou, Verne — no art
+- G-CB07-036 Chouchou, Lucille — no test, no art
+- G-CB07-037 Interesting Hope, Shiratsuyu — no art
+- G-CB07-038 Chouchou, Lirun — no test, no art
+- G-CB07-039 Trend Leader, Felucca — no art
+- G-CB07-040 Chouchou, Sonia — no test, no art
+- G-CB07-041 Novel Dress, Akari — no art
+- G-CB07-042 Powerful Song, Lacol — no test, no art
+- G-CB07-043 Seedling Voice, Lauris — no art
+- G-CB07-044 Chouchou, Amalia — no art
+- G-CB07-045 Bermuda Triangle — data, no art
+- G-CB07-046 Bermuda Triangle — data, no art
+- G-CB07-047 Chouchou, Meret — no art
+- G-CB07-048 Chouchou, Roberta — no test, no art
+- G-CB07-049 Chouchou, Merluse — no test, no art
+- G-CB07-050 Popping Melody, Layla — no art
+
+## G-CB06
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 45    | 37                  | 44                  | 1               | 0            | 32            | 0   | 0        |
+
+### Incomplete
+
+- G-CB06-001 Genesis Dragon, Harmonics Neo Messiah — no test, no art
+- G-CB06-002 Death Star-vader, Chaos Breaker Deluge — no test, no art
+- G-CB06-003 Genesis Dragon, Basaltis Messiah — no test, no art
+- G-CB06-004 Death Star-vader, "Omega Fall" Glendios — no test, no art
+- G-CB06-005 Death Star-vader, Glueball Dragon — no art
+- G-CB06-006 Deliberate Deletor, Aodaien — no art
+- G-CB06-007 Star-vader, Chaos Breaker Crisis — no art
+- G-CB06-008 Darkjet Deletor, Greiend — no art
+- G-CB06-009 Lady Fencer of Matter Transmission — no art
+- G-CB06-010 Star-vader, Colony Maker — no art
+- G-CB06-011 Star-vader, Strange Dragon — no art
+- G-CB06-012 Globule Dober — no art
+- G-CB06-013 Star-vader, Metonaxe Dragon — no art
+- G-CB06-014 Prayer Child of Steady State Cosmo — no art
+- G-CB06-015 Iron Wall Star-vader, Thorium — no test, no art
+- G-CB06-016 Remove Deletor, Igalga — no test, no art
+- G-CB06-017 Nebula Dragon, Cyclic Dragon — no test, no art
+- G-CB06-018 Genesis Machine Deity, Desthergen — no test, no art
+- G-CB06-019 Blaming Deletor, Ibiores — no test, no art
+- G-CB06-020 Confront Deletor, Jagwokk — no art
+- G-CB06-021 Star-vader, Boseritter — no art
+- G-CB06-022 Star-vader, Crusgabel — no test, no art
+- G-CB06-023 Star-vader, Globuladia — no art
+- G-CB06-024 Black Bullet of Iron Star, Photosphere — no art
+- G-CB06-025 Forbid Deletor, Zakuelad — data, no art
+- G-CB06-026 Star-vader, Spiral Arm — no art
+- G-CB06-027 Star-vader, Penrose Gate — no art
+- G-CB06-028 Dark Metal Chameleon — no art
+- G-CB06-029 Hire Deletor, Farwon — no art
+- G-CB06-030 Lady Gunner of the Neutron Star — no art
+- G-CB06-031 星間を両断する者 — data, no test, no art
+- G-CB06-032 Rapid Gunner of Degeneration — data, no art
+- G-CB06-033 Star-vader, Red Sprite Dragon — data, no art
+- G-CB06-034 Gravitate Turtle — data, no test, no art
+- G-CB06-035 Abolition Star-vader, Neodymium — data, no art
+- G-CB06-036 Cosmosphere Cat — data, no art
+- G-CB06-037 Star-vader, Elgibs — no art
+- G-CB06-038 Flutter Deletor, Zuiije — no art
+- G-CB06-039 Star-vader, Planck Dracokid — no art
+- G-CB06-040 Star-vader, Magnetor Hedgehog — no art
+- G-CB06-041 Star-vader, Roche Wave — data, no art
+- G-CB06-042 Star-vader, Ether Looper — effect missing, no art
+- G-CB06-043 Star-vader, Paradigm Shift Dragon — no art
+- G-CB06-044 Star-vader, Quark Shoebill — no test, no art
+- G-CB06-045 Rendering Deletor, Efames — no art
+
+## G-CHB01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 75    | 35                  | 72                  | 3               | 0            | 39            | 0   | 0        |
+
+### Incomplete
+
+- G-CHB01-001 Holy Dragon, Brave Lancer Dragon — no art
+- G-CHB01-002 Interdimensional Dragon, Crossover Dragon — no art
+- G-CHB01-003 Flower Princess of Beautiful Winter, Inverno — no art
+- G-CHB01-004 Luminous Light King of Knights, Alfred Oath — no art
+- G-CHB01-005 Knight of Heavenly Decree, Altmile — no art
+- G-CHB01-006 Knight of Encouragement, Albion — no test, no art
+- G-CHB01-007 Pulsar, Shiftbullet Dragon — no art
+- G-CHB01-008 Ranunculus of Searing Heart, Ahsha — no art
+- G-CHB01-009 Tenacious Maiden, Noel — no art
+- G-CHB01-010 Holy Dragon, Legit Sword Dragon — no art
+- G-CHB01-011 Divine Knight of Godly Defense, Igraine — no test, no art
+- G-CHB01-012 Knight of Ambuscade, Redon — no art
+- G-CHB01-013 Security Knight, Regius — no test, no art
+- G-CHB01-014 Highbrow Steam, Arlim — no test, no art
+- G-CHB01-015 Throttle Caliber Dragon — no art
+- G-CHB01-016 Linear Feed Dragon — no test, no art
+- G-CHB01-017 Steam Tamer, Arka — no test, no art
+- G-CHB01-018 Rubellum Lily Splendorous Musketeer, Myra — no art
+- G-CHB01-019 Passiflora Flower Princess, Marleena — no test, no art
+- G-CHB01-020 White Clover Musketeer, Mia Reeta — no test, no art
+- G-CHB01-021 Flower Keeper Dragon — no test, no art
+- G-CHB01-022 Emit Hammer Dragon — no test, no art
+- G-CHB01-023 Swordsman of Light, Picos — no test, no art
+- G-CHB01-024 Mace of Pledge, Iasius — no art
+- G-CHB01-025 Energetic Knight, Romus — data, no test, no art
+- G-CHB01-026 Starlight Violinist — no art
+- G-CHB01-027 Acute Knight, Paris — data, no test, no art
+- G-CHB01-028 Knight of Battle Preparation, Porrex — data, no test, no art
+- G-CHB01-029 Interdimensional Beast, Upheaval Pegasus — data, no art
+- G-CHB01-030 Steam Maiden, Ishuiil — data, no test, no art
+- G-CHB01-031 Grey Exhaust Dragon — data, no art
+- G-CHB01-032 Steam Fighter, Galumu — data, no test, no art
+- G-CHB01-033 Pulsar, Farm Peacock — data, no art
+- G-CHB01-034 Timebreak Dragon — data, no art
+- G-CHB01-035 Maiden of Flower Pistol — data, no art
+- G-CHB01-036 Lisianthus Musketeer, Loraine — data, no art
+- G-CHB01-037 Sunshine Maiden, Paula — data, no test, no art
+- G-CHB01-038 Prunus Serrulata Musketeer, Tessa — data, no test, no art
+- G-CHB01-039 Pansy Musketeer, Sylvia — data, no test, no art
+- G-CHB01-040 Amaryllis Musketeer, Tatiana — data, no test, no art
+- G-CHB01-041 Faith Maiden, Odette — no art
+- G-CHB01-042 Maiden of Sweet Berry — data, no test, no art
+- G-CHB01-043 Scramble Griffin — data, no test, no art
+- G-CHB01-044 Knight of Cast — data, no test, no art
+- G-CHB01-045 Hopesong Angel — no art
+- G-CHB01-046 Sage of Innovation, Libron — data, no test, no art
+- G-CHB01-047 Tamamy — data, no test, no art
+- G-CHB01-048 らいんがる — data, no test, no art
+- G-CHB01-049 Maru Baru — no art
+- G-CHB01-050 Weapons Dealer, Brutu — no art
+- G-CHB01-051 Refresh Healer — effect missing, no art
+- G-CHB01-052 Scion Rider — no test, no art
+- G-CHB01-053 Encourage Angel — no art
+- G-CHB01-054 Steam Rider, Sharrum — no test, no art
+- G-CHB01-055 Steam Fighter, Nagish — data, no test, no art
+- G-CHB01-056 Rough Play Outrageous Gear Bear — data, no test, no art
+- G-CHB01-057 Steam Soldier, Undalulu — no test, no art
+- G-CHB01-058 Smart Fender Dragon — data, no art
+- G-CHB01-059 Chic Folk Dracokid — data, no art
+- G-CHB01-060 Grind Grind Worker — data, no art
+- G-CHB01-061 Steam Engineer, Kusha-ana — data, no art
+- G-CHB01-062 Steam Doctor, Enja — data, effect missing, no art
+- G-CHB01-063 Vainglory-dream Gear Cat — no art
+- G-CHB01-064 Knight of Development, Rallye — data, no test, no art
+- G-CHB01-065 Greenshot Elf — data, no art
+- G-CHB01-066 Rindo Gentian Musketeer, Antero — data, no test, no art
+- G-CHB01-067 Mix-fruits Dragon — data, no art
+- G-CHB01-068 Avoca Doze — data, no art
+- G-CHB01-069 Maiden Dancing in the Wind, Francoise — data, no test, no art
+- G-CHB01-070 Maiden of Delphinium — data, no test, no art
+- G-CHB01-071 Baby-blue-eyes Musketeer, May Len — data, no test, no art
+- G-CHB01-072 Freesia Musketeer, Rosalia — data, no art
+- G-CHB01-073 Roselle Musketeer, Randy — data, no art
+- G-CHB01-074 Kamille Musketeer, Nicole — data, effect missing, no art
+- G-CHB01-075 Watering Elf — data, no art
+
+## G-CHB02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 75    | 37                  | 72                  | 3               | 0            | 32            | 0   | 0        |
+
+### Incomplete
+
+- G-CHB02-001 State Affair Subjugation Deity, Kamususanoo — no art
+- G-CHB02-002 Great Galactic Governor, Commander Laurel D — data, no test, no art
+- G-CHB02-003 Omniscience Dragon, Fernyiges — no art
+- G-CHB02-004 Sun of Eternity, Amaterasu — no test, no art
+- G-CHB02-005 Spiritual Sword of Rough Deity, Susanoo — no art
+- G-CHB02-006 Dimensional Robo Command Chief, Final Daimax — no art
+- G-CHB02-007 Bravest Rush, Grandgallop — data, no art
+- G-CHB02-008 Immortality Professor, Brahmananda — no test, no art
+- G-CHB02-009 Teacher's Cane of Affection, Bigbelly — no art
+- G-CHB02-010 Excite Battle Sister, Miroir — no art
+- G-CHB02-011 Battle Sister, Madeleine — no test, no art
+- G-CHB02-012 Deity Spirit Loyalist, Ame-no-oshiho — no art
+- G-CHB02-013 Higher Deity Protecting Official, Amatsu-hikone — no test, no art
+- G-CHB02-014 Hyper Metalborg, Guilt Digger — data, no test, no art
+- G-CHB02-015 Gallant Incarnation, G-O-Five — no test, no art
+- G-CHB02-016 Enigman Helm — no test, no art
+- G-CHB02-017 Enigman Calm — no test, no art
+- G-CHB02-018 Omniscience Dragon, Al-mi'raj — no test, no art
+- G-CHB02-019 Honorary Professor, Chatsauvage — no test, no art
+- G-CHB02-020 Lesser Writer — no art
+- G-CHB02-021 Finecoat Maltese — no test, no art
+- G-CHB02-022 Spiritual Deity of Benevolence, Ame-no-sagume — no test, no art
+- G-CHB02-023 Goddess of Astrology, Yasaka — no art
+- G-CHB02-024 Battle Sister, Crepe — data, no art
+- G-CHB02-025 Deity Spirit Loyalist, Kumano-kusubi — no test, no art
+- G-CHB02-026 Precious Ophidian — no test, no art
+- G-CHB02-027 Battle Sister, Compote — no test, no art
+- G-CHB02-028 Bell-ringing Miko, Ouka — no test, no art
+- G-CHB02-029 Super Cosmic Hero, X-lead — no art
+- G-CHB02-030 Enigman Gigastorm — data, no art
+- G-CHB02-031 Dimensional Robo, Daireson — data, no test, no art
+- G-CHB02-032 Cosmic Hero, Grandberet — data, no art
+- G-CHB02-033 Enigman Blanc — data, no test, no art
+- G-CHB02-034 Enigman Zephyr — data, no art
+- G-CHB02-035 Operator Girl, Linka — no test, no art
+- G-CHB02-036 Omniscience Dragon, Kieltimka — no art
+- G-CHB02-037 Fullmark Gorilla — no art
+- G-CHB02-038 Treatise Panther — no test, no art
+- G-CHB02-039 Honorary Assistant, Mikesaburo — no art
+- G-CHB02-040 Traveling Momonga — no test, no art
+- G-CHB02-041 Label Pangolin — no art
+- G-CHB02-042 Gifted Bear — data, no test, no art
+- G-CHB02-043 Fighting Strike Sword Deity, Toyokuninushi — data, no test, no art
+- G-CHB02-044 Battle Sister, Pannacotta — no test, no art
+- G-CHB02-045 Battle Sister, Berrymousse — data, no test, no art
+- G-CHB02-046 Apprentice Weather Girl, Smoothie — data, no test, no art
+- G-CHB02-047 Foredoom Miko, Sachi — data, no art
+- G-CHB02-048 Battle Sister, Syrup — data, no art
+- G-CHB02-049 Battle Sister, Rusk — no art
+- G-CHB02-050 Astrologer, Miss Haze — data, no test, no art
+- G-CHB02-051 Deity Spirit Loyalist, Ikutsu-hikone — no test, no art
+- G-CHB02-052 Aqua Witch, NeNe — data, no art
+- G-CHB02-053 Medicinal Miko, Yakushiji — data, effect missing, no art
+- G-CHB02-054 Enigman Megacurrent — data, no test, no art
+- G-CHB02-055 Cosmic Hero, Grandsmasher — data, no art
+- G-CHB02-056 Enigman Sirocco — data, no test, no art
+- G-CHB02-057 Metalborg, Blacking Barrow — data, no test, no art
+- G-CHB02-058 Enigman Swirl — data, no test, no art
+- G-CHB02-059 Metalborg, Jet Sider — data, no test, no art
+- G-CHB02-060 Reducing Monster, Weaking — no test, no art
+- G-CHB02-061 Dimensional Robo, Daihawk — data, no test, no art
+- G-CHB02-062 Enigman Fall — data, no art
+- G-CHB02-063 Enigman Feign — data, effect missing, no art
+- G-CHB02-064 Enigman Mistral — data, no test, no art
+- G-CHB02-065 Edging Condor — data, no art
+- G-CHB02-066 Go Home Toad — data, no test, no art
+- G-CHB02-067 Full-sack Squirrel — data, no art
+- G-CHB02-068 Pastel Deer — data, no test, no art
+- G-CHB02-069 Reader Pig — data, no test, no art
+- G-CHB02-070 Magnifier Chow Chow — data, no test, no art
+- G-CHB02-071 Specs Chinchilla — data, no test, no art
+- G-CHB02-072 Polish Penguin — data, no art
+- G-CHB02-073 Pen Case Pelican — data, no art
+- G-CHB02-074 Brushing Kitten — data, effect missing, no art
+- G-CHB02-075 Chemical Skunk — no test, no art
+
+## G-CHB03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 60    | 38                  | 58                  | 2               | 0            | 34            | 0   | 0        |
+
+### Incomplete
+
+- G-CHB03-001 Parallel Megatrick, Fairfield — no art
+- G-CHB03-002 Pirate King of Redemption, Dragut — no art
+- G-CHB03-003 Silver Thorn Dragon Master, Venus Luquier — no art
+- G-CHB03-004 Masked Phantom, Harri — no art
+- G-CHB03-005 Diabolist of Corpse, Negrosonger — no art
+- G-CHB03-006 Vampire Princess of Starlight, Nightrose — no art
+- G-CHB03-007 Nightmare Doll of the Abyss, Eleanore — no test, no art
+- G-CHB03-008 Silver Thorn Dragon Tamer, Luquier — no art
+- G-CHB03-009 Face Magician, Lappin — no art
+- G-CHB03-010 Lovely Companion — no test, no art
+- G-CHB03-011 Seven Seas Dignitary, Nightzeolla — no test, no art
+- G-CHB03-012 Ghostie Leader, Demetria — no art
+- G-CHB03-013 Maltreat Shade — no art
+- G-CHB03-014 Seawall Banshee — no test, no art
+- G-CHB03-015 Crudelis Dragon Master, Janet — no test, no art
+- G-CHB03-016 Jester Demonic Dragon, Wandering Dragon — no test, no art
+- G-CHB03-017 Gun Salute Dragon, End of Stage — no test, no art
+- G-CHB03-018 Silver Thorn Acrobat, Lucamia — no art
+- G-CHB03-019 Dagger Magician, Etty — no art
+- G-CHB03-020 Nightmare Doll, Liza — no test, no art
+- G-CHB03-021 Masquerade Bunny — no art
+- G-CHB03-022 Pleasure Caster — no art
+- G-CHB03-023 Eclipse Dragonhulk, Jumble Dragon — no test, no art
+- G-CHB03-024 Diabolist of Tombs, Negromode — no test, no art
+- G-CHB03-025 Seven Seas Crack Soldier, Nightjasper — no test, no art
+- G-CHB03-026 King Serpent — no test, no art
+- G-CHB03-027 Tommy the Ghostie Brothers — no art
+- G-CHB03-028 Swordmaster Mimic — data, no test, no art
+- G-CHB03-029 Fatal Shade — no art
+- G-CHB03-030 Guile Shade — data, no art
+- G-CHB03-031 Silver Thorn, Masher Dragon — data, no art
+- G-CHB03-032 Silver Thorn, Acute Dragon — data, no test, no art
+- G-CHB03-033 Dancing Knifedancer — data, no test, no art
+- G-CHB03-034 Nightmare Doll, Gerda — data, no test, no art
+- G-CHB03-035 Throwing Bear — data, no art
+- G-CHB03-036 Silver Thorn Clown, Cernay — data, no art
+- G-CHB03-037 Immortal Target — data, no art
+- G-CHB03-038 Nightmare Doll, Juliet — data, no test, no art
+- G-CHB03-039 Silver Thorn Beast Tamer, Lolotte — data, no art
+- G-CHB03-040 Nightmare Doll, Natalie — data, no test, no art
+- G-CHB03-041 Nightmare Doll, Wendy — data, no art
+- G-CHB03-042 Nightmare Doll, Sydney — data, no art
+- G-CHB03-043 Vanishment Dracokid — data, effect missing, no art
+- G-CHB03-044 Explode Gentle — no test, no art
+- G-CHB03-045 Skyhigh Walker — no art
+- G-CHB03-046 Fabian the Ghostie — data, no art
+- G-CHB03-047 Clemmie the Ghostie — data, no art
+- G-CHB03-048 Hesketh the Ghostie — data, no art
+- G-CHB03-049 Skeleton Marauder — data, no test, no art
+- G-CHB03-050 Quincy the Ghostie — no test, no art
+- G-CHB03-051 Jackie the Ghostie — data, no test, no art
+- G-CHB03-052 Seven Seas Shipmate, Nightalert — no test, no art
+- G-CHB03-053 Madness Franky — data, no test, no art
+- G-CHB03-054 Matt the Ghostie — data, no art
+- G-CHB03-055 Seven Seas Private, Styx — no test, no art
+- G-CHB03-056 Seven Seas Dragon Undead, Scavenge Dragon — no art
+- G-CHB03-057 Dead of the Seven Seas, Aurelio — no art
+- G-CHB03-058 Crusher Francesca — effect missing, no art
+- G-CHB03-059 Howard the Ghostie — no test, no art
+- G-CHB03-060 Screaming Banshee — no art
+
+## G-EB01
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 35    | 35                  | 34                  | 1               | 0            | 26            | 0   | 0        |
+
+### Incomplete
+
+- G-EB01-001 99th-gen Dimensional Robo Commander, Great Daiearth — no art
+- G-EB01-002 Super Cosmic Hero, X-tiger — no art
+- G-EB01-003 Great Cosmic Hero, Grandgallop — no art
+- G-EB01-004 Dark Superhuman, Omega — no test, no art
+- G-EB01-005 Super Cosmic Hero, X-falcon — no test, no art
+- G-EB01-006 Cosmic Hero, Grandfire — no art
+- G-EB01-007 Cosmic Hero, Grandguard — no test, no art
+- G-EB01-008 Cosmic Hero, Grandbeat — no test, no art
+- G-EB01-009 Enigman Tornado — no art
+- G-EB01-010 New Era Beast, Zeal — no art
+- G-EB01-011 Metalborg, Barrengrader — no art
+- G-EB01-012 Cosmic Hero, Grandsub — no art
+- G-EB01-013 Dimensional Robo, Daijet — no art
+- G-EB01-014 Cosmic Hero, Grandrope — no art
+- G-EB01-015 Cosmic Hero, Grandwagon — no art
+- G-EB01-016 Metalborg, Grasscutter — no test, no art
+- G-EB01-017 Great Cosmic Hero, Grandbazooka — no test, no art
+- G-EB01-018 Enigman Night Sky — no art
+- G-EB01-019 Cosmic Hero, Grandkungfu — no art
+- G-EB01-020 Ionization Monster, Plazm — no test, no art
+- G-EB01-021 Metalborg, Magmafork — no art
+- G-EB01-022 Cosmic Hero, Grandpolice — no art
+- G-EB01-023 Enigman Cloud — no art
+- G-EB01-024 Cosmic Hero, Grandchopper — no art
+- G-EB01-025 Dimensional Robo, Dailion — no art
+- G-EB01-026 Evolution Monster, Davain — no art
+- G-EB01-027 Metalborg, Hammerhel — no art
+- G-EB01-028 Cosmic Hero, Grandseed — no art
+- G-EB01-029 Dimensional Robo, Daishoot — no test, no art
+- G-EB01-030 Metalborg, Locobattler — no art
+- G-EB01-031 Dimensional Robo, Daiwolf — no art
+- G-EB01-032 Masked Police, Guunjoe — no art
+- G-EB01-033 Cosmic Hero, Grandrescue — effect missing, no art
+- G-EB01-034 Enigman Sunset — no art
+- G-EB01-035 Operator Girl, Reika — no test, no art
+
+## G-EB02
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 76    | 58                  | 73                  | 3               | 0            | 39            | 0   | 0        |
+
+### Incomplete
+
+- G-EB02-001 Zeroth Dragon of Death Garden, Zoa — no test, no art
+- G-EB02-002 Poison Sickle Mutant Deity, Overwhelm — no art
+- G-EB02-003 Omniscience Dragon, Balaurl — no art
+- G-EB02-004 Flower Princess of Four Seasons, Velhemina — no art
+- G-EB02-005 Intimidating Mutant King, Darkface Alicides — no art
+- G-EB02-006 Evil Governor, Darkface Gredora — no test, no art
+- G-EB02-007 Amazing Professor, Bigbelly — no art
+- G-EB02-008 Artistic Ocelot — no art
+- G-EB02-009 Ranunculus of Phantasmic Blue, Ahsha — no art
+- G-EB02-010 Collective Blooming Maiden, Kera — no art
+- G-EB02-011 Oppression Mutant Deity, Machining Despot — no art
+- G-EB02-012 Machining Beet Atlas — no art
+- G-EB02-013 Adherence Mutant, Black Weevil — data, no test, no art
+- G-EB02-014 Machining Snow Wing — no test, no art
+- G-EB02-015 Super Honorary Professor, Meilleur Chatnoir — no art
+- G-EB02-016 Honorary Professor, Chaverite — no art
+- G-EB02-017 Revision Scientist, Delibelly — no test, no art
+- G-EB02-018 Automatism Koala — no test, no art
+- G-EB02-019 Maiden Lily Musketeer Captain, Virginal Cecilia — no art
+- G-EB02-020 Lantana Musketeer, Rozeeta — no test, no art
+- G-EB02-021 Seeding Maiden, Tierney — no test, no art
+- G-EB02-022 Anthurium Musketeer, Nikla — no test, no art
+- G-EB02-023 Master Swordsman Mutant Deity, Anguish Sword — no art
+- G-EB02-024 Feather Wall Mutant Deity, Morphosian — no test, no art
+- G-EB02-025 Light Horn Mutant, Dangerous Horn — no art
+- G-EB02-026 Black Spear Mutant, Bolg Wasp — no art
+- G-EB02-027 New Face Mutant, Little Dorcas — no art
+- G-EB02-028 Flowing Mutant, Twilight Madder — no test, no art
+- G-EB02-029 Machining Tardigrade — data, no test, no art
+- G-EB02-030 Immortality Professor, Vairagya — no art
+- G-EB02-031 Immortality Professor, Sankalpa — no test, no art
+- G-EB02-032 Bicolor Baku — no art
+- G-EB02-033 Bootcamp Cymric — no test, no art
+- G-EB02-034 Body Faction, Maox — no test, no art
+- G-EB02-035 Diligent Assistant, Minibelly — no art
+- G-EB02-036 Sitter Bobtail — no test, no art
+- G-EB02-037 Sacred Tree Dragon, Breakweather Dragon — no art
+- G-EB02-038 Bond Protector Musketeer, Antero — no test, no art
+- G-EB02-039 Cumulative Maiden, Purcell — no art
+- G-EB02-040 Valkyrie of Reclamation, Padmini — no art
+- G-EB02-041 Repeated Cultivation Maiden, Leslie — no art
+- G-EB02-042 Artemisia Musketeer, Kiara — no test, no art
+- G-EB02-043 San San Mango — data, no test, no art
+- G-EB02-044 昏睡怪人 シルクスリーパー — data, effect missing, no art
+- G-EB02-045 Machining Princess — data, no art
+- G-EB02-046 Vulgar Blister — no test, no art
+- G-EB02-047 マシニング・リーフィー — data, no test, no art
+- G-EB02-048 Bad Luck Star — data, no test, no art
+- G-EB02-049 Outstanding Mutant, Promularva — no art
+- G-EB02-050 Machining Bagworm — data, no test, no art
+- G-EB02-051 Machining Killer Ant — data, no art
+- G-EB02-052 Machining Bizarreness — no art
+- G-EB02-053 Machining Treehopper — no test, no art
+- G-EB02-054 Megacolony Battler G — no test, no art
+- G-EB02-055 Talented Rhinos — no test, no art
+- G-EB02-056 Trickle British — effect missing, no art
+- G-EB02-057 Matrix Code Zebra — no test, no art
+- G-EB02-058 Animal Clip Lesser — no art
+- G-EB02-059 Adorable Balinese — no art
+- G-EB02-060 Errand Somali — no test, no art
+- G-EB02-061 Stationery Hero — no test, no art
+- G-EB02-062 Pearl Wit Chihuahua — no art
+- G-EB02-063 Part-time Researcher, Iguano — data, no art
+- G-EB02-064 Approval Frigate — no test, no art
+- G-EB02-065 Essayist, Yapoon — no test, no art
+- G-EB02-066 Poinsettia Flower Maiden, Grennel — no test, no art
+- G-EB02-067 Cyclamen Musketeer, Favila — data, no art
+- G-EB02-068 振興の乙女 リプセット — data, no test, no art
+- G-EB02-069 Black Rose Musketeer, Verneri — data, no test, no art
+- G-EB02-070 瑠璃菊の銃士 ダフネ — data, no test, no art
+- G-EB02-071 ドラゴン・ツブーテ — data, no test, no art
+- G-EB02-072 カルーナの銃士 エルマ — data, no test, no art
+- G-EB02-073 Planting Maiden, Ozu — data, no art
+- G-EB02-074 Cirsium Musketeer, Umbra — data, no art
+- G-EB02-075 Red Poppy Musketeer, Marinetta — no art
+- G-EB02-076 Marigold Musketeer, Rachele — effect missing, no art
+
+## G-EB03
+
+| Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
+| ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
+| 76    | 62                  | 76                  | 0               | 0            | 25            | 0   | 0        |
+
+### Incomplete
+
+- G-EB03-001 Zeroth Dragon of Destroy Star, Stark — no test, no art
+- G-EB03-002 Winning Champ, Victor — no art
+- G-EB03-003 Bravest Peak, X-gallop — no art
+- G-EB03-004 Genesis Dragon, Integral Messiah — no art
+- G-EB03-005 Zubat Battler, Victor — no art
+- G-EB03-006 Extreme Battler, Golshachi — no art
+- G-EB03-007 Bravest Viktor, Grandgallop — no art
+- G-EB03-008 Super Dimensional Robo, Dainexus — no test, no art
+- G-EB03-009 Ideal Ego Messiah — no art
+- G-EB03-010 Star-vader, Chaos Breaker Close — no art
+- G-EB03-011 Blazar Blaukluger — no test, no art
+- G-EB03-012 Neumond Blaukluger — no test, no art
+- G-EB03-013 Extreme Battler, Baryon — no test, no art
+- G-EB03-014 Arago Blauenergie — no test, no art
+- G-EB03-015 Dimensional Robo Battle Commander, Magna Daibird — no test, no art
+- G-EB03-016 Dimensional Robo, Daibalest — no test, no art
+- G-EB03-017 Cosmic Hero, Grandmonk — no test, no art
+- G-EB03-018 Dimensional Robo Outfitter, Cassie — no test, no art
+- G-EB03-019 Original Deletor, Gaoield — no test, no art
+- G-EB03-020 Death Star-vader, Chaos Universe Alththani — no art
+- G-EB03-021 Hack Deletor, Greigiil — no test, no art
+- G-EB03-022 Star-vader, Magellanic Stream — no test, no art
+- G-EB03-023 Demolition Beast, Demolzaurus — no art
+- G-EB03-024 Meteokaiser, Dogantitan — no test, no art
+- G-EB03-025 Extreme Battler, Sever-temper — no art
+- G-EB03-026 Extreme Battler, Arashid — no art
+- G-EB03-027 Extreme Battler, Gunzdon — no test, no art
+- G-EB03-028 Extreme Battler, Jerohawk — no test, no art
+- G-EB03-029 Varuna Blauwand — no test, no art
+- G-EB03-030 Heaven and Earth Combination, Triearth — no art
+- G-EB03-031 Great Galactic Beast, Zeal — no test, no art
+- G-EB03-032 次元ロボ ダイポール — data, no test, no art
+- G-EB03-033 Cosmic Hero, Grandhogan — no art
+- G-EB03-034 Cosmic Hero, Grandrope — data, no test, no art
+- G-EB03-035 Dimensional Robo, Daisupporter — no test, no art
+- G-EB03-036 Dimensional Robo, Daimagnel — no test, no art
+- G-EB03-037 Large Wheel of the Cosmos, Cosmo Wreath — no test, no art
+- G-EB03-038 Myga Messiah — no art
+- G-EB03-039 Fierce Attack Star-vader, Dubnium — no test, no art
+- G-EB03-040 Racer Deletor, Baird — no test, no art
+- G-EB03-041 Vlastos Messiah — no art
+- G-EB03-042 High Pressure Star-vader, Americium — data, no test, no art
+- G-EB03-043 Lurk Deletor, Elinge — no test, no art
+- G-EB03-044 Dr. Angstrom — no art
+- G-EB03-045 Baade Blaukanone — no test, no art
+- G-EB03-046 Magical Performer — no test, no art
+- G-EB03-047 Extreme Battler, Ninjaad — no art
+- G-EB03-048 Regia Blaulanze — no test, no art
+- G-EB03-049 Oda Blauschleife — no test, no art
+- G-EB03-050 Vesta Blauklinge — no test, no art
+- G-EB03-051 リーマ・ブラウラケーテ — data, no test, no art
+- G-EB03-052 Extreme Battler, Victhead — no test, no art
+- G-EB03-053 ヤング・ブラウフェヒター — data, no test, no art
+- G-EB03-054 Otero Blaufliegen — no art
+- G-EB03-055 Saar Blauglanz — no test, no art
+- G-EB03-056 Orchis Blaukreuzer — no test, no art
+- G-EB03-057 Great Cosmic Hero, Grandabbot — no art
+- G-EB03-058 Cosmic Hero, Grandwisdom — no test, no art
+- G-EB03-059 Cosmic Hero, Grandbalger — no art
+- G-EB03-060 Dimensional Robo, Daicrusher — data, no test, no art
+- G-EB03-061 Cosmic Hero, Grandgunner — data, no test, no art
+- G-EB03-062 Cosmic Hero, Grandscout — no art
+- G-EB03-063 Dimensional Robo, Daicutter — data, no test, no art
+- G-EB03-064 次元ロボ ダイラプター — data, no test, no art
+- G-EB03-065 Dimensional Robo Pilot, Matthew — data, no test, no art
+- G-EB03-066 Build Standard — no test, no art
+- G-EB03-067 Dimensional Robo, Daimoon — no art
+- G-EB03-068 次元ロボ ダイブルーム — data, no test, no art
+- G-EB03-069 Dimensional Robo, Daidraft — no test, no art
+- G-EB03-070 Lady Bomber of the Magnetic Storm — no test, no art
+- G-EB03-071 Star-vader, Vela Junior Dragon — no test, no art
+- G-EB03-072 追い落とす根絶者 ゲルヲラ — data, no test, no art
+- G-EB03-073 Resistance Star-vader, Polonium — data, no test, no art
+- G-EB03-074 多世界解釈の鬼子 — data, no art
+- G-EB03-075 Trick Deletor, Zaog — no test, no art
+- G-EB03-076 Biting Deletor, Geeva — no art

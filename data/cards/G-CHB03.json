@@ -1,0 +1,2796 @@
+{
+  "set": "G-CHB03",
+  "importedAt": "2026-11-16T19:23:34.915Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-CHB03-001",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/001",
+        "name": "異界の大奇術 フェアフィールド",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n奇術-【起】【(V)】【ターン1回】【Gブレイク】(3)：[【カウンターブラスト】(2)，あなたの、ドロップゾーンとソウルから１枚ずつ選び、山札に戻す]あなたのソウルから１枚選び、(R)にコールし、そのターン中、パワー＋10000/クリティカル＋１し、『【起】【(R)】：[【ソウルブラスト】(2)]そのターン中、このユニットのパワー＋5000し、カードの効果で、このユニットは選ばれない。』を与え、山札をシャッフルする。そのターンの終了時、そのユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_003.png"
+      },
+      "en": {
+        "number": "G-CHB03/001EN",
+        "name": "Parallel Megatrick, Fairfield",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\nMagia-[ACT](VC)[1/turn][Generation Break 3]:[Counter-Blast 2 & Choose a card from your drop zone and soul, and return them to your deck] Choose a card from your soul, call it to (RC), and until end of turn, it gets [Power] +10000/[Critical] +1, \"[ACT](RC):[Soul-Blast 2] Until end of turn, this unit gets [Power] +5000, and cannot be chosen by card effects.\", and shuffle your deck. At the end of that turn, put that unit into your soul.",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CHB03/001", "G-CHB03/001SGR", "G-CHB03/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F001",
+          "fetchedAt": "2026-11-16T19:17:44.062Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113003136/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/001EN",
+          "fetchedAt": "2019-11-13T00:31:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-002",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/002",
+        "name": "贖いの海賊王 ドラクート",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】【Gブレイク】(2)：[【カウンターブラスト】(2)，あなたの手札から１枚選び、捨てる]あなたのドロップゾーンから、あなたのリアガードと同じ枚数まで選び、別々の(R)にコールし、コールされた亡霊能力を持つユニット１枚につき、相手は自分のリアガードを１枚選び、退却させる。相手のリアガードがいないなら、あなたは１枚引く。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_004.png"
+      },
+      "en": {
+        "number": "G-CHB03/002EN",
+        "name": "Pirate King of Redemption, Dragut",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn][Generation Break 2]:[Counter-Blast 2 & Choose a card from your hand, and discard it] Choose up to the same number of cards from your drop zone as the number of your rear-guards, call them to separate (RC), and for each unit with the hollow ability that was called, your opponent chooses one of his or her rear-guards, and retires them. If your opponent has no rear-guards, you draw a card.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_002.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CHB03/002", "G-CHB03/002SGR", "G-CHB03/002EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F002",
+          "fetchedAt": "2026-11-16T19:17:46.800Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209081522/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/002EN&expansion=94",
+          "fetchedAt": "2019-12-09T08:15:22Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-003",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/003",
+        "name": "銀の茨の神竜使い ヴィーナス・ルキエ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】【Gブレイク】(3)：[あなたの「銀の茨」を含むリアガードを２枚選び、ソウルに置く]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのクリティカル＋１。\n【起】【(V)】【ターン1回】：[【カウンターブラスト】(1)，あなたのＧゾーンからこのユニットと同名の裏のカードを１枚選び、表にする]あなたの「銀の茨」を含むハーツカードがあるなら、ソウルから「銀の茨」を含むカードを１枚選び、(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_005.png"
+      },
+      "en": {
+        "number": "G-CHB03/003EN",
+        "name": "Silver Thorn Dragon Master, Venus Luquier",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[AUTO](VC)[Generation Break 3]:[Choose two of your rear-guards with \"Silver Thorn\" in their card names, and put them into your soul] When this unit attacks, you may pay the cost. If you do, this unit gets [Critical] +1 until end of that battle.\"[ACT](VC)[1/turn]:[Counter-Blast 1 & Choose a face down card from your G zone with the same card name as this unit, and turn it face up] If you have a heart card with \"Silver Thorn\" in its card name, choose a card with \"Silver Thorn\" in its card name from your soul, and call it to (RC).",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_003.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB03/003", "G-CHB03/S01", "G-CHB03/003EN", "G-CHB03/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F003",
+          "fetchedAt": "2026-11-16T19:17:49.876Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209083614/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/003EN&expansion=94",
+          "fetchedAt": "2019-12-09T08:36:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-004",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/004",
+        "name": "仮面の幻術師 ハリー",
+        "text": "【自】【(V)】【ターン1回】【Gブレイク】(2)：[【カウンターブラスト】(1)]あなたのリアガードがソウルに置かれた時、コストを払ってよい。払ったら、あなたのソウルからグレード３の奇術能力を持つカードを１枚選び、手札に加える。\n【自】：このユニットが(V)に登場した時、あなたの山札の上から２枚見て、１枚をソウルに置き、１枚を山札の下に置く。\n奇術-【自】【(V)】：[【ソウルブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたのソウルから奇術能力を持つカードを１枚選び、(R)にコールし、そのターンの終了時、そのユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_006.png"
+      },
+      "en": {
+        "number": "G-CHB03/004EN",
+        "name": "Masked Phantom, Harri",
+        "text": "[AUTO](VC)[1/turn][Generation Break 2]:[Counter-Blast 1] When your rear-guard is put into your soul, you may pay the cost. If you do, choose a grade 3 card with the magia ability from your soul, and put it into your hand.\n[AUTO]:When this unit is placed on (VC), look at two cards from the top of your deck, put one card from among them into your soul, and put one card from among them on the bottom of your deck.\nMagia-[AUTO](VC):[Soul-Blast 1] When your G unit [Stride] during your turn, you may pay the cost. If you do, choose a card with the magia ability from your soul, call it to (RC), and at the end of that turn, put that unit into your soul.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_004.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": [
+        "G-CHB03/004",
+        "G-CHB03/001RLR",
+        "G-CHB03/S02",
+        "G-CHB03/004EN",
+        "G-CHB03/S02EN"
+      ],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F004",
+          "fetchedAt": "2026-11-16T19:17:51.076Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207105919/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/004EN&expansion=94",
+          "fetchedAt": "2019-12-07T10:59:19Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-005",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/005",
+        "name": "屍の幻妖術師 ネグロゾンガー",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(1)，あなたの、Ｇゾーンからこのユニットと同名の裏のカードを１枚選び、表にし、手札から１枚選び、捨てる]このユニットがアタックしたバトルの終了時、コストを払ってよい。払ったら、あなたの山札の上から４枚見て、１枚までドロップゾーンに置き、山札をシャッフルし、ドロップゾーンから１枚選び、(R)にコールし、あなたのＧゾーンの表のカード１枚につき、そのターン中、パワー＋5000。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_007.png"
+      },
+      "en": {
+        "number": "G-CHB03/005EN",
+        "name": "Diabolist of Corpse, Negrosonger",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 1 & Choose a face down card from your G zone with the same card name as this unit, turn it face up, choose a card from your hand, and discard it] At the end of the battle that this unit attacked, you may pay the cost. If you do, look at four cards from the top of your deck, put up to one card from among them into your drop zone, shuffle your deck, choose a card from your drop zone, call it to (RC), and it gets [Power] +5000 for each face up card in your G zone until end of turn.",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_005.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB03/005", "G-CHB03/S03", "G-CHB03/005EN", "G-CHB03/S03EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F005",
+          "fetchedAt": "2026-11-16T19:17:51.837Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209154232/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/005EN",
+          "fetchedAt": "2019-12-09T15:42:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-006",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/006",
+        "name": "星影の吸血姫 ナイトローゼ",
+        "text": "【自】：亡霊\n【自】【(V)/(R)】【ターン1回】【Gブレイク】(2)：[【ソウルブラスト】(1)]あなたのターン中、あなたのユニットがドロップゾーンから他の(R)に登場した時、コストを払ってよい。払ったら、あなたのドロップゾーンからグレード１のカードを１枚選び、このユニットと同じ縦列の他の(R)にコールする。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの山札の上から３枚までドロップゾーンに置き、ドロップゾーンから１枚選び、(R)にコールし、そのユニットが亡霊能力を持つなら、そのターン中、パワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_008.png"
+      },
+      "en": {
+        "number": "G-CHB03/006EN",
+        "name": "Vampire Princess of Starlight, Nightrose",
+        "text": "[AUTO]:Hollow\n[AUTO](VC/RC)[1/turn][Generation Break 2]:[Soul-Blast 1] When your unit is placed on another (RC) from drop zone during your turn, you may pay the cost. If you do, choose a grade 1 card from your drop zone, and call it to another (RC) in the same column as this unit.\n[AUTO](VC):[Counter-Blast 1] When your G unit [Stride] during your turn, you may pay the cost. If you do, put up to three cards from the top of your deck into your drop zone, choose a card from your drop zone, call it to (RC), and if that unit has the hollow ability, it gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_006.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB03/006", "G-CHB03/002RLR", "G-CHB03/S04", "G-CHB03/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F006",
+          "fetchedAt": "2026-11-16T19:17:52.579Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210045758/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/006EN&expansion=94",
+          "fetchedAt": "2019-12-10T04:57:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-007",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/007",
+        "name": "深淵のナイトメアドール えれあのーる",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたの、Ｇゾーンから裏の〈ワーカロイド〉を１枚選び、表にし、手札から１枚選び、ソウルに置く]あなたの山札の上から10枚見て、グレード３の〈ワーカロイド〉を１枚まで探し、公開し、(V)にハーツ状態で置くかソウルに置き、山札をシャッフルする。ハーツ状態で(V)に置いたら、そのカード以外のあなたのハーツカードすべてをドロップゾーンに置く。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_009.png"
+      },
+      "en": {
+        "number": "G-CHB03/007EN",
+        "name": "Nightmare Doll of the Abyss, Eleanore",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down <Workeroid> from your G zone, turn it face up, choose a card from your hand, and put it into your soul] Look at ten cards from the top of your deck, search for up to one grade 3 <Workeroid> from among them, reveal it, put it on your (VC) as a heart or into your soul, and shuffle your deck. If you put it on your (VC) as a heart, put all of your other heart cards into the drop zone.",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_007.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/007", "G-CHB03/007EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F007",
+          "fetchedAt": "2026-11-16T19:17:53.338Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210164016/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/007EN&expansion=94",
+          "fetchedAt": "2019-12-10T16:40:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-008",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/008",
+        "name": "銀の茨の竜使い ルキエ",
+        "text": "【自】【ソウル】【リミットブレイク】(4)：[【ソウルブラスト】(1)-他の「銀の茨」を含むカード]あなたのメインフェイズ開始時、コストを払ってよい。払ったら、このカードを(R)にコールする。そのターン中、このユニットのパワー＋3000してよい。そうしたら、そのターンの終了時、このユニットをソウルに置く。\n【自】【(V)】：あなたのターン中、あなたの「銀の茨」を元々含むＧユニットが【超越】した時、あなたのヴァンガードを１枚選び、そのターン中、『【自】【(V)】：あなたの「銀の茨」を含むユニットがソウルから(R)に登場した時、そのターン中、そのユニットのパワー＋3000。』を与える。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_010.png"
+      },
+      "en": {
+        "number": "G-CHB03/008EN",
+        "name": "Silver Thorn Dragon Tamer, Luquier",
+        "text": "[AUTO](Soul)[Limit-Break 4]:[Soul-Blast 1]‐another card with \"Silver Thorn\" in its card name] At the beginning of your main phase, you may pay the cost. If you do, call this card to (RC). You may have this unit get [Power] +3000 until end of turn. If you do, at the end of that turn, put this unit into your soul.\n[AUTO](VC):When your G unit with \"Silver Thorn\" in its original card name [Stride] during your turn, choose one of your vanguards, and until end of turn, it gets \"[AUTO](VC):When your unit with \"Silver Thorn\" in its card name is placed on (RC) from your soul, that unit gets [Power] +3000 until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_008.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/008", "G-CHB03/S05", "G-CHB03/008EN", "G-CHB03/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F008",
+          "fetchedAt": "2026-11-16T19:17:54.478Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191208033143/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/008EN&expansion=94",
+          "fetchedAt": "2019-12-08T03:31:43Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-009",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/009",
+        "name": "絵札の奇術師 ラッピン",
+        "text": "奇術-【起】【(R)】【ターン1回】【Gブレイク】(2)：[【カウンターブラスト】(1)]あなたの「ハリー」を含むヴァンガードがいるなら、ソウルからグレード１のカードを１枚選び、(R)にコールし、そのターンの終了時、そのコールされたユニットをソウルに置く。\n【自】【(R)】：このユニットがアタックした時、あなたの「ハリー」を含むヴァンガードがいるなら、【ソウルチャージ】(1)し、そのバトル中、このユニットのパワー＋2000し、さらに、【ソウルチャージ】されたカードが奇術能力を持つなら、このユニットのパワー＋3000。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_011.png"
+      },
+      "en": {
+        "number": "G-CHB03/009EN",
+        "name": "Face Magician, Lappin",
+        "text": "Magia-[ACT](RC)[1/turn][Generation Break 2]:[Counter-Blast 1] If you have a vanguard with \"Harri\" in its card name, choose a grade 1 card from your soul, call it to (RC), and at the end of that turn, put the called unit into your soul.\n[AUTO](RC):When this unit attacks, if you have a vanguard with \"Harri\" in its card name, [Soul-Charge 1], this unit gets [Power] +2000 until end of that battle, then, if the [Soul-Charge] card has the magia ability, this unit gets [Power] +3000.",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_009.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/009", "G-CHB03/009EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F009",
+          "fetchedAt": "2026-11-16T19:17:55.666Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207123401/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/009EN&expansion=94",
+          "fetchedAt": "2019-12-07T12:34:01Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-010",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/010",
+        "name": "ラブリー・コンパニオン",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。\n奇術-【自】【Gブレイク】(2)：[【ソウルブラスト】(1)]このユニットが(G)から退却した時、あなたの「ハリー」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのソウルからグレード２のカードを１枚選び、(R)にコールし、そのターンの終了時、そのユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_012.png"
+      },
+      "en": {
+        "number": "G-CHB03/010EN",
+        "name": "Lovely Companion",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.\nMagia-[AUTO][Generation Break 2]:[Soul-Blast 1] When this unit is retired from (GC), if you have a vanguard with \"Harri\" in its card name, you may pay the cost. If you do, choose a grade 2 card from your soul, call it to (RC), and at the end of that turn, put that unit into your soul.",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CHB03/010", "G-CHB03/S06", "G-CHB03/010EN", "G-CHB03/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F010",
+          "fetchedAt": "2026-11-16T19:17:56.845Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191022192238/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/010EN&expansion=94",
+          "fetchedAt": "2019-10-22T19:22:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-011",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/011",
+        "name": "七海頭目 ナイトゼオラ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】【リミットブレイク】(4)：[【カウンターブラスト】(1)-「七海」を含むカード，あなたの手札から「七海」を含むカードを２枚選び、捨てる]このユニットがヴァンガードにアタックしたバトルの終了時、コストを払ってよい。払ったら、このユニットをＧゾーンに表で置き、あなたのドロップゾーンから「七海」を含むグレード３のカードを１枚まで選び、(V)に【レスト】でライドする。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_013.png"
+      },
+      "en": {
+        "number": "G-CHB03/011EN",
+        "name": "Seven Seas Dignitary, Nightzeolla",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)[Limit-Break 4]:[Counter-Blast 1]‐card with \"Seven Seas\" in its card name & Choose two cards with \"Seven Seas\" in their card names from your hand, and discard them] At the end of the battle that this unit attacked a vanguard, you may pay the cost. If you do, put this unit into your G zone face up, choose up to one grade 3 card with \"Seven Seas\" in its card name from your drop zone, and ride it on (VC) as [Rest].",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_011.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/011", "G-CHB03/S07", "G-CHB03/011EN", "G-CHB03/S07EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F011",
+          "fetchedAt": "2026-11-16T19:17:57.821Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213170104/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/011EN",
+          "fetchedAt": "2019-12-13T17:01:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-012",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/012",
+        "name": "お化けのリーダー でめとりあ",
+        "text": "【自】【(V)】：あなたのリアガードが退却した時、ドロップゾーンからそのカードよりグレードの低い「お化け」を含むノーマルユニットを１枚選び、(R)にコールしてよい。そうしたら、そのターン中、このユニットはこの能力を失う。\n【自】：[【ソウルブラスト】(2)-〈ゴースト〉]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札の上からグレード１のカードがでるまで公開し、その中から「お化け」を含むグレード１のカードを１枚選び、手札に加え、残りのカードをドロップゾーンに置く。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_014.png"
+      },
+      "en": {
+        "number": "G-CHB03/012EN",
+        "name": "Ghostie Leader, Demetria",
+        "text": "[AUTO](VC):When your rear-guard is retired, choose a normal unit with grade less than that unit and \"Ghostie\" in its card name from your drop zone, and you may call it to (RC). If you do, this unit loses this ability until end of turn.\n[AUTO]:[Soul-Blast 2]‐<Ghost>] When this unit is placed on (VC), you may pay the cost. If you do, reveal cards from the top of your deck until a grade 1 card is revealed, choose a grade 1 card with \"Ghostie\" in its card name from among them, put it into your hand, and put the rest into your drop zone.",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/012", "G-CHB03/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F012",
+          "fetchedAt": "2026-11-16T19:17:59.340Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207123018/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/012EN&expansion=94",
+          "fetchedAt": "2019-12-07T12:30:18Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-013",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/013",
+        "name": "マルトリート・シェイド",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【Gブレイク】(1)：亡霊能力の効果で、このユニットが(R)から退却した時、あなたの「ナイトローゼ」を含むヴァンガードがいるなら、このカードを山札の下に置いてよい。そうしたら、【カウンターチャージ】(1)。\n【自】【(R)】：このユニットがアタックした時、あなたの「ナイトローゼ」を含むヴァンガードがいるなら、あなたの亡霊状態のユニット１枚につき、そのバトル中、このユニットのパワー＋2000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_015.png"
+      },
+      "en": {
+        "number": "G-CHB03/013EN",
+        "name": "Maltreat Shade",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO][Generation Break 1]:When this unit is retired from (RC) due to the effect of the hollow ability, if you have a vanguard with \"Nightrose\" in its card name, you may put this card on the bottom of your deck. If you do, [Counter-Charge 1].\n[AUTO](RC):When this unit attacks, if you have a vanguard with \"Nightrose\" in its card name, this unit gets [Power] +2000 for each of your hollowed units until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_013.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB03/013", "G-CHB03/013EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F013",
+          "fetchedAt": "2026-11-16T19:18:00.154Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191022004328/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/013EN&expansion=94",
+          "fetchedAt": "2019-10-22T00:43:28Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-014",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/014",
+        "name": "防潮のバンシー",
+        "text": "【永】：守護者\n【自】：亡霊\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。\n【自】【Gブレイク】(2)：[【ソウルブラスト】(1)，あなたの、手札から１枚選び、捨て、ドロップゾーンから他の「防潮のバンシー」を１枚選び、山札の下に置く]亡霊状態のこのユニットが退却した時、あなたの「ナイトローゼ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、このカードを手札に戻す。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_016.png"
+      },
+      "en": {
+        "number": "G-CHB03/014EN",
+        "name": "Seawall Banshee",
+        "text": "[CONT]:Sentinel\n[AUTO]:Hollow\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from your hand, you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.\n[AUTO][Generation Break 2]:[Soul-Blast 1 & Choose a card from your hand, discard it, choose another \"Seawall Banshee\" from your drop zone, and put it on the bottom of your deck］ When this hollowed unit is retired, if you have a vanguard with \"Nightrose\" in its card name, you may pay the cost. If you do, return this card to your hand.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_014.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CHB03/014", "G-CHB03/S08", "G-CHB03/014EN", "G-CHB03/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F014",
+          "fetchedAt": "2026-11-16T19:18:00.917Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191112233724/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/014EN",
+          "fetchedAt": "2019-11-12T23:37:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-015",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/015",
+        "name": "冷徹の神竜使い ジャネット",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：[【カウンターブラスト】(1)，あなたのリアガードを１枚選び、ソウルに置く]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたのソウルから１枚選び、(R)にコールし、そのターン中、パワー＋2000。奇術能力を持つユニットをコールしたら、【ソウルチャージ】(1)してよい。",
+        "clan": "ペイルムーン",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_017.png"
+      },
+      "en": {
+        "number": "G-CHB03/015EN",
+        "name": "Crudelis Dragon Master, Janet",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:[Counter-Blast 1 & Choose one of your rear-guards, and put it into your soul] When this unit is placed on (VC), you may pay the cost. If you do, choose a card from your soul, call it to (RC), and it gets [Power] +2000 until end of turn. If you called a unit with the magia ability, you may [Soul-Charge 1].",
+        "clan": "Pale Moon",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_015.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/015", "G-CHB03/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F015",
+          "fetchedAt": "2026-11-16T19:18:02.103Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191017125731/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/015EN&expansion=94",
+          "fetchedAt": "2019-10-17T12:57:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-016",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/016",
+        "name": "道化魔竜 ワンダリング・ドラゴン",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、【ソウルチャージ】(1)し、あなたのソウルから１枚選び、(G)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_018.png"
+      },
+      "en": {
+        "number": "G-CHB03/016EN",
+        "name": "Jester Demonic Dragon, Wandering Dragon",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), [Soul-Charge 1], choose a card from your soul, and call it to (GC).",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_016.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/016", "G-CHB03/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F016",
+          "fetchedAt": "2026-11-16T19:18:02.865Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209161703/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/016EN",
+          "fetchedAt": "2019-12-09T16:17:03Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-017",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/017",
+        "name": "祝砲竜 エンド・オブ・ステージ",
+        "text": "【自】：このユニットがグレード３のユニットにライドして(V)に登場した時、そのターン中、このユニットは『【自】【(V)】：[【カウンターブラスト】(2)，あなたのリアガードを４枚選び、ソウルに置く]このユニットがアタックしたバトルの終了時、あなたのソウルがないなら、コストを払ってよい。払ったら、このユニットを【スタンド】する。』を得る。\n【自】【(V)】：このユニットがヴァンガードにアタックした時、あなたのソウルすべてをドロップゾーンに置いてよい。置いたら、そのドロップゾーンに置かれたカード１枚につき、そのバトル中、このユニットのパワー＋5000。",
+        "clan": "ペイルムーン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_019.png"
+      },
+      "en": {
+        "number": "G-CHB03/017EN",
+        "name": "Gun Salute Dragon, End of Stage",
+        "text": "[AUTO]:When this unit is placed on (VC) and rides a grade 3 unit, until end of turn, it gets \"[AUTO](VC):[Counter-Blast 2 & Choose four of your rear-guards, and put them into your soul] At the end of the battle that this unit attacked, if you do not have any cards in your soul, you may pay the cost. If you do, [Stand] this unit.\".\n[AUTO](VC):When this unit attacks a vanguard, you may put all the cards from your soul into your drop zone. If you do, this unit gets [Power] +5000 for each card put into the drop zone until end of that battle.",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_017.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/017", "G-CHB03/017EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F017",
+          "fetchedAt": "2026-11-16T19:18:03.611Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210053544/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/017EN&expansion=94",
+          "fetchedAt": "2019-12-10T05:35:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-018",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/018",
+        "name": "銀の茨の曲芸師 ルカミア",
+        "text": "【自】【(R)】：このユニットがヴァンガードにアタックした時、あなたの「ルキエ」を含むヴァンガードがいるなら、そのバトル中、このユニットのパワー＋2000。\n【自】【(R)】：[【ソウルブラスト】(1)-「銀の茨」を含むカード]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札から「ルキエ」を含むカードを１枚まで探し、ソウルに置き、山札をシャッフルする。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_020.png"
+      },
+      "en": {
+        "number": "G-CHB03/018EN",
+        "name": "Silver Thorn Acrobat, Lucamia",
+        "text": "[AUTO](RC):When this unit attacks a vanguard, if you have a vanguard with \"Luquier\" in its card name, this unit gets [Power] +2000 until end of that battle.\n[AUTO](RC):[Soul-Blast 1]‐card with \"Silver Thorn\" in its card name] When this unit's attack hits a vanguard, you may pay the cost. If you do, search your deck for up to one card with \"Luquier\" in its card name, put it into your soul, and shuffle your deck.",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_018.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/018", "G-CHB03/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F018",
+          "fetchedAt": "2026-11-16T19:18:04.352Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210055905/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/018EN&expansion=94",
+          "fetchedAt": "2019-12-10T05:59:05Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-019",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/019",
+        "name": "短剣の奇術師 エティ",
+        "text": "奇術-【自】：このユニットが手札から(R)に登場した時、あなたの「ハリー」を含むヴァンガードがいるなら、ソウルからグレード２以上のカードを１枚選び、このユニットと同じ縦列の(R)にコールしてよい。そのターンの終了時、そのコールされたユニットをソウルに置く。\n【自】【(R)】：[このユニットをソウルに置く]あなたのターンの終了時、あなたの奇術能力を持つヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(1)。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_021.png"
+      },
+      "en": {
+        "number": "G-CHB03/019EN",
+        "name": "Dagger Magician, Etty",
+        "text": "Magia-[AUTO]:When this unit is placed on (RC) from hand, if you have a vanguard with \"Harri\" in its card name, choose a grade 2 or greater card from your soul, and you may call it to (RC) in the same column as this unit. At the end of that turn, put that called unit into your soul.\n[AUTO](RC):[Put this unit into your soul] At the end of your turn, if you have a vanguard with the magia ability, you may pay the cost. If you do, [Soul-Charge 1].",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_019.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/019", "G-CHB03/019EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F019",
+          "fetchedAt": "2026-11-16T19:18:05.551Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191022004234/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/019EN&expansion=94",
+          "fetchedAt": "2019-10-22T00:42:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-020",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/020",
+        "name": "ナイトメアドール りーざ",
+        "text": "【自】【Gブレイク】(1)：あなたの〈ワーカロイド〉の効果で、このユニットがソウルから(R)に登場した時、そのターン中、このユニットのパワー＋3000し、『【自】【(R)】：あなたのターンの終了時、【カウンターチャージ】(1)。』を得る。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_022.png"
+      },
+      "en": {
+        "number": "G-CHB03/020EN",
+        "name": "Nightmare Doll, Liza",
+        "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC) from your soul due to the effect of your <Workeroid>, until end of turn, this unit gets [Power] +3000, and \"[AUTO](RC):At the end of your turn, [Counter-Charge 1].\".",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_020.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/020", "G-CHB03/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F020",
+          "fetchedAt": "2026-11-16T19:18:06.712Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207120304/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/020EN&expansion=94",
+          "fetchedAt": "2019-12-07T12:03:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-021",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/021",
+        "name": "マスカレード・バニー",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「ハリー」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_023.png"
+      },
+      "en": {
+        "number": "G-CHB03/021EN",
+        "name": "Masquerade Bunny",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Harri\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_021.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/021", "G-CHB03/S10", "G-CHB03/021EN", "G-CHB03/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F021",
+          "fetchedAt": "2026-11-16T19:18:07.490Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191213150932/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/021EN",
+          "fetchedAt": "2019-12-13T15:09:32Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-022",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/022",
+        "name": "プレジャー・キャスター",
+        "text": "【自】：先駆\n【自】【ソウル】【Gブレイク】(1)：[【カウンターブラスト】(1)]あなたのメインフェイズ開始時、あなたの「ハリー」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、【ソウルチャージ】(1)し、このカードを(R)にコールし、そのターン中、パワー＋2000。\n【自】【(R)】：[【ソウルブラスト】(1)，このユニットをソウルに置く]あなたのターンの終了時、コストを払ってよい。払ったら、あなたの奇術能力を持つリアガードを１枚選び、手札に戻す。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_024.png"
+      },
+      "en": {
+        "number": "G-CHB03/022EN",
+        "name": "Pleasure Caster",
+        "text": "[AUTO]:Forerunner\n[AUTO](Soul)[Generation Break 1]:[Counter-Blast 1] At the beginning of your main phase, if you have a vanguard with \"Harri\" in its card name, you may pay the cost. If you do, [Soul-Charge 1], call this card to (RC), and it gets [Power] +2000 until end of turn.\n[AUTO](RC):[Soul-Blast 1 & Put this unit into your soul] At the end of your turn, you may pay the cost. If you do, choose one of your rear-guards with the magia ability, and return it to your hand.",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_022.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/022", "G-CHB03/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F022",
+          "fetchedAt": "2026-11-16T19:18:08.682Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20201126122017/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/022EN",
+          "fetchedAt": "2020-11-26T12:20:17Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-023",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/023",
+        "name": "蝕骸竜 ジャンブル・ドラゴン",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】：このユニットが(V)に登場した時、あなたの山札の上から４枚までドロップゾーンに置く。そのドロップゾーンに置かれたノーマルユニット１枚につき、そのターン中、このユニットのパワー＋5000。そのドロップゾーンに置かれたトリガーユニットが２枚以上なら、あなたのドロップゾーンから１枚選び、(R)にコールしてよい。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_025.png"
+      },
+      "en": {
+        "number": "G-CHB03/023EN",
+        "name": "Eclipse Dragonhulk, Jumble Dragon",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO]:When this unit is placed on (VC), put up to four cards from the top of your deck into your drop zone. This unit gets [Power] +5000 for each normal unit that was put into the drop zone until end of turn. If two or more trigger units were put into your drop zone, choose a card from your drop zone, and you may call it to (RC).",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_023.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/023", "G-CHB03/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F023",
+          "fetchedAt": "2026-11-16T19:18:09.863Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212054516/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/023EN",
+          "fetchedAt": "2019-12-12T05:45:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-024",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/024",
+        "name": "墳墓の幻妖術師 ネグロモード",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【ソウルブラスト】(1)]このユニットが(G)に登場した時、あなたのドロップゾーンが５枚以上なら、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋5000し、さらに、10枚以上なら、このユニットのシールド＋5000し、さらに、15枚以上なら、このユニットのシールド＋5000。",
+        "clan": "グランブルー",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_026.png"
+      },
+      "en": {
+        "number": "G-CHB03/024EN",
+        "name": "Diabolist of Tombs, Negromode",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Soul-Blast 1] When this unit is placed on (GC), if the number of cards in your drop zone is five or more, you may pay the cost. If you do, this unit gets [Shield] +5000 until end of that battle, then, if it is ten or more, this unit gets [Shield] +5000, then, if it is fifteen or more, this unit gets [Shield] +5000.",
+        "clan": "Granblue",
+        "race": "Demon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_024.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/024", "G-CHB03/024EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F024",
+          "fetchedAt": "2026-11-16T19:18:11.610Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215131216/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/024EN",
+          "fetchedAt": "2019-12-15T13:12:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-025",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/025",
+        "name": "七海精兵 ナイトジャスパー",
+        "text": "【自】【(R)】：[あなたの山札の上から２枚をドロップゾーンに置く]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットは『【自】【(R)】：このユニットのアタックがヒットした時、あなたの「七海」を含むヴァンガードがいるなら、【カウンターチャージ】(1)/【ソウルチャージ】(1)。』を得る。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_027.png"
+      },
+      "en": {
+        "number": "G-CHB03/025EN",
+        "name": "Seven Seas Crack Soldier, Nightjasper",
+        "text": "[AUTO](RC):[Put two cards from the top of your deck into your drop zone] When this unit attacks a vanguard, you may pay the cost. If you do, until end of that battle, this unit gets \"[AUTO](RC):When this unit's attack hits, if you have a vanguard with \"Seven Seas\" in its card name, [Counter-Charge 1]/[Soul-Charge 1].\".",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_025.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/025", "G-CHB03/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F025",
+          "fetchedAt": "2026-11-16T19:18:12.793Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191114142411/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/025EN",
+          "fetchedAt": "2019-11-14T14:24:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-026",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/026",
+        "name": "キング・サーペント",
+        "text": "【自】：このユニットがドロップゾーンから(R)に登場した時、【ソウルチャージ】(1)し、あなたのダメージゾーンから１枚選び、表にする。",
+        "clan": "グランブルー",
+        "race": "クラーケン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_028.png"
+      },
+      "en": {
+        "number": "G-CHB03/026EN",
+        "name": "King Serpent",
+        "text": "[AUTO]:When this unit is placed on (RC) from your drop zone, [Soul-Charge 1], choose a card in your damage zone, and turn it face up.",
+        "clan": "Granblue",
+        "race": "Kraken",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_026.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/026", "G-CHB03/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F026",
+          "fetchedAt": "2026-11-16T19:18:13.973Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210091744/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/026EN",
+          "fetchedAt": "2019-12-10T09:17:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-027",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/027",
+        "name": "お化けのとみー兄弟",
+        "text": "【自】：[あなたの手札からグレード３のカードを１枚選び、公開する]このユニットが手札から(R)に登場した時、コストを払ってよい。払ったら、あなたの山札から「ナイトローゼ」を含むグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨てる。\n【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋２。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_029.png"
+      },
+      "en": {
+        "number": "G-CHB03/027EN",
+        "name": "Tommy the Ghostie Brothers",
+        "text": "[AUTO]:[Choose a grade 3 card from your hand, and reveal it] When this unit is placed on (RC) from hand, you may pay the cost. If you do, search your deck for up to one grade 3 card with \"Nightrose\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, and discard it.\n[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +2.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_027.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/027", "G-CHB03/S12", "G-CHB03/027EN", "G-CHB03/S12EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F027",
+          "fetchedAt": "2026-11-16T19:18:15.247Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191112230113/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/027EN",
+          "fetchedAt": "2019-11-12T23:01:13Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-028",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/028",
+        "name": "ソードマスター・ミミック",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【Gブレイク】(1)：このユニットがドロップゾーンから(R)に登場した時、そのターン中、このユニットのパワー＋3000し、このユニットが亡霊状態なら、他のあなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_030.png"
+      },
+      "en": {
+        "number": "G-CHB03/028EN",
+        "name": "Swordmaster Mimic",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO][Generation Break 1] (Active if you have one or more face up G units in total on your (VC) or G zone):When this unit is placed on (RC) from your drop zone, this unit gets [Power] +3000 until end of turn, and if this unit is hollowed, choose one of your other units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_030.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/028"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F028",
+          "fetchedAt": "2026-11-16T19:18:16.573Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170618051024/http://cardfight.wikia.com/wiki/Swordmaster_Mimic",
+          "fetchedAt": "2017-06-18T05:10:24Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-029",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/029",
+        "name": "フェイタル・シェイド",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【Gブレイク】(1)：[【ソウルブラスト】(1)，このカードを山札の下に置く]亡霊能力の効果で、このユニットが(R)から退却した時、あなたの「ナイトローゼ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのドロップゾーンからグレード１以外のカードを１枚選び、(R)にコールする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_031.png"
+      },
+      "en": {
+        "number": "G-CHB03/029EN",
+        "name": "Fatal Shade",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO][Generation Break 1]:[Soul-Blast 1 & Put this card on the bottom of your deck] When this unit is retired from (RC) due to the effect of the hollow ability, if you have a vanguard with \"Nightrose\" in its card name, you may pay the cost. If you do, choose a non-grade 1 card from your drop zone, and call it to (RC).",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_029.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/029", "G-CHB03/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F029",
+          "fetchedAt": "2026-11-16T19:18:17.767Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211081941/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/029EN",
+          "fetchedAt": "2019-12-11T08:19:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-030",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/030",
+        "name": "ガイル・シェイド",
+        "text": "【自】：先駆\n【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの「ナイトローゼ」を含むユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたのドロップゾーンからグレード１のカードを１枚選び、(R)にコールし、そのターン中、パワー＋3000。\n【起】【ドロップゾーン】【Gブレイク】(1)：[【ソウルブラスト】(1)，あなたのグレード１以上のリアガードを１枚選び、【レスト】する]このカードをユニットのいない(R)に亡霊状態でコールする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_032.png"
+      },
+      "en": {
+        "number": "G-CHB03/030EN",
+        "name": "Guile Shade",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When the attack of your unit with \"Nightrose\" in its card name hits a vanguard, you may pay the cost. If you do, choose a grade 1 card from your drop zone, call it to (RC), and it gets [Power] +3000 until end of turn.\n[ACT](Drop Zone) [Generation Break 1]:[Soul-Blast 1 & Choose one of your grade 1 or greater rear-guards, and [Rest] it] Call this card to an open (RC) as hollowed.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_032.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB03/030"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F030",
+          "fetchedAt": "2026-11-16T19:18:18.506Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170921192750/http://cardfight.wikia.com/wiki/Guile_Shade",
+          "fetchedAt": "2017-09-21T19:27:50Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-031",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/031",
+        "name": "銀の茨 マッシャー・ドラゴン",
+        "text": "【自】：このユニットが(V)か(R)に登場した時、あなたの山札の上から３枚公開し、その中から「銀の茨」を含むそれぞれ異なるグレードのカードを３枚まで選び、ソウルに置き、残りのカードを山札の下に好きな順番で置き、ソウルに置いたカード１枚につき、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ペイルムーン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_033.png"
+      },
+      "en": {
+        "number": "G-CHB03/031EN",
+        "name": "Silver Thorn, Masher Dragon",
+        "text": "[AUTO]:When this unit is placed on (VC) or (RC), reveal three cards from the top of your deck, choose up to three cards with different grades and \"Silver Thorn\" in their card names from among them, put them into your soul, put the rest on the bottom of your deck in any order, and this unit gets [Power] +2000 for each card put into your soul until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_033.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/031"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F031",
+          "fetchedAt": "2026-11-16T19:18:19.682Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924081219/http://cardfight.wikia.com/wiki/Silver_Thorn,_Masher_Dragon",
+          "fetchedAt": "2017-09-24T08:12:19Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-032",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/032",
+        "name": "銀の茨 アキュート・ドラゴン",
+        "text": "【自】【Gブレイク】(1)：このユニットが(R)に登場した時、あなたの「ルキエ」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋2000。\n【自】【(R)】【Gブレイク】(1)：他のあなたのユニットがソウルから(R)に登場した時、あなたの「ルキエ」を含むヴァンガードがいるなら、そのターン中、このユニットのパワー＋2000。",
+        "clan": "ペイルムーン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_034.png"
+      },
+      "en": {
+        "number": "G-CHB03/032EN",
+        "name": "Silver Thorn, Acute Dragon",
+        "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC), if you have a vanguard with \"Luquier\" in its card name, this unit gets [Power] +2000 until end of turn.\n[AUTO](RC)[Generation Break 1]:When your other unit is placed on (RC) from your soul, if you have a vanguard with \"Luquier\" in its card name, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_034.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/032"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F032",
+          "fetchedAt": "2026-11-16T19:18:20.862Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924072552/http://cardfight.wikia.com/wiki/Silver_Thorn,_Acute_Dragon",
+          "fetchedAt": "2017-09-24T07:25:52Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-033",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/033",
+        "name": "ダンシング・ナイフダンサー",
+        "text": "【自】【(R)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋2000。\n【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、アタックがヒットしていなかったら、このユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_035.png"
+      },
+      "en": {
+        "number": "G-CHB03/033EN",
+        "name": "Dancing Knifedancer",
+        "text": "[AUTO](RC):When this unit attacks, this unit gets [Power] +2000 until end of that battle.\n[AUTO](RC):At the end of the battle that this unit attacked a vanguard, if that attack did not hit, put this unit into your soul.",
+        "clan": "Pale Moon",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_035.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/033"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F033",
+          "fetchedAt": "2026-11-16T19:18:22.088Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170704162104/http://cardfight.wikia.com/wiki/Dancing_Knifedancer",
+          "fetchedAt": "2017-07-04T16:21:04Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-034",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/034",
+        "name": "ナイトメアドール げるだ",
+        "text": "【自】：このユニットが(R)に登場した時、あなたの山札の上から３枚公開し、それらのカードがすべて「ナイトメアドール」を含むカードなら、その中から１枚選び、ソウルに置く。山札をシャッフルする。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_036.png"
+      },
+      "en": {
+        "number": "G-CHB03/034EN",
+        "name": "Nightmare Doll, Gerda",
+        "text": "[AUTO]:When this unit is placed on (RC), reveal three cards from the top of your deck, if all of the cards have \"Nightmare Doll\" in their card names, choose a card from among them, and put it into your soul. Shuffle your deck.",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_036.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/034"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F034",
+          "fetchedAt": "2026-11-16T19:18:22.845Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924034820/http://cardfight.wikia.com/wiki/Nightmare_Doll,_Gerda",
+          "fetchedAt": "2017-09-24T03:48:20Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-035",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/035",
+        "name": "スローイング・ベア",
+        "text": "奇術-【自】：[【カウンターブラスト】(1)]このユニットがソウルから(R)に登場した時、コストを払ってよい。払ったら、あなたのソウルから１枚選び、このユニットと同じ縦列の他の(R)にコールし、そのターンの終了時、そのユニットをソウルに置く。\n【起】【(R)】【ターン1回】【Gブレイク】(1)：[【ソウルブラスト】(1)]そのターン中、このユニットのパワー＋2000し、『【永】【(R)】：カードの効果で、このユニットはソウルに置かれない。』を得る。",
+        "clan": "ペイルムーン",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_037.png"
+      },
+      "en": {
+        "number": "G-CHB03/035EN",
+        "name": "Throwing Bear",
+        "text": "Magia-[AUTO]:[Counter-Blast 1] When this unit is placed on (RC) from your soul, you may pay the cost. If you do, choose a card from your soul, call it to (RC) with the same column as this unit, and at the end of that turn, put that unit into your soul.\n[ACT](RC)[1/Turn] [Generation Break 1]:[Soul-Blast 1] Until end of turn, this unit gets [Power] +2000, and \"[CONT](RC):This unit cannot be put into your soul by card effects.\".",
+        "clan": "Pale Moon",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_037.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/035"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F035",
+          "fetchedAt": "2026-11-16T19:18:23.601Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924055236/http://cardfight.wikia.com/wiki/Throwing_Bear",
+          "fetchedAt": "2017-09-24T05:52:36Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-036",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/036",
+        "name": "銀の茨の道化師 セルネ",
+        "text": "【自】【(R)】【Gブレイク】(1)：[このユニットをソウルに置き、あなたの手札から１枚選び、捨てる]このユニットがヴァンガードをブーストしたバトルの終了時、コストを払ってよい。払ったら、あなたのソウルから「銀の茨」を含むカードを１枚選び、(R)にコールする。\n【自】【ソウル】：[【カウンターブラスト】(1)]あなたの「銀の茨」を含むユニットがソウルから(R)に登場した時、あなたの「ルキエ」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、このカードを(R)にコールする。",
+        "clan": "ペイルムーン",
+        "race": "サキュバス",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_038.png"
+      },
+      "en": {
+        "number": "G-CHB03/036EN",
+        "name": "Silver Thorn Clown, Cernay",
+        "text": "[AUTO](RC)[Generation Break 1]:[Put this unit into your soul, choose a card from your hand, and discard it] At the end of the battle that this unit boosted a vanguard, you may pay the cost. If you do, choose a card with \"Silver Thorn\" in its card name from your soul, and call it to (RC).\n[AUTO](Soul):[Counter-Blast 1] When your unit with \"Silver Thorn\" in its card name is placed on (RC) from your soul, if you have a vanguard with \"Luquier\" in its card name, you may pay the cost. If you do, call this card to (RC).",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_038.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/036"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F036",
+          "fetchedAt": "2026-11-16T19:18:24.360Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20181028145918/http://cardfight.wikia.com/wiki/Silver_Thorn_Clown,_Cernay",
+          "fetchedAt": "2018-10-28T14:59:18Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-037",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/037",
+        "name": "イモータル・ターゲット",
+        "text": "奇術-【自】：[【カウンターブラスト】(1)]このユニットがソウルから(R)に登場した時、コストを払ってよい。払ったら、あなたのソウルから１枚選び、このユニットと同じ縦列の他の(R)にコールし、そのターンの終了時、そのユニットをソウルに置く。\n【起】【(R)】【ターン1回】【Gブレイク】(1)：[【ソウルブラスト】(1)]そのターン中、このユニットのパワー＋2000し、『【永】【(R)】：カードの効果で、このユニットはソウルに置かれない。』を得る。",
+        "clan": "ペイルムーン",
+        "race": "デーモン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_039.png"
+      },
+      "en": {
+        "number": "G-CHB03/037EN",
+        "name": "Immortal Target",
+        "text": "Magia-[AUTO]:[Counter-Blast 1] When this unit is placed on (RC) from your soul, you may pay the cost. If you do, choose a card from your soul, call it to (RC) with the same column as this unit, and at the end of that turn, put that unit into your soul.\n[ACT](RC)[1/Turn] [Generation Break 1]:[Soul-Blast 1] Until end of turn, this unit gets [Power] +2000, and \"[CONT](RC):This unit cannot be put into your soul by card effects.\".",
+        "clan": "Pale Moon",
+        "race": "Demon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_039.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/037"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F037",
+          "fetchedAt": "2026-11-16T19:18:25.539Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924050806/http://cardfight.wikia.com/wiki/Immortal_Target",
+          "fetchedAt": "2017-09-24T05:08:06Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-038",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/038",
+        "name": "ナイトメアドール じゅりえっと",
+        "text": "【自】【(R)】【Gブレイク】(1)：このユニットがブーストした時、【ソウルチャージ】(1)。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_040.png"
+      },
+      "en": {
+        "number": "G-CHB03/038EN",
+        "name": "Nightmare Doll, Juliet",
+        "text": "[AUTO](RC)[Generation Break 1]:When this unit boosts, [Soul-Charge 1].",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_040.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/038"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F038",
+          "fetchedAt": "2026-11-16T19:18:26.305Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170816130005/http://cardfight.wikia.com/wiki/Nightmare_Doll,_Juliet",
+          "fetchedAt": "2017-08-16T13:00:05Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-039",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/039",
+        "name": "銀の茨の獣使い ロロット",
+        "text": "【自】：先駆\n【自】【(R)】：[このユニットと、他のあなたの「銀の茨」を含むリアガードを１枚選び、ソウルに置く]あなたのターンの終了時、あなたの「銀の茨」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、【カウンターチャージ】(1)し、あなたのソウルからグレード３のカードを１枚まで選び、手札に加える。",
+        "clan": "ペイルムーン",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_041.png"
+      },
+      "en": {
+        "number": "G-CHB03/039EN",
+        "name": "Silver Thorn Beast Tamer, Lolotte",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Choose this unit and one other of your rear-guards with \"Silver Thorn\" in its card name, and put them into your soul] At the end of your turn, if you have a vanguard with \"Silver Thorn\" in its card name, you may pay the cost. If you do, [Counter-Charge 1], choose up to one grade 3 card from your soul, and put it into your hand.",
+        "clan": "Pale Moon",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_041.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/039"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F039",
+          "fetchedAt": "2026-11-16T19:18:27.062Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924045322/http://cardfight.wikia.com/wiki/Silver_Thorn_Beast_Tamer,_Lolotte",
+          "fetchedAt": "2017-09-24T04:53:22Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-040",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/040",
+        "name": "ナイトメアドール なたりー",
+        "text": "【自】：先駆\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から３枚見て、１枚をソウルに置き、２枚を山札の下に好きな順番で置く。「ナイトメアドール」を含むカードをあなたのソウルに置いたら、山札の上から３枚見て、１枚をソウルに置き、山札をシャッフルする。",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_042.png"
+      },
+      "en": {
+        "number": "G-CHB03/040EN",
+        "name": "Nightmare Doll, Natalie",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Look at three cards from the top of your deck, put one card from among them into your soul, and put two cards from among them on the bottom of your deck in any order. If a card with \"Nightmare Doll\" in its card name was put into your soul, look at three cards from the top of your deck, put one card from among them into your soul, and shuffle your deck.",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_042.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/040"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F040",
+          "fetchedAt": "2026-11-16T19:18:28.235Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170924035149/http://cardfight.wikia.com/wiki/Nightmare_Doll,_Natalie",
+          "fetchedAt": "2017-09-24T03:51:49Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-041",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/041",
+        "name": "ナイトメアドール うぇんでぃ",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_043.png"
+      },
+      "en": {
+        "number": "G-CHB03/041EN",
+        "name": "Nightmare Doll, Wendy",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_043.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/041"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F041",
+          "fetchedAt": "2026-11-16T19:18:28.978Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120102049/http://cardfight.wikia.com/wiki/G_Character_Booster_3:_Rummy_Labyrinth_under_the_Moonlight",
+          "fetchedAt": "2017-11-20T10:20:49Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-042",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/042",
+        "name": "ナイトメアドール しどにー",
+        "text": "",
+        "clan": "ペイルムーン",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_044.png"
+      },
+      "en": {
+        "number": "G-CHB03/042EN",
+        "name": "Nightmare Doll, Sydney",
+        "text": "",
+        "clan": "Pale Moon",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_044.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/042"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F042",
+          "fetchedAt": "2026-11-16T19:18:30.168Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120102049/http://cardfight.wikia.com/wiki/G_Character_Booster_3:_Rummy_Labyrinth_under_the_Moonlight",
+          "fetchedAt": "2017-11-20T10:20:49Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-043",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/043",
+        "name": "バニッシュメント・ドラコキッド",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ペイルムーン",
+        "race": "アビスドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_045.png"
+      },
+      "en": {
+        "number": "G-CHB03/043EN",
+        "name": "Vanishment Dracokid",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Pale Moon",
+        "race": "Abyss Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_045.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/043"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F043",
+          "fetchedAt": "2026-11-16T19:18:31.002Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120102049/http://cardfight.wikia.com/wiki/G_Character_Booster_3:_Rummy_Labyrinth_under_the_Moonlight",
+          "fetchedAt": "2017-11-20T10:20:49Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-044",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/044",
+        "name": "エクスプロード・ジェントル",
+        "text": "奇術-【起】【(R)】【Gブレイク】(1)：[このユニットを【レスト】する]あなたのソウルからグレード１以上のカードを１枚選び、このユニットのいる(R)にコールし、そのターン中、パワー＋4000し、そのターンの終了時、そのユニットをソウルに置く。",
+        "clan": "ペイルムーン",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_046.png"
+      },
+      "en": {
+        "number": "G-CHB03/044EN",
+        "name": "Explode Gentle",
+        "text": "Magia-[ACT](RC)[Generation Break 1]:[[Rest] this unit] Choose a grade 1 or greater card from your soul, call it to the (RC) this unit is on, it gets [Power] +4000 until end of turn, and at the end of that turn, put that unit into your soul.",
+        "clan": "Pale Moon",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_044.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/044", "G-CHB03/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F044",
+          "fetchedAt": "2026-11-16T19:18:32.185Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113152511/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/044EN",
+          "fetchedAt": "2019-11-13T15:25:11Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-045",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/045",
+        "name": "スカイハイ・ウォーカー",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたの《ペイルムーン》のヴァンガードがいるなら、ダメージゾーンから１枚まで選び、表にする。",
+        "clan": "ペイルムーン",
+        "race": "ゴブリン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_047.png"
+      },
+      "en": {
+        "number": "G-CHB03/045EN",
+        "name": "Skyhigh Walker",
+        "text": "[ACT](RC):［Put this unit into your soul］ If you have a <Pale Moon> vanguard, choose up to one card from your damage zone, and turn it face up.",
+        "clan": "Pale Moon",
+        "race": "Goblin",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_045.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/045", "G-CHB03/045EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F045",
+          "fetchedAt": "2026-11-16T19:18:33.353Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191113154507/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/045EN",
+          "fetchedAt": "2019-11-13T15:45:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-046",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/046",
+        "name": "お化けのふぁびあん",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【(V)/(R)】【Gブレイク】(1)：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n【自】：[【カウンターブラスト】(1)]このカードが山札からドロップゾーンに置かれた時、コストを払ってよい。払ったら、このカードをユニットのいない(R)に亡霊状態でコールする。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_048.png"
+      },
+      "en": {
+        "number": "G-CHB03/046EN",
+        "name": "Fabian the Ghostie",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO](VC/RC)[Generation Break 1]:When this unit attacks a vanguard, it gets [Power] +4000 until end of that battle.\n[AUTO]:[Counter-Blast 1] When this card is put into your drop zone from your deck, you may pay the cost. If you do, call this card to an open (RC) as hollowed.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_048.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/046"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F046",
+          "fetchedAt": "2026-11-16T19:18:34.129Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170921183848/http://cardfight.wikia.com/wiki/Fabian_the_Ghostie",
+          "fetchedAt": "2017-09-21T18:38:48Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-047",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/047",
+        "name": "お化けのくれみー",
+        "text": "【永】【(R)】：あなたのターン中、あなたのドロップゾーンが５枚以上なら、このユニットのパワー＋2000し、さらに、「お化け」を含むカードが10枚以上なら、このユニットのパワー＋5000。\n【永】【(G)】：あなたのドロップゾーンに「お化け」を含むカードが10枚以上なら、このユニットのシールド＋5000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_049.png"
+      },
+      "en": {
+        "number": "G-CHB03/047EN",
+        "name": "Clemmie the Ghostie",
+        "text": "[CONT](RC):During your turn, if the number of cards in your drop zone is five or more, this unit gets [Power] +2000, then, if the number of cards with \"Ghostie\" in their card names is ten or more, this unit gets [Power] +5000.\n[CONT](GC):If the number of cards in your drop zone with \"Ghostie\" in their card names is ten or more, this unit gets [Shield] +5000.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_049.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/047"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F047",
+          "fetchedAt": "2026-11-16T19:18:35.321Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170514111518/http://cardfight.wikia.com/wiki/Clemmie_the_Ghostie",
+          "fetchedAt": "2017-05-14T11:15:18Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-048",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/048",
+        "name": "お化けのへすけす",
+        "text": "【自】：このユニットが(R)に登場した時、そのターン中、このユニットのパワー＋3000。あなたのドロップゾーンに「お化け」を含むカードが３枚以下なら、このユニットを【レスト】する。\n【起】【(R)】【ターン1回】：[【カウンターブラスト】(1)]あなたの山札の上から１枚をドロップゾーンに置き、そのカードが「お化け」を含むカードなら、このユニットを【スタンド】し、そのターン中、パワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_050.png"
+      },
+      "en": {
+        "number": "G-CHB03/048EN",
+        "name": "Hesketh the Ghostie",
+        "text": "[AUTO]:When this unit is placed on (RC), this unit gets [Power] +3000 until end of turn. If the number of cards in your drop zone with \"Ghostie\" in their card names is three or less, [Rest] this unit.\n[ACT](RC)[1/Turn]:[Counter-Blast 1] Put one card from the top of your deck into your drop zone, if that card is a card with \"Ghostie\" in its card name, [Stand] this unit, and it gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_050.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/048"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F048",
+          "fetchedAt": "2026-11-16T19:18:36.073Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170921165513/http://cardfight.wikia.com/wiki/Hesketh_the_Ghostie",
+          "fetchedAt": "2017-09-21T16:55:13Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-049",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/049",
+        "name": "スケルトンの略奪者",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【起】【ドロップゾーン】【Gブレイク】(1)：[【カウンターブラスト】(1)，あなたのグレード１のリアガードを１枚選び、【レスト】する]このカードをユニットのいない(R)に亡霊状態でコールし、そのターン中、パワー＋4000。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_051.png"
+      },
+      "en": {
+        "number": "G-CHB03/049EN",
+        "name": "Skeleton Marauder",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[ACT](Drop Zone) [Generation Break 1]:[Counter-Blast 1 & Choose one of your grade 1 rear-guards, and [Rest] it] Call this unit into an open (RC) as hollowed, and it gets [Power] +4000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_051.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/049"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F049",
+          "fetchedAt": "2026-11-16T19:18:37.240Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20191118005335/http://cardfight.fandom.com/wiki/Skeleton_Marauder",
+          "fetchedAt": "2019-11-18T00:53:35Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-050",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/050",
+        "name": "お化けのくいんしー",
+        "text": "【起】【ドロップゾーン】【Gブレイク】(1)：[【カウンターブラスト】(1)，あなたのグレード０のリアガードを１枚選び、山札の下に置く]このカードをユニットのいない(R)にコールする。\n【自】【(R)】：[このユニットを退却させる]あなたの「お化け」を含むグレード３のヴァンガードがアタックされた時、コストを払ってよい。払ったら、あなたのヴァンガードを１枚選び、そのバトル中、パワー＋5000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_052.png"
+      },
+      "en": {
+        "number": "G-CHB03/050EN",
+        "name": "Quincy the Ghostie",
+        "text": "[ACT](Drop zone)[Generation Break 1]:[Counter-Blast 1 & Choose one of your grade 0 rear-guards, and put it on the bottom of your deck] Call this card to an open (RC).\n[AUTO](RC):[Retire this unit] When your grade 3 vanguard with \"Ghostie\" in its card name is attacked, you may pay the cost. If you do, choose one of your vanguards, and it gets [Power] +5000 until end of that battle.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_050.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/050", "G-CHB03/050EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F050",
+          "fetchedAt": "2026-11-16T19:18:38.192Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191210234441/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/050EN",
+          "fetchedAt": "2019-12-10T23:44:41Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-051",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/051",
+        "name": "お化けのじゃっきー",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【(R)】【Gブレイク】(1)：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋2000。\n【永】【(R)】：このユニットが亡霊状態なら、このユニットのパワー＋2000し、『インターセプト』を得る。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_053.png"
+      },
+      "en": {
+        "number": "G-CHB03/051EN",
+        "name": "Jackie the Ghostie",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO](RC)[Generation Break 1]:When this unit attacks a vanguard, this unit gets [Power] +2000 until end of that battle.\n[CONT](RC):If this unit is hollowed, this unit gets [Power] +2000, and \"Intercept\".",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_053.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/051"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F051",
+          "fetchedAt": "2026-11-16T19:18:39.379Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170921185729/http://cardfight.wikia.com/wiki/Jackie_the_Ghostie",
+          "fetchedAt": "2017-09-21T18:57:29Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-052",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/052",
+        "name": "七海水夫 ナイトアラート",
+        "text": "【自】：[【カウンターブラスト】(1)-「七海」を含むカード]このユニットがドロップゾーンから(R)に登場した時、あなたの「七海」を含むグレード３以上のヴァンガードがいるなら、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋2000し、『【自】【(R)】：[このユニットをソウルに置く]あなたのヴァンガードがアタックした時、コストを払ってよい。払ったら、１枚引く。』を得る。",
+        "clan": "グランブルー",
+        "race": "ヴァンパイア",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_054.png"
+      },
+      "en": {
+        "number": "G-CHB03/052EN",
+        "name": "Seven Seas Shipmate, Nightalert",
+        "text": "[AUTO]:[Counter-Blast 1]‐card with \"Seven Seas\" in its card name] When this unit is placed on (RC) from your drop zone, if you have a grade 3 or greater vanguard with \"Seven Seas\" in its card name, you may pay the cost. If you do, until end of turn, this unit gets [Power] +2000, and \"[AUTO](RC):[Put this unit into your soul] When your vanguard attacks, you may pay the cost. If you do, draw a card.\".",
+        "clan": "Granblue",
+        "race": "Vampire",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_052.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/052", "G-CHB03/052EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F052",
+          "fetchedAt": "2026-11-16T19:18:40.557Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209154550/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/052EN",
+          "fetchedAt": "2019-12-09T15:45:50Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-053",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/053",
+        "name": "マッドネス・フランキー",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【起】【ドロップゾーン】【Gブレイク】(1)：[【カウンターブラスト】(1)，あなたのグレード０のリアガードを１枚選び、【レスト】する]このカードをユニットのいない(R)に亡霊状態でコールし、そのターン中、パワー＋4000。",
+        "clan": "グランブルー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_055.png"
+      },
+      "en": {
+        "number": "G-CHB03/053EN",
+        "name": "Madness Franky",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[ACT](Drop Zone) [Generation Break 1]:[Counter-Blast 1 & Choose one of your grade 0 rear-guards, and [Rest] it] Call this card to an open (RC) as hollowed, and it gets [Power] +4000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_055.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/053"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F053",
+          "fetchedAt": "2026-11-16T19:18:41.300Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171115023054/http://cardfight.wikia.com/wiki/Madness_Franky",
+          "fetchedAt": "2017-11-15T02:30:54Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-054",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/054",
+        "name": "お化けのまっと",
+        "text": "【自】：先駆\n【起】【(R)】：[このユニットをソウルに置く]あなたの山札の上から２枚をドロップゾーンに置く。「お化け」を含むカードを置いたら、【ソウルチャージ】(1)し、さらに、２枚置いたら、【カウンターチャージ】(1)。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_056.png"
+      },
+      "en": {
+        "number": "G-CHB03/054EN",
+        "name": "Matt the Ghostie",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Put this unit into your soul] Put two cards from the top of your deck into the drop zone. If you put a card with \"Ghostie\" in its card name, [Soul-Charge 1], then, if you put two cards with \"Ghostie\" in their card names, [Counter-Charge 1].",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_056.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/054"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F054",
+          "fetchedAt": "2026-11-16T19:18:42.504Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170627231755/http://cardfight.wikia.com/wiki/Matt_the_Ghostie",
+          "fetchedAt": "2017-06-27T23:17:55Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB03-055",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/055",
+        "name": "七海兵卒 ステュクス",
+        "text": "【自】：先駆\n【自】【(R)】：[このユニットをソウルに置く]他のあなたの「七海」を含むユニットがドロップゾーンから(R)に登場した時、あなたの「七海」を含むグレード３以上のヴァンガードがいるなら、コストを払ってよい。払ったら、あなたのドロップゾーンから「七海」を含むグレード１以上のカードを１枚選び、(R)にコールし、そのターンの終了時、そのユニットを退却させる。",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_057.png"
+      },
+      "en": {
+        "number": "G-CHB03/055EN",
+        "name": "Seven Seas Private, Styx",
+        "text": "[AUTO]:Forerunner\n[AUTO](RC):[Put this unit into your soul] When your other unit with \"Seven Seas\" in its card name is placed on (RC) from drop zone, if you have a grade 3 or greater vanguard with \"Seven Seas\" in its card name, you may pay the cost. If you do, choose a grade 1 or greater card with \"Seven Seas\" in its card name from your drop zone, call it to (RC), and at the end of that turn, retire that unit.",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_055.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/055", "G-CHB03/055EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F055",
+          "fetchedAt": "2026-11-16T19:18:43.309Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191207055355/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/055EN",
+          "fetchedAt": "2019-12-07T05:53:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-056",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/056",
+        "name": "七海不死竜 スカベンジ・ドラゴン",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "スケルトン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_058.png"
+      },
+      "en": {
+        "number": "G-CHB03/056EN",
+        "name": "Seven Seas Dragon Undead, Scavenge Dragon",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Skeleton",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_056.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/056", "G-CHB03/056EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F056",
+          "fetchedAt": "2026-11-16T19:18:44.086Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209145901/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/056EN",
+          "fetchedAt": "2019-12-09T14:59:01Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-057",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/057",
+        "name": "七海亡者 アウレリオ",
+        "text": "",
+        "clan": "グランブルー",
+        "race": "ゾンビ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_059.png"
+      },
+      "en": {
+        "number": "G-CHB03/057EN",
+        "name": "Dead of the Seven Seas, Aurelio",
+        "text": "",
+        "clan": "Granblue",
+        "race": "Zombie",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_057.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/057", "G-CHB03/057EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F057",
+          "fetchedAt": "2026-11-16T19:18:45.261Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191209151948/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/057EN",
+          "fetchedAt": "2019-12-09T15:19:48Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-058",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/058",
+        "name": "クラッシャー・フランチェスカ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "グランブルー",
+        "race": "ワーカロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_060.png"
+      },
+      "en": {
+        "number": "G-CHB03/058EN",
+        "name": "Crusher Francesca",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Granblue",
+        "race": "Workeroid",
+        "image": "/wordpress/wp-content/images/cardlist/gchb03/GCHB03_058EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/058", "G-CHB03/058EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F058",
+          "fetchedAt": "2026-11-16T19:18:46.015Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251112083338/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/058EN",
+          "fetchedAt": "2025-11-12T08:33:38Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-059",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/059",
+        "name": "お化けのはわーど",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_061.png"
+      },
+      "en": {
+        "number": "G-CHB03/059EN",
+        "name": "Howard the Ghostie",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/gchb03/GCHB03_059EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/059", "G-CHB03/059EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F059",
+          "fetchedAt": "2026-11-16T19:18:47.172Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20211027163940/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/059EN",
+          "fetchedAt": "2021-10-27T16:39:40Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB03-060",
+      "set": "G-CHB03",
+      "jp": {
+        "number": "G-CHB03/060",
+        "name": "絶叫するバンシー",
+        "text": "【自】：亡霊（(R)に登場時、亡霊状態にしてよい。そうしたら、ターン終了時に退却）\n【自】【Gブレイク】(1)：このユニットが(R)に登場した時、他のあなたの亡霊能力を持つリアガードを１枚選び、亡霊状態にしてよい。\n【自】【Gブレイク】(1)：亡霊能力の効果で、このユニットが(R)から退却した時、このカードを表でバインドしてよい。そうしたら、１枚引く。",
+        "clan": "グランブルー",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB03/gchb03_062.png"
+      },
+      "en": {
+        "number": "G-CHB03/060EN",
+        "name": "Screaming Banshee",
+        "text": "[AUTO]:Hollow (When this unit is placed on (RC), you may have it become hollowed. If you do, retire it at the end of turn)\n[AUTO][Generation Break 1]:When this unit is placed on (RC), choose one of your other rear-guards with the hollow ability, and you may have it become hollowed.\n[AUTO][Generation Break 1]:When this unit is retired from (RC) due to the effect of the hollow ability, you may bind this card face up. If you do, draw a card.",
+        "clan": "Granblue",
+        "race": "Ghost",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb03_060.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB03/060", "G-CHB03/060EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB03%2F060",
+          "fetchedAt": "2026-11-16T19:18:48.347Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191211081144/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB03/060EN",
+          "fetchedAt": "2019-12-11T08:11:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

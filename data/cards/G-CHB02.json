@@ -1,0 +1,3496 @@
+{
+  "set": "G-CHB02",
+  "importedAt": "2026-11-16T19:04:48.507Z",
+  "importerVersion": 2,
+  "cards": [
+    {
+      "id": "G-CHB02-001",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/001",
+        "name": "枢機の征討神 カムスサノオ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【永】【(V)】【Gブレイク】(2)神託（あなたの手札が５枚以上で有効）：このユニットのパワー＋5000/クリティカル＋１。\n【自】【Gブレイク】(2)：[【カウンターブラスト】(2)]このユニットが(V)に登場した時、あなたの手札が４枚以下なら、コストを払ってよい。払ったら、手札が５枚になるまで引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_004.png"
+      },
+      "en": {
+        "number": "G-CHB02/001EN",
+        "name": "State Affair Subjugation Deity, Kamususanoo",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[CONT](VC)[Generation Break 2]Oracle (Active when you have five or more cards in your hand):This unit gets [Power] +5000/[Critical] +1.\"[AUTO][Generation Break 2]:[Counter-Blast 2] When this unit is placed on (VC), if the number of cards in your hand is four or less, you may pay the cost. If you do, draw until your hand has five cards.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_001.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CHB02/001", "G-CHB02/001SGR", "G-CHB02/001EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F001",
+          "fetchedAt": "2026-11-16T18:57:29.838Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191018015024/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/001EN",
+          "fetchedAt": "2019-10-18T01:50:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-002",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/002",
+        "name": "大銀河総督 コマンダーローレルD",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n超爆-【起】【(V)】：[あなたのリアガードを４枚選び、【レスト】する]このユニットのパワーが20000以上なら、そのターン中、『【自】【(V)】【ターン1回】：このユニットのアタックがヴァンガードにヒットした時、このユニットを【スタンド】する。』を得て、さらに、パワーが25000以上なら、『【自】【(V)】【ターン1回】：このユニットがアタックしたバトルの終了時、アタックがヒットしていなかったら、あなたのリアガードを４枚まで選び、【スタンド】する。』を得る。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_005.png"
+      },
+      "en": {
+        "number": "G-CHB02/002EN",
+        "name": "Great Galactic Governor, Commander Laurel D",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] Stride this card on your (VC) from face down.\nBurst-[ACT](VC):[Choose four of your rear-guards, and [Rest] them] If this unit's [Power] is 20000 or greater, until end of turn, it gets \"[AUTO](VC)[1/Turn]:When this unit's attack hits a vanguard, [Stand] this unit.\", then, if its [Power] is 25000 or greater, it gets \"[AUTO](VC)[1/Turn]:At the end of the battle that this unit attacked, if the attack did not hit, choose up to four of your rear-guards, and [Stand] them.\".",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_005.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 4000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CHB02/002", "G-CHB02/002SGR"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F002",
+          "fetchedAt": "2026-11-16T18:57:31.791Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170705221715/http://cardfight.wikia.com/wiki/Great_Galactic_Governor,_Commander_Laurel_D",
+          "fetchedAt": "2017-07-05T22:17:15Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-003",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/003",
+        "name": "全智竜 フェルニゲーシュ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【永】【(V)】：あなたのリアガード１枚につき、このユニットのパワー＋4000。\n【自】【Gブレイク】(3)：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)からＧゾーンに置かれた時、コストを払ってよい。払ったら、そのターンの終了時、あなたのリアガードをすべて選び、退却させ、この効果で選んだユニット１枚につき、１枚引き、【カウンターチャージ】(1)/【ソウルチャージ】(1)。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_006.png"
+      },
+      "en": {
+        "number": "G-CHB02/003EN",
+        "name": "Omniscience Dragon, Fernyiges",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[CONT](VC):This unit gets [Power] +4000 for each of your rear-guards.\"[AUTO][Generation Break 3]:[Counter-Blast 1 & Soul-Blast 1] When this unit is put into your G zone from (VC), you may pay the cost. If you do, at the end of that turn, choose all of your rear-guards, retire them, and for each unit chosen with this effect, draw a card, and [Counter-Charge 1]/[Soul-Charge 1].",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_003.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "GR",
+      "printings": ["G-CHB02/003", "G-CHB02/003SGR", "G-CHB02/003EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F003",
+          "fetchedAt": "2026-11-16T18:57:34.151Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215220626/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/003EN",
+          "fetchedAt": "2019-12-15T22:06:26Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-004",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/004",
+        "name": "八千代の日輪 アマテラス",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：このユニットが(G)に登場した時、あなたの手札が４枚以上なら、そのバトル中、このユニットのシールド＋10000。\n【自】：このユニットが(G)に登場した時、【ソウルチャージ】(1)し、あなたの山札の上から１枚見て、山札の上か下に置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_007.png"
+      },
+      "en": {
+        "number": "G-CHB02/004EN",
+        "name": "Sun of Eternity, Amaterasu",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:When this unit is placed on (GC), if the number of cards in your hand is four or more, this unit gets [Shield] +10000 until end of that battle.\n[AUTO]:When this unit is placed on (GC), [Soul-Charge 1], look at the top card of your deck, and put that card on the top or the bottom of your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_004.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/004", "G-CHB02/S01", "G-CHB02/004EN", "G-CHB02/S01EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F004",
+          "fetchedAt": "2026-11-16T18:57:35.663Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191118030335/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/004EN",
+          "fetchedAt": "2019-11-18T03:03:35Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-005",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/005",
+        "name": "荒神の霊剣 スサノオ",
+        "text": "【自】【(V)】【Gブレイク】(2)神託（あなたの手札が５枚以上で有効）：あなたのライドフェイズ開始時、山札の上から１枚見て、山札の上か下に置く。\n【自】【(V)】：あなたのライドフェイズ開始時、あなたのＧゾーンに表の、「アマテラス」か「ワカヒルメ」を含むカードがあるなら、【ソウルチャージ】(1)してよい。\n【自】【(V)】：[【ソウルブラスト】(2)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_008.png"
+      },
+      "en": {
+        "number": "G-CHB02/005EN",
+        "name": "Spiritual Sword of Rough Deity, Susanoo",
+        "text": "[AUTO](VC)[Generation Break 2]Oracle (Active when you have five or more cards in your hand):At the beginning of your ride phase, look at the top card of your deck, and put that card on the top or the bottom of your deck.\n[AUTO](VC):At the beginning of your ride phase, if you have a face up card with \"Amaterasu\" or \"Wakahirume\" in its card name in your G zone, you may [Soul-Charge 1].\n[AUTO](VC):[Soul-Blast 2] When your G unit [Stride] during your turn, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_005EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/005", "G-CHB02/S02", "G-CHB02/005EN", "G-CHB02/S02EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F005",
+          "fetchedAt": "2026-11-16T18:57:36.423Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251106203944/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/005EN",
+          "fetchedAt": "2025-11-06T20:39:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-006",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/006",
+        "name": "次元ロボ司令長官 ファイナルダイマックス",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏の「次元ロボ司令長官 ファイナルダイマックス」を１枚選び、表にする]あなたの「次元ロボ」を含むハーツカードがあるなら、そのターン中、このユニットのパワー＋10000し、さらに、あなたのＧゾーンに表のカードが２枚以上なら、クリティカル＋１し、さらに、あなたのＧゾーンに表のカードが４枚以上なら、あなたの前列の「次元ロボ」を含むユニットすべてのパワー＋5000/クリティカル＋１。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_009.png"
+      },
+      "en": {
+        "number": "G-CHB02/006EN",
+        "name": "Dimensional Robo Command Chief, Final Daimax",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down \"Dimensional Robo Command Chief, Final Daimax\" from your G zone, and turn it face up] If you have a heart card with \"Dimensional Robo\" in its card name, until end of turn, this unit gets [Power] +10000, then, if the number of face up cards in your G zone is two or more, it gets [Critical] +1, then, if the number of face up cards in your G zone is four or more, all of the units in your front row with \"Dimensional Robo\" in their card names get [Power] +5000/[Critical] +1.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_006EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/006", "G-CHB02/S03", "G-CHB02/006EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F006",
+          "fetchedAt": "2026-11-16T18:57:37.623Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251208071804/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/006EN",
+          "fetchedAt": "2025-12-08T07:18:04Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-007",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/007",
+        "name": "駆け抜ける英機 グランギャロップ",
+        "text": "超爆-【自】【(R)】【Gブレイク】(3)：あなたのヴァンガードがアタックした時、あなたのヴァンガードのパワーが30000以上なら、そのターン中、このユニットのパワー＋4000し、あなたのヴァンガードのパワーが60000以上なら、このユニットのクリティカル＋１。\n【自】【(V)】：あなたのライドフェイズ開始時、あなたの手札が２枚以下なら、そのターン中、あなたは次の【超越】のコストを払わずに【超越】できる。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、あなたのヴァンガードを１枚選び、そのターン中、パワー＋4000。そのユニットが超爆能力を持つなら、コストを払ってよい。払ったら、そのターン中、そのユニットのパワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_010.png"
+      },
+      "en": {
+        "number": "G-CHB02/007EN",
+        "name": "Bravest Rush, Grandgallop",
+        "text": "Burst-[AUTO](RC)[Generation Break 3]:When your vanguard attacks, if your vanguard's [Power] is 30000 or greater, until end of turn, this unit gets [Power] +4000, and if your vanguard's [Power] is 60000 or greater, this unit gets [Critical] +1.\n[AUTO](VC):At the beginning of your ride phase, if the number of cards in your hand is two or less, until end of turn, you may Stride without paying the cost the next time you Stride.\n[AUTO](VC):[Counter-Blast 1] When your G unit Stride during your turn, choose one of your vanguards, and it gets [Power] +4000 until end of turn. If that unit has the burst ability, you may pay the cost. If you do, that unit gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_010.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/007", "G-CHB02/S04"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F007",
+          "fetchedAt": "2026-11-16T18:57:38.372Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706063825/http://cardfight.wikia.com/wiki/Bravest_Rush,_Grandgallop",
+          "fetchedAt": "2017-07-06T06:38:25Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-008",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/008",
+        "name": "永世教授 ブラマナンダ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：[【カウンターブラスト】(1)，あなたのＧゾーンから裏の「永世教授 ブラマナンダ」を１枚選び、表にする]このユニットがアタックした時、あなたの「特別名誉博士」を含むハーツカードがあるなら、コストを払ってよい。払ったら、あなたの手札からＧゾーンの表のカードと同じ枚数まで選び、別々の(R)にコールし、そのターン中、それらのユニットに『【自】【(R)】：このユニットがアタックした時、そのバトル中、このユニットのパワー＋4000。そのターンの終了時、１枚引き、このユニットを退却させる。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_011.png"
+      },
+      "en": {
+        "number": "G-CHB02/008EN",
+        "name": "Immortality Professor, Brahmananda",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC):[Counter-Blast 1 & Choose a face down \"Immortality Professor, Brahmananda\" from your G zone, and turn it face up] When this unit attacks, if you have a heart card with \"Honorary Professor\" in its card name, you may pay the cost. If you do, choose up to the same number of cards from your hand as the number of face up cards in your G zone, call them to separate (RC), and until end of turn, those units get \"[AUTO](RC):When this unit attacks, this unit gets [Power] +4000 until end of that battle. At the end of that turn, draw a card, and retire this unit.\".",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_008EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/008", "G-CHB02/S05", "G-CHB02/008EN", "G-CHB02/S05EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F008",
+          "fetchedAt": "2026-11-16T18:57:39.578Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260807222131/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/008EN",
+          "fetchedAt": "2026-08-07T22:21:31Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-009",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/009",
+        "name": "慈愛の教鞭 ビッグベリー",
+        "text": "【自】【(V)】：達成25000\n【永】【(V)】【Gブレイク】(2)：あなたの達成状態のユニットすべてのパワー＋4000。あなたのリアガードがいないなら、あなたの手札すべてに『【永】【手札】：あなたが【超越】のコストを払う際、このカードのグレード＋１。』を与える。\n【自】【(V)】：[【カウンターブラスト】(1)]あなたのターン中、あなたのＧユニットが【超越】した時、コストを払ってよい。払ったら、あなたの手札から達成能力を持つカードを１枚まで選び、(R)にコールする。あなたのリアガードを１枚選び、そのターン中、パワー＋4000してよい。パワー＋4000したら、そのターンの終了時、１枚引き、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ワービースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_012.png"
+      },
+      "en": {
+        "number": "G-CHB02/009EN",
+        "name": "Teacher's Cane of Affection, Bigbelly",
+        "text": "[AUTO](VC):Success 25000\n[CONT](VC)[Generation Break 2]:All of your successful units get [Power] +4000. If you have no rear-guards, all of the cards in your hand get \"[CONT](Hand):While you are paying the cost for [Stride], this card gets grade +1.\".\n[AUTO](VC):[Counter-Blast 1] When your G unit [Stride] during your turn, you may pay the cost. If you do, choose up to one card with the success ability from your hand, and call it to (RC). Choose one of your rear-guards, and you may have it get [Power] +4000 until end of turn. If you do, at the end of that turn, draw a card, and retire that unit.",
+        "clan": "Great Nature",
+        "race": "Warbeast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_009EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RRR",
+      "printings": ["G-CHB02/009", "G-CHB02/S06", "G-CHB02/009EN", "G-CHB02/S06EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F009",
+          "fetchedAt": "2026-11-16T18:57:40.314Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260718033755/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/009EN",
+          "fetchedAt": "2026-07-18T03:37:55Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-010",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/010",
+        "name": "エキサイトバトルシスター みろわーる",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏のカードを１枚選び、表にする]そのターン中、このユニットは、『【自】【(V)】：[【カウンターブラスト】(1)]あなたの「バトルシスター」を含むユニットのアタックがヒットした時、コストを払ってよい。払ったら、１枚引く。』と『【永】【(V)】【Gブレイク】(3)神託：あなたの手札１枚につき、あなたの前列の「バトルシスター」を含むユニットすべてのパワー＋1000。』を得る。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_013.png"
+      },
+      "en": {
+        "number": "G-CHB02/010EN",
+        "name": "Excite Battle Sister, Miroir",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[ACT](VC)[1/turn]:[Choose a face down card from your G zone, and turn it face up] Until end of turn, this unit gets \"[AUTO](VC):[Counter-Blast 1] When the attack of your unit with \"Battle Sister\" in its card name hits, you may pay the cost. If you do, draw a card.\" and \"[CONT](VC)[Generation Break 3]Oracle:All of the units in your front row with \"Battle Sister\" in their card names get [Power] +1000 for each card in your hand.\".",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_010.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/010", "G-CHB02/S07", "G-CHB02/010EN", "G-CHB02/S07EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F010",
+          "fetchedAt": "2026-11-16T18:57:41.506Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191023233636/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/010EN",
+          "fetchedAt": "2019-10-23T23:36:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-011",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/011",
+        "name": "バトルシスター まどれーぬ",
+        "text": "【自】【(V)】【Gブレイク】(2)：[【カウンターブラスト】(1)-「バトルシスター」を含むカード]相手のターンの終了時、あなたの、「バトルシスター」を含むユニットが３枚以上で手札が３枚以下なら、コストを払ってよい。払ったら、１枚引く。\n【自】【(V)】：あなたのターン中、あなたの「バトルシスター」を元々含むＧユニットが【超越】した時、あなたのヴァンガードを１枚選び、そのターン中、『【自】【(V)】：[【ソウルブラスト】(1)]あなたの「バトルシスター」を含むリアガードがヴァンガードにアタックしたバトルの終了時、アタックがヒットしていなかったら、コストを払ってよい。払ったら、【カウンターチャージ】(1)。』を与える。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_014.png"
+      },
+      "en": {
+        "number": "G-CHB02/011EN",
+        "name": "Battle Sister, Madeleine",
+        "text": "[AUTO](VC)[Generation Break 2]:[Counter-Blast 1]‐card with \"Battle Sister\" in its card name] At the end of your opponent's turn, if the number of your units with \"Battle Sister\" in their card names is three or more, and the number of cards in your hand is three or less, you may pay the cost. If you do, draw a card.\n[AUTO](VC):When your G unit with \"Battle Sister\" in its original card name [Stride] during your turn, choose one of your vanguards, and until end of turn, it gets \"[AUTO](VC):[Soul-Blast 1] At the end of the battle that your rear-guard with \"Battle Sister\" in its card name attacked a vanguard, if the attack did not hit, you may pay the cost. If you do, [Counter-Charge 1].\".",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_011.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/011", "G-CHB02/011EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F011",
+          "fetchedAt": "2026-11-16T18:57:42.239Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191017210534/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/011EN",
+          "fetchedAt": "2019-10-17T21:05:34Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-012",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/012",
+        "name": "神魂烈士 アメノオシホ",
+        "text": "【自】【(R)】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：[【カウンターブラスト】(1)]このユニットがアタックした時、コストを払ってよい。払ったら、あなたの山札の上から５枚見て、神託能力を持つカードを１枚まで探し、公開し、手札に加え、山札をシャッフルする。手札に加えたら、そのターン中、このユニットのパワー＋3000。\n【自】【(R)】：[このユニットをソウルに置く]あなたのメインフェイズ開始時、あなたの手札が４枚以下なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_015.png"
+      },
+      "en": {
+        "number": "G-CHB02/012EN",
+        "name": "Deity Spirit Loyalist, Ame-no-oshiho",
+        "text": "[AUTO](RC)[Generation Break 1]Oracle (Active when you have five or more cards in your hand):[Counter-Blast 1]］ When this unit attacks, you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with the oracle ability from among them, reveal it, put it into your hand, and shuffle your deck. If you put a card into your hand, this unit gets [Power] +3000 until end of turn.\n[AUTO](RC):[Put this unit into your soul] At the beginning of your main phase, if the number of cards in your hand is four or less, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_012.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/012", "G-CHB02/012EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F012",
+          "fetchedAt": "2026-11-16T18:57:43.422Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190826061126/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/012EN",
+          "fetchedAt": "2019-08-26T06:11:26Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-013",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/013",
+        "name": "神明護官 アマツヒコネ",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。\n【自】【ドロップゾーン】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：[【カウンターブラスト】(1)]あなたのターンの終了時、コストを払ってよい。払ったら、このカードをあなたの手札に戻し、手札からランダムに１枚選び、裏でバインドする。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_016.png"
+      },
+      "en": {
+        "number": "G-CHB02/013EN",
+        "name": "Higher Deity Protecting Official, Amatsu-hikone",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.\n[AUTO](Drop zone)[Generation Break 1]Oracle (Active when you have five or more cards in your hand):[Counter-Blast 1] At the end of your turn, you may pay the cost. If you do, return this card to your hand, choose a card at random from your hand, and bind it face down.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_013EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CHB02/013", "G-CHB02/S08", "G-CHB02/013EN", "G-CHB02/S08EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F013",
+          "fetchedAt": "2026-11-16T18:57:44.173Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260719084514/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/013EN",
+          "fetchedAt": "2026-07-19T08:45:14Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-014",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/014",
+        "name": "超鋼闘機 ギルトディガー",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏の「鋼闘機」を含むカードを１枚選び、表にする]あなたのハーツカードが２枚なら、そのターン中、このユニットのパワー＋20000/クリティカル＋１。あなたの、ハーツカードが１枚で「鋼闘機」を含むカードなら、山札からそのカードと【双闘】できるカードを１枚まで探し、そのカードと【双闘】しているハーツカードとして(V)に置き、山札をシャッフルし、１枚引く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_017.png"
+      },
+      "en": {
+        "number": "G-CHB02/014EN",
+        "name": "Hyper Metalborg, Guilt Digger",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] Stride this card on your (VC) from face down.\n[ACT](VC)[1/Turn]:[Choose a face down card with \"Metalborg\" in its card name from your G zone, and turn it face up] If you have two heart cards, this unit gets [Power] +20000/[Critical] +1 until end of turn. If you have one heart card, and it has \"Metalborg\" in its card name, search your deck for up to one card that can Legion with that card, put it on (VC) as a heart card that is Legion with that card, shuffle your deck, and draw a card.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_017.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/014", "G-CHB02/S09"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F014",
+          "fetchedAt": "2026-11-16T18:57:44.931Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706075426/http://cardfight.wikia.com/wiki/Hyper_Metalborg,_Guilt_Digger",
+          "fetchedAt": "2017-07-06T07:54:26Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-015",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/015",
+        "name": "豪勇合身 ジーオーファイブ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【ソウルブラスト】(1)-パワーが5000以上のカード]このユニットが(G)に登場した時、コストを払ってよい。払ったら、そのバトル中、このユニットのシールド＋10000。さらに、このターンにあなたのダメージゾーンにカードが置かれているなら、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_018.png"
+      },
+      "en": {
+        "number": "G-CHB02/015EN",
+        "name": "Gallant Incarnation, G-O-Five",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Soul-Blast 1]‐card with [Power] 5000 or greater] When this unit is placed on (GC), you may pay the cost. If you do, this unit gets [Shield] +10000 until end of that battle. Then, if a card was put into your damage zone during this turn, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_015.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/015", "G-CHB02/015EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F015",
+          "fetchedAt": "2026-11-16T18:57:46.122Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215124706/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/015EN",
+          "fetchedAt": "2019-12-15T12:47:06Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-016",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/016",
+        "name": "イニグマン・ヘルム",
+        "text": "超爆-【自】【Gブレイク】(2)：このユニットが(R)に登場した時、あなたのヴァンガードのパワーが15000以上なら、そのターン中、このユニットのパワー＋4000。あなたのヴァンガードのパワーが30000以上なら、あなたのヴァンガードを１枚選び、そのターン中、『【自】【(V)】：[あなたの超爆能力を持つリアガードを１枚選び、ソウルに置く]相手のユニットが(G)に置かれた時、コストを払ってよい。払ったら、相手は自分のグレード３以下のガーディアンを１枚選び、退却させる。』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_019.png"
+      },
+      "en": {
+        "number": "G-CHB02/016EN",
+        "name": "Enigman Helm",
+        "text": "Burst-[AUTO][Generation Break 2]:When this unit is placed on (RC), if your vanguard's [Power] is 15000 or greater, this unit gets [Power] +4000 until end of turn. If your vanguard's [Power] is 30000 or greater, choose one of your vanguards, and until end of turn, it gets \"[AUTO](VC):[Choose one of your rear-guards with the burst ability, and put it into your soul] When your opponent's unit is put on (GC), you may pay the cost. If you do, your opponent chooses one of his or her grade 3 or less guardians, and retires it.\".",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_016.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/016", "G-CHB02/S20", "G-CHB02/016EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F016",
+          "fetchedAt": "2026-11-16T18:57:47.281Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20201026040936/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/016EN",
+          "fetchedAt": "2020-10-26T04:09:36Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-017",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/017",
+        "name": "イニグマン・カーム",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。\n超爆-【自】【ドロップゾーン】【Gブレイク】(2)：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]あなたの超爆能力を持つヴァンガードがアタックしたバトルの終了時、そのユニットのパワーが40000以上なら、コストを払ってよい。払ったら、このカードを手札に戻し、あなたのヴァンガードのパワーが45000以上なら、【カウンターチャージ】(1)。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_020.png"
+      },
+      "en": {
+        "number": "G-CHB02/017EN",
+        "name": "Enigman Calm",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.\nBurst-[AUTO](Drop zone)[Generation Break 2]:[Counter-Blast 1 & Soul-Blast 1] At the end of the battle that your vanguard with the burst ability attacked, if that unit's [Power] is 40000 or greater, you may pay the cost. If you do, return this card to your hand, and if your vanguard's [Power] is 45000 or greater, [Counter-Charge 1].",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_017EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CHB02/017", "G-CHB02/S10", "G-CHB02/017EN", "G-CHB02/S10EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F017",
+          "fetchedAt": "2026-11-16T18:57:48.497Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250616161907/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/017EN",
+          "fetchedAt": "2025-06-16T16:19:07Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-018",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/018",
+        "name": "全智竜 アルミラージ",
+        "text": "【Ｇガーディアン】（お互いのヴァンガードがグレード３以上で、あなたのＧゾーンに表のＧガーディアンが３枚以下なら使える）-相手ターンのガードステップ-[あなたの手札から【治】を１枚選び、捨てる]裏のこのカードを(G)にコールする。\n【自】：[【ソウルブラスト】(1)]このユニットが(G)に登場した時、コストを払ってよい。払ったら、あなたの手札から２枚まで選び、別々の(R)にコールし、あなたのリアガードを４枚まで選び、そのターン中、『【永】【(R)/(G)】：抵抗』と『【永】【(R)】：このユニットはヒットされても退却しない。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_021.png"
+      },
+      "en": {
+        "number": "G-CHB02/018EN",
+        "name": "Omniscience Dragon, Al-mi'raj",
+        "text": "[G Guardian](Usable when both fighters' vanguards are grade 3 or greater, and the number of face up G guardians in your G zone is three or less)-Opponent Turn's Guard Step-[Choose a card with \"[Heal] Heal\" from your hand, and discard it] Call this card to your (GC) from face down.\n[AUTO]:[Soul-Blast 1] When this unit is placed on (GC), you may pay the cost. If you do, choose up to two cards from your hand, call them to separate (RC), choose up to four of your rear-guards, and until end of turn, they get \"[CONT](RC)/(GC):Resist\" and \"[CONT](RC):If this unit is hit, it does not retire.\".",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_018.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 0,
+      "shield": 15000,
+      "critical": 0,
+      "skillIcon": null,
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/018", "G-CHB02/018EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F018",
+          "fetchedAt": "2026-11-16T18:57:49.257Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191215215324/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/018EN",
+          "fetchedAt": "2019-12-15T21:53:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-019",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/019",
+        "name": "特別名誉博士 シャソバージュ",
+        "text": "【自】：[あなたの手札から「特別名誉博士」を含むグレード３のカードを１枚選び、捨てる]このユニットが「特別名誉博士 シャノアール」からライドして(V)に登場した時、コストを払ってよい。払ったら、あなたのＧゾーンから裏の、「全智竜 キャスパリーグ」か「永世教授 ブラマナンダ」を１枚まで選び、(V)に【超越】する。【超越】したら、そのターン中、あなたは【超越】できない。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_022.png"
+      },
+      "en": {
+        "number": "G-CHB02/019EN",
+        "name": "Honorary Professor, Chatsauvage",
+        "text": "[AUTO]:[Choose a grade 3 card with \"Honorary Professor\" in its card name from your hand, and discard it] When this unit is placed on (VC) by riding from \"Honorary Professor, Chatnoir\", you may pay the cost. If you do, choose up to one face down \"Omniscience Dragon, Cath Palug\" or \"Immortality Professor, Brahmananda\" from your G zone, and [Stride] it on (VC). If you [Stride], you cannot [Stride] until end of turn.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_019EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/019", "G-CHB02/S11", "G-CHB02/019EN", "G-CHB02/S11EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F019",
+          "fetchedAt": "2026-11-16T18:57:50.005Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20260119132826/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/019EN",
+          "fetchedAt": "2026-01-19T13:28:26Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-020",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/020",
+        "name": "レッサー・ライター",
+        "text": "【自】【(R)】：達成20000（あなたのリアガードがパワー20000以上になった時、そのあなたのターン中、このユニットを達成状態にする）\n【永】【(R)】：このユニットが達成状態なら、あなたの達成能力を持つユニットすべてのパワー＋2000し、『【永】【(V)/(R)】：抵抗』を与える。\n【起】【(R)】【ターン1回】：[【ソウルブラスト】(1)]そのターン中、このユニットを達成状態にし、そのターンの終了時、このユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_023.png"
+      },
+      "en": {
+        "number": "G-CHB02/020EN",
+        "name": "Lesser Writer",
+        "text": "[AUTO](RC):Success 20000(When your rear-guard's [Power] becomes 20000 or greater during your turn, this unit becomes successful until end of turn)\n[CONT](RC):If this unit is successful, all of your units with the success ability get [Power] +2000, and \"[CONT](VC/RC):Resist\".\n[ACT](RC)[1/turn]:[Soul-Blast 1] This unit becomes successful until end of turn, and at the end of that turn, retire this unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_020EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "RR",
+      "printings": ["G-CHB02/020", "G-CHB02/020EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F020",
+          "fetchedAt": "2026-11-16T18:57:50.752Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251012113719/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/020EN",
+          "fetchedAt": "2025-10-12T11:37:19Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-021",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/021",
+        "name": "ファインコート・マルチーズ",
+        "text": "【永】：守護者\n【自】：[あなたの手札から１枚選び、捨てる]このユニットが手札から(G)に登場した時、コストを払ってよい。払ったら、あなたのアタックされているユニットを１枚選び、そのバトル中、ヒットされない。\n【自】【ドロップゾーン】【Gブレイク】(1)：[あなたの達成状態のリアガードを２枚選び、退却させる]あなたのターンの終了時、コストを払ってよい。払ったら、あなたの山札から「ファインコート・マルチーズ」を１枚まで探し、公開し、手札に加え、山札をシャッフルする。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_024.png"
+      },
+      "en": {
+        "number": "G-CHB02/021EN",
+        "name": "Finecoat Maltese",
+        "text": "[CONT]:Sentinel\n[AUTO]:[Choose a card from your hand, and discard it] When this unit is placed on (GC) from hand, you may pay the cost. If you do, choose one of your units that is being attacked, and it cannot be hit until end of that battle.\n[AUTO](Drop zone)[Generation Break 1]:[Choose two of your successful rear-guards, and retire them] At the end of your turn, you may pay the cost. If you do, search your deck for up to one \"Finecoat Maltese\", reveal it, put it into your hand, and shuffle your deck.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_021.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": true,
+      "rarity": "RR",
+      "printings": ["G-CHB02/021", "G-CHB02/S12", "G-CHB02/021EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F021",
+          "fetchedAt": "2026-11-16T18:57:51.911Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190917212724/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/021EN",
+          "fetchedAt": "2019-09-17T21:27:24Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-022",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/022",
+        "name": "恵みの霊神 アメノサグメ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】神託（あなたの手札が５枚以上で有効）：[あなたのＧゾーンから裏のカードを１枚選び、表にする]このユニットがアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットは『【自】【(V)】：このユニットのアタックがヴァンガードにヒットした時、２枚引き、あなたの手札から１枚選び、捨て、【カウンターチャージ】(1)/【ソウルチャージ】(1)。』を得る。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_025.png"
+      },
+      "en": {
+        "number": "G-CHB02/022EN",
+        "name": "Spiritual Deity of Benevolence, Ame-no-sagume",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down.\n[AUTO](VC)Oracle (Active when you have five or more cards in your hand):[Choose a face down card from your G zone, and turn it face up] When this unit attacks, you may pay the cost. If you do, until end of that battle, this unit gets \"[AUTO](VC):When this unit's attack hits a vanguard, draw two cards, choose a card from your hand, discard it, and [Counter-Charge 1]/[Soul-Charge 1].\".",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_022.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/022", "G-CHB02/022EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F022",
+          "fetchedAt": "2026-11-16T18:57:53.067Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191023192254/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/022EN",
+          "fetchedAt": "2019-10-23T19:22:54Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-023",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/023",
+        "name": "推命の女神 ヤサカ",
+        "text": "【自】【(V)/(R)】神託（あなたの手札が５枚以上で有効）：[【ソウルブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、１枚引き、あなたの手札から１枚選び、捨て、神託能力を持つカードを捨てたら、【カウンターチャージ】(1)/【ソウルチャージ】(1)。\n【自】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットが(V)に登場した時、コストを払ってよい。払ったら、あなたの山札の上から５枚見て、神託能力を持つカードを１枚まで探し、公開し、手札に加え、山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_026.png"
+      },
+      "en": {
+        "number": "G-CHB02/023EN",
+        "name": "Goddess of Astrology, Yasaka",
+        "text": "[AUTO](VC/RC)Oracle (Active when you have five or more cards in your hand):[Soul-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, draw a card, choose a card from your hand, discard it, and if you discarded a card with the oracle ability, [Counter-Charge 1]/[Soul-Charge 1].\n[AUTO]:[Counter-Blast 1 & Soul-Blast 1] When this unit is placed on (VC), you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with the oracle ability from among them, reveal it, put it into your hand, and shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_023.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/023", "G-CHB02/023EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F023",
+          "fetchedAt": "2026-11-16T18:57:53.820Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20190917203658/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/023EN",
+          "fetchedAt": "2019-09-17T20:36:58Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-024",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/024",
+        "name": "バトルシスター くれーぷ",
+        "text": "【永】【(R)】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：このユニットのパワー＋2000。\n【自】【(R)】：[【カウンターブラスト】(1)-「バトルシスター」を含むカード]このユニットのアタックがヴァンガードにヒットした時、あなたの「バトルシスター」を含むグレード３以上のヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_027.png"
+      },
+      "en": {
+        "number": "G-CHB02/024EN",
+        "name": "Battle Sister, Crepe",
+        "text": "[CONT](RC)[Generation Break 1] Oracle (This ability is active when you have five or more cards in your hand):This unit gets [Power] +2000.\n[AUTO](RC):[Counter-Blast 1-card with \"Battle Sister\" in its card name] When this unit's attack hits a vanguard, if you have a grade 3 or greater vanguard with \"Battle Sister\" in its card name, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_027.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/024"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F024",
+          "fetchedAt": "2026-11-16T18:57:54.595Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706063026/http://cardfight.wikia.com/wiki/Battle_Sister,_Crepe",
+          "fetchedAt": "2017-07-06T06:30:26Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-025",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/025",
+        "name": "神魂烈士 クマノクスビ",
+        "text": "【自】【(R)】神託（あなたの手札が５枚以上で有効）：[【カウンターブラスト】(1)]このユニットがブーストしたバトル中、アタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの山札の上から５枚見て、神託能力を持つカードを１枚まで探し、公開し、手札に加え、残りのカードを山札の下に好きな順番で置く。手札に加えたら、このユニットをソウルに置く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_028.png"
+      },
+      "en": {
+        "number": "G-CHB02/025EN",
+        "name": "Deity Spirit Loyalist, Kumano-kusubi",
+        "text": "[AUTO](RC)Oracle (Active when you have five or more cards in your hand):[Counter-Blast 1] When an attack hits a vanguard during the battle that this unit boosted ([Boost]), you may pay the cost. If you do, look at five cards from the top of your deck, search for up to one card with the oracle ability from among them, reveal it, put it into your hand, and put the rest on the bottom of your deck in any order. If you put a card into your hand, put this unit into your soul.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_025EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/025", "G-CHB02/025EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F025",
+          "fetchedAt": "2026-11-16T18:57:55.807Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251112083010/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/025EN",
+          "fetchedAt": "2025-11-12T08:30:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-026",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/026",
+        "name": "プレシャス・オフィディアン",
+        "text": "【自】【(R)】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：[このユニットを退却させる]あなたのライドフェイズ開始時、コストを払ってよい。払ったら、そのターン中、あなたは次の【超越】のコストを払わずに【超越】できる。\n【自】：[【ソウルブラスト】(1)]このユニットが(R)に登場した時、あなたの神託能力を持つヴァンガードがいるなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_029.png"
+      },
+      "en": {
+        "number": "G-CHB02/026EN",
+        "name": "Precious Ophidian",
+        "text": "[AUTO](RC)[Generation Break 1]Oracle (Active when you have five or more cards in your hand):[Retire this unit] At the beginning of your ride phase, you may pay the cost. If you do, until end of turn, you may [Stride] without paying the cost the next time you [Stride].\n[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), if you have a vanguard with the oracle ability, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_026EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/026", "G-CHB02/026EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F026",
+          "fetchedAt": "2026-11-16T18:57:58.610Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251012113533/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/026EN",
+          "fetchedAt": "2025-10-12T11:35:33Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-027",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/027",
+        "name": "バトルシスター こんぽーと",
+        "text": "【自】：先駆\n【起】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの山札の上から３枚公開し、それらのカードがすべて「バトルシスター」を含むカードなら、その中から「バトルシスター こんぽーと」以外のカードを１枚選び、手札に加える。あなたの山札をシャッフルする。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_030.png"
+      },
+      "en": {
+        "number": "G-CHB02/027EN",
+        "name": "Battle Sister, Compote",
+        "text": "[AUTO]:Forerunner\n[ACT](RC):[Counter-Blast 1 & Put this unit into your soul] Reveal three cards from the top of your deck, and if all of those cards have \"Battle Sister\" in their card names, choose a card not named \"Battle Sister, Compote\" from among them, and put it into your hand. Shuffle your deck.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_027EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/027", "G-CHB02/027EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F027",
+          "fetchedAt": "2026-11-16T18:57:59.798Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251118104610/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/027EN",
+          "fetchedAt": "2025-11-18T10:46:10Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-028",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/028",
+        "name": "振鈴の斎女 オウカ",
+        "text": "【起】【(R)】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：[このユニットを退却させる]あなたの神託能力を持つヴァンガードがいるなら、あなたのリアガードを１枚選び、そのターン中、『【自】【(R)】：このユニットがアタックした時、そのバトル中、相手はグレード０のカードを自分の手札から(G)にコールできない。』を与える。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_031.png"
+      },
+      "en": {
+        "number": "G-CHB02/028EN",
+        "name": "Bell-ringing Miko, Ouka",
+        "text": "[ACT](RC)[Generation Break 1]Oracle (Active when you have five or more cards in your hand):[Retire this unit] If you have a vanguard with the oracle ability, choose one of your rear-guards, and until end of turn, it gets \"[AUTO](RC):When this unit attacks, until end of that battle, your opponent cannot call grade 0 cards from hand to (GC).\".",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_028EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/028", "G-CHB02/028EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F028",
+          "fetchedAt": "2026-11-16T18:58:00.988Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251213202412/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/028EN",
+          "fetchedAt": "2025-12-13T20:24:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-029",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/029",
+        "name": "超宇宙勇機 エクスリード",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n超爆-【自】【(V)】：このユニットのアタックがヒットした時、このユニットのパワーが35000以上なら、１枚引き、さらに、パワーが40000以上なら、あなたのリアガードを１枚選び、【スタンド】する。\n【起】【(V)】【ターン1回】：[あなたのＧゾーンから裏のカードを１枚選び、表にする]あなたのリアガードを５枚まで選び、【レスト】し、【レスト】されたユニット１枚につき、あなたのリアガードを１枚選び、そのターン中、そのユニットとこのユニットのパワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_032.png"
+      },
+      "en": {
+        "number": "G-CHB02/029EN",
+        "name": "Super Cosmic Hero, X-lead",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"Burst-[AUTO](VC):When this unit's attack hits, if this unit's [Power] is 35000 or greater, draw a card, then, if its [Power] is 40000 or greater, choose one of your rear-guards, and [Stand] it.\"[ACT](VC)[1/turn]:[Choose a face down card from your G zone, and turn it face up] Choose up to five of your rear-guards, [Rest] them, and for each unit that was [Rest], choose one of your rear-guards, and until end of turn, those units and this unit get [Power] +4000.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_029.png"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/029", "G-CHB02/029EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F029",
+          "fetchedAt": "2026-11-16T18:58:02.151Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212051429/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/029EN",
+          "fetchedAt": "2019-12-12T05:14:29Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-030",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/030",
+        "name": "イニグマン・ギガストーム",
+        "text": "超爆-【自】【(V)】【Gブレイク】(2)：あなたのアタックステップ開始時、このユニットのパワーが15000以上なら、【ソウルチャージ】(1)し、さらに、パワーが20000以上なら、そのターン中、あなたの前列の「イニグマン」を含むユニットすべてのパワー＋4000。\n【自】【(V)】：[【カウンターブラスト】(1)，【ソウルブラスト】(1)]このユニットのアタックがヴァンガードにヒットした時、コストを払ってよい。払ったら、あなたの「イニグマン」を含むリアガードを１枚選び、そのターン中、パワーを増やす。増やす数値は、このユニットのパワーである。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_033.png"
+      },
+      "en": {
+        "number": "G-CHB02/030EN",
+        "name": "Enigman Gigastorm",
+        "text": "Burst-[AUTO](VC)[Generation Break 2]:At the beginning of your attack step, if this unit's [Power] is 15000 or greater, [Soul-Charge 1], then, if its [Power] is 20000 or greater, until end of turn, all of your units in the front row with \"Enigman\" in their card names get [Power] +4000.\n[AUTO](VC):[Counter-Blast 1 & Soul-Blast 1] When this unit's attack hits a vanguard, you may pay the cost. If you do, choose one of your rear-guards with \"Enigman\" in its card name, and increase its [Power] by this unit's [Power] until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_033.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/030", "G-CHB02/S19"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F030",
+          "fetchedAt": "2026-11-16T18:58:03.327Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706053043/http://cardfight.wikia.com/wiki/Enigman_Gigastorm",
+          "fetchedAt": "2017-07-06T05:30:43Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-031",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/031",
+        "name": "次元ロボ ダイレゾン",
+        "text": "【永】【(R)】：あなたのターン中、あなたのＧゾーンの表の「次元ロボ」を含むカード１枚につき、このユニットのパワー＋2000。\n【永】【(R)】：あなたの「ダイユーシャ」を含むヴァンガードがいるなら、このユニットのパワー＋2000。\n【永】【(R)】：あなたの「ダイカイザー」を含むヴァンガードがいるなら、このユニットのパワー＋2000。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_034.png"
+      },
+      "en": {
+        "number": "G-CHB02/031EN",
+        "name": "Dimensional Robo, Daireson",
+        "text": "[CONT](RC):During your turn, this unit gets [Power] +2000 for every face up card with \"Dimensional Robo\" in its card name in your G zone.\n[CONT](RC):If you have a vanguard with \"Daiyusha\" in its card name, this unit gets [Power] +2000.\n[CONT](RC):If you have a vanguard with \"Daikaiser\" in its card name, this unit gets [Power] +2000.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_034.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/031"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F031",
+          "fetchedAt": "2026-11-16T18:58:04.120Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706053316/http://cardfight.wikia.com/wiki/Dimensional_Robo,_Daireson",
+          "fetchedAt": "2017-07-06T05:33:16Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-032",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/032",
+        "name": "宇宙勇機 グランベレー",
+        "text": "超爆-【自】【(R)】【Gブレイク】(1)：[【カウンターブラスト】(1)]あなたのメインフェイズ開始時、あなたのヴァンガードのパワーが10000以上なら、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋4000し、さらに、あなたのヴァンガードのパワーが30000以上なら、このユニットのパワー＋4000。\n【起】【(R)】：[【ソウルブラスト】(1)]あなたの超爆能力を持つヴァンガードを１枚選び、そのターン中、パワーを増やす。増やす数値は、このユニットのパワーである。このユニットを退却させる。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_035.png"
+      },
+      "en": {
+        "number": "G-CHB02/032EN",
+        "name": "Cosmic Hero, Grandberet",
+        "text": "Burst-[AUTO](RC)[Generation Break 1]:[Counter-Blast 1] At the beginning of your main phase, if your vanguard's [Power] is 10000 or greater, you may pay the cost. If you do, until end of turn, this unit gets [Power] +4000, then, if your vanguard's [Power] is 30000 or greater, this unit gets [Power] +4000.\n[ACT](RC):[Soul-Blast 1] Choose one of your vanguards with the burst ability, and increase its [Power] by this unit's [Power] until end of turn. Retire this unit.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_035.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/032"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F032",
+          "fetchedAt": "2026-11-16T18:58:04.882Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706041009/http://cardfight.wikia.com/wiki/Cosmic_Hero,_Grandberet",
+          "fetchedAt": "2017-07-06T04:10:09Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-033",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/033",
+        "name": "イニグマン・ブラン",
+        "text": "【自】【(R)】【Gブレイク】(2)：[このユニットをソウルに置く]あなたのアタックステップ開始時、コストを払ってよい。払ったら、【カウンターチャージ】(1)。\n超爆-【起】【ソウル】：[このカードをドロップゾーンに置く]あなたのヴァンガードのパワーが10000以上なら、あなたの超爆能力を持つヴァンガードを１枚選び、そのターン中、パワー＋4000。あなたのヴァンガードのパワーが35000以上なら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_036.png"
+      },
+      "en": {
+        "number": "G-CHB02/033EN",
+        "name": "Enigman Blanc",
+        "text": "[AUTO](RC)[Generation Break 2]:[Put this unit into your soul] At the beginning of your attack step, you may pay the cost. If you do, [Counter-Charge 1].\nBurst-[ACT](Soul):[Put this card into your drop zone] If your vanguard's [Power] is 10000 or greater, choose one of your vanguards with the burst ability, and it get [Power] +4000 until end of turn. If your vanguard's [Power] is 35000 or greater, choose one of your vanguards, and it get [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_036.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/033", "G-CHB02/S21"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F033",
+          "fetchedAt": "2026-11-16T18:58:06.044Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180208030621/http://cardfight.wikia.com/wiki/Enigman_Blanc",
+          "fetchedAt": "2018-02-08T03:06:21Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-034",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/034",
+        "name": "イニグマン・ゼファー",
+        "text": "【自】：先駆\n【自】【(R)】：[【カウンターブラスト】(1)]あなたのアタックステップ開始時、コストを払ってよい。払ったら、このユニットを手札に戻す。\n超爆-【自】【Gブレイク】(1)：このユニットが(R)に登場した時、あなたのヴァンガードのパワーが10000以上なら、そのターン中、このユニットのパワー＋4000。あなたのヴァンガードのパワーが30000以上なら、あなたのヴァンガードを１枚選び、そのターン中、パワー＋4000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_037.png"
+      },
+      "en": {
+        "number": "G-CHB02/034EN",
+        "name": "Enigman Zephyr",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[AUTO](RC):[Counter-Blast 1] At the beginning of your attack step, you may pay the cost. If you do, return this unit to your hand.\nBurst-[AUTO][Generation Break 1]:When this unit is placed on (RC), if your vanguard's [Power] is 10000 or greater, this unit gets [Power] +4000 until end of turn. If your vanguard's [Power] is 30000 or greater, choose one of your vanguards, and it gets [Power] +4000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_037.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/034", "G-CHB02/S22"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F034",
+          "fetchedAt": "2026-11-16T18:58:07.213Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706051457/http://cardfight.wikia.com/wiki/Enigman_Zephyr",
+          "fetchedAt": "2017-07-06T05:14:57Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-035",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/035",
+        "name": "オペレーターガール リンカ",
+        "text": "超爆-【起】【(R)】【Gブレイク】(2)：[このユニットをソウルに置く]あなたのヴァンガードのパワーが20000以上なら、１枚引く。あなたのヴァンガードのパワーが35000以上なら、あなたの超爆能力を持つヴァンガードを１枚選び、そのターン中、『【自】【(V)】：[【ソウルブラスト】(1)]あなたのドライブチェックでグレード３のカードがでた時、コストを払ってよい。払ったら、相手の(G)の守護者を１枚選び、そのユニットの『ヒットされない』効果を無効にする。』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_038.png"
+      },
+      "en": {
+        "number": "G-CHB02/035EN",
+        "name": "Operator Girl, Linka",
+        "text": "Burst-[ACT](RC)[Generation Break 2]:[Put this unit into your soul] If your vanguard's [Power] is 20000 or greater, draw a card. If your vanguard's [Power] is 35000 or greater, choose one of your vanguards with the burst ability, and until end of turn, it gets \"[AUTO](VC):[Soul-Blast 1] When your drive check reveals a grade 3 card, you may pay the cost. If you do, choose a sentinel on your opponent's (GC), and that unit's effects with \"cannot be hit\" are nullified.\".",
+        "clan": "Dimension Police",
+        "race": "Human",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_035.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/035", "G-CHB02/035EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F035",
+          "fetchedAt": "2026-11-16T18:58:07.964Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191212060730/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/035EN",
+          "fetchedAt": "2019-12-12T06:07:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-036",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/036",
+        "name": "全智竜 キルティムカ",
+        "text": "【超越】-ストライドステップ-[あなたの手札からグレードの合計が３以上になるように１枚以上選び、捨てる]裏のこのカードを(V)に【超越】する。\n【自】【(V)】：達成25000（あなたのリアガードがパワー25000以上になった時、そのあなたのターン中、このユニットを達成状態にする）\n【自】【(V)】：このユニットが達成状態になった時、あなたのドロップゾーンから４枚まで選び、山札の下に好きな順番で置く。４枚置いたら、あなたのリアガードを１枚選び、そのターン中、パワー＋4000し、そのターンの終了時、１枚引き、そのユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ワイルドドラゴン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_039.png"
+      },
+      "en": {
+        "number": "G-CHB02/036EN",
+        "name": "Omniscience Dragon, Kieltimka",
+        "text": "[Stride]-Stride Step-[Choose one or more cards with the sum of their grades being 3 or greater from your hand, and discard them] [Stride] this card on your (VC) from face down. \"[AUTO](VC):Success 25000(When your rear-guard's [Power] becomes 25000 or greater during your turn, this unit becomes successful until end of turn)\"[AUTO](VC):When this unit becomes successful, choose up to four cards from your drop zone, and put them on the bottom of your deck in any order. If you put four cards, choose up to one of your rear-guards, it gets [Power] +4000 until end of turn, and at the end of that turn, draw a card, and retire that unit.",
+        "clan": "Great Nature",
+        "race": "Wild Dragon",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_036EN.jpg"
+      },
+      "cardType": "g_unit",
+      "grade": 4,
+      "power": 15000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "triple_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/036", "G-CHB02/036EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F036",
+          "fetchedAt": "2026-11-16T18:58:08.730Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251216001245/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/036EN",
+          "fetchedAt": "2025-12-16T00:12:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-037",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/037",
+        "name": "フルマーク・ゴリラ",
+        "text": "【永】【(R)】【Gブレイク】(2)：このユニットはヒットされても退却しない。\n【永】【(R)】【Gブレイク】(1)：抵抗（相手のカードの効果で選ばれない）\n【起】【(R)】：[【カウンターブラスト】(1)]そのターン中、このユニットはカードの効果で退却しない。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_040.png"
+      },
+      "en": {
+        "number": "G-CHB02/037EN",
+        "name": "Fullmark Gorilla",
+        "text": "[CONT](RC)[Generation Break 2]:If this unit is hit, it does not retire.\n[CONT](RC)[Generation Break 1]:Resist (This unit cannot be chosen by the effects of your opponent's cards)\n[ACT](RC):[Counter-Blast 1] This unit cannot be retired by card effects until end of turn.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_037EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/037", "G-CHB02/037EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F037",
+          "fetchedAt": "2026-11-16T18:58:09.475Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250317122530/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/037EN",
+          "fetchedAt": "2025-03-17T12:25:30Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-038",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/038",
+        "name": "トリーテス・パンサー",
+        "text": "【自】【(R)】【ターン1回】：このユニットがヴァンガードにアタックした時、あなたの「特別名誉博士」を含むヴァンガードがいるなら、このユニットと同じ横列にいる他のあなたのリアガードを１枚まで選び、そのターン中、パワー＋4000し、『【自】【(R)】：ターンの終了時、１枚引き、このユニットを退却させる。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_041.png"
+      },
+      "en": {
+        "number": "G-CHB02/038EN",
+        "name": "Treatise Panther",
+        "text": "[AUTO](RC)[1/turn]:When this unit attacks a vanguard, if you have a vanguard with \"Honorary Professor\" in its card name, choose up to one of your other rear-guards in the same row as this unit, and until end of turn, it gets [Power] +4000, and \"[AUTO](RC):At the end of the turn, draw a card, and retire this unit.\".",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_038.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/038", "G-CHB02/038EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F038",
+          "fetchedAt": "2026-11-16T18:58:10.223Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20210509063816/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/038EN",
+          "fetchedAt": "2021-05-09T06:38:16Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-039",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/039",
+        "name": "特別名誉助手 みけさぶろー",
+        "text": "【自】：あなたのメインフェイズ中、このユニットが(R)に登場した時、他のあなたのリアガードを１枚選び、そのターン中、『【自】：あなたのエンドフェイズ中、このユニットが(R)から退却した時、山札からグレード３のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルする。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_042.png"
+      },
+      "en": {
+        "number": "G-CHB02/039EN",
+        "name": "Honorary Assistant, Mikesaburo",
+        "text": "[AUTO]:When this unit is placed on (RC) during your main phase, choose one of your other rear-guards, and until end of turn, it gets \"[AUTO]:When this unit is retired from (RC) during your end phase, search your deck for up to one grade 3 card, reveal it, put it into your hand, and shuffle your deck.\".",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_039EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/039", "G-CHB02/039EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F039",
+          "fetchedAt": "2026-11-16T18:58:11.387Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251208161244/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/039EN",
+          "fetchedAt": "2025-12-08T16:12:44Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-040",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/040",
+        "name": "トラベリング・モモンガ",
+        "text": "【自】【(R)】：達成20000（あなたのリアガードがパワー20000以上になった時、そのあなたのターン中、このユニットを達成状態にする）\n【自】【Gブレイク】(1)：カードの効果で、達成状態のこのユニットが(R)から退却した時、あなたの「ビッグベリー」を含むヴァンガードがいるなら、山札からグレード２以上のカードを１枚まで探し、公開し、手札に加え、山札をシャッフルする。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_043.png"
+      },
+      "en": {
+        "number": "G-CHB02/040EN",
+        "name": "Traveling Momonga",
+        "text": "[AUTO](RC):Success 20000(When your rear-guard's [Power] becomes 20000 or greater during your turn, this unit becomes successful until end of turn)\n[AUTO][Generation Break 1]:When this successful unit is retired from (RC) due to the effect of a card, if you have a vanguard with \"Bigbelly\" in its card name, search your deck for up to one grade 2 or greater card, reveal it, put it into your hand, and shuffle your deck.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_040EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/040", "G-CHB02/040EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F040",
+          "fetchedAt": "2026-11-16T18:58:12.139Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251012120025/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/040EN",
+          "fetchedAt": "2025-10-12T12:00:25Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-041",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/041",
+        "name": "ラベル・パンゴリン",
+        "text": "【自】【Gブレイク】(1)：あなたのメインフェイズ中、このユニットが(R)に登場した時、他のあなたのリアガードを１枚選び、そのターン中、『【自】【(R)】：このユニットがヴァンガードにアタックしたバトルの終了時、このユニットのパワーが20000以上なら、【ソウルチャージ】(1)し、あなたのダメージゾーンから１枚選び、表にする。』を与える。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_044.png"
+      },
+      "en": {
+        "number": "G-CHB02/041EN",
+        "name": "Label Pangolin",
+        "text": "[AUTO][Generation Break 1]:When this unit is placed on (RC) during your main phase, choose one of your other rear-guards, and until end of turn, it gets \"[AUTO](RC):At the end of the battle that this unit attacked a vanguard, if this unit's [Power] is 20000 or greater, [Soul-Charge 1], choose a card from your damage zone, and turn it face up.\".",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_041EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/041", "G-CHB02/041EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F041",
+          "fetchedAt": "2026-11-16T18:58:12.898Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20251208154045/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/041EN",
+          "fetchedAt": "2025-12-08T15:40:45Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-042",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/042",
+        "name": "ギフテッド・ベア",
+        "text": "【自】：先駆\n【起】【(R)】：[このユニットを【レスト】する]あなたの手札から「特別名誉博士」を含むカードを１枚選び、公開してよい。公開したら、あなたの山札から、そのカードと別名の「特別名誉博士」を含むカードを１枚まで探し、公開し、手札に加え、山札をシャッフルし、手札から１枚選び、捨て、そのターンの終了時、このユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_045.png"
+      },
+      "en": {
+        "number": "G-CHB02/042EN",
+        "name": "Gifted Bear",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Rest]this unit] Choose a card with \"Honorary Professor\" in its card name in your hand, and you may reveal it. If you do, search your deck for up to one card with a different card name from that card and \"Honorary Professor\" in its card name, reveal it, put it into your hand, shuffle your deck, choose a card from your hand, discard it, and at the end of that turn, retire this unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_045.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "R",
+      "printings": ["G-CHB02/042"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F042",
+          "fetchedAt": "2026-11-16T18:58:13.637Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706025032/http://cardfight.wikia.com/wiki/Gifted_Bear",
+          "fetchedAt": "2017-07-06T02:50:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-043",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/043",
+        "name": "闘撃刀神 トヨクニヌシ",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n【永】【(R)】神託（あなたの手札が５枚以上で有効）：このユニットは、『インターセプト』と『【自】：このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋5000。』を得る。",
+        "clan": "オラクルシンクタンク",
+        "race": "ノーブル",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_046.png"
+      },
+      "en": {
+        "number": "G-CHB02/043EN",
+        "name": "Fighting Strike Sword Deity, Toyokuninushi",
+        "text": "[AUTO](VC/RC)[Generation Break 1]:When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.\n[CONT](RC) Oracle (This ability is active when you have five or more cards in your hand):This unit gets \"Intercept\", and \"[AUTO]:When this unit intercepts, this unit gets [Shield] +5000 until end of that battle.\".",
+        "clan": "Oracle Think Tank",
+        "race": "Noble",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_046.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/043"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F043",
+          "fetchedAt": "2026-11-16T18:58:14.803Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180522010728/http://cardfight.wikia.com/wiki/Fighting_Strike_Sword_Deity,_Toyokuninushi",
+          "fetchedAt": "2018-05-22T01:07:28Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-044",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/044",
+        "name": "バトルシスター ぱんなこった",
+        "text": "【自】【(V)/(R)】：[あなたの手札から「バトルシスター」を含むカードを１枚選び、捨てる]このユニットがヴァンガードにアタックした時、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋5000し、『【自】【(V)/(R)】：[【カウンターブラスト】(1)]このユニットのアタックがヒットした時、コストを払ってよい。払ったら、２枚引き、あなたの手札から１枚選び、捨てる。』を得る。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_047.png"
+      },
+      "en": {
+        "number": "G-CHB02/044EN",
+        "name": "Battle Sister, Pannacotta",
+        "text": "[AUTO](VC/RC):[Choose a card with \"Battle Sister\" in its card name from your hand, and discard it] When this unit attacks a vanguard, you may pay the cost. If you do, until end of that battle, this unit gets [Power] +5000, and \"[AUTO](VC/RC):[Counter-Blast 1] When this unit's attack hits, you may pay the cost. If you do, draw two cards, choose a card from your hand, and discard it.\".",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_044.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/044", "G-CHB02/044EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F044",
+          "fetchedAt": "2026-11-16T18:58:15.984Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20201029224342/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/044EN",
+          "fetchedAt": "2020-10-29T22:43:42Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-045",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/045",
+        "name": "バトルシスター べりーむーす",
+        "text": "【自】【(R)】：あなたのターン中、他のあなたの「バトルシスター」を含むユニットが、(V)か(R)に登場した時、そのターン中、このユニットのパワー＋2000。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_048.png"
+      },
+      "en": {
+        "number": "G-CHB02/045EN",
+        "name": "Battle Sister, Berrymousse",
+        "text": "[AUTO](RC):When your other unit with \"Battle Sister\" in its card name is placed on (VC) or (RC) during your turn, this unit gets [Power] +2000 until end of turn.",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_048.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/045"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F045",
+          "fetchedAt": "2026-11-16T18:58:16.732Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706042806/http://cardfight.wikia.com/wiki/Battle_Sister,_Berrymousse",
+          "fetchedAt": "2017-07-06T04:28:06Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-046",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/046",
+        "name": "見習いお天気お姉さん すむーじー",
+        "text": "【自】【(R)】【Gブレイク】(1)：このユニットのアタックがヴァンガードにヒットした時、【カウンターチャージ】(2)。",
+        "clan": "オラクルシンクタンク",
+        "race": "シルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_049.png"
+      },
+      "en": {
+        "number": "G-CHB02/046EN",
+        "name": "Apprentice Weather Girl, Smoothie",
+        "text": "[AUTO](RC)[Generation Break 1]:When this unit's attack hits a vanguard, [Counter-Charge 2].",
+        "clan": "Oracle Think Tank",
+        "race": "Sylph",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_049.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/046"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F046",
+          "fetchedAt": "2026-11-16T18:58:18.279Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706050729/http://cardfight.wikia.com/wiki/Apprentice_Weather_Girl,_Smoothie",
+          "fetchedAt": "2017-07-06T05:07:29Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-047",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/047",
+        "name": "吉凶の斎女 サチ",
+        "text": "【永】【(V)/(R)】神託（あなたの手札が５枚以上で有効）：このユニットのパワー＋2000。\n【自】：あなたのヴァンガードがアタックされたバトル中、このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_050.png"
+      },
+      "en": {
+        "number": "G-CHB02/047EN",
+        "name": "Foredoom Miko, Sachi",
+        "text": "[CONT](VC/RC) Oracle (This ability is active when you have five or more cards in your hand):This unit gets [Power] +2000.\n[AUTO]:When this unit intercepts during the battle that your vanguard was attacked, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_050.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/047"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F047",
+          "fetchedAt": "2026-11-16T18:58:19.024Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180514003517/http://cardfight.wikia.com/wiki/Foredoom_Miko,_Sachi",
+          "fetchedAt": "2018-05-14T00:35:17Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-048",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/048",
+        "name": "バトルシスター しろっぷ",
+        "text": "【自】【(R)】【Gブレイク】(1)：このユニットがブーストした時、【ソウルチャージ】(1)。",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_051.png"
+      },
+      "en": {
+        "number": "G-CHB02/048EN",
+        "name": "Battle Sister, Syrup",
+        "text": "[AUTO](RC)[Generation Break 1]:When this unit boosts, [Soul-Charge 1].",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_051.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/048"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F048",
+          "fetchedAt": "2026-11-16T18:58:20.192Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180514015322/http://cardfight.wikia.com/wiki/Battle_Sister,_Syrup",
+          "fetchedAt": "2018-05-14T01:53:22Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-049",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/049",
+        "name": "バトルシスター らすく",
+        "text": "【自】【(R)】：[【ソウルブラスト】(1)-「バトルシスター」を含むカード]このユニットがアタックした時、あなたの「バトルシスター」を含むヴァンガードがいるなら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋3000。\n【永】【(V)/(R)/(G)】：抵抗（相手のカードの効果で選ばれない）",
+        "clan": "オラクルシンクタンク",
+        "race": "エルフ",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_052.png"
+      },
+      "en": {
+        "number": "G-CHB02/049EN",
+        "name": "Battle Sister, Rusk",
+        "text": "[AUTO](RC):[Soul-Blast 1]‐card with \"Battle Sister\" in its card name] When this unit attacks, if you have a vanguard with \"Battle Sister\" in its card name, you may pay the cost. If you do, this unit gets [Power] +3000 until end of that battle.\n[CONT](VC/RC)/(GC):Resist (This unit cannot be chosen by the effects of your opponent's cards)",
+        "clan": "Oracle Think Tank",
+        "race": "Elf",
+        "image": "https://s3-ap-northeast-1.amazonaws.com/en.cf-vanguard.com/wordpress/wp-content/images/cardlist/s/gchb02_049.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/049", "G-CHB02/049EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F049",
+          "fetchedAt": "2026-11-16T18:58:21.392Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20191023230921/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/049EN",
+          "fetchedAt": "2019-10-23T23:09:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-050",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/050",
+        "name": "アストロージャー ミス・ヘイズ",
+        "text": "【自】【Gブレイク】(1)：[【ソウルブラスト】(1)]このユニットが(G)から退却した時、このターンにあなたのダメージゾーンにカードが置かれていないなら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ゴースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_053.png"
+      },
+      "en": {
+        "number": "G-CHB02/050EN",
+        "name": "Astrologer, Miss Haze",
+        "text": "[AUTO][Generation Break 1]:[Soul-Blast 1] When this unit is retired from (GC), if a card was not put into your damage zone during this turn, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Ghost",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_053.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/050"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F050",
+          "fetchedAt": "2026-11-16T18:58:22.576Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20180514001828/http://cardfight.wikia.com/wiki/Astrologer,_Miss_Haze",
+          "fetchedAt": "2018-05-14T00:18:28Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-051",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/051",
+        "name": "神魂烈士 イクツヒコネ",
+        "text": "【自】：先駆\n【起】【(R)】【Gブレイク】(1)神託（あなたの手札が５枚以上で有効）：[このユニットをソウルに置く]【カウンターチャージ】(1)。\n【自】【(R)】：[【カウンターブラスト】(1)，このユニットをソウルに置く]あなたの神託能力を持つユニットが(V)に登場した時、あなたの手札が４枚以下なら、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_054.png"
+      },
+      "en": {
+        "number": "G-CHB02/051EN",
+        "name": "Deity Spirit Loyalist, Ikutsu-hikone",
+        "text": "[AUTO]:Forerunner\n[ACT](RC)[Generation Break 1]Oracle (Active when you have five or more cards in your hand):[Put this unit into your soul] [Counter-Charge 1]。\n[AUTO](RC):[Counter-Blast 1 & Put this unit into your soul] When your unit with the oracle ability is placed on (VC), if the number of cards in your hand is four or less, you may pay the cost. If you do, draw a card.",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_051EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/051", "G-CHB02/051EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F051",
+          "fetchedAt": "2026-11-16T18:58:23.326Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250808041512/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/051EN",
+          "fetchedAt": "2025-08-08T04:15:12Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-052",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/052",
+        "name": "アクアウィッチ ネネ",
+        "text": "",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_055.png"
+      },
+      "en": {
+        "number": "G-CHB02/052EN",
+        "name": "Aqua Witch, NeNe",
+        "text": "",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_055.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/052"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F052",
+          "fetchedAt": "2026-11-16T18:58:24.482Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-053",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/053",
+        "name": "薬石の斎女 ヤクシジ",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "オラクルシンクタンク",
+        "race": "ヒューマン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_056.png"
+      },
+      "en": {
+        "number": "G-CHB02/053EN",
+        "name": "Medicinal Miko, Yakushiji",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Oracle Think Tank",
+        "race": "Human",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_056.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/053"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F053",
+          "fetchedAt": "2026-11-16T18:58:25.217Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-054",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/054",
+        "name": "イニグマン・メガカレント",
+        "text": "超爆-【自】【Gブレイク】(1)：このユニットが(R)に登場した時、あなたのヴァンガードのパワーが15000以上なら、そのターン中、このユニットのパワー＋4000。あなたのヴァンガードのパワーが20000以上なら、あなたのヴァンガードを１枚選び、そのターン中、『【自】【(V)】：[【カウンターブラスト】(1)]あなたのアタックステップ開始時、コストを払ってよい。払ったら、そのターン中、このユニットのパワー＋4000。』を与える。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_057.png"
+      },
+      "en": {
+        "number": "G-CHB02/054EN",
+        "name": "Enigman Megacurrent",
+        "text": "Burst-[AUTO][Generation Break 1]:When this unit is placed on (RC), if your vanguard's [Power] is 15000 or greater, this unit gets [Power] +4000 until end of turn. If your vanguard's [Power] is 20000 or greater, choose one of your vanguards, and until end of turn, it gets \"[AUTO](VC):[Counter-Blast 1] At the beginning of your attack step, you may pay the cost. If you do, this unit gets [Power] +4000 until end of turn.\".",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_057.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 11000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/054"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F054",
+          "fetchedAt": "2026-11-16T18:58:25.985Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706064353/http://cardfight.wikia.com/wiki/Enigman_Megacurrent",
+          "fetchedAt": "2017-07-06T06:43:53Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-055",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/055",
+        "name": "宇宙勇機 グランスマッシャー",
+        "text": "【自】【(V)/(R)】【Gブレイク】(1)：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n超爆-【永】【(R)】：あなたのターン中、あなたのヴァンガードのパワーが15000以上なら、このユニットのパワー＋4000。あなたのヴァンガードのパワーが35000以上なら、このユニットのアタックはインターセプトできない。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_058.png"
+      },
+      "en": {
+        "number": "G-CHB02/055EN",
+        "name": "Cosmic Hero, Grandsmasher",
+        "text": "[AUTO](VC/RC)[Generation Break 1]:When this unit attacks a vanguard, it gets [Power] +4000 until end of that battle.\nBurst-[CONT](RC):During your turn, if your vanguard's [Power] is 15000 or greater, this unit gets [Power] +4000. If your vanguard's [Power] is 35000 or greater, this unit's attack cannot be intercepted.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_058.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/055"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F055",
+          "fetchedAt": "2026-11-16T18:58:26.727Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706025330/http://cardfight.wikia.com/wiki/Cosmic_Hero,_Grandsmasher",
+          "fetchedAt": "2017-07-06T02:53:30Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-056",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/056",
+        "name": "イニグマン・シロッコ",
+        "text": "超爆-【自】【(R)】：[【ソウルブラスト】(1)]あなたのアタックステップ開始時、あなたのヴァンガードのパワーが10000以上なら、コストを払ってよい。払ったら、そのバトル中、このユニットのパワー＋2000し、あなたのヴァンガードのパワーが15000以上なら、相手のユニットを１枚選び、そのバトル中、そのユニットはインターセプトできない。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_059.png"
+      },
+      "en": {
+        "number": "G-CHB02/056EN",
+        "name": "Enigman Sirocco",
+        "text": "Burst-[AUTO](RC):[Soul-Blast 1] At the beginning of your attack step, if your vanguard's [Power] is 10000 or greater, you may pay the cost. If you do, this unit gets [Power] +2000 until end of that battle, if your vanguard's [Power] is 15000 or greater, choose one of your opponent's units, and that unit cannot intercept until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_059.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/056"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F056",
+          "fetchedAt": "2026-11-16T18:58:27.973Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706040353/http://cardfight.wikia.com/wiki/Enigman_Sirocco",
+          "fetchedAt": "2017-07-06T04:03:53Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-057",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/057",
+        "name": "鋼闘機 ブラッキンバロー",
+        "text": "【永】【(R)】：あなたの「鋼闘機」を含むヴァンガードが【双闘】しているなら、このユニットのパワー＋2000。\n【自】【(R)】：[【カウンターブラスト】(1)]あなたの「鋼闘機」を含むヴァンガードがアタックした時、コストを払ってよい。払ったら、あなたのヴァンガードを１枚選び、そのターン中、パワーを増やす。増やす数値は、このユニットのパワーである。このユニットをソウルに置く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_060.png"
+      },
+      "en": {
+        "number": "G-CHB02/057EN",
+        "name": "Metalborg, Blacking Barrow",
+        "text": "[CONT](RC):If your vanguard with \"Metalborg\" in its card name is Legion, this unit gets [Power] +2000.\n[AUTO](RC):[Counter-Blast 1] When your vanguard with \"Metalborg\" in its card name attacks, you may pay the cost. If you do, choose one of your vanguards, and increase its [Power] by this unit's [Power] until end of turn. Put this unit into your soul.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_060.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/057"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F057",
+          "fetchedAt": "2026-11-16T18:58:29.150Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706062425/http://cardfight.wikia.com/wiki/Metalborg,_Blacking_Barrow",
+          "fetchedAt": "2017-07-06T06:24:25Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-058",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/058",
+        "name": "イニグマン・スワール",
+        "text": "【自】【(R)】【Gブレイク】(1)：このユニットが超爆能力を持つユニットをブーストした時、そのバトル中、ブーストされたユニットのパワー＋2000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_061.png"
+      },
+      "en": {
+        "number": "G-CHB02/058EN",
+        "name": "Enigman Swirl",
+        "text": "[AUTO](RC)[Generation Break 1]:When this unit boosts a unit with the burst ability, the boosted unit gets [Power] +2000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_061.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/058"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F058",
+          "fetchedAt": "2026-11-16T18:58:29.897Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706055341/http://cardfight.wikia.com/wiki/Enigman_Swirl",
+          "fetchedAt": "2017-07-06T05:53:41Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-059",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/059",
+        "name": "鋼闘機 ジェットサイダー",
+        "text": "【自】：[【ソウルブラスト】(1)]このユニットが(R)に登場した時、コストを払ってよい。払ったら、あなたの山札の上から４枚見て、【双闘】能力を持つカードを１枚まで探し、公開し、手札に加え、残りのカードをドロップゾーンに置く。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_062.png"
+      },
+      "en": {
+        "number": "G-CHB02/059EN",
+        "name": "Metalborg, Jet Sider",
+        "text": "[AUTO]:[Soul-Blast 1] When this unit is placed on (RC), you may pay the cost. If you do, look at the top four cards of your deck, search for up to one card with the Legion ability from among them, reveal it, put it into your hand, and put the rest into your drop zone.",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_062.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/059"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F059",
+          "fetchedAt": "2026-11-16T18:58:30.643Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706063105/http://cardfight.wikia.com/wiki/Metalborg,_Jet_Sider",
+          "fetchedAt": "2017-07-06T06:31:05Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-060",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/060",
+        "name": "減殺怪獣 ウィーキング",
+        "text": "【自】【(R)】：[【ソウルブラスト】(2)]あなたのヴァンガードが、アタックするかアタックされた時、コストを払ってよい。払ったら、相手の前列のユニットを１枚選び、そのバトル中、パワー－10000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_063.png"
+      },
+      "en": {
+        "number": "G-CHB02/060EN",
+        "name": "Reducing Monster, Weaking",
+        "text": "[AUTO](RC):[Soul-Blast 2] When your vanguard attacks or is attacked, you may pay the cost. If you do, choose a unit in your opponent's front row, and it gets [Power] -10000 until end of that battle.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_060EN.jpg"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 6000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/060", "G-CHB02/060EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F060",
+          "fetchedAt": "2026-11-16T18:58:31.385Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20250625071521/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/060EN",
+          "fetchedAt": "2025-06-25T07:15:21Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "G-CHB02-061",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/061",
+        "name": "次元ロボ ダイホーク",
+        "text": "【自】：先駆\n【起】【(R)】：[あなたの「次元ロボ」を含むリアガードを４枚選び、ソウルに置く]あなたの「次元ロボ」を含むグレード３のヴァンガードがいるなら、Ｇゾーンから裏の「次元ロボ」を含むカードを１枚まで選び、(V)に【超越】する。",
+        "clan": "ディメンジョンポリス",
+        "race": "バトロイド",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_064.png"
+      },
+      "en": {
+        "number": "G-CHB02/061EN",
+        "name": "Dimensional Robo, Daihawk",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\n[ACT](RC):[Choose four of your rear-guards with \"Dimensional Robo\" in their card names, and put them into your soul] If you have a grade 3 vanguard with \"Dimensional Robo\" in its card name, choose up to one face down card with \"Dimensional Robo\" in its card name from your G zone, and Stride it on (VC).",
+        "clan": "Dimension Police",
+        "race": "Battleroid",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_064.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/061"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F061",
+          "fetchedAt": "2026-11-16T18:58:32.802Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706041904/http://cardfight.wikia.com/wiki/Dimensional_Robo,_Daihawk",
+          "fetchedAt": "2017-07-06T04:19:04Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-062",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/062",
+        "name": "イニグマン・フォール",
+        "text": "",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_065.png"
+      },
+      "en": {
+        "number": "G-CHB02/062EN",
+        "name": "Enigman Fall",
+        "text": "",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_065.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/062"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F062",
+          "fetchedAt": "2026-11-16T18:58:33.540Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-063",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/063",
+        "name": "イニグマン・フェーン",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_066.png"
+      },
+      "en": {
+        "number": "G-CHB02/063EN",
+        "name": "Enigman Feign",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_066.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/063"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F063",
+          "fetchedAt": "2026-11-16T18:58:34.291Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-064",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/064",
+        "name": "イニグマン・ミストラル",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "ディメンジョンポリス",
+        "race": "エイリアン",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_067.png"
+      },
+      "en": {
+        "number": "G-CHB02/064EN",
+        "name": "Enigman Mistral",
+        "text": "[AUTO](RC):[Put this unit into your soul] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Dimension Police",
+        "race": "Alien",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_067.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/064"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F064",
+          "fetchedAt": "2026-11-16T18:58:35.457Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706060200/http://cardfight.wikia.com/wiki/Enigman_Mistral",
+          "fetchedAt": "2017-07-06T06:02:00Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-065",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/065",
+        "name": "エッジング・コンドル",
+        "text": "【自】【(R)】：達成20000（あなたのリアガードがパワー20000以上になった時、そのあなたのターン中、このユニットを達成状態にする）\n【自】【(V)/(R)】【Gブレイク】(1)：このユニットがヴァンガードにアタックした時、そのバトル中、このユニットのパワー＋4000。\n【永】【(R)】：このユニットが達成状態なら、このユニットのパワー＋4000し、『【自】【(R)】：あなたのターンの終了時、このユニットを退却させる。』を得る。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_068.png"
+      },
+      "en": {
+        "number": "G-CHB02/065EN",
+        "name": "Edging Condor",
+        "text": "[AUTO](RC):Success 20000 (When your rear-guard's [Power] becomes 20000 or greater, this unit becomes successful until end of turn)\n[AUTO](RC)[Generation Break 1]:When this unit attacks a vanguard, this unit gets [Power] +4000 until end of that battle.\n[CONT](RC):If this unit is successful, this unit gets [Power] +4000, and \"[AUTO](RC):At the end of your turn, retire this unit.\".",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_068.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 3,
+      "power": 10000,
+      "shield": 0,
+      "critical": 1,
+      "skillIcon": "twin_drive",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/065"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F065",
+          "fetchedAt": "2026-11-16T18:58:36.689Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706063523/http://cardfight.wikia.com/wiki/Edging_Condor",
+          "fetchedAt": "2017-07-06T06:35:23Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-066",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/066",
+        "name": "ゴーホーム・トード",
+        "text": "【起】【(R)】【Gブレイク】(1)：[【ソウルブラスト】(1)]あなたの「特別名誉博士」を含むヴァンガードがいるなら、そのターン中、このユニットは『【永】【(R)】：このユニットは後列からヴァンガードにアタックできる。』を得る。そのターンの終了時、このユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_069.png"
+      },
+      "en": {
+        "number": "G-CHB02/066EN",
+        "name": "Go Home Toad",
+        "text": "[ACT](RC)[Generation Break 1]:[Soul-Blast 1] If you have a vanguard with \"Honorary Professor\" in its card name, until end of turn, this unit gets [CONT](RC):This unit can attack a vanguard from the back row.\". At the end of that turn, retire this unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_069.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 9000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/066"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F066",
+          "fetchedAt": "2026-11-16T18:58:37.443Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706035929/http://cardfight.wikia.com/wiki/Go_Home_Toad",
+          "fetchedAt": "2017-07-06T03:59:29Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-067",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/067",
+        "name": "フルサック・スクアラル",
+        "text": "【自】【(V)/(R)】：達成20000（あなたのリアガードがパワー20000以上になった時、そのあなたのターン中、このユニットを達成状態にする）\n【永】【(V)/(R)】：このユニットが達成状態なら、このユニットのパワー＋2000。\n【自】：あなたのヴァンガードがアタックされたバトル中、このユニットがインターセプトした時、そのバトル中、このユニットのシールド＋5000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_070.png"
+      },
+      "en": {
+        "number": "G-CHB02/067EN",
+        "name": "Full-sack Squirrel",
+        "text": "[AUTO](VC/RC):Success 20000 (When your rear-guard's [Power] becomes 20000 or greater, this unit becomes successful until end of turn)\n[CONT](VC/RC):If this unit is successful, this unit gets [Power] +2000.\n[AUTO]:When this unit intercepts during the battle that your vanguard was attacked, this unit gets [Shield] +5000 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_070.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 8000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/067"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F067",
+          "fetchedAt": "2026-11-16T18:58:38.626Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171207134205/http://cardfight.wikia.com/wiki/Full-sack_Squirrel",
+          "fetchedAt": "2017-12-07T13:42:05Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-068",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/068",
+        "name": "パステル・ディアー",
+        "text": "【自】【(R)】【Gブレイク】(1)：このユニットがパワーが20000以上のユニットにブーストされた時、そのバトル中、このユニットのクリティカル＋１。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_071.png"
+      },
+      "en": {
+        "number": "G-CHB02/068EN",
+        "name": "Pastel Deer",
+        "text": "[AUTO](RC)[Generation Break 1]:When this unit is boosted by a unit with [Power] of 20000 or greater, this unit gets [Critical] +1 until end of that battle.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_071.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 2,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "intercept",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/068"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F068",
+          "fetchedAt": "2026-11-16T18:58:39.870Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706025046/http://cardfight.wikia.com/wiki/Pastel_Deer",
+          "fetchedAt": "2017-07-06T02:50:46Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-069",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/069",
+        "name": "リーダー・ピッグ",
+        "text": "【自】：このユニットが(R)に登場した時、そのターン中、このユニットは『【永】【(R)】：あなたの「特別名誉博士」を含むヴァンガードがいるなら、このユニットは後列からヴァンガードにアタックできる。』を得てよい。得たら、そのターンの終了時、このユニットを退却させる。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_072.png"
+      },
+      "en": {
+        "number": "G-CHB02/069EN",
+        "name": "Reader Pig",
+        "text": "[AUTO]:When this unit is placed on (RC), until end of turn, you may have this unit get \"[CONT](RC):If you have a vanguard with \"Honorary Professor\" in its card name, this unit can attack a vanguard from the back row.\". If you do, at the end of that turn, retire this unit.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_072.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 7000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/069"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F069",
+          "fetchedAt": "2026-11-16T18:58:41.114Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706044104/http://cardfight.wikia.com/wiki/Reader_Pig",
+          "fetchedAt": "2017-07-06T04:41:04Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-070",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/070",
+        "name": "マグニファイア・チャウチャウ",
+        "text": "【自】【(R)】【ターン1回】：[【ソウルブラスト】(1)]あなたの達成状態のユニットが(R)から退却した時、コストを払ってよい。払ったら、１枚引く。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_073.png"
+      },
+      "en": {
+        "number": "G-CHB02/070EN",
+        "name": "Magnifier Chow Chow",
+        "text": "[AUTO](RC)[1/Turn]:[Soul-Blast 1] When your successful unit is retired from (RC), you may pay the cost. If you do, draw a card.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_073.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 1,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/070"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F070",
+          "fetchedAt": "2026-11-16T18:58:41.857Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706044530/http://cardfight.wikia.com/wiki/Magnifier_Chow_Chow",
+          "fetchedAt": "2017-07-06T04:45:30Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-071",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/071",
+        "name": "スペックス・チンチラ",
+        "text": "【自】：先駆\n【起】【(R)】：[このユニットをソウルに置く，あなたの手札からノーマルユニットを１枚選び、捨てる]あなたの山札の上から１枚見て、山札の上か下に置き、１枚引く。あなたのＧゾーンに表のカードがあるなら、あなたのユニットを１枚選び、そのターン中、パワー＋5000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_074.png"
+      },
+      "en": {
+        "number": "G-CHB02/071EN",
+        "name": "Specs Chinchilla",
+        "text": "[AUTO]:Forerunner (When a unit of the same clan rides this unit, you may call this unit to (RC))\nACT](RC):[Put this unit into your soul & Choose a normal unit from your hand, and discard it] Look at the top card of your deck, put it on the top or bottom of your deck, and draw a card. If you have a face up card in your G zone, choose one of your units, and it gets [Power] +5000 until end of turn.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_074.png"
+      },
+      "cardType": "normal_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": null,
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/071"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F071",
+          "fetchedAt": "2026-11-16T18:58:42.595Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20170706032318/http://cardfight.wikia.com/wiki/Specs_Chinchilla",
+          "fetchedAt": "2017-07-06T03:23:18Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-072",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/072",
+        "name": "ポリッシュ・ペンギン",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_075.png"
+      },
+      "en": {
+        "number": "G-CHB02/072EN",
+        "name": "Polish Penguin",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_075.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "critical",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/072"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F072",
+          "fetchedAt": "2026-11-16T18:58:43.777Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-073",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/073",
+        "name": "ペンケース・ペリカン",
+        "text": "",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_076.png"
+      },
+      "en": {
+        "number": "G-CHB02/073EN",
+        "name": "Pen Case Pelican",
+        "text": "",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_076.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 5000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "draw",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/073"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F073",
+          "fetchedAt": "2026-11-16T18:58:44.959Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-074",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/074",
+        "name": "ブラッシング・キトゥン",
+        "text": "（【治】はデッキに４枚までしか入れることができない）",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_077.png"
+      },
+      "en": {
+        "number": "G-CHB02/074EN",
+        "name": "Brushing Kitten",
+        "text": "(You may only have up to four cards with \"[Heal] HEAL\" in a deck.)",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_077.png"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 5000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "heal",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/074"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F074",
+          "fetchedAt": "2026-11-16T18:58:46.136Z",
+          "regulation": ""
+        },
+        "enWiki": {
+          "url": "https://web.archive.org/web/20171120100632/http://cardfight.wikia.com/wiki/G_Character_Booster_2:_We_are!!!_Trinity_Dragon",
+          "fetchedAt": "2017-11-20T10:06:32Z",
+          "regulation": ""
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": [],
+        "englishFromWiki": true
+      }
+    },
+    {
+      "id": "G-CHB02-075",
+      "set": "G-CHB02",
+      "jp": {
+        "number": "G-CHB02/075",
+        "name": "ケミカル・スカンク",
+        "text": "【起】【(R)】：[このユニットをソウルに置く]あなたのユニットを１枚選び、そのターン中、パワー＋3000。",
+        "clan": "グレートネイチャー",
+        "race": "ハイビースト",
+        "image": "/wordpress/wp-content/images/cardlist/G-CHB02/gchb02_078.png"
+      },
+      "en": {
+        "number": "G-CHB02/075EN",
+        "name": "Chemical Skunk",
+        "text": "[ACT](RC):[Put this unit into your soul] Choose one of your units, and it gets [Power] +3000 until end of turn.",
+        "clan": "Great Nature",
+        "race": "High Beast",
+        "image": "/wordpress/wp-content/images/cardlist/gchb02/GCHB02_075EN.jpg"
+      },
+      "cardType": "trigger_unit",
+      "grade": 0,
+      "power": 4000,
+      "shield": 10000,
+      "critical": 1,
+      "skillIcon": "boost",
+      "trigger": "stand",
+      "sentinel": false,
+      "rarity": "C",
+      "printings": ["G-CHB02/075", "G-CHB02/075EN"],
+      "sources": {
+        "jp": {
+          "url": "https://cf-vanguard.com/manage/card-list-user/detail?cardno=G-CHB02%2F075",
+          "fetchedAt": "2026-11-16T18:58:46.888Z",
+          "regulation": ""
+        },
+        "en": {
+          "url": "https://web.archive.org/web/20240613213113/https://en.cf-vanguard.com/cardlist/?cardno=G-CHB02/075EN",
+          "fetchedAt": "2024-06-13T21:31:13Z",
+          "regulation": "G-Regulation"
+        }
+      },
+      "checks": {
+        "jpEnStatsMatch": true,
+        "mismatches": []
+      }
+    }
+  ],
+  "enOnly": []
+}

@@ -39,6 +39,9 @@ const RESTRICTION: Record<Restriction, string> = {
   chosen_five_times: 'may be chosen up to five times by one of your card effects',
   cannot_be_locked: 'cannot be locked by card effects',
   cannot_be_attacked: 'cannot be attacked',
+  cannot_be_put_into_deck: 'cannot be put into the deck by card effects',
+  no_retire_when_hit: 'does not retire when hit',
+  cannot_be_put_into_soul: 'cannot be put into the soul by card effects',
 };
 export const restrictionText = (r: Restriction): string =>
   RESTRICTION[r] ?? String(r).replace(/_/g, ' ');

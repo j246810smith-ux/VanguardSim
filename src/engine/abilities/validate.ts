@@ -189,6 +189,7 @@ export function validateAbilities(
             e.ce === 'also_named' ||
             e.ce === 'retire_counts_two' ||
             e.ce === 'limit_break_five_as_four' ||
+            e.ce === 'heal_for_g_guardian' ||
             e.ce === 'deck_limit' ||
             e.ce === 'limit_break_always' ||
             e.ce === 'success' ||

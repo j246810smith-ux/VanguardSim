@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.45.0-alpha — 2026-11-16
+
+- **G Era: G-CB02 "Commander of the Incessant Waves"** (40 cards, Aqua Force): wave, "Thavas",
+  "Blue Wave", "Blue Storm" and "Ripple" (Legion with Thundering Ripple, Genovious). Two reprints.
+- **G Era: G-CB03 "Blessing of Divas"** (45 cards, Bermuda Triangle): harmony, "PR♥ISM", "Coral",
+  "Raindear" (the "Sisters" gain grade in the trigger zone) and "Duo".
+- **G Era: G-CB04 "Gear of Fate"** (45 cards, Gear Chronicle): time leap ("Chronojet"; units
+  called by a time leap now trigger "placed due to time leap"), the bind zone ("Chronofang",
+  <Gear Colossus>), "Chronoscommand" and the Legion of Slow Divider Dragon.
+- **G Era: G-CB05 "Prismatic Divas"** (60 cards, Bermuda Triangle; two reprints): unofficial
+  English for Hard Stroke, Linwell and Negative Addict, Villetta. Shizuku's deck-grade ability is
+  not in yet.
+- **G Era: G-CB06 "Rondeau of Chaos & Salvation"** (45 cards, Link Joker; three reprints):
+  unofficial English for One who Bisects the Interstellar Gap. Omega Fall Glendios's damage [ACT]
+  and Zakuelad's no-Stride lock are not in yet.
+- **G Era: G-CB07 "Festa of Divas"** (50 cards, Bermuda Triangle): "Chouchou", harmony, "Shizuku",
+  "Coral", "Raindear", "Riviere", "PR♥ISM" and "Duo". Attractive Glow, Sandy counts as a Heal for
+  the [G Guardian] cost.
+- **G Era: G-CHB01 "Try3 Next"** (75 cards): Royal Paladin brave ("Alfred", "Altmile"), Gear
+  Chronicle "Chronojet" and Neo Nectar bloom/"Musketeer". Pulsar, Farm Peacock can stay on its
+  circle after a time leap ("cannot be put into your deck by card effects").
+- **G Era: G-CHB02 "We Are!!! Trinity Dragon"** (75 cards): Oracle Think Tank oracle and "Battle
+  Sister", Dimension Police burst ("Enigman", "Dimensional Robo", "Metalborg") and Great Nature
+  success ("Honorary Professor"). New: "If this unit is hit, it does not retire" (Fullmark Gorilla).
+- **G Era: G-CHB03 "Rummy Labyrinth Under the Moonlight"** (60 cards): Pale Moon magia ("Harri",
+  "Silver Thorn", "Nightmare Doll") and Granblue hollow ("Nightrose", "Seven Seas", "Ghostie").
+- **G Era: G-EB01 "Cosmic Roar"** (35 cards, Dimension Police). New trigger: "when this unit's
+  [Power] is increased by one of your effects".
+- **G Era: G-EB02 "The AWAKENING ZOO"** (76 cards: Megacolony, Great Nature, Neo Nectar and Zoa,
+  the fifth Zeroth Dragon; three reprints; unofficial English for six cards). Not yet: Silk
+  Sleeper, Trickle British, Rachele, Gredora's column lock, Rozeeta's stride cost.
+- **G Era: G-EB03 "The GALAXY STAR GATE"** (76 cards: Nova Grappler, Dimension Police, Link
+  Joker and Stark, a Zeroth Dragon that attacks three times without resting; two reprints;
+  unofficial English for seven Japanese-only cards).
+- **Engine:** new rules for these sets: units called by a time leap, "does not retire when hit",
+  "cannot be put into your deck/soul by card effects", "becomes successful" as an effect, striding a
+  chosen G card by an effect, a card counting as a Heal for the [G Guardian] cost, "power increased by
+  your effect", and a unit that attacks three times without resting.
+- **Card data tools:** the importer reads Japanese product names that start with a space and the
+  "nnn B/W" art-variant printings; the validator compares reprints like for like.
+
 ## 0.44.0-alpha — 2026-11-15
 
 - **Prompt pack 2026-11-15 (player feedback):** Doom Bringer High Flame's free stride no longer

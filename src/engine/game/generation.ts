@@ -596,9 +596,15 @@ export function gGuardianCostOptions(
   ctx: EngineContext,
   player: PlayerId,
 ): InstanceId[] {
-  return state.players[player].hand.filter(
-    (id) => ctx.registry.get(state.cards[id]!.definitionId).trigger === 'heal',
-  );
+  return state.players[player].hand.filter((id) => {
+    const def = ctx.registry.get(state.cards[id]!.definitionId);
+    return (
+      def.trigger === 'heal' ||
+      def.abilities.some(
+        (a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'heal_for_g_guardian'),
+      )
+    );
+  });
 }
 
 /** Call a G guardian (cost paid with `discard`), guarding `guarding` (CR 1.48.1 7.5.1.2.3). */

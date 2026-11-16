@@ -244,6 +244,8 @@ export type Condition =
   | { readonly cond: 'heart_race'; readonly race: string }
   /** "If your deck had been shuffled due to an effect from one of your cards during this turn" */
   | { readonly cond: 'deck_shuffled_this_turn' }
+  /** "if your drive check revealed a trigger unit during this turn" (G-CB04 Unbounded Colossus). */
+  | { readonly cond: 'drive_trigger_this_turn' }
   /** CR 1.48.1 11.38 Unite: you called two or more cards to (RC) or (GC) this turn. */
   | { readonly cond: 'unite' }
   /** "if three or more cards were put into your damage zone during this turn" (G-BT08 Boxtreamer). */
@@ -326,7 +328,13 @@ export type Restriction =
   /** "This unit cannot be locked by card effects" (G-TD15 Metallia Messiah). */
   | 'cannot_be_locked'
   /** "Your rear-guards cannot be attacked" (G-BT14 Gyze). */
-  | 'cannot_be_attacked';
+  | 'cannot_be_attacked'
+  /** "This unit cannot be put into your deck by card effects" (G-CHB01 Pulsar, Farm Peacock). */
+  | 'cannot_be_put_into_deck'
+  /** "If this unit is hit, it does not retire" (G-CHB02 Fullmark Gorilla, Al-mi'raj). */
+  | 'no_retire_when_hit'
+  /** "This unit cannot be put into your soul by card effects" (G-CHB03 Throwing Bear, Immortal Target). */
+  | 'cannot_be_put_into_soul';
 /** Rule permissions a continuous ability can give. */
 export type Permission =
   | 'attack_back_row_same_column'
@@ -353,7 +361,9 @@ export type Permission =
   /** "During the battle that your vanguard was attacked, this unit can intercept from the back row" (G-BT10 Gurguit). */
   | 'intercept_from_back_row'
   /** "the attacks of your units with the brave ability will hit regardless of [Power]" (G-BT14 Fides): granted to those units. */
-  | 'hit_regardless_of_power';
+  | 'hit_regardless_of_power'
+  /** "this unit does not [Rest] when it attacks, and this unit can attack up to three times" (G-EB03 Stark). */
+  | 'attack_three_times_standing';
 /** What a "loses …" effect removes: an ability (by id) or a skill icon. */
 export type Losable =
   | { readonly ability: string }
@@ -433,6 +443,8 @@ export type Step =
       readonly occupied?: boolean;
       /** "your opponent calls them": each card's owner calls it to their own (RC) and picks the circle (G-BT14 Rinne). */
       readonly byOwner?: boolean;
+      /** The call of a time leap (CR 1.48.1 10.31.2): "placed on (RC) from your deck due to time leap" (G-CB04). */
+      readonly timeLeap?: boolean;
     }
   /** "Choose one of your open (RC), and move this unit to that circle" (its state does not change). */
   | { readonly op: 'move_to_circle'; readonly target: Selector }
@@ -560,6 +572,8 @@ export type Step =
   | { readonly op: 'forbid_rc_calls' }
   /** Harmony (G-CB01): the targets become in harmony until end of turn. */
   | { readonly op: 'harmony'; readonly target: Selector }
+  /** "This unit becomes successful until end of turn" (G-CHB02 Lesser Writer). */
+  | { readonly op: 'become_successful'; readonly target: Selector }
   /** CR 1.48.1 10.31: bind, call a card one grade greater; at the end of the turn it goes to the bottom of the deck and the bound card is called. */
   | { readonly op: 'time_leap'; readonly target: Selector }
   /**
@@ -608,7 +622,11 @@ export type Step =
   /** "Until end of turn, choose all of your units for your trigger effects" (G-BT14 Ultima). */
   | { readonly op: 'trigger_all_units' }
   /** "[Stride] this card on your (VC) from face down" from an [ACT] in the G zone (G-FC03 Sebreeze): no cost, not the normal stride. */
-  | { readonly op: 'stride_self' }
+  | {
+      readonly op: 'stride_self';
+      /** "choose a face down card … from your G zone, and [Stride] it on your (VC)" (G-CB07 Trois): that card instead. */
+      readonly target?: Selector;
+    }
   /** "After the original battle phase of this turn, you will perform an additional main phase and battle phase" (G-FC04 Beyond Order Dragon). */
   | { readonly op: 'extra_phases' }
   /** "The [Power] of those units increase or decrease to n until end of turn" (G-BT12 Ungai). */
@@ -637,6 +655,8 @@ export type Step =
       readonly from: Selector;
       readonly duration: Duration;
       readonly firePlaced?: true;
+      /** Only the [AUTO] abilities (G-CB04 Chronodragon Gear Groovy). */
+      readonly onlyAuto?: true;
     }
   /** "heal it": the damage-zone cards go to the drop zone (Rescue records them, G-BT07). */
   | { readonly op: 'heal'; readonly target: Selector; readonly rescue?: boolean }
@@ -822,6 +842,8 @@ export type TriggerCondition =
       readonly byYourCard?: boolean;
       /** "… from one of your cards with X in its card name": the card whose effect it was. */
       readonly causeFilter?: CardFilter;
+      /** "placed on (RC) from your deck due to time leap" (G-CB04): called by a time leap. */
+      readonly byTimeLeap?: boolean;
     }
   /**
    * A unit rides `who` (who goes to the soul). `by` filters the new vanguard; `bySelf`: the new
@@ -910,7 +932,7 @@ export type TriggerCondition =
       readonly on: 'put_into_drop';
       readonly who: Subject;
       /** 'soul': "when this card is put into the drop zone from your soul"; 'front_RC': "rear-guard in the front row" */
-      readonly from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck';
+      readonly from: 'VC' | 'RC' | 'GC' | 'soul' | 'front_RC' | 'damage' | 'deck' | 'hand';
       /** "due to an effect from one of your cards" */
       readonly byYourEffect?: boolean;
       /** "due to the effect of the hollow ability" (CR 1.48.1 11.33.2, G-TD08 Grenache) */
@@ -953,6 +975,8 @@ export type TriggerCondition =
       readonly notFromDeck?: boolean;
       /** "from (RC)" */
       readonly fromRC?: boolean;
+      /** "from the drop zone" (G-CB04 Ergasia Idea-drone) */
+      readonly fromDrop?: boolean;
     }
   /** "When your opponent's vanguard is deleted" (CR 10.1.25). */
   | { readonly on: 'deleted'; readonly who: Subject }
@@ -970,6 +994,8 @@ export type TriggerCondition =
   | { readonly on: 'becomes_successful'; readonly who: Subject }
   /** Harmony (G-CB01): "When this unit becomes in harmony". */
   | { readonly on: 'becomes_harmony'; readonly who: Subject }
+  /** G-EB01: "When this unit's [Power] is increased due to an effect from one of your cards" (not boost/guard). */
+  | { readonly on: 'power_increased'; readonly who: Subject }
   /** Blaze (G-BT07): "When your vanguard becomes blazing". */
   | { readonly on: 'becomes_blazing' }
   /** "When this card is put into the drop zone from your hand for the cost of [Stride]" (G-BT06). */
@@ -1071,6 +1097,8 @@ export type ContinuousEffect =
   | { readonly ce: 'retire_counts_two' }
   /** "it becomes [Limit-Break 4] as long as this unit is on the field" (G-BT04 Dark Elemental, Doxic). */
   | { readonly ce: 'limit_break_five_as_four' }
+  /** "[CONT](Hand):This card may be regarded as a card with [Heal] for the cost to call a [G Guardian]" (G-CB07 Sandy). */
+  | { readonly ce: 'heal_for_g_guardian' }
   /**
    * "[CONT](VC):During your ride phase, if the number of your rear-guards is n or less, you may
    * [Stride] without paying the [Stride] cost" (G-TD14 Tirua): read by freeStride.

@@ -38,6 +38,10 @@ function check(
     trigger,
     active,
   });
+  if (kind === 'drive' && trigger !== null) {
+    const seen = s.turnFlags.driveTriggers ?? [];
+    if (!seen.includes(player)) s.turnFlags.driveTriggers = [...seen, player];
+  }
   const tasks: Task[] = [];
   // the icon resolves immediately (no check timing in between), then a check timing, then the
   // card leaves the trigger zone (CR 7.5.1.2.2–7.5.1.2.4)

@@ -655,6 +655,161 @@ All verified against CR ver. 1.29; ver. 1.19 (14 Feb 2014) says the same thing f
 | Princess Leyte "you cannot normal call Princess Leyte until end of turn" | Not modelled.                                                                                                                                                                    | Known gap.                 |
 | Six "Duo" cards (003, 008, 016, 019, 023, 031)                           | Unofficial translations; Meer's "Duo True Sister, Meer" is EB10-003's English name.                                                                                              | No English source.         |
 
+### G-CB02 notes
+
+| Topic                                                                                                                                     | Engine behaviour                                                                                                  |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Titan of the Trench Patrol / Nektarios / Violent Shooter "call it to the (RC) this unit is on … put this unit on the bottom of your deck" | The call puts this unit into the drop zone (CR 4.1.6); it then goes from the drop zone to the bottom of the deck. |
+| Wavehunt Sailor "[Counter-Charge 1]/[Soul-Charge 1]"                                                                                      | Both, as in G-BT04/G-BT06.                                                                                        |
+| Battle Siren, Cloris "choose any number of face up cards from your bind zone"                                                             | Any face-up card in your bind zone, whatever bound it.                                                            |
+| Commander Thavas "choose three of your opponent's rear-guards" with fewer than three                                                      | All of them are chosen; the opponent picks one of those.                                                          |
+| Blue Storm Dragon, Maelstrom (G-CB02-004)                                                                                                 | A different card from BT08-005 with the same name (new text); scripted on its own.                                |
+
+### G-CB03 notes
+
+| Topic                                                                                                             | Engine behaviour                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Peaceful Voice, Raindear "move this unit to your (VC)"                                                            | The vanguard it replaces goes to the soul (as a ride); not offered while a G unit is the vanguard.       |
+| Great Ascent, Liddy "choose one of your (RC)"                                                                     | Asked as a choice: a circle with a unit (return it to your hand) or an open one (call a card from hand). |
+| Garland Blossom, Ayna / Monotone Innocence, Yuka "in the same row"                                                | Front row = (VC) and the front (RC); back row = the three back (RC).                                     |
+| Piping Hot, Suifa "move this unit to an open (RC) in the same column"                                             | Any open (RC); the column is not enforced.                                                               |
+| "choose up to three cards … reveal them. If … all of the revealed cards have the same card name" (Cornet, Ichika) | The first card picked names the rest; only cards with that name can be added.                            |
+| Duo Create Quill, Ilya "if all of the chosen units have the same card name"                                       | The second guardian must share the first one's name.                                                     |
+
+### G-CB04 notes
+
+| Topic                                                                                                 | Engine behaviour                                                                        |
+| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Deus Ex Machina, Demiurge "twelve face up <Zodiac Time Beast> with different card names"              | The ability needs twelve different names among them; the twelve paid are picked freely. |
+| Chronodragon Gear Groovy "choose an [AUTO] ability each from two face up <Gear Dragon>"               | It gets every [AUTO] ability of the two chosen G units.                                 |
+| Progress Second Dragon "cannot be put into your deck by the effect of your cards with Chronoscommand" | Not modelled.                                                                           |
+| Slow Divider Dragon / Prompturret Dragon "with the same grade as that card"                           | Grades 0–3 are checked; a grade 4 card finds no rear-guard.                             |
+| Delayed Blazer Dragon "grade 4 vanguard with Chronojet"                                               | No such G unit exists yet in the pool, so the time leap is never offered.               |
+
+### G-CB05 notes
+
+| Topic                                                                                                        | Engine behaviour                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Duo Everlasting, Reit "three cards with the same card names"                                                 | Any three cards; strided like G-BT09 Raging Rapt Dragon, then drive -1 and the new vanguard loses its [AUTO] abilities. |
+| Fantastic Passion☆, Pacifica (reveal cost)                                                                   | Checked as a condition (three different "Pacifica" names in hand), not revealed.                                        |
+| Friend of the Star, Mimosa "different card names"                                                            | Not enforced on the three cards taken.                                                                                  |
+| Chouchou, Hulala "separate (RC) in the same column"                                                          | Two separate (RC); the column is not enforced.                                                                          |
+| Perfect Performance, Ange "any players' cards in any circle other than (VC)"                                 | Rear-guards only (no guardians exist in your own main phase).                                                           |
+| Kaname / Lapria "up to two … for each face up card in your G zone"                                           | Two choices, each up to the number of face up G cards.                                                                  |
+| Full Bright Wish, Shizuku "[CONT](VC): All of the original grade 2 cards in your deck get grade+1" (granted) | Not modelled yet.                                                                                                       |
+| Hard Stroke, Linwell / Negative Addict, Villetta                                                             | Japanese only; unofficial translations.                                                                                 |
+
+### G-CB06 notes
+
+| Topic                                                                                            | Engine behaviour                                                                                                            |
+| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| «Messiah» icon dropped from the official English ("if your vanguard is a ,")                     | Scripted as the Messiah race (vanguard, heart race, Cosmo's guard target).                                                  |
+| Chaos Breaker Deluge                                                                             | The locked card goes to the damage zone face up, not face down.                                                             |
+| Basaltis Messiah "a locked card and a rear-guard … for each face up card, lock or unlock each"   | Up to N locked cards are unlocked, then up to N rear-guards (any field) are locked; the "may" per card is the up-to choice. |
+| Chaos Breaker Crisis "if a unit was not retired due to the effect of this card during this turn" | Once per turn.                                                                                                              |
+| Globule Dober                                                                                    | Any unlock of this unit counts (not only by your vanguard's effect / in your end phase).                                    |
+| Photosphere                                                                                      | Its cost (a hand card on (RC) as a locked card) is paid as an optional first step.                                          |
+| Gravitate Turtle (printed as an [AUTO] with no trigger)                                          | Scripted as a [CONT].                                                                                                       |
+| Zuiije / Efames "retired … for the effect or cost of your card"                                  | Retired by your card's effect; cost retirements may not count.                                                              |
+| Penrose Gate / Farwon "discarded as a grade 3"                                                   | `stride_grade` +2 with the vanguard name; the "G unit with X" part is not checked.                                          |
+| "Omega Fall" Glendios first [ACT]                                                                | The opponent chooses up to five damage cards (open (RC) limit), then the same number from the drop zone.                    |
+| "Omega Fall" Glendios second [ACT] "deal this unit one damage"                                   | Not modelled yet.                                                                                                           |
+| Zakuelad "he or she cannot Stride during his or her next ride phase"                             | Not modelled yet (only the [Power] +2000).                                                                                  |
+| Jagwokk's grade sum                                                                              | Adds both called cards.                                                                                                     |
+| One who Bisects the Interstellar Gap                                                             | Japanese only; unofficial translation.                                                                                      |
+
+### G-CB07 notes
+
+| Topic                                                                                                        | Engine behaviour                                                        |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| Delight Genius, Ange "[CONT](VC)[Generation Break 2]: … you may call those cards to (RC) instead"            | Not modelled.                                                           |
+| Chouchou, Sonia "you may put this card into your drop zone as the cost for [Stride]"                         | Not modelled.                                                           |
+| Transcend Idol, Aqua "if all the sentinels in your deck are Transcend Idol, Aqua, you may include up to six" | Not modelled: the usual limit of four sentinels applies.                |
+| Brand-New-PR♥ISM, Shining Garnet "choose an ability from your heart card"                                    | It gets all of the heart card's abilities.                              |
+| Brand-New-PR♥ISM, Glister Emeral "+4000 for each [Critical] of those units"                                  | +4000 (one critical); extra critical is not counted.                    |
+| Splendid Fortune, Shizuku "up to two grade 3 cards or cards with Shizuku"                                    | Grade 3 cards are picked first, then cards with "Shizuku" for the rest. |
+| Duo Amazing Sister, Meer "for every two cards returned"                                                      | Counted from the rear-guards with those names just before they return.  |
+| Trend Leader, Felucca "[Soul-Charge] until a card with that grade is [Soul-Charge]"                          | At most ten cards; the grade is declared through yes/no questions.      |
+| Spirited Star, Trois "[Call this card to (RC)]" (cost)                                                       | Done first in the effect; the ride and the stride follow.               |
+| Seedling Voice, Lauris " when the number of your units in harmony becomes four or more"                      | Checked whenever one of your units becomes in harmony.                  |
+
+### G-CHB01 notes
+
+| Topic                                                                                             | Engine behaviour                                    |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| Emit Hammer Dragon "if a unit was called this turn due to an effect of your vanguard with Alfred" | Checked as: you have an "Alfred" vanguard.          |
+| Smart Fender Dragon "[CONT](RC): … [Power] +1000/grade+1"                                         | The power is applied; the grade +1 is not modelled. |
+| Highbrow Steam, Arlim "two cards … with Chronojet in their different card names"                  | Any two "Chronojet" cards.                          |
+| Tenacious Maiden, Noel "can attack a vanguard from the back row"                                  | It can attack from the back row (any target).       |
+| Flower Keeper Dragon "a card with the same card name as your vanguard or rear-guard"              | A card with the same name as one of your units.     |
+| Raingal (G-CHB01-048)                                                                             | Japanese only; unofficial translation.              |
+
+### G-CHB02 notes
+
+| Topic                                                                                                                         | Engine behaviour                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Cosmic Hero, Grandsmasher "Burst-[CONT](RC): During your turn, if your vanguard's [Power] is …"                               | Applied when it attacks (+4000 / no intercepts for that battle): a [CONT] reading the vanguard's [Power] would loop. |
+| Hyper Metalborg, Guilt Digger "search … a card that can Legion with that card, put it on (VC) as a heart card that is Legion" | A card that can Legion with your vanguard is searched and put into a legion.                                         |
+| Teacher's Cane of Affection, Bigbelly "If you have no rear-guards, all of the cards in your hand get … grade +1"              | Not modelled.                                                                                                        |
+| Honorary Professor, Chatsauvage "placed on (VC) by riding from Chatnoir" / "you cannot [Stride] until end of turn"            | Checked as Chatnoir in the soul; the stride ban is not modelled.                                                     |
+| Gifted Bear "a card with a different card name from that card"                                                                | Any "Honorary Professor" card.                                                                                       |
+| Treatise Panther "in the same row as this unit"                                                                               | The front row rear-guards.                                                                                           |
+| Traveling Momonga / Magnifier Chow Chow "this successful unit is retired"                                                     | The unit must still be marked successful when it leaves.                                                             |
+| Enigman Mistral "[AUTO](RC):[Put this unit into your soul] Choose one of your units …" (no timing)                            | Played as an [ACT].                                                                                                  |
+
+### G-CHB03 notes
+
+| Topic                                                                                              | Engine behaviour                                                                                          |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Parallel Megatrick, Fairfield granted [ACT] "cannot be chosen by card effects"                     | Played as Resist (your opponent's card effects only).                                                     |
+| Nightmare Doll of the Abyss, Eleanore "put it on your (VC) as a heart"                             | Your other heart cards go to the drop zone and the card becomes a heart.                                  |
+| Ghostie Leader, Demetria "reveal cards from the top of your deck until a grade 1 card is revealed" | At most ten cards; all revealed cards go to the drop zone, then a grade 1 "Ghostie" is picked from there. |
+| Silver Thorn, Masher Dragon "up to three cards with different grades"                              | Picked one per grade.                                                                                     |
+| Gun Salute Dragon, End of Stage "placed on (VC) and rides a grade 3 unit"                          | Checked as a grade 3 card in your soul.                                                                   |
+
+### G-EB01 notes
+
+| Topic                                                                           | Engine behaviour                                                                                                   |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| "When this unit's [Power] is increased due to an effect from one of your cards" | Any positive power modifier from an effect counts (boosts and guards add none); the effect's owner is not checked. |
+| Dark Superhuman, Omega "reduce by the original [Power]"                         | One step per printed power 1000…13000.                                                                             |
+| Magmafork / Hammerhel "each card on your (VC)"                                  | The vanguard and its heart cards.                                                                                  |
+| X-falcon                                                                        | The rear-guard goes to the damage zone and is then turned face down.                                               |
+| Grandgallop "drive check +1"                                                    | Drive +1 until end of that battle.                                                                                 |
+
+### G-EB02 notes
+
+| Topic                                                                                 | Engine behaviour                                                                                                                                           |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zoa "cannot be chosen by card effects" / "its [Power] becomes 99999" / "deals damage" | Resist (opponent's effects only); `fix_power`; its attack hitting the vanguard (then `win`).                                                               |
+| Alicides "choose a column"                                                            | The column of a chosen opponent rear-guard.                                                                                                                |
+| Velhemina "on the front row and back row"                                             | Not enforced; the second card is searched by the first one's name.                                                                                         |
+| Vulgar Blister "cannot [Stand] during your opponent's stand phase"                    | A continuous `cannot_stand` while it is in the front row (also stops effect stands); its stride cost does not check "G unit with the dark device ability". |
+| Breakweather Dragon "different card names"                                            | Not enforced.                                                                                                                                              |
+| Bootcamp Cymric "placed on (VC) by riding from a grade 3 unit"                        | Any "Honorary Professor" placed on (VC).                                                                                                                   |
+| Body Faction, Maox (bottom of deck if retired while successful)                       | Left out.                                                                                                                                                  |
+| Despot "two of his or her [Rest] units for each unit [Stand]"                         | Two choices, each `countOf` the stood units.                                                                                                               |
+| Ahsha "your circle other than (VC)"                                                   | (RC) and (GC).                                                                                                                                             |
+| Not yet scripted                                                                      | Silk Sleeper (044), Trickle British (056), Marigold Musketeer, Rachele (076), Gredora's column lock (006), Rozeeta's alternative [Stride] cost (020).      |
+| Unofficial translations                                                               | 044, 047, 068, 070, 071, 072 (Japanese only).                                                                                                              |
+
+### G-EB03 notes
+
+| Topic                                                                                       | Engine behaviour                                                                                             |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Stark "does not [Rest] when it attacks, and can attack up to three times"                   | A permission: the unit stays standing and may attack while it has fought fewer than three battles this turn. |
+| «Messiah» icon dropped from the official English ("if your vanguard is a ,")                | The Messiah race.                                                                                            |
+| Winning Champ, Victor "the rear-guard with the lowest [Power]"                              | Any opponent rear-guard can be chosen.                                                                       |
+| Original Deletor, Gaoield "may [Stride] without paying the cost"                            | Not modelled.                                                                                                |
+| Bravest Viktor, Grandgallop "cannot be normal called to (RC)"                               | Not modelled.                                                                                                |
+| Star-vader, Vela Junior Dragon "units in the same columns as locked cards cannot intercept" | Not modelled.                                                                                                |
+| Dimensional Robo, Daisupporter "may be chosen as a grade 3"                                 | Grade +2 while paying a [Stride] cost; the drop-zone cost part is not modelled.                              |
+| Cosmic Hero, Grandgunner (Burst [CONT])                                                     | Applied when it attacks or boosts (a [CONT] reading the vanguard's [Power] would loop).                      |
+| Dimensional Robo Pilot, Matthew "the greatest [Power]"                                      | You pick one of the revealed cards.                                                                          |
+| Ideal Ego Messiah: two timings with [1/turn]                                                | Each timing can be used once a turn.                                                                         |
+| Death Star-vader, Chaos Universe Alththani "if he or she could not lock two cards"          | Checked as fewer than two rear-guards chosen.                                                                |
+| Seven Japanese-only cards (032, 051, 053, 064, 068, 072, 074)                               | Unofficial translations.                                                                                     |
+
 ## Limit Break enablers (prompt pack 2026-11-15, 3.1)
 
 | Situation                                                                                                                                               | Interpretation                                                                                                                                                                                                                                             | Basis                                                                                                                                                                                                         |

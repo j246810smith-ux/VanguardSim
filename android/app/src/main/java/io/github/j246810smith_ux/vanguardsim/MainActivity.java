@@ -18,6 +18,7 @@ public class MainActivity extends BridgeActivity {
         // the app's own plugins are registered before the bridge starts
         registerPlugin(AppIconPlugin.class);
         registerPlugin(ApkUpdatePlugin.class);
+        registerPlugin(OrientationPlugin.class);
         super.onCreate(savedInstanceState);
     }
 

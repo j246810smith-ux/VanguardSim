@@ -3,6 +3,7 @@
  * the task runner performs a check timing between steps, which is where automatic abilities
  * triggered by "at the beginning of …" and similar events resolve.
  */
+import { limitedColumns } from './limitedStand';
 import { lostIcon } from '../abilities/catalog';
 import { continuousDrive, hasPermission, isRestricted } from '../abilities/continuous';
 import type { Task } from '../state/tasks';
@@ -112,6 +113,8 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
       s.turnNumber += 1;
       s.activePlayer = player;
       s.turnFlags = { normalRideUsed: s.players[s.activePlayer].noNormalRideNext === true };
+      // Zakuelad (G-CB06): no Stride this ride phase (strideOptions offers none once it is "used")
+      if (s.players[s.activePlayer].noStrideNext) s.turnFlags.normalStrideUsed = true;
       delete s.players[s.activePlayer].placedOnVCInRidePhase;
       // blazing lasts until end of turn
       for (const p of s.players) delete p.blazing;
@@ -123,6 +126,7 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
         delete c.inHarmony;
       }
       delete s.players[s.activePlayer].noNormalRideNext;
+      delete s.players[s.activePlayer].noStrideNext;
       s.usedThisTurn = [];
       emit(d, { type: 'TURN_STARTED', turn: s.turnNumber, player });
       s.tasks.unshift(
@@ -130,6 +134,10 @@ export function runFlowTask(d: Draft, task: FlowTask): void {
         // Delayed Legion (custom rule): "at the beginning of your next stand phase"
         ...(s.delayedLegions?.some((x) => x.player === player)
           ? [{ kind: 'delayed_legion_end' as const, player }]
+          : []),
+        // Silk Sleeper (G-EB02): only when one of its columns limits this player's stand
+        ...(d.ctx.ruleset.generationRules.value && limitedColumns(s, d.ctx, player).length > 0
+          ? [{ kind: 'limited_stand' as const }]
           : []),
         { kind: 'stand_units' },
         { kind: 'enter_phase', phase: 'draw' },

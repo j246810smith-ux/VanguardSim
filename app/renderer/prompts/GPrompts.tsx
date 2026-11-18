@@ -59,9 +59,12 @@ export function StridePrompt({
     (sum, id) => sum + (stride.discardGrades?.[id] ?? defOf(view, id)?.grade ?? 0),
     0,
   );
+  // Rozeeta (G-EB02): drop-zone cards picked for a ritual cost of several cards
+  const [ritualPick, setRitualPick] = useState<readonly InstanceId[]>([]);
   const toggle = (id: InstanceId) => {
     setSoulPick([]);
     setRetirePick(null);
+    setRitualPick([]);
     setDiscard((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
   };
   // Amaruda (G-BT11): pay "[Soul-Blast n]-cards with the revelation ability" instead
@@ -70,16 +73,21 @@ export function StridePrompt({
   const toggleSoul = (id: InstanceId) => {
     setDiscard([]);
     setRetirePick(null);
+    setRitualPick([]);
     setSoulPick((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
   };
   const paySoul = soulCost !== undefined && soulPick.length === soulCost.n;
   // Blue Espada Dragon (G-BT12): retire it with [Counter-Blast 1] instead
   const [retirePick, setRetirePick] = useState<InstanceId | null>(null);
+  // Rozeeta (G-EB02): a ritual cost of several drop-zone cards
+  const ritualN = stride.ritualCost?.n ?? 1;
   const alternative: readonly InstanceId[] | null = paySoul
     ? soulPick
-    : retirePick !== null
-      ? [retirePick]
-      : null;
+    : ritualN > 1 && ritualPick.length === ritualN
+      ? ritualPick
+      : retirePick !== null
+        ? [retirePick]
+        : null;
   // the unit's own cost (Ultimate Stride, Gyze) or none at all (High Flame's free stride)
   const own = stride.discardFor?.[unit];
   const ownCost =
@@ -164,7 +172,9 @@ export function StridePrompt({
           <div className="hint">
             {stride.ritualCost.bind
               ? 'Or bind one of these cards from your drop zone face up:'
-              : `Or [Counter-Blast ${stride.ritualCost.cb}] and put one of these normal units from your drop zone on the bottom of your deck:`}
+              : ritualN > 1
+                ? `Or [Counter-Blast ${stride.ritualCost.cb}] and put ${ritualN} of these normal units from your drop zone on the bottom of your deck${stride.ritualCost.gUnitNameIncludes ? ` (only for a G unit with "${stride.ritualCost.gUnitNameIncludes}" in its name)` : ''}:`
+                : `Or [Counter-Blast ${stride.ritualCost.cb}] and put one of these normal units from your drop zone on the bottom of your deck:`}
           </div>
           <div className="pick-grid">
             {stride.ritualCost.cards.map((id) => (
@@ -172,11 +182,20 @@ export function StridePrompt({
                 key={id}
                 view={view}
                 id={id}
-                on={retirePick === id}
+                on={ritualN > 1 ? ritualPick.includes(id) : retirePick === id}
                 onClick={() => {
                   setDiscard([]);
                   setSoulPick([]);
-                  setRetirePick(retirePick === id ? null : id);
+                  if (ritualN > 1) {
+                    setRetirePick(null);
+                    setRitualPick((d) =>
+                      d.includes(id)
+                        ? d.filter((x) => x !== id)
+                        : d.length < ritualN
+                          ? [...d, id]
+                          : d,
+                    );
+                  } else setRetirePick(retirePick === id ? null : id);
                 }}
               />
             ))}

@@ -46,6 +46,11 @@ export interface SharePlugin {
   share(options: { title?: string; text?: string; url?: string }): Promise<unknown>;
 }
 
+/** The app's own plugin (OrientationPlugin.java): portrait allowed during battles only. */
+export interface OrientationNativePlugin {
+  set(options: { mode: 'any' | 'landscape' }): Promise<{ mode: string }>;
+}
+
 /** The app's own plugin (AppIconPlugin.java): which launcher icon is shown. */
 export interface AppIconNativePlugin {
   set(options: { id: string }): Promise<{ id: string }>;
@@ -94,6 +99,7 @@ interface Plugins {
   readonly App?: AppPlugin;
   readonly Filesystem?: FilesystemPlugin;
   readonly Share?: SharePlugin;
+  readonly Orientation?: OrientationNativePlugin;
 }
 
 interface CapacitorGlobal {
@@ -113,6 +119,9 @@ export const nativeApkUpdate = (): ApkUpdatePlugin | null => plugins()?.ApkUpdat
 export const nativeHttp = (): HttpPlugin | null => plugins()?.CapacitorHttp ?? null;
 
 export const nativeAppIcon = (): AppIconNativePlugin | null => plugins()?.AppIcon ?? null;
+
+export const nativeOrientation = (): OrientationNativePlugin | null =>
+  plugins()?.Orientation ?? null;
 
 /** Reading the app's own folder on the phone (the pictures copied by `npm run artwork:phone`). */
 export const nativeFilesystem = (): FilesystemPlugin | null => plugins()?.Filesystem ?? null;

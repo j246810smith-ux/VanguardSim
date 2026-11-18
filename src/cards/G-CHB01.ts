@@ -1235,7 +1235,7 @@ export const G_CHB01: SetAbilities = {
       id: '2',
       zones: ['RC'],
       condition: ab.inSoul('Chic Folk Dracokid'),
-      effects: [ab.gets(ab.self(), 'power', 1000)],
+      effects: [ab.gets(ab.self(), 'power', 1000), { ce: 'self_grade', amount: 1 }],
       text: text('G-CHB01-058', 1),
     }),
   ],

@@ -1,4 +1,5 @@
 import { callOne, checkTiming, chooseStandby, endFrame, runStep } from '../abilities/runtime';
+import { limitedStand } from './limitedStand';
 import type { Task } from '../state/tasks';
 import { chooseAttackTargets, effectAttack } from './battle';
 import { runCheckTask } from './checks';
@@ -56,6 +57,8 @@ function handle(d: Draft, task: Task): boolean {
       return chooseStandby(d, task);
     case 'delayed_legion_end':
       return endDelayedLegion(d, task);
+    case 'limited_stand':
+      return limitedStand(d, task);
     case 'end_frame':
       endFrame(d, task.frame);
       return true;

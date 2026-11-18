@@ -2431,7 +2431,7 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 60    | 27                  | 59                  | 1               | 0            | 35            | 0   | 0        |
+| 60    | 27                  | 59                  | 1               | 0            | 36            | 0   | 0        |
 
 ### Incomplete
 
@@ -2443,7 +2443,7 @@ All cards complete.
 - G-CB05-006 Song of Gracious, Raindear — no test, no art
 - G-CB05-007 Duo Everlasting, Reit — no test, no art
 - G-CB05-008 Legendary Idol, Riviere — no art
-- G-CB05-009 Full Bright Wish, Shizuku — no test, no art
+- G-CB05-009 Full Bright Wish, Shizuku — no art
 - G-CB05-010 Chouchou Engage Lead, Platy — no test, no art
 - G-CB05-011 Highest Society, Citron — no test, no art
 - G-CB05-012 Wonderful Voice, Lauris — no art
@@ -2500,7 +2500,7 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 50    | 45                  | 50                  | 0               | 0            | 29            | 0   | 0        |
+| 50    | 45                  | 50                  | 0               | 0            | 30            | 0   | 0        |
 
 ### Incomplete
 
@@ -2521,7 +2521,7 @@ All cards complete.
 - G-CB07-015 Attractive Glow, Sandy — no art
 - G-CB07-016 Chouchou, Darina — no art
 - G-CB07-017 Bermuda Triangle — data, no art
-- G-CB07-018 Transcend Idol, Aqua — no test, no art
+- G-CB07-018 Transcend Idol, Aqua — no art
 - G-CB07-019 Brand-New-PR♥ISM, Flash Sapphire — no test, no art
 - G-CB07-020 Chouchou, Milena — no test, no art
 - G-CB07-021 Chouchou Lively Icon, Ilya — no art
@@ -2559,14 +2559,14 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 45    | 37                  | 44                  | 1               | 0            | 32            | 0   | 0        |
+| 45    | 37                  | 44                  | 1               | 0            | 33            | 0   | 0        |
 
 ### Incomplete
 
 - G-CB06-001 Genesis Dragon, Harmonics Neo Messiah — no test, no art
 - G-CB06-002 Death Star-vader, Chaos Breaker Deluge — no test, no art
 - G-CB06-003 Genesis Dragon, Basaltis Messiah — no test, no art
-- G-CB06-004 Death Star-vader, "Omega Fall" Glendios — no test, no art
+- G-CB06-004 Death Star-vader, "Omega Fall" Glendios — no art
 - G-CB06-005 Death Star-vader, Glueball Dragon — no art
 - G-CB06-006 Deliberate Deletor, Aodaien — no art
 - G-CB06-007 Star-vader, Chaos Breaker Crisis — no art
@@ -2894,7 +2894,7 @@ All cards complete.
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 76    | 58                  | 73                  | 3               | 0            | 39            | 0   | 0        |
+| 76    | 58                  | 76                  | 0               | 0            | 43            | 0   | 0        |
 
 ### Incomplete
 
@@ -2903,7 +2903,7 @@ All cards complete.
 - G-EB02-003 Omniscience Dragon, Balaurl — no art
 - G-EB02-004 Flower Princess of Four Seasons, Velhemina — no art
 - G-EB02-005 Intimidating Mutant King, Darkface Alicides — no art
-- G-EB02-006 Evil Governor, Darkface Gredora — no test, no art
+- G-EB02-006 Evil Governor, Darkface Gredora — no art
 - G-EB02-007 Amazing Professor, Bigbelly — no art
 - G-EB02-008 Artistic Ocelot — no art
 - G-EB02-009 Ranunculus of Phantasmic Blue, Ahsha — no art
@@ -2917,7 +2917,7 @@ All cards complete.
 - G-EB02-017 Revision Scientist, Delibelly — no test, no art
 - G-EB02-018 Automatism Koala — no test, no art
 - G-EB02-019 Maiden Lily Musketeer Captain, Virginal Cecilia — no art
-- G-EB02-020 Lantana Musketeer, Rozeeta — no test, no art
+- G-EB02-020 Lantana Musketeer, Rozeeta — no art
 - G-EB02-021 Seeding Maiden, Tierney — no test, no art
 - G-EB02-022 Anthurium Musketeer, Nikla — no test, no art
 - G-EB02-023 Master Swordsman Mutant Deity, Anguish Sword — no art
@@ -2931,7 +2931,7 @@ All cards complete.
 - G-EB02-031 Immortality Professor, Sankalpa — no test, no art
 - G-EB02-032 Bicolor Baku — no art
 - G-EB02-033 Bootcamp Cymric — no test, no art
-- G-EB02-034 Body Faction, Maox — no test, no art
+- G-EB02-034 Body Faction, Maox — no art
 - G-EB02-035 Diligent Assistant, Minibelly — no art
 - G-EB02-036 Sitter Bobtail — no test, no art
 - G-EB02-037 Sacred Tree Dragon, Breakweather Dragon — no art
@@ -2939,9 +2939,9 @@ All cards complete.
 - G-EB02-039 Cumulative Maiden, Purcell — no art
 - G-EB02-040 Valkyrie of Reclamation, Padmini — no art
 - G-EB02-041 Repeated Cultivation Maiden, Leslie — no art
-- G-EB02-042 Artemisia Musketeer, Kiara — no test, no art
+- G-EB02-042 Artemisia Musketeer, Kiara — no art
 - G-EB02-043 San San Mango — data, no test, no art
-- G-EB02-044 昏睡怪人 シルクスリーパー — data, effect missing, no art
+- G-EB02-044 昏睡怪人 シルクスリーパー — data, no art
 - G-EB02-045 Machining Princess — data, no art
 - G-EB02-046 Vulgar Blister — no test, no art
 - G-EB02-047 マシニング・リーフィー — data, no test, no art
@@ -2953,7 +2953,7 @@ All cards complete.
 - G-EB02-053 Machining Treehopper — no test, no art
 - G-EB02-054 Megacolony Battler G — no test, no art
 - G-EB02-055 Talented Rhinos — no test, no art
-- G-EB02-056 Trickle British — effect missing, no art
+- G-EB02-056 Trickle British — no art
 - G-EB02-057 Matrix Code Zebra — no test, no art
 - G-EB02-058 Animal Clip Lesser — no art
 - G-EB02-059 Adorable Balinese — no art
@@ -2973,13 +2973,13 @@ All cards complete.
 - G-EB02-073 Planting Maiden, Ozu — data, no art
 - G-EB02-074 Cirsium Musketeer, Umbra — data, no art
 - G-EB02-075 Red Poppy Musketeer, Marinetta — no art
-- G-EB02-076 Marigold Musketeer, Rachele — effect missing, no art
+- G-EB02-076 Marigold Musketeer, Rachele — no art
 
 ## G-EB03
 
 | Total | Officially verified | Effects implemented | Effects missing | Needs review | Tests covered | Art | Complete |
 | ----- | ------------------- | ------------------- | --------------- | ------------ | ------------- | --- | -------- |
-| 76    | 62                  | 76                  | 0               | 0            | 25            | 0   | 0        |
+| 76    | 62                  | 76                  | 0               | 0            | 28            | 0   | 0        |
 
 ### Incomplete
 
@@ -3001,9 +3001,9 @@ All cards complete.
 - G-EB03-016 Dimensional Robo, Daibalest — no test, no art
 - G-EB03-017 Cosmic Hero, Grandmonk — no test, no art
 - G-EB03-018 Dimensional Robo Outfitter, Cassie — no test, no art
-- G-EB03-019 Original Deletor, Gaoield — no test, no art
+- G-EB03-019 Original Deletor, Gaoield — no art
 - G-EB03-020 Death Star-vader, Chaos Universe Alththani — no art
-- G-EB03-021 Hack Deletor, Greigiil — no test, no art
+- G-EB03-021 Hack Deletor, Greigiil — no art
 - G-EB03-022 Star-vader, Magellanic Stream — no test, no art
 - G-EB03-023 Demolition Beast, Demolzaurus — no art
 - G-EB03-024 Meteokaiser, Dogantitan — no test, no art
@@ -3053,7 +3053,7 @@ All cards complete.
 - G-EB03-068 次元ロボ ダイブルーム — data, no test, no art
 - G-EB03-069 Dimensional Robo, Daidraft — no test, no art
 - G-EB03-070 Lady Bomber of the Magnetic Storm — no test, no art
-- G-EB03-071 Star-vader, Vela Junior Dragon — no test, no art
+- G-EB03-071 Star-vader, Vela Junior Dragon — no art
 - G-EB03-072 追い落とす根絶者 ゲルヲラ — data, no test, no art
 - G-EB03-073 Resistance Star-vader, Polonium — data, no test, no art
 - G-EB03-074 多世界解釈の鬼子 — data, no art

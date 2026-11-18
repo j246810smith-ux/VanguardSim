@@ -1,5 +1,61 @@
 # Changelog
 
+## 0.46.0-alpha — 2026-11-18
+
+- **Deck builder: the format is a dropdown** (Original Era — Strict, Original Era — Expanded, G Era).
+  The three tabs did not fit on a phone: the third hid under the deck panel (owner 2026-11-18).
+- **Android portrait mode (battles)** (prompt pack 2026-11-15 item 2D, docs/android/PORTRAIT_PLAN.md):
+  hold the phone upright during a battle for a real portrait layout, not a rotated landscape one.
+  Both fields are the same size like a table seen from above (owner's choice), with Vanguard ZERO's
+  conventions: damage in a column on each fighter's left, piles on the right, the phase button
+  at the right end of the centre band, and the hand fanned along the bottom. Decisions open as a
+  bottom sheet. Turning the phone mid-game swaps the layout and keeps the game. Menus, the deck
+  builder and settings stay landscape (the app unlocks rotation only while a battle is open).
+- **Engine gaps from the 2026-11-16 handover (part 1)**: Smart Fender Dragon is grade 2 on (RC)
+  with Chic Folk Dracokid in the soul (`self_grade`); Grandgallop cannot be normal called until a
+  face-up grade 4 "Gallop" is on (VC) or in the G zone (`cannot_normal_call`); Vela Junior
+  Dragon (GB1) stops interceptors in the columns of locked cards (`sameColumnAsOwnLocked`);
+  Gaoield strides for free with a "Deletor" vanguard and one card or fewer in hand
+  (`stride_free_self`); "Omega Fall" Glendios's second [ACT] draws and deals its own vanguard a
+  damage check; Zakuelad's hit stops the opponent striding in their next ride phase
+  (`no_stride_next`). Tests in the G-CHB01, G-EB03 and G-CB06 card tests.
+- **Engine gaps (part 2)**: Full Bright Wish, Shizuku gives original grade 2 cards in the deck
+  grade +1 after a stride; Transcend Idol, Aqua allows six copies when every sentinel is Aqua (deck
+  builder too); Darkface Gredora's column call ban (no normal or superior call there next turn);
+  Lantana Musketeer, Rozeeta's alternative Stride cost (pick two drop-zone cards in the stride
+  prompt); Marigold Musketeer, Rachele counts as a normal unit with GB1; Trickle British; Silk
+  Sleeper (only one unit stands in its column). Every G-EB02 card with text is now scripted.
+- **Online Code: why it only worked over a VPN, and a connection report** (owner report
+  2026-11-18). The room-code service (0.peerjs.com) and STUN answer normally, but the relay
+  servers built into PeerJS 1.5.5 (eu-0/us-0.turn.peerjs.com) have no DNS records any more, so
+  when one network blocks direct connections there was nothing to fall back to and the join timed
+  out after 20 s. The game now uses its own STUN list (no dead relays), tells you at once when the
+  direct connection fails (instead of waiting for the timeout) and why, and Play Online has a
+  "Copy connection report" button (steps, timings and candidate types; never the code or
+  addresses). docs/PLAYING_ONLINE.md has a troubleshooting section.
+- **Relay for room-code games (Cloudflare TURN, owner's choice 2026-11-18)**: when the two
+  networks cannot connect directly, the game can now go through Cloudflare's relay. A small
+  Cloudflare Worker (`relay/worker.js`) keeps the TURN key secret and hands out passwords that
+  expire after 24 hours; the game asks it when hosting or joining (`app/renderer/online/relay.ts`)
+  and carries on without a relay if it cannot. **Switched off until the owner's one-time setup**
+  (Cloudflare account, TURN key, deploy: `relay/README.md`) fills in `app/main/relay.json`.
+- **Fix: Neon Gyze (G-BT14) now goes to the G zone when it is ridden.** Its "when this unit is
+  ridden" ability was set to work from the soul, but ridden triggers are checked where the card
+  was (the vanguard circle), so it never fired and Neon Gyze stayed in the soul (owner report
+  2026-11-18). It now goes to the G zone face up for both the player and the CPU; regression
+  test in tests/cards/G-BT14.test.ts.
+- **Card movement, closer to fight-club.dev (owner's request 2026-11-18)** (board/motion.ts):
+  a unit that stands up turns upright on its circle with a short glow, and one that rests turns
+  sideways (they used to snap); a rested unit or guardian leaving for the drop zone turns upright
+  on the way instead of flying sideways and snapping; a card called from the soul slides out from
+  under the vanguard; several cards leaving or arriving from the same zone together go a moment
+  apart (retires, five calls from the bind zone, two draws); a checked card lifts out of the
+  trigger zone and turns sideways on its way into the damage column. Tests in
+  app/tests/motion.test.tsx.
+- **Placement ghost** (board/placementGhost.ts, mouse only): while a hand card is selected for a
+  ride or call, a see-through copy follows the mouse over the table and snaps onto a glowing
+  circle it can go to. Hidden over the hand, while dragging, and on touch screens.
+
 ## 0.45.0-alpha — 2026-11-16
 
 - **G Era: G-CB02 "Commander of the Incessant Waves"** (40 cards, Aqua Force): wave, "Thavas",

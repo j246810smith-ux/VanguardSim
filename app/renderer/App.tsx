@@ -39,7 +39,15 @@ import {
   type Settings,
   type Speed,
 } from './settings';
-import { fitSize, stageLayout, StageInfo, textBoost, type StageLayout } from './stageFit';
+import {
+  fitSize,
+  PORTRAIT_W,
+  PortraitAllowed,
+  stageLayout,
+  StageInfo,
+  textBoost,
+  type StageLayout,
+} from './stageFit';
 import { PROFILE_IDS, PROFILES, profileFor, type ProfileId } from './presentation/profile';
 import { listenForBack } from './android/back';
 import { nativeApp } from './android/native';
@@ -93,11 +101,16 @@ function Stage({
   screenShake: boolean;
   graphics: Graphics;
 }) {
-  const [{ scale, phone, edge }, setLayout] = useState<StageLayout>({
+  const [layout, setLayout] = useState<StageLayout>({
     scale: 1,
     phone: false,
     edge: 0,
   });
+  const { scale, phone, edge, portrait } = layout;
+  // a battle allows the portrait layout while it is on screen (docs/android/PORTRAIT_PLAN.md)
+  const [portraitAllowed, setPortraitAllowed] = useState(false);
+  const allowed = useRef(portraitAllowed);
+  allowed.current = portraitAllowed;
   const area = useRef<HTMLDivElement>(null);
   const last = useRef<{ width: number; height: number } | null>(null);
   useLayoutEffect(() => {
@@ -109,28 +122,31 @@ function Stage({
       const typing = !!document.activeElement?.matches('input, textarea, select');
       const size = fitSize(w, h, last.current, typing);
       last.current = size;
-      setLayout(stageLayout(size.width, size.height));
+      setLayout(stageLayout(size.width, size.height, allowed.current));
     };
     fit();
     window.addEventListener('resize', fit);
     return () => window.removeEventListener('resize', fit);
-  }, []);
+  }, [portraitAllowed]);
   return (
     <div
       className={`viewport theme-${theme} gfx-${graphics} ${reducedMotion ? 'reduce-motion' : ''} ${screenShake ? 'shake-on' : ''}`}
     >
       <div className="stage-area" ref={area}>
         <div
-          className={`stage ${phone ? 'phone' : ''} ${edge > 0 ? 'wide' : ''}`}
+          className={`stage ${phone ? 'phone' : ''} ${edge > 0 ? 'wide' : ''} ${portrait ? 'portrait' : ''}`}
           style={
             {
               transform: `translate(-50%, -50%) scale(${scale})`,
               '--text-boost': textBoost(scale),
               '--edge': `${edge}px`,
+              ...(portrait ? { width: `${PORTRAIT_W}px`, height: `${layout.height}px` } : {}),
             } as CSSProperties
           }
         >
-          <StageInfo.Provider value={{ scale, phone, edge }}>{children}</StageInfo.Provider>
+          <PortraitAllowed.Provider value={setPortraitAllowed}>
+            <StageInfo.Provider value={layout}>{children}</StageInfo.Provider>
+          </PortraitAllowed.Provider>
         </div>
       </div>
     </div>

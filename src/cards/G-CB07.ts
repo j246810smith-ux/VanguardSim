@@ -879,6 +879,12 @@ export const G_CB07: SetAbilities = {
   // ============================================================================ grade 1
   // Transcend Idol, Aqua (Sentinel: card data; "up to six" is not modelled)
   'G-CB07-018': [
+    ab.cont({
+      id: '1',
+      zones: ['any'],
+      effects: [{ ce: 'deck_limit', copies: 6, whenAllSentinels: true }],
+      text: text('G-CB07-018', 0),
+    }),
     ab.auto({
       id: '2',
       zones: ['any'],

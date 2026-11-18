@@ -131,6 +131,8 @@ export interface CardFilter {
   readonly sameColumnAsEvent?: boolean;
   /** "in the same column as that unit": the column of a card bound earlier (CR 4.6.2.1 across players). */
   readonly sameColumnAsBound?: string;
+  /** "units in the same columns as his or her locked cards" (G-EB03 Vela Junior Dragon). */
+  readonly sameColumnAsOwnLocked?: boolean;
   /** On this circle of its player's field ("(RC) in the left column of the front row"). */
   readonly onCircle?:
     'vanguard' | 'front_left' | 'front_right' | 'back_left' | 'back_center' | 'back_right';
@@ -294,6 +296,8 @@ export type Restriction =
   | 'cannot_attack'
   /** "You cannot normal ride this card" (PR12 Exculpate the Blaster): a superior ride still can. */
   | 'cannot_normal_ride'
+  /** "This card cannot be normal called to (RC)" (G-EB03 Grandgallop, from the hand): superior calls still can. */
+  | 'cannot_normal_call'
   /** "This unit cannot attack a rear-guard" (e.g. the Djinn of TD06). */
   | 'cannot_attack_rear_guard'
   /** "This unit cannot attack a vanguard" (G-BT10 Gigant Flame, Fudoublast). */
@@ -568,6 +572,10 @@ export type Step =
   | { readonly op: 'end_normal_ride' }
   /** "your opponent cannot normal ride during your opponent's next ride phase" (G-BT04 Stun Beetle). */
   | { readonly op: 'no_normal_ride_next' }
+  /** The opponent cannot Stride during their next ride phase (G-CB06 Zakuelad). */
+  | { readonly op: 'no_stride_next' }
+  /** The master chooses a column; the opponent cannot call to its (RC) during the next turn (Gredora). */
+  | { readonly op: 'forbid_rc_calls_column' }
   /** "Your opponent cannot call his or her units to (RC) until end of your opponent's next turn" (G-TCB02). */
   | { readonly op: 'forbid_rc_calls' }
   /** Harmony (G-CB01): the targets become in harmony until end of turn. */
@@ -873,6 +881,15 @@ export type TriggerCondition =
   | { readonly on: 'opponent_shuffles' }
   /** "When it is chosen by the effect of an opponent's card" (G-BT12 Grizel). */
   | { readonly on: 'chosen_by_opponent'; readonly who: Subject }
+  /**
+   * "When this unit is chosen for the effect of your vanguard with X in its card name" (G-EB02
+   * Trickle British): a `choose` step of an ability of your unit on (VC).
+   */
+  | {
+      readonly on: 'chosen_by_your_vanguard';
+      readonly who: Subject;
+      readonly vanguard?: CardFilter;
+    }
   /** CR 10.1.3: moved from the field to the drop zone. */
   | { readonly on: 'retired'; readonly who: Subject }
   /** "At the beginning of …" (whose = whose turn it must be). */
@@ -1048,6 +1065,11 @@ export interface AutoAbility extends AbilityBase {
   readonly optional?: boolean;
   readonly effect: readonly Step[];
   readonly oncePerTurn?: boolean;
+  /**
+   * Abilities of one card with the same key share one [1/turn] (an ability with two triggers
+   * written as two abilities, G-EB02 Darkface Gredora). Default: the ability's own id.
+   */
+  readonly onceKey?: string;
   /** "This ability cannot be used for the rest of that battle" */
   readonly oncePerBattle?: boolean;
 }
@@ -1078,6 +1100,27 @@ export type ContinuousEffect =
       readonly per?: Selector;
     }
   | { readonly ce: 'restrict'; readonly target: Selector; readonly restriction: Restriction }
+  /**
+   * "This unit gets grade +n" while the ability is active (G-CHB01 Smart Fender Dragon on (RC)).
+   * Only the card's own grade: read in currentGrade through a hook (continuous.ts), so a grade
+   * never depends on other units' continuous effects (no loops between grades and conditions).
+   */
+  | { readonly ce: 'self_grade'; readonly amount: number }
+  /**
+   * "This card may be regarded as a normal unit instead of a trigger unit" (G-EB02 Marigold
+   * Musketeer, Rachele, in the zones of its ability): it matches "normal unit" filters too.
+   */
+  | { readonly ce: 'may_be_normal_unit' }
+  /**
+   * "When your opponent stands units in the same column as this unit during the stand phase, he
+   * or she can only stand one of them" (G-EB02 Silk Sleeper): game/limitedStand.ts.
+   */
+  | { readonly ce: 'stand_one_in_column' }
+  /**
+   * On a vanguard: "All of the original grade n cards in your deck get grade +m" (granted by
+   * G-CB05 Full Bright Wish, Shizuku). Read in currentGrade for cards in the deck (continuous.ts).
+   */
+  | { readonly ce: 'deck_grade_all'; readonly originalGrade: number; readonly amount: number }
   | { readonly ce: 'allow'; readonly target: Selector; readonly permission: Permission }
   /** A player may not normal call matching cards to (GC) (e.g. Silent Tom: grade 0). */
   | {
@@ -1104,6 +1147,16 @@ export type ContinuousEffect =
    * [Stride] without paying the [Stride] cost" (G-TD14 Tirua): read by freeStride.
    */
   | { readonly ce: 'free_stride'; readonly maxRearGuards: number }
+  /**
+   * On the G unit itself, in the G zone: "If you have a vanguard with X in its card name, and the
+   * number of cards in your hand is n or less, this card may [Stride] without paying the [Stride]
+   * cost" (G-EB03 Original Deletor, Gaoield). Read by freeStride for that G unit.
+   */
+  | {
+      readonly ce: 'stride_free_self';
+      readonly vanguardNameIncludes: string;
+      readonly maxHand: number;
+    }
   /**
    * Ultimate Stride, "U[Stride]" (G-BT13 Zeroth Dragons): released when three or more cards in your
    * G zone are face up; the cost is a card from hand with the same card name as your vanguard; when
@@ -1158,6 +1211,18 @@ export type ContinuousEffect =
    */
   | { readonly ce: 'stride_ritual_cost' }
   /**
+   * "You may pay "[Counter-Blast cb & Choose n normal units with X in their card names from your
+   * drop zone, and put them on the bottom of your deck in any order]" as the cost for [Stride] of
+   * your G unit with Y in its card name" (G-EB02 Lantana Musketeer, Rozeeta, GB1).
+   */
+  | {
+      readonly ce: 'stride_drop_deck_cost';
+      readonly cb: number;
+      readonly n: number;
+      readonly nameIncludes: string;
+      readonly gUnitNameIncludes: string;
+    }
+  /**
    * "[CONT](VC):You may pay "Choose a grade n <race> from your drop zone, and bind it face up" as the
    * cost for [Stride]" (G-BT14 Chronojet Dragon Z): read by strideRitualCost (no Counter-Blast).
    */
@@ -1180,7 +1245,15 @@ export type ContinuousEffect =
       readonly generationBreak: number;
     }
   /** "You may have up to n cards named <this> in your deck" (deck construction). */
-  | { readonly ce: 'deck_limit'; readonly copies: number }
+  | {
+      readonly ce: 'deck_limit';
+      readonly copies: number;
+      /**
+       * Only "if all the sentinels in your deck are this card", and then the deck's sentinel limit
+       * rises to `copies` too (G-CB07 Transcend Idol, Aqua: "you may include up to six").
+       */
+      readonly whenAllSentinels?: boolean;
+    }
   /** "Your vanguard's [Limit-Break 4] is active even when you have three or less damage" (see limitBreakMet). */
   | { readonly ce: 'limit_break_always' }
   /**

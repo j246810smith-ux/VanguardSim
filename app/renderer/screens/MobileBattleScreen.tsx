@@ -41,9 +41,9 @@ import {
   type Props,
 } from './useBattleController';
 
-const PHASES = ['stand', 'draw', 'ride', 'main', 'battle', 'end'] as const;
-const G_PHASES = ['stand', 'draw', 'ride', 'stride', 'main', 'battle', 'end'] as const;
-const PHASE_ICON: Record<string, Parameters<typeof Icon>[0]['name']> = {
+export const PHASES = ['stand', 'draw', 'ride', 'main', 'battle', 'end'] as const;
+export const G_PHASES = ['stand', 'draw', 'ride', 'stride', 'main', 'battle', 'end'] as const;
+export const PHASE_ICON: Record<string, Parameters<typeof Icon>[0]['name']> = {
   stand: 'swap',
   draw: 'call',
   ride: 'end',
@@ -272,7 +272,7 @@ const visible = (view: GameState, id: InstanceId) => {
   return !!card && card.faceUp && !card.locked && card.definitionId !== HIDDEN;
 };
 
-function seatNames(c: BattleController) {
+export function seatNames(c: BattleController) {
   const { demo, online, config, view } = c;
   return {
     me: demo ? `CPU 1 (${LEVEL_NAME[demo.p1Level]})` : 'You',
@@ -302,7 +302,7 @@ function RailButton({ action }: { action: BarAction }) {
  * A fighter's plate. The portrait is the deck's vanguard art (the brief's character portraits
  * are left out: the user's choice, 2026-11-08); online, the opponent's vanguard once it is face up.
  */
-function Portrait({
+export function Portrait({
   side,
   view,
   player,
@@ -419,7 +419,7 @@ function PhaseBar({ c, actions }: { c: BattleController; actions: readonly BarAc
 }
 
 /** The opponent's hand as small card backs along the top of the field. */
-function OppHand({ view }: { view: GameState }) {
+export function OppHand({ view }: { view: GameState }) {
   return (
     <div className="m-opp-hand" data-zone={`${AI}-hand`}>
       {view.players[AI].hand.map((id) => (

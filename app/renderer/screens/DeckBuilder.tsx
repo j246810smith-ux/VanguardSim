@@ -38,7 +38,7 @@ import { playmatOf, sleeveLook } from '../cosmetics';
 import { useSettings } from '../settings';
 import { PlaymatPicker, SleevePicker } from '../ui/CosmeticPickers';
 import { useConfirm } from '../ui/ConfirmDialog';
-import { Button, Dialog, IconButton, Segmented, Select, TextField } from '../ui/kit';
+import { Button, Dialog, IconButton, Select, TextField } from '../ui/kit';
 import { Search, X } from 'lucide-react';
 import { useBackHandler } from '../android/back';
 import { nativeFiles } from '../android/native';
@@ -213,8 +213,13 @@ export function DeckBuilder({
   };
   const add = (id: string) => {
     const d = ctx.registry.get(id);
-    const max = maxCopiesOf(d, rules);
     const now = latest.current;
+    // a limit that depends on the deck (Aqua: six if every sentinel is Aqua) counts the new card too
+    const max = maxCopiesOf(
+      d,
+      rules,
+      [...now.cards, id].map((x) => ctx.registry.get(x)),
+    );
     if (d.cardType === 'g_unit') {
       if (!gEra) return flash('G units go in a G era deck');
       if (sameName(now.gDeck, d.name) >= max)
@@ -383,14 +388,16 @@ export function DeckBuilder({
         <Button onClick={() => discardThen(onBack)}>← Menu</Button>
         <h1>{browse ? 'CARD DATABASE' : 'DECK EDIT'}</h1>
         <div className="format-switch" data-testid="deck-format">
-          <Segmented
+          {/* a dropdown: three tabs did not fit on a phone (the third hid under the deck panel,
+              owner 2026-11-18) */}
+          <Select
             ariaLabel="Format"
+            testId="deck-format-select"
             value={format}
-            onChange={(key) => changeFormat(key)}
+            onChange={(key) => changeFormat(key as FormatKey)}
             options={(Object.keys(PLAY_FORMATS) as FormatKey[]).map((key) => ({
               value: key,
               label: PLAY_FORMATS[key].label,
-              testId: `deck-format-${key}`,
             }))}
           />
         </div>

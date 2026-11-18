@@ -38,11 +38,40 @@ export interface DeckIssue {
 
 /** Returns every problem with the deck; an empty array means the deck is legal. */
 /** Copies of a card name allowed in a deck: the format's limit, or the card's own ("up to sixteen"). */
-export function maxCopiesOf(def: CardDefinition, format: FormatDefinition): number {
+export function maxCopiesOf(
+  def: CardDefinition,
+  format: FormatDefinition,
+  /** The deck's cards: needed for a limit that depends on the rest of the deck (Aqua). */
+  deck?: readonly CardDefinition[],
+): number {
   const own = def.abilities.flatMap((a) =>
-    a.kind === 'CONT' ? a.effects.flatMap((e) => (e.ce === 'deck_limit' ? [e.copies] : [])) : [],
+    a.kind === 'CONT'
+      ? a.effects.flatMap((e) =>
+          e.ce === 'deck_limit' && (!e.whenAllSentinels || allSentinelsAre(def, deck))
+            ? [e.copies]
+            : [],
+        )
+      : [],
   );
   return own[0] ?? format.maxCopiesPerName.value;
+}
+
+/** "If all the sentinels in your deck are <this card>" (no deck given: not known, so allowed). */
+const allSentinelsAre = (def: CardDefinition, deck?: readonly CardDefinition[]): boolean =>
+  deck === undefined || deck.every((d) => !d.sentinel || d.name === def.name);
+
+/** The deck's sentinel limit: the format's, or a card's own (Aqua: six if they are all Aqua). */
+function sentinelLimit(defs: readonly CardDefinition[], format: FormatDefinition): number | null {
+  const base = format.maxSentinels.value;
+  const sentinels = defs.filter((d) => d.sentinel);
+  const first = sentinels[0];
+  if (base === null || !first || !allSentinelsAre(first, defs)) return base;
+  const own = first.abilities.flatMap((a) =>
+    a.kind === 'CONT'
+      ? a.effects.flatMap((e) => (e.ce === 'deck_limit' && e.whenAllSentinels ? [e.copies] : []))
+      : [],
+  );
+  return Math.max(base, ...own);
 }
 
 export function validateDeck(
@@ -100,7 +129,7 @@ export function validateDeck(
   const limit = new Map<string, number>();
   for (const d of defs) {
     copies.set(d.name, (copies.get(d.name) ?? 0) + 1);
-    limit.set(d.name, maxCopiesOf(d, format));
+    limit.set(d.name, maxCopiesOf(d, format, defs));
   }
   for (const [name, count] of copies) {
     const max = limit.get(name)!;
@@ -126,7 +155,7 @@ export function validateDeck(
     issues.push({ code: 'TOO_MANY_HEALS', message: `${heals} heal triggers; max ${maxHeals}` });
   }
 
-  const maxSentinels = format.maxSentinels.value;
+  const maxSentinels = sentinelLimit(defs, format);
   const sentinels = defs.filter((d) => d.sentinel).length;
   if (maxSentinels !== null && sentinels > maxSentinels) {
     issues.push({

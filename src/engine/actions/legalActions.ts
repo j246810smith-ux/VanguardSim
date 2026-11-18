@@ -1,5 +1,5 @@
 import { isRestricted } from '../abilities/continuous';
-import { actOptions, type ActOption } from '../abilities/runtime';
+import { actOptions, columnBanned, type ActOption } from '../abilities/runtime';
 import {
   attackedUnits,
   attackOptions,
@@ -99,6 +99,10 @@ export type LegalAction =
         readonly cards: readonly InstanceId[];
         /** Chronojet Dragon Z (G-BT14): the card is bound face up instead. */
         readonly bind?: boolean;
+        /** How many of the cards to pay (Rozeeta, G-EB02: two); default one. */
+        readonly n?: number;
+        /** Only for a G unit with this in its card name (Rozeeta: "Musketeer"). */
+        readonly gUnitNameIncludes?: string;
       };
       /** The discard for a G unit with its own stride cost (Ultimate Stride, G-BT13): use it for that unit. */
       readonly discardFor?: Readonly<Record<InstanceId, readonly InstanceId[]>>;
@@ -169,6 +173,7 @@ function callableCards(state: GameState, ctx: EngineContext, player: PlayerId): 
   return state.players[player].hand.filter(
     (id) =>
       currentGrade(state, ctx, id) <= vg &&
+      !isRestricted(state, ctx, id, 'cannot_normal_call') &&
       !(
         gyze &&
         !(ctx.registry.get(state.cards[id]!.definitionId).race ?? '').split('/').includes(gyze.race)
@@ -262,7 +267,7 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
         (soulCost ? soulCost.cards.slice(0, soulCost.n) : null) ??
         (retireCost.length > 0 ? [retireCost[0]!] : null) ??
         (cbCost.length > 0 ? [cbCost[0]!] : null) ??
-        (ritualCost ? [ritualCost.cards[0]!] : null));
+        (ritualCost ? ritualCost.cards.slice(0, ritualCost.n ?? 1) : null));
     if (cardIds.length > 0 && (suggestedDiscard || Object.keys(discardFor).length > 0)) {
       const best = bestStrideUnit(state, ctx, player, cardIds);
       const discardGrades = Object.fromEntries(
@@ -287,7 +292,10 @@ function playingActions(state: GameState, player: PlayerId, ctx: EngineContext):
     const cardIds = callableCards(state, ctx, player);
     const circles = state.players[player].circles;
     const isLockCircle = (c: RearGuardCircle) => circles[c].some((id) => state.cards[id]!.locked);
-    const callable = REAR_GUARD_CIRCLES.filter((c) => !isLockCircle(c));
+    // Gredora (G-EB02): no call to the (RC) of a column banned this turn
+    const callable = REAR_GUARD_CIRCLES.filter(
+      (c) => !isLockCircle(c) && !columnBanned(state, player, c),
+    );
     const noCalls = (state.players[player].noRCCallsThrough ?? -1) >= state.turnNumber;
     if (cardIds.length > 0 && callable.length > 0 && !noCalls) {
       actions.push({ type: 'CALL', cardIds, circles: callable });

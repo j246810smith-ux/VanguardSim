@@ -2,10 +2,19 @@
 // Touch input (docs/android/ANDROID_AUDIT_AND_PLAN.md U3, U10): long press to inspect, and the
 // game's own confirm dialog in the Deck Builder.
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { PLAY_FORMATS } from '../../src/engine';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { loadDecks } from '../renderer/decks/storage';
 import { DeckBuilder } from '../renderer/screens/DeckBuilder';
 import { LONG_PRESS_MS, useLongPress } from '../renderer/ui/useLongPress';
+
+/** Picks a format from the deck builder's format dropdown. */
+function pickFormat(key: keyof typeof PLAY_FORMATS) {
+  fireEvent.click(screen.getByTestId('deck-format-select'));
+  fireEvent.keyDown(screen.getByRole('option', { name: PLAY_FORMATS[key].label }), {
+    key: 'Enter',
+  });
+}
 
 function Target({ onClick, onLong }: { onClick: () => void; onLong: () => void }) {
   const press = useLongPress();
@@ -155,14 +164,14 @@ describe('Deck Builder on touch and its confirm dialog', () => {
 
   it('switching a deck with a G deck to Classic asks before removing the G deck', () => {
     render(<DeckBuilder onBack={() => {}} />);
-    fireEvent.click(screen.getByTestId('deck-format-g'));
+    pickFormat('g');
     fireEvent.change(screen.getByTestId('card-search'), { target: { value: 'G-BT01/025' } });
     fireEvent.click(screen.getByTestId('pool-G-BT01-025'));
-    fireEvent.click(screen.getByTestId('deck-format-classic'));
+    pickFormat('classic');
     expect(screen.getByTestId('confirm-dialog').textContent).toContain('Remove the G deck?');
     fireEvent.click(screen.getByTestId('confirm-no'));
     expect(screen.getByTestId('g-deck').querySelectorAll('.dd-tile')).toHaveLength(1);
-    fireEvent.click(screen.getByTestId('deck-format-classic'));
+    pickFormat('classic');
     fireEvent.click(screen.getByTestId('confirm-yes'));
     expect(screen.queryByTestId('g-deck')).toBeNull();
   });

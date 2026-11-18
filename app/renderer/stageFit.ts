@@ -25,14 +25,37 @@ export interface StageLayout {
    * it, so the game uses the whole screen instead of leaving bars at the sides. 0 otherwise.
    */
   readonly edge: number;
+  /**
+   * Portrait battles (docs/android/PORTRAIT_PLAN.md): the screen is taller than wide while a
+   * battle allows it. The stage is then PORTRAIT_W px wide and `height` px tall instead.
+   */
+  readonly portrait?: boolean;
+  /** The portrait stage's height in stage px (as tall as the screen's shape, at least 1920). */
+  readonly height?: number;
 }
 
-export function stageLayout(width: number, height: number): StageLayout {
+/** The portrait stage's width; its height follows the screen's shape. */
+export const PORTRAIT_W = 1080;
+export const PORTRAIT_MIN_H = 1920;
+
+export function stageLayout(width: number, height: number, portraitAllowed = false): StageLayout {
+  // portrait: clearly taller than wide (a square-ish tablet window stays landscape)
+  if (portraitAllowed && width > 0 && height > width * 1.15) {
+    const tall = Math.max(PORTRAIT_MIN_H, Math.round((PORTRAIT_W * height) / width));
+    const scale = Math.min(width / PORTRAIT_W, height / tall);
+    return { scale, phone: scale < SMALL_SCALE, edge: 0, portrait: true, height: tall };
+  }
   const scale = fitScale(width, height);
   const phone = width > 0 && height > 0 && scale < SMALL_SCALE;
   const edge = phone ? Math.max(0, Math.floor((width / scale - STAGE_W) / 2)) : 0;
   return { scale, phone, edge };
 }
+
+/**
+ * Whether the screen on show allows the portrait layout (only a battle does), with its setter:
+ * App.tsx provides it, the battle screen switches it on while it is mounted.
+ */
+export const PortraitAllowed = createContext<(on: boolean) => void>(() => {});
 
 /**
  * The size to fit the stage to. While a text box has the keyboard open (Android), a shorter

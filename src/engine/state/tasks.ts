@@ -17,6 +17,12 @@ export type TaskBody =
   | { readonly kind: 'begin_turn'; readonly player: PlayerId }
   | { readonly kind: 'enter_phase'; readonly phase: Phase }
   | { readonly kind: 'stand_units' }
+  /** Silk Sleeper (G-EB02): one unit per limited column stands (game/limitedStand.ts). */
+  | {
+      readonly kind: 'limited_stand';
+      handled?: ('left' | 'centre' | 'right')[];
+      selection?: string[];
+    }
   | { readonly kind: 'turn_draw' }
   /** Delayed Legion (custom rule): the player's Legion Mate goes into the soul or drop zone. */
   | { readonly kind: 'delayed_legion_end'; readonly player: PlayerId; selection?: string[] }
@@ -181,6 +187,7 @@ const CHOICE_TASKS: ReadonlySet<Task['kind']> = new Set([
   'choose_attack_targets',
   'effect_attack',
   'delayed_legion_end',
+  'limited_stand',
   'g_assist',
   'g_assist_search',
   'g_assist_remove',

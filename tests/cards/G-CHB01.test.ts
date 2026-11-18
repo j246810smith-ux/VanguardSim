@@ -7,7 +7,8 @@ import { describe, expect, it } from 'vitest';
 import { BasicController } from '../../src/ai/basicController';
 import { runMatch } from '../../src/sim/runMatch';
 import { checkZoneInvariant, type GameState } from '../../src/engine';
-import { namesOf } from '../../src/engine/game/characteristics';
+import { currentGrade, namesOf } from '../../src/engine/game/characteristics';
+import { currentPower } from '../../src/engine';
 import { gApply, gCtx, settle } from '../fixtures/gEra';
 import { maker, scene } from '../fixtures/gSets';
 
@@ -80,6 +81,29 @@ describe('G-CHB01', () => {
       gApply(t, { type: 'END_PHASE', player: 0 }, { type: 'END_PHASE', player: 0 }),
     );
     expect(end.state.players[0].deck).not.toContain(peacock);
+  });
+  // engine gap (handover 2026-11-16): the grade +1 on (RC) was not modelled
+  it('Smart Fender Dragon on (RC) with Chic Folk Dracokid in the soul is grade 2, otherwise 1', () => {
+    const base = scene(
+      [GC, KG],
+      { circles: { vanguard: 'G-CHB01-015', front_left: 'G-CHB01-058' } },
+      { circles: { vanguard: 'G-BT01-014' } },
+      { at: 'main', also: ['G-CHB01-059'] },
+    );
+    const fender = base.players[0].circles.front_left[0]!;
+    expect(currentGrade(base, ctx, fender)).toBe(1);
+    const t: GameState = structuredClone(base);
+    const p = t.players[0];
+    const kid = p.deck.findIndex((id) => t.cards[id]!.definitionId === 'G-CHB01-059');
+    p.soul.push(p.deck.splice(kid, 1)[0]!);
+    expect(currentGrade(t, ctx, fender)).toBe(2);
+    expect(currentPower(t, ctx, fender)).toBe(currentPower(base, ctx, fender) + 1000);
+    // in the deck or the hand it keeps its printed grade
+    const inHand = p.hand[0];
+    if (inHand)
+      expect(currentGrade(t, ctx, inHand)).toBe(
+        ctx.registry.get(t.cards[inHand]!.definitionId).grade,
+      );
   });
 });
 

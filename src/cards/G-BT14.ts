@@ -2129,7 +2129,9 @@ export const G_BT14: SetAbilities = {
   'G-BT14-001': [
     ab.auto({
       id: '1',
-      zones: ['soul'],
+      // "When this unit is ridden": checked where it was (the vanguard circle), like every other
+      // ridden trigger; ['soul'] never matched, so the card stayed in the soul (owner report 2026-11-18)
+      zones: ['any'],
       trigger: { on: 'ridden', who: 'self' },
       effect: [ab.moveTo(ab.self(), 'gzone')],
       text: text('G-BT14-001', 0),

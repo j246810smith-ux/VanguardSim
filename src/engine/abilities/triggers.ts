@@ -129,6 +129,13 @@ function matchTrigger(ec: EvalContext, t: TriggerCondition, e: GameEvent): Match
       return e.type === 'DECK_SHUFFLED' && e.player !== ec.master && e.by === e.player
         ? { eventCard: null }
         : null;
+    case 'chosen_by_your_vanguard': {
+      if (e.type !== 'CHOSEN' || e.master !== ec.master || !e.byVanguard || e.source === undefined)
+        return null;
+      if (t.vanguard && !matches(ec, e.source, t.vanguard)) return null;
+      const id = e.instanceIds.find((x) => subjectIs(ec, t.who, x, masterOf(x)));
+      return id === undefined ? null : { eventCard: id };
+    }
     case 'chosen_by_opponent': {
       if (e.type !== 'CHOSEN') return null;
       const id = e.instanceIds.find(
@@ -470,5 +477,5 @@ function isUsable(
   if (!limitBreakMet(d.state, d.ctx, master, a.limitBreak, source, wasVanguard)) return false;
   // CR 1.48.1 11.12.3.2.1: Generation Break is checked when the ability would trigger
   if (!generationBreakMet(d.state, d.ctx, master, a.generationBreak)) return false;
-  return !(a.oncePerTurn && d.state.usedThisTurn.includes(`${source}/${a.id}`));
+  return !(a.oncePerTurn && d.state.usedThisTurn.includes(`${source}/${a.onceKey ?? a.id}`));
 }

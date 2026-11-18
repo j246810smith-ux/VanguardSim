@@ -408,6 +408,25 @@ export const G_CB05: SetAbilities = {
       ],
       text: text('G-CB05-009', 1),
     }),
+    ab.auto({
+      id: '3',
+      zones: ['VC'],
+      trigger: ab.strides(),
+      effect: [
+        ab.choose('v', ab.units('you', ['VC']), 1),
+        ab.grant(
+          bound('v'),
+          ab.cont({
+            id: 'shizuku',
+            zones: ['VC'],
+            effects: [{ ce: 'deck_grade_all', originalGrade: 2, amount: 1 }],
+            text: '[CONT](VC):All of the original grade 2 cards in your deck get grade+1.',
+          }),
+          'end_of_turn',
+        ),
+      ],
+      text: text('G-CB05-009', 2),
+    }),
   ],
   // Wonderful Voice, Lauris
   'G-CB05-012': [

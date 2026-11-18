@@ -8,7 +8,8 @@ import { BasicController } from '../../src/ai/basicController';
 import { runMatch } from '../../src/sim/runMatch';
 import { checkZoneInvariant, type GameState } from '../../src/engine';
 import { attackOptions } from '../../src/engine/game/combat';
-import { gApply, gCtx, settle } from '../fixtures/gEra';
+import { isRestricted } from '../../src/engine/abilities/continuous';
+import { gApply, gCtx, gLegal, settle } from '../fixtures/gEra';
 import { maker, scene } from '../fixtures/gSets';
 
 const ctx = gCtx;
@@ -75,6 +76,84 @@ describe('G-EB03', () => {
       expect(st.cards[v]!.orientation).toBe('stand');
     }
     expect(attackOptions(st, ctx).some((o) => o.attacker === v)).toBe(false);
+  });
+  // engine gaps (handover 2026-11-16)
+  it('Grandgallop cannot be normal called until a face-up grade 4 "Gallop" is on (VC) or in the G zone', () => {
+    const at = (faceUpG: number) =>
+      scene(
+        [DP, KG],
+        { circles: { vanguard: 'G-EB03-007' }, hand: ['G-EB03-007'] },
+        { circles: { vanguard: 'G-BT01-014' } },
+        { at: 'main', faceUpG },
+      );
+    const callable = (st: GameState) => {
+      const id = st.players[0].hand.find((x) => st.cards[x]!.definitionId === 'G-EB03-007')!;
+      return (gLegal(st, 0, 'CALL')?.cardIds ?? []).includes(id);
+    };
+    const none = at(0);
+    expect(none.players[0].gzone.some((g) => none.cards[g]!.definitionId === 'G-EB03-003')).toBe(
+      true,
+    );
+    expect(callable(none)).toBe(false); // X-gallop only face down
+    const t: GameState = structuredClone(none);
+    const xg = t.players[0].gzone.find((g) => t.cards[g]!.definitionId === 'G-EB03-003')!;
+    t.cards[xg]!.faceUp = true;
+    expect(callable(t)).toBe(true);
+  });
+  it("Vela Junior Dragon (GB1): opponent's units in a locked card's column cannot intercept", () => {
+    const base = scene(
+      [LJ, KG],
+      { circles: { vanguard: 'G-EB03-010', front_left: 'G-EB03-071' } },
+      {
+        circles: {
+          vanguard: 'G-BT01-014',
+          front_left: 'G-BT01-016',
+          back_left: 'G-BT01-016',
+          front_right: 'G-BT01-016',
+        },
+      },
+      { at: 'main', faceUpG: 1 },
+    );
+    const t: GameState = structuredClone(base);
+    const opp = t.players[1].circles;
+    t.cards[opp.back_left[0]!]!.locked = true;
+    expect(isRestricted(t, ctx, opp.front_left[0]!, 'cannot_intercept')).toBe(true);
+    expect(isRestricted(t, ctx, opp.front_right[0]!, 'cannot_intercept')).toBe(false);
+    // without Generation Break 1 it does nothing
+    const noGb: GameState = structuredClone(t);
+    for (const g of noGb.players[0].gzone) noGb.cards[g]!.faceUp = false;
+    expect(isRestricted(noGb, ctx, opp.front_left[0]!, 'cannot_intercept')).toBe(false);
+  });
+  it('Gaoield strides for free with a "Deletor" vanguard and one card or fewer in hand', () => {
+    const GAOIELD = 'G-EB03-019';
+    const GREIGIIL = 'G-EB03-021'; // Hack Deletor, Greigiil (grade 3)
+    const at = (hand: string[]) =>
+      gApply(
+        scene(
+          [maker('Link Joker', [GAOIELD], ctx), KG],
+          { circles: { vanguard: GREIGIIL }, hand },
+          { circles: { vanguard: 'G-BT01-014' } },
+          { at: 'ride' },
+        ),
+        { type: 'END_PHASE', player: 0 },
+      ).state;
+    const gaoieldIn = (st: GameState) =>
+      st.players[0].gzone.find((g) => st.cards[g]!.definitionId === GAOIELD)!;
+    const one = at([GREIGIIL]);
+    const offer = gLegal(one, 0, 'STRIDE')!;
+    const g = gaoieldIn(one);
+    expect(offer.cardIds).toContain(g);
+    expect(offer.discardFor?.[g]).toEqual([]);
+    const r = settle(gApply(one, { type: 'STRIDE', player: 0, cardId: g, discard: [] }), {
+      no: true,
+    });
+    expect(r.state.players[0].circles.vanguard.at(-1)).toBe(g);
+    expect(r.state.players[0].hand).toHaveLength(1); // nothing paid
+    // two cards in hand: the cost has to be paid
+    const two = at([GREIGIIL, GREIGIIL]);
+    expect(() =>
+      gApply(two, { type: 'STRIDE', player: 0, cardId: gaoieldIn(two), discard: [] }),
+    ).toThrow();
   });
 });
 

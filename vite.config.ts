@@ -18,6 +18,13 @@ const pkg = JSON.parse(readFileSync(resolve(import.meta.dirname, 'package.json')
  * own files, so nothing can reach the network, as main.cjs enforces on Windows. Capacitor serves
  * the app and the card art copied to the phone (convertFileSrc) from https://localhost.
  */
+const relayConfig = JSON.parse(
+  readFileSync(resolve(import.meta.dirname, 'app/main/relay.json'), 'utf8'),
+) as { credentialsUrl: string };
+const RELAY_ORIGIN = relayConfig.credentialsUrl.startsWith('https://')
+  ? new URL(relayConfig.credentialsUrl).origin
+  : '';
+
 export const ANDROID_CSP = [
   "default-src 'self'",
   "img-src 'self' data: blob: https://localhost",
@@ -25,7 +32,8 @@ export const ANDROID_CSP = [
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "script-src 'self'",
-  "connect-src 'self' https://localhost https://0.peerjs.com wss://0.peerjs.com",
+  // the relay-credentials Worker (app/main/relay.json), when one is set up
+  `connect-src 'self' https://localhost https://0.peerjs.com wss://0.peerjs.com${RELAY_ORIGIN ? ` ${RELAY_ORIGIN}` : ''}`,
   "object-src 'none'",
   "base-uri 'self'",
 ].join('; ');

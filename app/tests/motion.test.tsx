@@ -223,4 +223,143 @@ describe('card movement animation', () => {
       expect(count('.fx-debris')).toBe(8);
     });
   });
+
+  // owner's request 2026-11-18: cards move "along the lines of" fight-club.dev
+  describe('turning, staggering and the soul', () => {
+    const framesOf = (el: Element) =>
+      animate.mock.calls[animate.mock.contexts.indexOf(el)]![0] as Keyframe[];
+    const rot = (f: Keyframe | undefined) => String(f?.transform);
+
+    function Units({
+      view,
+      units,
+      moves = new Map(),
+    }: {
+      view: object;
+      units: readonly { id: string; rest?: boolean; circle?: string }[];
+      moves?: Map<string, Move>;
+    }) {
+      useCardMotion(() => moves, 300, view, 'full');
+      return (
+        <div className="stage">
+          <div data-zone="0-drop" />
+          <div data-zone="0-soul" />
+          <div data-zone="0-bind" />
+          <div className="side-me">
+            <div className="circle" data-testid="circle-0-vanguard" data-iid="vc">
+              <div className="unit" data-iid="vc">
+                {/* data-iid: the mocked layout measures it (jsdom has none) */}
+                <div className="card" data-iid="vc" />
+              </div>
+            </div>
+            {units.map((u) => (
+              <div key={u.id} className="circle" data-iid={u.id} data-testid={u.circle}>
+                <div className="unit" data-iid={u.id}>
+                  <div className={u.rest ? 'card rested' : 'card'} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    it('a unit that stands up turns on its circle with a glow; one that rests turns too', () => {
+      boxes.set('u1', { x: 300, y: 300 });
+      const { rerender } = render(<Units view={{}} units={[{ id: 'u1', rest: true }]} />);
+      rerender(<Units view={{}} units={[{ id: 'u1' }]} />);
+      expect(flights()).toBe(0); // it did not move: no flying copy
+      const face = document.querySelector('[data-iid="u1"] > .card')!;
+      const stand = framesOf(face);
+      expect(rot(stand[0])).toBe('rotate(90deg)');
+      expect(rot(stand.at(-1))).toBe('rotate(0deg)');
+      expect(String(stand[0]!.filter)).toContain('drop-shadow');
+      rerender(<Units view={{}} units={[{ id: 'u1', rest: true }]} />);
+      const rest = animate.mock.calls.at(-1)![0] as Keyframe[];
+      expect(rot(rest[0])).toBe('rotate(0deg)');
+      expect(rot(rest.at(-1))).toBe('rotate(90deg)');
+    });
+
+    it('a rested unit leaving for the drop zone turns upright on the way', () => {
+      const moves = new Map<string, Move>([['u1', { from: null, to: '0-drop', reason: 'retire' }]]);
+      boxes.set('u1', { x: 300, y: 300 });
+      const { rerender } = render(
+        <Units view={{}} units={[{ id: 'u1', rest: true }]} moves={moves} />,
+      );
+      rerender(<Units view={{}} units={[]} moves={moves} />);
+      const ghost = document.querySelector('.motion-ghost')!;
+      const face = ghost.querySelector('.card')!;
+      expect(face.classList.contains('rested')).toBe(false);
+      const turn = framesOf(face);
+      expect(rot(turn[0])).toBe('rotate(90deg)');
+      expect(rot(turn.at(-1))).toBe('rotate(0deg)');
+    });
+
+    it('cards called from one zone together leave a moment apart', () => {
+      const moves = new Map<string, Move>(
+        ['a', 'b', 'c'].map((id) => [id, { from: '0-bind', to: null, reason: 'call' }]),
+      );
+      const { rerender } = render(<Units view={{}} units={[]} moves={moves} />);
+      rerender(<Units view={{}} units={[{ id: 'a' }, { id: 'b' }, { id: 'c' }]} moves={moves} />);
+      const delays = animate.mock.contexts
+        .map((el, i) => [el as HTMLElement, i] as const)
+        .filter(([el]) => el.classList.contains('motion-ghost'))
+        .map(([, i]) => (animate.mock.calls[i]![1] as KeyframeAnimationOptions).delay);
+      expect(delays).toEqual([0, 66, 132]);
+    });
+
+    it('a card called from the soul slides out from under the vanguard, not out of the soul pile', () => {
+      const moves = new Map<string, Move>([['s1', { from: '0-soul', to: null, reason: 'call' }]]);
+      boxes.set('vc', { x: 400, y: 200 }).set('s1', { x: 600, y: 200 });
+      const { rerender } = render(<Units view={{}} units={[]} moves={moves} />);
+      rerender(<Units view={{}} units={[{ id: 's1' }]} moves={moves} />);
+      const ghost = document.querySelector('.motion-ghost')!;
+      // the vanguard's face is drawn at (400, 200), the card lands at (600, 200): 200px to its left
+      expect(rot(framesOf(ghost)[0])).toContain('translate(-200px, 0px)');
+      expect(framesOf(ghost)[0]!.opacity).toBe(1); // not faded in like a card out of a pile
+    });
+    it('a checked card lifts out of the trigger zone and turns sideways into the damage column', () => {
+      // no moves on the first render (the card was already in the trigger zone)
+      let moves = new Map<string, Move>();
+      function Piles({ view, inDamage }: { view: object; inDamage: boolean }) {
+        useCardMotion(() => moves, 300, view, 'full');
+        return (
+          <div className="stage">
+            {inDamage ? (
+              <div className="dmg-card" data-iid="t1">
+                <div className="card mini" />
+              </div>
+            ) : (
+              <div data-zone="0-trigger">
+                <div data-iid="t1">
+                  <div className="card" />
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      }
+      // jsdom has no CSS `rotate`: the damage column's sideways cards (styles.css) are mocked
+      const real = window.getComputedStyle.bind(window);
+      vi.spyOn(window, 'getComputedStyle').mockImplementation((el: Element) =>
+        el.classList.contains('mini') && el.closest('.dmg-card')
+          ? ({ rotate: '90deg' } as CSSStyleDeclaration)
+          : real(el),
+      );
+      boxes.set('t1', { x: 900, y: 500 });
+      const { rerender } = render(<Piles view={{}} inDamage={false} />);
+      boxes.set('t1', { x: 1700, y: 700 });
+      moves = new Map([['t1', { from: '0-trigger', to: '0-damage' }]]);
+      rerender(<Piles view={{}} inDamage />);
+      const ghost = animate.mock.contexts.find((e) =>
+        (e as Element).classList.contains('motion-ghost'),
+      ) as HTMLElement;
+      expect(rot(framesOf(ghost)[1])).toContain('translate(-800px, -216px)'); // 16px lift
+      const face = ghost.querySelector('.card') as HTMLElement;
+      expect(face.style.rotate).toBe('none');
+      const turn = framesOf(face);
+      expect(rot(turn[0])).toBe('rotate(0deg)');
+      expect(rot(turn.at(-1))).toBe('rotate(90deg)');
+    });
+  });
 });

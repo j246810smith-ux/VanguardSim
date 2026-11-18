@@ -7,6 +7,12 @@
  *   - A card still on screen but elsewhere flies from its old place (hand → circle, circle swaps).
  *   - A card that appears flies in from the tile of the zone it came from (deck → hand, drop → RC).
  *   - A card that leaves the screen flies into the tile of its new zone (RC → drop, VC → soul).
+ *   - A unit that only stands or rests turns on its circle (a stand with a short glow); a sideways
+ *     card that moves turns to its new orientation on the way (owner's request 2026-11-18, after
+ *     fight-club.dev): it no longer flies sideways and snaps upright when it lands. A checked
+ *     card turns sideways on its way into the damage column the same way.
+ *   - A card called from the soul slides out from under its vanguard; several cards from (or into)
+ *     the same zone at once leave a moment apart; a checked card lifts out of the trigger zone.
  *
  * Since the tilted table (D-035) a moving card is drawn by a flat copy (a "ghost") in a layer over
  * the stage, flying between the on-screen boxes of its old and new places, while the real card is
@@ -74,7 +80,19 @@ interface Placed extends Spot {
   readonly lh: number;
   /** whose sleeve its back shows */
   readonly side: 'me' | 'opp' | null;
+  /** drawn sideways ([Rest]) */
+  readonly rest: boolean;
+  /** the angle its face is drawn at: 90 for [Rest] and for the sideways damage column */
+  readonly deg: number;
 }
+
+/** The card face of a unit, a hand card or a pile card (the circle element holds the unit). */
+const faceOf = (el: HTMLElement, iid: string): HTMLElement | null =>
+  el.querySelector<HTMLElement>(`.unit[data-iid="${CSS.escape(iid)}"] > .card`) ??
+  (el.classList.contains('card') ? el : el.querySelector<HTMLElement>('.card'));
+
+/** Gap between cards leaving one zone together (several retired, five called from the bind zone). */
+export const staggerMs = (n: number, ms: number): number => Math.min(n, 6) * Math.round(ms * 0.22);
 interface Flight {
   readonly ghost: HTMLElement;
   readonly runs: Animation[];
@@ -133,7 +151,12 @@ export function useCardMotion(
       const iid = el.dataset.iid!;
       if (now.has(iid) || el.closest('.motion-layer')) continue;
       const side = el.closest(MINE) ? 'me' : el.closest(THEIRS) ? 'opp' : null;
-      now.set(iid, { el, lw: el.offsetWidth, lh: el.offsetHeight, side, ...spot(el) });
+      const face = faceOf(el, iid);
+      const rest = face?.classList.contains('rested') ?? false;
+      // the damage column turns its cards with the CSS `rotate` property (styles.css .damage-col)
+      const turned = face ? parseFloat(getComputedStyle(face).rotate) || 0 : 0;
+      const deg = rest ? 90 : turned;
+      now.set(iid, { el, lw: el.offsetWidth, lh: el.offsetHeight, side, rest, deg, ...spot(el) });
     }
 
     if (ms > 0 && typeof Element.prototype.animate === 'function') {
@@ -180,12 +203,24 @@ export function useCardMotion(
           draw?: boolean;
           land?: LandKind | null;
           sink?: boolean;
+          /** lifts a little before it flies (a checked card leaving the trigger zone) */
+          lift?: boolean;
+          /** turns from one orientation to the other on the way (degrees: 0 stand, 90 rest) */
+          turn?: { from: number; to: number } | undefined;
+          /** waits this long first (cards leaving one zone together) */
+          delay?: number;
           duration: number;
         },
       ) => {
+        const delay = opts.delay ?? 0;
         const copy = card.el.cloneNode(true) as HTMLElement;
         copy.removeAttribute('data-iid');
         copy.removeAttribute('data-testid');
+        // the copy's face turns by itself (its [Rest] rotation would otherwise ride along unchanged)
+        const turnFace =
+          opts.turn && opts.turn.from !== opts.turn.to && !opts.draw ? faceOf(copy, iid) : null;
+        turnFace?.classList.remove('rested');
+        if (turnFace) turnFace.style.rotate = 'none';
         // a draw (user's request, 2026-11-13): the card lifts off the deck as a back, turns over
         // on the way and settles into the hand. The copy rides inside a flipping frame with the
         // sleeve on its reverse; the opponent's draw (a back already) only lifts and arcs.
@@ -266,27 +301,51 @@ export function useCardMotion(
                   { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
                   { transform: `scale(${to.s})`, opacity: 0 },
                 ]
-              : [
-                  {
-                    transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
-                    opacity: opts.fadeIn ? 0.4 : 1,
-                  },
-                  { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
-                  { transform: `scale(${to.s})`, opacity: 0 },
-                ];
+              : opts.lift
+                ? [
+                    // a checked card rises off the trigger zone, then heads for the hand or damage
+                    { transform: `translate(${dx}px, ${dy}px) scale(${from.s})`, opacity: 1 },
+                    {
+                      transform: `translate(${dx}px, ${dy - 16}px) scale(${from.s * 1.05})`,
+                      opacity: 1,
+                      offset: 0.16,
+                    },
+                    { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
+                    { transform: `scale(${to.s})`, opacity: 0 },
+                  ]
+                : [
+                    {
+                      transform: `translate(${dx}px, ${dy}px) scale(${from.s})`,
+                      opacity: opts.fadeIn ? 0.4 : 1,
+                    },
+                    { transform: `scale(${to.s})`, opacity: 1, offset: 0.85 },
+                    { transform: `scale(${to.s})`, opacity: 0 },
+                  ];
         const runs: Animation[] = [
           ghost.animate(frames, {
             duration: opts.duration,
+            delay,
             easing: 'cubic-bezier(.2,.8,.2,1)',
-            fill: 'forwards',
+            fill: 'both',
           }),
         ];
+        if (turnFace && opts.turn)
+          runs.push(
+            turnFace.animate(
+              [
+                { transform: `rotate(${opts.turn.from}deg)` },
+                { transform: `rotate(${opts.turn.to}deg)`, offset: 0.8 },
+                { transform: `rotate(${opts.turn.to}deg)` },
+              ],
+              { duration: opts.duration, delay, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'both' },
+            ),
+          );
         // the real card waits under the ghost and fades in as it lands
         if (opts.real)
           runs.push(
             opts.real.animate(
               [{ opacity: 0 }, { opacity: 0, offset: land ? 0.86 : 0.8 }, { opacity: 1 }],
-              opts.duration,
+              { duration: opts.duration, delay, fill: 'backwards' },
             ),
           );
         const extras: HTMLElement[] = [];
@@ -306,7 +365,7 @@ export function useCardMotion(
                 })),
                 {
                   duration: opts.duration,
-                  delay: lag,
+                  delay: lag + delay,
                   easing: 'cubic-bezier(.2,.8,.2,1)',
                   fill: 'both',
                 },
@@ -315,16 +374,17 @@ export function useCardMotion(
           }
         }
         if (land) {
-          runs.push(
-            ...landingFx(
-              layer!,
-              { cx: to.cx, cy: to.cy, w: card.lw * to.s, h: card.lh * to.s },
-              land,
-              card.side,
-              fx,
-              opts.duration * 0.72,
-            ),
+          const fxRuns = landingFx(
+            layer!,
+            { cx: to.cx, cy: to.cy, w: card.lw * to.s, h: card.lh * to.s },
+            land,
+            card.side,
+            fx,
+            opts.duration * 0.72,
           );
+          // a delayed card's rings wait for it (a negative time seeks to before the start)
+          if (delay) for (const a of fxRuns) a.currentTime = -delay;
+          runs.push(...fxRuns);
         }
         const flight = { ghost, runs, extras };
         flying.current.set(iid, flight);
@@ -335,32 +395,99 @@ export function useCardMotion(
         };
       };
 
+      // how many cards have already left each zone in this batch (they go a moment apart)
+      const queued = new Map<string, number>();
+      const nextDelay = (key: string | null) => {
+        if (!key) return 0;
+        const n = queued.get(key) ?? 0;
+        queued.set(key, n + 1);
+        return staggerMs(n, ms);
+      };
       for (const [iid, cur] of now) {
-        const was = drawn.get(iid) ?? prev.current.get(iid);
+        const before = prev.current.get(iid);
+        const was = drawn.get(iid) ?? before;
         if (was) {
-          if (Math.hypot(was.cx - cur.cx, was.cy - cur.cy) < 6 && Math.abs(was.s - cur.s) < 0.05)
+          if (Math.hypot(was.cx - cur.cx, was.cy - cur.cy) < 6 && Math.abs(was.s - cur.s) < 0.05) {
+            // stayed on its circle but stood up or rested: it turns there
+            if (before && before.rest !== cur.rest) {
+              const face = faceOf(cur.el, iid);
+              face?.animate(
+                cur.rest
+                  ? [
+                      { transform: 'rotate(0deg)' },
+                      { transform: 'rotate(96deg)', offset: 0.7 },
+                      { transform: 'rotate(90deg)' },
+                    ]
+                  : [
+                      {
+                        transform: 'rotate(90deg)',
+                        filter:
+                          fx !== 'off' ? 'brightness(1.5) drop-shadow(0 0 10px #ffd27a)' : 'none',
+                      },
+                      {
+                        transform: 'rotate(-6deg)',
+                        filter:
+                          fx !== 'off' ? 'brightness(1.25) drop-shadow(0 0 8px #ffd27a)' : 'none',
+                        offset: 0.7,
+                      },
+                      { transform: 'rotate(0deg)', filter: 'none' },
+                    ],
+                { duration: ms * 1.1, easing: 'cubic-bezier(.3,.8,.3,1)' },
+              );
+            }
             continue;
+          }
           const move = moves.get(iid);
           // arrived on a circle (hand to circle): the landing slam and its effects
           const land = move && move.to === null ? landKindOf(move.reason) : null;
-          fly(iid, cur, was, cur, { real: cur.el, land, duration: land ? ms * 1.25 : ms });
+          const lift = !!move?.from?.endsWith('-trigger');
+          fly(iid, cur, was, cur, {
+            real: cur.el,
+            land,
+            lift,
+            // a checked card turns sideways into the damage column; a rested unit stands on the way
+            turn: before ? { from: before.deg, to: cur.deg } : undefined,
+            duration: land ? ms * 1.25 : lift ? ms * 1.2 : ms,
+          });
           continue;
         }
         const move = moves.get(iid);
         const fromKey = move?.from ?? null;
-        const from = tile(fromKey, cur);
+        // called out of the soul: it slides out from under its vanguard (not the soul pile)
+        const vcFace =
+          fromKey?.endsWith('-soul') && move?.to === null
+            ? stage.querySelector<HTMLElement>(
+                `[data-testid="circle-${fromKey.split('-')[0]}-vanguard"] > .unit:last-of-type > .card`,
+              )
+            : null;
+        const from = vcFace
+          ? (() => {
+              const r = vcFace.getBoundingClientRect();
+              return {
+                cx: (r.left + r.width / 2 - box.left) / scale,
+                cy: (r.top + r.height / 2 - box.top) / scale,
+                s: r.width / scale / (cur.lw || 1),
+              };
+            })()
+          : tile(fromKey, cur);
         if (!from) continue;
         // drawn into a hand: the draw flourish; anything else fades in from its tile
         if (fromKey?.endsWith('-deck') && cur.el.classList.contains('hand-card')) {
           if (fx !== 'off') deckLift(stage.querySelector<HTMLElement>(`[data-zone="${fromKey}"]`));
-          fly(iid, cur, from, cur, { real: cur.el, draw: true, duration: ms * 1.35 });
+          fly(iid, cur, from, cur, {
+            real: cur.el,
+            draw: true,
+            delay: nextDelay(fromKey),
+            duration: ms * 1.35,
+          });
         } else {
           // called from the deck, drop zone, soul or G zone onto a circle: it lands as well
           const land = move?.to === null ? landKindOf(move.reason) : null;
           fly(iid, cur, from, cur, {
             real: cur.el,
-            fadeIn: true,
+            fadeIn: !vcFace,
             land,
+            delay: nextDelay(fromKey),
             duration: land ? ms * 1.25 : ms,
           });
         }
@@ -377,7 +504,13 @@ export function useCardMotion(
         const at = drawn.get(iid) ?? gone;
         if (retired)
           dustFx(layer, { cx: at.cx, cy: at.cy, w: gone.lw * at.s, h: gone.lh * at.s }, fx);
-        fly(iid, gone, at, to, { sink: retired, duration: ms * (retired ? 1.3 : 1.1) });
+        fly(iid, gone, at, to, {
+          sink: retired,
+          // a rested unit (retired, or a guardian) turns upright on its way to the pile
+          turn: { from: gone.deg, to: 0 },
+          delay: nextDelay(move?.to ? `to:${move.to}` : null),
+          duration: ms * (retired ? 1.3 : 1.1),
+        });
       }
     }
     prev.current = now;

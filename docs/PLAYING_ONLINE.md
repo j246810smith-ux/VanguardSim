@@ -49,6 +49,22 @@ service is down, use connect by address instead.
   both players install a private-network app such as Tailscale or ZeroTier and use the address it
   gives.
 
+### Room code does not connect (works only with a VPN)
+
+The room-code service only introduces the two games; they then connect directly. Some networks
+block direct connections (strict routers, carrier-grade NAT on mobile data or hotspots, some
+ISPs). Normally a relay server would carry the game then, but the relays built into the PeerJS
+library the game uses no longer exist (checked 2026-11-18), so the join fails. A VPN changes how
+your network connects, which is why it helps.
+
+What to do:
+
+- Try another network on one side (home Wi-Fi instead of mobile data, or the other way round).
+- Connect by address instead, for example over Tailscale (below).
+- After a failed attempt press **Copy connection report** and paste it into a GitHub issue. It
+  lists the steps and timings of the attempt and which kinds of network addresses were found. It
+  never contains the room code, IP addresses or anything you typed.
+
 ## During the game
 
 - The **host's PC runs the game**; the guest's PC shows it and sends the guest's moves. The guest

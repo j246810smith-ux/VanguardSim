@@ -24,6 +24,7 @@ const RESTRICTION: Record<Restriction, string> = {
   cannot_be_hit: 'cannot be hit',
   cannot_attack: 'cannot attack',
   cannot_normal_ride: 'cannot be normal ridden',
+  cannot_normal_call: 'cannot be normal called to (RC)',
   cannot_attack_rear_guard: 'cannot attack a rear-guard',
   cannot_attack_vanguard: 'cannot attack a vanguard',
   cannot_boost: 'cannot boost',

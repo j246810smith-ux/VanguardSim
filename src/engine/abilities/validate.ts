@@ -111,6 +111,8 @@ export function validateAbilities(
           case 'look_top_place':
           case 'end_normal_ride':
           case 'no_normal_ride_next':
+          case 'no_stride_next':
+          case 'forbid_rc_calls_column':
           case 'forbid_rc_calls':
           case 'extra_drive_check':
           case 'win':
@@ -201,12 +203,18 @@ export function validateAbilities(
             e.ce === 'stride_soul_cost' ||
             e.ce === 'stride_retire_cost' ||
             e.ce === 'free_stride' ||
+            e.ce === 'stride_free_self' ||
             e.ce === 'stride_hand_grade' ||
             e.ce === 'stride_cb_cost' ||
             e.ce === 'ultimate_stride' ||
             e.ce === 'stride_ritual_cost' ||
+            e.ce === 'stride_drop_deck_cost' ||
             e.ce === 'stride_drop_bind_cost' ||
-            e.ce === 'gyze'
+            e.ce === 'gyze' ||
+            e.ce === 'self_grade' ||
+            e.ce === 'may_be_normal_unit' ||
+            e.ce === 'stand_one_in_column' ||
+            e.ce === 'deck_grade_all'
           )
             continue;
           checkSelector(e.target, 'effect');

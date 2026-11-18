@@ -548,6 +548,20 @@ export const G_EB02: SetAbilities = {
   ],
   // Evil Governor, Darkface Gredora: the column call lock needs an engine piece (not scripted)
   'G-EB02-006': [
+    // "When this unit is placed on (VC), or when your G unit [Stride]": two abilities, one [1/turn]
+    ...(['placed', 'stride'] as const).map((on) =>
+      ab.auto({
+        id: on === 'placed' ? '1' : '1b',
+        zones: on === 'placed' ? ['any'] : ['VC'],
+        trigger: on === 'placed' ? ab.placedOn('VC') : ab.strides(),
+        oncePerTurn: true,
+        onceKey: '1',
+        cost: [ab.counterBlast(1)],
+        optional: true,
+        effect: [ab.forbidRCCallsColumn()],
+        text: text('G-EB02-006', 0),
+      }),
+    ),
     ab.auto({
       id: '2',
       zones: ['VC'],
@@ -711,6 +725,21 @@ export const G_EB02: SetAbilities = {
       trigger: ab.strides({ owner: 'you', filter: { originalNameIncludes: 'Musketeer' } }),
       effect: lookCallMusketeer(),
       text: text('G-EB02-020', 0),
+    }),
+    ab.cont({
+      id: '2',
+      zones: ['VC'],
+      generationBreak: 1,
+      effects: [
+        {
+          ce: 'stride_drop_deck_cost',
+          cb: 1,
+          n: 2,
+          nameIncludes: 'Musketeer',
+          gUnitNameIncludes: 'Musketeer',
+        },
+      ],
+      text: text('G-EB02-020', 1),
     }),
   ],
   // Talented Rhinos
@@ -962,6 +991,34 @@ export const G_EB02: SetAbilities = {
     }),
   ],
   // Matrix Code Zebra
+  // Trickle British
+  'G-EB02-056': [
+    ab.auto({
+      id: '1',
+      zones: ['RC'],
+      oncePerTurn: true,
+      trigger: { on: 'chosen_by_your_vanguard', who: 'self', vanguard: PROFESSOR },
+      effect: [
+        ab.power(ab.self(), 4000),
+        ab.grant(
+          ab.self(),
+          ab.auto({
+            id: 'trickle',
+            zones: ['any'],
+            trigger: ab.retired(),
+            triggerIf: ab.duringYourEndPhase(),
+            effect: [
+              ab.choose('p', ab.cards('you', ['drop'], PROFESSOR), 1, { upTo: true }),
+              ab.toHand(bound('p')),
+            ],
+            text: '[AUTO]:When this unit is retired from (RC) during your end phase, choose up to one card with "Honorary Professor" from your drop zone, and return it to your hand.',
+          }),
+          'end_of_turn',
+        ),
+      ],
+      text: text('G-EB02-056', 0),
+    }),
+  ],
   'G-EB02-057': [
     ab.auto({
       id: '1',
@@ -1490,4 +1547,24 @@ export const G_EB02: SetAbilities = {
   'G-EB02-027': { sameAs: 'G-BT04-041' },
   'G-EB02-035': { sameAs: 'G-BT02-037' },
   'G-EB02-040': { sameAs: 'G-BT02-041' },
+  // Marigold Musketeer, Rachele
+  'G-EB02-076': [
+    ab.cont({
+      id: '1',
+      zones: ['RC', 'GC', 'drop'],
+      generationBreak: 1,
+      effects: [{ ce: 'may_be_normal_unit' }],
+      text: text('G-EB02-076', 0),
+    }),
+  ],
+  // Silk Sleeper
+  'G-EB02-044': [
+    ab.cont({
+      id: '1',
+      zones: ['VC', 'RC'],
+      generationBreak: 1,
+      effects: [{ ce: 'stand_one_in_column' }],
+      text: text('G-EB02-044', 0),
+    }),
+  ],
 };

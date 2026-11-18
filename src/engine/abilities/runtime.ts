@@ -272,7 +272,7 @@ export function playStandby(d: Draft, standbyId: number): void {
       .get(s.cards[entry.source]!.definitionId)
       .abilities.find((x) => x.id === entry.abilityId)) as AutoAbility | undefined;
   if (!a) return;
-  if (a.oncePerTurn) s.usedThisTurn.push(useKey(entry.source, a.id));
+  if (a.oncePerTurn) s.usedThisTurn.push(useKey(entry.source, a.onceKey ?? a.id));
   if (a.oncePerBattle) {
     // several triggers of the same battle: only the first one is played
     const key = `${useKey(entry.source, a.id)}@battle${s.turnFlags.battles ?? 0}`;
@@ -749,7 +749,13 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       // "when it is chosen by the effect of an opponent's card" (G-BT12 Grizel)
       const chosenUnits = [...new Set([...forced, ...picked])].filter((id) => onField(s, id));
       if (chosenUnits.length > 0)
-        emit(d, { type: 'CHOSEN', master: frame.master, instanceIds: chosenUnits });
+        emit(d, {
+          type: 'CHOSEN',
+          master: frame.master,
+          instanceIds: chosenUnits,
+          source: frame.source,
+          byVanguard: chosenByVanguard(s, d.ctx, frame.source, frame.master),
+        });
       return true;
     }
     case 'choose_random': {
@@ -1419,6 +1425,32 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     case 'no_normal_ride_next':
       s.players[other(frame.master)].noNormalRideNext = true;
       return true;
+    case 'no_stride_next':
+      s.players[other(frame.master)].noStrideNext = true;
+      return true;
+    case 'forbid_rc_calls_column': {
+      // the master points at a column on their own field; columns are shared (CR 4.6.2.1), so the
+      // opponent's column is the mirror image
+      const picked = ask(d, task, {
+        player: frame.master,
+        kind: 'circle',
+        options: ['front_left', 'back_center', 'front_right'],
+        min: 1,
+        max: 1,
+        prompt:
+          'Choose a column: your opponent cannot call cards to its rear-guard circles during the next turn',
+      });
+      if (picked === null) return false;
+      const mine = CIRCLE_COLUMN[picked[0] as RearGuardCircle];
+      const theirs = mine === 'left' ? 'right' : mine === 'right' ? 'left' : 'centre';
+      const opp = other(frame.master);
+      // "during the next turn": the turn after this one
+      s.players[opp].noRCCallColumns = [
+        ...(s.players[opp].noRCCallColumns ?? []).filter((c) => c.through >= s.turnNumber),
+        { column: theirs, through: s.turnNumber + 1 },
+      ];
+      return true;
+    }
     case 'place_heart': {
       const p = s.players[frame.master];
       if (p.hearts.length === 0) return true;
@@ -1770,6 +1802,28 @@ const CIRCLE_COLUMN: Record<RearGuardCircle, 'left' | 'centre' | 'right'> = {
   back_right: 'right',
 };
 
+/** A `choose` by the effect of `master`'s vanguard (see the CHOSEN event's `byVanguard`). */
+function chosenByVanguard(
+  state: GameState,
+  ctx: EngineContext,
+  source: InstanceId,
+  master: PlayerId,
+): boolean {
+  const at = locate(state, source);
+  if (at.player !== master) return false;
+  if (at.zone === 'circle') return at.circle === 'vanguard';
+  return (
+    at.zone === 'gzone' && ctx.registry.get(state.cards[source]!.definitionId).cardType === 'g_unit'
+  );
+}
+
+/** Gredora (G-EB02): no call to the (RC) of a banned column this turn. */
+export function columnBanned(state: GameState, player: PlayerId, c: RearGuardCircle): boolean {
+  return (state.players[player].noRCCallColumns ?? []).some(
+    (b) => b.column === CIRCLE_COLUMN[c] && b.through === state.turnNumber,
+  );
+}
+
 /** Superior call of one card to a rear-guard circle of the master's choice. */
 export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): boolean {
   const frame = frameOf(d, task.frame);
@@ -1797,6 +1851,7 @@ export function callOne(d: Draft, task: Extract<Task, { kind: 'call_one' }>): bo
       if (task.occupied && here.length === 0) return false;
       if (task.sameColumn && CIRCLE_COLUMN[c] !== columnOf(d.state, frame.source)) return false;
       if (task.column && CIRCLE_COLUMN[c] !== task.column) return false;
+      if (columnBanned(d.state, caller, c)) return false;
       if (task.circles && !task.circles.includes(c)) return false;
       if (task.frontRow && c !== 'front_left' && c !== 'front_right') return false;
       if (task.notSourceCircle) {

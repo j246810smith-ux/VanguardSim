@@ -15,6 +15,7 @@ import { criticalWithoutContinuous, currentPower } from '../game/stats';
 import { HIDDEN } from '../view';
 import {
   other,
+  CIRCLES,
   REAR_GUARD_CIRCLES,
   vanguardOf,
   type Circle,
@@ -134,6 +135,35 @@ export const nameHasPart = (name: string, part: string | readonly string[]): boo
   (typeof part === 'string' ? [part] : part).some((p) =>
     name.toLowerCase().includes(p.toLowerCase()),
   );
+
+/**
+ * Rachele (G-EB02): "[CONT](RC)/(GC)/Drop zone[Generation Break 1]: This card may be regarded as a
+ * normal unit instead of a trigger unit". Generation counted as in game/generation.ts.
+ */
+export function mayBeNormalUnit(state: GameState, ctx: EngineContext, id: InstanceId): boolean {
+  const def = definitionOf(state, ctx, id);
+  const ability = def.abilities.find(
+    (a) => a.kind === 'CONT' && a.effects.some((e) => e.ce === 'may_be_normal_unit'),
+  );
+  if (!ability || ability.kind !== 'CONT') return false;
+  const where = locate(state, id);
+  const zone =
+    where.zone === 'circle'
+      ? where.circle === 'vanguard'
+        ? 'VC'
+        : 'RC'
+      : where.zone === 'guardian'
+        ? 'GC'
+        : where.zone;
+  if (!(ability.zones as readonly string[]).includes(zone)) return false;
+  const p = state.players[where.player];
+  const generation =
+    p.gzone.filter((g) => state.cards[g]!.faceUp).length +
+    p.circles.vanguard.filter(
+      (v) => state.cards[v]!.faceUp && definitionOf(state, ctx, v).cardType === 'g_unit',
+    ).length;
+  return generation >= (ability.generationBreak ?? 0);
+}
 
 const CHARACTERISTIC_FILTERS: readonly (keyof CardFilter)[] = [
   'name',
@@ -268,6 +298,16 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
     const here = sharedColumn(state, id);
     if (here === null || !columns.includes(here)) return false;
   }
+  if (filter.sameColumnAsOwnLocked) {
+    const where = locate(state, id);
+    if (where.zone !== 'circle') return false;
+    const field = state.players[where.player].circles;
+    const columns = CIRCLES.flatMap((c) => field[c].filter((x) => state.cards[x]!.locked)).map(
+      (x) => sharedColumn(state, x),
+    );
+    const here = sharedColumn(state, id);
+    if (here === null || !columns.includes(here)) return false;
+  }
   if (filter.withUnitBehind) {
     const where = locate(state, id);
     const behind = where.zone === 'circle' ? BEHIND[where.circle] : undefined;
@@ -385,7 +425,7 @@ export function matches(ec: EvalContext, id: InstanceId, filter: CardFilter = {}
       filter.trigger === 'any'
         ? t !== null
         : filter.trigger === 'none'
-          ? t === null
+          ? t === null || mayBeNormalUnit(state, ctx, id)
           : t === filter.trigger;
     if (!ok) return false;
   }

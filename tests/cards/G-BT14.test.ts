@@ -231,6 +231,31 @@ describe('G-BT14 Nubatama, Gear Chronicle, Zeroth Dragons', () => {
     expect(r.state.players[0].bind).toEqual(zeros);
   });
 
+  it('G-BT14-001 Neon Gyze: goes to the G zone face up when ridden (owner report 2026-11-18)', () => {
+    const NEON = 'G-BT14-001';
+    const G1 = 'G-BT01-016'; // Protect Orb Dragon, grade 1
+    const s0 = scene(
+      [KG, KG],
+      { circles: { vanguard: NEON }, hand: [G1] },
+      { circles: { vanguard: BLADEMASTER } },
+      { at: 'ride', ctx },
+    );
+    const neon = s0.players[0].circles.vanguard[0]!;
+    const gBefore = s0.players[0].gzone.length;
+    const ride = gLegal(s0, 0, 'RIDE');
+    const cardId = s0.players[0].hand.find((id) => s0.cards[id]!.definitionId === G1)!;
+    expect(ride?.cardIds).toContain(cardId);
+    const r = settle(gApply(s0, { type: 'RIDE', player: 0, cardId }));
+    const p = r.state.players[0];
+    expect(p.circles.vanguard.at(-1)).toBe(cardId);
+    expect(p.soul).not.toContain(neon);
+    expect(p.gzone).toContain(neon);
+    expect(p.gzone.filter((id) => id === neon)).toHaveLength(1); // no duplicate
+    expect(p.gzone).toHaveLength(gBefore + 1);
+    expect(r.state.cards[neon]!.faceUp).toBe(true);
+    expect(checkZoneInvariant(r.state)).toEqual([]);
+  });
+
   it('every card with ability text is scripted', () => {
     const missing = ctx.registry
       .all()

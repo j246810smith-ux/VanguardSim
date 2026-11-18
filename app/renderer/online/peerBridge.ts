@@ -9,6 +9,8 @@
 import { Peer, type DataConnection, type PeerError } from 'peerjs';
 import type { OnlineBridge, OnlineEvent } from './controller';
 import { peerIdFor } from './roomCode';
+import { connectionLog, directFailMessage, iceConfig } from './connectionDiag';
+import { fetchRelayServers } from './relay';
 
 const MAX_FROM_GUEST = 64 * 1024;
 const MAX_FROM_HOST = 8 * 1024 * 1024;
@@ -77,18 +79,28 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
   };
 
   /** A peer registered with the service (under `id`, or a random id for a guest). */
-  const openPeer = (id?: string) =>
-    new Promise<Peer>((resolve, reject) => {
-      const p = id ? new Peer(id) : new Peer();
+  const openPeer = async (id?: string) => {
+    // our own STUN list (PeerJS's built-in relays no longer exist) plus Cloudflare's relay when
+    // the relay Worker answers (relay.ts)
+    const options = { config: iceConfig(await fetchRelayServers()) };
+    return new Promise<Peer>((resolve, reject) => {
+      connectionLog.add('service', 'connecting');
+      const p = id ? new Peer(id, options) : new Peer(options);
       const fail = (err: unknown) => {
+        connectionLog.add(
+          'service',
+          `error ${(err as Partial<PeerError<string>>).type ?? 'unknown'}`,
+        );
         p.destroy();
         reject(err);
       };
       p.once('error', fail);
       p.once('open', () => {
+        connectionLog.add('service', 'open');
         p.off('error', fail);
         // losing the service later does not end a game already connected; get back on it
         p.on('disconnected', () => {
+          connectionLog.add('service', 'disconnected');
           setTimeout(() => {
             if (peer === p && !p.destroyed && p.disconnected) p.reconnect();
           }, 3000);
@@ -96,6 +108,7 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
         resolve(p);
       });
     });
+  };
 
   const stopAll = async (flush: boolean) => {
     closeConn(flush);
@@ -109,6 +122,7 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
   return {
     async host() {
       await stopAll(false);
+      connectionLog.begin('host');
       await allow(true);
       try {
         peer = await openPeer(await peerIdFor(code));
@@ -118,7 +132,12 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
       }
       hosting = true;
       peer.on('connection', (c) => {
+        connectionLog.add('guest', 'connecting');
+        connectionLog.watch(c.peerConnection, () => {
+          if (conn !== c) emit('error', directFailMessage(connectionLog));
+        });
         c.on('open', () => {
+          connectionLog.add('data-channel', 'open');
           // a guest coming back may arrive before the old connection is noticed as dead:
           // the newest connection wins (the host link checks who it is)
           closeConn();
@@ -126,12 +145,16 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
           emit('guest-connected', { address: 'room code' });
         });
       });
-      peer.on('error', (err) => emit('error', explain(err)));
+      peer.on('error', (err) => {
+        connectionLog.add('error', (err as Partial<PeerError<string>>).type ?? 'unknown');
+        emit('error', explain(err));
+      });
       return { ok: true, addresses: [] };
     },
 
     async join() {
       closeConn();
+      connectionLog.begin('join');
       if (!peer || peer.destroyed || peer.disconnected) {
         peer?.destroy();
         peer = null;
@@ -145,19 +168,31 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
       const p = peer;
       const target = await peerIdFor(code);
       return new Promise<{ ok: boolean; error?: string }>((resolve) => {
+        connectionLog.add('connect', 'to host');
         const c = p.connect(target, { reliable: true });
+        let settled = false;
         const done = (r: { ok: boolean; error?: string }) => {
+          if (settled) return;
+          settled = true;
           clearTimeout(timer);
           p.off('error', onError);
+          connectionLog.add('result', r.ok ? 'connected' : 'failed');
           resolve(r);
         };
+        // the direct connection failed for good: say so now, not after the timeout
+        connectionLog.watch(c.peerConnection, () => {
+          c.close();
+          done({ ok: false, error: directFailMessage(connectionLog) });
+        });
         const onError = (err: PeerError<string>) => {
+          connectionLog.add('error', err.type);
           if (err.type === 'peer-unavailable') {
             c.close();
             done({ ok: false, error: explain(err) });
           }
         };
         const timer = setTimeout(() => {
+          connectionLog.add('timeout', `${JOIN_TIMEOUT_MS} ms`);
           c.close();
           done({
             ok: false,
@@ -167,6 +202,7 @@ export function peerBridge(code: string, allow: (on: boolean) => Promise<void>):
         }, JOIN_TIMEOUT_MS);
         p.on('error', onError);
         c.once('open', () => {
+          connectionLog.add('data-channel', 'open');
           attach(c, MAX_FROM_HOST, 'disconnected');
           emit('connected');
           done({ ok: true });

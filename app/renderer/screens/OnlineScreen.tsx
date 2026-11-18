@@ -12,6 +12,8 @@ import {
   type OnlineCallbacks,
 } from '../online/controller';
 import { peerBridge } from '../online/peerBridge';
+import { connectionLog } from '../online/connectionDiag';
+import { APP_VERSION } from '../android/apkUpdate';
 import { IS_ANDROID } from '../platform';
 import { codeProblem, makeCode } from '../online/roomCode';
 import { useSettings } from '../settings';
@@ -62,6 +64,7 @@ export function OnlineScreen({
   const [port, setPort] = useState(() => remembered('port', String(DEFAULT_PORT)));
   const [houseRules, setHouseRules] = useState<HouseRulesChoice>(NO_HOUSE_RULES);
   const [status, setStatus] = useState<string | null>(notice);
+  const [reportCopied, setReportCopied] = useState(false);
   const [hosting, setHosting] = useState<{ address: string; name: string }[] | null>(null);
   const [hostingCode, setHostingCode] = useState<string | null>(null);
   const [controller, setController] = useState<OnlineController | null>(null);
@@ -121,6 +124,7 @@ export function OnlineScreen({
   const host = async (withCode: boolean) => {
     const c = make(withCode);
     setBusy(true);
+    setReportCopied(false);
     setStatus(withCode ? 'Opening the room…' : null);
     try {
       const addresses = await c.startHosting(roomRules(houseRules, roomFormat));
@@ -140,6 +144,7 @@ export function OnlineScreen({
     if (!withCode) remember('address', address);
     const c = make(withCode);
     setBusy(true);
+    setReportCopied(false);
     setStatus(
       withCode ? 'Looking for the game with that code…' : `Connecting to ${address}:${port}…`,
     );
@@ -343,6 +348,22 @@ export function OnlineScreen({
             <div className="online-status" data-testid="online-status">
               {status}
             </div>
+          )}
+          {/* the room-code attempt's stages and timings, for a bug report (no codes or addresses) */}
+          {connectionLog.role && !busy && (
+            <button
+              className="menu-btn small"
+              data-testid="online-copy-report"
+              onClick={() => {
+                const text = connectionLog.report(APP_VERSION, IS_ANDROID ? 'Android' : 'Windows');
+                void navigator.clipboard
+                  ?.writeText(text)
+                  .then(() => setReportCopied(true))
+                  .catch(() => setReportCopied(false));
+              }}
+            >
+              {reportCopied ? 'Report copied' : 'Copy connection report'}
+            </button>
           )}
         </div>
       </div>

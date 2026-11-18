@@ -1,5 +1,6 @@
 import { audio } from '../audio/audio';
 import { useCardMotion } from '../board/motion';
+import { usePlacementGhost } from '../board/placementGhost';
 import type { FxLevel } from '../board/cardFx';
 import { useHoveredCard } from '../board/Feedback';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -63,6 +64,11 @@ export interface Props {
   readonly onRestart?: () => void;
   /** CPU demonstration: back to the deck selection. */
   readonly onDemoSetup?: () => void;
+  /**
+   * The game, made once by Battle and handed to whichever layout is showing, so turning the phone
+   * (portrait ↔ landscape, docs/android/PORTRAIT_PLAN.md) swaps the screen but keeps the game.
+   */
+  readonly session?: SessionBase;
 }
 
 export const LEVEL_NAME = { random: 'Easy', basic: 'Normal', smart: 'Hard' } as const;
@@ -143,12 +149,13 @@ export interface ControllerOptions {
 }
 
 export function useBattleController(
-  { config, online, onRematch, onExit, onRestart, onDemoSetup }: Props,
+  { config, online, onRematch, onExit, onRestart, onDemoSetup, session: shared }: Props,
   options: ControllerOptions = {},
 ) {
   const settings = useSettings();
   const sessionRef = useRef<SessionBase | null>(null);
-  if (!sessionRef.current) sessionRef.current = online?.session ?? new GameSession(config!);
+  if (!sessionRef.current)
+    sessionRef.current = shared ?? online?.session ?? new GameSession(config!);
   const session = sessionRef.current;
   const [, setTick] = useState(0);
   const rerender = useCallback(() => setTick((t) => t + 1), []);
@@ -304,6 +311,8 @@ export function useBattleController(
         ? 'reduced'
         : 'full';
   useCardMotion(() => session.takeMoves(), slideMs, view, cardFx);
+  // a selected hand card's see-through copy follows the mouse and snaps onto its circles
+  usePlacementGhost(selection?.kind === 'hand' ? selection.id : null);
 
   // sounds for what the engine just resolved (after it happened, never before); a placed card's
   // landing sound waits for its slide to arrive

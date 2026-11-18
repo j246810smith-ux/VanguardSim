@@ -6,7 +6,7 @@
 import { describe, expect, it } from 'vitest';
 import { BasicController } from '../../src/ai/basicController';
 import { runMatch } from '../../src/sim/runMatch';
-import { checkZoneInvariant, currentGrade, type GameState } from '../../src/engine';
+import { checkZoneInvariant, currentGrade, validateDeck, type GameState } from '../../src/engine';
 import { gGuardianCostOptions } from '../../src/engine/game/generation';
 import { gCtx, gLegal } from '../fixtures/gEra';
 import { maker, scene } from '../fixtures/gSets';
@@ -80,6 +80,38 @@ describe('G-CB07', () => {
     p.deck.splice(p.deck.indexOf(parra), 1);
     p.trigger.push(parra);
     expect(currentGrade(s, ctx, parra)).toBe(3);
+  });
+  // engine gap (handover 2026-11-16): "you may include up to six" was not modelled
+  it('Transcend Idol, Aqua: six copies are legal only when every sentinel in the deck is Aqua', () => {
+    const AQUA = 'G-CB07-018';
+    const base = BT([]);
+    const isSentinel = (id: string) => ctx.registry.get(id).sentinel;
+    const isTrigger = (id: string) => ctx.registry.get(id).trigger !== null;
+    // swap every sentinel and enough plain cards for six Aqua (deck size stays the same)
+    const rest = base.cards.filter((id) => !isSentinel(id));
+    const plain = rest.filter((id) => !isTrigger(id) && id !== base.firstVanguard);
+    const drop = new Set<number>();
+    const need = base.cards.length - rest.length;
+    for (let k = 0, n = 0; n < 6 - need && k < rest.length; k++)
+      if (plain.includes(rest[k]!) && rest[k] !== base.firstVanguard) {
+        drop.add(k);
+        n++;
+      }
+    const sixAqua = {
+      ...base,
+      cards: [...rest.filter((_, k) => !drop.has(k)), ...Array(6).fill(AQUA)],
+    };
+    const codes = (deck: typeof base) =>
+      validateDeck(deck, ctx.registry, ctx.format).map((x) => x.code);
+    expect(sixAqua.cards).toHaveLength(base.cards.length);
+    expect(codes(sixAqua)).not.toContain('TOO_MANY_SENTINELS');
+    expect(codes(sixAqua)).not.toContain('TOO_MANY_COPIES');
+    // one other sentinel among them: back to the usual limits
+    const other = ctx.registry
+      .all()
+      .find((d) => d.sentinel && d.name !== ctx.registry.get(AQUA).name && d.id.startsWith('G-'))!;
+    const mixed = { ...sixAqua, cards: [...sixAqua.cards.slice(0, -1), other.id] };
+    expect(codes(mixed)).toEqual(expect.arrayContaining(['TOO_MANY_SENTINELS', 'TOO_MANY_COPIES']));
   });
 });
 

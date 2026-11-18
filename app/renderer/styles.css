@@ -5594,6 +5594,20 @@ input.text {
   transition: none;
   animation: none;
 }
+/* placement ghost (board/placementGhost.ts): a selected hand card's copy following the mouse */
+.place-ghost {
+  opacity: 0.5;
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.55));
+  transition:
+    transform calc(0.09s * var(--anim, 1)) ease-out,
+    opacity calc(0.12s * var(--anim, 1)) ease-out;
+  animation: none;
+}
+.place-ghost.snap {
+  opacity: 0.82;
+  filter: drop-shadow(0 0 12px var(--gold-glow)) drop-shadow(0 8px 14px rgba(0, 0, 0, 0.5));
+}
 .circle.drop-bad .ring svg {
   opacity: 1;
   filter: drop-shadow(0 0 18px #ff4a3d) drop-shadow(0 0 6px #ff4a3d);
@@ -6498,4 +6512,477 @@ input.text {
 }
 .deck-inspect-btn {
   min-width: 48px;
+}
+
+/* ---- Portrait battles (PortraitBattleScreen, docs/android/PORTRAIT_PLAN.md) ------------------
+   The stage is 1080 px wide and as tall as the phone (inline size, App.tsx Stage). Rows: the
+   opponent's bar, the battlefield, your plate, your hand, the phases and actions. */
+.p-battle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  /* the field's row takes 60% of the height beyond the minimum layout (1924 px), the hand the
+     rest (PortraitBattleScreen bandY follows this) */
+  grid-template-rows:
+    150px calc(1180px + max(0px, 100% - 1924px) * 0.6) 104px minmax(290px, 1fr)
+    200px;
+  overflow: hidden;
+}
+.p-battle > * {
+  min-width: 0;
+  min-height: 0;
+}
+.p-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px 8px;
+}
+.p-top .m-plate {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+}
+.p-top .m-portrait,
+.p-me .m-portrait {
+  width: 84px;
+  height: 84px;
+}
+.p-counts {
+  font: 700 26px var(--font-body);
+  color: var(--text);
+  white-space: nowrap;
+}
+.p-counts svg {
+  width: 26px;
+  height: 26px;
+  vertical-align: -4px;
+}
+.p-top-buttons {
+  display: flex;
+  gap: 10px;
+}
+.p-top-btn {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font: 700 17px var(--font-body);
+  color: var(--text);
+  background: rgba(16, 32, 70, 0.92);
+  border: 2px solid var(--panel-edge);
+  border-radius: 14px;
+  cursor: pointer;
+}
+.p-top-btn svg {
+  width: 34px;
+  height: 34px;
+}
+.p-top-btn.toggled {
+  border-color: var(--gold);
+}
+
+/* the battlefield: a fixed 1080×1180 canvas centred in its row */
+.p-field-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.p-field {
+  position: relative;
+}
+.p-field .circle {
+  z-index: 1;
+}
+.p-field .power-plate {
+  font-size: 24px;
+}
+.p-half {
+  position: absolute;
+  left: 160px;
+  right: 160px;
+  border: 2px solid;
+  border-radius: 18px;
+  pointer-events: none;
+}
+.p-half.opp {
+  top: 10px;
+  height: 530px;
+  border-color: rgba(255, 74, 61, 0.55);
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 74, 61, 0.05) 0 2px, transparent 2px 22px),
+    linear-gradient(180deg, rgba(120, 16, 30, 0.45), rgba(70, 10, 24, 0.35));
+}
+.p-half.me {
+  top: 640px;
+  height: 530px;
+  border-color: rgba(51, 209, 255, 0.55);
+  background:
+    repeating-linear-gradient(135deg, rgba(51, 209, 255, 0.05) 0 2px, transparent 2px 22px),
+    linear-gradient(180deg, rgba(12, 50, 120, 0.42), rgba(8, 30, 80, 0.38));
+}
+
+/* the side columns: piles and damage (150 px at each edge) */
+.p-col {
+  position: absolute;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1;
+}
+.p-col.left {
+  left: 0;
+}
+.p-col.right {
+  right: 0;
+}
+.p-col.opp {
+  top: 10px;
+  height: 530px;
+}
+.p-col.me {
+  top: 640px;
+  height: 530px;
+}
+.p-col .panel {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  max-height: 128px;
+}
+.p-col .panel-title {
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* damage: up to six cards lying sideways, the first at the fighter's own end */
+.p-damage {
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+  background: rgba(8, 14, 30, 0.7);
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.p-col.me.p-damage {
+  flex-direction: column-reverse;
+}
+.p-damage.danger {
+  border-color: var(--opp-strong);
+  box-shadow: inset 0 0 18px rgba(255, 60, 40, 0.35);
+}
+.p-damage-count {
+  font: 700 18px var(--font-body);
+  color: var(--text-dim);
+}
+.p-damage-count b {
+  color: var(--text);
+  font-size: 24px;
+}
+.p-damage.danger .p-damage-count b {
+  color: var(--opp-strong);
+}
+.p-damage .dmg-card,
+.p-damage .slot {
+  position: relative;
+  width: 100px;
+  height: 66px;
+  flex: none;
+  border-radius: 6px;
+}
+.p-damage .slot {
+  border: 1px dashed rgba(140, 170, 220, 0.25);
+}
+.p-damage .dmg-card .mini {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 66px;
+  height: 96px;
+  margin: -48px 0 0 -33px;
+  transform: none;
+  rotate: 90deg;
+}
+
+/* the card being checked: beside the vanguard, toward each fighter's damage column */
+.p-trigger {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+.p-trigger.me {
+  left: 170px;
+  top: 470px;
+}
+.p-trigger.opp {
+  right: 170px;
+  top: 490px;
+}
+.p-trigger > div {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
+}
+
+/* the centre band: phase and turn, with the phase button at its right end */
+.p-band {
+  position: absolute;
+  left: 160px;
+  right: 0;
+  height: 96px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+}
+.p-band-text {
+  flex: 1;
+  text-align: center;
+  pointer-events: none;
+}
+.p-band-title {
+  font: 800 34px var(--font-display);
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow:
+    0 0 14px var(--me-glow),
+    0 2px 6px #000;
+}
+.p-band.opp .p-band-title {
+  text-shadow:
+    0 0 14px rgba(255, 74, 61, 0.7),
+    0 2px 6px #000;
+}
+.p-band-sub {
+  font: 600 19px var(--font-body);
+  color: var(--text-dim);
+}
+.p-band-sub .m-era {
+  margin-left: 10px;
+  font-size: 13px;
+}
+.p-band-btn {
+  min-width: 168px;
+  height: 92px;
+  margin-right: 10px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 800 24px var(--font-body);
+  color: #fff;
+  background: linear-gradient(180deg, rgba(40, 70, 140, 0.98), rgba(16, 32, 80, 0.98));
+  border: 3px solid var(--gold);
+  border-radius: 48px 14px 14px 48px;
+  box-shadow: 0 0 18px var(--gold-glow);
+  cursor: pointer;
+}
+.p-band-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* you: plate and the guide line */
+.p-me {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 20px;
+}
+.p-me .m-plate {
+  flex: none;
+  max-width: 420px;
+  margin: 0;
+  padding: 6px 12px;
+}
+.p-guide {
+  flex: 1;
+  min-width: 0;
+  font: 600 22px var(--font-body);
+  color: var(--text);
+  text-shadow: 0 2px 6px #000;
+}
+
+/* the hand, fanned about the middle of its row */
+.p-hand {
+  position: relative;
+}
+.p-battle .p-hand .hand {
+  left: 50%;
+  /* the fan's bottom line a little below the row's middle: the spare height goes around it */
+  top: 78%;
+  bottom: auto;
+  scale: 1.45;
+}
+.p-battle .p-hand .hand-card {
+  bottom: -30px;
+}
+.p-battle.hand-big .p-hand .hand {
+  scale: 1.75;
+}
+.p-battle .p-hand .hand.hand-strip {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0 24px 0 12px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  scale: 1;
+}
+.p-battle .p-hand .hand-strip .hand-card {
+  position: relative;
+  flex: none;
+  bottom: -20px;
+  margin-right: -28px;
+}
+
+/* phases and actions */
+.p-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 16px 18px;
+}
+.p-phases {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.p-phases .m-phase {
+  width: 110px;
+  height: 52px;
+  flex-direction: row;
+}
+.p-phases .m-phase svg {
+  width: 26px;
+  height: 26px;
+}
+.p-actions {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 8px;
+}
+.p-actions .m-action {
+  min-height: 84px;
+  min-width: 150px;
+  font-size: 24px;
+}
+
+/* shared pieces over the battlefield: on the centre band */
+.p-battle ~ .battle-vs {
+  top: var(--p-band) !important;
+  width: 1080px;
+}
+.p-battle ~ .ability-callout {
+  top: calc(var(--p-band) - 150px);
+  right: auto;
+  left: 50%;
+  translate: -50% 0;
+}
+.p-battle ~ .thinking {
+  top: auto;
+  bottom: 520px;
+}
+.p-battle ~ .attack-preview {
+  left: 24px;
+  right: 24px;
+  top: 170px;
+  width: auto;
+}
+
+/* decisions: a bottom sheet over the hand, the full width of the phone */
+.p-battle ~ .prompt,
+.p-battle ~ .prompt.docked,
+.p-battle ~ .prompt.docked:not(.centred) {
+  left: 24px !important;
+  right: 24px !important;
+  top: auto !important;
+  bottom: 216px !important;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  max-height: 44%;
+  overflow-y: auto;
+  transform: none;
+  box-sizing: border-box;
+  padding: 18px 22px;
+}
+.p-battle ~ .popover.card-menu {
+  left: 24px !important;
+  right: 24px !important;
+  top: auto !important;
+  bottom: 216px !important;
+  width: auto;
+}
+.p-battle ~ .log-drawer {
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  bottom: 216px;
+  width: auto;
+}
+.p-battle ~ .toast {
+  top: 170px;
+}
+.stage.portrait .modal {
+  max-width: calc(100% - 48px);
+  max-height: 88%;
+  box-sizing: border-box;
+}
+.stage.portrait .details {
+  flex-direction: column;
+  align-items: center;
+}
+.stage.portrait .details .info {
+  width: auto;
+  max-width: 940px;
+}
+.stage.portrait .game-over {
+  width: calc(100% - 48px);
+  box-sizing: border-box;
+}
+/* recent events: in your plate's row, not over the board */
+.p-guide .recent-events {
+  position: static;
+  width: auto;
+  max-height: 92px;
+  font-size: 18px;
+}
+
+/* the VS display across the band: attack plate, mark, defence plate, clear of the phase button */
+.p-battle ~ .battle-vs > .vs-plate {
+  scale: 0.8;
+}
+.p-battle ~ .battle-vs > .vs-plate:first-child {
+  left: 20px;
+}
+.p-battle ~ .battle-vs > .vs-plate:nth-child(3) {
+  left: 560px;
+}
+.p-battle ~ .battle-vs .vs-mark {
+  left: 470px;
+  font-size: 38px;
+}
+.p-battle ~ .battle-vs .guardian-row {
+  left: 540px;
+}
+.p-battle.in-battle .p-band-text {
+  visibility: hidden;
 }

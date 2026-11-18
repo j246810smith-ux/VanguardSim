@@ -112,11 +112,18 @@ export interface PlayerState {
   hearts: InstanceId[];
   /** This player cannot normal ride in their next ride phase (G-BT04 Stun Beetle). */
   noNormalRideNext?: boolean;
+  /** "He or she cannot Stride during his or her next ride phase" (G-CB06 Zakuelad). */
+  noStrideNext?: boolean;
   /**
    * "Your opponent cannot call his or her units to (RC) until end of your opponent's next turn"
    * (G-TCB02 Obtirandus): no normal or superior call to (RC) through this turn number.
    */
   noRCCallsThrough?: number;
+  /**
+   * "Your opponent cannot call cards to the (RC) in that column during the next turn. (No superior
+   * call either)" (G-EB02 Darkface Gredora): columns from this player's own side, through a turn.
+   */
+  noRCCallColumns?: { column: 'left' | 'centre' | 'right'; through: number }[];
   /**
    * OG-assist house rule (game/ogAssist.ts): used this game (once per player, a try that found
    * nothing included), and the card it took with the turn it was taken: protected from this

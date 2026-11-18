@@ -462,6 +462,12 @@ export const G_EB03: SetAbilities = {
   ],
   // Original Deletor, Gaoield (its free [Stride] [CONT] is not modelled: UNRESOLVED_RULINGS)
   'G-EB03-019': [
+    ab.cont({
+      id: '0',
+      zones: ['GZ'],
+      effects: [{ ce: 'stride_free_self', vanguardNameIncludes: 'Deletor', maxHand: 1 }],
+      text: part('G-EB03-019', '"[CONT]:If you have', '[ACT](VC)[1/turn]'),
+    }),
     ab.act({
       id: '1',
       zones: ['VC'],
@@ -655,7 +661,21 @@ export const G_EB03: SetAbilities = {
   ],
   // Bravest Viktor, Grandgallop ("cannot be normal called" without a Gallop G unit: not modelled)
   'G-EB03-007': [
-    ab.cont({ id: '1', zones: ['hand'], effects: [], text: text('G-EB03-007', 0) }),
+    ab.cont({
+      id: '1',
+      zones: ['hand'],
+      condition: ab.not(
+        ab.exists(
+          ab.cards('you', ['VC', 'gzone'], {
+            grade: { min: 4, max: 4 },
+            faceUp: true,
+            nameIncludes: 'Gallop',
+          }),
+        ),
+      ),
+      effects: [{ ce: 'restrict', target: ab.self(), restriction: 'cannot_normal_call' }],
+      text: text('G-EB03-007', 0),
+    }),
     ab.auto({
       id: '2',
       zones: ['VC'],
@@ -1146,7 +1166,13 @@ export const G_EB03: SetAbilities = {
       id: '2',
       zones: ['RC'],
       generationBreak: 1,
-      effects: [],
+      effects: [
+        {
+          ce: 'restrict',
+          target: ab.units('opponent', ['RC'], { sameColumnAsOwnLocked: true }),
+          restriction: 'cannot_intercept',
+        },
+      ],
       text: text('G-EB03-071', 1),
     }),
   ],

@@ -21,8 +21,12 @@ The owner asked to keep adding the remaining sets, then (evening) to finish what
 session could, publish and shut the PC down. A helper Claude session worked in its own worktrees
 from `docs/HELPER_QUEUE.md` (sets2 worktree, untracked; read it for its notes).
 
-**Published:** v0.45.0-alpha (Windows zip, portable exe, signed update files, Android APK). The
-release commit, tag and public mirror commit are recorded at the end of this section.
+**Published:** v0.45.0-alpha — dev master 7826efe (tag v0.45.0-alpha; `sets/g-era-rest`
+fast-forwarded into it), public 14e727f + tag, GitHub pre-release with zip, portable exe, signed
+update files and APK. `dist:smoke` and `release:verify` passed ("can be installed from inside the
+game"). Full suite: 3958/3960 with the two load-sensitive updater tests timing out (both pass when
+run alone). The installed Windows copy was updated in place (art kept); the phone can update in
+the app.
 
 **Done (all on `sets/g-era-rest`, fast-forwarded into master for the release):**
 

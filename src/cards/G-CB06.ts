@@ -230,6 +230,15 @@ export const G_CB06: SetAbilities = {
         '"[ACT](VC)[1/turn]:[Counter',
       ),
     }),
+    // "deal this unit one damage": a damage check against your own vanguard (triggers work)
+    ab.act({
+      id: '2',
+      zones: ['VC'],
+      oncePerTurn: true,
+      cost: [ab.counterBlast(1)],
+      effect: [ab.draw(1), { op: 'deal_damage', n: 1, toSelf: true }],
+      text: part('G-CB06-004', '[ACT](VC)[1/turn]:[Counter-Blast 1]'),
+    }),
   ],
   // Death Star-vader, Glueball Dragon
   'G-CB06-005': [
@@ -617,7 +626,21 @@ export const G_CB06: SetAbilities = {
       oncePerTurn: true,
       requires: oppDeleted,
       cost: [ab.counterBlast(1, DELETOR)],
-      effect: [ab.power(ab.self(), 2000)],
+      effect: [
+        ab.power(ab.self(), 2000),
+        ab.grant(
+          ab.self(),
+          ab.auto({
+            id: 'g1',
+            zones: ['RC'],
+            trigger: ab.attackHits('vanguard'),
+            condition: ab.exists(ab.units('opponent', ['VC'], { grade: { min: 3, max: 3 } })),
+            effect: [ab.noStrideNext()],
+            text: "[AUTO](RC):When this unit's attack hits a vanguard, if your opponent has a grade 3 vanguard, he or she cannot Stride during his or her next ride phase.",
+          }),
+          'end_of_turn',
+        ),
+      ],
       text: text('G-CB06-025', 0),
     }),
   ],

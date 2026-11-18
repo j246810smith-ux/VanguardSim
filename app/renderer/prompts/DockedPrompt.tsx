@@ -27,8 +27,13 @@ export function DockedPrompt({
     const el = ref.current;
     const stage = el?.closest('.stage');
     if (!el || !stage) return;
+    // portrait battles (docs/android/PORTRAIT_PLAN.md): always the bottom sheet above the hand
+    if (stage.classList.contains('portrait')) {
+      setSpot((prev) => (prev === null ? prev : null));
+      return;
+    }
     const s = stage.getBoundingClientRect();
-    const k = s.width / 1920 || 1;
+    const k = s.width / ((stage as HTMLElement).offsetWidth || 1920) || 1;
     const toStage = (r: DOMRect): Rect => ({
       left: (r.left - s.left) / k,
       top: (r.top - s.top) / k,

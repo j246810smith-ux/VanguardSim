@@ -13,6 +13,7 @@ import {
   type ZoneRef,
 } from '../state/types';
 import { generationBreakMet } from '../game/generation';
+import { definitionOf, registerDeckGradeAll, registerSelfGrade } from '../game/characteristics';
 import { abilitiesOf, holders } from './catalog';
 import { evaluate, matches, select, type EvalContext } from './evaluate';
 import type { ActiveZone, ContAbility, Permission, Restriction, Stat } from './types';
@@ -146,6 +147,36 @@ function activeContinuous(
     depth--;
   }
 }
+
+/** A card's own active "[CONT]: this unit gets grade +n" (G-CHB01 Smart Fender Dragon). */
+registerSelfGrade((state, ctx, id) => {
+  const zone = activeZoneOf(locate(state, id), isHeart(state, id));
+  if (zone === null) return 0;
+  const player = controllerOf(state, id);
+  const ec: EvalContext = { state, ctx, master: player, source: id, bindings: {}, eventCard: null };
+  let total = 0;
+  for (const a of definitionOf(state, ctx, id).abilities) {
+    if (a.kind !== 'CONT' || !zoneAllows(a.zones, zone)) continue;
+    if (!generationBreakMet(state, ctx, player, a.generationBreak)) continue;
+    if (a.condition && !evaluate(ec, a.condition)) continue;
+    for (const e of a.effects) if (e.ce === 'self_grade') total += e.amount;
+  }
+  return total;
+});
+
+/** "All of the original grade n cards in your deck get grade +m" from the owner's vanguards. */
+registerDeckGradeAll((state, ctx, id) => {
+  const card = state.cards[id];
+  if (!card) return 0;
+  const original = definitionOf(state, ctx, id).grade;
+  let total = 0;
+  for (const v of state.players[card.owner].circles.vanguard)
+    for (const a of abilitiesOf(state, ctx, v))
+      if (a.kind === 'CONT' && zoneAllows(a.zones, 'VC'))
+        for (const e of a.effects)
+          if (e.ce === 'deck_grade_all' && e.originalGrade === original) total += e.amount;
+  return total;
+});
 
 /** Sum of continuous modifications of `stat` applying to `target`. */
 export function continuousStat(

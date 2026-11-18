@@ -446,6 +446,8 @@ export const toGuardian = (target: Selector): Step => ({ op: 'to_guardian', targ
 export const hollow = (target: Selector, then?: readonly Step[]): Step =>
   then ? { op: 'hollow', target, then } : { op: 'hollow', target };
 export const noNormalRideNext = (): Step => ({ op: 'no_normal_ride_next' });
+export const noStrideNext = (): Step => ({ op: 'no_stride_next' });
+export const forbidRCCallsColumn = (): Step => ({ op: 'forbid_rc_calls_column' });
 /** "Your opponent cannot call his or her units to (RC) until end of your opponent's next turn" */
 export const forbidRCCalls = (): Step => ({ op: 'forbid_rc_calls' });
 /**

@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { PLAY_FORMATS } from '../../src/engine';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { exportDeck, parseDeck } from '../../src/decks/text';
 import { G_TRIAL_DECKS } from '../../src/decks/trialDecks';
@@ -8,6 +9,14 @@ import { loadDecks } from '../renderer/decks/storage';
 import { ctx } from '../renderer/engine';
 import { DeckBuilder } from '../renderer/screens/DeckBuilder';
 import { deckEntries } from '../renderer/screens/deckChoice';
+
+/** Picks a format from the deck builder's format dropdown. */
+function pickFormat(key: keyof typeof PLAY_FORMATS) {
+  fireEvent.click(screen.getByTestId('deck-format-select'));
+  fireEvent.keyDown(screen.getByRole('option', { name: PLAY_FORMATS[key].label }), {
+    key: 'Enter',
+  });
+}
 
 const INDEX = buildIndex(ctx.registry.all());
 const ids = (q: string) => search(INDEX, q).map((e) => e.def.id);
@@ -85,7 +94,7 @@ describe('Deck Builder (Dear Days-style)', () => {
     expect(screen.queryByTestId('g-deck')).toBeNull();
     type('G-BT01/025');
     expect(screen.queryByTestId('pool-G-BT01-025')).toBeNull();
-    fireEvent.click(screen.getByTestId('deck-format-g'));
+    pickFormat('g');
     expect(screen.getByTestId('g-deck')).toBeTruthy();
     fireEvent.click(screen.getByTestId('pool-G-BT01-025'));
     expect(screen.getByTestId('g-deck').querySelectorAll('.dd-tile')).toHaveLength(1);
@@ -94,7 +103,7 @@ describe('Deck Builder (Dear Days-style)', () => {
 
   it('builds a legal G deck and saves it for G-era games', () => {
     render(<DeckBuilder onBack={() => {}} />);
-    fireEvent.click(screen.getByTestId('deck-format-g'));
+    pickFormat('g');
     const deck = G_TRIAL_DECKS[0]!.deck;
     fireEvent.click(screen.getByText('Import…'));
     fireEvent.change(screen.getByTestId('import-text'), {

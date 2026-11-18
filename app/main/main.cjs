@@ -1013,6 +1013,9 @@ function runSmokeTest(win) {
 
 /** Play Online by room code (D-032): the public PeerJS service that introduces the two games. */
 const ROOM_CODE_SERVICE = /^(https|wss):\/\/0\.peerjs\.com\//;
+/** The relay-credentials Worker (relay/README.md), let through with the service; '' = none. */
+const RELAY_URL = String(require('./relay.json').credentialsUrl || '');
+const isRelayRequest = (url) => RELAY_URL.startsWith('https://') && url === RELAY_URL;
 let roomCodesOpen = false;
 
 app.whenReady().then(async () => {
@@ -1028,7 +1031,7 @@ app.whenReady().then(async () => {
     const remote = /^(https?|wss?):/.test(details.url);
     const allowed =
       (devUrl && details.url.startsWith(devUrl)) ||
-      (roomCodesOpen && ROOM_CODE_SERVICE.test(details.url));
+      (roomCodesOpen && (ROOM_CODE_SERVICE.test(details.url) || isRelayRequest(details.url)));
     callback({ cancel: remote && !allowed });
   });
   serveArt();

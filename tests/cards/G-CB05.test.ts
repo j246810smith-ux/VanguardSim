@@ -8,7 +8,8 @@ import { BasicController } from '../../src/ai/basicController';
 import { runMatch } from '../../src/sim/runMatch';
 import { checkZoneInvariant } from '../../src/engine';
 import { gCtx } from '../fixtures/gEra';
-import { callFrom, maker, pw, scene } from '../fixtures/gSets';
+import { callFrom, maker, pw, scene, strideToMain } from '../fixtures/gSets';
+import { currentGrade } from '../../src/engine/game/characteristics';
 
 const ctx = gCtx;
 const KG = maker('Kagero', ['G-BT01-005'], ctx);
@@ -45,6 +46,28 @@ describe('G-CB05', () => {
     expect(r.state.cards[eleanor]!.inHarmony).toBe(true);
     expect(pw(r.state, eleanor)).toBe(9000 + 2000);
     expect(pw(r.state, linwell)).toBe(9000);
+  });
+  // engine gap (handover 2026-11-16): the granted deck grade was not modelled
+  it('Full Bright Wish, Shizuku: after a stride, original grade 2 cards in the deck are grade 3', () => {
+    const SHIZUKU = 'G-CB05-009';
+    const base = scene(
+      [BT, KG],
+      { circles: { vanguard: SHIZUKU }, hand: [SHIZUKU, SHIZUKU] },
+      { circles: { vanguard: 'G-BT01-014' } },
+      { at: 'ride' },
+    );
+    const g2 = base.players[0].deck.find(
+      (id) => ctx.registry.get(base.cards[id]!.definitionId).grade === 2,
+    )!;
+    expect(currentGrade(base, ctx, g2)).toBe(2);
+    const st = strideToMain(base, 'G-CB05-001').state;
+    expect(st.players[0].deck).toContain(g2);
+    expect(currentGrade(st, ctx, g2)).toBe(3);
+    // only cards in the deck: a grade 2 in the hand keeps its grade
+    const inHand = st.players[0].hand.find(
+      (id) => ctx.registry.get(st.cards[id]!.definitionId).grade === 2,
+    );
+    if (inHand) expect(currentGrade(st, ctx, inHand)).toBe(2);
   });
 });
 

@@ -17,6 +17,7 @@ import {
 import { guardForbidden } from '../abilities/continuous';
 import type { Task } from '../state/tasks';
 import { currentGrade, definitionOf, namesOf } from './characteristics';
+import { mayBeNormalUnit } from '../abilities/evaluate';
 import { ask } from './choice';
 import { emit, type Draft, type EngineContext } from './context';
 import { moveCard, shuffleDeck } from './zones';
@@ -86,13 +87,17 @@ export function strideOptions(
   });
   const hand = state.players[player].hand;
   const released = ultimateDiscard(state, ctx, player).length > 0;
-  const ritual = strideRitualCost(state, ctx, player) !== null;
+  const ritualCost = strideRitualCost(state, ctx, player);
+  const ritualFor = (g: InstanceId) => ritualCost !== null && ritualFits(state, ctx, ritualCost, g);
   return units.filter((g) =>
     gyzeEffect(definitionOf(state, ctx, g), 'stride')
       ? true
       : isUltimate(definitionOf(state, ctx, g))
-        ? released || ritual || freeStride(state, ctx, player, g)
-        : altPayable || ritual || freeFor(g) || strideCostPayable(state, ctx, player, hand, g),
+        ? released || ritualFor(g) || freeStride(state, ctx, player, g)
+        : altPayable ||
+          ritualFor(g) ||
+          freeFor(g) ||
+          strideCostPayable(state, ctx, player, hand, g),
   );
 }
 
@@ -335,6 +340,23 @@ export function freeStride(
   const p = state.players[player];
   const vg = vanguardOf(p);
   if (vg === null || state.cards[vg]!.locked) return false;
+  // Gaoield (G-EB03): the G unit's own "this card may [Stride] without paying the cost"
+  if (
+    gUnit !== undefined &&
+    definitionOf(state, ctx, gUnit).abilities.some(
+      (a) =>
+        a.kind === 'CONT' &&
+        a.effects.some(
+          (e) =>
+            e.ce === 'stride_free_self' &&
+            p.hand.length <= e.maxHand &&
+            namesOf(state, ctx, vg).some((n) =>
+              n.toLowerCase().includes(e.vanguardNameIncludes.toLowerCase()),
+            ),
+        ),
+    )
+  )
+    return true;
   const rearGuards = (
     ['front_left', 'front_right', 'back_left', 'back_center', 'back_right'] as const
   ).filter((c) => p.circles[c].length > 0).length;
@@ -397,10 +419,42 @@ export function strideRitualCost(
   state: GameState,
   ctx: EngineContext,
   player: PlayerId,
-): { cb: number; cards: InstanceId[]; bind?: true } | null {
+): {
+  cb: number;
+  cards: InstanceId[];
+  bind?: true;
+  /** cards to pay (default 1) */
+  n?: number;
+  /** only for a G unit with this in its card name */
+  gUnitNameIncludes?: string;
+} | null {
   const p = state.players[player];
   const vg = vanguardOf(p);
   if (vg === null || state.cards[vg]!.locked) return null;
+  // Rozeeta (G-EB02): [Counter-Blast 1] & two "Musketeer" normal units from the drop zone
+  for (const a of definitionOf(state, ctx, vg).abilities) {
+    if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
+    if (!generationBreakMet(state, ctx, player, a.generationBreak)) continue;
+    for (const e of a.effects) {
+      if (e.ce !== 'stride_drop_deck_cost') continue;
+      if (p.damage.filter((id) => state.cards[id]!.faceUp).length < e.cb) return null;
+      const cards = p.drop.filter((id) => {
+        const d = definitionOf(state, ctx, id);
+        // a normal unit, or Rachele "regarded as a normal unit" in the drop zone
+        const normal = d.trigger === null || mayBeNormalUnit(state, ctx, id);
+        return (
+          normal &&
+          d.cardType !== 'g_unit' &&
+          namesOf(state, ctx, id).some((x) =>
+            x.toLowerCase().includes(e.nameIncludes.toLowerCase()),
+          )
+        );
+      });
+      return cards.length >= e.n
+        ? { cb: e.cb, cards, n: e.n, gUnitNameIncludes: e.gUnitNameIncludes }
+        : null;
+    }
+  }
   // Chronojet Dragon Z (G-BT14): a grade 3 <Zodiac Time Beast> from the drop zone, bound face up
   for (const a of definitionOf(state, ctx, vg).abilities) {
     if (a.kind !== 'CONT' || !a.zones.includes('VC')) continue;
@@ -430,6 +484,19 @@ export function strideRitualCost(
   return cards.length > 0 ? { cb, cards } : null;
 }
 
+/** A ritual cost that is only for some G units (Rozeeta: "Musketeer") fits this one. */
+function ritualFits(
+  state: GameState,
+  ctx: EngineContext,
+  ritual: { gUnitNameIncludes?: string },
+  gUnit: InstanceId | undefined,
+): boolean {
+  if (!ritual.gUnitNameIncludes) return true;
+  if (gUnit === undefined) return false;
+  const part = ritual.gUnitNameIncludes.toLowerCase();
+  return namesOf(state, ctx, gUnit).some((x) => x.toLowerCase().includes(part));
+}
+
 /**
  * CR 1.48.1 11.11.2: one or more cards from hand whose grades total 3 or greater; or, with
  * Amaruda's alternative cost, exactly n soul cards with the named ability (a soul blast); or one
@@ -445,7 +512,14 @@ export function strideCostPayable(
   const hand = state.players[player].hand;
   // Ultimate Stride: only its own cost (one card named as your vanguard), or no cost when free
   const ritual = strideRitualCost(state, ctx, player);
-  if (discard.length === 1 && ritual?.cards.includes(discard[0]!)) return true;
+  if (
+    ritual &&
+    discard.length === (ritual.n ?? 1) &&
+    new Set(discard).size === discard.length &&
+    discard.every((id) => ritual.cards.includes(id)) &&
+    ritualFits(state, ctx, ritual, gUnit)
+  )
+    return true;
   if (gUnit !== undefined && gyzeEffect(definitionOf(state, ctx, gUnit), 'stride'))
     return discard.length === 1 && gyzeDiscard(state, ctx, player, gUnit).includes(discard[0]!);
   if (gUnit !== undefined && isUltimate(definitionOf(state, ctx, gUnit)))

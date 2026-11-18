@@ -220,6 +220,13 @@ export type GameEvent =
       readonly type: 'CHOSEN';
       readonly master: PlayerId;
       readonly instanceIds: readonly InstanceId[];
+      /** The card whose ability chose them (absent in events from older saves). */
+      readonly source?: InstanceId;
+      /**
+       * Chosen by the effect of the master's vanguard: the source is on (VC), or is a G unit that
+       * went back to the G zone during its own effect (G-EB02 Meilleur Chatnoir).
+       */
+      readonly byVanguard?: boolean;
     }
   | {
       /** CR 1.48.1 10.35 Dominate (G-BT11): `player` dominates these units of the other player. */

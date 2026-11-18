@@ -69,7 +69,7 @@ interface Drag {
 const stageOf = () => document.querySelector<HTMLElement>('.stage');
 
 /** Stage coordinates of a screen point (the stage is scaled to fit, App.tsx Stage). */
-function toStage(stage: HTMLElement, x: number, y: number) {
+export function toStage(stage: HTMLElement, x: number, y: number) {
   const r = stage.getBoundingClientRect();
   const k = stage.offsetWidth ? r.width / stage.offsetWidth : 1;
   return { x: (x - r.left) / k, y: (y - r.top) / k, k };

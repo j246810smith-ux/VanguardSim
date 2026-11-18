@@ -7,7 +7,7 @@ import { AI, ME } from '../renderer/engine';
 import { PORTRAIT_GEOMETRY, P_FIELD_W, P_ROWS } from '../renderer/board/portraitLayout';
 import type { SessionConfig } from '../renderer/game/session';
 import { Battle } from '../renderer/screens/Battle';
-import { bandY, PortraitBattleScreen } from '../renderer/screens/PortraitBattleScreen';
+import { bandY, handScale, PortraitBattleScreen } from '../renderer/screens/PortraitBattleScreen';
 import { DEFAULT_SETTINGS, SettingsContext } from '../renderer/settings';
 import {
   PORTRAIT_MIN_H,
@@ -47,7 +47,11 @@ describe('the portrait stage', () => {
 
   it('the band line follows the field row: centred in the spare height of a tall phone', () => {
     expect(bandY(1924)).toBe(150 + P_ROWS.band);
-    expect(bandY(2400)).toBe(Math.round(150 + ((2400 - 1924) * 0.6) / 2 + P_ROWS.band));
+    expect(bandY(2400)).toBe(Math.round(150 + ((2400 - 1924) * 0.25) / 2 + P_ROWS.band));
+    // the hand grows into the rest: the minimum size on a short screen, bigger on a tall phone
+    expect(handScale(1924)).toBe(1.45);
+    expect(handScale(2400)).toBeGreaterThan(1.45);
+    expect(handScale(4000)).toBe(2);
   });
 });
 

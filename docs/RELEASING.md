@@ -29,6 +29,7 @@ Releases are tagged `v<version>`:
 - `v0.44.0-alpha` — G-BT14, G-FTD01, G-FC03, G-FC04, G-CMB01, G-DG01, G-TCB01, G-TCB02, G-CB01 (Success, Dark Device, Harmony) and the 2026-11-15 prompt pack.
 - `v0.45.0-alpha` — the rest of the G Clan, Character and Extra Boosters: G-CB02–07, G-CHB01–03, G-EB01–03.
 - `v0.46.0-alpha` — Android portrait battles, card movement like fight-club.dev, Neon Gyze fix, Online Code diagnosis (dead PeerJS relays), 13 card abilities (all of G-EB02), deck builder format dropdown.
+- `v0.47.0-alpha` — dominated attacks can be guarded, Lady Healer G guardian, Revelation shows its card, race in deck builder, placement ghost switch, portrait polish.
 - `v0.36.0-alpha` — Battlefield 2.0 (Desktop/Mobile presentation profiles, step-by-step battles, drag by finger, backgrounds); G-TD06–08, G-BT06.
 - `v0.x.y-beta` — feature-complete for BT01–BT17 and the side sets, testing.
 - `v1.0.0` — the first stable release.

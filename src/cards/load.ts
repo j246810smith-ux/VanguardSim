@@ -95,9 +95,11 @@ export function toDefinition(
     trigger: r.trigger,
     skillIcon: r.skillIcon,
     sentinel: r.sentinel,
-    // CR 1.48.1 11.14: a G unit whose text starts with the [G Guardian] keyword (G-BT07 onward)
+    // CR 1.48.1 11.14: a G unit with the [G Guardian] keyword at the start of a line (G-BT07 on).
+    // A line, not the text: the Trial Deck ones (G-TD13–15 -002) open with a reminder in brackets
+    // ("G units cannot be in your main deck…"), which hid Lady Healer (owner 2026-11-18).
     ...(r.cardType === 'g_unit' &&
-    (/^\[G Guardian\]/.test(r.en?.text ?? '') || /^【Ｇガーディアン】/.test(r.jp?.text ?? ''))
+    (/^\[G Guardian\]/m.test(r.en?.text ?? '') || /^【Ｇガーディアン】/m.test(r.jp?.text ?? ''))
       ? { gGuardian: true }
       : {}),
     text: en.text,

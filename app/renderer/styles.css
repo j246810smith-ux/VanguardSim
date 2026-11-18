@@ -3890,6 +3890,14 @@ input.text {
   justify-content: center;
   margin: 6px 0 10px;
 }
+/* a card shown in a prompt is a button: tap it to open its details */
+button.looked-card {
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: zoom-in;
+}
 
 /* ---- phones and slower devices (Android, docs/android/ANDROID_AUDIT_AND_PLAN.md) ------------- */
 /* U8: keep the stage out of the camera cutout, rounded corners and gesture bar. The insets are 0 on
@@ -6522,10 +6530,10 @@ input.text {
   inset: 0;
   display: grid;
   grid-template-columns: 100%;
-  /* the field's row takes 60% of the height beyond the minimum layout (1924 px), the hand the
-     rest (PortraitBattleScreen bandY follows this) */
+  /* the field's row takes a quarter of the height beyond the minimum layout (1924 px), the hand
+     the rest, where the cards grow (PortraitBattleScreen bandY and handScale follow this) */
   grid-template-rows:
-    150px calc(1180px + max(0px, 100% - 1924px) * 0.6) 104px minmax(290px, 1fr)
+    150px calc(1180px + max(0px, 100% - 1924px) * 0.25) 104px minmax(290px, 1fr)
     200px;
   overflow: hidden;
 }
@@ -6816,16 +6824,16 @@ input.text {
 }
 .p-battle .p-hand .hand {
   left: 50%;
-  /* the fan's bottom line a little below the row's middle: the spare height goes around it */
-  top: 78%;
+  /* the fan's bottom line a little below the row's middle; the cards grow with the row */
+  top: 80%;
   bottom: auto;
-  scale: 1.45;
+  scale: var(--p-hand-scale, 1.45);
 }
 .p-battle .p-hand .hand-card {
   bottom: -30px;
 }
 .p-battle.hand-big .p-hand .hand {
-  scale: 1.75;
+  scale: calc(var(--p-hand-scale, 1.45) * 1.2);
 }
 .p-battle .p-hand .hand.hand-strip {
   left: 0;
@@ -6897,8 +6905,9 @@ input.text {
   translate: -50% 0;
 }
 .p-battle ~ .thinking {
-  top: auto;
-  bottom: 520px;
+  /* just under the opponent's bar: clear of the board and of your (large) hand */
+  top: 158px;
+  bottom: auto;
 }
 .p-battle ~ .attack-preview {
   left: 24px;
@@ -6985,4 +6994,9 @@ input.text {
 }
 .p-battle.in-battle .p-band-text {
   visibility: hidden;
+}
+
+/* portrait: the phone's cutout and rounded-corner margins take the battle's colour, not a plain band */
+.viewport:has(.stage.portrait) {
+  background: linear-gradient(180deg, #08102a, #050a18);
 }

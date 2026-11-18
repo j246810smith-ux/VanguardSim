@@ -85,6 +85,8 @@ export interface Settings {
   readonly animatedNumbers: boolean;
   /** Landing rings, sparks, dust and the draw trail (board/cardFx.ts). Off with Reduced motion / Low. */
   readonly cardEffects: boolean;
+  /** A selected hand card's see-through copy follows the mouse (board/placementGhost.ts). */
+  readonly placementGhost: boolean;
 }
 
 export interface ControllerSettings {
@@ -148,6 +150,7 @@ export const DEFAULT_SETTINGS: Settings = {
   controller: DEFAULT_CONTROLLER,
   animatedNumbers: true,
   cardEffects: true,
+  placementGhost: true,
 };
 
 /** The settings a battle in profile `id` plays with: that profile's view and playmat. */

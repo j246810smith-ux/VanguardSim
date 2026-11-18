@@ -15,6 +15,28 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ HANDOVER 2026-11-18 — v0.46.0-alpha published
+
+**Published** (owner: "do 1 then 2"): dev master e8cbdba (tag v0.46.0-alpha; branches fix/neon-gyze →
+engine/gaps → android/portrait fast-forwarded), public 25d9ffd + tag, GitHub pre-release with zip,
+portable exe, signed update files and APK. `dist:smoke` and `release:verify` passed. Installed
+Windows copy updated in place (robocopy, art kept). Phone: update in the app (Wi-Fi adb dropped).
+For the next release download 0.46's manifest into release/prev first.
+
+**In 0.46:** Neon Gyze fix; card movement after fight-club.dev + placement ghost; Online Code
+diagnosis (PeerJS relays dead) + connection report; Cloudflare TURN relay built but OFF until the
+owner's setup (relay/README.md, app/main/relay.json); 13 engine gaps (all G-EB02 scripted); Android
+portrait battles (docs/android/PORTRAIT_PLAN.md); deck builder format dropdown.
+
+**Card art:** the installed copy had no art after G-BT10 (download never re-run). Downloaded 1,677
+images with the Artwork Manager's service (34 sets) and pushed them to the phone (`artwork:phone
+--only …`). The stored English S3 image addresses are dead (404); the downloader falls back to the
+Japanese image path, which works.
+
+**Next:** (2) portrait polish: top cutout strip, empty space around the board, card motion and
+ability callout on a device. Then Touken Ranbu, PR cards/Special Half Decks, Final Turn animation,
+AI. Waiting on the owner: the OG Expanded workbook, the Cloudflare setup.
+
 ## ▶ HANDOVER 2026-11-16 — v0.45.0-alpha published; G boosters done
 
 The owner asked to keep adding the remaining sets, then (evening) to finish what the helper

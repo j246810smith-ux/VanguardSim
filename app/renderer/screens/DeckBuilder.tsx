@@ -1023,6 +1023,13 @@ function DefinitionDetails({
               <dt>CLAN</dt>
               <dd style={{ fontSize: 18 }}>{d.clan}</dd>
             </div>
+            {/* the race, for race-based decks and skills (owner 2026-11-18; Card Details had it) */}
+            <div>
+              <dt>RACE</dt>
+              <dd style={{ fontSize: 18 }} data-testid="details-race">
+                {d.race ?? '—'}
+              </dd>
+            </div>
             <div>
               <dt>TRIGGER</dt>
               <dd style={{ fontSize: 18 }}>{d.trigger ? d.trigger.toUpperCase() : '—'}</dd>

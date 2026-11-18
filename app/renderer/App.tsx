@@ -698,7 +698,8 @@ function SettingsScreen({
       | 'foil'
       | 'stepByStep'
       | 'animatedNumbers'
-      | 'cardEffects',
+      | 'cardEffects'
+      | 'placementGhost',
     hint?: string,
   ) => (
     <div className="row">
@@ -932,6 +933,11 @@ function SettingsScreen({
           'Card effects',
           'cardEffects',
           'Rings and sparks when a card lands, dust when a unit is retired, a light trail on draws (off with Reduced motion or Low graphics)',
+        )}
+        {toggle(
+          'Placement ghost',
+          'placementGhost',
+          'With a mouse: a see-through copy of the card you picked follows the pointer and snaps onto the circles it can go to',
         )}
         {toggle('Show card art', 'showArt')}
         {toggle('Foil effect on rare cards', 'foil')}

@@ -1,7 +1,9 @@
 // @vitest-environment jsdom
-import { cleanup, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ghostSpot, usePlacementGhost } from '../renderer/board/placementGhost';
+import { App } from '../renderer/App';
+import { DEFAULT_SETTINGS, loadSettings } from '../renderer/settings';
 
 // owner's request 2026-11-18 (after fight-club.dev): a selected hand card follows the mouse
 describe('placement ghost', () => {
@@ -88,5 +90,18 @@ describe('placement ghost', () => {
     under = document.querySelector('.ring');
     move();
     expect(ghost()?.hidden ?? true).toBe(true);
+  });
+});
+
+describe('the placement ghost setting', () => {
+  it('is on by default and can be switched off in Settings', async () => {
+    expect(DEFAULT_SETTINGS.placementGhost).toBe(true);
+    render(<App />);
+    await act(() => Promise.resolve());
+    fireEvent.click(screen.getByTestId('settings'));
+    expect(screen.getByTestId('placementGhost-on').className).toContain('on');
+    fireEvent.click(screen.getByTestId('placementGhost-off'));
+    expect(screen.getByTestId('placementGhost-off').className).toContain('on');
+    expect(loadSettings().placementGhost).toBe(false);
   });
 });

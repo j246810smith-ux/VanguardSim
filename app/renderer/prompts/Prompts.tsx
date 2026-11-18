@@ -120,12 +120,15 @@ export function ChoicePrompt({
   picked,
   onToggle,
   onSubmit,
+  onDetails,
 }: {
   view: GameState;
   choose: Choose;
   picked: readonly string[];
   onToggle: (option: string) => void;
   onSubmit: (selection: readonly string[]) => void;
+  /** Opens a card's details (a card shown in the prompt). */
+  onDetails?: (id: string) => void;
 }) {
   const range =
     choose.min === choose.max ? `Choose ${choose.min}` : `Choose ${choose.min}–${choose.max}`;
@@ -144,6 +147,18 @@ export function ChoicePrompt({
         <DockedPrompt>
           <h3>{choose.prompt}</h3>
           <Origin view={view} />
+          {/* the card the question is about (Revelation's top card): tap it to look closely */}
+          {view.pendingChoice?.shown?.map((id) => (
+            <button
+              key={id}
+              className="looked-card"
+              onClick={() => onDetails?.(id)}
+              data-testid="looked-card"
+              aria-label="Look at this card"
+            >
+              <CardView definitionId={view.cards[id]!.definitionId} width={150} height={218} />
+            </button>
+          ))}
           {buttons([
             ['yes', 'Yes'],
             ['no', 'No'],
@@ -169,9 +184,14 @@ export function ChoicePrompt({
         <DockedPrompt>
           <h3>{choose.prompt}</h3>
           {view.pendingChoice?.shown?.map((id) => (
-            <div key={id} className="looked-card">
+            <button
+              key={id}
+              className="looked-card"
+              onClick={() => onDetails?.(id)}
+              aria-label="Look at this card"
+            >
               <CardView definitionId={view.cards[id]!.definitionId} width={150} height={218} />
-            </div>
+            </button>
           ))}
           {buttons(choose.options.map((o) => [o, o === 'top' ? 'Top of deck' : 'Bottom of deck']))}
         </DockedPrompt>

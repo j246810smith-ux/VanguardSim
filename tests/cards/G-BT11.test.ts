@@ -12,6 +12,7 @@ import {
   currentPower,
   G_ERA_FORMAT,
   type EngineContext,
+  type GameEvent,
   type GameState,
 } from '../../src/engine';
 import { gApply, gCtx, gLegal, settle, type Run } from '../fixtures/gEra';
@@ -61,6 +62,46 @@ const answerUntil = (r: Run, card: string, ...selection: string[]) =>
 const idle = (s: GameState) => s.battle === null && s.tasks.length === 0 && !s.pendingChoice;
 
 describe('Dominate (CR 1.48.1 10.35)', () => {
+  // owner 2026-11-18: "Shiranui Dominate attacks cannot be guarded successfully"
+  it('a dominated unit attacking its owner can be guarded: enough shield means no hit', () => {
+    const RASHID = 'G-BT01-075'; // Kagero grade 0, shield 10000
+    const s0 = scene(
+      [NB([MUJIN]), KG],
+      { circles: { vanguard: MORISHIGE }, hand: [MORISHIGE], damage: [GARAN, GARAN] },
+      {
+        circles: { vanguard: BLADEMASTER, front_left: DOHA },
+        hand: [RASHID, RASHID],
+      },
+      { at: 'ride', faceUpG: 1, ctx },
+    );
+    const doha = unitAt(s0, 1, 'front_left');
+    const st = strideToMain(s0, MUJIN).state;
+    const source = unitAt(st, 0, 'vanguard');
+    const o = gLegal(st, 0, 'ACTIVATE')!.options.find((x) => x.source === source)!;
+    let r = gApply(st, { type: 'ACTIVATE', player: 0, source, abilityId: o.abilityId });
+    r = settle(r, { stopWhen: pick(doha) });
+    r = answer(r, doha);
+    r = settle(r, { stopWhen: atGuard });
+    expect(r.state.battle?.attacker).toBe(doha);
+    // the owner of the dominated unit defends: both 10000-shield cards guard the vanguard
+    const guard = gLegal(r.state, 1, 'GUARD');
+    expect(guard?.cardIds.length).toBe(2);
+    for (const cardId of guard!.cardIds) r = andThen(r, { type: 'GUARD', player: 1, cardId });
+    // both stayed on (GC) for the battle (they used to go straight to the drop zone: CR 9.4 was
+    // applied in the main phase), then left when it ended; with the hand empty the step ended
+    const moved = r.events.flatMap((e) => (e.type === 'CARD_MOVED' ? [e] : []));
+    expect(moved.filter((e) => e.to.zone === 'guardian')).toHaveLength(2);
+    expect(moved.some((e) => e.from.zone === 'guardian' && e.reason === 'rule_action')).toBe(false);
+    if (r.state.battle?.step === 'guard') r = andThen(r, { type: 'PASS_GUARD', player: 1 });
+    r = settle(r);
+    const resolved = r.events.filter((e) => e.type === 'ATTACK_RESOLVED');
+    expect(resolved).toHaveLength(1);
+    const e = resolved[0] as Extract<GameEvent, { type: 'ATTACK_RESOLVED' }>;
+    expect(e.attackPower).toBe(14000);
+    expect(e.defensePower).toBe(31000); // 11000 + 20000 shield
+    expect(e.hit).toBe(false);
+  });
+
   it('G-BT11-008 Mujinlord: the chosen opponent rear-guards get +4000, are dominated and each attack the vanguard', () => {
     const s0 = scene(
       [NB([MUJIN]), KG],

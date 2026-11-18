@@ -40,16 +40,28 @@ const TOP_H = 150;
 const ME_H = 104;
 const BOTTOM_H = 200;
 const HAND_MIN = 290;
+/** The field row's share of the spare height (styles.css .p-battle). */
+const FIELD_SHARE = 0.25;
 
 /**
  * Where the centre band sits on the stage, for the shared pieces drawn over the battlefield (the VS
- * display, the ability callout): the field's row gets 60% of the height beyond the minimum layout
+ * display, the ability callout): the field's row gets a quarter of the height beyond the minimum
  * (styles.css .p-battle), and the canvas is centred in it.
  */
 export function bandY(stageHeight: number): number {
   const minimum = TOP_H + P_FIELD_H + ME_H + HAND_MIN + BOTTOM_H;
-  const fieldRow = P_FIELD_H + Math.max(0, stageHeight - minimum) * 0.6;
+  const fieldRow = P_FIELD_H + Math.max(0, stageHeight - minimum) * FIELD_SHARE;
   return Math.round(TOP_H + (fieldRow - P_FIELD_H) / 2 + P_ROWS.band);
+}
+
+/**
+ * The hand's size: its row gets the rest of the spare height, and the fan grows into it (1.45 at
+ * the minimum, up to 2 on a tall phone).
+ */
+export function handScale(stageHeight: number): number {
+  const minimum = TOP_H + P_FIELD_H + ME_H + HAND_MIN + BOTTOM_H;
+  const handRow = HAND_MIN + Math.max(0, stageHeight - minimum) * (1 - FIELD_SHARE);
+  return Math.round(Math.min(2, Math.max(1.45, (handRow / HAND_MIN) * 1.2)) * 100) / 100;
 }
 
 /** Bar actions that live elsewhere: the log and menu in the top bar, "end" as the band's button. */
@@ -83,7 +95,13 @@ export function PortraitBattleScreen(props: Props) {
   return (
     <div
       className="p-root"
-      style={{ display: 'contents', '--p-band': `${bandY(height)}px` } as CSSProperties}
+      style={
+        {
+          display: 'contents',
+          '--p-band': `${bandY(height)}px`,
+          '--p-hand-scale': handScale(height),
+        } as CSSProperties
+      }
     >
       <BattleCosmetics
         mySleeve={props.online?.mySleeve ?? props.config?.mySleeve ?? c.settings.defaultSleeve}
@@ -197,7 +215,8 @@ export function PortraitBattleScreen(props: Props) {
             onDetails={c.setDetails}
             onDragStart={c.onDragStart}
             onDrop={c.onDropCard}
-            spreadWidth={handBig ? 940 : 620}
+            // the fan, scaled up, stays inside the 1080 px width (cards are 124 px wide)
+            spreadWidth={Math.max(300, 1040 / (handScale(height) * (handBig ? 1.2 : 1)) - 124)}
             stripAbove={handBig ? 9 : 7}
           />
         </div>

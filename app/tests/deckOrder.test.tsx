@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 /** The deck-order strip in the choice prompt and the battle-log lines for cards put into a deck. */
-import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { GameEvent } from '../../src/engine';
 import { scene } from '../../tests/fixtures/bt01';
 import { defOf } from '../renderer/engine';
@@ -102,5 +102,47 @@ describe('deck order', () => {
       to: { player: 0, zone: 'deck' },
     } as GameEvent);
     expect(shuffled?.text).toMatch(/into your deck$/);
+  });
+});
+
+// owner 2026-11-18: Revelation's top card could not be inspected
+describe('a yes / no question about a looked-at card', () => {
+  it('shows the card, and tapping it opens its details', () => {
+    const top = s.players[0].deck[0]!;
+    const view = {
+      ...s,
+      pendingChoice: {
+        id: 1,
+        player: 0 as const,
+        kind: 'yes_no' as const,
+        options: ['yes', 'no'],
+        min: 1,
+        max: 1,
+        prompt: 'Put that card into your soul?',
+        shown: [top],
+      },
+    };
+    const choose: Choose = {
+      type: 'CHOOSE',
+      choiceId: 1,
+      kind: 'yes_no',
+      options: ['yes', 'no'],
+      min: 1,
+      max: 1,
+      prompt: 'Put that card into your soul?',
+    };
+    const onDetails = vi.fn();
+    render(
+      <ChoicePrompt
+        view={view}
+        choose={choose}
+        picked={[]}
+        onToggle={() => {}}
+        onSubmit={() => {}}
+        onDetails={onDetails}
+      />,
+    );
+    fireEvent.click(screen.getByTestId('looked-card'));
+    expect(onDetails).toHaveBeenCalledWith(top);
   });
 });

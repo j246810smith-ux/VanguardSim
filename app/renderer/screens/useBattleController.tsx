@@ -312,7 +312,7 @@ export function useBattleController(
         : 'full';
   useCardMotion(() => session.takeMoves(), slideMs, view, cardFx);
   // a selected hand card's see-through copy follows the mouse and snaps onto its circles
-  usePlacementGhost(selection?.kind === 'hand' ? selection.id : null);
+  usePlacementGhost(settings.placementGhost && selection?.kind === 'hand' ? selection.id : null);
 
   // sounds for what the engine just resolved (after it happened, never before); a placed card's
   // landing sound waits for its slide to arrive

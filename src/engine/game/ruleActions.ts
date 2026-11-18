@@ -41,9 +41,14 @@ function resolveOverloadedCircles(d: Draft): void {
   }
 }
 
-/** CR 9.4: units on a guardian circle outside the battle phase go to the drop zone. */
+/**
+ * CR 9.4: units on a guardian circle outside the battle phase go to the drop zone. Not during a
+ * battle an effect makes outside the battle phase (Dominate, CR 1.48.1 10.35: "each attacks"
+ * during the main phase): the defender guards those battles, and sending the guardians straight to
+ * the drop zone made every dominated attack hit (owner's report 2026-11-18, UNRESOLVED_RULINGS).
+ */
 function removeIllegalGuardians(d: Draft): void {
-  if (d.state.phase === 'battle') return;
+  if (d.state.phase === 'battle' || d.state.battle) return;
   for (const p of d.state.players) {
     for (const id of [...p.guardian])
       moveCard(d, id, { player: p.id, zone: 'drop' }, 'rule_action');

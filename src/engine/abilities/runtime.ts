@@ -76,6 +76,8 @@ const ecOf = (d: Draft, f: Frame): EvalContext => ({
   ...(f.eventColumn ? { eventColumn: f.eventColumn } : {}),
 });
 
+/** The cards of the latest look at the top of the deck, kept in the frame's bindings. */
+const LOOKED = '__looked';
 const useKey = (source: InstanceId, abilityId: string) => `${source}/${abilityId}`;
 
 const nameCache = new WeakMap<object, Map<string, string[]>>();
@@ -985,6 +987,8 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
     }
     case 'look_top':
       frame.bindings[step.as] = s.players[frame.master].deck.slice(0, step.n);
+      // the cards looked at, for a "you may …" about them (shown to the master only, view.ts)
+      frame.bindings[LOOKED] = frame.bindings[step.as]!;
       return true;
     case 'look_bottom':
       frame.bindings[step.as] = s.players[frame.master].deck.slice(-step.n);
@@ -1658,6 +1662,14 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
       if (step.payable && !canPay(ec, step.payable)) return true;
       const asked = step.player === 'opponent' ? other(frame.master) : frame.master;
       const subject = publicSubject(s, ec.ctx, frame, asked);
+      // "look at the top card … you may put it into your soul" (Revelation, owner 2026-11-18): the
+      // master sees the card the question is about, while it is still on top of their deck
+      const looked =
+        asked === frame.master
+          ? (frame.bindings[LOOKED] ?? []).filter((id) =>
+              s.players[frame.master].deck.slice(0, 5).includes(id),
+            )
+          : [];
       const answer = ask(d, task, {
         player: asked,
         kind: 'yes_no',
@@ -1666,6 +1678,7 @@ export function runStep(d: Draft, task: Extract<Task, { kind: 'step' }>): boolea
         max: 1,
         prompt: subject ? `${step.prompt} (for ${subject.label})` : step.prompt,
         ...(subject ? { subject: subject.id } : {}),
+        ...(looked.length > 0 ? { shown: looked } : {}),
       });
       if (answer === null) return false;
       if (answer[0] === 'yes') s.tasks.unshift(...stepTasks(frame.id, step.then));

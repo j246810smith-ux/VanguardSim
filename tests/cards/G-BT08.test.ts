@@ -5,7 +5,8 @@
  */
 import { describe, expect, it } from 'vitest';
 import { BasicController } from '../../src/ai/basicController';
-import { checkZoneInvariant } from '../../src/engine';
+import { checkZoneInvariant, viewFor } from '../../src/engine';
+import { HIDDEN } from '../../src/engine/view';
 import { runMatch } from '../../src/sim/runMatch';
 import { gCtx } from '../fixtures/gEra';
 import { act, callFrom, KG3, maker, scene } from '../fixtures/gSets';
@@ -22,6 +23,28 @@ const KG = maker('Kagero', ['G-BT01-005']);
 const scripted = (...ids: string[]) => {
   for (const id of ids) expect(gCtx.registry.get(id).abilities.length, id).toBeGreaterThan(0);
 };
+
+// owner 2026-11-18: "Revelation effects do not allow inspection of the revealed top card"
+describe('Revelation shows the card it looks at', () => {
+  it('the "put it into your soul?" question carries the top card, for its master only', () => {
+    const s = scene(
+      [GEN, maker('Kagero', ['G-BT01-005'])],
+      { circles: { vanguard: 'G-BT08-028' }, hand: ['G-BT08-029'] },
+      { circles: { vanguard: 'G-BT01-014' } },
+      { at: 'main' },
+    );
+    const top = s.players[0].deck[0]!;
+    const r = callFrom(s, 'G-BT08-029', 'front_left', {
+      stopWhen: (st) => st.pendingChoice?.kind === 'yes_no',
+    });
+    const choice = r.state.pendingChoice!;
+    expect(choice.kind).toBe('yes_no');
+    expect(choice.shown).toEqual([top]);
+    // the opponent's view still hides it (Revelation looks, it does not reveal)
+    expect(viewFor(r.state, 1).cards[top]!.definitionId).toBe(HIDDEN);
+    expect(viewFor(r.state, 0).cards[top]!.definitionId).toBe(s.cards[top]!.definitionId);
+  });
+});
 
 describe('G-BT08 decks of every clan, played out by the basic AI', () => {
   it.each([

@@ -134,3 +134,14 @@ describe('Deck Builder quick clicks', () => {
     expect(screen.getByTestId('deck-list').querySelectorAll('.dd-tile')).toHaveLength(3);
   });
 });
+
+describe('card details in the deck builder', () => {
+  // owner 2026-11-18: race-based decks need the race in the card details
+  it('show the race, as Card Details in a battle does', () => {
+    render(<DeckBuilder onBack={() => {}} />);
+    fireEvent.change(screen.getByTestId('card-search'), { target: { value: 'BT01/002' } });
+    const card = screen.getByTestId('card-pool').querySelector('.pool-card')!;
+    fireEvent.contextMenu(card);
+    expect(screen.getByTestId('details-race').textContent).toBe('Human'); // Blaster Blade
+  });
+});

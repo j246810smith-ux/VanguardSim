@@ -105,3 +105,33 @@ describe('G-TD09 to G-TD15: new pieces', () => {
     if (t.players[0].hand.length > 3) expect(currentGrade(t, gCtx, tomahawk)).toBe(1);
   });
 });
+
+// owner 2026-11-18: "Light that Seals the Tear, Lady Healer is not recognised as a G Guardian"
+describe('the Trial Deck G guardians whose text opens with a reminder', () => {
+  it('Lady Healer, Abudataishi and Chouchou, Palffy are G guardians', () => {
+    for (const id of ['G-TD13-002', 'G-TD14-002', 'G-TD15-002'])
+      expect(gCtx.registry.get(id).gGuardian).toBe(true);
+  });
+
+  it('Lady Healer is offered in the guard step for a heal trigger from the hand', () => {
+    const LJ = maker('Link Joker', ['G-TD15-002'], gCtx);
+    const s0 = scene(
+      [maker('Kagero', ['G-BT01-005'], gCtx), LJ],
+      { circles: { vanguard: 'G-BT01-014' } },
+      { circles: { vanguard: 'G-TD15-004' }, hand: ['G-TD15-017'] },
+      { faceUpG: 0, ctx: gCtx },
+    );
+    const r = settle(
+      gApply(s0, {
+        type: 'ATTACK',
+        player: 0,
+        attacker: unitAt(s0, 0, 'vanguard'),
+        target: unitAt(s0, 1, 'vanguard'),
+        booster: null,
+      }),
+      { stopWhen: (st) => st.battle?.step === 'guard' },
+    );
+    const g = gLegal(r.state, 1, 'G_GUARD');
+    expect(g?.cardIds.map((id) => def(r.state, id))).toContain('G-TD15-002');
+  });
+});

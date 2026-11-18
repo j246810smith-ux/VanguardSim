@@ -75,6 +75,7 @@ export function BattleOverlays({
           onSubmit={(sel) =>
             send({ type: 'CHOOSE', player: ME, choiceId: legal.choose!.choiceId, selection: sel })
           }
+          onDetails={setDetails}
         />
       )}
       {legal.mulligan && (

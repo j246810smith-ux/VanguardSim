@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.47.0-alpha — 2026-11-18
+
+- **Fix: attacks by dominated units (Shiranui "Mukuro", Mujinlord …) can be guarded.** Those battles
+  happen in the main phase, and the rule that clears guardian circles outside the battle phase (CR
+  9.4) sent each guardian to the drop zone as soon as it was called, so every dominated attack hit.
+  Guardians now stay until the battle ends.
+- **Fix: Light that Seals the Tear, Lady Healer is a G guardian** (and Secret Message Stealth Hermit,
+  Abudataishi, and Chouchou, Palffy). Their text opens with the reminder about G units, so the
+  [G Guardian] keyword was not found at the start of the text; it is now found on any line.
+- **Revelation (and every "look at the top card … you may …"):** the question now shows the card
+  being looked at, and tapping it opens its details. Only its owner sees it, as before.
+- **Deck builder card details show the race** (Human, Workeroid, Vampire …), as Card Details in a
+  battle already did.
+- **Grade 2 guards from hand:** checked: a grade 2 may guard once your vanguard is grade 2 or higher
+  (CR 8.5.2.1.1.2), in both eras; with a grade 1 vanguard it cannot. Tests added; no bug found.
+- **Settings → Placement ghost On/Off** (owner's request): the see-through card that follows the
+  mouse after you pick a hand card can be switched off. On by default.
+- **Portrait battles, polish:** the hand uses the phone's spare height (bigger cards, the fan always
+  fits the width), less empty space around the board, the camera cutout margin takes the battle's
+  colour, and "Opponent is thinking" sits under the top bar instead of over your hand.
+
 ## 0.46.0-alpha — 2026-11-18
 
 - **Deck builder: the format is a dropdown** (Original Era — Strict, Original Era — Expanded, G Era).

@@ -12,6 +12,7 @@ import { ConnectionBanner } from '../online/ConnectionBanner';
 import { InspectButton } from '../board/InspectButton';
 
 import { endingText } from './useBattleController';
+import { expFor, expReason } from '../profile/model';
 
 import type { BattleController } from './useBattleController';
 
@@ -191,6 +192,15 @@ export function BattleOverlays({
         />
       )}
 
+      {/* the declared Final Turn's battlefield (owner feedback 2026-11-25): a red aura over the
+          board, under every prompt; quieter on Reduced/Low graphics and with reduced motion */}
+      {c.finalTurnActive !== null && (
+        <div
+          className={`ft-aura ${c.finalTurnActive === ME ? 'me' : 'opp'} gfx-${c.settings.graphics}`}
+          data-testid="final-turn-aura"
+          aria-hidden
+        />
+      )}
       <FxLayer fx={session.fx[0]} onDone={dismissFx} />
       {/* B11: Final Turn, cosmetic */}
       {c.finalTurn && (
@@ -203,6 +213,21 @@ export function BattleOverlays({
           <div className="final-turn-title">FINAL TURN!</div>
           <div className="final-turn-who">
             {c.finalTurn.seat === ME ? 'You declare' : 'Your opponent declares'}
+          </div>
+        </div>
+      )}
+      {c.finalTurnFailed && (
+        <div
+          key={c.finalTurnFailed.key}
+          className={`final-turn failed ${c.finalTurnFailed.seat === ME ? 'me' : 'opp'}`}
+          data-testid="final-turn-failed"
+          role="status"
+        >
+          <div className="final-turn-title">FINAL TURN FAILED</div>
+          <div className="final-turn-who">
+            {c.finalTurnFailed.seat === ME
+              ? 'Your declared turn ended without a win'
+              : "Your opponent's declared turn ended without a win"}
           </div>
         </div>
       )}
@@ -246,6 +271,12 @@ export function BattleOverlays({
             <div>
               {myDeckName} <span className="vs">vs</span> {opponentDeckName}
             </div>
+            {c.reward && (
+              <div className="reward" data-testid="game-reward">
+                +{expFor(c.reward)} EXP
+                {expReason(c.reward) ? ` · ${expReason(c.reward)}` : ''}
+              </div>
+            )}
             <div className="dim">
               {online
                 ? `Online vs ${online.opponentName}`

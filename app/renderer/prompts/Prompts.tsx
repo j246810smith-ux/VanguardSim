@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   splitAbilityOption,
   type ActOption,
@@ -538,13 +539,58 @@ export interface BarAction {
   readonly label: string;
   readonly icon: Parameters<typeof Icon>[0]['name'];
   readonly onClick: () => void;
-  readonly tone?: 'primary' | 'warn';
+  readonly tone?: 'primary' | 'warn' | 'danger';
   readonly toggled?: boolean;
 }
 
-export function ActionBar({ actions }: { actions: readonly BarAction[] }) {
+/**
+ * The Final Turn declaration (owner feedback 2026-11-25): red, kept apart from the phase controls,
+ * and it ignores clicks for a moment after it appears, so a click meant for the button that was
+ * under the pointer a moment ago cannot declare it.
+ */
+export function FinalTurnButton({
+  action,
+  className = 'action',
+  armMs = 700,
+}: {
+  action: BarAction;
+  className?: string;
+  armMs?: number;
+}) {
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setArmed(true), armMs);
+    return () => clearTimeout(t);
+  }, [armMs]);
+  return (
+    <button
+      className={`${className} danger final-turn-btn ${armed ? 'armed' : ''}`}
+      onClick={armed ? action.onClick : undefined}
+      disabled={!armed}
+      data-testid="action-final-turn"
+      aria-label="Declare Final Turn"
+    >
+      <Icon name={action.icon} />
+      <span>{action.label}</span>
+    </button>
+  );
+}
+
+export function ActionBar({
+  actions,
+  above,
+}: {
+  actions: readonly BarAction[];
+  /** Shown above the bar's last button (Card Details): the Final Turn declaration. */
+  above?: BarAction | null;
+}) {
   return (
     <div className="action-bar" data-nav-group="actions">
+      {above && (
+        <div className="action-above">
+          <FinalTurnButton key={above.key} action={above} />
+        </div>
+      )}
       {actions.map((a) => (
         <button
           key={a.key}

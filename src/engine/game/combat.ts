@@ -1,4 +1,5 @@
 import {
+  activeLegion,
   other,
   vanguardOf,
   type Circle,
@@ -98,7 +99,7 @@ export function attackOptions(state: GameState, ctx: EngineContext): AttackOptio
     )
       return [];
     // CR 10.1.24.5: a legion attacks as both units; the mate cannot attack alone
-    const mate = circle === 'vanguard' ? (me.legion?.mate ?? null) : null;
+    const mate = circle === 'vanguard' ? (activeLegion(me)?.mate ?? null) : null;
     if (mate !== null && isRestricted(state, ctx, mate, 'cannot_attack')) return [];
     const backCircle = BACK_OF[circle];
     const back =

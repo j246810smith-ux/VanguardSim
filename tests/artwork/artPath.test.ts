@@ -16,6 +16,9 @@ describe('desktop art paths', () => {
   it('serves normal and English-only card ids', () => {
     expect(isArtPath('BT17/BT17-001.jpg')).toBe(true);
     expect(isArtPath('BT17/BT17-001EN.jpg')).toBe(true);
+    // the other face of a double-faced card (Gyze, owner feedback 2026-11-25)
+    expect(isArtPath('G-BT14/G-BT14-001F.png')).toBe(true);
+    expect(isArtPath('G-BT14/G-BT14-001X.png')).toBe(false);
     expect(isArtPath('PR11/PR11-0003.png')).toBe(true);
     expect(isArtPath('PR14/PR14-0160A.png')).toBe(true);
     expect(isArtPath('PR11/PR12-0003.png')).toBe(false);

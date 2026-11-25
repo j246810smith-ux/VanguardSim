@@ -1,4 +1,10 @@
-import { other, type GameState, type InstanceId, type Modifier } from '../state/types';
+import {
+  activeLegion,
+  other,
+  type GameState,
+  type InstanceId,
+  type Modifier,
+} from '../state/types';
 import { continuousStat } from '../abilities/continuous';
 import { chosenHeartOf, definitionOf as definition, isOnCircle } from './characteristics';
 import type { EngineContext } from './context';
@@ -123,7 +129,7 @@ export function currentPower(state: GameState, ctx: EngineContext, id: InstanceI
     b.attackerMate !== null &&
     isOnCircle(state, b.attackerMate, 'vanguard')
   ) {
-    const legion = state.players[state.activePlayer].legion;
+    const legion = activeLegion(state.players[state.activePlayer]);
     if (legion?.leader === b.attacker && legion.mate === b.attackerMate) {
       power += basePower(state, ctx, b.attackerMate);
     }

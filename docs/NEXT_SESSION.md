@@ -15,6 +15,44 @@
 
 Checks: `npm run check` passes. Version 0.19.0-alpha.
 
+## ▶ HANDOVER 2026-11-25 — owner feedback file (unreleased, branch fix/feedback-2026-11-25)
+
+From the Desktop file "Cardfight_Vanguard_Latest_Feedback_for_Claude_Code.docx" (7 items), all
+reproduced and fixed with regression tests; nothing published:
+
+| #   | Item                                                       | Root cause / fix                                                                                                                                                                                                                                                                      |
+| --- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4   | G-era perfect guard lets the attack through                | Hard AI (`smartController.choose`) looked ahead on "Pay the cost?" and sometimes said no, or chose no unit for "up to one" (G-TD07 Water Juggler). A placed perfect guard now always pays and protects the attacked unit. tests/ai/perfectGuardCost.test.ts replays the scan's seeds. |
+| 5   | Stride in Legion: G unit vanishes, VG can't attack         | Renderer (`Field.tsx`, `interaction.ts topUnit`, `attackPreview.ts`) showed/selected the legion over the G unit; engine set `attackerMate` to the (heart) mate. New `activeLegion(p)` (state/types.ts): null while strided. tests/rules/legionStride.test.ts.                         |
+| 7   | Raging Rapt Dragon LB4 doesn't re-stride                   | Script used `placeHeart` after moving itself to the G zone (hearts already released → no-op). New `restrideCopy` (gShapes.ts) uses `stride_self` + stand + drive -1; G-CB05 Reit had the same bug. tests/cards/restrideLB4.test.ts.                                                   |
+| 6   | G4 Gyze blank art                                          | `artUrl` (renderer) and `artPath.cjs` (vgart://) did not accept the `F` suffix; artUrl now uses manifest `imagePath`. The image was in the installed copy all along.                                                                                                                  |
+| 1–3 | Final Turn placement, timing, rewards, Failed banner, aura | `finalTurnAction` separate from the bar (FinalTurnButton: red, 700 ms arming); start of main only (`mainActed`); `finalTurnFailed`, `finalTurnActive` (.ft-aura); `finalTurnFailed` match record → 0 EXP (D-042).                                                                     |
+
+Next: owner playtest, then release as 0.48.0 when asked.
+
+## ▶ HANDOVER 2026-11-18 (later) — v0.47.0-alpha published
+
+**Published** (owner: "work through everything and publish it", the Desktop file
+"Cardfight_Simulator_Last_3_Claude_Code_Prompts (1).docx"): dev master eaa04ed + tag, public
+5cf8165 + tag, GitHub pre-release with all files; full suite 4018/4018, `dist:smoke` and
+`release:verify` passed. Installed Windows copy and the owner's phone updated to 0.47.
+
+**The document's three groups:**
+
+- Group 1 (Neon Gyze, Online Code): already done in 0.46.
+- Race: deck builder card details now show RACE (battle Card Details had it; all races translate).
+- Revelation: `look_top` records `__looked`; a `may` question asked of its master carries those
+  cards as `shown` (hidden from the opponent, view.ts); the yes/no prompt draws them, tap = details.
+- Grade 2 guards: not reproduced. Engine allows grade ≤ vanguard grade (CR 8.5.2.1.1.2) in both
+  eras; tests in tests/rules/guardGrades.test.ts. Ask the owner for a screenshot if seen again.
+- Lady Healer (and G-TD13/14 -002): [G Guardian] now detected on any line (src/cards/load.ts).
+- Dominate: CR 9.4 (guardians outside the battle phase → drop) ran during main-phase effect battles,
+  so every guardian vanished at once; now skipped while `state.battle` exists (UNRESOLVED_RULINGS
+  G-BT11 notes).
+
+Also in 0.47: portrait polish, Settings → Placement ghost. For the next release download 0.47's
+manifest into release/prev first.
+
 ## ▶ HANDOVER 2026-11-18 — v0.46.0-alpha published
 
 **Published** (owner: "do 1 then 2"): dev master e8cbdba (tag v0.46.0-alpha; branches fix/neon-gyze →

@@ -20,7 +20,7 @@ import {
 } from '../engine';
 import type { SetAbilities } from './load';
 import type { SetFile } from './record';
-import { allClans, gFaceUp, gFaceUpAny } from './gShapes';
+import { allClans, gFaceUp, gFaceUpAny, restrideCopy } from './gShapes';
 
 const RECORDS = (data as SetFile).cards;
 const textOf = (id: string): string => {
@@ -347,8 +347,7 @@ export const G_BT09: SetAbilities = {
           ab.cards('you', ['gzone'], { faceUp: false, name: 'True Revenger, Raging Rapt Dragon' }),
           1,
         ),
-        ab.moveTo(ab.self(), 'gzone'),
-        ab.placeHeart(ab.bound('n')),
+        ...restrideCopy('n'),
       ],
       text: text('G-BT09-004', 1),
     }),

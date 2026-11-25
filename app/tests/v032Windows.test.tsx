@@ -61,7 +61,7 @@ describe('B6 deck builder previous / next', () => {
 });
 
 describe('B11 Final Turn', () => {
-  it('can be declared once per turn in your main phase, shows the banner, changes nothing', () => {
+  it('can be declared once per game at the start of your main phase, shows the banner, changes nothing', () => {
     vi.useFakeTimers();
     try {
       // a seed where you play first
@@ -82,12 +82,25 @@ describe('B11 Final Turn', () => {
         });
       }
       const button = screen.getByTestId('action-final-turn');
+      // owner feedback 2026-11-25: apart from the phase controls (above Card Details), red, and it
+      // ignores clicks just after it appears (a click meant for the phase button)
+      expect(button.closest('.action-above')).not.toBeNull();
+      expect(button.className).toContain('danger');
+      expect((button as HTMLButtonElement).disabled).toBe(true);
       act(() => {
         fireEvent.click(button);
       });
+      expect(screen.queryByTestId('final-turn')).toBeNull();
+      act(() => {
+        vi.advanceTimersByTime(800);
+      });
+      act(() => {
+        fireEvent.click(screen.getByTestId('action-final-turn'));
+      });
       expect(screen.getByTestId('final-turn').textContent).toContain('FINAL TURN!');
-      // once per turn
+      // once per game; the declared turn's battlefield aura is on
       expect(screen.queryByTestId('action-final-turn')).toBeNull();
+      expect(screen.getByTestId('final-turn-aura')).toBeTruthy();
       act(() => {
         vi.advanceTimersByTime(2500);
       });

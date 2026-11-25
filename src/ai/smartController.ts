@@ -680,6 +680,28 @@ export class SmartController implements PlayerController {
             : null;
       if (take) return { type: 'CHOOSE', player: me, choiceId: c.choiceId, selection: take };
     }
+    // a perfect guard already on our guardian circle: always pay its cost and protect the attacked
+    // unit (owner feedback 2026-11-25, item 4). The sentinel is spent either way and has no shield,
+    // but the lookahead sometimes valued keeping the hand card higher and said "no", or chose no
+    // unit for "choose up to one of your units that is being attacked" (G-TD07 Water Juggler).
+    const source = s.pendingChoice?.source;
+    if (
+      source !== undefined &&
+      s.battle !== null &&
+      s.players[me].guardian.includes(source) &&
+      this.def(s, source) !== null &&
+      isPerfectGuard(this.def(s, source)!)
+    ) {
+      if (c.kind === 'yes_no')
+        return { type: 'CHOOSE', player: me, choiceId: c.choiceId, selection: ['yes'] };
+      if (c.kind !== 'cost' && c.max >= 1) {
+        const attacked = c.options.includes(s.battle.target)
+          ? s.battle.target
+          : c.options.find((id) => s.cards[id]?.owner === me);
+        if (attacked !== undefined)
+          return { type: 'CHOOSE', player: me, choiceId: c.choiceId, selection: [attacked] };
+      }
+    }
     const selections: string[][] = [];
     if (c.max === 1 && c.options.length <= 14) {
       for (const o of c.options) selections.push([o]);

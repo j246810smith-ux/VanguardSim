@@ -3,17 +3,18 @@
  * derived only from the engine's legal actions. The UI never invents a move (UI spec: "The UI
  * receives legal actions from the rules engine and does not invent them").
  */
-import type {
-  ActOption,
-  AttackOption,
-  Circle,
-  Command,
-  GameState,
-  InstanceId,
-  LegalAction,
-  PlayerId,
-  RearGuardCircle,
-  SwappableColumn,
+import {
+  vanguardOf,
+  type ActOption,
+  type AttackOption,
+  type Circle,
+  type Command,
+  type GameState,
+  type InstanceId,
+  type LegalAction,
+  type PlayerId,
+  type RearGuardCircle,
+  type SwappableColumn,
 } from '../../../src/engine';
 import { ME } from '../engine';
 
@@ -85,13 +86,12 @@ export interface CircleState {
   readonly selected: 'attacker' | 'booster' | 'choice' | null;
 }
 
-/** The unit shown on a circle (the leader for Legion; locked cards included). */
-export const topUnit = (s: GameState, p: PlayerId, c: Circle): InstanceId | null => {
-  const ids = s.players[p].circles[c];
-  const legion = s.players[p].legion;
-  if (c === 'vanguard' && legion) return legion.leader;
-  return ids.at(-1) ?? null;
-};
+/**
+ * The unit shown on a circle (the vanguard: a strided G unit over its hearts, else the leader for
+ * Legion; locked cards included).
+ */
+export const topUnit = (s: GameState, p: PlayerId, c: Circle): InstanceId | null =>
+  c === 'vanguard' ? vanguardOf(s.players[p]) : (s.players[p].circles[c].at(-1) ?? null);
 
 const isCircleChoice = (ch: Choose | null) => ch?.kind === 'circle';
 

@@ -18,7 +18,15 @@ import {
 } from '../engine';
 import type { SetAbilities } from './load';
 import type { SetFile } from './record';
-import { faceUpGCards, faceUpGZone, gFaceUp, gFaceUpAny, lookTakeBottom, resist } from './gShapes';
+import {
+  faceUpGCards,
+  faceUpGZone,
+  gFaceUp,
+  gFaceUpAny,
+  lookTakeBottom,
+  resist,
+  restrideCopy,
+} from './gShapes';
 import { gPerfectGuard } from './G-TD01';
 
 const RECORDS = (data as SetFile).cards;
@@ -304,10 +312,10 @@ export const G_CB05: SetAbilities = {
           'n',
           ab.cards('you', ['gzone'], { faceUp: false, name: 'Duo Everlasting, Reit' }),
         ),
-        ab.moveTo(ab.self(), 'gzone'),
-        ab.placeHeart(bound('n')),
-        driveMod(ab.units('you', ['VC']), -1),
-        ab.lose(ab.units('you', ['VC']), { autos: true }),
+        ...restrideCopy('n'),
+        ab.if_(ab.exists(bound('n', { zone: 'circle' })), [
+          ab.lose(ab.units('you', ['VC']), { autos: true }),
+        ]),
       ],
       text: text('G-CB05-007', 1),
     }),

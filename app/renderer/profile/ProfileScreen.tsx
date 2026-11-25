@@ -137,7 +137,7 @@ export function ProfileScreen({ onBack }: { onBack: () => void }) {
   );
 }
 
-/** Level and EXP (25 a counted game, 75 for a win on a declared Final Turn; level 50 at most). */
+/** Level and EXP (25 a counted game, 75 for a win on a declared Final Turn, 0 for a loss after declaring it; level 50 at most). */
 function LevelBar({ p }: { p: Profile }) {
   const l = levelOf(expOf(p));
   return (
@@ -323,7 +323,8 @@ function History({ history }: { history: readonly MatchRecord[] }) {
             <li key={m.id} className={`r-${m.result}`}>
               <b>{m.result === 'win' ? 'WIN' : m.result === 'loss' ? 'LOSS' : 'DRAW'}</b>
               <span className="pp-exp">
-                +{expFor(m)} EXP{m.finalTurnWin ? ' · Final Turn' : ''}
+                +{expFor(m)} EXP
+                {m.finalTurnWin ? ' · Final Turn' : m.finalTurnFailed ? ' · Final Turn failed' : ''}
               </span>
               <span>{m.mode === 'cpu' ? 'vs CPU' : 'Online'}</span>
               <span>{m.opponent}</span>

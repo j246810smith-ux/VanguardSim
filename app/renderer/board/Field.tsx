@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import {
+  activeLegion,
   CIRCLES,
   basePower,
   currentCritical,
@@ -137,7 +138,8 @@ function CircleSlot({
   const size = geometry.size(player, circle);
   const st = stateOf(player, circle);
   const pl = view.players[player];
-  const legion = vc ? pl.legion : null;
+  // a G unit strided on a legion is shown alone: the leader and mate are its hearts (CR 1.48.1 10.27)
+  const legion = vc ? activeLegion(pl) : null;
   const ids = pl.circles[circle];
   const shown = legion ? [legion.leader] : ids.slice(-1);
   const top = shown[0] ?? null;

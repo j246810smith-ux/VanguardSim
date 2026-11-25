@@ -62,17 +62,26 @@ const deck = (id: string, name: string, updated: number, cards = ['a']): SavedDe
 });
 
 describe('EXP and levels', () => {
-  it('give 25 EXP a counted game, 75 for a win on a declared Final Turn', () => {
+  it('give 25 EXP a counted game, 75 for a win on a declared Final Turn, 0 for a loss after one', () => {
     let p = defaultProfile('2026-01-01T00:00:00Z');
     p = recordMatch(p, rec('a'));
     p = recordMatch(p, rec('b', undefined, { ending: { winner: 1, reason: 'damage' } }));
     expect(expOf(p)).toBe(50);
     p = recordMatch(p, rec('c', undefined, { finalTurnDeclared: true }));
     expect(expOf(p)).toBe(125);
-    // a Final Turn declared but lost: no bonus
+    // a Final Turn declared but lost: no EXP at all (owner feedback 2026-11-25)
     p = recordMatch(
       p,
-      rec('d', undefined, { finalTurnDeclared: true, ending: { winner: 1, reason: 'damage' } }),
+      rec('d', undefined, { declaredFinalTurn: true, ending: { winner: 1, reason: 'damage' } }),
+    );
+    expect(expOf(p)).toBe(125);
+    // declared, but won only on a later turn: the usual 25, no bonus
+    p = recordMatch(p, rec('e', undefined, { declaredFinalTurn: true }));
+    expect(expOf(p)).toBe(150);
+    // the same game is never counted twice, and EXP never goes down
+    p = recordMatch(
+      p,
+      rec('d', undefined, { declaredFinalTurn: true, ending: { winner: 1, reason: 'damage' } }),
     );
     expect(expOf(p)).toBe(150);
     expect(levelOf(150)).toMatchObject({ level: 2, into: 50, max: false });

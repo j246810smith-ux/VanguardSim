@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.48.0-alpha — 2026-11-25
+
+- **Fix: the Hard CPU's perfect guards always stop the attack.** It decided "Pay the cost (Discard
+  1)?" by looking ahead, sometimes kept the hand card instead, and the sentinel did nothing; with
+  Water Juggler ("choose up to one unit") it could also choose no unit. A placed perfect guard now
+  always pays and protects the attacked unit. Found by scanning Hard-vs-Hard G games (6 of 316).
+- **Fix: striding while in Legion.** The board kept showing the Legion Leader and Mate instead of
+  the G unit, and a click on the vanguard circle picked the Leader (now a heart), so the vanguard
+  could not attack. The G unit is shown and attacks alone; the Legion is back when it returns to
+  the G zone. The engine also no longer counted the Mate as attacking with the G unit.
+- **Fix: True Revenger, Raging Rapt Dragon [LB4] re-strides itself** (and Duo Everlasting, Reit,
+  same text): the copy from the G zone is stridden on (VC) as [Stand] with drive -1. It used to be
+  put in as a heart after the hearts had already been released, so nothing happened.
+- **Fix: Dragon Deity of Destruction, Gyze shows its art.** The art lookup (and the Windows art
+  protocol) did not accept the "F" (other face) card number. Its effect is unchanged.
+- **Final Turn:** offered only at the start of your main phase, before you call or activate
+  anything (as in Dear Days); no longer in the action row, where it slid under the pointer when the
+  phase button changed: it is red, above Card Details (phone: the side rail; portrait: the top bar),
+  and ignores clicks for a moment after it appears. The CPU declares at the start of its main phase
+  too. A **"Final Turn Failed"** banner when the declared turn ends without a win, and a red aura
+  around the battlefield during the declared turn (quieter on Reduced/Low graphics and reduced
+  motion).
+- **Final Turn rewards** (owner's proposal): a win on the declared turn 75 EXP (25 + 50), a win on a
+  later turn 25, a **loss after declaring 0** (was 25); a draw 25. Never negative, each game counted
+  once. The result screen shows the EXP and why.
+
 ## 0.47.0-alpha — 2026-11-18
 
 - **Fix: attacks by dominated units (Shiranui "Mukuro", Mujinlord …) can be guarded.** Those battles

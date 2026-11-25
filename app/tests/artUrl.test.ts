@@ -26,6 +26,8 @@ describe('artUrl', () => {
     expect(artUrl('VZ01-001')).toBe('cards/VZ01/VZ01-001.png');
     // PR cards have four-digit numbers: their art did not show before this was tested
     expect(artUrl('PR11-0003')).toBe('cards/PR11/PR11-0003.png');
+    // the other face of a double-faced card (Gyze) lives with its set
+    expect(artUrl('G-BT14-001F')).toBe('cards/G-BT14/G-BT14-001F.png');
     expect(artUrl('PR14-0160A')).toBe('cards/PR14/PR14-0160A.png');
   });
 });

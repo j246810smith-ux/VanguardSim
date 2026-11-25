@@ -34,6 +34,7 @@ import { useBackHandler } from '../android/back';
 import { PAD_INSPECT_EVENT, type PadInspectDetail } from '../input/ControllerLayer';
 import { useConfirm } from '../ui/ConfirmDialog';
 import { matchRecordOf } from '../profile/matchRecorder';
+import type { MatchRecord } from '../profile/model';
 import { countMatch } from '../profile/repository';
 import type { DropTarget } from '../ui/usePointerDrag';
 
@@ -191,6 +192,14 @@ export function useBattleController(
   /** The turn the player last declared Final Turn on ("<turn>-<seat>"). */
   const myFinalTurn = useRef<string | null>(null);
   const cpuDeclared = useRef(false);
+  /** The turn ("<turn>-<seat>") on which the player took a main phase action: no Final Turn after it. */
+  const mainActed = useRef<string | null>(null);
+  // owner feedback 2026-11-25: "Final Turn Failed" when the declared turn ends without a win
+  const [finalTurnFailed, setFinalTurnFailed] = useState<{ seat: PlayerId; key: number } | null>(
+    null,
+  );
+  /** What the finished game gave the player profile (shown on the result screen). */
+  const [reward, setReward] = useState<MatchRecord | null>(null);
   // guardians marked in the hand, not yet called (B3); `guarding` holds those being called now
   const [staged, setStaged] = useState<readonly StagedGuard[]>([]);
   const guardQueue = useRef<readonly StagedGuard[]>([]);
@@ -292,10 +301,15 @@ export function useBattleController(
         finalTurnDeclared:
           session.view.activePlayer === ME &&
           myFinalTurn.current === `${session.view.turnNumber}-${ME}`,
+        // declared on any turn of this game (a loss then gives no EXP, owner feedback 2026-11-25)
+        declaredFinalTurn: myFinalTurn.current !== null,
       },
       new Date().toISOString(),
     );
-    if (r) countMatch(r);
+    if (r) {
+      countMatch(r);
+      setReward(r);
+    }
   }, [session, session.ending]);
 
   // cards slide from where they were (presentation only; off at Instant speed / reduced motion)
@@ -386,6 +400,11 @@ export function useBattleController(
   });
 
   const send = (command: Command) => {
+    // the Final Turn is declared at the start of the main phase, before any main phase action
+    // (owner feedback 2026-11-25, Dear Days' timing); answering a prompt is not an action
+    const v = session.view;
+    if (v.phase === 'main' && v.activePlayer === ME && command.type !== 'CHOOSE')
+      mainActed.current = `${v.turnNumber}-${v.activePlayer}`;
     if (session.send(command)) {
       committed.current = true;
       setSelection(null);
@@ -570,7 +589,8 @@ export function useBattleController(
     setFinalTurn({ seat, key: Date.now() });
     audio.play(['finalTurn']);
   }
-  // the CPU declares it once per game: its battle phase, when you are on five damage
+  // the CPU declares it once per game: at the start of its main phase (as the player does), when
+  // you are on five damage
   useEffect(() => {
     if (
       demo ||
@@ -578,7 +598,7 @@ export function useBattleController(
       cpuDeclared.current ||
       view.status !== 'playing' ||
       view.activePlayer !== AI ||
-      view.phase !== 'battle' ||
+      view.phase !== 'main' ||
       view.players[ME].damage.length < 5
     )
       return;
@@ -591,24 +611,46 @@ export function useBattleController(
     return () => clearTimeout(t);
   }, [finalTurn]);
 
-  // B11: once per game (prompt pack 2026-11-15, 3.2; was once per turn), in your main or battle
-  // phase. Cosmetic: it never changes the game (only the profile's Final Turn EXP bonus reads it).
+  // "Final Turn Failed": the declared turn ended and the game goes on (owner feedback 2026-11-25)
   const turnKey = `${view.turnNumber}-${view.activePlayer}`;
-  if (
+  const lastTurn = useRef(turnKey);
+  useEffect(() => {
+    const was = lastTurn.current;
+    lastTurn.current = turnKey;
+    if (was === turnKey || declaredTurn.current !== was || view.status !== 'playing') return;
+    setFinalTurn(null);
+    setFinalTurnFailed({ seat: Number(was.split('-')[1]) as PlayerId, key: Date.now() });
+    audio.ui('invalid');
+  }, [turnKey, view.status]);
+  useEffect(() => {
+    if (!finalTurnFailed) return;
+    const t = setTimeout(() => setFinalTurnFailed(null), 2400);
+    return () => clearTimeout(t);
+  }, [finalTurnFailed]);
+  /** The seat whose declared Final Turn this is, while it lasts (the battlefield's red aura). */
+  const finalTurnActive: PlayerId | null =
+    view.status === 'playing' && declaredTurn.current === turnKey ? view.activePlayer : null;
+
+  // B11: once per game (prompt pack 2026-11-15, 3.2). Owner feedback 2026-11-25: only at the start
+  // of your main phase, before calling or activating anything, and not in the action bar (it took
+  // the place of the phase button under the pointer); each layout puts it somewhere fixed.
+  const finalTurnAction: BarAction | null =
     !demo &&
     view.status === 'playing' &&
     view.activePlayer === ME &&
-    (view.phase === 'main' || view.phase === 'battle') &&
+    view.phase === 'main' &&
     declaredTurn.current !== turnKey &&
+    mainActed.current !== turnKey &&
     myFinalTurn.current === null &&
     !legal.choose
-  )
-    bar.push({
-      key: 'final-turn',
-      label: 'Final Turn!',
-      icon: 'skill',
-      onClick: () => declareFinalTurn(ME),
-    });
+      ? {
+          key: 'final-turn',
+          label: 'Final Turn!',
+          icon: 'skill',
+          tone: 'danger',
+          onClick: () => declareFinalTurn(ME),
+        }
+      : null;
   bar.push({
     key: 'log',
     label: 'Log',
@@ -719,6 +761,10 @@ export function useBattleController(
 
   return {
     finalTurn,
+    finalTurnFailed,
+    finalTurnActive,
+    finalTurnAction,
+    reward,
     settings,
     session,
     myDeck,

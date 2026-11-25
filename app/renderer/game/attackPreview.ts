@@ -2,7 +2,14 @@
  * Attack preview: for each of my front-row columns, the attacker's power, the booster's power and
  * the total, compared with the opponent's vanguard (D-028). Read-only: it never changes the game.
  */
-import type { AttackOption, GameState, InstanceId, PlayerId } from '../../../src/engine';
+import {
+  activeLegion,
+  vanguardOf,
+  type AttackOption,
+  type GameState,
+  type InstanceId,
+  type PlayerId,
+} from '../../../src/engine';
 import { defaultBooster, type Selection } from './interaction';
 
 export type FrontCircle = 'front_left' | 'vanguard' | 'front_right';
@@ -60,16 +67,18 @@ export function attackPreview(
 ): AttackPreview {
   const mine = view.players[me];
   const opp = view.players[me === 0 ? 1 : 0];
-  const oppVg = opp.legion?.leader ?? opp.circles.vanguard.at(-1) ?? null;
+  // a strided G unit is the vanguard over a legion (CR 1.48.1 10.27, owner feedback 2026-11-25)
+  const oppLegion = activeLegion(opp);
+  const oppVg = vanguardOf(opp);
   const targetPower =
     oppVg === null
       ? 0
-      : stats.power(oppVg) + (opp.legion?.leader === oppVg ? stats.power(opp.legion.mate) : 0);
+      : stats.power(oppVg) + (oppLegion?.leader === oppVg ? stats.power(oppLegion.mate) : 0);
   const battle = view.battle;
 
   const columns = COLUMNS.map(({ circle, label }): ColumnPreview => {
-    const legion = circle === 'vanguard' ? mine.legion : null;
-    const top = legion ? legion.leader : (mine.circles[circle].at(-1) ?? null);
+    const legion = circle === 'vanguard' ? activeLegion(mine) : null;
+    const top = circle === 'vanguard' ? vanguardOf(mine) : (mine.circles[circle].at(-1) ?? null);
     const attacker = top !== null && !view.cards[top]!.locked ? top : null;
     const option = options.find((o) => o.attackerCircle === circle) ?? null;
     const selected = selection?.kind === 'attacker' && selection.id === attacker;

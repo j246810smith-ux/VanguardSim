@@ -1,5 +1,6 @@
 /** The renderer's single connection to the rules engine and card database. */
 import { cardRegistry, SETS } from '../../src/cards';
+import { imagePath, type ImageExtension } from '../../src/artwork/manifest';
 import { phoneFileUrl } from './android/native';
 import {
   HIDDEN,
@@ -81,9 +82,9 @@ export function defOf(s: GameState, id: InstanceId): CardDefinition | null {
 /** Local art path (assets/cards, personal use only: D-018). */
 export const artUrl = (definitionId: string, ext = 'png') => {
   // the set folder: "BT01" for BT01-001, "MBT01" for MBT01-001, "G-TD01" for G-TD01-001, "PR11"
-  // for PR11-0003
-  const set = definitionId.replace(/-(\d{3}(EN)?|\d{4}[A-Z]?)$/, '');
-  const path = `${set}/${definitionId}.${ext}`;
+  // for PR11-0003, "G-BT14" for G-BT14-001F (Gyze, the other face of Neon Gyze: its art showed
+  // the text fallback, owner feedback 2026-11-25). The same path as the Artwork Manager saves to.
+  const path = imagePath(definitionId, ext as ImageExtension);
   // Android: the art copied to the app's folder on the phone (npm run artwork:phone), once that
   // folder is known (android/native.ts resolveArtFolder); until then, as below
   const phone = phoneFileUrl(`cards/${path}`);

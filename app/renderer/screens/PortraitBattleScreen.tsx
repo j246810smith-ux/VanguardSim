@@ -22,7 +22,7 @@ import { AttackLines, AttackPreviewPanel, BattleHud } from '../combat/Combat';
 import { DEFAULT_SLEEVE, playmatOf } from '../cosmetics';
 import { AI, ME } from '../engine';
 import { circleState } from '../game/interaction';
-import type { BarAction } from '../prompts/Prompts';
+import { FinalTurnButton, type BarAction } from '../prompts/Prompts';
 import { CardView } from '../ui/CardView';
 import { Icon } from '../ui/svg';
 import { PORTRAIT_MIN_H, StageInfo } from '../stageFit';
@@ -132,6 +132,10 @@ export function PortraitBattleScreen(props: Props) {
           </div>
           <div className="p-top-buttons">
             {logAction && <TopButton action={logAction} />}
+            {/* away from the phase button on the centre band (owner feedback 2026-11-25) */}
+            {c.finalTurnAction && (
+              <FinalTurnButton action={c.finalTurnAction} className="p-top-btn" />
+            )}
             <TopButton
               action={{
                 key: 'menu',

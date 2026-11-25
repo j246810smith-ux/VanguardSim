@@ -25,8 +25,9 @@ function board(me: Units, ai: Units, opts: { rested?: string[]; legion?: [string
       {
         circles: mvc,
         legion: opts.legion ? { leader: opts.legion[0], mate: opts.legion[1] } : null,
+        hearts: [],
       },
-      { circles: circles(ai), legion: null },
+      { circles: circles(ai), legion: null, hearts: [] },
     ],
     cards,
     battle: null,

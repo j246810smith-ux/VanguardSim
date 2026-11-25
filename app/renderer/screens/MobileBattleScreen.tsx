@@ -28,7 +28,7 @@ import { AI, ME } from '../engine';
 import { circleState } from '../game/interaction';
 import { paced } from '../settings';
 import { StageInfo } from '../stageFit';
-import type { BarAction } from '../prompts/Prompts';
+import { FinalTurnButton, type BarAction } from '../prompts/Prompts';
 import { CardView } from '../ui/CardView';
 import { ClanBadge, Icon } from '../ui/svg';
 import { BattleOverlays } from './BattleOverlays';
@@ -148,6 +148,10 @@ export function MobileBattleScreen(props: Props) {
             {railActions.map((a) => (
               <RailButton key={a.key} action={a} />
             ))}
+            {/* away from the phase bar (owner feedback 2026-11-25) */}
+            {c.finalTurnAction && (
+              <FinalTurnButton action={c.finalTurnAction} className="m-rail-btn" />
+            )}
             <RailButton
               action={{
                 key: 'menu',

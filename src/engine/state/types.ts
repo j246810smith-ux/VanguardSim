@@ -482,6 +482,14 @@ export const vanguardOf = (p: PlayerState): InstanceId | null =>
   p.circles.vanguard.at(-1) ??
   null;
 
+/**
+ * The player's legion while it is the vanguard: none while a G unit is strided on it (CR 1.48.1
+ * 10.27: the Legion Leader and Mate are hearts then, not units; 10.27.4 they are a legion again when
+ * the G unit leaves). Owner feedback 2026-11-25: the board showed the legion over the G unit.
+ */
+export const activeLegion = (p: PlayerState): PlayerState['legion'] =>
+  p.hearts.length > 0 ? null : p.legion;
+
 /** CR 10.27.3: is this card a heart (under a strided G unit)? Hearts are not units. */
 export const isHeart = (state: GameState, id: InstanceId): boolean =>
   state.players[0].hearts.includes(id) || state.players[1].hearts.includes(id);

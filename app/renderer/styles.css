@@ -5174,6 +5174,101 @@ button.looked-card {
   animation: none;
 }
 
+/* Owner feedback 2026-11-25: "Final Turn Failed", the declaration button and the declared turn's
+   battlefield */
+.final-turn.failed .final-turn-title {
+  font-size: 84px;
+  color: #c9c9d6;
+  text-shadow:
+    0 0 24px rgba(255, 60, 60, 0.55),
+    0 5px 0 #2a0008;
+}
+.final-turn.failed .final-turn-who {
+  font-size: 26px;
+}
+/* red, apart from the phase controls: above Card Details (the bar's last button) on the desktop */
+.action-above {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+}
+.final-turn-btn {
+  color: #fff;
+  background: linear-gradient(180deg, #a3142a, #5c0614) !important;
+  border: 2px solid #ff5a6e !important;
+  box-shadow: 0 0 16px rgba(255, 40, 70, 0.55);
+}
+.final-turn-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.final-turn-btn.armed {
+  animation: ft-btn-pulse calc(1.6s * max(var(--anim), 0.3)) ease-in-out infinite;
+}
+@keyframes ft-btn-pulse {
+  50% {
+    box-shadow: 0 0 26px rgba(255, 40, 70, 0.9);
+  }
+}
+.reduce-motion .final-turn-btn.armed {
+  animation: none;
+}
+/* the declared turn: a red aura around the board, under every prompt and the action bar */
+.ft-aura {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(200, 10, 40, 0.28) 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 60, 40, 0.1),
+      transparent 22%,
+      transparent 78%,
+      rgba(255, 60, 40, 0.12)
+    );
+  box-shadow: inset 0 0 90px rgba(255, 30, 60, 0.45);
+  animation: ft-aura calc(2.4s * max(var(--anim), 0.3)) ease-in-out infinite alternate;
+}
+.ft-aura.opp {
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(150, 0, 90, 0.3) 100%),
+    linear-gradient(
+      180deg,
+      rgba(200, 30, 120, 0.1),
+      transparent 22%,
+      transparent 78%,
+      rgba(200, 30, 120, 0.12)
+    );
+  box-shadow: inset 0 0 90px rgba(220, 20, 120, 0.45);
+}
+@keyframes ft-aura {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.ft-aura.gfx-reduced {
+  animation: none;
+  opacity: 0.85;
+}
+.ft-aura.gfx-low {
+  animation: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+.reduce-motion .ft-aura {
+  animation: none;
+}
+.game-summary .reward {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
 /* B13: your trigger ratio */
 .modal.trigger-ratio {
   width: 700px;

@@ -1,5 +1,12 @@
 import { isChoiceTask, type Task } from '../state/tasks';
-import { other, unitsOf, vanguardOf, type Circle, type InstanceId } from '../state/types';
+import {
+  activeLegion,
+  other,
+  unitsOf,
+  vanguardOf,
+  type Circle,
+  type InstanceId,
+} from '../state/types';
 import { ask } from './choice';
 import { locate } from './locate';
 import { hasPermission, isRestricted } from '../abilities/continuous';
@@ -37,7 +44,7 @@ export function declareAttack(
     attackerCircle: option.attackerCircle,
     attackerMate:
       option.attackerCircle === 'vanguard'
-        ? (s.players[s.activePlayer].legion?.mate ?? null)
+        ? (activeLegion(s.players[s.activePlayer])?.mate ?? null)
         : null,
     target,
     targetCircle: targetOption.circle,

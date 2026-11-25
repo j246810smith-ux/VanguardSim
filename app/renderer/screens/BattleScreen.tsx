@@ -202,7 +202,10 @@ export function BattleScreen(props: Props) {
         onDragStart={onDragStart}
         onDrop={onDropCard}
       />
-      <ActionBar actions={view.status === 'finished' ? [] : bar} />
+      <ActionBar
+        actions={view.status === 'finished' ? [] : bar}
+        above={view.status === 'finished' ? null : c.finalTurnAction}
+      />
 
       {/* the opponent "looks at their hand" while the AI decides (v0.28 feedback) */}
       {status?.waiting && (

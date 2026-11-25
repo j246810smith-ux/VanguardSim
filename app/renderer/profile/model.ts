@@ -55,6 +55,8 @@ export interface MatchRecord {
   readonly reason?: string;
   /** Won on a turn the player declared "Final Turn!" (+50 EXP). */
   readonly finalTurnWin?: true;
+  /** Lost a game in which the player declared "Final Turn!" (no EXP, owner feedback 2026-11-25). */
+  readonly finalTurnFailed?: true;
 }
 
 export interface Profile {
@@ -229,7 +231,9 @@ export const favouriteFormatOf = (p: Profile): string | null =>
   p.favouriteFormat ?? mostPlayed(p.history, (m) => m.format);
 
 /* ---- EXP and levels (user, 2026-11-11) ------------------------------------------------------------
-   Every counted game gives 25 EXP; a win on a turn the player declared "Final Turn!" 50 more (75).
+   Every counted game gives 25 EXP; a win on a turn the player declared "Final Turn!" 50 more (75);
+   a win on a later turn the usual 25; a loss after declaring it 0 (owner feedback 2026-11-25: the
+   declaration had no downside). Never negative; each game is counted once (by id).
    100 EXP a level, level 50 at most. Worked out from the history, so games counted before EXP
    existed count too (without the Final Turn bonus, which was not recorded then). */
 export const EXP_PER_GAME = 25;
@@ -238,7 +242,17 @@ export const EXP_PER_LEVEL = 100;
 export const MAX_LEVEL = 50;
 
 export const expFor = (m: MatchRecord): number =>
-  EXP_PER_GAME + (m.finalTurnWin && m.result === 'win' ? FINAL_TURN_BONUS : 0);
+  m.finalTurnFailed && m.result === 'loss'
+    ? 0
+    : EXP_PER_GAME + (m.finalTurnWin && m.result === 'win' ? FINAL_TURN_BONUS : 0);
+
+/** Why a game gave its EXP, for the result screen and the match history. */
+export const expReason = (m: MatchRecord): string | null =>
+  m.finalTurnWin && m.result === 'win'
+    ? 'won on your Final Turn: +50 bonus'
+    : m.finalTurnFailed && m.result === 'loss'
+      ? 'Final Turn declared and lost: no EXP'
+      : null;
 
 export const expOf = (p: Profile): number => p.history.reduce((n, m) => n + expFor(m), 0);
 

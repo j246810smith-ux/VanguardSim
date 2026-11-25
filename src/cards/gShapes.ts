@@ -189,3 +189,30 @@ export const pumpRetireAtEnd = (as: string, drawToo: boolean, amount = 4000): St
     drawToo ? 'Draw a card, and retire this unit.' : 'Retire this unit.',
   ),
 ];
+
+/**
+ * "put this unit (face up) in your G zone, choose a face down <name> from your G zone, [Stride] it on
+ * (VC) as [Stand], and it gets drive -1 until end of turn" (G-BT09 Raging Rapt Dragon, G-CB05 Reit).
+ * `as` holds the chosen G card. When this unit leaves, its hearts stop being hearts (CR 1.48.1
+ * 10.27.5.2), so this is a stride over the vanguard, not "place a heart" (owner feedback 2026-11-25).
+ */
+export const restrideCopy = (as: string): Step[] => {
+  const vc = ab.units('you', ['VC']);
+  return [
+    ab.moveTo(ab.self(), 'gzone'),
+    { op: 'stride_self', target: ab.bound(as) },
+    ab.if_(ab.exists(ab.bound(as, { zone: 'circle' })), [
+      ab.stand(vc),
+      ab.grant(
+        vc,
+        ab.cont({
+          id: 'drive_minus',
+          zones: ['VC'],
+          effects: [{ ce: 'drive', target: ab.self(), amount: -1 }],
+          text: 'drive -1',
+        }),
+        'end_of_turn',
+      ),
+    ]),
+  ];
+};

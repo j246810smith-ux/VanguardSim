@@ -19,6 +19,8 @@ export interface FinishedGame {
   readonly opponent: string;
   /** The player declared "Final Turn!" on the turn the game ended, which was theirs. */
   readonly finalTurnDeclared?: boolean;
+  /** The player declared "Final Turn!" on some turn of this game (owner feedback 2026-11-25). */
+  readonly declaredFinalTurn?: boolean;
 }
 
 /** The record to count, or null when this game does not count (yet, or at all). */
@@ -38,5 +40,8 @@ export function matchRecordOf(g: FinishedGame, at: string): MatchRecord | null {
     opponent: g.opponent,
     ...(g.ending.reason ? { reason: g.ending.reason } : {}),
     ...(result === 'win' && g.finalTurnDeclared ? { finalTurnWin: true as const } : {}),
+    ...(result === 'loss' && (g.declaredFinalTurn || g.finalTurnDeclared)
+      ? { finalTurnFailed: true as const }
+      : {}),
   };
 }

@@ -7,6 +7,7 @@ import {
   clickHand,
   defaultBooster,
   legalOf,
+  topUnit,
   type Legal,
 } from '../renderer/game/interaction';
 
@@ -25,8 +26,8 @@ function board(units: {
   });
   return {
     players: [
-      { circles: circles(units.me), legion: null },
-      { circles: circles(units.ai), legion: null },
+      { circles: circles(units.me), legion: null, hearts: [] },
+      { circles: circles(units.ai), legion: null, hearts: [] },
     ],
   } as unknown as GameState;
 }
@@ -259,5 +260,23 @@ describe('helpers', () => {
     expect(choiceReady(ch, [])).toBe(false);
     expect(choiceReady(ch, ['a'])).toBe(true);
     expect(choiceReady(ch, ['a', 'b', 'c'])).toBe(false);
+  });
+});
+
+describe('the vanguard circle with a legion (owner feedback 2026-11-25)', () => {
+  const legionBoard = (strided: boolean) => {
+    const s = board({}) as unknown as {
+      players: { circles: Record<string, string[]>; legion: unknown; hearts: string[] }[];
+    };
+    s.players[0]!.circles.vanguard = strided ? ['leader', 'mate', 'g'] : ['leader', 'mate'];
+    s.players[0]!.legion = { leader: 'leader', mate: 'mate' };
+    s.players[0]!.hearts = strided ? ['leader', 'mate'] : [];
+    return s as unknown as GameState;
+  };
+  it('shows the Legion Leader', () => {
+    expect(topUnit(legionBoard(false), 0, 'vanguard')).toBe('leader');
+  });
+  it('shows the G unit strided on the legion (the leader and mate are its hearts)', () => {
+    expect(topUnit(legionBoard(true), 0, 'vanguard')).toBe('g');
   });
 });

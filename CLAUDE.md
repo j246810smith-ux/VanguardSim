@@ -59,7 +59,16 @@ The original planning documents (the blueprint) are copied into `docs/blueprint/
 - `docs/research/sources/` — official Comprehensive Rules PDFs + extracted text (ver. 1.29 is the target, ver. 1.19 for comparison). Git-ignored and not redistributed (D-025): see `docs/research/README.md`.
   Grep the `.txt` for rule numbers.
 
-## Latest (2026-11-16): v0.45.0-alpha published
+## Latest (2026-11-18): v0.47.0-alpha published
+
+v0.46 (portrait battles, card motion, Neon Gyze, Online Code diagnosis + Cloudflare TURN relay built
+but off, 13 engine gaps) and v0.47 (Dominate guard fix, Lady Healer G guardian, Revelation shows its
+card, race in deck builder, placement ghost switch). Read the two "HANDOVER 2026-11-18" sections at
+the top of `docs/NEXT_SESSION.md` and the Desktop "VanguardSim HANDOVER 2026-11-18 (v0.46 + v0.47
+published).md". Waiting on the owner: the OG Expanded workbook and the Cloudflare setup
+(`relay/README.md`).
+
+## Earlier (2026-11-16): v0.45.0-alpha published
 
 G-CB02–07, G-CHB01–03, G-EB01–03 (the rest of the G Clan, Character and Extra Boosters; G-CB05,
 G-CB06, G-EB01, G-EB02 by a helper session working from `docs/HELPER_QUEUE.md`). Read the

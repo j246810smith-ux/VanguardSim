@@ -15,10 +15,14 @@ const zip = join('release', `VanguardSim-${pkg.version}-win-x64.zip`);
 if (!existsSync(zip)) throw new Error(`${zip} not found: run npm run dist:win first`);
 
 const dir = mkdtempSync(join(tmpdir(), 'vanguard-release-'));
-execFileSync('powershell', [
-  '-NoProfile',
-  '-Command',
-  `Expand-Archive -LiteralPath '${zip}' -DestinationPath '${dir}' -Force`,
+// Windows' own tar (bsdtar) unpacks zips. Expand-Archive broke on GitHub's runners (2026-11-25:
+// PowerShell 7's Archive module loaded into Windows PowerShell, "Cannot find an overload for
+// ExtractToDirectory"), so nothing was unpacked and the release build failed.
+execFileSync(join(process.env.SystemRoot ?? 'C:\\Windows', 'System32', 'tar.exe'), [
+  '-xf',
+  zip,
+  '-C',
+  dir,
 ]);
 const exe = join(dir, 'Vanguard Sim.exe');
 if (!existsSync(join(dir, 'VanguardUpdater.exe'))) throw new Error('the zip has no updater');
